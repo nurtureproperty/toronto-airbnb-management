@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p>Ready to maximize your rental income? Let's talk about your property.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          <h2>Send Us a Message</h2>
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" id="name" class="form-input" placeholder="John Smith" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-input" placeholder="(416) 555-0123" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="property">Property Type</label>
+                <select id="property" class="form-select">
+                  <option value="">Select property type</option>
+                  <option value="condo">Condo</option>
+                  <option value="house">House</option>
+                  <option value="townhouse">Townhouse</option>
+                  <option value="multi">Multi-unit</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="location">Property Location</label>
+              <input type="text" id="location" class="form-input" placeholder="e.g., Downtown Toronto, North York" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Tell Us About Your Property</label>
+              <textarea id="message" class="form-textarea" placeholder="Share details about your property and what you're looking for..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large">Request Free Consultation</button>
+          </form>
+        </div>
+
+        <div class="contact-info-wrapper">
+          <div class="contact-info-card">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Address</strong>
+                <p>123 King Street West<br/>Toronto, ON M5V 1J2</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <div>
+                <strong>Phone</strong>
+                <p>(416) 555-0123</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <p>hello@torontobnb.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🕐</span>
+              <div>
+                <strong>Office Hours</strong>
+                <p>Mon-Fri: 9am-6pm<br/>Sat: 10am-4pm</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-cta-card">
+            <h3>Ready to Get Started?</h3>
+            <p>Schedule a free property assessment and see how much you could be earning.</p>
+            <ul>
+              <li>✓ Free property evaluation</li>
+              <li>✓ Revenue projection</li>
+              <li>✓ No obligation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
+  .contact-form-wrapper h2 { margin-bottom: 2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .contact-form .btn { width: 100%; margin-top: 1rem; }
+  .contact-info-wrapper { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-info-card { background: var(--color-background-alt); border-radius: 16px; padding: 2rem; }
+  .contact-info-card h3 { margin-bottom: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .contact-icon { font-size: 1.5rem; }
+  .contact-item strong { display: block; margin-bottom: 0.25rem; }
+  .contact-item p { color: var(--color-text-light); margin: 0; font-size: 0.95rem; }
+  .contact-cta-card { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); border-radius: 16px; padding: 2rem; color: white; }
+  .contact-cta-card h3 { margin-bottom: 0.75rem; }
+  .contact-cta-card p { opacity: 0.9; margin-bottom: 1.5rem; }
+  .contact-cta-card ul { list-style: none; padding: 0; margin: 0; }
+  .contact-cta-card li { padding: 0.5rem 0; opacity: 0.9; }
+  @media (max-width: 968px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+</style>

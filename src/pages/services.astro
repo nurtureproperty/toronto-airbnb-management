@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    icon: '📸',
+    title: 'Professional Photography',
+    description: 'High-quality photos that showcase your property and attract more bookings.',
+    features: ['HDR photography', 'Drone shots available', 'Virtual staging', 'Regular updates']
+  },
+  {
+    icon: '📋',
+    title: 'Listing Optimization',
+    description: 'Compelling descriptions and strategic positioning across all major platforms.',
+    features: ['Multi-platform listing', 'SEO optimization', 'Competitive analysis', 'Regular updates']
+  },
+  {
+    icon: '💬',
+    title: '24/7 Guest Communication',
+    description: 'Round-the-clock support ensuring guests always get quick responses.',
+    features: ['15-min response time', 'Multi-language support', 'Check-in coordination', 'Issue resolution']
+  },
+  {
+    icon: '📈',
+    title: 'Dynamic Pricing',
+    description: 'AI-powered pricing that maximizes your revenue based on demand.',
+    features: ['Real-time adjustments', 'Event-based pricing', 'Competitor monitoring', 'Seasonal optimization']
+  },
+  {
+    icon: '🧹',
+    title: 'Professional Cleaning',
+    description: 'Hotel-quality cleaning between every guest stay.',
+    features: ['Trained cleaners', 'Quality inspections', 'Linen service', 'Restocking supplies']
+  },
+  {
+    icon: '🔧',
+    title: 'Maintenance & Repairs',
+    description: 'Proactive maintenance and rapid response to any issues.',
+    features: ['24/7 emergency line', 'Regular inspections', 'Vendor network', 'Preventive care']
+  },
+  {
+    icon: '📊',
+    title: 'Performance Reporting',
+    description: 'Detailed insights into your property performance.',
+    features: ['Monthly reports', 'Revenue analytics', 'Guest feedback', 'Market insights']
+  },
+  {
+    icon: '🔑',
+    title: 'Key Management',
+    description: 'Secure and convenient access solutions for your guests.',
+    features: ['Smart locks', 'Key exchange', 'Access codes', 'Security monitoring']
+  }
+];
+---
+
+<Layout title="Services">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>Comprehensive property management solutions tailored for Toronto's short-term rental market.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-detailed-grid">
+        {services.map(service => (
+          <div class="service-detailed-card">
+            <div class="service-header">
+              <span class="service-icon">{service.icon}</span>
+              <h3>{service.title}</h3>
+            </div>
+            <p class="service-desc">{service.description}</p>
+            <ul class="service-features">
+              {service.features.map(feature => (
+                <li><span class="check">✓</span> {feature}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, Transparent Pricing</h2>
+        <p>No hidden fees. You only pay when you earn.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Essential</h3>
+          <div class="price"><span>15%</span> of booking revenue</div>
+          <ul>
+            <li>✓ Listing optimization</li>
+            <li>✓ Guest communication</li>
+            <li>✓ Dynamic pricing</li>
+            <li>✓ Monthly reporting</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <h3>Professional</h3>
+          <div class="price"><span>20%</span> of booking revenue</div>
+          <ul>
+            <li>✓ Everything in Essential</li>
+            <li>✓ Professional cleaning</li>
+            <li>✓ Maintenance coordination</li>
+            <li>✓ Key management</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <a href="/contact" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Premium</h3>
+          <div class="price"><span>25%</span> of booking revenue</div>
+          <ul>
+            <li>✓ Everything in Professional</li>
+            <li>✓ Interior design consultation</li>
+            <li>✓ Premium amenities</li>
+            <li>✓ Dedicated account manager</li>
+            <li>✓ Revenue guarantee</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .services-detailed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .service-detailed-card { background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; }
+  .service-detailed-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); }
+  .service-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .service-icon { font-size: 2.5rem; }
+  .service-header h3 { margin: 0; font-size: 1.25rem; }
+  .service-desc { color: var(--color-text-light); margin-bottom: 1.5rem; }
+  .service-features { list-style: none; padding: 0; margin: 0; }
+  .service-features li { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-text-light); }
+  .service-features .check { color: var(--color-primary); font-weight: bold; }
+  .pricing-section { background: var(--color-background-alt); padding: 5rem 0; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+  .pricing-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; border: 2px solid var(--color-border); position: relative; }
+  .pricing-card.featured { border-color: var(--color-primary); transform: scale(1.05); }
+  .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+  .pricing-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .price { font-size: 1rem; color: var(--color-text-light); margin-bottom: 2rem; }
+  .price span { font-size: 2.5rem; font-weight: 700; color: var(--color-text); }
+  .pricing-card ul { list-style: none; padding: 0; margin: 0 0 2rem; text-align: left; }
+  .pricing-card li { padding: 0.5rem 0; color: var(--color-text-light); }
+  @media (max-width: 968px) { .services-detailed-grid, .pricing-grid { grid-template-columns: 1fr; } .pricing-card.featured { transform: none; } }
+</style>
