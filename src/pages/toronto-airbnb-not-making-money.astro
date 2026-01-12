@@ -10,27 +10,6 @@ const commonProblems = [
   { icon: '😫', title: 'Burnout From Self-Managing', description: 'Spending 20+ hours a week and still not profitable.', solution: 'Let us handle everything while you collect passive income' }
 ];
 
-const caseStudies = [
-  {
-    title: 'Downtown Condo: From $1,200 to $3,400/month',
-    before: { revenue: '$1,200', occupancy: '35%', rating: '4.2', issues: 'Poor photos, inconsistent pricing, slow responses' },
-    after: { revenue: '$3,400', occupancy: '78%', rating: '4.9', changes: 'New photos, dynamic pricing, guest support' },
-    timeframe: '3 months'
-  },
-  {
-    title: 'North York House: Breaking Even to $2,800 Profit',
-    before: { revenue: '$1,800', occupancy: '45%', rating: '4.0', issues: 'Cleaning issues, bad reviews, only on Airbnb' },
-    after: { revenue: '$4,200', occupancy: '72%', rating: '4.8', changes: 'Professional cleaning, multi-platform, guest screening' },
-    timeframe: '4 months'
-  },
-  {
-    title: 'Yorkville Luxury: $4,500 to $7,200/month',
-    before: { revenue: '$4,500', occupancy: '50%', rating: '4.5', issues: 'Underpriced, missing luxury market positioning' },
-    after: { revenue: '$7,200', occupancy: '68%', rating: '4.95', changes: 'Premium positioning, luxury amenities, concierge service' },
-    timeframe: '2 months'
-  }
-];
-
 const warningSignals = [
   'Your occupancy is below 60%',
   'You haven\'t raised prices in 6+ months',
@@ -97,63 +76,55 @@ const warningSignals = [
     </div>
   </section>
 
-  <section class="section case-studies-section">
+  <section class="section case-study-section">
     <div class="container">
       <div class="section-header">
-        <h2>Real Toronto Properties We've Turned Around</h2>
-        <p>These hosts were struggling. Now they're thriving.</p>
+        <h2>Real Results from Real Clients</h2>
+        <p>1-Bedroom Condo in Toronto</p>
       </div>
-      <div class="case-studies-grid">
-        {caseStudies.map(study => (
-          <div class="case-study-card">
-            <h3>{study.title}</h3>
-            <div class="case-study-comparison">
-              <div class="before">
-                <span class="label">Before</span>
-                <div class="stat"><strong>{study.before.revenue}</strong>/month</div>
-                <div class="stat">{study.before.occupancy} occupancy</div>
-                <div class="stat">{study.before.rating} rating</div>
-                <p class="issues">{study.before.issues}</p>
-              </div>
-              <div class="arrow">→</div>
-              <div class="after">
-                <span class="label">After {study.timeframe}</span>
-                <div class="stat"><strong>{study.after.revenue}</strong>/month</div>
-                <div class="stat">{study.after.occupancy} occupancy</div>
-                <div class="stat">{study.after.rating} rating</div>
-                <p class="changes">{study.after.changes}</p>
-              </div>
+      <div class="case-study-card">
+        <div class="comparison-container">
+          <div class="before-card">
+            <h3>BEFORE Nurture</h3>
+            <div class="financial-line">
+              <span>Long-term Rent</span>
+              <span>$2,200</span>
+            </div>
+            <div class="financial-line">
+              <span>Mortgage</span>
+              <span class="negative">-$2,400</span>
+            </div>
+            <div class="financial-line">
+              <span>Maintenance & Tax</span>
+              <span class="negative">-$726</span>
+            </div>
+            <div class="financial-line total">
+              <span>Monthly Cashflow</span>
+              <span class="negative">-$926</span>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section calculator-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>What You're Really Losing Each Month</h2>
-        <p>Let's do the math on your underperformance.</p>
-      </div>
-      <div class="loss-calculator">
-        <div class="calc-row">
-          <span class="calc-label">Average Toronto 1BR market rate</span>
-          <span class="calc-value">$3,200/month</span>
+          <div class="arrow">→</div>
+          <div class="after-card">
+            <h3>AFTER Nurture</h3>
+            <div class="financial-line">
+              <span>Airbnb Revenue (after fees)</span>
+              <span class="positive">$4,123</span>
+            </div>
+            <div class="financial-line">
+              <span>Mortgage, Maint, Tax</span>
+              <span class="negative">-$3,126</span>
+            </div>
+            <div class="financial-line">
+              <span>Internet & Utilities</span>
+              <span class="negative">-$150</span>
+            </div>
+            <div class="financial-line total">
+              <span>Monthly Cashflow</span>
+              <span class="positive">+$847</span>
+            </div>
+          </div>
         </div>
-        <div class="calc-row">
-          <span class="calc-label">If you're earning</span>
-          <span class="calc-value">$1,800/month</span>
-        </div>
-        <div class="calc-row loss">
-          <span class="calc-label">Monthly loss</span>
-          <span class="calc-value">-$1,400</span>
-        </div>
-        <div class="calc-row loss-total">
-          <span class="calc-label">Annual loss</span>
-          <span class="calc-value">-$16,800</span>
-        </div>
-        <p class="calc-note">This is money you should be earning but aren't. How long will you wait to fix it?</p>
+        <div class="increase-badge">87% Increase in First Month</div>
       </div>
     </div>
   </section>
@@ -257,32 +228,20 @@ const warningSignals = [
   .solution { background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--color-primary); }
   .solution-label { font-weight: 600; color: var(--color-primary); font-size: 0.85rem; display: block; margin-bottom: 0.25rem; }
   .solution p { margin: 0; font-size: 0.9rem; color: var(--color-text); }
-  .case-studies-section { background: var(--color-background-alt); }
-  .case-studies-grid { display: grid; gap: 2rem; }
-  .case-study-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-md); }
-  .case-study-card h3 { margin-bottom: 1.5rem; font-size: 1.35rem; }
-  .case-study-comparison { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; }
-  .before, .after { padding: 1.5rem; border-radius: 12px; }
-  .before { background: #fef2f2; }
-  .after { background: #f0fdf4; }
-  .label { display: block; font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem; }
-  .before .label { color: #991b1b; }
-  .after .label { color: #166534; }
-  .stat { margin-bottom: 0.5rem; font-size: 0.95rem; }
-  .stat strong { font-size: 1.25rem; }
-  .issues { color: #991b1b; font-size: 0.85rem; margin-top: 1rem; margin-bottom: 0; }
-  .changes { color: #166534; font-size: 0.85rem; margin-top: 1rem; margin-bottom: 0; }
-  .arrow { font-size: 2rem; color: var(--color-primary); font-weight: bold; }
-  .calculator-section { background: white; }
-  .loss-calculator { max-width: 500px; margin: 0 auto; background: var(--color-background-alt); border-radius: 16px; padding: 2rem; }
-  .calc-row { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
-  .calc-row:last-of-type { border-bottom: none; }
-  .calc-label { color: var(--color-text-light); }
-  .calc-value { font-weight: 600; }
-  .calc-row.loss { color: #dc2626; }
-  .calc-row.loss-total { background: #fef2f2; margin: 1rem -2rem -2rem; padding: 1.5rem 2rem; border-radius: 0 0 16px 16px; }
-  .calc-row.loss-total .calc-value { font-size: 1.5rem; }
-  .calc-note { text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text); font-weight: 500; }
+  .case-study-section { background: var(--color-primary-dark); color: white; }
+  .case-study-section .section-header h2 { color: white; }
+  .case-study-section .section-header p { color: rgba(255,255,255,0.8); }
+  .case-study-card { max-width: 900px; margin: 0 auto; }
+  .comparison-container { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 16px; }
+  .before-card, .after-card { padding: 1.5rem; }
+  .before-card h3, .after-card h3 { font-size: 1.25rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9); }
+  .financial-line { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 1rem; }
+  .financial-line:last-child { border-bottom: none; }
+  .financial-line.total { padding-top: 1rem; font-weight: 700; font-size: 1.25rem; }
+  .financial-line .negative { color: #FFB3B3; }
+  .financial-line .positive { color: #B3FFB3; }
+  .arrow { font-size: 2.5rem; color: var(--color-accent); }
+  .increase-badge { text-align: center; margin-top: 2rem; font-size: 1.5rem; font-weight: 700; color: var(--color-accent); }
   .process-section { background: var(--color-background-alt); }
   .turnaround-process { max-width: 700px; margin: 0 auto; }
   .process-step { background: white; padding: 2rem; border-radius: 16px; margin-bottom: 1rem; position: relative; }
@@ -302,6 +261,6 @@ const warningSignals = [
   .cta-benefits { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
   .cta-benefits span { opacity: 0.9; }
   .cta-section .btn { background: white; color: var(--color-primary); }
-  @media (max-width: 968px) { .warning-grid { grid-template-columns: repeat(2, 1fr); } .problems-grid { grid-template-columns: 1fr; } .case-study-comparison { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); justify-self: center; } }
+  @media (max-width: 968px) { .warning-grid { grid-template-columns: repeat(2, 1fr); } .problems-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } }
   @media (max-width: 576px) { .warning-grid { grid-template-columns: 1fr; } .cta-benefits { flex-direction: column; gap: 0.5rem; } }
 </style>
