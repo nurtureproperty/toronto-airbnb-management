@@ -2,14 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 
 const locations = [
-  { name: 'Downtown Toronto', description: 'The heart of the city with high demand from business and leisure travelers.', properties: 45, avgNightly: '$180' },
-  { name: 'North York', description: 'Family-friendly area with excellent transit connections.', properties: 32, avgNightly: '$140' },
-  { name: 'Scarborough', description: 'Growing market with competitive rates and strong occupancy.', properties: 28, avgNightly: '$120' },
-  { name: 'Etobicoke', description: 'Near the airport with steady demand from travelers.', properties: 22, avgNightly: '$130' },
-  { name: 'Yorkville', description: 'Premium neighborhood commanding luxury rates.', properties: 15, avgNightly: '$250' },
-  { name: 'The Annex', description: 'Vibrant area popular with young professionals.', properties: 18, avgNightly: '$160' },
-  { name: 'Liberty Village', description: 'Trendy neighborhood with modern condos.', properties: 25, avgNightly: '$170' },
-  { name: 'Queen West', description: 'Arts and culture hub with strong tourist appeal.', properties: 20, avgNightly: '$165' }
+  {
+    name: 'Downtown Toronto',
+    slug: '/downtown-toronto-airbnb-management',
+    description: 'Premium downtown condos near the CN Tower, Financial District, and Entertainment District. Highest demand and rates in the GTA.'
+  },
+  {
+    name: 'North York',
+    slug: '/north-york-airbnb-management',
+    description: 'Modern high-rises along the Yonge corridor with excellent subway access. Popular with business travelers and families.'
+  },
+  {
+    name: 'Etobicoke',
+    slug: '/etobicoke-airbnb-management',
+    description: 'Waterfront properties in Mimico and Humber Bay. Great for guests wanting lake views and easy downtown access.'
+  },
+  {
+    name: 'Scarborough',
+    slug: '/scarborough-airbnb-management',
+    description: 'Near the Bluffs, Toronto Zoo, and Rouge Park. Less competition with strong demand from nature lovers.'
+  },
+  {
+    name: 'Mississauga',
+    slug: '/mississauga-airbnb-management',
+    description: 'Close to Pearson Airport and Port Credit waterfront. Consistent year-round demand from travelers.'
+  }
 ];
 ---
 
@@ -17,7 +34,7 @@ const locations = [
   <section class="hero hero-small">
     <div class="container">
       <h1>Locations We Serve</h1>
-      <p>Managing properties across the Greater Toronto Area with local expertise in every neighborhood.</p>
+      <p>Expert Airbnb management across the Greater Toronto Area</p>
     </div>
   </section>
 
@@ -25,50 +42,102 @@ const locations = [
     <div class="container">
       <div class="locations-grid">
         {locations.map(location => (
-          <div class="location-card">
-            <div class="location-image"><span>📍</span></div>
+          <a href={location.slug} class="location-card">
             <div class="location-content">
               <h3>{location.name}</h3>
               <p>{location.description}</p>
-              <div class="location-stats">
-                <div class="stat"><strong>{location.properties}</strong><span>Properties</span></div>
-                <div class="stat"><strong>{location.avgNightly}</strong><span>Avg/Night</span></div>
-              </div>
+              <span class="learn-more">Learn more →</span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section map-section">
+  <section class="cta-section">
     <div class="container">
-      <div class="section-header">
-        <h2>Expanding Across the GTA</h2>
-        <p>We're constantly growing our service area. Contact us to see if we cover your neighborhood.</p>
-      </div>
-      <div class="map-placeholder"><span>🗺️</span><p>Greater Toronto Area Coverage Map</p></div>
-      <div class="text-center" style="margin-top: 2rem;">
-        <a href="/contact" class="btn btn-primary btn-large">Check Your Location</a>
+      <div class="cta-content">
+        <h2>Don't See Your Area?</h2>
+        <p>We're always expanding. Contact us to discuss your property location.</p>
+        <a href="/contact" class="btn btn-large">Get in Touch</a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-  .location-card { display: flex; gap: 1.5rem; background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; }
-  .location-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); }
-  .location-image { width: 80px; height: 80px; background: var(--color-primary-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
-  .location-content h3 { margin: 0 0 0.5rem; font-size: 1.25rem; }
-  .location-content p { color: var(--color-text-light); margin: 0 0 1rem; font-size: 0.9rem; }
-  .location-stats { display: flex; gap: 2rem; }
-  .location-stats .stat { text-align: left; }
-  .location-stats strong { display: block; font-size: 1.25rem; color: var(--color-primary); }
-  .location-stats span { font-size: 0.8rem; color: var(--color-text-muted); }
-  .map-section { background: var(--color-background-alt); }
-  .map-placeholder { background: linear-gradient(135deg, #475569 0%, #334155 100%); border-radius: 16px; padding: 6rem 2rem; text-align: center; color: white; }
-  .map-placeholder span { font-size: 5rem; display: block; margin-bottom: 1rem; }
-  .map-placeholder p { opacity: 0.7; }
-  @media (max-width: 768px) { .locations-grid { grid-template-columns: 1fr; } .location-card { flex-direction: column; text-align: center; } .location-image { margin: 0 auto; } .location-stats { justify-content: center; } }
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .location-card {
+    display: block;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .location-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .location-content h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .location-content p {
+    color: var(--color-text-light);
+    margin: 0 0 1rem;
+    line-height: 1.7;
+  }
+
+  .learn-more {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .location-card:hover .learn-more {
+    text-decoration: underline;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-section .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  @media (max-width: 768px) {
+    .locations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
