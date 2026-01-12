@@ -56,86 +56,12 @@ const faqs = [
   <section class="hero hero-small">
     <div class="container">
       <h1>Simple, Transparent Pricing</h1>
-      <p>No hidden fees. No surprises. You only pay when you earn.</p>
-    </div>
-  </section>
-
-  <section class="section case-study-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Real Results from Real Clients</h2>
-        <p>1-Bedroom Condo in Toronto</p>
-      </div>
-      <div class="case-study-card">
-        <div class="comparison-container">
-          <div class="before-card">
-            <h3>BEFORE Nurture Stays</h3>
-            <div class="financial-line">
-              <span>Long-term Rent</span>
-              <span>$2,200</span>
-            </div>
-            <div class="financial-line">
-              <span>Mortgage</span>
-              <span class="negative">-$2,400</span>
-            </div>
-            <div class="financial-line">
-              <span>Maintenance & Tax</span>
-              <span class="negative">-$726</span>
-            </div>
-            <div class="financial-line total">
-              <span>Monthly Cashflow</span>
-              <span class="negative">-$926</span>
-            </div>
-          </div>
-          <div class="arrow">→</div>
-          <div class="after-card">
-            <h3>AFTER Nurture Stays</h3>
-            <div class="financial-line">
-              <span>Airbnb Revenue (after fees)</span>
-              <span class="positive">$4,123</span>
-            </div>
-            <div class="financial-line">
-              <span>Mortgage, Maint, Tax</span>
-              <span class="negative">-$3,126</span>
-            </div>
-            <div class="financial-line">
-              <span>Internet & Utilities</span>
-              <span class="negative">-$150</span>
-            </div>
-            <div class="financial-line total">
-              <span>Monthly Cashflow</span>
-              <span class="positive">+$847</span>
-            </div>
-          </div>
-        </div>
-        <div class="increase-badge">87% Increase in First Month</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section faq-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Pricing FAQs</h2>
-        <p>Common questions about our fees and billing.</p>
-      </div>
-      <div class="faq-grid">
-        {faqs.map(faq => (
-          <div class="faq-card">
-            <h4>{faq.q}</h4>
-            <p>{faq.a}</p>
-          </div>
-        ))}
-      </div>
+      <p class="hero-subtitle">No hidden fees. No surprises. You only pay when you earn.</p>
     </div>
   </section>
 
   <section class="section comparison-section">
     <div class="container">
-      <div class="section-header">
-        <h2>Compare Plans</h2>
-        <p>See exactly what's included in each plan.</p>
-      </div>
       <div class="feature-comparison">
         <div class="feature-header">
           <div class="feature-label"></div>
@@ -252,6 +178,76 @@ const faqs = [
     </div>
   </section>
 
+  <section class="section case-study-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Results from Real Clients</h2>
+        <p>1-Bedroom Condo in Toronto</p>
+      </div>
+      <div class="case-study-card">
+        <div class="comparison-container">
+          <div class="before-card">
+            <h3>BEFORE Nurture Stays</h3>
+            <div class="financial-line">
+              <span>Long-term Rent</span>
+              <span>$2,200</span>
+            </div>
+            <div class="financial-line">
+              <span>Mortgage</span>
+              <span class="negative">-$2,400</span>
+            </div>
+            <div class="financial-line">
+              <span>Maintenance & Tax</span>
+              <span class="negative">-$726</span>
+            </div>
+            <div class="financial-line total">
+              <span>Monthly Cashflow</span>
+              <span class="negative">-$926</span>
+            </div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="after-card">
+            <h3>AFTER Nurture Stays</h3>
+            <div class="financial-line">
+              <span>Airbnb Revenue (after fees)</span>
+              <span class="positive">$4,123</span>
+            </div>
+            <div class="financial-line">
+              <span>Mortgage, Maint, Tax</span>
+              <span class="negative">-$3,126</span>
+            </div>
+            <div class="financial-line">
+              <span>Internet & Utilities</span>
+              <span class="negative">-$150</span>
+            </div>
+            <div class="financial-line total">
+              <span>Monthly Cashflow</span>
+              <span class="positive">+$847</span>
+            </div>
+          </div>
+        </div>
+        <div class="increase-badge">87% Increase in First Month</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pricing FAQs</h2>
+        <p>Common questions about our fees and billing.</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -264,6 +260,8 @@ const faqs = [
 </Layout>
 
 <style>
+  .hero-subtitle { text-align: center; }
+  .comparison-section { background: var(--color-background); padding-top: 3rem; }
   .case-study-section { background: var(--color-primary-dark); color: white; }
   .case-study-section .section-header h2 { color: white; }
   .case-study-section .section-header p { color: rgba(255,255,255,0.8); }
