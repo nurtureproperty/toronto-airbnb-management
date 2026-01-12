@@ -27,7 +27,7 @@ const services = [
   <section class="hero">
     <div class="container">
       <span class="location-badge">DOWNTOWN TORONTO</span>
-      <h1><span class="highlight">Downtown Toronto</span> Airbnb Management</h1>
+      <h1><span class="highlight">Downtown Toronto Airbnb Management</span></h1>
       <p class="hero-subtitle">Expert property management in Toronto's most profitable Airbnb neighborhoods</p>
 
       <div class="hero-stats">
@@ -77,7 +77,7 @@ const services = [
         <div class="bylaws-grid">
           <div class="bylaw-card">
             <h3>Registration Required</h3>
-            <p>All short-term rentals in Toronto must be registered with the City. The annual registration fee is $55. We can help you navigate the registration process.</p>
+            <p>All short-term rentals in Toronto must be registered with the City. We can help you navigate the registration process. <a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-tenant-information/short-term-rentals/" target="_blank" rel="noopener">Register on the City of Toronto website</a>.</p>
           </div>
           <div class="bylaw-card">
             <h3>Principal Residence Rule</h3>
@@ -89,7 +89,7 @@ const services = [
           </div>
           <div class="bylaw-card">
             <h3>Municipal Accommodation Tax</h3>
-            <p>A 6% Municipal Accommodation Tax (MAT) applies to all short-term rentals. Platforms like Airbnb collect and remit this automatically.</p>
+            <p>A 4% Municipal Accommodation Tax (MAT) applies to all short-term rentals. Platforms like Airbnb collect and remit this automatically.</p>
           </div>
         </div>
         <div class="bylaws-cta">
@@ -277,6 +277,15 @@ const services = [
   .bylaw-card p {
     color: var(--color-text-light);
     line-height: 1.7;
+  }
+
+  .bylaw-card a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .bylaw-card a:hover {
+    color: var(--color-primary-dark);
   }
 
   .bylaws-cta {
