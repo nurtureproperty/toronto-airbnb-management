@@ -38,22 +38,15 @@ const pricingTiers = [
   }
 ];
 
-const addOns = [
-  { name: 'Deep Cleaning', price: '$150-250', description: 'Per cleaning, based on property size' },
-  { name: 'Linen Service', price: '$25/turnover', description: 'Fresh hotel-quality linens each stay' },
-  { name: 'Restocking', price: 'At cost + 15%', description: 'Toiletries, coffee, supplies' },
-  { name: 'Photography', price: '$199', description: 'Professional HDR photos, one-time' },
-  { name: 'Emergency Callout', price: '$75', description: 'After-hours on-site visits' },
-  { name: 'Furnishing Setup', price: 'Custom quote', description: 'Full property staging and setup' }
-];
-
 const faqs = [
-  { q: 'When do I get paid?', a: 'We transfer your earnings within 48 hours of guest checkout. You receive detailed statements showing booking revenue, our fee, and any expenses.' },
-  { q: 'Are there any hidden fees?', a: 'No hidden fees ever. Our management percentage is all-inclusive. You only pay extra for physical services like cleaning and supplies, which are billed at cost or clearly stated rates.' },
-  { q: 'What if I want to use my property?', a: 'No problem! Block any dates you want in our shared calendar. We recommend 48 hours notice so we can prepare the property for your arrival.' },
-  { q: 'Can I switch plans?', a: 'Yes, you can upgrade or downgrade with 30 days notice. Most hosts start with Professional and stay there.' },
-  { q: 'Is there a minimum contract?', a: 'We ask for a 3-month initial commitment so we can properly optimize your listing. After that, you can cancel with 30 days notice.' },
-  { q: 'How do you handle damages?', a: 'We document everything before and after each stay. We file Airbnb damage claims on your behalf and can assist with insurance claims for major issues.' }
+  { q: 'How much are your management fees?', a: 'Our fees range from 10% to 15% depending on whether you want partial or full service. This is significantly lower than competitors who charge 18-25%.' },
+  { q: 'Will I make more with short-term rental vs long-term rental?', a: 'We have never had any clients make less with short and mid-term rental vs long-term rental. Most see 30-100% increases in monthly revenue.' },
+  { q: 'How long does it take to get my property listed?', a: 'The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.' },
+  { q: 'What cities do you operate in?', a: 'We operate in any city within Southern Ontario, Canada. This includes the Greater Toronto Area and surrounding cities.' },
+  { q: 'Does my property qualify for short-term rental?', a: 'Each municipality in the Greater Toronto Area has its own set of rules. Each building also has its own set of rules. To check, you can visit your local municipality website. Many cities in Ontario do require registration for short-term rental, however many do NOT have any rules around mid-term rentals.' },
+  { q: 'Do I have to sign a lengthy contract?', a: 'No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts.' },
+  { q: 'Are there any startup costs?', a: 'No. We only get paid on commission. We make money when you make money.' },
+  { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.' }
 ];
 ---
 
@@ -94,62 +87,55 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section calculator-section">
+  <section class="section case-study-section">
     <div class="container">
       <div class="section-header">
-        <h2>See What You Could Earn</h2>
-        <p>Most hosts see a 20-40% increase in revenue after switching to professional management.</p>
+        <h2>Real Results from Real Clients</h2>
+        <p>1-Bedroom Condo in Toronto</p>
       </div>
-      <div class="calculator-card">
-        <div class="calc-row">
-          <div class="calc-item">
-            <span class="calc-label">Average Toronto 1BR Condo</span>
-            <span class="calc-value">$150/night</span>
-          </div>
-          <div class="calc-item">
-            <span class="calc-label">Average Occupancy (Pro Managed)</span>
-            <span class="calc-value">75%</span>
-          </div>
-          <div class="calc-item">
-            <span class="calc-label">Monthly Gross Revenue</span>
-            <span class="calc-value">$3,375</span>
-          </div>
-        </div>
-        <div class="calc-row highlight">
-          <div class="calc-item">
-            <span class="calc-label">Our Fee (15% Professional)</span>
-            <span class="calc-value">-$506</span>
-          </div>
-          <div class="calc-item">
-            <span class="calc-label">Est. Cleaning (4 turnovers)</span>
-            <span class="calc-value">-$400</span>
-          </div>
-          <div class="calc-item final">
-            <span class="calc-label">Your Monthly Net</span>
-            <span class="calc-value">$2,469</span>
-          </div>
-        </div>
-        <p class="calc-note">*Estimates based on average Toronto market data. Your results may vary based on location, property type, and seasonality.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section addons-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Additional Services</h2>
-        <p>A la carte options available with any plan.</p>
-      </div>
-      <div class="addons-grid">
-        {addOns.map(addon => (
-          <div class="addon-card">
-            <div class="addon-header">
-              <h4>{addon.name}</h4>
-              <span class="addon-price">{addon.price}</span>
+      <div class="case-study-card">
+        <div class="comparison-container">
+          <div class="before-card">
+            <h3>BEFORE Nurture Stays</h3>
+            <div class="financial-line">
+              <span>Long-term Rent</span>
+              <span>$2,200</span>
             </div>
-            <p>{addon.description}</p>
+            <div class="financial-line">
+              <span>Mortgage</span>
+              <span class="negative">-$2,400</span>
+            </div>
+            <div class="financial-line">
+              <span>Maintenance & Tax</span>
+              <span class="negative">-$726</span>
+            </div>
+            <div class="financial-line total">
+              <span>Monthly Cashflow</span>
+              <span class="negative">-$926</span>
+            </div>
           </div>
-        ))}
+          <div class="arrow">→</div>
+          <div class="after-card">
+            <h3>AFTER Nurture Stays</h3>
+            <div class="financial-line">
+              <span>Airbnb Revenue (after fees)</span>
+              <span class="positive">$4,123</span>
+            </div>
+            <div class="financial-line">
+              <span>Mortgage, Maint, Tax</span>
+              <span class="negative">-$3,126</span>
+            </div>
+            <div class="financial-line">
+              <span>Internet & Utilities</span>
+              <span class="negative">-$150</span>
+            </div>
+            <div class="financial-line total">
+              <span>Monthly Cashflow</span>
+              <span class="positive">+$847</span>
+            </div>
+          </div>
+        </div>
+        <div class="increase-badge">87% Increase in First Month</div>
       </div>
     </div>
   </section>
@@ -241,22 +227,20 @@ const faqs = [
   .check { color: var(--color-secondary); font-weight: bold; }
   .x { color: #ccc; }
   .btn-full { width: 100%; text-align: center; }
-  .calculator-section { background: white; }
-  .calculator-card { background: var(--color-background-alt); border-radius: 16px; padding: 2rem; max-width: 800px; margin: 0 auto; }
-  .calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); }
-  .calc-row.highlight { background: white; margin: 0 -2rem; padding: 1.5rem 2rem; border-radius: 0 0 16px 16px; border: none; }
-  .calc-item { text-align: center; }
-  .calc-label { display: block; font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 0.5rem; }
-  .calc-value { font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
-  .calc-item.final .calc-value { color: var(--color-primary); font-size: 2rem; }
-  .calc-note { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--color-text-muted); }
-  .addons-section { background: var(--color-background-alt); }
-  .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .addon-card { background: white; padding: 1.5rem; border-radius: 12px; }
-  .addon-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-  .addon-header h4 { margin: 0; font-size: 1rem; }
-  .addon-price { font-weight: 700; color: var(--color-primary); }
-  .addon-card p { color: var(--color-text-light); font-size: 0.9rem; margin: 0; }
+  .case-study-section { background: var(--color-primary-dark); color: white; }
+  .case-study-section .section-header h2 { color: white; }
+  .case-study-section .section-header p { color: rgba(255,255,255,0.8); }
+  .case-study-card { max-width: 900px; margin: 0 auto; }
+  .comparison-container { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 16px; }
+  .before-card, .after-card { padding: 1.5rem; }
+  .before-card h3, .after-card h3 { font-size: 1.25rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9); }
+  .financial-line { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 1rem; }
+  .financial-line:last-child { border-bottom: none; }
+  .financial-line.total { padding-top: 1rem; font-weight: 700; font-size: 1.25rem; }
+  .financial-line .negative { color: #FFB3B3; }
+  .financial-line .positive { color: #B3FFB3; }
+  .arrow { font-size: 2.5rem; color: var(--color-accent); }
+  .increase-badge { text-align: center; margin-top: 2rem; font-size: 1.5rem; font-weight: 700; color: var(--color-accent); }
   .faq-section { background: white; }
   .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .faq-card { padding: 1.5rem; background: var(--color-background-alt); border-radius: 12px; }
@@ -274,5 +258,5 @@ const faqs = [
   .cta-content h2 { margin-bottom: 1rem; }
   .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
   .cta-section .btn { background: white; color: var(--color-primary); }
-  @media (max-width: 968px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; } .pricing-card.featured { transform: none; } .addons-grid, .faq-grid { grid-template-columns: 1fr; } .calc-row { grid-template-columns: 1fr; gap: 1rem; } .comparison-row { grid-template-columns: 1fr; } .comparison-row.header { display: none; } .comparison-item:first-child { font-weight: 600; background: var(--color-background-alt); } }
+  @media (max-width: 968px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; } .pricing-card.featured { transform: none; } .faq-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } .comparison-row { grid-template-columns: 1fr; } .comparison-row.header { display: none; } .comparison-item:first-child { font-weight: 600; background: var(--color-background-alt); } }
 </style>
