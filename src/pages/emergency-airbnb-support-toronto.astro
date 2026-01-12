@@ -6,13 +6,8 @@ const emergencyServices = [
   { icon: '🔧', title: 'Urgent Repairs', description: 'Burst pipes, electrical issues, HVAC failures - our network of contractors responds within hours.' },
   { icon: '🧹', title: 'Last-Minute Turnovers', description: 'Previous guest overstayed? We handle emergency cleanings with 2-hour response time.' },
   { icon: '😤', title: 'Difficult Guest Situations', description: 'Noise complaints, unauthorized parties, property damage - we handle it professionally.' },
-  { icon: '📱', title: 'Communication Crises', description: 'Guest disputes, bad review threats, refund demands - expert conflict resolution.' }
-];
-
-const responseStats = [
-  { number: '<9 min', label: 'Average Response Time' },
-  { number: '500+', label: 'Emergencies Handled' },
-  { number: '98%', label: 'Resolution Rate' }
+  { icon: '📱', title: 'Communication Crises', description: 'Guest disputes, bad review threats, refund demands - expert conflict resolution.' },
+  { icon: '⚖️', title: 'Airbnb Claims and Disputes', description: 'Property damage claims, guest refund disputes, and Airbnb resolution center support.' }
 ];
 ---
 
@@ -25,22 +20,9 @@ const responseStats = [
         <p>Guest locked out? Pipe burst before check-in? We're your lifeline. Our emergency response team is ready to handle any crisis.</p>
         <div class="hero-buttons">
           <a href="tel:+16479578956" class="btn btn-emergency btn-large">📞 Call Now: 647-957-8956</a>
-          <a href="/contact" class="btn btn-secondary btn-large">Request Callback</a>
+          <a href="/contact" class="btn btn-secondary btn-large">Get Started</a>
         </div>
         <p class="response-promise">Average response time: under 9 minutes</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        {responseStats.map(stat => (
-          <div class="stat-item">
-            <span class="stat-number">{stat.number}</span>
-            <span class="stat-label">{stat.label}</span>
-          </div>
-        ))}
       </div>
     </div>
   </section>
@@ -127,11 +109,8 @@ const responseStats = [
     <div class="container">
       <div class="cta-content">
         <h2>Don't Face Emergencies Alone</h2>
-        <p>Join 200+ GTA hosts who sleep soundly knowing we've got their back.</p>
-        <div class="cta-buttons">
-          <a href="tel:+16479578956" class="btn btn-large">📞 647-957-8956</a>
-          <a href="/contact" class="btn btn-secondary btn-large">Get Protected Today</a>
-        </div>
+        <p>GTA hosts sleep soundly knowing we've got their back.</p>
+        <a href="tel:+16479578956" class="btn btn-large">📞 647-957-8956</a>
       </div>
     </div>
   </section>
@@ -148,11 +127,6 @@ const responseStats = [
   .btn-emergency { background: white; color: #dc2626; font-weight: 700; }
   .btn-emergency:hover { background: #fef2f2; transform: translateY(-2px); }
   .response-promise { font-size: 0.9rem; opacity: 0.8; }
-  .stats-section { background: white; padding: 3rem 0; margin-top: -2rem; position: relative; z-index: 10; }
-  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-xl); }
-  .stat-item { text-align: center; }
-  .stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem; }
-  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
   .emergency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .emergency-card { background: white; padding: 2rem; border-radius: 16px; border: 2px solid var(--color-border); transition: all 0.3s ease; }
   .emergency-card:hover { border-color: #dc2626; box-shadow: var(--shadow-lg); }
@@ -174,10 +148,8 @@ const responseStats = [
   .cta-section { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); padding: 5rem 0; text-align: center; color: white; }
   .cta-content h2 { margin-bottom: 1rem; }
   .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
-  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .cta-section .btn { background: white; color: #dc2626; }
   .cta-section .btn:hover { background: #fef2f2; }
-  .cta-section .btn-secondary { background: transparent; border: 2px solid white; color: white; }
-  @media (max-width: 968px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } .process-grid { grid-template-columns: repeat(2, 1fr); } .emergency-grid, .scenarios-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 576px) { .stats-grid, .process-grid { grid-template-columns: 1fr; } .hero-buttons, .cta-buttons { flex-direction: column; } }
+  @media (max-width: 968px) { .process-grid { grid-template-columns: repeat(2, 1fr); } .emergency-grid, .scenarios-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 576px) { .process-grid { grid-template-columns: 1fr; } .hero-buttons { flex-direction: column; } }
 </style>
