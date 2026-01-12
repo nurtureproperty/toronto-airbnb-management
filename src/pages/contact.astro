@@ -14,44 +14,26 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="contact-grid">
         <div class="contact-form-wrapper">
-          <h2>Send Us a Message</h2>
-          <form class="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="name">Full Name</label>
-                <input type="text" id="name" class="form-input" placeholder="John Smith" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Email Address</label>
-                <input type="email" id="email" class="form-input" placeholder="john@example.com" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="phone">Phone Number</label>
-                <input type="tel" id="phone" class="form-input" placeholder="(416) 555-0123" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="property">Property Type</label>
-                <select id="property" class="form-select">
-                  <option value="">Select property type</option>
-                  <option value="condo">Condo</option>
-                  <option value="house">House</option>
-                  <option value="townhouse">Townhouse</option>
-                  <option value="multi">Multi-unit</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="location">Property Location</label>
-              <input type="text" id="location" class="form-input" placeholder="e.g., Downtown Toronto, North York" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="message">Tell Us About Your Property</label>
-              <textarea id="message" class="form-textarea" placeholder="Share details about your property and what you're looking for..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-large">Request Free Consultation</button>
-          </form>
+          <h2>Book a Free Consultation</h2>
+          <div class="form-embed">
+            <iframe
+              src="https://api.nurtre.io/widget/form/68pgdY8Bs3rRwkUq64Ps"
+              style="width:100%;height:572px;border:none;border-radius:4px"
+              id="inline-68pgdY8Bs3rRwkUq64Ps"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Self-Book Calendar Form for nurturestays.ca"
+              data-height="572"
+              data-layout-iframe-id="inline-68pgdY8Bs3rRwkUq64Ps"
+              data-form-id="68pgdY8Bs3rRwkUq64Ps"
+              title="Self-Book Calendar Form for nurturestays.ca"
+            ></iframe>
+          </div>
         </div>
 
         <div class="contact-info-wrapper">
@@ -102,11 +84,12 @@ import Layout from '../layouts/Layout.astro';
   </section>
 </Layout>
 
+<script src="https://api.nurtre.io/js/form_embed.js"></script>
+
 <style>
   .contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
-  .contact-form-wrapper h2 { margin-bottom: 2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .contact-form .btn { width: 100%; margin-top: 1rem; }
+  .contact-form-wrapper h2 { margin-bottom: 1.5rem; }
+  .form-embed { background: white; border-radius: 12px; overflow: hidden; min-height: 580px; }
   .contact-info-wrapper { display: flex; flex-direction: column; gap: 2rem; }
   .contact-info-card { background: var(--color-background-alt); border-radius: 16px; padding: 2rem; }
   .contact-info-card h3 { margin-bottom: 1.5rem; }
