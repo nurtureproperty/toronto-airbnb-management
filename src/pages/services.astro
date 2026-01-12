@@ -115,6 +115,24 @@ const services = [
           <a href="/contact" class="btn btn-primary">Get Started</a>
         </div>
       </div>
+      <p class="pricing-details-link">See <a href="/pricing-toronto-airbnb-management">full pricing details</a> and feature comparison</p>
+    </div>
+  </section>
+
+  <section class="section specialty-services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Specialty Services</h2>
+        <p>Additional support when you need it most</p>
+      </div>
+      <div class="specialty-grid">
+        <a href="/emergency-airbnb-support-toronto" class="specialty-card emergency">
+          <span class="specialty-icon">🚨</span>
+          <h3>Emergency Support</h3>
+          <p>24/7 emergency response for guest lockouts, urgent repairs, and crisis management</p>
+          <span class="learn-more">Learn more →</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -157,9 +175,21 @@ const services = [
   .price span { font-size: 2.5rem; font-weight: 700; color: var(--color-text); }
   .pricing-card ul { list-style: none; padding: 0; margin: 0 0 2rem; text-align: left; }
   .pricing-card li { padding: 0.5rem 0; color: var(--color-text-light); }
-  .locations-section { background: white; }
+  .pricing-details-link { text-align: center; margin-top: 2rem; color: var(--color-text-light); }
+  .pricing-details-link a { color: var(--color-primary); text-decoration: underline; font-weight: 500; }
+  .pricing-details-link a:hover { color: var(--color-primary-dark); }
+  .specialty-services { background: white; }
+  .specialty-grid { display: flex; justify-content: center; }
+  .specialty-card { display: block; max-width: 400px; padding: 2rem; background: var(--color-background-alt); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; text-align: center; }
+  .specialty-card:hover { border-color: #dc2626; transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .specialty-card.emergency { border-left: 4px solid #dc2626; }
+  .specialty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+  .specialty-card h3 { color: var(--color-text); margin: 0 0 0.75rem; }
+  .specialty-card p { color: var(--color-text-light); margin: 0 0 1rem; font-size: 0.95rem; }
+  .specialty-card .learn-more { color: #dc2626; font-weight: 600; }
+  .locations-section { background: var(--color-background-alt); }
   .locations-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-  .locations-links a { background: var(--color-background-alt); padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; color: var(--color-text); font-weight: 500; transition: all 0.3s ease; border: 1px solid var(--color-border); }
+  .locations-links a { background: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; color: var(--color-text); font-weight: 500; transition: all 0.3s ease; border: 1px solid var(--color-border); }
   .locations-links a:hover { background: var(--color-primary); color: white; border-color: var(--color-primary); }
   .locations-cta { text-align: center; color: var(--color-text-light); }
   .locations-cta a { color: var(--color-primary); text-decoration: underline; }

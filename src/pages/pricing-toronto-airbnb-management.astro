@@ -304,6 +304,29 @@ const faqs = [
     </div>
   </section>
 
+  <section class="section related-links">
+    <div class="container">
+      <div class="section-header">
+        <h2>Learn More</h2>
+        <p>Explore our services and service areas</p>
+      </div>
+      <div class="related-grid">
+        <a href="/services" class="related-card">
+          <h3>All Services</h3>
+          <p>Full details on everything included in our management packages</p>
+        </a>
+        <a href="/emergency-airbnb-support-toronto" class="related-card">
+          <h3>Emergency Support</h3>
+          <p>24/7 emergency support for urgent property issues</p>
+        </a>
+        <a href="/locations" class="related-card">
+          <h3>Service Areas</h3>
+          <p>We manage properties across the Greater Toronto Area</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -365,6 +388,12 @@ const faqs = [
   .cta-content h2 { margin-bottom: 1rem; }
   .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
   .cta-section .btn { background: white; color: var(--color-primary); }
-  @media (max-width: 968px) { .faq-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } }
+  .related-links { background: var(--color-background-alt); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .related-card { display: block; padding: 2rem; background: white; border-radius: 16px; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; }
+  .related-card:hover { border-color: var(--color-primary); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .related-card h3 { color: var(--color-text); margin: 0 0 0.5rem; }
+  .related-card p { color: var(--color-text-light); margin: 0; font-size: 0.95rem; }
+  @media (max-width: 968px) { .faq-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } .related-grid { grid-template-columns: 1fr; } }
   @media (max-width: 600px) { .feature-header, .feature-row { grid-template-columns: 1.5fr 1fr 1fr; } .feature-label { padding: 0.75rem 1rem; font-size: 0.85rem; } .feature-check { padding: 0.75rem 0.5rem; font-size: 1rem; } .plan-name { font-size: 0.9rem; } .plan-rate { font-size: 1.25rem; } .feature-category { padding: 0.5rem 1rem; font-size: 0.8rem; } }
 </style>

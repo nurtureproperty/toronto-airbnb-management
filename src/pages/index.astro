@@ -76,8 +76,13 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
             list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            position: relative;
         }
 
         .nav-links a {
@@ -88,6 +93,68 @@
         }
 
         .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .nav-dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 0;
+        }
+
+        .nav-dropdown-toggle:hover {
+            color: var(--primary-dark);
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .has-dropdown.open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: -1rem;
+            min-width: 200px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            padding: 0.5rem;
+            list-style: none;
+            margin: 0.75rem 0 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .has-dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background: rgba(117, 155, 143, 0.1);
             color: var(--primary-dark);
         }
 
@@ -1065,6 +1132,64 @@
         @media (max-width: 1024px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 0;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+
+            .nav-links > li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-links > li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a,
+            .nav-dropdown-toggle {
+                display: block;
+                width: 100%;
+                padding: 1rem 0;
+                text-align: left;
+            }
+
+            .nav-dropdown-toggle {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                padding: 0 0 0.5rem 1rem;
+                margin: 0;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                transition: max-height 0.3s ease;
+            }
+
+            .has-dropdown.open .dropdown-menu {
+                max-height: 400px;
+            }
+
+            .dropdown-menu li a {
+                padding: 0.75rem 1rem;
             }
 
             .mobile-menu-button {
@@ -1168,8 +1293,36 @@
         <div class="nav-container">
             <a href="/" class="logo"><img src="/images/logo.png" alt="Nurture" class="logo-img" /></a>
             <ul class="nav-links">
-                <li><a href="/services">Services</a></li>
-                <li><a href="/about">How It Works</a></li>
+                <li class="has-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        Services
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/services">All Services</a></li>
+                        <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
+                        <li><a href="/pricing-toronto-airbnb-management">Pricing</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        Locations
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/locations">All Locations</a></li>
+                        <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
+                        <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
+                        <li><a href="/north-york-airbnb-management">North York</a></li>
+                        <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
+                        <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
             <a href="tel:647-957-8956" class="nav-phone">647-957-8956</a>
@@ -1574,34 +1727,34 @@
                 <p>Short and mid term property management experts in the Greater Toronto Area. We help owners earn more from their property.</p>
                 <div class="contact-info">
                     <a href="tel:647-957-8956">📞 647-957-8956</a>
-                    <span>📍 140 Simcoe Street, Toronto, ON M5H 4E9</span>
+                    <span>📍 Toronto, ON</span>
                 </div>
             </div>
             <div class="footer-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="/services">Property Management</a></li>
-                    <li><a href="/services">Revenue Optimization</a></li>
-                    <li><a href="/services">Guest Services</a></li>
-                    <li><a href="/services">Listing Optimization</a></li>
+                    <li><a href="/services">All Services</a></li>
+                    <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
+                    <li><a href="/pricing-toronto-airbnb-management">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Locations</h4>
+                <ul>
+                    <li><a href="/locations">All Locations</a></li>
+                    <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
+                    <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
+                    <li><a href="/north-york-airbnb-management">North York</a></li>
+                    <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
+                    <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Company</h4>
                 <ul>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Our Services</a></li>
                     <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Service Areas</h4>
-                <ul>
-                    <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
-                    <li><a href="/north-york-airbnb-management">North York</a></li>
-                    <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
-                    <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
-                    <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
                 </ul>
             </div>
         </div>
@@ -1613,5 +1766,44 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Dropdown toggle functionality
+        const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parent = toggle.parentElement;
+
+                // Close other dropdowns
+                dropdownToggles.forEach(other => {
+                    if (other !== toggle) {
+                        other.parentElement?.classList.remove('open');
+                    }
+                });
+
+                parent?.classList.toggle('open');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.has-dropdown')) {
+                document.querySelectorAll('.has-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('open');
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            navLinks?.classList.toggle('mobile-open');
+            mobileMenuBtn.textContent = navLinks?.classList.contains('mobile-open') ? '✕' : '☰';
+        });
+    </script>
 </body>
 </html>

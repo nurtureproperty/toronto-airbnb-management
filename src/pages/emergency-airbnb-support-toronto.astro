@@ -105,6 +105,29 @@ const emergencyServices = [
     </div>
   </section>
 
+  <section class="section related-links">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Services</h2>
+        <p>Emergency support is just one part of our comprehensive property management</p>
+      </div>
+      <div class="related-grid">
+        <a href="/services" class="related-card">
+          <h3>All Services</h3>
+          <p>See our full range of property management services</p>
+        </a>
+        <a href="/pricing-toronto-airbnb-management" class="related-card">
+          <h3>Pricing</h3>
+          <p>Transparent pricing with plans starting at 10%</p>
+        </a>
+        <a href="/locations" class="related-card">
+          <h3>Service Areas</h3>
+          <p>We cover the entire Greater Toronto Area</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -150,6 +173,12 @@ const emergencyServices = [
   .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
   .cta-section .btn { background: white; color: #dc2626; }
   .cta-section .btn:hover { background: #fef2f2; }
-  @media (max-width: 968px) { .process-grid { grid-template-columns: repeat(2, 1fr); } .emergency-grid, .scenarios-grid { grid-template-columns: 1fr; } }
+  .related-links { background: white; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .related-card { display: block; padding: 2rem; background: var(--color-background-alt); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; }
+  .related-card:hover { border-color: var(--color-primary); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .related-card h3 { color: var(--color-text); margin: 0 0 0.5rem; }
+  .related-card p { color: var(--color-text-light); margin: 0; font-size: 0.95rem; }
+  @media (max-width: 968px) { .process-grid { grid-template-columns: repeat(2, 1fr); } .emergency-grid, .scenarios-grid, .related-grid { grid-template-columns: 1fr; } }
   @media (max-width: 576px) { .process-grid { grid-template-columns: 1fr; } .hero-buttons { flex-direction: column; } }
 </style>
