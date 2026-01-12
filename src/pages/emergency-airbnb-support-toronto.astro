@@ -117,15 +117,15 @@ const emergencyServices = [
 </Layout>
 
 <style>
-  .emergency-hero { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; padding: 8rem 0 6rem; position: relative; }
+  .emergency-hero { background: linear-gradient(135deg, #1e1e1e 0%, #000000 100%); color: white; padding: 8rem 0 6rem; position: relative; }
   .emergency-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 600; margin-bottom: 1.5rem; animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
   .hero-content { max-width: 800px; }
   .hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
   .hero-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
   .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .btn-emergency { background: white; color: #dc2626; font-weight: 700; }
-  .btn-emergency:hover { background: #fef2f2; transform: translateY(-2px); }
+  .btn-emergency { background: white; color: var(--color-primary); font-weight: 700; }
+  .btn-emergency:hover { background: var(--color-background-alt); transform: translateY(-2px); }
   .response-promise { font-size: 0.9rem; opacity: 0.8; }
   .emergency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .emergency-card { background: white; padding: 2rem; border-radius: 16px; border: 2px solid var(--color-border); transition: all 0.3s ease; }
