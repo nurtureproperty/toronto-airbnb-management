@@ -924,6 +924,24 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: white;
         }
 
         /* Animations */
@@ -1487,6 +1505,10 @@
         </div>
         <div class="footer-bottom">
             <p>© 2025 Nurture. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="/privacy-policy/">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
         </div>
     </footer>
 </body>
