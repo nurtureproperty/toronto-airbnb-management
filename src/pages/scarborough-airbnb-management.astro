@@ -1,0 +1,216 @@
+---
+// Scarborough Airbnb Management - Location Landing Page
+// Targets: scarborough airbnb management, airbnb property manager scarborough
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarborough Airbnb Management | Scarborough Town Centre, Bluffs | Nurture Stays</title>
+    <meta name="description" content="Expert Airbnb management in Scarborough. We manage properties near Scarborough Town Centre, the Bluffs, Agincourt & Rouge Valley. 10-15% fees, 9-min response.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sage: #8B9B87;
+            --sage-dark: #6B7B67;
+            --cream: #F8F6F1;
+            --warm-white: #FFFDF9;
+            --charcoal: #2A2A2A;
+            --gold: #C9A961;
+        }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
+        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
+        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.75rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
+
+        .hero { margin-top: 80px; padding: 6rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
+        .hero-container { max-width: 1000px; margin: 0 auto; }
+        .location-badge { display: inline-block; background: var(--sage); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 2rem; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--charcoal); }
+        .hero .highlight { color: var(--sage-dark); }
+        .hero-subtitle { font-size: 1.5rem; color: #666; margin-bottom: 2rem; }
+        .hero-stats { display: flex; justify-content: center; gap: 4rem; margin: 3rem 0; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--sage-dark); }
+        .stat-label { color: #666; font-size: 0.9rem; }
+        .primary-button { background: var(--sage); color: white; padding: 1.25rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
+        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
+
+        .neighborhoods { padding: 6rem 2rem; background: var(--warm-white); }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
+        .section-header .serif-subtitle { font-size: 1.25rem; color: var(--sage-dark); }
+        .neighborhoods-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .neighborhood-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s; border-top: 4px solid var(--sage); }
+        .neighborhood-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 155, 135, 0.15); }
+        .neighborhood-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--charcoal); }
+        .neighborhood-card p { color: #666; margin-bottom: 1rem; line-height: 1.7; }
+        .avg-revenue { background: var(--cream); padding: 1rem; border-radius: 8px; font-weight: 600; color: var(--sage-dark); }
+
+        .opportunity { padding: 6rem 2rem; background: var(--sage-dark); color: white; }
+        .opportunity-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .opportunity h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .opportunity p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 3rem; color: rgba(255, 255, 255, 0.9); line-height: 1.8; }
+        .opportunity-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+        .opp-stat { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; }
+        .opp-stat .number { font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+        .opp-stat .label { color: rgba(255, 255, 255, 0.8); margin-top: 0.5rem; }
+
+        .services { padding: 6rem 2rem; background: var(--cream); }
+        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+        .service-item { background: white; padding: 1.5rem; border-radius: 10px; display: flex; align-items: center; gap: 1rem; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05); }
+        .service-check { color: var(--sage); font-size: 1.5rem; font-weight: 700; }
+
+        .cta-section { padding: 6rem 2rem; background: var(--sage); color: white; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .cta-section p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .cta-section .primary-button { background: white; color: var(--sage-dark); }
+        .cta-section .primary-button:hover { background: var(--cream); }
+
+        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
+        footer p { color: rgba(255, 255, 255, 0.7); }
+        footer a { color: var(--sage); text-decoration: none; }
+
+        @media (max-width: 1024px) {
+            .neighborhoods-grid, .services-grid, .opportunity-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-stats { flex-direction: column; gap: 2rem; }
+            .neighborhoods-grid, .services-grid, .opportunity-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Nurture Stays</a>
+            <a href="tel:647-957-8956" class="cta-button">647-957-8956</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <span class="location-badge">📍 SCARBOROUGH</span>
+            <h1><span class="highlight">Scarborough</span> Airbnb Management</h1>
+            <p class="hero-subtitle serif">From the Bluffs to the Zoo - untapped Airbnb potential</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">$3,200+</div>
+                    <div class="stat-label">Avg Monthly Revenue</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">78%+</div>
+                    <div class="stat-label">Avg Occupancy Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10-15%</div>
+                    <div class="stat-label">Management Fee</div>
+                </div>
+            </div>
+
+            <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+        </div>
+    </section>
+
+    <section class="neighborhoods">
+        <div class="section-header">
+            <h2>Scarborough Neighborhoods We Serve</h2>
+            <p class="serif-subtitle">Diverse communities with unique appeal</p>
+        </div>
+        <div class="neighborhoods-grid">
+            <div class="neighborhood-card">
+                <h3>🏙️ Scarborough Town Centre</h3>
+                <p>Urban hub with the LRT and major shopping. Convenient for business travelers and families visiting the east end of Toronto.</p>
+                <div class="avg-revenue">Avg Revenue: $3,200-$4,200/month</div>
+            </div>
+            <div class="neighborhood-card">
+                <h3>🌊 Scarborough Bluffs</h3>
+                <p>Stunning lakefront cliffs and beaches. Nature lovers and photographers pay premium rates for Bluffs-adjacent properties.</p>
+                <div class="avg-revenue">Avg Revenue: $3,500-$4,800/month</div>
+            </div>
+            <div class="neighborhood-card">
+                <h3>🦁 Toronto Zoo Area</h3>
+                <p>Families visiting the Zoo need nearby accommodation. Strong weekend and summer demand, especially for larger properties.</p>
+                <div class="avg-revenue">Avg Revenue: $3,000-$4,000/month</div>
+            </div>
+            <div class="neighborhood-card">
+                <h3>🥢 Agincourt</h3>
+                <p>Cultural hub with amazing Asian cuisine and markets. Popular with visitors exploring Toronto's diverse food scene.</p>
+                <div class="avg-revenue">Avg Revenue: $2,800-$3,600/month</div>
+            </div>
+            <div class="neighborhood-card">
+                <h3>🌲 Rouge Valley</h3>
+                <p>Gateway to Rouge National Urban Park. Nature enthusiasts and hikers seek properties close to trails and wilderness.</p>
+                <div class="avg-revenue">Avg Revenue: $3,200-$4,200/month</div>
+            </div>
+            <div class="neighborhood-card">
+                <h3>🎓 UTSC Area</h3>
+                <p>University of Toronto Scarborough campus brings students, visiting professors, and families during graduations.</p>
+                <div class="avg-revenue">Avg Revenue: $2,600-$3,400/month</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="opportunity">
+        <div class="opportunity-container">
+            <h2>Scarborough: The Untapped Opportunity</h2>
+            <p>While downtown Toronto is saturated with Airbnbs, Scarborough remains underserved. Fewer listings mean less competition, and unique attractions like the Bluffs, Zoo, and Rouge Park draw visitors year-round. Properties here often outperform expectations.</p>
+            <div class="opportunity-stats">
+                <div class="opp-stat">
+                    <div class="number">40%</div>
+                    <div class="label">Less Competition Than Downtown</div>
+                </div>
+                <div class="opp-stat">
+                    <div class="number">2.7M</div>
+                    <div class="label">Annual Zoo Visitors</div>
+                </div>
+                <div class="opp-stat">
+                    <div class="number">15km</div>
+                    <div class="label">Of Bluffs Shoreline</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="section-header">
+            <h2>Full-Service Scarborough Management</h2>
+            <p class="serif-subtitle">Everything included at 10-15%</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-item"><span class="service-check">✓</span> Dynamic Pricing & Revenue Optimization</div>
+            <div class="service-item"><span class="service-check">✓</span> 24/7 Guest Communication</div>
+            <div class="service-item"><span class="service-check">✓</span> Professional Photography</div>
+            <div class="service-item"><span class="service-check">✓</span> Cleaning & Turnover Coordination</div>
+            <div class="service-item"><span class="service-check">✓</span> Maintenance & Repairs</div>
+            <div class="service-item"><span class="service-check">✓</span> Guest Screening & Verification</div>
+            <div class="service-item"><span class="service-check">✓</span> Supply Restocking (Included)</div>
+            <div class="service-item"><span class="service-check">✓</span> Local Area Guide Creation</div>
+            <div class="service-item"><span class="service-check">✓</span> Transparent Revenue Reporting</div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Own a Scarborough Property?</h2>
+        <p>Get a free analysis showing how much your Bluffs, Town Centre, or Rouge Valley property could earn with Airbnb.</p>
+        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">Free consultation • No obligation • Results in 24 hours</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Nurture Stays | <a href="/">Home</a> | <a href="tel:647-957-8956">647-957-8956</a> | <a href="mailto:hello@nurturestays.ca">hello@nurturestays.ca</a></p>
+        <p style="margin-top: 1rem;">Scarborough Airbnb Management - Scarborough Bluffs, Town Centre, Agincourt, Rouge Valley, Toronto Zoo Area</p>
+    </footer>
+</body>
+</html>
