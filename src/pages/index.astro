@@ -219,21 +219,34 @@
         .primary-button {
             background: var(--primary);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.25rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             transition: all 0.3s;
-            border: 2px solid var(--primary);
-            display: inline-block;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 25px rgba(117, 155, 143, 0.4);
+            cursor: pointer;
+        }
+
+        .primary-button::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s;
         }
 
         .primary-button:hover {
             background: var(--primary-dark);
-            border-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(117, 155, 143, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(117, 155, 143, 0.5);
+        }
+
+        .primary-button:hover::after {
+            transform: translateX(4px);
         }
 
         .secondary-button {
