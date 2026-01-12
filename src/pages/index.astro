@@ -437,6 +437,109 @@
             font-weight: 600;
         }
 
+        /* Comparison Chart */
+        .comparison-chart {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: var(--charcoal);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-header .comparison-feature {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .comparison-header .comparison-nurture {
+            background: var(--primary);
+            padding: 1.25rem 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .comparison-header .comparison-others {
+            padding: 1.25rem 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row:nth-child(odd) {
+            background: rgba(117, 155, 143, 0.03);
+        }
+
+        .comparison-row .comparison-feature {
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+        }
+
+        .comparison-row .comparison-nurture {
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .comparison-row .comparison-nurture.highlight {
+            color: var(--primary-dark);
+        }
+
+        .comparison-row .comparison-others {
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .comparison-row .comparison-others.negative {
+            color: #dc2626;
+        }
+
+        @media (max-width: 600px) {
+            .comparison-header, .comparison-row {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+            .comparison-row .comparison-feature {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            .comparison-row .comparison-nurture,
+            .comparison-row .comparison-others {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.85rem;
+            }
+            .comparison-header .comparison-nurture,
+            .comparison-header .comparison-others {
+                padding: 1rem 0.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
         /* How It Works */
         .how-it-works {
             padding: 6rem 2rem;
@@ -1061,58 +1164,58 @@
         </div>
     </section>
 
-    <!-- Why Choose Us -->
+    <!-- Why Choose Us - Comparison -->
     <section class="why-choose">
         <div class="why-choose-container">
             <div class="section-header">
                 <h2>Why Choose Nurture?</h2>
-                <p class="serif-subtitle">We provide more service at a lower cost</p>
+                <p class="serif-subtitle">See how we compare to other property managers</p>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Lower Fees, Better Service</h3>
-                    <p><span class="benefit-highlight">10-15% management fees</span> while others charge 18-25% for less</p>
+            <div class="comparison-chart">
+                <div class="comparison-header">
+                    <div class="comparison-feature"></div>
+                    <div class="comparison-nurture">Nurture</div>
+                    <div class="comparison-others">Others</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Lightning Fast Response</h3>
-                    <p><span class="benefit-highlight">9-minute average</span> response time means more bookings and happier guests</p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Management Fees</div>
+                    <div class="comparison-nurture highlight">10-15%</div>
+                    <div class="comparison-others negative">18-25%</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🏠</div>
-                    <h3>Locally Owned & Operated</h3>
-                    <p>Based in the GTA, we understand <span class="benefit-highlight">local regulations and market dynamics</span></p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Average Response Time</div>
+                    <div class="comparison-nurture highlight">9 minutes</div>
+                    <div class="comparison-others negative">Hours or days</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📝</div>
-                    <h3>No Long Contracts</h3>
-                    <p><span class="benefit-highlight">30-day notice</span> to cancel - others lock you in for months</p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Contract Terms</div>
+                    <div class="comparison-nurture highlight">30-day notice to cancel</div>
+                    <div class="comparison-others negative">Long-term lock-in</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>You Own Your Listing</h3>
-                    <p>We build <span class="benefit-highlight">YOUR listing</span> - no hostage situations when you leave</p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Listing Ownership</div>
+                    <div class="comparison-nurture highlight">You own your listing</div>
+                    <div class="comparison-others negative">Held hostage</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">👤</div>
-                    <h3>Direct Owner Support</h3>
-                    <p>Text or call us directly - <span class="benefit-highlight">no group chats</span> or low-level staff</p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Support Access</div>
+                    <div class="comparison-nurture highlight">Direct owner contact</div>
+                    <div class="comparison-others negative">Group chats & low-level staff</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📦</div>
-                    <h3>Supply Restocking Included</h3>
-                    <p>All supplies restocked at no extra charge - <span class="benefit-highlight">others charge extra</span></p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Operations</div>
+                    <div class="comparison-nurture highlight">Locally owned in GTA</div>
+                    <div class="comparison-others negative">Virtual assistants</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3>Simple Revenue Reporting</h3>
-                    <p>Clear, transparent reporting - <span class="benefit-highlight">no hidden fees</span> or sneaky charges</p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Revenue Reporting</div>
+                    <div class="comparison-nurture highlight">Simple & transparent</div>
+                    <div class="comparison-others negative">Hidden fees & sneaky charges</div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎓</div>
-                    <h3>Marketing Experts</h3>
-                    <p><span class="benefit-highlight">Years of experience</span> - not virtual assistants like competitors use</p>
+                <div class="comparison-row">
+                    <div class="comparison-feature">Supply Restocking</div>
+                    <div class="comparison-nurture highlight">Included</div>
+                    <div class="comparison-others negative">Extra charges</div>
                 </div>
             </div>
         </div>
