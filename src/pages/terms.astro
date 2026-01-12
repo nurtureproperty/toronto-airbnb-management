@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Terms and Conditions" description="Terms and Conditions for Nurture - Toronto Airbnb Property Management">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Terms and Conditions</h1>
+      <p class="hero-subtitle">SMS Terms & Conditions</p>
+    </div>
+  </section>
+
+  <section class="section terms-section">
+    <div class="container">
+      <div class="terms-content">
+        <p class="intro">This page is owned and maintained by Nurtre Inc. (the company). The use of this page is subject to the following terms and conditions of use which you should read carefully:</p>
+
+        <h2>SMS Communications</h2>
+        <p>Receive appointment reminder and confirmation texts for your real estate services. Messages may include reminders about upcoming appointments, confirmation of scheduled showings, and important updates regarding property listings.</p>
+
+        <p>You can cancel the SMS service at any time. Simply text "STOP" to the shortcode. Upon sending "STOP," we will confirm your unsubscribe status via SMS. Following this confirmation, you will no longer receive SMS messages from us. To rejoin, sign up as you did initially, and we will resume sending SMS messages to you.</p>
+
+        <p>If you experience issues with the messaging program, reply with the keyword HELP for more assistance, or reach out directly to <a href="mailto:info@nurtre.io">info@nurtre.io</a></p>
+
+        <h2>Message and Data Rates</h2>
+        <p>Carriers are not liable for delayed or undelivered messages. As always, message and data rates may apply for messages sent to you from us and to us from you. You will receive appointment reminder and confirmation texts. For questions about your text plan or data plan, contact your wireless provider. For privacy-related inquiries, please refer to our <a href="/privacy-policy/">privacy policy</a>.</p>
+
+        <h2>Intellectual Property</h2>
+        <p>The rights to the designs, pictures, logos, photographs, and content of this site are owned by or licensed to the Company. They are protected by copyright, trademarks, and other intellectual property rights. You may not copy, reproduce, modify, distribute, republish, display, post or transmit any part of this site without the written permission of The Company. You may view or print individual pages only for your own personal use.</p>
+
+        <h2>Liability, Contents, and Advertisements</h2>
+        <p>Although the Company endeavors to ensure that the content on this page is accurate and up-to-date, no representation or warranty, express or implied, is made to its accuracy or completeness. The Company cannot promise that this page will be uninterrupted or entirely error-free; being provided on an 'as available' basis, The Company is not responsible if this page is unavailable for any reason beyond our control.</p>
+
+        <p>The Company will send you details via email and by text message (if the mobile field is completed) and an advisor will contact you for further details.</p>
+
+        <p>The contents of this page should not be construed as professional advice or recommendation of any product or service offered by the companies providing such products or services. The Company aims to provide, as far as is possible, an independent assessment of all products described on this page at all times.</p>
+
+        <p>We do not claim that any advice given on this site should be construed as professional, qualified debt advice; the content on this page should be used for information purposes only and should not be relied upon to make, or refrain from making, any decision; nor to take, or refrain from taking, any action. Any person entering into a contract with any product described on this page does so at their own risk.</p>
+
+        <h2>External Links</h2>
+        <p>The company is in no way responsible for any information provided on any page or resource accessed through external links from the The Company page. The Company has no control over these external sites and resources, and in no way recommends, endorses, or guarantees the validity of any content, information, advertising products, services or other materials provided on any third-party pages or resources.</p>
+
+        <h2>Limitation of Liability</h2>
+        <p>So far as it is permitted by law, The Company including its management and staff disclaims liability for any loss, wasted expenditure, corruption, or destruction of data, howsoever caused, arising directly or indirectly from the use and content of this page or any of the products described on this page.</p>
+
+        <h2>Site Materials</h2>
+        <p>This page contains material that is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</p>
+
+        <h2>Data Protection and Privacy</h2>
+        <p>The Company adheres to the Data Protection code of practice Registration Number: Z3232473</p>
+
+        <h2>Changes to the Terms</h2>
+        <p>The Company may change the site or these terms at any time. If you use the site after the company has changed the terms you will be bound by the new terms.</p>
+
+        <h2>Company Information</h2>
+        <p><strong>Name and Registered Office:</strong> Nurtre Inc.</p>
+        <p>For purposes of quality and training all calls are recorded.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .terms-section {
+    background: var(--color-background);
+  }
+
+  .terms-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .terms-content .intro {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .terms-content h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--color-text);
+  }
+
+  .terms-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .terms-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .terms-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .terms-content a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .terms-content {
+      padding: 1.5rem;
+    }
+  }
+</style>
