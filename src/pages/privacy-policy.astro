@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy" description="Privacy Policy for Nurture - Toronto Airbnb Property Management">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="hero-subtitle">Last updated February 1, 2025</p>
+    </div>
+  </section>
+
+  <section class="section policy-section">
+    <div class="container">
+      <div class="policy-content">
+        <p class="intro">Nurtre Inc.'s business involves marketing and collecting personal information from individuals interested in specific services, then selling this data to clients who provide related services.</p>
+
+        <h2>Definitions</h2>
+        <p>The company operates this website. "You" refers to users completing forms or surveys. "Clients" are businesses purchasing collected information. Personal data includes identifiable information like names, emails, or data that could identify someone in combination with other data.</p>
+
+        <h2>Staying Anonymous</h2>
+        <p>Website browsing is anonymous, though cookies may be collected. Survey participation requires identification.</p>
+
+        <h2>Collection of Data</h2>
+        <p>Information is collected when users provide explicit consent, typically through forms, surveys, or questionnaires. Collected data includes: names, email, phone, address, gender, age, employment status, homeownership details, and borrowing information.</p>
+        <p>Sensitive data (health, religion, ethnicity) is not sought. Financial information like bank details is not collected.</p>
+
+        <h2>Cookies</h2>
+        <p>Cookies are used to recognize users, track preferences, optimize speed, and customize pages. IP address and site usage data may be collected and combined with other information.</p>
+
+        <h2>Use of Data</h2>
+        <p>Personal data is sold to clients for contacting users about relevant products/services. Once transferred, clients control the data per their privacy policies. Usage data is processed for website monitoring and improvement.</p>
+
+        <h2>Storage and Disclosure</h2>
+        <p>Data is securely stored and transferred to clients, potentially across borders. Data is deleted within 31 days. Mobile data isn't shared with third parties for marketing.</p>
+
+        <h2>Minors</h2>
+        <p>No intentional collection of data from persons under 13.</p>
+
+        <h2>Data Rights</h2>
+        <p>Users can:</p>
+        <ul>
+          <li>Request information about processed data</li>
+          <li>Withdraw consent</li>
+          <li>Amend inaccurate data</li>
+          <li>Request deletion</li>
+          <li>Receive data in structured format</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>Email <a href="mailto:info@nurtre.io">info@nurtre.io</a> for requests or concerns.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .policy-section {
+    background: var(--color-background);
+  }
+
+  .policy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .policy-content .intro {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .policy-content h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--color-text);
+  }
+
+  .policy-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .policy-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .policy-content ul {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .policy-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .policy-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .policy-content a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .policy-content {
+      padding: 1.5rem;
+    }
+  }
+</style>
