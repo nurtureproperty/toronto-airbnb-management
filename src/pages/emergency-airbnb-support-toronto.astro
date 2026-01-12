@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const emergencyServices = [
+  { icon: '🚨', title: 'Guest Lockouts', description: 'Immediate assistance when guests are locked out, 24/7 key delivery and smart lock support.' },
+  { icon: '🔧', title: 'Urgent Repairs', description: 'Burst pipes, electrical issues, HVAC failures - our network of contractors responds within hours.' },
+  { icon: '🧹', title: 'Last-Minute Turnovers', description: 'Previous guest overstayed? We handle emergency cleanings with 2-hour response time.' },
+  { icon: '😤', title: 'Difficult Guest Situations', description: 'Noise complaints, unauthorized parties, property damage - we handle it professionally.' },
+  { icon: '📱', title: 'Communication Crises', description: 'Guest disputes, bad review threats, refund demands - expert conflict resolution.' },
+  { icon: '🏥', title: 'Guest Medical Emergencies', description: 'Coordination with emergency services and guest support during medical situations.' }
+];
+
+const responseStats = [
+  { number: '15 min', label: 'Average Response Time' },
+  { number: '24/7', label: 'Support Availability' },
+  { number: '500+', label: 'Emergencies Handled' },
+  { number: '98%', label: 'Resolution Rate' }
+];
+---
+
+<Layout title="Emergency Airbnb Support Toronto" description="24/7 emergency support for Toronto Airbnb hosts. Guest lockouts, urgent repairs, last-minute turnovers, and crisis management. We respond in 15 minutes.">
+  <section class="emergency-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="emergency-badge">24/7 Emergency Support</div>
+        <h1>Toronto Airbnb Emergency Support When You Need It Most</h1>
+        <p>Guest locked out at 2 AM? Pipe burst before check-in? We're your lifeline. Our emergency response team is available around the clock to handle any crisis.</p>
+        <div class="hero-buttons">
+          <a href="tel:+16479578956" class="btn btn-emergency btn-large">📞 Call Now: 647-957-8956</a>
+          <a href="/contact" class="btn btn-secondary btn-large">Request Callback</a>
+        </div>
+        <p class="response-promise">Average response time: 15 minutes</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        {responseStats.map(stat => (
+          <div class="stat-item">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Emergencies We Handle</h2>
+        <p>From minor inconveniences to major crises, we've seen it all and know exactly how to respond.</p>
+      </div>
+      <div class="emergency-grid">
+        {emergencyServices.map(service => (
+          <div class="emergency-card">
+            <span class="emergency-icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How Our Emergency Response Works</h2>
+        <p>A proven process that gets problems solved fast.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>You Contact Us</h3>
+          <p>Call our 24/7 hotline or send an urgent message through our app. We answer immediately.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>We Assess & Act</h3>
+          <p>Our team evaluates the situation and dispatches the right resource - contractor, cleaner, or manager.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Problem Resolved</h3>
+          <p>We handle everything on-site, communicate with guests, and document the resolution.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Follow-Up</h3>
+          <p>You receive a full report. We handle any insurance claims or Airbnb resolution cases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section scenarios-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Emergency Scenarios We've Handled</h2>
+        <p>These situations happen more often than you'd think. Here's how we responded.</p>
+      </div>
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <h3>The 3 AM Lockout</h3>
+          <p><strong>Situation:</strong> International guests arrived at 3 AM, smart lock battery died.</p>
+          <p><strong>Our Response:</strong> Team member on-site in 20 minutes with replacement battery and backup key.</p>
+          <p><strong>Result:</strong> Guests checked in, left a 5-star review praising our "incredible response."</p>
+        </div>
+        <div class="scenario-card">
+          <h3>The Flooded Condo</h3>
+          <p><strong>Situation:</strong> Upstairs neighbor's pipe burst, flooding the unit hours before check-in.</p>
+          <p><strong>Our Response:</strong> Emergency plumber dispatched, guests relocated to partner property, insurance claim filed.</p>
+          <p><strong>Result:</strong> Zero negative reviews, full insurance payout, guests rebooked for future stay.</p>
+        </div>
+        <div class="scenario-card">
+          <h3>The Unauthorized Party</h3>
+          <p><strong>Situation:</strong> Neighbors called about loud party at 11 PM on a Tuesday.</p>
+          <p><strong>Our Response:</strong> On-site manager arrived in 15 minutes, party shut down, security deposit claim initiated.</p>
+          <p><strong>Result:</strong> Neighbors satisfied, property protected, host compensated for damages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Don't Face Emergencies Alone</h2>
+        <p>Join 200+ Toronto hosts who sleep soundly knowing we've got their back 24/7.</p>
+        <div class="cta-buttons">
+          <a href="tel:+16479578956" class="btn btn-large">📞 647-957-8956</a>
+          <a href="/contact" class="btn btn-secondary btn-large">Get Protected Today</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .emergency-hero { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; padding: 8rem 0 6rem; position: relative; }
+  .emergency-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 600; margin-bottom: 1.5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+  .hero-content { max-width: 800px; }
+  .hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
+  .hero-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .btn-emergency { background: white; color: #dc2626; font-weight: 700; }
+  .btn-emergency:hover { background: #fef2f2; transform: translateY(-2px); }
+  .response-promise { font-size: 0.9rem; opacity: 0.8; }
+  .stats-section { background: white; padding: 3rem 0; margin-top: -2rem; position: relative; z-index: 10; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-xl); }
+  .stat-item { text-align: center; }
+  .stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem; }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+  .emergency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .emergency-card { background: white; padding: 2rem; border-radius: 16px; border: 2px solid var(--color-border); transition: all 0.3s ease; }
+  .emergency-card:hover { border-color: #dc2626; box-shadow: var(--shadow-lg); }
+  .emergency-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+  .emergency-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+  .emergency-card p { color: var(--color-text-light); font-size: 0.95rem; }
+  .process-section { background: var(--color-background-alt); }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+  .process-step { text-align: center; padding: 2rem; }
+  .step-number { width: 50px; height: 50px; background: #dc2626; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem; }
+  .process-step h3 { margin-bottom: 0.5rem; }
+  .process-step p { color: var(--color-text-light); font-size: 0.95rem; }
+  .scenarios-section { background: white; }
+  .scenarios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .scenario-card { background: var(--color-background-alt); padding: 2rem; border-radius: 16px; border-left: 4px solid #dc2626; }
+  .scenario-card h3 { margin-bottom: 1rem; color: #dc2626; }
+  .scenario-card p { margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--color-text-light); }
+  .scenario-card strong { color: var(--color-text); }
+  .cta-section { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); padding: 5rem 0; text-align: center; color: white; }
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-section .btn { background: white; color: #dc2626; }
+  .cta-section .btn:hover { background: #fef2f2; }
+  .cta-section .btn-secondary { background: transparent; border: 2px solid white; color: white; }
+  @media (max-width: 968px) { .stats-grid, .process-grid { grid-template-columns: repeat(2, 1fr); } .emergency-grid, .scenarios-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 576px) { .stats-grid, .process-grid { grid-template-columns: 1fr; } .hero-buttons, .cta-buttons { flex-direction: column; } }
+</style>

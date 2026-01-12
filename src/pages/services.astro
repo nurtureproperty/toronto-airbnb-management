@@ -90,12 +90,12 @@ const services = [
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <h3>Essential</h3>
-          <div class="price"><span>15%</span> of booking revenue</div>
+          <h3>Starter</h3>
+          <div class="price"><span>10%</span> of booking revenue</div>
           <ul>
-            <li>✓ Listing optimization</li>
-            <li>✓ Guest communication</li>
-            <li>✓ Dynamic pricing</li>
+            <li>✓ Professional listing creation</li>
+            <li>✓ Dynamic pricing optimization</li>
+            <li>✓ Guest communication (business hours)</li>
             <li>✓ Monthly reporting</li>
           </ul>
           <a href="/contact" class="btn btn-secondary">Get Started</a>
@@ -103,27 +103,16 @@ const services = [
         <div class="pricing-card featured">
           <div class="popular-badge">Most Popular</div>
           <h3>Professional</h3>
-          <div class="price"><span>20%</span> of booking revenue</div>
+          <div class="price"><span>15%</span> of booking revenue</div>
           <ul>
-            <li>✓ Everything in Essential</li>
-            <li>✓ Professional cleaning</li>
-            <li>✓ Maintenance coordination</li>
-            <li>✓ Key management</li>
-            <li>✓ Priority support</li>
+            <li>✓ Everything in Starter</li>
+            <li>✓ 24/7 guest communication</li>
+            <li>✓ Professional cleaning coordination</li>
+            <li>✓ Dedicated account manager</li>
+            <li>✓ Contractor coordination</li>
+            <li>✓ Insurance claim assistance</li>
           </ul>
           <a href="/contact" class="btn btn-primary">Get Started</a>
-        </div>
-        <div class="pricing-card">
-          <h3>Premium</h3>
-          <div class="price"><span>25%</span> of booking revenue</div>
-          <ul>
-            <li>✓ Everything in Professional</li>
-            <li>✓ Interior design consultation</li>
-            <li>✓ Premium amenities</li>
-            <li>✓ Dedicated account manager</li>
-            <li>✓ Revenue guarantee</li>
-          </ul>
-          <a href="/contact" class="btn btn-secondary">Get Started</a>
         </div>
       </div>
     </div>
@@ -142,7 +131,7 @@ const services = [
   .service-features li { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-text-light); }
   .service-features .check { color: var(--color-primary); font-weight: bold; }
   .pricing-section { background: var(--color-background-alt); padding: 5rem 0; }
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 700px; margin: 0 auto; }
   .pricing-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; border: 2px solid var(--color-border); position: relative; }
   .pricing-card.featured { border-color: var(--color-primary); transform: scale(1.05); }
   .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }

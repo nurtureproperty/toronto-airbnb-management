@@ -1,0 +1,30 @@
+NURTURE STAYS BRAND GUIDE
+
+Make sure ALL pages use the same design system:
+
+Colors:
+- Primary color: #759b8f
+- Cream background: #F8F6F1
+- Warm white: #FFFDF9
+- Charcoal text: #2A2A2A
+
+Contact info on every page:
+- Phone: 647-957-8956
+- Address: 140 Simcoe Street, Toronto, ON M5H 4E9
+- Website: nurturestays.ca
+
+Fonts:
+- Headings: Instrument Serif (italic)
+- Body: DM Sans
+
+NAVIGATION:
+- Logo: Nurture Stays (left)
+- Links: Services, How It Works, FAQ
+- CTA Button: Phone number (right)
+
+FOOTER:
+- Company description
+- Contact info (phone, address)
+- Service areas: Toronto, Mississauga, Brampton, etc.
+- Links to Terms & Privacy
+```

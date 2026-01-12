@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  { icon: '📋', title: 'Property Listing', description: 'Professional photography, compelling descriptions, and optimized listings across all major platforms.' },
+  { icon: '💬', title: 'Guest Communication', description: '24/7 guest support, quick response times, and seamless check-in/check-out coordination.' },
+  { icon: '🧹', title: 'Cleaning & Turnover', description: 'Professional cleaning teams ensuring your property is spotless for every guest.' },
+  { icon: '📈', title: 'Dynamic Pricing', description: 'AI-powered pricing strategies to maximize your revenue throughout the year.' },
+  { icon: '🔧', title: 'Maintenance', description: 'Proactive maintenance and rapid response to any issues that arise.' },
+  { icon: '📊', title: 'Reporting', description: 'Detailed monthly reports on performance, revenue, and guest feedback.' }
+];
+
+const stats = [
+  { number: '200+', label: 'Properties Managed' },
+  { number: '50,000+', label: 'Guests Hosted' },
+  { number: '4.9', label: 'Average Rating' },
+  { number: '30%', label: 'Revenue Increase' }
+];
+
+const testimonials = [
+  { quote: 'TorontoBNB transformed my rental property into a consistent income stream. Their team handles everything professionally and my earnings increased by 40%.', author: 'Michael Chen', role: 'Property Owner, Downtown Toronto' },
+  { quote: 'The best decision I made was partnering with TorontoBNB. Their attention to detail and guest communication is exceptional.', author: 'Sarah Williams', role: 'Property Owner, North York' },
+  { quote: 'As someone with multiple properties, I needed a reliable partner. TorontoBNB exceeded all expectations.', author: 'David Park', role: 'Property Investor, Scarborough' }
+];
+---
+
+<Layout title="Home">
+  <section class="home-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Toronto's Premier Airbnb Property Management</h1>
+          <p>Maximize your rental income while we handle everything. From guest communication to cleaning and maintenance, we've got you covered.</p>
+          <div class="hero-buttons">
+            <a href="/contact" class="btn btn-primary btn-large">Get Free Consultation</a>
+            <a href="/services" class="btn btn-secondary btn-large">Our Services</a>
+          </div>
+          <div class="hero-trust"><span>Trusted by 200+ property owners across the GTA</span></div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-card">
+            <div class="image-placeholder"><span>🏙️</span><p>Toronto Skyline</p></div>
+            <div class="hero-badge"><span class="badge-number">4.9</span><span class="badge-label">Average Guest Rating</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        {stats.map(stat => (<div class="stat-item"><span class="stat-number">{stat.number}</span><span class="stat-label">{stat.label}</span></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header"><h2>Full-Service Property Management</h2><p>Everything you need to run a successful Airbnb, handled by our expert team.</p></div>
+      <div class="services-grid">
+        {services.map(service => (<div class="service-card"><span class="service-icon">{service.icon}</span><h3>{service.title}</h3><p>{service.description}</p></div>))}
+      </div>
+      <div class="text-center" style="margin-top: 3rem;"><a href="/services" class="btn btn-primary">View All Services</a></div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content">
+          <h2>Why Toronto Property Owners Choose Us</h2>
+          <ul class="why-list">
+            <li><span class="check-icon">✓</span><div><strong>Local Expertise</strong><p>Deep knowledge of Toronto's neighborhoods and rental market dynamics.</p></div></li>
+            <li><span class="check-icon">✓</span><div><strong>Transparent Pricing</strong><p>No hidden fees. You only pay when you earn.</p></div></li>
+            <li><span class="check-icon">✓</span><div><strong>Technology-Driven</strong><p>Smart pricing, automated messaging, and real-time reporting.</p></div></li>
+            <li><span class="check-icon">✓</span><div><strong>Proven Results</strong><p>Average 30% revenue increase for properties under our management.</p></div></li>
+          </ul>
+        </div>
+        <div class="why-image"><div class="image-placeholder large"><span>📊</span><p>Revenue Dashboard</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header"><h2>What Our Partners Say</h2><p>Hear from property owners who trust us with their investments.</p></div>
+      <div class="testimonials-grid">
+        {testimonials.map(t => (<div class="testimonial-card"><div class="testimonial-quote">"</div><p class="testimonial-text">{t.quote}</p><div class="testimonial-author"><div class="author-avatar">{t.author.charAt(0)}</div><div><strong>{t.author}</strong><span>{t.role}</span></div></div></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content"><h2>Ready to Maximize Your Rental Income?</h2><p>Get a free property assessment and see how much more you could be earning.</p><a href="/contact" class="btn btn-primary btn-large">Get Started Today</a></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .home-hero { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 8rem 0 6rem; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+  .hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
+  .hero-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 500px; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .hero-trust { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
+  .hero-image-card { position: relative; }
+  .image-placeholder { background: linear-gradient(135deg, #475569 0%, #334155 100%); border-radius: 16px; padding: 4rem 2rem; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); }
+  .image-placeholder span { font-size: 5rem; display: block; margin-bottom: 1rem; }
+  .image-placeholder p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+  .image-placeholder.large { padding: 5rem 2rem; }
+  .hero-badge { position: absolute; bottom: -1.5rem; left: -1.5rem; background: white; color: var(--color-text); padding: 1rem 1.5rem; border-radius: 12px; box-shadow: var(--shadow-xl); display: flex; align-items: center; gap: 0.75rem; }
+  .badge-number { font-size: 2rem; font-weight: 700; color: var(--color-primary); }
+  .badge-label { font-size: 0.875rem; color: var(--color-text-light); }
+  .stats-section { background: white; padding: 3rem 0; margin-top: -2rem; position: relative; z-index: 10; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-xl); }
+  .stat-item { text-align: center; padding: 1rem; }
+  .stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem; }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .service-card { background: white; padding: 2rem; border-radius: 16px; border: 1px solid var(--color-border); transition: all 0.3s ease; }
+  .service-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .service-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+  .service-card p { color: var(--color-text-light); font-size: 0.95rem; }
+  .why-section { background: var(--color-background-alt); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .why-content h2 { margin-bottom: 2rem; }
+  .why-list { list-style: none; padding: 0; margin: 0; }
+  .why-list li { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .check-icon { width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 700; }
+  .why-list strong { display: block; margin-bottom: 0.25rem; font-size: 1.1rem; }
+  .why-list p { color: var(--color-text-light); margin: 0; }
+  .testimonials-section { background: white; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .testimonial-card { background: var(--color-background-alt); padding: 2rem; border-radius: 16px; }
+  .testimonial-quote { font-size: 4rem; color: var(--color-primary); line-height: 1; margin-bottom: 0.5rem; font-family: Georgia, serif; }
+  .testimonial-text { color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.7; }
+  .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+  .author-avatar { width: 48px; height: 48px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.25rem; }
+  .testimonial-author strong { display: block; font-size: 1rem; }
+  .testimonial-author span { color: var(--color-text-muted); font-size: 0.875rem; }
+  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; }
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); transform: translateY(-2px); }
+  @media (max-width: 968px) { .hero-grid, .why-grid { grid-template-columns: 1fr; gap: 3rem; } .hero-image { order: -1; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .services-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 576px) { .home-hero { padding: 6rem 0 4rem; } .hero-buttons { flex-direction: column; } .hero-buttons .btn { width: 100%; } .stats-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; } .hero-badge { position: relative; bottom: auto; left: auto; margin-top: 1rem; display: inline-flex; } }
+</style>

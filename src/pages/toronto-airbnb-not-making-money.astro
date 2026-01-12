@@ -1,0 +1,307 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const commonProblems = [
+  { icon: '📉', title: 'Low Occupancy Rate', description: 'Empty nights eating into your profits. Toronto averages 65-75% occupancy - are you hitting that?', solution: 'Dynamic pricing and multi-platform listing to fill gaps' },
+  { icon: '💰', title: 'Pricing Too Low (or High)', description: 'Leaving money on the table or scaring away bookings with wrong pricing.', solution: 'AI-powered pricing that adjusts daily based on demand' },
+  { icon: '📸', title: 'Poor Listing Quality', description: 'Bad photos, weak descriptions, missing amenities in your listing.', solution: 'Professional photography and optimized copy that converts' },
+  { icon: '⭐', title: 'Bad Reviews Hurting You', description: 'A few negative reviews tanking your search ranking and bookings.', solution: 'Proactive guest experience management and review recovery' },
+  { icon: '🧹', title: 'High Turnover Costs', description: 'Cleaning and supplies eating all your profit margins.', solution: 'Efficient cleaning teams and bulk supply purchasing' },
+  { icon: '😫', title: 'Burnout From Self-Managing', description: 'Spending 20+ hours a week and still not profitable.', solution: 'Let us handle everything while you collect passive income' }
+];
+
+const caseStudies = [
+  {
+    title: 'Downtown Condo: From $1,200 to $3,400/month',
+    before: { revenue: '$1,200', occupancy: '35%', rating: '4.2', issues: 'Poor photos, inconsistent pricing, slow responses' },
+    after: { revenue: '$3,400', occupancy: '78%', rating: '4.9', changes: 'New photos, dynamic pricing, 24/7 guest support' },
+    timeframe: '3 months'
+  },
+  {
+    title: 'North York House: Breaking Even to $2,800 Profit',
+    before: { revenue: '$1,800', occupancy: '45%', rating: '4.0', issues: 'Cleaning issues, bad reviews, only on Airbnb' },
+    after: { revenue: '$4,200', occupancy: '72%', rating: '4.8', changes: 'Professional cleaning, multi-platform, guest screening' },
+    timeframe: '4 months'
+  },
+  {
+    title: 'Yorkville Luxury: $4,500 to $7,200/month',
+    before: { revenue: '$4,500', occupancy: '50%', rating: '4.5', issues: 'Underpriced, missing luxury market positioning' },
+    after: { revenue: '$7,200', occupancy: '68%', rating: '4.95', changes: 'Premium positioning, luxury amenities, concierge service' },
+    timeframe: '2 months'
+  }
+];
+
+const warningSignals = [
+  'Your occupancy is below 60%',
+  'You haven\'t raised prices in 6+ months',
+  'Your listing has fewer than 20 reviews',
+  'You\'re only listed on one platform',
+  'Guest messages stress you out',
+  'You\'ve had 2+ negative reviews recently',
+  'Cleaning costs are over $100/turnover',
+  'You\'re spending 10+ hours/week managing'
+];
+---
+
+<Layout title="Toronto Airbnb Not Making Money? We Can Fix That" description="Is your Toronto Airbnb underperforming? Low occupancy, bad reviews, pricing problems? See how we've helped hosts turn struggling properties into profitable rentals.">
+  <section class="problem-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Your Toronto Airbnb Isn't Making Money. Let's Fix That.</h1>
+        <p>You bought a property expecting passive income. Instead, you're stressed, overworked, and barely breaking even. Sound familiar?</p>
+        <p class="hero-subtitle">You're not alone. 60% of Toronto Airbnb hosts underperform the market. But it doesn't have to be that way.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free Property Analysis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section warning-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Warning Signs Your Airbnb Is Underperforming</h2>
+        <p>How many of these apply to you?</p>
+      </div>
+      <div class="warning-grid">
+        {warningSignals.map((signal, index) => (
+          <div class="warning-item">
+            <span class="warning-number">{index + 1}</span>
+            <span class="warning-text">{signal}</span>
+          </div>
+        ))}
+      </div>
+      <div class="warning-cta">
+        <p>If 3 or more apply, you're leaving thousands on the table every month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section problems-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Most Toronto Airbnbs Fail to Profit</h2>
+        <p>And exactly how we solve each problem.</p>
+      </div>
+      <div class="problems-grid">
+        {commonProblems.map(problem => (
+          <div class="problem-card">
+            <span class="problem-icon">{problem.icon}</span>
+            <h3>{problem.title}</h3>
+            <p class="problem-desc">{problem.description}</p>
+            <div class="solution">
+              <span class="solution-label">Our Solution:</span>
+              <p>{problem.solution}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section case-studies-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Toronto Properties We've Turned Around</h2>
+        <p>These hosts were struggling. Now they're thriving.</p>
+      </div>
+      <div class="case-studies-grid">
+        {caseStudies.map(study => (
+          <div class="case-study-card">
+            <h3>{study.title}</h3>
+            <div class="case-study-comparison">
+              <div class="before">
+                <span class="label">Before</span>
+                <div class="stat"><strong>{study.before.revenue}</strong>/month</div>
+                <div class="stat">{study.before.occupancy} occupancy</div>
+                <div class="stat">{study.before.rating} rating</div>
+                <p class="issues">{study.before.issues}</p>
+              </div>
+              <div class="arrow">→</div>
+              <div class="after">
+                <span class="label">After {study.timeframe}</span>
+                <div class="stat"><strong>{study.after.revenue}</strong>/month</div>
+                <div class="stat">{study.after.occupancy} occupancy</div>
+                <div class="stat">{study.after.rating} rating</div>
+                <p class="changes">{study.after.changes}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section calculator-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What You're Really Losing Each Month</h2>
+        <p>Let's do the math on your underperformance.</p>
+      </div>
+      <div class="loss-calculator">
+        <div class="calc-row">
+          <span class="calc-label">Average Toronto 1BR market rate</span>
+          <span class="calc-value">$3,200/month</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">If you're earning</span>
+          <span class="calc-value">$1,800/month</span>
+        </div>
+        <div class="calc-row loss">
+          <span class="calc-label">Monthly loss</span>
+          <span class="calc-value">-$1,400</span>
+        </div>
+        <div class="calc-row loss-total">
+          <span class="calc-label">Annual loss</span>
+          <span class="calc-value">-$16,800</span>
+        </div>
+        <p class="calc-note">This is money you should be earning but aren't. How long will you wait to fix it?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How We'll Turn Your Property Around</h2>
+        <p>A proven process that works in 30-90 days.</p>
+      </div>
+      <div class="turnaround-process">
+        <div class="process-step">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Free Property Audit</h3>
+          </div>
+          <p>We analyze your listing, pricing, reviews, and competition. You'll get a detailed report showing exactly what's wrong and how to fix it.</p>
+          <span class="timeline">Day 1</span>
+        </div>
+        <div class="process-step">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Listing Overhaul</h3>
+          </div>
+          <p>Professional photos, rewritten descriptions, optimized amenities, and multi-platform distribution. Your listing will look completely different.</p>
+          <span class="timeline">Week 1-2</span>
+        </div>
+        <div class="process-step">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Pricing Optimization</h3>
+          </div>
+          <p>We implement dynamic pricing based on Toronto market data, events, seasonality, and competitor analysis. Prices adjust daily.</p>
+          <span class="timeline">Week 2</span>
+        </div>
+        <div class="process-step">
+          <div class="step-header">
+            <span class="step-number">4</span>
+            <h3>Operations Excellence</h3>
+          </div>
+          <p>Professional cleaning teams, 24/7 guest support, and proactive maintenance. Every guest gets a 5-star experience.</p>
+          <span class="timeline">Week 3+</span>
+        </div>
+        <div class="process-step">
+          <div class="step-header">
+            <span class="step-number">5</span>
+            <h3>Continuous Improvement</h3>
+          </div>
+          <p>Monthly reviews, A/B testing, review management, and market adjustments. Your property keeps getting better.</p>
+          <span class="timeline">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-card">
+        <h2>Our Performance Promise</h2>
+        <p>If we don't increase your revenue within 90 days, you can walk away - no questions asked. We only win when you win.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Let's Talk About Your Property</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Stop Losing Money Every Month</h2>
+        <p>Get your free property analysis and see exactly what's possible.</p>
+        <div class="cta-benefits">
+          <span>✓ Free, no-obligation audit</span>
+          <span>✓ Custom revenue projection</span>
+          <span>✓ Actionable recommendations</span>
+        </div>
+        <a href="/contact" class="btn btn-primary btn-large">Get Your Free Analysis</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .problem-hero { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 8rem 0 6rem; }
+  .hero-content { max-width: 800px; }
+  .hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
+  .hero-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 1rem; }
+  .hero-subtitle { font-size: 1.1rem !important; margin-bottom: 2rem !important; }
+  .warning-section { background: #fef2f2; }
+  .warning-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .warning-item { display: flex; align-items: center; gap: 1rem; background: white; padding: 1rem 1.5rem; border-radius: 12px; border-left: 4px solid #dc2626; }
+  .warning-number { width: 28px; height: 28px; background: #dc2626; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .warning-text { font-size: 0.95rem; color: var(--color-text); }
+  .warning-cta { text-align: center; }
+  .warning-cta p { font-size: 1.25rem; font-weight: 600; color: #dc2626; }
+  .problems-section { background: white; }
+  .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .problem-card { background: var(--color-background-alt); padding: 2rem; border-radius: 16px; }
+  .problem-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+  .problem-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+  .problem-desc { color: var(--color-text-light); margin-bottom: 1.5rem; font-size: 0.95rem; }
+  .solution { background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--color-primary); }
+  .solution-label { font-weight: 600; color: var(--color-primary); font-size: 0.85rem; display: block; margin-bottom: 0.25rem; }
+  .solution p { margin: 0; font-size: 0.9rem; color: var(--color-text); }
+  .case-studies-section { background: var(--color-background-alt); }
+  .case-studies-grid { display: grid; gap: 2rem; }
+  .case-study-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-md); }
+  .case-study-card h3 { margin-bottom: 1.5rem; font-size: 1.35rem; }
+  .case-study-comparison { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; }
+  .before, .after { padding: 1.5rem; border-radius: 12px; }
+  .before { background: #fef2f2; }
+  .after { background: #f0fdf4; }
+  .label { display: block; font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem; }
+  .before .label { color: #991b1b; }
+  .after .label { color: #166534; }
+  .stat { margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .stat strong { font-size: 1.25rem; }
+  .issues { color: #991b1b; font-size: 0.85rem; margin-top: 1rem; margin-bottom: 0; }
+  .changes { color: #166534; font-size: 0.85rem; margin-top: 1rem; margin-bottom: 0; }
+  .arrow { font-size: 2rem; color: var(--color-primary); font-weight: bold; }
+  .calculator-section { background: white; }
+  .loss-calculator { max-width: 500px; margin: 0 auto; background: var(--color-background-alt); border-radius: 16px; padding: 2rem; }
+  .calc-row { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+  .calc-row:last-of-type { border-bottom: none; }
+  .calc-label { color: var(--color-text-light); }
+  .calc-value { font-weight: 600; }
+  .calc-row.loss { color: #dc2626; }
+  .calc-row.loss-total { background: #fef2f2; margin: 1rem -2rem -2rem; padding: 1.5rem 2rem; border-radius: 0 0 16px 16px; }
+  .calc-row.loss-total .calc-value { font-size: 1.5rem; }
+  .calc-note { text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text); font-weight: 500; }
+  .process-section { background: var(--color-background-alt); }
+  .turnaround-process { max-width: 700px; margin: 0 auto; }
+  .process-step { background: white; padding: 2rem; border-radius: 16px; margin-bottom: 1rem; position: relative; }
+  .step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .step-number { width: 40px; height: 40px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
+  .step-header h3 { margin: 0; }
+  .process-step p { color: var(--color-text-light); margin: 0; }
+  .timeline { position: absolute; right: 2rem; top: 2rem; background: var(--color-primary-light); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+  .guarantee-section { padding: 5rem 0; }
+  .guarantee-card { background: linear-gradient(135deg, var(--color-secondary) 0%, #047857 100%); color: white; padding: 4rem; border-radius: 24px; text-align: center; max-width: 800px; margin: 0 auto; }
+  .guarantee-card h2 { margin-bottom: 1rem; }
+  .guarantee-card p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem; }
+  .guarantee-card .btn { background: white; color: var(--color-secondary); }
+  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; }
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 1.5rem; }
+  .cta-benefits { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .cta-benefits span { opacity: 0.9; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  @media (max-width: 968px) { .warning-grid { grid-template-columns: repeat(2, 1fr); } .problems-grid { grid-template-columns: 1fr; } .case-study-comparison { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); justify-self: center; } }
+  @media (max-width: 576px) { .warning-grid { grid-template-columns: 1fr; } .cta-benefits { flex-direction: column; gap: 0.5rem; } }
+</style>

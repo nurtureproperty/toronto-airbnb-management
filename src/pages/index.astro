@@ -1,151 +1,1170 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-const services = [
-  { icon: '📋', title: 'Property Listing', description: 'Professional photography, compelling descriptions, and optimized listings across all major platforms.' },
-  { icon: '💬', title: 'Guest Communication', description: '24/7 guest support, quick response times, and seamless check-in/check-out coordination.' },
-  { icon: '🧹', title: 'Cleaning & Turnover', description: 'Professional cleaning teams ensuring your property is spotless for every guest.' },
-  { icon: '📈', title: 'Dynamic Pricing', description: 'AI-powered pricing strategies to maximize your revenue throughout the year.' },
-  { icon: '🔧', title: 'Maintenance', description: 'Proactive maintenance and rapid response to any issues that arise.' },
-  { icon: '📊', title: 'Reporting', description: 'Detailed monthly reports on performance, revenue, and guest feedback.' }
-];
-
-const stats = [
-  { number: '200+', label: 'Properties Managed' },
-  { number: '50,000+', label: 'Guests Hosted' },
-  { number: '4.9', label: 'Average Rating' },
-  { number: '30%', label: 'Revenue Increase' }
-];
-
-const testimonials = [
-  { quote: 'TorontoBNB transformed my rental property into a consistent income stream. Their team handles everything professionally and my earnings increased by 40%.', author: 'Michael Chen', role: 'Property Owner, Downtown Toronto' },
-  { quote: 'The best decision I made was partnering with TorontoBNB. Their attention to detail and guest communication is exceptional.', author: 'Sarah Williams', role: 'Property Owner, North York' },
-  { quote: 'As someone with multiple properties, I needed a reliable partner. TorontoBNB exceeded all expectations.', author: 'David Park', role: 'Property Investor, Scarborough' }
-];
+// Nurture Stays - Modern Astro Homepage
 ---
 
-<Layout title="Home">
-  <section class="home-hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h1>Toronto's Premier Airbnb Property Management</h1>
-          <p>Maximize your rental income while we handle everything. From guest communication to cleaning and maintenance, we've got you covered.</p>
-          <div class="hero-buttons">
-            <a href="/contact" class="btn btn-primary btn-large">Get Free Consultation</a>
-            <a href="/services" class="btn btn-secondary btn-large">Our Services</a>
-          </div>
-          <div class="hero-trust"><span>Trusted by 200+ property owners across the GTA</span></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurture Stays - Premium Airbnb Management in Toronto | Earn 30-100% More</title>
+    <meta name="description" content="Expert Airbnb management in the Greater Toronto Area. 4.9★ rating, 9-minute response time, 10-15% fees. Turn your property into passive income.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #759b8f;
+            --primary-dark: #5a7d73;
+            --accent: #d4a373;
+            --cream: #F8F6F1;
+            --warm-white: #FFFDF9;
+            --charcoal: #2A2A2A;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 241, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(117, 155, 143, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(117, 155, 143, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content .highlight {
+            color: var(--primary-dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .primary-button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .primary-button:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(117, 155, 143, 0.3);
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--charcoal);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            border: 2px solid var(--charcoal);
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            background: var(--charcoal);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.4s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .trust-badge {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out 1.2s both;
+        }
+
+        .trust-badge .stars {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-badge .rating {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+
+        .trust-badge .label {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 6rem 2rem;
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .case-study-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .case-study h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .case-study .subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 4rem;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .before, .after {
+            padding: 2rem;
+        }
+
+        .before h3, .after h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .financial-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.125rem;
+        }
+
+        .financial-line:last-child {
+            border-bottom: none;
+            padding-top: 1.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .negative {
+            color: #FFB3B3;
+        }
+
+        .positive {
+            color: #B3FFB3;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        .increase {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 6rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .why-choose-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .section-header .serif-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid rgba(117, 155, 143, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(117, 155, 143, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .benefit-highlight {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .steps-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step {
+            position: relative;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(117, 155, 143, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .service-item {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+
+        .service-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(117, 155, 143, 0.2);
+        }
+
+        .service-check {
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .service-item span {
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px var(--shadow);
+        }
+
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-question::before {
+            content: 'Q';
+            background: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+            padding-left: 3rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .primary-button {
+            background: white;
+            color: var(--primary-dark);
+            border-color: white;
+        }
+
+        .cta-section .primary-button:hover {
+            background: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-info a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .stat {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .case-study h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="/images/logo.png" alt="Nurture" class="logo-img" /></a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="tel:647-957-8956" class="cta-button">647-957-8956</a>
+            <button class="mobile-menu-button">☰</button>
         </div>
-        <div class="hero-image">
-          <div class="hero-image-card">
-            <div class="image-placeholder"><span>🏙️</span><p>Toronto Skyline</p></div>
-            <div class="hero-badge"><span class="badge-number">4.9</span><span class="badge-label">Average Guest Rating</span></div>
-          </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Earn <span class="highlight">30-100% More</span> by Switching to Airbnb</h1>
+                <p class="hero-subtitle serif">Premium Airbnb management in the Greater Toronto Area</p>
+                <p class="hero-description">
+                    We help GTA homeowners maximize their rental income through expert Airbnb management. 
+                    From listing optimization to guest communication, we handle everything while you collect rent stress-free.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4.9★</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">9min</span>
+                        <span class="stat-label">Response Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10-15%</span>
+                        <span class="stat-label">Management Fee</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="tel:647-957-8956" class="primary-button">Book Free Consultation</a>
+                    <a href="#how-it-works" class="secondary-button">How It Works</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Luxury Toronto Airbnb">
+                <div class="trust-badge">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="rating">4.9/5</div>
+                    <div class="label">Airbnb Rating</div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        {stats.map(stat => (<div class="stat-item"><span class="stat-number">{stat.number}</span><span class="stat-label">{stat.label}</span></div>))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header"><h2>Full-Service Property Management</h2><p>Everything you need to run a successful Airbnb, handled by our expert team.</p></div>
-      <div class="services-grid">
-        {services.map(service => (<div class="service-card"><span class="service-icon">{service.icon}</span><h3>{service.title}</h3><p>{service.description}</p></div>))}
-      </div>
-      <div class="text-center" style="margin-top: 3rem;"><a href="/services" class="btn btn-primary">View All Services</a></div>
-    </div>
-  </section>
-
-  <section class="section why-section">
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-content">
-          <h2>Why Toronto Property Owners Choose Us</h2>
-          <ul class="why-list">
-            <li><span class="check-icon">✓</span><div><strong>Local Expertise</strong><p>Deep knowledge of Toronto's neighborhoods and rental market dynamics.</p></div></li>
-            <li><span class="check-icon">✓</span><div><strong>Transparent Pricing</strong><p>No hidden fees. You only pay when you earn.</p></div></li>
-            <li><span class="check-icon">✓</span><div><strong>Technology-Driven</strong><p>Smart pricing, automated messaging, and real-time reporting.</p></div></li>
-            <li><span class="check-icon">✓</span><div><strong>Proven Results</strong><p>Average 30% revenue increase for properties under our management.</p></div></li>
-          </ul>
+    <!-- Case Study -->
+    <section class="case-study">
+        <div class="case-study-container">
+            <h2>Real Results from Real Clients</h2>
+            <p class="subtitle">1-Bedroom Condo in Toronto</p>
+            <div class="comparison">
+                <div class="before">
+                    <h3>BEFORE Nurture Stays</h3>
+                    <div class="financial-line">
+                        <span>Long-term Rent</span>
+                        <span>$2,200</span>
+                    </div>
+                    <div class="financial-line">
+                        <span>Mortgage</span>
+                        <span class="negative">-$2,400</span>
+                    </div>
+                    <div class="financial-line">
+                        <span>Maintenance & Tax</span>
+                        <span class="negative">-$726</span>
+                    </div>
+                    <div class="financial-line">
+                        <span>Monthly Cashflow</span>
+                        <span class="negative">-$926</span>
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="after">
+                    <h3>AFTER Nurture Stays</h3>
+                    <div class="financial-line">
+                        <span>Airbnb Revenue (after fees)</span>
+                        <span class="positive">$4,123</span>
+                    </div>
+                    <div class="financial-line">
+                        <span>Mortgage, Maint, Tax</span>
+                        <span class="negative">-$3,126</span>
+                    </div>
+                    <div class="financial-line">
+                        <span>Internet & Utilities</span>
+                        <span class="negative">-$150</span>
+                    </div>
+                    <div class="financial-line">
+                        <span>Monthly Cashflow</span>
+                        <span class="positive">+$847</span>
+                    </div>
+                </div>
+            </div>
+            <div class="increase">87% Increase in First Month</div>
         </div>
-        <div class="why-image"><div class="image-placeholder large"><span>📊</span><p>Revenue Dashboard</p></div></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section testimonials-section">
-    <div class="container">
-      <div class="section-header"><h2>What Our Partners Say</h2><p>Hear from property owners who trust us with their investments.</p></div>
-      <div class="testimonials-grid">
-        {testimonials.map(t => (<div class="testimonial-card"><div class="testimonial-quote">"</div><p class="testimonial-text">{t.quote}</p><div class="testimonial-author"><div class="author-avatar">{t.author.charAt(0)}</div><div><strong>{t.author}</strong><span>{t.role}</span></div></div></div>))}
-      </div>
-    </div>
-  </section>
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <div class="section-header">
+                <h2>Why Choose Nurture Stays?</h2>
+                <p class="serif-subtitle">We provide more service at a lower cost</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Lower Fees, Better Service</h3>
+                    <p><span class="benefit-highlight">10-15% management fees</span> while others charge 18-25% for less</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Lightning Fast Response</h3>
+                    <p><span class="benefit-highlight">9-minute average</span> response time means more bookings and happier guests</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏠</div>
+                    <h3>Locally Owned & Operated</h3>
+                    <p>Based in the GTA, we understand <span class="benefit-highlight">local regulations and market dynamics</span></p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📝</div>
+                    <h3>No Long Contracts</h3>
+                    <p><span class="benefit-highlight">30-day notice</span> to cancel - others lock you in for months</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>You Own Your Listing</h3>
+                    <p>We build <span class="benefit-highlight">YOUR listing</span> - no hostage situations when you leave</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👤</div>
+                    <h3>Direct Owner Support</h3>
+                    <p>Text or call us directly - <span class="benefit-highlight">no group chats</span> or low-level staff</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📦</div>
+                    <h3>Supply Restocking Included</h3>
+                    <p>All supplies restocked at no extra charge - <span class="benefit-highlight">others charge extra</span></p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Simple Revenue Reporting</h3>
+                    <p>Clear, transparent reporting - <span class="benefit-highlight">no hidden fees</span> or sneaky charges</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>Marketing Experts</h3>
+                    <p><span class="benefit-highlight">Years of experience</span> - not virtual assistants like competitors use</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content"><h2>Ready to Maximize Your Rental Income?</h2><p>Get a free property assessment and see how much more you could be earning.</p><a href="/contact" class="btn btn-primary btn-large">Get Started Today</a></div>
-    </div>
-  </section>
-</Layout>
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="steps-container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p class="serif-subtitle">Three simple steps to earning more</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Book Your Consultation</h3>
+                    <p>See how much comparable properties are making and understand how short-term rental works in the GTA</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Listed</h3>
+                    <p>We handle deep cleaning, staging, professional photos, and create your listing on multiple platforms</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Earn Passive Income</h3>
+                    <p>Get your first booking within 1 week on average while we handle guests and you collect rent!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<style>
-  .home-hero { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 8rem 0 6rem; position: relative; overflow: hidden; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
-  .hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
-  .hero-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 500px; }
-  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-  .hero-trust { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
-  .hero-image-card { position: relative; }
-  .image-placeholder { background: linear-gradient(135deg, #475569 0%, #334155 100%); border-radius: 16px; padding: 4rem 2rem; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); }
-  .image-placeholder span { font-size: 5rem; display: block; margin-bottom: 1rem; }
-  .image-placeholder p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
-  .image-placeholder.large { padding: 5rem 2rem; }
-  .hero-badge { position: absolute; bottom: -1.5rem; left: -1.5rem; background: white; color: var(--color-text); padding: 1rem 1.5rem; border-radius: 12px; box-shadow: var(--shadow-xl); display: flex; align-items: center; gap: 0.75rem; }
-  .badge-number { font-size: 2rem; font-weight: 700; color: var(--color-primary); }
-  .badge-label { font-size: 0.875rem; color: var(--color-text-light); }
-  .stats-section { background: white; padding: 3rem 0; margin-top: -2rem; position: relative; z-index: 10; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-xl); }
-  .stat-item { text-align: center; padding: 1rem; }
-  .stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem; }
-  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .service-card { background: white; padding: 2rem; border-radius: 16px; border: 1px solid var(--color-border); transition: all 0.3s ease; }
-  .service-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-  .service-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
-  .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
-  .service-card p { color: var(--color-text-light); font-size: 0.95rem; }
-  .why-section { background: var(--color-background-alt); }
-  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .why-content h2 { margin-bottom: 2rem; }
-  .why-list { list-style: none; padding: 0; margin: 0; }
-  .why-list li { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-  .check-icon { width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 700; }
-  .why-list strong { display: block; margin-bottom: 0.25rem; font-size: 1.1rem; }
-  .why-list p { color: var(--color-text-light); margin: 0; }
-  .testimonials-section { background: white; }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .testimonial-card { background: var(--color-background-alt); padding: 2rem; border-radius: 16px; }
-  .testimonial-quote { font-size: 4rem; color: var(--color-primary); line-height: 1; margin-bottom: 0.5rem; font-family: Georgia, serif; }
-  .testimonial-text { color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.7; }
-  .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-  .author-avatar { width: 48px; height: 48px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.25rem; }
-  .testimonial-author strong { display: block; font-size: 1rem; }
-  .testimonial-author span { color: var(--color-text-muted); font-size: 0.875rem; }
-  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; }
-  .cta-content h2 { margin-bottom: 1rem; }
-  .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .cta-section .btn { background: white; color: var(--color-primary); }
-  .cta-section .btn:hover { background: var(--color-background-alt); transform: translateY(-2px); }
-  @media (max-width: 968px) { .hero-grid, .why-grid { grid-template-columns: 1fr; gap: 3rem; } .hero-image { order: -1; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .services-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 576px) { .home-hero { padding: 6rem 0 4rem; } .hero-buttons { flex-direction: column; } .hero-buttons .btn { width: 100%; } .stats-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; } .hero-badge { position: relative; bottom: auto; left: auto; margin-top: 1rem; display: inline-flex; } }
-</style>
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>Complete Property Management</h2>
+                <p class="serif-subtitle">Everything you need, all included</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Dynamic Pricing & Revenue Optimization</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Cleaning & Turnover Coordination</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Maintenance & Repair Coordination</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Guest Screening & Verification</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>24/7 Guest Booking & Support</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Marketing & Direct Bookings</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Supply Restocking & Inventory</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>On-Site Support When Needed</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Transparent Revenue Reporting</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Property Optimization & Design</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Listing SEO & Optimization</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-check">✓</span>
+                    <span>Professional Photography</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How much are your management fees?</div>
+                <div class="faq-answer">Our fees range from 10% to 15% depending on whether you want partial or full service. This is significantly lower than competitors who charge 18-25%.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Will I make more with short-term rental vs long-term rental?</div>
+                <div class="faq-answer">We have never had any clients make less with short and mid-term rental vs long-term rental. Most see 30-100% increases in monthly revenue.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How long does it take to get my property listed?</div>
+                <div class="faq-answer">The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What cities do you operate in?</div>
+                <div class="faq-answer">We operate in any city within Southern Ontario, Canada. This includes the Greater Toronto Area and surrounding cities.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Does my property qualify for short-term rental?</div>
+                <div class="faq-answer">Each municipality in the Greater Toronto Area has its own set of rules. Each building also has its own set of rules. To check, you can visit your local municipality website. Many cities in Ontario do require registration for short-term rental, however many do NOT have any rules around mid-term rentals.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I have to sign a lengthy contract?</div>
+                <div class="faq-answer">No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Are there any startup costs?</div>
+                <div class="faq-answer">No. We only get paid on commission. We make money when you make money.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Who owns the listing on Airbnb?</div>
+                <div class="faq-answer">You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Maximize Your Rental Income?</h2>
+        <p>Book a free consultation to see how much your property can earn with Airbnb</p>
+        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo"><img src="/images/logo.png" alt="Nurture" class="footer-logo-img" /></a>
+                <p>Premium Airbnb management in the Greater Toronto Area. We help homeowners earn 30-100% more through expert short-term rental management.</p>
+                <div class="contact-info">
+                    <a href="tel:647-957-8956">📞 647-957-8956</a>
+                    <a href="mailto:hello@nurturestays.ca">✉️ hello@nurturestays.ca</a>
+                    <span>📍 140 Simcoe Street, Toronto, ON M5H 4E9</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Property Management</a></li>
+                    <li><a href="#services">Revenue Optimization</a></li>
+                    <li><a href="#services">Guest Services</a></li>
+                    <li><a href="#services">Listing Optimization</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="tel:647-957-8956">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li>Toronto</li>
+                    <li>Mississauga</li>
+                    <li>Brampton</li>
+                    <li>Markham</li>
+                    <li>Vaughan</li>
+                    <li>+ All GTA</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Nurture Stays. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

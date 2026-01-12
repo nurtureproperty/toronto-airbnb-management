@@ -1,15 +1,24 @@
 :root {
-  --color-primary: #FF5A5F;
-  --color-primary-dark: #E04950;
-  --color-primary-light: #FFF1F2;
-  --color-secondary: #00A699;
-  --color-text: #222222;
-  --color-text-light: #484848;
-  --color-text-muted: #767676;
-  --color-background: #FFFFFF;
-  --color-background-alt: #F7F7F7;
-  --color-dark: #1E293B;
-  --color-border: #EBEBEB;
+  /* Nurture Stays Brand Colors */
+  --color-primary: #759b8f;
+  --color-primary-dark: #5a7d73;
+  --color-primary-light: #e8f0ee;
+  --color-accent: #d4a373;
+  --color-accent-dark: #b8896a;
+  --color-cream: #F8F6F1;
+  --color-warm-white: #FFFDF9;
+  --color-charcoal: #2A2A2A;
+
+  /* Mapped colors */
+  --color-secondary: var(--color-accent);
+  --color-text: var(--color-charcoal);
+  --color-text-light: #4a4a4a;
+  --color-text-muted: #6b7b67;
+  --color-background: var(--color-warm-white);
+  --color-background-alt: var(--color-cream);
+  --color-dark: var(--color-charcoal);
+  --color-border: #e0ddd5;
+
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -29,7 +38,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-background);
@@ -47,8 +56,10 @@ input, button, textarea, select {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h1 {
@@ -232,7 +243,7 @@ main {
 
 /* Hero Styles */
 .hero {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   color: white;
   padding: 6rem 0;
   position: relative;

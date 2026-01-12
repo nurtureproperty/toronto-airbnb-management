@@ -1,0 +1,278 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pricingTiers = [
+  {
+    name: 'Starter',
+    rate: '10%',
+    description: 'Perfect for hands-on hosts who want listing optimization and booking support.',
+    features: [
+      'Professional listing creation',
+      'Multi-platform distribution',
+      'Dynamic pricing optimization',
+      'Guest communication (business hours)',
+      'Monthly performance reports',
+      'Booking management'
+    ],
+    notIncluded: ['Cleaning coordination', 'Maintenance', '24/7 support', 'Key management'],
+    popular: false
+  },
+  {
+    name: 'Professional',
+    rate: '15%',
+    description: 'Our most popular plan. Full-service management for busy property owners.',
+    features: [
+      'Everything in Starter',
+      '24/7 guest communication',
+      'Professional cleaning coordination',
+      'Linen & supply restocking',
+      'Smart lock management',
+      'Guest vetting & screening',
+      'Review management',
+      'Dedicated account manager',
+      'Contractor coordination',
+      'Insurance claim assistance'
+    ],
+    notIncluded: [],
+    popular: true
+  }
+];
+
+const addOns = [
+  { name: 'Deep Cleaning', price: '$150-250', description: 'Per cleaning, based on property size' },
+  { name: 'Linen Service', price: '$25/turnover', description: 'Fresh hotel-quality linens each stay' },
+  { name: 'Restocking', price: 'At cost + 15%', description: 'Toiletries, coffee, supplies' },
+  { name: 'Photography', price: '$199', description: 'Professional HDR photos, one-time' },
+  { name: 'Emergency Callout', price: '$75', description: 'After-hours on-site visits' },
+  { name: 'Furnishing Setup', price: 'Custom quote', description: 'Full property staging and setup' }
+];
+
+const faqs = [
+  { q: 'When do I get paid?', a: 'We transfer your earnings within 48 hours of guest checkout. You receive detailed statements showing booking revenue, our fee, and any expenses.' },
+  { q: 'Are there any hidden fees?', a: 'No hidden fees ever. Our management percentage is all-inclusive. You only pay extra for physical services like cleaning and supplies, which are billed at cost or clearly stated rates.' },
+  { q: 'What if I want to use my property?', a: 'No problem! Block any dates you want in our shared calendar. We recommend 48 hours notice so we can prepare the property for your arrival.' },
+  { q: 'Can I switch plans?', a: 'Yes, you can upgrade or downgrade with 30 days notice. Most hosts start with Professional and stay there.' },
+  { q: 'Is there a minimum contract?', a: 'We ask for a 3-month initial commitment so we can properly optimize your listing. After that, you can cancel with 30 days notice.' },
+  { q: 'How do you handle damages?', a: 'We document everything before and after each stay. We file Airbnb damage claims on your behalf and can assist with insurance claims for major issues.' }
+];
+---
+
+<Layout title="Pricing - Toronto Airbnb Management" description="Transparent pricing for Toronto Airbnb property management. Plans from 10-15% with no hidden fees. See what's included and compare packages.">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Simple, Transparent Pricing</h1>
+      <p>No hidden fees. No surprises. You only pay when you earn.</p>
+    </div>
+  </section>
+
+  <section class="section pricing-section">
+    <div class="container">
+      <div class="pricing-grid">
+        {pricingTiers.map(tier => (
+          <div class:list={['pricing-card', { featured: tier.popular }]}>
+            {tier.popular && <div class="popular-badge">Most Popular</div>}
+            <h3>{tier.name}</h3>
+            <div class="price">
+              <span class="rate">{tier.rate}</span>
+              <span class="period">of booking revenue</span>
+            </div>
+            <p class="tier-description">{tier.description}</p>
+            <ul class="features-list">
+              {tier.features.map(feature => (
+                <li class="included"><span class="check">✓</span> {feature}</li>
+              ))}
+              {tier.notIncluded.map(feature => (
+                <li class="not-included"><span class="x">✗</span> {feature}</li>
+              ))}
+            </ul>
+            <a href="/contact" class:list={['btn', 'btn-full', tier.popular ? 'btn-primary' : 'btn-secondary']}>
+              Get Started
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section calculator-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>See What You Could Earn</h2>
+        <p>Most hosts see a 20-40% increase in revenue after switching to professional management.</p>
+      </div>
+      <div class="calculator-card">
+        <div class="calc-row">
+          <div class="calc-item">
+            <span class="calc-label">Average Toronto 1BR Condo</span>
+            <span class="calc-value">$150/night</span>
+          </div>
+          <div class="calc-item">
+            <span class="calc-label">Average Occupancy (Pro Managed)</span>
+            <span class="calc-value">75%</span>
+          </div>
+          <div class="calc-item">
+            <span class="calc-label">Monthly Gross Revenue</span>
+            <span class="calc-value">$3,375</span>
+          </div>
+        </div>
+        <div class="calc-row highlight">
+          <div class="calc-item">
+            <span class="calc-label">Our Fee (15% Professional)</span>
+            <span class="calc-value">-$506</span>
+          </div>
+          <div class="calc-item">
+            <span class="calc-label">Est. Cleaning (4 turnovers)</span>
+            <span class="calc-value">-$400</span>
+          </div>
+          <div class="calc-item final">
+            <span class="calc-label">Your Monthly Net</span>
+            <span class="calc-value">$2,469</span>
+          </div>
+        </div>
+        <p class="calc-note">*Estimates based on average Toronto market data. Your results may vary based on location, property type, and seasonality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section addons-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Additional Services</h2>
+        <p>A la carte options available with any plan.</p>
+      </div>
+      <div class="addons-grid">
+        {addOns.map(addon => (
+          <div class="addon-card">
+            <div class="addon-header">
+              <h4>{addon.name}</h4>
+              <span class="addon-price">{addon.price}</span>
+            </div>
+            <p>{addon.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pricing FAQs</h2>
+        <p>Common questions about our fees and billing.</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compare: Self-Managing vs. Nurture Stays</h2>
+        <p>See the real cost of doing it yourself.</p>
+      </div>
+      <div class="comparison-table">
+        <div class="comparison-row header">
+          <div class="comparison-item">Task</div>
+          <div class="comparison-item">Self-Managing</div>
+          <div class="comparison-item">With Nurture Stays</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-item">Guest Messages</div>
+          <div class="comparison-item bad">2-3 hours/day, constant interruptions</div>
+          <div class="comparison-item good">We handle 100%</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-item">Cleaning Coordination</div>
+          <div class="comparison-item bad">Find cleaners, chase quality, handle no-shows</div>
+          <div class="comparison-item good">Managed team, quality guaranteed</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-item">Pricing Strategy</div>
+          <div class="comparison-item bad">Guesswork, leaving money on table</div>
+          <div class="comparison-item good">AI-optimized, 20%+ more revenue</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-item">Emergencies</div>
+          <div class="comparison-item bad">You're on call 24/7</div>
+          <div class="comparison-item good">We handle everything</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-item">Your Time</div>
+          <div class="comparison-item bad">15-20 hours/week</div>
+          <div class="comparison-item good">~1 hour/month reviewing reports</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Earn More While Doing Less?</h2>
+        <p>Get a free property assessment and custom revenue projection.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Get Your Free Assessment</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pricing-section { background: var(--color-background-alt); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
+  .pricing-card { background: white; border-radius: 16px; padding: 2.5rem; border: 2px solid var(--color-border); position: relative; display: flex; flex-direction: column; }
+  .pricing-card.featured { border-color: var(--color-primary); transform: scale(1.05); box-shadow: var(--shadow-xl); }
+  .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+  .pricing-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .price { margin-bottom: 1rem; }
+  .rate { font-size: 3rem; font-weight: 700; color: var(--color-primary); }
+  .period { display: block; color: var(--color-text-light); font-size: 0.95rem; }
+  .tier-description { color: var(--color-text-light); margin-bottom: 1.5rem; font-size: 0.95rem; }
+  .features-list { list-style: none; padding: 0; margin: 0 0 2rem; flex-grow: 1; }
+  .features-list li { padding: 0.6rem 0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.95rem; }
+  .features-list .included { color: var(--color-text); }
+  .features-list .not-included { color: var(--color-text-muted); }
+  .check { color: var(--color-secondary); font-weight: bold; }
+  .x { color: #ccc; }
+  .btn-full { width: 100%; text-align: center; }
+  .calculator-section { background: white; }
+  .calculator-card { background: var(--color-background-alt); border-radius: 16px; padding: 2rem; max-width: 800px; margin: 0 auto; }
+  .calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); }
+  .calc-row.highlight { background: white; margin: 0 -2rem; padding: 1.5rem 2rem; border-radius: 0 0 16px 16px; border: none; }
+  .calc-item { text-align: center; }
+  .calc-label { display: block; font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 0.5rem; }
+  .calc-value { font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
+  .calc-item.final .calc-value { color: var(--color-primary); font-size: 2rem; }
+  .calc-note { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--color-text-muted); }
+  .addons-section { background: var(--color-background-alt); }
+  .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .addon-card { background: white; padding: 1.5rem; border-radius: 12px; }
+  .addon-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  .addon-header h4 { margin: 0; font-size: 1rem; }
+  .addon-price { font-weight: 700; color: var(--color-primary); }
+  .addon-card p { color: var(--color-text-light); font-size: 0.9rem; margin: 0; }
+  .faq-section { background: white; }
+  .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .faq-card { padding: 1.5rem; background: var(--color-background-alt); border-radius: 12px; }
+  .faq-card h4 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+  .faq-card p { color: var(--color-text-light); margin: 0; font-size: 0.95rem; }
+  .comparison-section { background: var(--color-background-alt); }
+  .comparison-table { max-width: 900px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
+  .comparison-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; border-bottom: 1px solid var(--color-border); }
+  .comparison-row:last-child { border-bottom: none; }
+  .comparison-row.header { background: var(--color-dark); color: white; font-weight: 600; }
+  .comparison-item { padding: 1rem 1.5rem; font-size: 0.95rem; }
+  .comparison-item.bad { background: #fef2f2; color: #991b1b; }
+  .comparison-item.good { background: #f0fdf4; color: #166534; }
+  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; }
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  @media (max-width: 968px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; } .pricing-card.featured { transform: none; } .addons-grid, .faq-grid { grid-template-columns: 1fr; } .calc-row { grid-template-columns: 1fr; gap: 1rem; } .comparison-row { grid-template-columns: 1fr; } .comparison-row.header { display: none; } .comparison-item:first-child { font-weight: 600; background: var(--color-background-alt); } }
+</style>
