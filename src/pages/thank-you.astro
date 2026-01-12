@@ -1,5 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  { q: 'How much are your management fees?', a: 'Our fees range from 10% to 15% depending on whether you want partial or full service. This is significantly lower than competitors who charge 18-25%.' },
+  { q: 'Will I make more with short-term rental vs long-term rental?', a: 'We have never had any clients make less with short and mid-term rental vs long-term rental. Most see 30-100% increases in monthly revenue.' },
+  { q: 'How long does it take to get my property listed?', a: 'The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.' },
+  { q: 'What cities do you operate in?', a: 'We operate in any city within Southern Ontario, Canada. This includes the Greater Toronto Area and surrounding cities.' },
+  { q: 'Does my property qualify for short-term rental?', a: 'Each municipality in the Greater Toronto Area has its own set of rules. Each building also has its own set of rules. To check, you can visit your local municipality website. Many cities in Ontario do require registration for short-term rental, however many do NOT have any rules around mid-term rentals.' },
+  { q: 'Do I have to sign a lengthy contract?', a: 'No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts.' },
+  { q: 'Are there any startup costs?', a: 'No. We only get paid on commission. We make money when you make money.' },
+  { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.' }
+];
 ---
 
 <Layout title="Booking Confirmed">
@@ -48,6 +59,22 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <a href="/" class="btn btn-primary">Return to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -167,6 +194,52 @@ import Layout from '../layouts/Layout.astro';
 
   .phone-link:hover {
     color: var(--color-primary-dark);
+  }
+
+  .faq-section {
+    background: white;
+    padding: 4rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .faq-card h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 600px) {
