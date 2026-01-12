@@ -1,221 +1,321 @@
 ---
-// Etobicoke Airbnb Management - Location Landing Page
-// Targets: etobicoke airbnb management, airbnb property manager etobicoke
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '🌊', name: 'Mimico', description: 'Trendy waterfront community with new condo developments. Young professionals and couples love the lake views and easy GO Train access to downtown.', revenue: '$3,400-$4,400/month' },
+  { icon: '🏖️', name: 'Humber Bay', description: 'Premium lakefront condos with stunning views. Popular with visitors wanting waterfront living while staying close to downtown Toronto.', revenue: '$3,800-$5,200/month' },
+  { icon: '🚇', name: 'Islington-City Centre', description: 'Subway access makes this area perfect for business travelers. Modern condos near Islington station offer convenience without downtown prices.', revenue: '$3,200-$4,200/month' },
+  { icon: '🛣️', name: 'The Queensway', description: 'Commercial corridor with easy highway access. Popular with budget-conscious travelers and those with cars exploring the west GTA.', revenue: '$2,800-$3,600/month' },
+  { icon: '🏘️', name: 'Kingsway', description: 'Prestigious neighborhood with beautiful homes. Attracts families and executives seeking upscale, quiet accommodations.', revenue: '$3,600-$4,800/month' },
+  { icon: '🎪', name: 'Exhibition Place Area', description: 'Near BMO Field, CNE, and concerts. Huge demand spikes during events, festivals, and games - premium pricing opportunities.', revenue: '$3,500-$5,500/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Repairs',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Event-Based Pricing (CNE, Games)',
+  'Transparent Revenue Reporting'
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etobicoke Airbnb Management | Mimico, Humber Bay, Islington | Nurture Stays</title>
-    <meta name="description" content="Expert Airbnb management in Etobicoke. We manage waterfront properties in Mimico, Humber Bay, The Queensway & Islington. 10-15% fees, 9-min response time.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --sage: #8B9B87;
-            --sage-dark: #6B7B67;
-            --cream: #F8F6F1;
-            --warm-white: #FFFDF9;
-            --charcoal: #2A2A2A;
-            --gold: #C9A961;
-        }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+<Layout title="Etobicoke Airbnb Management" description="Expert Airbnb management in Etobicoke. We manage waterfront properties in Mimico, Humber Bay, The Queensway & Islington. 10-15% fees, 9-min response time.">
+  <section class="hero">
+    <div class="container">
+      <span class="location-badge">ETOBICOKE</span>
+      <h1><span class="highlight">Etobicoke</span> Airbnb Management</h1>
+      <p class="hero-subtitle">Waterfront living meets convenient Toronto access</p>
 
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.75rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
-        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
-
-        .hero { margin-top: 80px; padding: 6rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
-        .hero-container { max-width: 1000px; margin: 0 auto; }
-        .location-badge { display: inline-block; background: var(--sage); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 2rem; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--charcoal); }
-        .hero .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.5rem; color: #666; margin-bottom: 2rem; }
-        .hero-stats { display: flex; justify-content: center; gap: 4rem; margin: 3rem 0; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--sage-dark); }
-        .stat-label { color: #666; font-size: 0.9rem; }
-        .primary-button { background: var(--sage); color: white; padding: 1.25rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
-        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
-
-        .neighborhoods { padding: 6rem 2rem; background: var(--warm-white); }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .section-header .serif-subtitle { font-size: 1.25rem; color: var(--sage-dark); }
-        .neighborhoods-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .neighborhood-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s; border-top: 4px solid var(--sage); }
-        .neighborhood-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 155, 135, 0.15); }
-        .neighborhood-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .neighborhood-card p { color: #666; margin-bottom: 1rem; line-height: 1.7; }
-        .avg-revenue { background: var(--cream); padding: 1rem; border-radius: 8px; font-weight: 600; color: var(--sage-dark); }
-
-        .waterfront { padding: 6rem 2rem; background: var(--sage-dark); color: white; }
-        .waterfront-container { max-width: 1200px; margin: 0 auto; }
-        .waterfront-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-top: 4rem; }
-        .waterfront-card { background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 15px; }
-        .waterfront-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .waterfront-card p { color: rgba(255, 255, 255, 0.9); line-height: 1.7; }
-
-        .services { padding: 6rem 2rem; background: var(--cream); }
-        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-        .service-item { background: white; padding: 1.5rem; border-radius: 10px; display: flex; align-items: center; gap: 1rem; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05); }
-        .service-check { color: var(--sage); font-size: 1.5rem; font-weight: 700; }
-
-        .cta-section { padding: 6rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .cta-section p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-        .cta-section .primary-button:hover { background: var(--cream); }
-
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { color: rgba(255, 255, 255, 0.7); }
-        footer a { color: var(--sage); text-decoration: none; }
-
-        @media (max-width: 1024px) {
-            .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .waterfront-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero-stats { flex-direction: column; gap: 2rem; }
-            .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">Nurture Stays</a>
-            <a href="tel:647-957-8956" class="cta-button">647-957-8956</a>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">$3,400+</div>
+          <div class="stat-label">Avg Monthly Revenue</div>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-container">
-            <span class="location-badge">📍 ETOBICOKE</span>
-            <h1><span class="highlight">Etobicoke</span> Airbnb Management</h1>
-            <p class="hero-subtitle serif">Waterfront living meets convenient Toronto access</p>
-            
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">$3,400+</div>
-                    <div class="stat-label">Avg Monthly Revenue</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">79%+</div>
-                    <div class="stat-label">Avg Occupancy Rate</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">10-15%</div>
-                    <div class="stat-label">Management Fee</div>
-                </div>
-            </div>
-
-            <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+        <div class="stat">
+          <div class="stat-number">79%+</div>
+          <div class="stat-label">Avg Occupancy Rate</div>
         </div>
-    </section>
+        <div class="stat">
+          <div class="stat-number">10-15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+      </div>
 
-    <section class="neighborhoods">
-        <div class="section-header">
-            <h2>Etobicoke Neighborhoods We Serve</h2>
-            <p class="serif-subtitle">Lakefront condos to family-friendly suburbs</p>
-        </div>
-        <div class="neighborhoods-grid">
-            <div class="neighborhood-card">
-                <h3>🌊 Mimico</h3>
-                <p>Trendy waterfront community with new condo developments. Young professionals and couples love the lake views and easy GO Train access to downtown.</p>
-                <div class="avg-revenue">Avg Revenue: $3,400-$4,400/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🏖️ Humber Bay</h3>
-                <p>Premium lakefront condos with stunning views. Popular with visitors wanting waterfront living while staying close to downtown Toronto.</p>
-                <div class="avg-revenue">Avg Revenue: $3,800-$5,200/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🚇 Islington-City Centre</h3>
-                <p>Subway access makes this area perfect for business travelers. Modern condos near Islington station offer convenience without downtown prices.</p>
-                <div class="avg-revenue">Avg Revenue: $3,200-$4,200/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🛣️ The Queensway</h3>
-                <p>Commercial corridor with easy highway access. Popular with budget-conscious travelers and those with cars exploring the west GTA.</p>
-                <div class="avg-revenue">Avg Revenue: $2,800-$3,600/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🏘️ Kingsway</h3>
-                <p>Prestigious neighborhood with beautiful homes. Attracts families and executives seeking upscale, quiet accommodations.</p>
-                <div class="avg-revenue">Avg Revenue: $3,600-$4,800/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🎪 Exhibition Place Area</h3>
-                <p>Near BMO Field, CNE, and concerts. Huge demand spikes during events, festivals, and games - premium pricing opportunities.</p>
-                <div class="avg-revenue">Avg Revenue: $3,500-$5,500/month</div>
-            </div>
-        </div>
-    </section>
+      <a href="/contact" class="btn btn-primary btn-large">Get Free Property Analysis</a>
+    </div>
+  </section>
 
-    <section class="waterfront">
-        <div class="waterfront-container">
-            <div class="section-header">
-                <h2>Waterfront Properties Are Our Specialty</h2>
-                <p class="serif-subtitle" style="color: rgba(255,255,255,0.8);">We know how to market and maximize lakefront rentals</p>
-            </div>
-            <div class="waterfront-grid">
-                <div class="waterfront-card">
-                    <h3>📸 Stunning Photography</h3>
-                    <p>We capture those golden hour lake views that make guests book instantly. Professional photographers who know how to showcase waterfront living.</p>
-                </div>
-                <div class="waterfront-card">
-                    <h3>💰 Premium Pricing Strategy</h3>
-                    <p>Waterfront properties command premium rates. We price yours to maximize revenue while maintaining high occupancy year-round.</p>
-                </div>
-                <div class="waterfront-card">
-                    <h3>🎯 Targeted Marketing</h3>
-                    <p>We attract guests specifically looking for waterfront stays - couples celebrating anniversaries, remote workers seeking inspiring views, nature lovers.</p>
-                </div>
-                <div class="waterfront-card">
-                    <h3>🌅 Experience Curation</h3>
-                    <p>We create local guides highlighting the waterfront trail, Humber Bay Park, and lakeside restaurants that make your listing stand out.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Etobicoke Neighborhoods We Serve</h2>
+        <p>Lakefront condos to family-friendly suburbs</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-    <section class="services">
-        <div class="section-header">
-            <h2>Full-Service Etobicoke Management</h2>
-            <p class="serif-subtitle">Everything included at 10-15%</p>
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Toronto Short-Term Rental Bylaws</h2>
+        <p>What Etobicoke property owners need to know</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-grid">
+          <div class="bylaw-card">
+            <h3>Registration Required</h3>
+            <p>All short-term rentals in Toronto (including Etobicoke) must be registered with the City. The annual registration fee is $55. We can help you navigate the registration process.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Principal Residence Rule</h3>
+            <p>You can only operate a short-term rental in your principal residence. This is the home where you live and receive mail, file taxes, etc.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>180-Night Annual Limit</h3>
+            <p>Entire-home rentals are limited to 180 nights per year. However, if you rent just a room while you're home, there's no night limit.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Municipal Accommodation Tax</h3>
+            <p>A 6% Municipal Accommodation Tax (MAT) applies to all short-term rentals. Platforms like Airbnb collect and remit this automatically.</p>
+          </div>
         </div>
-        <div class="services-grid">
-            <div class="service-item"><span class="service-check">✓</span> Dynamic Pricing & Revenue Optimization</div>
-            <div class="service-item"><span class="service-check">✓</span> 24/7 Guest Communication</div>
-            <div class="service-item"><span class="service-check">✓</span> Professional Photography</div>
-            <div class="service-item"><span class="service-check">✓</span> Cleaning & Turnover Coordination</div>
-            <div class="service-item"><span class="service-check">✓</span> Maintenance & Repairs</div>
-            <div class="service-item"><span class="service-check">✓</span> Guest Screening & Verification</div>
-            <div class="service-item"><span class="service-check">✓</span> Supply Restocking (Included)</div>
-            <div class="service-item"><span class="service-check">✓</span> Event-Based Pricing (CNE, Games)</div>
-            <div class="service-item"><span class="service-check">✓</span> Transparent Revenue Reporting</div>
+        <div class="bylaws-cta">
+          <p><strong>Not sure if your property qualifies?</strong> Many Etobicoke condos have additional building rules. We'll help you understand what's allowed and maximize your earning potential within the regulations.</p>
+          <a href="/contact" class="btn btn-secondary">Get Free Compliance Check</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta-section">
+  <section class="section why-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Waterfront Properties Are Our Specialty</h2>
+        <p>We know how to market and maximize lakefront rentals</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Stunning Photography</h3>
+          <p>We capture those golden hour lake views that make guests book instantly. Professional photographers who know how to showcase waterfront living.</p>
+        </div>
+        <div class="why-card">
+          <h3>Premium Pricing Strategy</h3>
+          <p>Waterfront properties command premium rates. We price yours to maximize revenue while maintaining high occupancy year-round.</p>
+        </div>
+        <div class="why-card">
+          <h3>Targeted Marketing</h3>
+          <p>We attract guests specifically looking for waterfront stays - couples celebrating anniversaries, remote workers seeking inspiring views, nature lovers.</p>
+        </div>
+        <div class="why-card">
+          <h3>Experience Curation</h3>
+          <p>We create local guides highlighting the waterfront trail, Humber Bay Park, and lakeside restaurants that make your listing stand out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Etobicoke Management</h2>
+        <p>Everything included at 10-15%</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
         <h2>Own an Etobicoke Property?</h2>
         <p>Get a free analysis showing how much your Mimico, Humber Bay, or Islington property could earn with Airbnb.</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">Free consultation • No obligation • Results in 24 hours</p>
-    </section>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Free consultation - No obligation - Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
 
-    <footer>
-        <p>© 2025 Nurture Stays | <a href="/">Home</a> | <a href="tel:647-957-8956">647-957-8956</a> | <a href="mailto:hello@nurturestays.ca">hello@nurturestays.ca</a></p>
-        <p style="margin-top: 1rem;">Etobicoke Airbnb Management - Mimico, Humber Bay, Islington, The Queensway, Kingsway</p>
-    </footer>
-</body>
-</html>
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .location-badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+
+  .bylaws-cta {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid var(--color-primary);
+  }
+
+  .bylaws-cta p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+  .why-section { background: var(--color-primary-dark); color: white; }
+  .why-section .section-header h2 { color: white; }
+  .why-section .section-header p { color: rgba(255, 255, 255, 0.8); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .why-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+  }
+
+  .why-card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+  .why-card p { color: rgba(255, 255, 255, 0.9); line-height: 1.7; }
+
+  .services-section { background: var(--color-background-alt); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid, .bylaws-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,224 +1,352 @@
 ---
-// Mississauga Airbnb Management - Location Landing Page
-// Targets: mississauga airbnb management, airbnb property manager mississauga
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '⚓', name: 'Port Credit', description: 'Charming waterfront village with boutiques, restaurants, and marina views. Popular with couples and families seeking a relaxing getaway close to Toronto.', revenue: '$3,500-$4,500/month' },
+  { icon: '🏙️', name: 'Square One District', description: 'Urban core with luxury condos, shopping, and entertainment. Strong demand from business travelers and shoppers visiting Square One Mall.', revenue: '$3,800-$5,000/month' },
+  { icon: '✈️', name: 'Airport Area', description: 'Prime location for flight crews, business travelers, and airport layovers. Consistent year-round demand with premium rates for convenience.', revenue: '$4,000-$5,500/month' },
+  { icon: '🏘️', name: 'Streetsville', description: 'Historic village charm with modern amenities. Popular with families and long-term corporate guests relocating to the GTA.', revenue: '$3,200-$4,200/month' },
+  { icon: '🌳', name: 'Erin Mills', description: 'Family-friendly suburb with parks and top schools. Strong mid-term rental demand from families in transition.', revenue: '$3,000-$4,000/month' },
+  { icon: '🏢', name: 'City Centre', description: 'Growing urban hub with new developments. Close to Celebration Square and civic amenities. Mix of short and mid-term demand.', revenue: '$3,400-$4,400/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Repairs',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Flexible Check-in/out for Flights',
+  'Transparent Revenue Reporting'
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mississauga Airbnb Management | Port Credit, Square One | Nurture Stays</title>
-    <meta name="description" content="Expert Airbnb management in Mississauga. We manage properties in Port Credit, Square One, Streetsville & Erin Mills. 10-15% fees, 9-min response. Near Pearson Airport.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --sage: #8B9B87;
-            --sage-dark: #6B7B67;
-            --cream: #F8F6F1;
-            --warm-white: #FFFDF9;
-            --charcoal: #2A2A2A;
-            --gold: #C9A961;
-        }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+<Layout title="Mississauga Airbnb Management" description="Expert Airbnb management in Mississauga. We manage properties in Port Credit, Square One, Streetsville & Erin Mills. 10-15% fees, 9-min response. Near Pearson Airport.">
+  <section class="hero">
+    <div class="container">
+      <span class="location-badge">MISSISSAUGA</span>
+      <h1><span class="highlight">Mississauga</span> Airbnb Management</h1>
+      <p class="hero-subtitle">Expert property management near Pearson Airport & the waterfront</p>
 
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.75rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
-        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
-
-        .hero { margin-top: 80px; padding: 6rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
-        .hero-container { max-width: 1000px; margin: 0 auto; }
-        .location-badge { display: inline-block; background: var(--sage); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 2rem; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--charcoal); }
-        .hero .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.5rem; color: #666; margin-bottom: 2rem; }
-        .hero-stats { display: flex; justify-content: center; gap: 4rem; margin: 3rem 0; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--sage-dark); }
-        .stat-label { color: #666; font-size: 0.9rem; }
-        .primary-button { background: var(--sage); color: white; padding: 1.25rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
-        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
-
-        .neighborhoods { padding: 6rem 2rem; background: var(--warm-white); }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .section-header .serif-subtitle { font-size: 1.25rem; color: var(--sage-dark); }
-        .neighborhoods-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .neighborhood-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s; border-top: 4px solid var(--sage); }
-        .neighborhood-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 155, 135, 0.15); }
-        .neighborhood-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .neighborhood-card p { color: #666; margin-bottom: 1rem; line-height: 1.7; }
-        .avg-revenue { background: var(--cream); padding: 1rem; border-radius: 8px; font-weight: 600; color: var(--sage-dark); }
-
-        .airport-advantage { padding: 6rem 2rem; background: var(--sage-dark); color: white; }
-        .airport-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .airport-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .airport-content p { font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9); }
-        .airport-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .airport-stat { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center; }
-        .airport-stat .number { font-size: 2rem; font-weight: 700; color: var(--gold); }
-        .airport-stat .label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); }
-
-        .services { padding: 6rem 2rem; background: var(--cream); }
-        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-        .service-item { background: white; padding: 1.5rem; border-radius: 10px; display: flex; align-items: center; gap: 1rem; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05); }
-        .service-check { color: var(--sage); font-size: 1.5rem; font-weight: 700; }
-
-        .cta-section { padding: 6rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .cta-section p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-        .cta-section .primary-button:hover { background: var(--cream); }
-
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { color: rgba(255, 255, 255, 0.7); }
-        footer a { color: var(--sage); text-decoration: none; }
-
-        @media (max-width: 1024px) {
-            .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .airport-container { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero-stats { flex-direction: column; gap: 2rem; }
-            .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">Nurture Stays</a>
-            <a href="tel:647-957-8956" class="cta-button">647-957-8956</a>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">$3,800+</div>
+          <div class="stat-label">Avg Monthly Revenue</div>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-container">
-            <span class="location-badge">📍 MISSISSAUGA</span>
-            <h1><span class="highlight">Mississauga</span> Airbnb Management</h1>
-            <p class="hero-subtitle serif">Expert property management near Pearson Airport & the waterfront</p>
-            
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">$3,800+</div>
-                    <div class="stat-label">Avg Monthly Revenue</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">80%+</div>
-                    <div class="stat-label">Avg Occupancy Rate</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">10-15%</div>
-                    <div class="stat-label">Management Fee</div>
-                </div>
-            </div>
-
-            <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+        <div class="stat">
+          <div class="stat-number">80%+</div>
+          <div class="stat-label">Avg Occupancy Rate</div>
         </div>
-    </section>
+        <div class="stat">
+          <div class="stat-number">10-15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+      </div>
 
-    <section class="neighborhoods">
-        <div class="section-header">
-            <h2>Mississauga Neighborhoods We Serve</h2>
-            <p class="serif-subtitle">From the airport to the waterfront</p>
-        </div>
-        <div class="neighborhoods-grid">
-            <div class="neighborhood-card">
-                <h3>⚓ Port Credit</h3>
-                <p>Charming waterfront village with boutiques, restaurants, and marina views. Popular with couples and families seeking a relaxing getaway close to Toronto.</p>
-                <div class="avg-revenue">Avg Revenue: $3,500-$4,500/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🏙️ Square One District</h3>
-                <p>Urban core with luxury condos, shopping, and entertainment. Strong demand from business travelers and shoppers visiting Square One Mall.</p>
-                <div class="avg-revenue">Avg Revenue: $3,800-$5,000/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>✈️ Airport Area</h3>
-                <p>Prime location for flight crews, business travelers, and airport layovers. Consistent year-round demand with premium rates for convenience.</p>
-                <div class="avg-revenue">Avg Revenue: $4,000-$5,500/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🏘️ Streetsville</h3>
-                <p>Historic village charm with modern amenities. Popular with families and long-term corporate guests relocating to the GTA.</p>
-                <div class="avg-revenue">Avg Revenue: $3,200-$4,200/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🌳 Erin Mills</h3>
-                <p>Family-friendly suburb with parks and top schools. Strong mid-term rental demand from families in transition.</p>
-                <div class="avg-revenue">Avg Revenue: $3,000-$4,000/month</div>
-            </div>
-            <div class="neighborhood-card">
-                <h3>🏢 City Centre</h3>
-                <p>Growing urban hub with new developments. Close to Celebration Square and civic amenities. Mix of short and mid-term demand.</p>
-                <div class="avg-revenue">Avg Revenue: $3,400-$4,400/month</div>
-            </div>
-        </div>
-    </section>
+      <a href="/contact" class="btn btn-primary btn-large">Get Free Property Analysis</a>
+    </div>
+  </section>
 
-    <section class="airport-advantage">
-        <div class="airport-container">
-            <div class="airport-content">
-                <h2>The Pearson Airport Advantage</h2>
-                <p>Mississauga properties near Pearson International Airport enjoy consistent year-round demand. Flight crews, business travelers, and passengers with early flights or layovers need quality accommodation close to the airport.</p>
-                <p>We specialize in optimizing airport-adjacent properties for maximum revenue, with flexible check-in/out times and amenities that airport guests need most.</p>
-            </div>
-            <div class="airport-stats">
-                <div class="airport-stat">
-                    <div class="number">50M+</div>
-                    <div class="label">Annual Pearson Passengers</div>
-                </div>
-                <div class="airport-stat">
-                    <div class="number">365</div>
-                    <div class="label">Days of Demand</div>
-                </div>
-                <div class="airport-stat">
-                    <div class="number">90%+</div>
-                    <div class="label">Airport Area Occupancy</div>
-                </div>
-                <div class="airport-stat">
-                    <div class="number">$150+</div>
-                    <div class="label">Avg Nightly Rate</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mississauga Neighborhoods We Serve</h2>
+        <p>From the airport to the waterfront</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-    <section class="services">
-        <div class="section-header">
-            <h2>Full-Service Mississauga Management</h2>
-            <p class="serif-subtitle">Everything included at 10-15%</p>
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mississauga Short-Term Rental Bylaws</h2>
+        <p>What Mississauga property owners need to know</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-grid">
+          <div class="bylaw-card">
+            <h3>License Required</h3>
+            <p>Mississauga requires all short-term rental operators to obtain a license from the City. The annual license fee is approximately $170. We can help you through the application process.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Principal Residence Rule</h3>
+            <p>Like Toronto, Mississauga only allows short-term rentals in your principal residence - the home where you live as your primary dwelling.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>180-Night Annual Limit</h3>
+            <p>Entire-home rentals are limited to 180 nights per calendar year. Room rentals while you're present have no night restriction.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Insurance Requirements</h3>
+            <p>Hosts must maintain adequate liability insurance. We recommend reviewing your policy with your insurance provider to ensure STR coverage.</p>
+          </div>
         </div>
-        <div class="services-grid">
-            <div class="service-item"><span class="service-check">✓</span> Dynamic Pricing & Revenue Optimization</div>
-            <div class="service-item"><span class="service-check">✓</span> 24/7 Guest Communication</div>
-            <div class="service-item"><span class="service-check">✓</span> Professional Photography</div>
-            <div class="service-item"><span class="service-check">✓</span> Cleaning & Turnover Coordination</div>
-            <div class="service-item"><span class="service-check">✓</span> Maintenance & Repairs</div>
-            <div class="service-item"><span class="service-check">✓</span> Guest Screening & Verification</div>
-            <div class="service-item"><span class="service-check">✓</span> Supply Restocking (Included)</div>
-            <div class="service-item"><span class="service-check">✓</span> Flexible Check-in/out for Flights</div>
-            <div class="service-item"><span class="service-check">✓</span> Transparent Revenue Reporting</div>
+        <div class="bylaws-cta">
+          <p><strong>Not sure if your property qualifies?</strong> Mississauga's regulations have specific requirements. We'll help you understand what's allowed and ensure you're fully compliant before listing.</p>
+          <a href="/contact" class="btn btn-secondary">Get Free Compliance Check</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta-section">
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>The Pearson Airport Advantage</h2>
+        <p>Mississauga properties near Pearson International Airport enjoy consistent year-round demand. Flight crews, business travelers, and passengers with early flights or layovers need quality accommodation close to the airport.</p>
+        <p>We specialize in optimizing airport-adjacent properties for maximum revenue, with flexible check-in/out times and amenities that airport guests need most.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">50M+</div>
+          <div class="label">Annual Pearson Passengers</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">365</div>
+          <div class="label">Days of Demand</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">90%+</div>
+          <div class="label">Airport Area Occupancy</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">$150+</div>
+          <div class="label">Avg Nightly Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Mississauga Management</h2>
+        <p>Everything included at 10-15%</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
         <h2>Own a Mississauga Property?</h2>
         <p>Get a free analysis showing how much your Port Credit, Square One, or airport-area property could earn with Airbnb.</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">Free consultation • No obligation • Results in 24 hours</p>
-    </section>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Free consultation - No obligation - Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
 
-    <footer>
-        <p>© 2025 Nurture Stays | <a href="/">Home</a> | <a href="tel:647-957-8956">647-957-8956</a> | <a href="mailto:hello@nurturestays.ca">hello@nurturestays.ca</a></p>
-        <p style="margin-top: 1rem;">Mississauga Airbnb Management - Port Credit, Square One, Pearson Airport Area, Streetsville, Erin Mills</p>
-    </footer>
-</body>
-</html>
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .location-badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+
+  .bylaws-cta {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid var(--color-primary);
+  }
+
+  .bylaws-cta p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #C9A961;
+  }
+
+  .airport-stat .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .services-section { background: var(--color-background-alt); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .why-section .container { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
