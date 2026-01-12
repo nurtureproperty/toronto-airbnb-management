@@ -533,7 +533,7 @@
         /* Pricing Comparison */
         .pricing-comparison {
             padding: 6rem 2rem;
-            background: #f8f8f6;
+            background: var(--color-background-alt, #f8f8f6);
         }
 
         .pricing-container {
@@ -547,8 +547,7 @@
         }
 
         .pricing-comparison .section-header p {
-            color: var(--charcoal);
-            opacity: 0.7;
+            color: var(--color-text-light, #64748b);
             font-size: 1.1rem;
         }
 
@@ -556,13 +555,13 @@
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 40px var(--shadow);
+            box-shadow: var(--shadow-md, 0 10px 40px rgba(0,0,0,0.1));
         }
 
         .feature-header {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            background: var(--charcoal);
+            background: var(--color-dark, #1e293b);
             color: white;
         }
 
@@ -576,7 +575,7 @@
         }
 
         .plan-header.featured {
-            background: var(--sage);
+            background: var(--color-primary, #759b8f);
         }
 
         .plan-name {
@@ -592,12 +591,11 @@
         }
 
         .feature-category {
-            background: #f8f8f6;
+            background: var(--color-background-alt, #f8f8f6);
             padding: 0.75rem 1.5rem;
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--charcoal);
-            opacity: 0.6;
+            color: var(--color-text-muted, #64748b);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -605,7 +603,7 @@
         .feature-row {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--color-border, #e2e8f0);
         }
 
         .feature-row:last-child {
@@ -617,14 +615,13 @@
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            color: var(--charcoal);
         }
 
         .feature-check {
             padding: 1rem;
             text-align: center;
             font-size: 1.25rem;
-            color: var(--sage);
+            color: var(--color-primary, #759b8f);
             font-weight: 600;
             display: flex;
             align-items: center;
