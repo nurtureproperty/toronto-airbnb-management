@@ -139,6 +139,34 @@ const services = [
     </div>
   </section>
 
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Service Areas</h2>
+        <p>We manage properties across the Greater Toronto Area</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/downtown-toronto-airbnb-management" class="area-link">
+          <span>Downtown Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/north-york-airbnb-management" class="area-link">
+          <span>North York</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/scarborough-airbnb-management" class="area-link">
+          <span>Scarborough</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -308,13 +336,52 @@ const services = [
   .cta-section .btn:hover { background: var(--color-background-alt); }
   .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
 
+  .other-areas { background: var(--color-background); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+  .areas-cta a:hover { color: var(--color-primary-dark); }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid, .bylaws-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 576px) {
     .hero-stats { flex-direction: column; gap: 2rem; }
     .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
   }
 </style>

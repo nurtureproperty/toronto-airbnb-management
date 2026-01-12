@@ -838,6 +838,67 @@
             padding-left: 3rem;
         }
 
+        .faq-answer a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .faq-answer a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Service Areas Section */
+        .service-areas {
+            padding: 5rem 2rem;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .service-areas-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .areas-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .area-pill {
+            background: white;
+            color: var(--charcoal);
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .area-pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(117, 155, 143, 0.3);
+        }
+
+        .areas-view-all {
+            margin-top: 1rem;
+        }
+
+        .areas-view-all a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .areas-view-all a:hover {
+            text-decoration: underline;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 6rem 2rem;
@@ -1107,9 +1168,9 @@
         <div class="nav-container">
             <a href="/" class="logo"><img src="/images/logo.png" alt="Nurture" class="logo-img" /></a>
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/about">How It Works</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <a href="tel:647-957-8956" class="nav-phone">647-957-8956</a>
             <a href="/contact" class="cta-button">Free Estimate</a>
@@ -1459,7 +1520,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">What cities do you operate in?</div>
-                <div class="faq-answer">We operate in any city within Southern Ontario, Canada. This includes the Greater Toronto Area and surrounding cities.</div>
+                <div class="faq-answer">We operate in any city within Southern Ontario, Canada. This includes <a href="/downtown-toronto-airbnb-management">Downtown Toronto</a>, <a href="/north-york-airbnb-management">North York</a>, <a href="/etobicoke-airbnb-management">Etobicoke</a>, <a href="/scarborough-airbnb-management">Scarborough</a>, <a href="/mississauga-airbnb-management">Mississauga</a>, and surrounding areas. <a href="/locations">View all service areas</a>.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">Does my property qualify for short-term rental?</div>
@@ -1480,11 +1541,29 @@
         </div>
     </section>
 
+    <!-- Service Areas -->
+    <section class="service-areas">
+        <div class="service-areas-container">
+            <div class="section-header">
+                <h2>We Manage Properties Across the GTA</h2>
+                <p>Expert Airbnb management in your neighborhood</p>
+            </div>
+            <div class="areas-links">
+                <a href="/downtown-toronto-airbnb-management" class="area-pill">Downtown Toronto</a>
+                <a href="/north-york-airbnb-management" class="area-pill">North York</a>
+                <a href="/etobicoke-airbnb-management" class="area-pill">Etobicoke</a>
+                <a href="/scarborough-airbnb-management" class="area-pill">Scarborough</a>
+                <a href="/mississauga-airbnb-management" class="area-pill">Mississauga</a>
+            </div>
+            <p class="areas-view-all"><a href="/locations">View all service areas →</a></p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <h2>Ready to Maximize Your Rental Income?</h2>
         <p>Book a free consultation to see how much your property can earn with Airbnb</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+        <a href="/contact" class="primary-button">Get Your Free Estimate</a>
     </section>
 
     <!-- Footer -->
@@ -1501,18 +1580,18 @@
             <div class="footer-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#services">Property Management</a></li>
-                    <li><a href="#services">Revenue Optimization</a></li>
-                    <li><a href="#services">Guest Services</a></li>
-                    <li><a href="#services">Listing Optimization</a></li>
+                    <li><a href="/services">Property Management</a></li>
+                    <li><a href="/services">Revenue Optimization</a></li>
+                    <li><a href="/services">Guest Services</a></li>
+                    <li><a href="/services">Listing Optimization</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="tel:647-957-8956">Contact</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Our Services</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-links">

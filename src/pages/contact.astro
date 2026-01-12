@@ -57,6 +57,35 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <section class="learn-more-section">
+    <div class="container">
+      <h3>Want to learn more first?</h3>
+      <div class="learn-more-links">
+        <a href="/services" class="learn-link">
+          <span class="learn-icon">📋</span>
+          <div>
+            <strong>Our Services</strong>
+            <p>See what's included in our management packages</p>
+          </div>
+        </a>
+        <a href="/about" class="learn-link">
+          <span class="learn-icon">👥</span>
+          <div>
+            <strong>About Us</strong>
+            <p>Learn about our team and values</p>
+          </div>
+        </a>
+        <a href="/locations" class="learn-link">
+          <span class="learn-icon">📍</span>
+          <div>
+            <strong>Service Areas</strong>
+            <p>See where we manage properties</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <script src="https://api.nurtre.io/js/form_embed.js"></script>
@@ -153,6 +182,59 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-primary);
   }
 
+  .learn-more-section {
+    padding: 3rem 0;
+    background: white;
+  }
+
+  .learn-more-section h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+  }
+
+  .learn-more-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .learn-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .learn-link:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .learn-icon {
+    font-size: 1.5rem;
+  }
+
+  .learn-link strong {
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .learn-link p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
   @media (max-width: 768px) {
     .form-hero {
       padding: 2rem 0 3rem;
@@ -172,6 +254,10 @@ import Layout from '../layouts/Layout.astro';
       flex-direction: column;
       gap: 2rem;
       align-items: center;
+    }
+
+    .learn-more-links {
+      grid-template-columns: 1fr;
     }
   }
 </style>

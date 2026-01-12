@@ -68,6 +68,27 @@ const values = [
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Maximize Your Property's Potential?</h2>
+        <p>Join over 200 property owners who trust Nurture for their Airbnb management.</p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-large">Get Free Estimate</a>
+          <a href="/services" class="btn btn-secondary-light">View Our Services</a>
+        </div>
+        <div class="cta-links">
+          <span>We serve:</span>
+          <a href="/downtown-toronto-airbnb-management">Downtown Toronto</a>
+          <a href="/north-york-airbnb-management">North York</a>
+          <a href="/etobicoke-airbnb-management">Etobicoke</a>
+          <a href="/scarborough-airbnb-management">Scarborough</a>
+          <a href="/mississauga-airbnb-management">Mississauga</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -90,6 +111,18 @@ const values = [
   .team-card h3 { margin: 0 0 0.25rem; font-size: 1.1rem; }
   .team-role { color: var(--color-primary); font-size: 0.9rem; font-weight: 500; }
   .team-card p { color: var(--color-text-light); font-size: 0.9rem; margin-top: 0.75rem; }
+  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; }
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .btn-secondary-light { background: transparent !important; color: white !important; border: 2px solid white; }
+  .btn-secondary-light:hover { background: white !important; color: var(--color-primary) !important; }
+  .cta-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+  .cta-links span { opacity: 0.8; }
+  .cta-links a { color: white; text-decoration: underline; opacity: 0.9; }
+  .cta-links a:hover { opacity: 1; }
   @media (max-width: 968px) { .about-grid { grid-template-columns: 1fr; } .values-grid, .team-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 576px) { .values-grid, .team-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 576px) { .values-grid, .team-grid { grid-template-columns: 1fr; } .cta-links { flex-direction: column; gap: 0.5rem; } }
 </style>
