@@ -30,7 +30,10 @@ const pricingTiers = [
       'Smart lock management',
       'Dedicated account manager',
       'Contractor coordination',
-      'Insurance claim assistance'
+      'Insurance claim assistance',
+      'Airbnb Guest E-book',
+      'Short term rental licensing support',
+      'Furnishing consulting'
     ],
     notIncluded: [],
     popular: true
@@ -54,35 +57,6 @@ const faqs = [
     <div class="container">
       <h1>Simple, Transparent Pricing</h1>
       <p>No hidden fees. No surprises. You only pay when you earn.</p>
-    </div>
-  </section>
-
-  <section class="section pricing-section">
-    <div class="container">
-      <div class="pricing-grid">
-        {pricingTiers.map(tier => (
-          <div class:list={['pricing-card', { featured: tier.popular }]}>
-            {tier.popular && <div class="popular-badge">Most Popular</div>}
-            <h3>{tier.name}</h3>
-            <div class="price">
-              <span class="rate">{tier.rate}</span>
-              <span class="period">of booking revenue</span>
-            </div>
-            <p class="tier-description">{tier.description}</p>
-            <ul class="features-list">
-              {tier.features.map(feature => (
-                <li class="included"><span class="check">✓</span> {feature}</li>
-              ))}
-              {tier.notIncluded.map(feature => (
-                <li class="not-included"><span class="x">✗</span> {feature}</li>
-              ))}
-            </ul>
-            <a href="/contact" class:list={['btn', 'btn-full', tier.popular ? 'btn-primary' : 'btn-secondary']}>
-              Get Started
-            </a>
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -257,6 +231,23 @@ const faqs = [
           <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
+
+        <div class="feature-category">Additional Services</div>
+        <div class="feature-row">
+          <div class="feature-label">Airbnb Guest E-book</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Short term rental licensing support</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Furnishing consulting</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
       </div>
     </div>
   </section>
@@ -273,23 +264,6 @@ const faqs = [
 </Layout>
 
 <style>
-  .pricing-section { background: var(--color-background-alt); }
-  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
-  .pricing-card { background: white; border-radius: 16px; padding: 2.5rem; border: 2px solid var(--color-border); position: relative; display: flex; flex-direction: column; }
-  .pricing-card.featured { border-color: var(--color-primary); transform: scale(1.05); box-shadow: var(--shadow-xl); }
-  .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-  .pricing-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-  .price { margin-bottom: 1rem; }
-  .rate { font-size: 3rem; font-weight: 700; color: var(--color-primary); }
-  .period { display: block; color: var(--color-text-light); font-size: 0.95rem; }
-  .tier-description { color: var(--color-text-light); margin-bottom: 1.5rem; font-size: 0.95rem; }
-  .features-list { list-style: none; padding: 0; margin: 0 0 2rem; flex-grow: 1; }
-  .features-list li { padding: 0.6rem 0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.95rem; }
-  .features-list .included { color: var(--color-text); }
-  .features-list .not-included { color: var(--color-text-muted); }
-  .check { color: var(--color-secondary); font-weight: bold; }
-  .x { color: #ccc; }
-  .btn-full { width: 100%; text-align: center; }
   .case-study-section { background: var(--color-primary-dark); color: white; }
   .case-study-section .section-header h2 { color: white; }
   .case-study-section .section-header p { color: rgba(255,255,255,0.8); }
@@ -326,6 +300,6 @@ const faqs = [
   .cta-content h2 { margin-bottom: 1rem; }
   .cta-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; }
   .cta-section .btn { background: white; color: var(--color-primary); }
-  @media (max-width: 968px) { .pricing-grid { grid-template-columns: 1fr; max-width: 400px; } .pricing-card.featured { transform: none; } .faq-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } }
+  @media (max-width: 968px) { .faq-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } }
   @media (max-width: 600px) { .feature-header, .feature-row { grid-template-columns: 1.5fr 1fr 1fr; } .feature-label { padding: 0.75rem 1rem; font-size: 0.85rem; } .feature-check { padding: 0.75rem 0.5rem; font-size: 1rem; } .plan-name { font-size: 0.9rem; } .plan-rate { font-size: 1.25rem; } .feature-category { padding: 0.5rem 1rem; font-size: 0.8rem; } }
 </style>
