@@ -1,470 +1,620 @@
 ---
-// Airbnb Listing Optimization Toronto - Service Page
-// Targets: airbnb seo toronto, airbnb listing optimization, professional airbnb photos toronto
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  { icon: '📸', title: 'Professional Photography', description: 'DSLR photos with HDR editing, wide-angle lenses, and professional staging. Photos that make guests click "Book Now."' },
+  { icon: '✍️', title: 'SEO-Optimized Title', description: 'Keyword-rich titles that rank higher in search and communicate your property\'s best features in seconds.' },
+  { icon: '📝', title: 'Compelling Description', description: 'Storytelling copy that sells the experience, not just the space. Strategic keywords for search visibility.' },
+  { icon: '✅', title: 'Amenity Optimization', description: '75+ amenities added and ordered strategically. Guests filter by amenities - we make sure you show up.' },
+  { icon: '🗺️', title: 'Local Area Guide', description: 'Neighborhood highlights, restaurant recommendations, and local tips that add value and build trust.' },
+  { icon: '📊', title: 'Competitive Analysis', description: 'We analyze top performers in your area and apply winning strategies to your listing.' }
+];
+
+const seoTips = [
+  { icon: '🔍', title: 'Keyword Placement', description: 'Strategic keywords in your title, first paragraph, and amenities help Airbnb understand what your property offers and show it to the right guests.' },
+  { icon: '📸', title: 'Photo Quality Score', description: 'Airbnb\'s algorithm favors listings with high-quality photos. Professional photography improves your "quality score" and search ranking.' },
+  { icon: '⚡', title: 'Response Rate & Time', description: 'Quick responses boost your ranking. Our 9-minute average response time keeps your listing competitive in search results.' },
+  { icon: '📅', title: 'Booking Velocity', description: 'More bookings = higher ranking. Optimized listings get more clicks, which leads to more bookings, which improves ranking further.' }
+];
+
+const steps = [
+  { number: '1', title: 'Free Audit', description: 'We analyze your current listing and identify every opportunity for improvement.' },
+  { number: '2', title: 'Photo Shoot', description: 'Professional photographer visits your property. We style and stage for maximum impact.' },
+  { number: '3', title: 'Copy & SEO', description: 'We rewrite your title, description, and amenities for search and conversions.' },
+  { number: '4', title: 'Launch & Monitor', description: 'New listing goes live. We track performance and make ongoing improvements.' }
+];
+
+const faqs = [
+  { q: 'How long until I see results?', a: 'Most hosts see improved search ranking within 1-2 weeks. Booking increases typically follow within the first month as your listing gains visibility.' },
+  { q: 'Do I need to be there for the photo shoot?', a: 'No, though you\'re welcome to be. We handle all staging and photography. Just make sure the property is clean and we\'ll take care of the rest.' },
+  { q: 'What if I already have good photos?', a: 'We\'ll review them. If they\'re truly professional quality, we may use them. But most "good" photos still benefit from professional retouching or reshooting.' },
+  { q: 'Will you change my listing without approval?', a: 'No. We show you all proposed changes before publishing. You have final say on your title, photos, and description.' },
+  { q: 'How is this different from Airbnb\'s free photo service?', a: 'Airbnb\'s service is basic documentation. We provide professional real estate photography with staging, HDR editing, and a conversion-focused approach designed to maximize bookings.' }
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airbnb Listing Optimization Toronto | SEO & Professional Photos | Nurture Stays</title>
-    <meta name="description" content="Optimize your Toronto Airbnb listing for more bookings. Professional photography, SEO-optimized descriptions, and conversion-focused design. Rank higher, book more.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --sage: #8B9B87;
-            --sage-dark: #6B7B67;
-            --cream: #F8F6F1;
-            --warm-white: #FFFDF9;
-            --charcoal: #2A2A2A;
-            --gold: #C9A961;
-        }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+<Layout title="Airbnb Listing Optimization Toronto" description="Optimize your Toronto Airbnb listing for more bookings. Professional photography, SEO-optimized descriptions, and conversion-focused design. Rank higher, book more.">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Listing Optimization for Toronto Airbnb</h1>
+      <p class="hero-subtitle">Professional photos, SEO copy, and conversion-focused design that gets you more bookings.</p>
+    </div>
+  </section>
 
-        /* Navigation */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 45px; width: auto; object-fit: contain; }
-        .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
-        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
-        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; color: var(--charcoal); cursor: pointer; }
-
-        /* Hero */
-        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); }
-        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .hero-content h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--charcoal); }
-        .hero-content .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; line-height: 1.7; }
-        .hero-features { list-style: none; margin-bottom: 2rem; }
-        .hero-features li { padding: 0.5rem 0; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem; }
-        .hero-features .check { color: var(--sage); font-weight: 700; font-size: 1.25rem; }
-        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
-        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
-        .hero-image { background: var(--sage); border-radius: 20px; height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
-
-        /* Trust Bar */
-        .trust-bar { background: var(--sage-dark); color: white; padding: 1.5rem 2rem; }
-        .trust-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
-        .trust-item { text-align: center; }
-        .trust-number { font-size: 2rem; font-weight: 700; }
-        .trust-label { font-size: 0.875rem; opacity: 0.9; }
-
-        /* Before/After */
-        .before-after { padding: 5rem 2rem; background: var(--cream); }
-        .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
-        .ba-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); }
-        .ba-card.after { background: var(--sage-dark); color: white; }
-        .ba-card h3 { font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
-        .ba-item { display: flex; align-items: flex-start; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
-        .ba-card.after .ba-item { border-bottom-color: rgba(255,255,255,0.2); }
-        .ba-item:last-child { border-bottom: none; }
-        .ba-label { font-weight: 600; min-width: 100px; }
-        .ba-value { color: #666; }
-        .ba-card.after .ba-value { color: rgba(255,255,255,0.9); }
-
-        /* What's Included */
-        .whats-included { padding: 5rem 2rem; background: var(--warm-white); }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .section-header .subtitle { font-size: 1.25rem; color: var(--sage-dark); }
-
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); border-left: 4px solid var(--sage); transition: all 0.3s; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 155, 135, 0.15); }
-        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
-        .service-card p { color: #666; line-height: 1.6; font-size: 0.95rem; }
-
-        /* How It Works */
-        .how-it-works { padding: 5rem 2rem; background: var(--cream); }
-        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
-        .step { text-align: center; position: relative; }
-        .step-number { width: 60px; height: 60px; background: var(--sage); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1.5rem; }
-        .step h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
-        .step p { color: #666; font-size: 0.95rem; line-height: 1.6; }
-
-        /* SEO Tips */
-        .seo-tips { padding: 5rem 2rem; background: var(--warm-white); }
-        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
-        .tip-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); }
-        .tip-card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--charcoal); display: flex; align-items: center; gap: 0.75rem; }
-        .tip-card p { color: #666; line-height: 1.7; }
-
-        /* Pricing Preview */
-        .pricing-preview { padding: 5rem 2rem; background: var(--sage-dark); color: white; text-align: center; }
-        .pricing-box { background: rgba(255,255,255,0.1); max-width: 600px; margin: 3rem auto 0; padding: 3rem; border-radius: 20px; }
-        .price { font-size: 4rem; font-weight: 700; }
-        .price-label { font-size: 1.25rem; opacity: 0.9; margin-bottom: 1.5rem; }
-        .price-note { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
-        .pricing-preview .primary-button { background: white; color: var(--sage-dark); }
-        .pricing-preview .primary-button:hover { background: var(--cream); }
-
-        /* FAQ */
-        .faq { padding: 5rem 2rem; background: var(--cream); }
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: white; padding: 1.5rem 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .faq-question { font-size: 1.125rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.75rem; }
-        .faq-answer { color: #666; line-height: 1.7; }
-
-        /* CTA Section */
-        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-        .cta-section .primary-button:hover { background: var(--cream); }
-
-        /* Footer */
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
-        footer a { color: var(--sage); text-decoration: none; }
-
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-image { display: none; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .steps { grid-template-columns: repeat(2, 1fr); }
-            .ba-grid { grid-template-columns: 1fr; }
-            .tips-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container { padding: 0.75rem 1rem; }
-            .logo-img { height: 36px; }
-            .cta-button { padding: 0.6rem 1rem; font-size: 0.875rem; }
-            .mobile-menu-button { display: block; }
-
-            .hero { padding: 3rem 1.5rem; }
-            .hero-content h1 { font-size: 2rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .hero-features li { font-size: 1rem; }
-
-            .trust-container { gap: 1.5rem; }
-            .trust-number { font-size: 1.5rem; }
-
-            .section-header h2 { font-size: 2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .steps { grid-template-columns: 1fr; }
-
-            .pricing-box { padding: 2rem; }
-            .price { font-size: 3rem; }
-
-            .cta-section h2 { font-size: 2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 { font-size: 1.75rem; }
-            .primary-button { padding: 0.875rem 1.75rem; font-size: 1rem; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo"><img src="/images/logo.png" alt="Nurture" class="logo-img" /></a>
-            <div class="nav-right">
-                <a href="/contact" class="cta-button">Get Started</a>
-                <button class="mobile-menu-button">☰</button>
-            </div>
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">2-3x</span>
+          <span class="trust-label">More Views</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1><span class="highlight">Listing Optimization</span> for Toronto Airbnb</h1>
-                <p class="hero-subtitle">Your listing is your storefront. We transform underperforming listings into booking machines with professional photos, SEO-optimized copy, and conversion-focused design.</p>
-
-                <ul class="hero-features">
-                    <li><span class="check">✓</span> Professional photography that sells</li>
-                    <li><span class="check">✓</span> SEO-optimized titles and descriptions</li>
-                    <li><span class="check">✓</span> Strategic amenity highlighting</li>
-                    <li><span class="check">✓</span> Rank higher in Airbnb search</li>
-                    <li><span class="check">✓</span> Convert more views into bookings</li>
-                </ul>
-
-                <a href="/contact" class="primary-button">Get Free Listing Audit</a>
-            </div>
-            <div class="hero-image">
-                [Listing Screenshot]
-            </div>
+        <div class="trust-item">
+          <span class="trust-number">40%+</span>
+          <span class="trust-label">Higher Conversion</span>
         </div>
-    </section>
-
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <div class="trust-container">
-            <div class="trust-item">
-                <div class="trust-number">2-3x</div>
-                <div class="trust-label">More Views</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-number">40%+</div>
-                <div class="trust-label">Higher Conversion</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-number">Page 1</div>
-                <div class="trust-label">Search Ranking</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-number">5-Star</div>
-                <div class="trust-label">First Impressions</div>
-            </div>
+        <div class="trust-item">
+          <span class="trust-number">Page 1</span>
+          <span class="trust-label">Search Ranking</span>
         </div>
-    </section>
-
-    <!-- Before/After -->
-    <section class="before-after">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Before & After Optimization</h2>
-                <p class="subtitle serif">Real transformation from a Toronto condo listing</p>
-            </div>
-
-            <div class="ba-grid">
-                <div class="ba-card">
-                    <h3>❌ Before Optimization</h3>
-                    <div class="ba-item">
-                        <span class="ba-label">Title:</span>
-                        <span class="ba-value">"Nice condo downtown"</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Photos:</span>
-                        <span class="ba-value">iPhone photos, poor lighting, cluttered</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Description:</span>
-                        <span class="ba-value">Generic text, no keywords, boring</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Amenities:</span>
-                        <span class="ba-value">Basic list, nothing highlighted</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Search Rank:</span>
-                        <span class="ba-value">Page 4-5</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Bookings:</span>
-                        <span class="ba-value">8-10 nights/month</span>
-                    </div>
-                </div>
-
-                <div class="ba-card after">
-                    <h3>✓ After Optimization</h3>
-                    <div class="ba-item">
-                        <span class="ba-label">Title:</span>
-                        <span class="ba-value">"Stunning CN Tower View | King West | Free Parking"</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Photos:</span>
-                        <span class="ba-value">Professional DSLR, HDR editing, staged</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Description:</span>
-                        <span class="ba-value">Keyword-rich, storytelling, local tips</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Amenities:</span>
-                        <span class="ba-value">75+ amenities, strategic order</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Search Rank:</span>
-                        <span class="ba-value">Page 1</span>
-                    </div>
-                    <div class="ba-item">
-                        <span class="ba-label">Bookings:</span>
-                        <span class="ba-value">22-25 nights/month</span>
-                    </div>
-                </div>
-            </div>
+        <div class="trust-item">
+          <span class="trust-number">5-Star</span>
+          <span class="trust-label">First Impressions</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- What's Included -->
-    <section class="whats-included">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>What We Optimize</h2>
-                <p class="subtitle serif">Every element that affects your bookings</p>
-            </div>
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="intro-text">Your listing is your storefront. We transform underperforming listings into booking machines with professional photos, SEO-optimized copy, and conversion-focused design.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Professional photography that sells</li>
+          <li><span class="check">✓</span> SEO-optimized titles and descriptions</li>
+          <li><span class="check">✓</span> Strategic amenity highlighting</li>
+          <li><span class="check">✓</span> Rank higher in Airbnb search</li>
+          <li><span class="check">✓</span> Convert more views into bookings</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free Listing Audit</a>
+      </div>
+    </div>
+  </section>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📸</div>
-                    <h3>Professional Photography</h3>
-                    <p>DSLR photos with HDR editing, wide-angle lenses, and professional staging. Photos that make guests click "Book Now."</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">✍️</div>
-                    <h3>SEO-Optimized Title</h3>
-                    <p>Keyword-rich titles that rank higher in search and communicate your property's best features in seconds.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📝</div>
-                    <h3>Compelling Description</h3>
-                    <p>Storytelling copy that sells the experience, not just the space. Strategic keywords for search visibility.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">✅</div>
-                    <h3>Amenity Optimization</h3>
-                    <p>75+ amenities added and ordered strategically. Guests filter by amenities - we make sure you show up.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🗺️</div>
-                    <h3>Local Area Guide</h3>
-                    <p>Neighborhood highlights, restaurant recommendations, and local tips that add value and build trust.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Competitive Analysis</h3>
-                    <p>We analyze top performers in your area and apply winning strategies to your listing.</p>
-                </div>
-            </div>
+  <section class="section before-after-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Before & After Optimization</h2>
+        <p>Real transformation from a Toronto condo listing</p>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-card">
+          <h3>Before Optimization</h3>
+          <div class="ba-item"><span class="ba-label">Title:</span><span class="ba-value">"Nice condo downtown"</span></div>
+          <div class="ba-item"><span class="ba-label">Photos:</span><span class="ba-value">iPhone photos, poor lighting, cluttered</span></div>
+          <div class="ba-item"><span class="ba-label">Description:</span><span class="ba-value">Generic text, no keywords, boring</span></div>
+          <div class="ba-item"><span class="ba-label">Amenities:</span><span class="ba-value">Basic list, nothing highlighted</span></div>
+          <div class="ba-item"><span class="ba-label">Search Rank:</span><span class="ba-value">Page 4-5</span></div>
+          <div class="ba-item"><span class="ba-label">Bookings:</span><span class="ba-value">8-10 nights/month</span></div>
         </div>
-    </section>
-
-    <!-- SEO Tips Section -->
-    <section class="seo-tips">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>What Makes a Listing Rank Higher</h2>
-                <p class="subtitle serif">The Airbnb algorithm factors we optimize for</p>
-            </div>
-
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h3>🔍 Keyword Placement</h3>
-                    <p>Strategic keywords in your title, first paragraph, and amenities help Airbnb understand what your property offers and show it to the right guests.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>📸 Photo Quality Score</h3>
-                    <p>Airbnb's algorithm favors listings with high-quality photos. Professional photography improves your "quality score" and search ranking.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>⚡ Response Rate & Time</h3>
-                    <p>Quick responses boost your ranking. Our 9-minute average response time keeps your listing competitive in search results.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>📅 Booking Velocity</h3>
-                    <p>More bookings = higher ranking. Optimized listings get more clicks, which leads to more bookings, which improves ranking further.</p>
-                </div>
-            </div>
+        <div class="ba-card highlight">
+          <h3>After Optimization</h3>
+          <div class="ba-item"><span class="ba-label">Title:</span><span class="ba-value">"Stunning CN Tower View | King West | Free Parking"</span></div>
+          <div class="ba-item"><span class="ba-label">Photos:</span><span class="ba-value">Professional DSLR, HDR editing, staged</span></div>
+          <div class="ba-item"><span class="ba-label">Description:</span><span class="ba-value">Keyword-rich, storytelling, local tips</span></div>
+          <div class="ba-item"><span class="ba-label">Amenities:</span><span class="ba-value">75+ amenities, strategic order</span></div>
+          <div class="ba-item"><span class="ba-label">Search Rank:</span><span class="ba-value">Page 1</span></div>
+          <div class="ba-item"><span class="ba-label">Bookings:</span><span class="ba-value">22-25 nights/month</span></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>How Optimization Works</h2>
-                <p class="subtitle serif">From audit to results in 7 days</p>
-            </div>
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We Optimize</h2>
+        <p>Every element that affects your bookings</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <span class="service-icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Free Audit</h3>
-                    <p>We analyze your current listing and identify every opportunity for improvement.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Photo Shoot</h3>
-                    <p>Professional photographer visits your property. We style and stage for maximum impact.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Copy & SEO</h3>
-                    <p>We rewrite your title, description, and amenities for search and conversions.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Launch & Monitor</h3>
-                    <p>New listing goes live. We track performance and make ongoing improvements.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section seo-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Makes a Listing Rank Higher</h2>
+        <p>The Airbnb algorithm factors we optimize for</p>
+      </div>
+      <div class="seo-grid">
+        {seoTips.map(tip => (
+          <div class="seo-card">
+            <h3><span class="seo-icon">{tip.icon}</span> {tip.title}</h3>
+            <p>{tip.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-    <!-- Pricing Preview -->
-    <section class="pricing-preview">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Optimization Included Free</h2>
-                <p class="subtitle serif" style="color: rgba(255,255,255,0.8);">Professional listing setup at no extra cost</p>
-            </div>
+  <section class="section steps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How Optimization Works</h2>
+        <p>From audit to results in 7 days</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map(step => (
+          <div class="step-card">
+            <span class="step-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-            <div class="pricing-box">
-                <div class="price">$0</div>
-                <div class="price-label">setup fee</div>
-                <div class="price-note">Professional photos, SEO copy, and full listing optimization included with all management plans. No upfront costs.</div>
-                <a href="/pricing-toronto-airbnb-management" class="primary-button">See Management Pricing</a>
-            </div>
-        </div>
-    </section>
+  <section class="section pricing-highlight">
+    <div class="container">
+      <div class="pricing-box">
+        <h2>Optimization Included Free</h2>
+        <p class="pricing-subtitle">Professional listing setup at no extra cost</p>
+        <div class="price">$0</div>
+        <div class="price-label">setup fee</div>
+        <p class="price-note">Professional photos, SEO copy, and full listing optimization included with all management plans. No upfront costs.</p>
+        <a href="/pricing-toronto-airbnb-management" class="btn btn-primary">See Management Pricing</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="faq-container">
-            <div class="section-header">
-                <h2>Optimization Questions</h2>
-            </div>
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Optimization Questions</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-            <div class="faq-item">
-                <div class="faq-question">How long until I see results?</div>
-                <div class="faq-answer">Most hosts see improved search ranking within 1-2 weeks. Booking increases typically follow within the first month as your listing gains visibility.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Do I need to be there for the photo shoot?</div>
-                <div class="faq-answer">No, though you're welcome to be. We handle all staging and photography. Just make sure the property is clean and we'll take care of the rest.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">What if I already have good photos?</div>
-                <div class="faq-answer">We'll review them. If they're truly professional quality, we may use them. But most "good" photos still benefit from professional retouching or reshooting.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Will you change my listing without approval?</div>
-                <div class="faq-answer">No. We show you all proposed changes before publishing. You have final say on your title, photos, and description.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">How is this different from Airbnb's free photo service?</div>
-                <div class="faq-answer">Airbnb's service is basic documentation. We provide professional real estate photography with staging, HDR editing, and a conversion-focused approach designed to maximize bookings.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
         <h2>Ready to Transform Your Listing?</h2>
         <p>Get a free listing audit and see exactly how we'd improve your property's performance.</p>
-        <a href="/contact" class="primary-button">Get Free Listing Audit</a>
-        <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Free audit • See opportunities • No obligation</p>
-    </section>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free Listing Audit</a>
+      </div>
+    </div>
+  </section>
+</Layout>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Nurture Stays | Airbnb Listing Optimization Toronto</p>
-        <p><a href="/">Home</a> · <a href="/services">Services</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
-        <p style="margin-top: 1rem;">Serving Toronto, Mississauga, North York, Scarborough, Etobicoke & the GTA</p>
-    </footer>
-</body>
-</html>
+<style>
+  .hero-subtitle {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  .trust-bar {
+    background: var(--color-primary-dark);
+    padding: 1.5rem 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .trust-item {
+    color: white;
+  }
+
+  .trust-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .intro-section {
+    background: white;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .feature-list li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .check {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .before-after-section {
+    background: var(--color-background-alt);
+  }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .ba-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .ba-card.highlight {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .ba-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .ba-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .ba-card.highlight .ba-item {
+    border-bottom-color: rgba(255,255,255,0.2);
+  }
+
+  .ba-item:last-child {
+    border-bottom: none;
+  }
+
+  .ba-label {
+    font-weight: 600;
+    min-width: 90px;
+  }
+
+  .ba-value {
+    color: var(--color-text-light);
+  }
+
+  .ba-card.highlight .ba-value {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .services-section {
+    background: white;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: var(--color-background-alt);
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .seo-section {
+    background: var(--color-background-alt);
+  }
+
+  .seo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .seo-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .seo-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .seo-icon {
+    font-size: 1.5rem;
+  }
+
+  .seo-card p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .steps-section {
+    background: white;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .step-card {
+    text-align: center;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+  }
+
+  .step-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .step-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .pricing-highlight {
+    background: var(--color-primary-dark);
+    color: white;
+    text-align: center;
+  }
+
+  .pricing-box {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-box h2 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-subtitle {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .price {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  .price-label {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-note {
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-highlight .btn {
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .pricing-highlight .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  .faq-section {
+    background: var(--color-background-alt);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .faq-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-section .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  @media (max-width: 968px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ba-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .seo-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .trust-number {
+      font-size: 1.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .price {
+      font-size: 3rem;
+    }
+  }
+</style>
