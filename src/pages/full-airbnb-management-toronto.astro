@@ -1,0 +1,424 @@
+---
+// Full Airbnb Management Toronto - Service Page Template
+// Targets: full service airbnb management toronto, turnkey airbnb toronto, complete airbnb management
+// USE THIS AS TEMPLATE FOR OTHER SERVICE PAGES
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Service Airbnb Management Toronto | 10-15% | Nurture Stays</title>
+    <meta name="description" content="Complete Airbnb management in Toronto. We handle everything: pricing, guests, cleaning, maintenance. 10-15% commission, 9-min response time. You collect rent, we do the work.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sage: #8B9B87;
+            --sage-dark: #6B7B67;
+            --cream: #F8F6F1;
+            --warm-white: #FFFDF9;
+            --charcoal: #2A2A2A;
+            --gold: #C9A961;
+        }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
+        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
+        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
+        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; color: var(--charcoal); cursor: pointer; }
+
+        /* Hero */
+        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); }
+        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-content h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--charcoal); }
+        .hero-content .highlight { color: var(--sage-dark); }
+        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; line-height: 1.7; }
+        .hero-features { list-style: none; margin-bottom: 2rem; }
+        .hero-features li { padding: 0.5rem 0; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem; }
+        .hero-features .check { color: var(--sage); font-weight: 700; font-size: 1.25rem; }
+        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
+        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
+        .hero-image { background: var(--sage); border-radius: 20px; height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+
+        /* Trust Bar */
+        .trust-bar { background: var(--sage-dark); color: white; padding: 1.5rem 2rem; }
+        .trust-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .trust-item { text-align: center; }
+        .trust-number { font-size: 2rem; font-weight: 700; }
+        .trust-label { font-size: 0.875rem; opacity: 0.9; }
+
+        /* What's Included */
+        .whats-included { padding: 5rem 2rem; background: var(--warm-white); }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
+        .section-header .subtitle { font-size: 1.25rem; color: var(--sage-dark); }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); border-left: 4px solid var(--sage); transition: all 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 155, 135, 0.15); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
+        .service-card p { color: #666; line-height: 1.6; font-size: 0.95rem; }
+
+        /* How It Works */
+        .how-it-works { padding: 5rem 2rem; background: var(--cream); }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+        .step { text-align: center; position: relative; }
+        .step-number { width: 60px; height: 60px; background: var(--sage); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1.5rem; }
+        .step h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
+        .step p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Comparison */
+        .comparison { padding: 5rem 2rem; background: var(--warm-white); }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+        .comparison-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); }
+        .comparison-card.highlight { background: var(--sage-dark); color: white; }
+        .comparison-card h3 { font-size: 1.5rem; margin-bottom: 2rem; text-align: center; }
+        .comparison-list { list-style: none; }
+        .comparison-list li { padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1rem; }
+        .comparison-card.highlight .comparison-list li { border-bottom-color: rgba(255,255,255,0.2); }
+        .comparison-list li:last-child { border-bottom: none; }
+        .icon-x { color: #e74c3c; font-weight: 700; font-size: 1.25rem; }
+        .icon-check { color: var(--gold); font-weight: 700; font-size: 1.25rem; }
+
+        /* Pricing Preview */
+        .pricing-preview { padding: 5rem 2rem; background: var(--sage-dark); color: white; text-align: center; }
+        .pricing-box { background: rgba(255,255,255,0.1); max-width: 600px; margin: 3rem auto 0; padding: 3rem; border-radius: 20px; }
+        .price { font-size: 4rem; font-weight: 700; }
+        .price-label { font-size: 1.25rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .price-note { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
+        .pricing-preview .primary-button { background: white; color: var(--sage-dark); }
+        .pricing-preview .primary-button:hover { background: var(--cream); }
+
+        /* FAQ */
+        .faq { padding: 5rem 2rem; background: var(--cream); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: white; padding: 1.5rem 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .faq-question { font-size: 1.125rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.75rem; }
+        .faq-answer { color: #666; line-height: 1.7; }
+
+        /* CTA Section */
+        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-section .primary-button { background: white; color: var(--sage-dark); }
+        .cta-section .primary-button:hover { background: var(--cream); }
+
+        /* Footer */
+        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
+        footer p { color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
+        footer a { color: var(--sage); text-decoration: none; }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-image { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { padding: 0.75rem 1rem; }
+            .logo { font-size: 1.25rem; }
+            .cta-button { padding: 0.6rem 1rem; font-size: 0.875rem; }
+            .mobile-menu-button { display: block; }
+            
+            .hero { padding: 3rem 1.5rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-features li { font-size: 1rem; }
+            
+            .trust-container { gap: 1.5rem; }
+            .trust-number { font-size: 1.5rem; }
+            
+            .section-header h2 { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            
+            .pricing-box { padding: 2rem; }
+            .price { font-size: 3rem; }
+            
+            .cta-section h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 1.75rem; }
+            .primary-button { padding: 0.875rem 1.75rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Nurture Stays</a>
+            <div class="nav-right">
+                <a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a>
+                <button class="mobile-menu-button">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1><span class="highlight">Full-Service</span> Airbnb Management in Toronto</h1>
+                <p class="hero-subtitle">We handle absolutely everything while you collect rent. From guest inquiries to cleaning coordination, pricing optimization to maintenance - you never lift a finger.</p>
+                
+                <ul class="hero-features">
+                    <li><span class="check">✓</span> 24/7 guest communication & support</li>
+                    <li><span class="check">✓</span> Dynamic pricing to maximize revenue</li>
+                    <li><span class="check">✓</span> Professional cleaning after every guest</li>
+                    <li><span class="check">✓</span> Maintenance coordination & repairs</li>
+                    <li><span class="check">✓</span> All supplies restocked (included!)</li>
+                </ul>
+
+                <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+            </div>
+            <div class="hero-image">
+                <!-- Replace with actual image -->
+                [Property Image]
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-number">4.9★</div>
+                <div class="trust-label">Average Rating</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">9 min</div>
+                <div class="trust-label">Response Time</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">10-15%</div>
+                <div class="trust-label">Commission Only</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">30 day</div>
+                <div class="trust-label">Cancel Anytime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="whats-included">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Everything Included in Full Management</h2>
+                <p class="subtitle serif">One simple commission covers all of this</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Dynamic Pricing</h3>
+                    <p>AI-powered pricing adjusts daily based on demand, events, seasonality, and competition to maximize your revenue.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>24/7 Guest Communication</h3>
+                    <p>We handle all inquiries, bookings, check-in instructions, and guest questions. 9-minute average response time.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>Cleaning Coordination</h3>
+                    <p>Professional cleaners after every guest. Quality inspections ensure your property is always guest-ready.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Maintenance & Repairs</h3>
+                    <p>Our network of trusted contractors handles any issues quickly. Emergency repairs available 24/7.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Supply Restocking</h3>
+                    <p>Toilet paper, soap, coffee, shampoo - all essentials restocked after each guest at no extra charge.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h3>Guest Screening</h3>
+                    <p>We verify every guest before accepting bookings. No parties, no problems, no headaches for you.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📸</div>
+                    <h3>Professional Photography</h3>
+                    <p>High-quality photos that make your listing stand out and attract more bookings at higher rates.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Revenue Reporting</h3>
+                    <p>Clear monthly reports showing bookings, revenue, expenses, and your net profit. Complete transparency.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Listing Optimization</h3>
+                    <p>SEO-optimized titles, descriptions, and amenities that rank higher and convert more viewers to bookers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>How Full Management Works</h2>
+                <p class="subtitle serif">Four simple steps to passive income</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Free Consultation</h3>
+                    <p>We analyze your property and show you exactly how much you could earn with Airbnb.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Set Everything Up</h3>
+                    <p>Professional photos, optimized listing, pricing strategy, and all systems ready to go.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Manage Everything</h3>
+                    <p>Guests, cleaning, maintenance, pricing - we handle it all while you relax.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>You Collect Rent</h3>
+                    <p>Money deposited to your account. Clear reports. True passive income.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison: DIY vs Full Management -->
+    <section class="comparison">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>DIY Hosting vs. Full Management</h2>
+                <p class="subtitle serif">See why hosts switch to professional management</p>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>😓 DIY Hosting</h3>
+                    <ul class="comparison-list">
+                        <li><span class="icon-x">✗</span> Answer guest messages at 2am</li>
+                        <li><span class="icon-x">✗</span> Coordinate cleaners yourself</li>
+                        <li><span class="icon-x">✗</span> Handle angry guest complaints</li>
+                        <li><span class="icon-x">✗</span> Figure out pricing guesswork</li>
+                        <li><span class="icon-x">✗</span> Rush to fix emergencies</li>
+                        <li><span class="icon-x">✗</span> Restock supplies after work</li>
+                        <li><span class="icon-x">✗</span> Stress about bad reviews</li>
+                        <li><span class="icon-x">✗</span> Miss revenue opportunities</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card highlight">
+                    <h3>😎 Nurture Stays Full Management</h3>
+                    <ul class="comparison-list">
+                        <li><span class="icon-check">✓</span> We respond in 9 minutes, 24/7</li>
+                        <li><span class="icon-check">✓</span> Professional cleaners handled</li>
+                        <li><span class="icon-check">✓</span> We resolve all guest issues</li>
+                        <li><span class="icon-check">✓</span> AI-optimized dynamic pricing</li>
+                        <li><span class="icon-check">✓</span> Emergency team on standby</li>
+                        <li><span class="icon-check">✓</span> Supplies restocked (included)</li>
+                        <li><span class="icon-check">✓</span> 5-star experiences guaranteed</li>
+                        <li><span class="icon-check">✓</span> 30-100% more revenue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="pricing-preview">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p class="subtitle serif" style="color: rgba(255,255,255,0.8);">No hidden fees, no surprises</p>
+            </div>
+            
+            <div class="pricing-box">
+                <div class="price">10-15%</div>
+                <div class="price-label">of monthly revenue</div>
+                <div class="price-note">That's it. No setup fees. No monthly minimums.<br>We only make money when you make money.</div>
+                <a href="/pricing-toronto-airbnb-management" class="primary-button">See Full Pricing Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2>Common Questions</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between 10% and 15%?</div>
+                <div class="faq-answer">10% is for hosts who want to handle some tasks themselves (like restocking). 15% is true full-service where we handle absolutely everything. Most clients choose 15% for complete peace of mind.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How quickly can I get started?</div>
+                <div class="faq-answer">Most properties are live within 5-7 days. We handle photos, listing creation, and setup. Average time to first booking is under 1 week after going live.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if I want to use my property sometimes?</div>
+                <div class="faq-answer">No problem! Just block the dates you want in the calendar. Many owners use their property for personal stays or visiting family - it's your property.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need to sign a long contract?</div>
+                <div class="faq-answer">No. We work on a simple 30-day notice agreement. You can cancel anytime. We keep clients through great service, not contracts.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Who owns the Airbnb listing?</div>
+                <div class="faq-answer">You do. We create the listing under your account. If you ever part ways with us, the listing, reviews, and history are all yours.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready for Truly Passive Income?</h2>
+        <p>Get a free property analysis and see how much you could earn with full-service management.</p>
+        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+        <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Free consultation • No obligation • Results in 24 hours</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Nurture Stays | Full-Service Airbnb Management Toronto</p>
+        <p><a href="/">Home</a> · <a href="/services">Services</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
+        <p style="margin-top: 1rem;">Serving Toronto, Mississauga, North York, Scarborough, Etobicoke & the GTA</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,478 @@
+---
+// Airbnb Dynamic Pricing Toronto - Service Page
+// Targets: airbnb pricing optimization, airbnb revenue management toronto, dynamic pricing airbnb
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Dynamic Pricing Toronto | AI Revenue Optimization | Nurture Stays</title>
+    <meta name="description" content="Maximize your Airbnb revenue with AI-powered dynamic pricing in Toronto. Our algorithms analyze 50+ factors daily to optimize your rates. Average 20-40% revenue increase.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sage: #8B9B87;
+            --sage-dark: #6B7B67;
+            --cream: #F8F6F1;
+            --warm-white: #FFFDF9;
+            --charcoal: #2A2A2A;
+            --gold: #C9A961;
+        }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
+        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
+        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
+        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; color: var(--charcoal); cursor: pointer; }
+
+        /* Hero */
+        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); }
+        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-content h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--charcoal); }
+        .hero-content .highlight { color: var(--sage-dark); }
+        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; line-height: 1.7; }
+        .hero-features { list-style: none; margin-bottom: 2rem; }
+        .hero-features li { padding: 0.5rem 0; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem; }
+        .hero-features .check { color: var(--sage); font-weight: 700; font-size: 1.25rem; }
+        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
+        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
+        .hero-image { background: var(--sage); border-radius: 20px; height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+
+        /* Trust Bar */
+        .trust-bar { background: var(--sage-dark); color: white; padding: 1.5rem 2rem; }
+        .trust-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .trust-item { text-align: center; }
+        .trust-number { font-size: 2rem; font-weight: 700; }
+        .trust-label { font-size: 0.875rem; opacity: 0.9; }
+
+        /* What's Included */
+        .whats-included { padding: 5rem 2rem; background: var(--warm-white); }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
+        .section-header .subtitle { font-size: 1.25rem; color: var(--sage-dark); }
+
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); border-left: 4px solid var(--sage); transition: all 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 155, 135, 0.15); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
+        .service-card p { color: #666; line-height: 1.6; font-size: 0.95rem; }
+
+        /* Revenue Example */
+        .revenue-example { padding: 5rem 2rem; background: var(--cream); }
+        .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+        .example-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); }
+        .example-card.highlight { background: var(--sage-dark); color: white; }
+        .example-card h3 { font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
+        .example-line { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .example-card.highlight .example-line { border-bottom-color: rgba(255,255,255,0.2); }
+        .example-line:last-child { border-bottom: none; }
+        .example-total { font-size: 1.5rem; font-weight: 700; padding-top: 1rem; margin-top: 0.5rem; border-top: 2px solid rgba(0,0,0,0.1); }
+        .example-card.highlight .example-total { border-top-color: rgba(255,255,255,0.3); }
+
+        /* How It Works */
+        .how-it-works { padding: 5rem 2rem; background: var(--warm-white); }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+        .step { text-align: center; position: relative; }
+        .step-number { width: 60px; height: 60px; background: var(--sage); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1.5rem; }
+        .step h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
+        .step p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Factors We Analyze */
+        .factors { padding: 5rem 2rem; background: var(--cream); }
+        .factors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .factor-item { background: white; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        .factor-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .factor-item h4 { font-size: 1rem; color: var(--charcoal); }
+
+        /* Pricing Preview */
+        .pricing-preview { padding: 5rem 2rem; background: var(--sage-dark); color: white; text-align: center; }
+        .pricing-box { background: rgba(255,255,255,0.1); max-width: 600px; margin: 3rem auto 0; padding: 3rem; border-radius: 20px; }
+        .price { font-size: 4rem; font-weight: 700; }
+        .price-label { font-size: 1.25rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .price-note { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
+        .pricing-preview .primary-button { background: white; color: var(--sage-dark); }
+        .pricing-preview .primary-button:hover { background: var(--cream); }
+
+        /* FAQ */
+        .faq { padding: 5rem 2rem; background: var(--warm-white); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: white; padding: 1.5rem 2rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .faq-question { font-size: 1.125rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.75rem; }
+        .faq-answer { color: #666; line-height: 1.7; }
+
+        /* CTA Section */
+        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-section .primary-button { background: white; color: var(--sage-dark); }
+        .cta-section .primary-button:hover { background: var(--cream); }
+
+        /* Footer */
+        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
+        footer p { color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
+        footer a { color: var(--sage); text-decoration: none; }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-image { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            .example-grid { grid-template-columns: 1fr; }
+            .factors-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { padding: 0.75rem 1rem; }
+            .logo-img { height: 36px; }
+            .cta-button { padding: 0.6rem 1rem; font-size: 0.875rem; }
+            .mobile-menu-button { display: block; }
+
+            .hero { padding: 3rem 1.5rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-features li { font-size: 1rem; }
+
+            .trust-container { gap: 1.5rem; }
+            .trust-number { font-size: 1.5rem; }
+
+            .section-header h2 { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .factors-grid { grid-template-columns: 1fr 1fr; }
+
+            .pricing-box { padding: 2rem; }
+            .price { font-size: 3rem; }
+
+            .cta-section h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 1.75rem; }
+            .primary-button { padding: 0.875rem 1.75rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="/images/logo.png" alt="Nurture" class="logo-img" /></a>
+            <div class="nav-right">
+                <a href="/contact" class="cta-button">Get Started</a>
+                <button class="mobile-menu-button">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1><span class="highlight">Dynamic Pricing</span> for Toronto Airbnb</h1>
+                <p class="hero-subtitle">Stop leaving money on the table. Our AI analyzes 50+ market factors daily to set the perfect price for every night. Hosts see 20-40% more revenue on average.</p>
+
+                <ul class="hero-features">
+                    <li><span class="check">✓</span> AI adjusts prices daily based on demand</li>
+                    <li><span class="check">✓</span> Maximize revenue on high-demand nights</li>
+                    <li><span class="check">✓</span> Fill gaps with strategic discounts</li>
+                    <li><span class="check">✓</span> Outprice competitors intelligently</li>
+                    <li><span class="check">✓</span> No more pricing guesswork</li>
+                </ul>
+
+                <a href="/contact" class="primary-button">Get Free Revenue Analysis</a>
+            </div>
+            <div class="hero-image">
+                [Pricing Dashboard Image]
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-number">20-40%</div>
+                <div class="trust-label">Revenue Increase</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">50+</div>
+                <div class="trust-label">Factors Analyzed</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">Daily</div>
+                <div class="trust-label">Price Updates</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">24/7</div>
+                <div class="trust-label">Market Monitoring</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Example -->
+    <section class="revenue-example">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>The Difference Smart Pricing Makes</h2>
+                <p class="subtitle serif">Real example: 1-bedroom condo in Downtown Toronto</p>
+            </div>
+
+            <div class="example-grid">
+                <div class="example-card">
+                    <h3>❌ Static Pricing ($150/night)</h3>
+                    <div class="example-line">
+                        <span>Weeknight (Tue)</span>
+                        <span>$150</span>
+                    </div>
+                    <div class="example-line">
+                        <span>Weekend (Sat)</span>
+                        <span>$150</span>
+                    </div>
+                    <div class="example-line">
+                        <span>TIFF Festival Night</span>
+                        <span>$150</span>
+                    </div>
+                    <div class="example-line">
+                        <span>January Slow Season</span>
+                        <span>$150</span>
+                    </div>
+                    <div class="example-line example-total">
+                        <span>Monthly Avg</span>
+                        <span>~$2,700</span>
+                    </div>
+                </div>
+
+                <div class="example-card highlight">
+                    <h3>✓ Dynamic Pricing</h3>
+                    <div class="example-line">
+                        <span>Weeknight (Tue)</span>
+                        <span>$129</span>
+                    </div>
+                    <div class="example-line">
+                        <span>Weekend (Sat)</span>
+                        <span>$189</span>
+                    </div>
+                    <div class="example-line">
+                        <span>TIFF Festival Night</span>
+                        <span>$289</span>
+                    </div>
+                    <div class="example-line">
+                        <span>January (7+ day stay)</span>
+                        <span>$99</span>
+                    </div>
+                    <div class="example-line example-total">
+                        <span>Monthly Avg</span>
+                        <span>~$3,600</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="whats-included">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>How Our Dynamic Pricing Works</h2>
+                <p class="subtitle serif">Intelligence that maximizes every booking</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI-Powered Algorithms</h3>
+                    <p>Machine learning models trained on thousands of Toronto bookings to predict optimal pricing for your specific property.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Demand Forecasting</h3>
+                    <p>We predict high-demand periods before they happen, so you capture premium rates during events, holidays, and busy seasons.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Competitor Analysis</h3>
+                    <p>Real-time monitoring of similar properties in your area. We price you competitively without leaving money on the table.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📅</div>
+                    <h3>Gap Night Strategy</h3>
+                    <p>Smart discounts for orphan nights between bookings. Fill your calendar instead of losing those nights entirely.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Instant Adjustments</h3>
+                    <p>Prices update automatically based on real-time market changes. No manual intervention needed.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Minimum Price Protection</h3>
+                    <p>Set your floor price. Our AI optimizes above it but never goes below your comfort level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Factors We Analyze -->
+    <section class="factors">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>50+ Factors We Analyze Daily</h2>
+                <p class="subtitle serif">Data-driven decisions, not guesswork</p>
+            </div>
+
+            <div class="factors-grid">
+                <div class="factor-item">
+                    <div class="factor-icon">📅</div>
+                    <h4>Day of Week</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">🗓️</div>
+                    <h4>Seasonality</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">🎉</div>
+                    <h4>Local Events</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">🏨</div>
+                    <h4>Competitor Rates</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">📊</div>
+                    <h4>Market Demand</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">⏰</div>
+                    <h4>Lead Time</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">📈</div>
+                    <h4>Booking Velocity</h4>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-icon">🌡️</div>
+                    <h4>Weather Patterns</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Get Started in 3 Steps</h2>
+                <p class="subtitle serif">Smarter pricing, starting today</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Free Analysis</h3>
+                    <p>We analyze your listing's pricing history and show you exactly how much revenue you're missing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Parameters</h3>
+                    <p>Tell us your minimum price, blackout dates, and any preferences. We customize to your needs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>AI Takes Over</h3>
+                    <p>Our system starts optimizing immediately. Watch your revenue grow while we handle the math.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Track Results</h3>
+                    <p>Clear reports showing how dynamic pricing is increasing your bookings and revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="pricing-preview">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Pricing Included in All Plans</h2>
+                <p class="subtitle serif" style="color: rgba(255,255,255,0.8);">Dynamic pricing comes standard with our management</p>
+            </div>
+
+            <div class="pricing-box">
+                <div class="price">10-15%</div>
+                <div class="price-label">of monthly revenue</div>
+                <div class="price-note">Dynamic pricing is included in both our co-hosting and full management plans. No extra fees.</div>
+                <a href="/pricing-toronto-airbnb-management" class="primary-button">See All Pricing Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2>Pricing Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How much more can I make with dynamic pricing?</div>
+                <div class="faq-answer">Most Toronto hosts see 20-40% more revenue within the first 3 months. The exact increase depends on how your property was priced before and your property type.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I set a minimum price?</div>
+                <div class="faq-answer">Absolutely. You set the floor, and our AI optimizes above it. We'll never price below your comfort level, but we will capture every dollar above it.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How often do prices change?</div>
+                <div class="faq-answer">Our system reviews and adjusts prices daily. During high-demand periods, prices may change multiple times per day to capture market movements.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Will lower prices hurt my listing?</div>
+                <div class="faq-answer">Strategic pricing actually helps your listing. More bookings mean more reviews, which improves your search ranking. A booked night at $99 beats an empty night at $150.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do I need to do anything?</div>
+                <div class="faq-answer">Nothing. Once we set up your parameters, the AI handles everything. You just watch your calendar fill up and your revenue grow.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Stop Leaving Money on the Table</h2>
+        <p>Get a free revenue analysis and see how much more your property could earn with smart pricing.</p>
+        <a href="/contact" class="primary-button">Get Free Revenue Analysis</a>
+        <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Free analysis • No obligation • Results in 24 hours</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Nurture Stays | Airbnb Dynamic Pricing Toronto</p>
+        <p><a href="/">Home</a> · <a href="/services">Services</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
+        <p style="margin-top: 1rem;">Serving Toronto, Mississauga, North York, Scarborough, Etobicoke & the GTA</p>
+    </footer>
+</body>
+</html>
