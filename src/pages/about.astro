@@ -15,9 +15,9 @@ const services = [
 ];
 
 const stats = [
-  { number: '200+', label: 'Properties Managed' },
   { number: '4.9★', label: 'Average Guest Rating' },
   { number: '<9 min', label: 'Response Time' },
+  { number: '10-15%', label: 'Management Fee' },
   { number: '30-100%', label: 'Income Increase' }
 ];
 ---
@@ -56,10 +56,7 @@ const stats = [
           <p>Word spread quickly. Property owners were seeing 30-100% increases in their rental income while spending less time worrying about their investments. What began as a handful of properties has grown into a comprehensive property management operation serving the entire Greater Toronto Area.</p>
         </div>
         <div class="story-image">
-          <div class="image-card">
-            <span class="image-icon">🏠</span>
-            <p>From humble beginnings to 200+ properties across the GTA</p>
-          </div>
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop" alt="Modern Toronto condo interior" class="about-img" />
         </div>
       </div>
     </div>
@@ -69,10 +66,7 @@ const stats = [
     <div class="container">
       <div class="trust-grid">
         <div class="trust-image">
-          <div class="image-card accent">
-            <span class="image-icon">🤝</span>
-            <p>Your success is our success</p>
-          </div>
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=400&fit=crop" alt="Toronto skyline with CN Tower" class="about-img" />
         </div>
         <div class="trust-content">
           <h2>Why Trust Us?</h2>
@@ -233,27 +227,12 @@ const stats = [
     color: var(--color-text);
   }
 
-  .image-card {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  .about-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
     border-radius: 20px;
-    padding: 4rem 2rem;
-    text-align: center;
-    color: white;
-  }
-
-  .image-card.accent {
-    background: linear-gradient(135deg, #2A2A2A 0%, #1a1a1a 100%);
-  }
-
-  .image-icon {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
-  .image-card p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   }
 
   .trust-section {
