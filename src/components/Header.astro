@@ -4,16 +4,6 @@ const currentPath = Astro.url.pathname;
 const servicesDropdown = [
   { href: '/services', label: 'All Services' },
   { href: '/emergency-airbnb-support-toronto', label: 'Emergency Support' },
-  { href: '/pricing-toronto-airbnb-management', label: 'Pricing' },
-];
-
-const locationsDropdown = [
-  { href: '/locations', label: 'All Locations' },
-  { href: '/downtown-toronto-airbnb-management', label: 'Downtown Toronto' },
-  { href: '/mississauga-airbnb-management', label: 'Mississauga' },
-  { href: '/north-york-airbnb-management', label: 'North York' },
-  { href: '/scarborough-airbnb-management', label: 'Scarborough' },
-  { href: '/etobicoke-airbnb-management', label: 'Etobicoke' },
 ];
 ---
 
@@ -43,36 +33,19 @@ const locationsDropdown = [
             ))}
           </ul>
         </li>
-        <li class="nav-item has-dropdown">
-          <button class="nav-link dropdown-toggle" aria-expanded="false">
-            Locations
-            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <ul class="dropdown-menu">
-            {locationsDropdown.map(item => (
-              <li>
-                <a href={item.href} class:list={['dropdown-link', { active: currentPath === item.href }]}>
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <li class="nav-item">
+          <a href="/pricing-toronto-airbnb-management" class:list={['nav-link', { active: currentPath === '/pricing-toronto-airbnb-management' }]}>
+            Pricing
+          </a>
         </li>
         <li class="nav-item">
           <a href="/about" class:list={['nav-link', { active: currentPath === '/about' }]}>
             About
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/contact" class:list={['nav-link', { active: currentPath === '/contact' }]}>
-            Contact
-          </a>
-        </li>
       </ul>
       <a href="tel:+16479578956" class="nav-phone">647-957-8956</a>
-      <a href="/contact" class="btn btn-primary nav-cta">Free Estimate</a>
+      <a href="/contact" class="btn btn-primary nav-cta">Contact Us</a>
     </nav>
 
     <!-- Mobile Menu Button (visible on mobile only) -->
@@ -96,27 +69,14 @@ const locationsDropdown = [
             ))}
           </ul>
         </li>
-        <li class="mobile-nav-item has-dropdown">
-          <button class="mobile-nav-link dropdown-toggle" aria-expanded="false">
-            Locations
-            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <ul class="mobile-dropdown-menu">
-            {locationsDropdown.map(item => (
-              <li><a href={item.href}>{item.label}</a></li>
-            ))}
-          </ul>
+        <li class="mobile-nav-item">
+          <a href="/pricing-toronto-airbnb-management" class="mobile-nav-link">Pricing</a>
         </li>
         <li class="mobile-nav-item">
           <a href="/about" class="mobile-nav-link">About</a>
         </li>
-        <li class="mobile-nav-item">
-          <a href="/contact" class="mobile-nav-link">Contact</a>
-        </li>
       </ul>
-      <a href="/contact" class="btn btn-primary mobile-nav-cta">Free Estimate</a>
+      <a href="/contact" class="btn btn-primary mobile-nav-cta">Contact Us</a>
     </nav>
   </div>
 </header>
