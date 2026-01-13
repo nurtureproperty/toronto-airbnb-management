@@ -5,7 +5,7 @@ const services = [
   { icon: '💰', title: 'Dynamic Pricing', description: 'We optimize your nightly rates using market data and AI to maximize your revenue without you guessing at prices.' },
   { icon: '💬', title: 'Guest Communication', description: 'We handle all guest messages, inquiries, and booking requests. 9-minute average response time, 24/7.' },
   { icon: '📋', title: 'Booking Management', description: 'We screen guests, manage reservations, and handle all the back-and-forth so you don\'t have to.' },
-  { icon: '⭐', title: 'Review Management', description: 'We craft thoughtful responses to reviews and help maintain your 5-star reputation on the platform.' },
+  { icon: '★', title: 'Review Management', description: 'We craft thoughtful responses to reviews and help maintain your 5-star reputation on the platform.' },
   { icon: '📊', title: 'Performance Reports', description: 'Monthly reports showing your bookings, revenue, and how your property is performing against the market.' },
   { icon: '🎯', title: 'Listing Optimization', description: 'We continuously improve your listing title, description, and photos to rank higher and convert more views.' }
 ];
@@ -26,10 +26,10 @@ const faqs = [
 ];
 ---
 
-<Layout title="Airbnb Co-Hosting Toronto" description="Airbnb co-hosting in Toronto. Get professional help while staying involved. Flexible, affordable part-time management starting at 10%. Keep control, get support.">
+<Layout title="Airbnb Co-Hosting Greater Toronto Area" description="Airbnb co-hosting in the Greater Toronto Area. Get professional help while staying involved. Flexible, affordable part-time management starting at 10%. Keep control, get support.">
   <section class="hero hero-small">
     <div class="container">
-      <h1>Airbnb Co-Hosting in Toronto</h1>
+      <h1>Airbnb Co-Hosting in the Greater Toronto Area</h1>
       <p class="hero-subtitle">Professional help while you stay in control. Perfect for hands-on hosts who need backup.</p>
     </div>
   </section>
@@ -121,7 +121,7 @@ const faqs = [
           <ul class="comparison-list">
             <li><span class="icon-check">✓</span> We handle absolutely everything</li>
             <li><span class="icon-check">✓</span> Cleaning coordination included</li>
-            <li><span class="icon-check">✓</span> Supply restocking included</li>
+            <li><span class="icon-check">✓</span> Restocking management included</li>
             <li><span class="icon-check">✓</span> Maintenance coordination</li>
             <li><span class="icon-check">✓</span> True passive income</li>
             <li><span class="icon-check">✓</span> Best for: Busy owners</li>
@@ -206,7 +206,6 @@ const faqs = [
   }
 
   .trust-number {
-    display: block;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
@@ -281,8 +280,16 @@ const faqs = [
   }
 
   .service-icon {
-    font-size: 2.5rem;
-    display: block;
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
     margin-bottom: 1rem;
   }
 
