@@ -53,6 +53,16 @@
             border-bottom: 1px solid rgba(117, 155, 143, 0.1);
         }
 
+        /* MOBILE: Hide desktop nav, show only logo and hamburger */
+        @media (max-width: 1024px) {
+            nav .desktop-only {
+                display: none !important;
+            }
+            nav .mobile-menu-button {
+                display: flex !important;
+            }
+        }
+
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -60,6 +70,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .desktop-only {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .logo {
@@ -186,15 +202,39 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu Button - Hidden by default */
         .mobile-menu-button {
             display: none;
+            align-items: center;
+            justify-content: center;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--charcoal);
             cursor: pointer;
+            padding: 8px;
+            width: 44px;
+            height: 44px;
         }
+
+        .hamburger {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--charcoal);
+            position: relative;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--charcoal);
+            left: 0;
+        }
+
+        .hamburger::before { top: -7px; }
+        .hamburger::after { bottom: -7px; }
 
         /* Hero Section */
         .hero {
@@ -1130,10 +1170,23 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            /* Hide entire desktop nav, show mobile menu button */
+            .desktop-only {
+                display: none !important;
+            }
+
+            .mobile-menu-button {
+                display: flex !important;
+            }
+
+            .logo-img {
+                height: 36px;
+            }
+
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 right: 0;
                 background: white;
@@ -1141,8 +1194,9 @@
                 padding: 1.5rem;
                 gap: 0;
                 box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-                max-height: calc(100vh - 80px);
+                max-height: calc(100vh - 70px);
                 overflow-y: auto;
+                z-index: 999;
             }
 
             .nav-links.mobile-open {
@@ -1190,10 +1244,6 @@
 
             .dropdown-menu li a {
                 padding: 0.75rem 1rem;
-            }
-
-            .mobile-menu-button {
-                display: block;
             }
 
             .hero-container {
@@ -1285,6 +1335,16 @@
                 font-size: 2rem;
             }
         }
+
+        @media (max-width: 576px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo-img {
+                height: 32px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1292,42 +1352,50 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="logo"><img src="/images/logo.png" alt="Nurture" class="logo-img" /></a>
-            <ul class="nav-links">
-                <li class="has-dropdown">
-                    <button class="nav-dropdown-toggle">
-                        Services
-                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="/services">All Services</a></li>
-                        <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
-                        <li><a href="/pricing-toronto-airbnb-management">Pricing</a></li>
-                    </ul>
-                </li>
-                <li class="has-dropdown">
-                    <button class="nav-dropdown-toggle">
-                        Locations
-                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="/locations">All Locations</a></li>
-                        <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
-                        <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
-                        <li><a href="/north-york-airbnb-management">North York</a></li>
-                        <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
-                        <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
-                    </ul>
-                </li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-            <a href="tel:647-957-8956" class="nav-phone">647-957-8956</a>
-            <a href="/contact" class="cta-button">Free Estimate</a>
-            <button class="mobile-menu-button">☰</button>
+
+            <!-- Desktop Nav (hidden on mobile via CSS) -->
+            <div class="desktop-only">
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <button class="nav-dropdown-toggle">
+                            Services
+                            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services">All Services</a></li>
+                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
+                            <li><a href="/pricing-toronto-airbnb-management">Pricing</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <button class="nav-dropdown-toggle">
+                            Locations
+                            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/locations">All Locations</a></li>
+                            <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
+                            <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
+                            <li><a href="/north-york-airbnb-management">North York</a></li>
+                            <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
+                            <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <a href="tel:647-957-8956" class="nav-phone">647-957-8956</a>
+                <a href="/contact" class="cta-button">Free Estimate</a>
+            </div>
+
+            <!-- Mobile Menu Button (hidden on desktop via CSS) -->
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </nav>
 
@@ -1802,7 +1870,7 @@
 
         mobileMenuBtn?.addEventListener('click', () => {
             navLinks?.classList.toggle('mobile-open');
-            mobileMenuBtn.textContent = navLinks?.classList.contains('mobile-open') ? '✕' : '☰';
+            mobileMenuBtn.classList.toggle('active');
         });
     </script>
 </body>
