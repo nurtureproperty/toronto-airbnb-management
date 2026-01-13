@@ -1,0 +1,230 @@
+---
+// Airbnb Property Maintenance Toronto - Service Page
+// Targets: airbnb maintenance toronto, vacation rental maintenance, property repairs
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Property Maintenance Toronto & GTA | 24/7 Repairs | Nurture Stays</title>
+    <meta name="description" content="24/7 Airbnb property maintenance in Toronto and the Greater Toronto Area. Emergency repairs, routine upkeep, trusted contractor network. Protect your investment and keep guests happy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --sage: #8B9B87; --sage-dark: #6B7B67; --cream: #F8F6F1; --warm-white: #FFFDF9; --charcoal: #2A2A2A; --gold: #C9A961; --red: #D84545; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .hero .highlight { color: var(--sage-dark); }
+        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
+        .emergency-button { background: var(--red); }
+        .section { padding: 5rem 2rem; }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
+        .main-content h2, .main-content h3 { color: var(--charcoal); margin: 2rem 0 1rem; }
+        .main-content p, .main-content li { color: #555; line-height: 1.8; margin-bottom: 1rem; }
+        .sidebar { position: sticky; top: 100px; }
+        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .sidebar-card h4 { margin-bottom: 1rem; }
+        .sidebar-card ul { list-style: none; }
+        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
+        .sidebar-card a { color: var(--sage-dark); text-decoration: none; }
+        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
+        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
+        .warning-box { background: #FFEBEE; border-left: 4px solid var(--red); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
+        .warning-box h4 { color: var(--red); margin-bottom: 0.5rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
+        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--sage); }
+        .service-card.emergency { border-left-color: var(--red); }
+        .service-card h3 { margin-bottom: 0.75rem; }
+        .service-card p { color: #666; font-size: 0.95rem; }
+        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section .primary-button { background: white; color: var(--sage-dark); }
+        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
+        footer a { color: var(--sage); text-decoration: none; }
+        @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .services-grid { grid-template-columns: 1fr; } .mobile-menu-button { display: block; } }
+    </style>
+</head>
+<body>
+    <nav><div class="nav-container"><a href="/" class="logo">Nurture Stays</a><div class="nav-right"><a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a><button class="mobile-menu-button">☰</button></div></div></nav>
+
+    <section class="hero">
+        <h1>Airbnb <span class="highlight">Property Maintenance</span> Toronto</h1>
+        <p class="hero-subtitle">24/7 emergency repairs and routine maintenance. Protect your investment, keep guests happy, and never scramble to find a contractor again.</p>
+        <a href="tel:647-957-8956" class="primary-button">Get Maintenance Support</a>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="content-grid">
+                <div class="main-content">
+                    <h2>Why Airbnb Maintenance is Different</h2>
+                    <p>With traditional rentals, you can schedule repairs at your convenience. With Airbnb, a clogged toilet at 11pm means an angry guest, a bad review, and potentially a cancelled booking. Speed matters.</p>
+
+                    <p>Our maintenance network is built for short-term rental emergencies. We have plumbers, electricians, locksmiths, and handymen across the GTA who respond within hours — not days.</p>
+
+                    <div class="warning-box">
+                        <h4>🚨 Emergency Maintenance</h4>
+                        <p>Plumbing leak? Power outage? Heat failure in winter? Our <a href="/emergency-airbnb-support-toronto" style="color: var(--red);">24/7 emergency line</a> dispatches contractors immediately. Don't let maintenance emergencies ruin your guest's stay.</p>
+                    </div>
+
+                    <h3>Common Airbnb Maintenance Issues</h3>
+                    <ul>
+                        <li><strong>Plumbing:</strong> Clogged toilets, slow drains, leaky faucets, running toilets</li>
+                        <li><strong>HVAC:</strong> AC not cooling, furnace not heating, thermostat issues</li>
+                        <li><strong>Appliances:</strong> Fridge, dishwasher, washer/dryer, microwave repairs</li>
+                        <li><strong>Electrical:</strong> Tripped breakers, outlet issues, light fixtures</li>
+                        <li><strong>Locks/Security:</strong> Smart lock issues, lockouts, door repairs</li>
+                        <li><strong>General:</strong> Blinds, cabinet doors, loose fixtures, paint touchups</li>
+                    </ul>
+
+                    <h3>Preventive Maintenance Tips</h3>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #1: Schedule Quarterly HVAC Checks</h4>
+                        <p>AC failures happen most often in summer heat waves — the worst possible time. Quarterly maintenance catches problems before peak demand. A $100 service call prevents a $1,000+ emergency.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #2: Clear Drains Monthly</h4>
+                        <p>Hair buildup is the #1 cause of clogged drains. Pour boiling water mixed with baking soda and vinegar down drains monthly. We do this during routine <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">turnovers</a>.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #3: Keep Spare Batteries</h4>
+                        <p>Smart locks, smoke detectors, and TV remotes all need batteries. Dead batteries cause lockouts and angry guests. We check and replace batteries during every turnover.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #4: Document Everything</h4>
+                        <p>We photograph your property during every <a href="/services/airbnb-turnover-management-toronto" style="color: var(--sage-dark);">turnover</a>. This documents condition before/after each guest and helps with damage claims.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #5: Build a Contractor Network NOW</h4>
+                        <p>Don't wait for an emergency to find a plumber. With our management, you get instant access to our vetted contractor network across <a href="/downtown-toronto-airbnb-management" style="color: var(--sage-dark);">Downtown Toronto</a>, <a href="/north-york-airbnb-management" style="color: var(--sage-dark);">North York</a>, <a href="/mississauga-airbnb-management" style="color: var(--sage-dark);">Mississauga</a>, and all GTA areas.</p>
+                    </div>
+
+                    <h3>Response Time Standards</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
+                        <tr style="background: var(--sage-dark); color: white;">
+                            <th style="padding: 1rem; text-align: left;">Issue Type</th>
+                            <th style="padding: 1rem; text-align: left;">Response Time</th>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">🚨 Emergency (flood, no heat, lockout)</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>Under 2 hours</strong></td>
+                        </tr>
+                        <tr style="background: var(--cream);">
+                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">⚡ Urgent (AC out, appliance broken)</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>Same day</strong></td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 1rem;">📝 Routine (cosmetic, minor repairs)</td>
+                            <td style="padding: 1rem;"><strong>Next available turnover</strong></td>
+                        </tr>
+                    </table>
+
+                    <h3>Condo-Specific Maintenance</h3>
+                    <p>For <a href="/downtown-toronto-airbnb-management" style="color: var(--sage-dark);">Downtown Toronto condos</a> and high-rise properties, we coordinate with building management for:</p>
+                    <ul>
+                        <li>Suite entry for repairs (with building notification)</li>
+                        <li>HVAC issues requiring building engineer access</li>
+                        <li>Water shutoff coordination</li>
+                        <li>After-hours emergencies requiring concierge assistance</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-card" style="background: var(--red); color: white;">
+                        <h4 style="color: white;">🚨 Emergency Line</h4>
+                        <p style="margin-bottom: 1rem;">24/7 emergency maintenance support.</p>
+                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--red);">Call 647-957-8956</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>🔗 Related Services</h4>
+                        <ul>
+                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
+                            <li><a href="/services/airbnb-turnover-management-toronto">Turnover Management</a></li>
+                            <li><a href="/services/airbnb-cleaning-toronto">Cleaning Services</a></li>
+                            <li><a href="/services/full-airbnb-management-toronto">Full Management</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📍 Service Areas</h4>
+                        <ul>
+                            <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
+                            <li><a href="/north-york-airbnb-management">North York</a></li>
+                            <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
+                            <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
+                            <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>🔧 Our Network</h4>
+                        <ul>
+                            <li>Licensed plumbers</li>
+                            <li>Certified electricians</li>
+                            <li>HVAC technicians</li>
+                            <li>Locksmiths</li>
+                            <li>General contractors</li>
+                            <li>Appliance repair techs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card emergency">
+                    <h3>🚨 Emergency Repairs</h3>
+                    <p>24/7 response for floods, no heat/AC, lockouts, and safety issues. Under 2-hour dispatch.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🔧 Routine Maintenance</h3>
+                    <p>Scheduled repairs, touchups, and fixes coordinated during turnovers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🛠️ Preventive Care</h3>
+                    <p>Quarterly HVAC service, drain clearing, battery replacement, and inspections.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📱 Appliance Repair</h3>
+                    <p>Fridge, dishwasher, washer, dryer, microwave — all major appliances covered.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🔐 Lock & Security</h3>
+                    <p>Smart lock troubleshooting, battery replacement, lockout assistance, re-keying.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📋 Vendor Management</h3>
+                    <p>We coordinate quotes, schedule work, and supervise all contractor visits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Never Scramble for a Contractor Again</h2>
+        <p>Our maintenance network protects your property 24/7.</p>
+        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+    </section>
+
+    <footer>
+        <p>© 2025 Nurture Stays | Airbnb Property Maintenance Toronto</p>
+        <p><a href="/">Home</a> · <a href="/services/full-airbnb-management-toronto">Full Management</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a></p>
+    </footer>
+</body>
+</html>

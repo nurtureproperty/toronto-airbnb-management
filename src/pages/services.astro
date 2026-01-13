@@ -6,49 +6,84 @@ const services = [
     icon: '📸',
     title: 'Professional Photography',
     description: 'High-quality photos that showcase your property and attract more bookings.',
-    features: ['HDR photography', 'Drone shots available', 'Virtual staging', 'Regular updates']
+    features: ['HDR photography', 'Drone shots available', 'Virtual staging', 'Regular updates'],
+    href: '/services/airbnb-photography-toronto'
   },
   {
     icon: '📋',
     title: 'Listing Optimization',
     description: 'Compelling descriptions and strategic positioning across all major platforms.',
-    features: ['Multi-platform listing', 'SEO optimization', 'Competitive analysis', 'Regular updates']
+    features: ['Multi-platform listing', 'SEO optimization', 'Competitive analysis', 'Regular updates'],
+    href: '/services/airbnb-listing-optimization-toronto'
   },
   {
     icon: '💬',
     title: 'Guest Communication',
     description: 'Round-the-clock support ensuring guests always get quick responses.',
-    features: ['15-min response time', 'Multi-language support', 'Check-in coordination', 'Issue resolution']
+    features: ['15-min response time', 'Multi-language support', 'Check-in coordination', 'Issue resolution'],
+    href: '/services/airbnb-co-host-toronto'
   },
   {
     icon: '📈',
     title: 'Dynamic Pricing',
     description: 'AI-powered pricing that maximizes your revenue based on demand.',
-    features: ['Real-time adjustments', 'Event-based pricing', 'Competitor monitoring', 'Seasonal optimization']
+    features: ['Real-time adjustments', 'Event-based pricing', 'Competitor monitoring', 'Seasonal optimization'],
+    href: '/services/airbnb-dynamic-pricing-toronto'
   },
   {
     icon: '🧹',
     title: 'Professional Cleaning',
     description: 'Hotel-quality cleaning between every guest stay.',
-    features: ['Trained cleaners', 'Quality inspections', 'Linen service', 'Restocking supplies']
+    features: ['Trained cleaners', 'Quality inspections', 'Linen service', 'Restocking supplies'],
+    href: '/services/airbnb-cleaning-toronto'
   },
   {
     icon: '🔧',
     title: 'Maintenance & Repairs',
     description: 'Proactive maintenance and rapid response to any issues.',
-    features: ['24/7 emergency line', 'Regular inspections', 'Vendor network', 'Preventive care']
+    features: ['24/7 emergency line', 'Regular inspections', 'Vendor network', 'Preventive care'],
+    href: '/services/airbnb-property-maintenance-toronto'
   },
   {
-    icon: '📊',
-    title: 'Performance Reporting',
-    description: 'Detailed insights into your property performance.',
-    features: ['Monthly reports', 'Revenue analytics', 'Guest feedback', 'Market insights']
+    icon: '🔄',
+    title: 'Turnover Management',
+    description: 'Seamless guest transitions with coordinated cleaning and restocking.',
+    features: ['Same-day turnovers', 'Quality checks', 'Supply restocking', 'Photo verification'],
+    href: '/services/airbnb-turnover-management-toronto'
   },
   {
     icon: '🔑',
     title: 'Key Management',
     description: 'Secure and convenient access solutions for your guests.',
-    features: ['Smart locks', 'Key exchange', 'Access codes', 'Security monitoring']
+    features: ['Smart locks', 'Key exchange', 'Access codes', 'Security monitoring'],
+    href: '/services/airbnb-key-exchange-toronto'
+  }
+];
+
+const managementPackages = [
+  {
+    icon: '🏠',
+    title: 'Full Airbnb Management',
+    description: 'Complete hands-off management for short-term rentals. We handle everything.',
+    href: '/services/full-airbnb-management-toronto'
+  },
+  {
+    icon: '📅',
+    title: 'Short-Term Rental Management',
+    description: 'Specialized management for vacation rentals and nightly bookings.',
+    href: '/services/short-term-rental-management-toronto'
+  },
+  {
+    icon: '🗓️',
+    title: 'Mid-Term Rental Management',
+    description: 'Management for 30+ day rentals, corporate housing, and extended stays.',
+    href: '/services/mid-term-rental-management-toronto'
+  },
+  {
+    icon: '🤝',
+    title: 'Co-Hosting Services',
+    description: 'Flexible support while you stay in control. Perfect for hands-on hosts.',
+    href: '/services/airbnb-co-host-toronto'
   }
 ];
 ---
@@ -65,7 +100,7 @@ const services = [
     <div class="container">
       <div class="services-detailed-grid">
         {services.map(service => (
-          <div class="service-detailed-card">
+          <a href={service.href} class="service-detailed-card">
             <div class="service-header">
               <span class="service-icon">{service.icon}</span>
               <h3>{service.title}</h3>
@@ -76,7 +111,27 @@ const services = [
                 <li><span class="check">✓</span> {feature}</li>
               ))}
             </ul>
-          </div>
+            <span class="learn-more">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section management-packages">
+    <div class="container">
+      <div class="section-header">
+        <h2>Management Packages</h2>
+        <p>Choose the level of support that works for you</p>
+      </div>
+      <div class="packages-grid">
+        {managementPackages.map(pkg => (
+          <a href={pkg.href} class="package-card">
+            <span class="package-icon">{pkg.icon}</span>
+            <h3>{pkg.title}</h3>
+            <p>{pkg.description}</p>
+            <span class="learn-more">Learn more →</span>
+          </a>
         ))}
       </div>
     </div>
@@ -156,7 +211,7 @@ const services = [
 
 <style>
   .services-detailed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-  .service-detailed-card { background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; }
+  .service-detailed-card { display: block; text-decoration: none; color: inherit; background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; }
   .service-detailed-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); }
   .service-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
   .service-icon { font-size: 2.5rem; }
@@ -194,5 +249,15 @@ const services = [
   .locations-cta { text-align: center; color: var(--color-text-light); }
   .locations-cta a { color: var(--color-primary); text-decoration: underline; }
   .locations-cta a:hover { color: var(--color-primary-dark); }
-  @media (max-width: 968px) { .services-detailed-grid, .pricing-grid { grid-template-columns: 1fr; } .pricing-card.featured { transform: none; } }
+  
+  .service-detailed-card .learn-more { display: block; margin-top: 1rem; color: var(--color-primary); font-weight: 600; }
+  .management-packages { background: var(--color-background-alt); }
+  .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .package-card { display: block; text-decoration: none; background: white; border-radius: 16px; padding: 2rem; text-align: center; border: 2px solid var(--color-border); transition: all 0.3s ease; }
+  .package-card:hover { border-color: var(--color-primary); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .package-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+  .package-card h3 { color: var(--color-text); margin: 0 0 0.75rem; font-size: 1.1rem; }
+  .package-card p { color: var(--color-text-light); margin: 0 0 1rem; font-size: 0.9rem; }
+  .package-card .learn-more { color: var(--color-primary); font-weight: 600; }
+  @media (max-width: 968px) { .services-detailed-grid, .pricing-grid { grid-template-columns: 1fr; } .packages-grid { grid-template-columns: repeat(2, 1fr); } .pricing-card.featured { transform: none; } }
 </style>

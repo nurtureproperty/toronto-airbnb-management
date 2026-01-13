@@ -1,0 +1,210 @@
+---
+// Airbnb Management Toronto - Main Service Page
+// Targets: airbnb management toronto, airbnb property management, airbnb host services
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Management Toronto & GTA | Professional Property Management | Nurture Stays</title>
+    <meta name="description" content="The GTA's trusted Airbnb management company. 10-15% commission, 9-min response time, 4.9★ rating. We handle everything: guests, cleaning, pricing, maintenance. You collect rent.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --sage: #8B9B87; --sage-dark: #6B7B67; --cream: #F8F6F1; --warm-white: #FFFDF9; --charcoal: #2A2A2A; --gold: #C9A961; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
+        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .hero .highlight { color: var(--sage-dark); }
+        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; margin: 2rem 0; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--sage-dark); }
+        .stat-label { color: #666; }
+        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
+        .section { padding: 5rem 2rem; }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-header .subtitle { color: var(--sage-dark); font-size: 1.25rem; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
+        .main-content h3 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--charcoal); }
+        .main-content p, .main-content li { color: #555; line-height: 1.8; margin-bottom: 1rem; }
+        .sidebar { position: sticky; top: 100px; }
+        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .sidebar-card h4 { margin-bottom: 1rem; }
+        .sidebar-card ul { list-style: none; }
+        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
+        .sidebar-card a { color: var(--sage-dark); text-decoration: none; }
+        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
+        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
+        .bylaw-box { background: #E3F2FD; border-left: 4px solid #1976D2; padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
+        .bylaw-box h4 { color: #1565C0; margin-bottom: 0.5rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--sage); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .service-card p { color: #666; font-size: 0.95rem; }
+        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section .primary-button { background: white; color: var(--sage-dark); }
+        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
+        footer a { color: var(--sage); text-decoration: none; }
+        @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .hero-stats { gap: 1.5rem; } .services-grid { grid-template-columns: 1fr; } .mobile-menu-button { display: block; } }
+    </style>
+</head>
+<body>
+    <nav><div class="nav-container"><a href="/" class="logo">Nurture Stays</a><div class="nav-right"><a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a><button class="mobile-menu-button">☰</button></div></div></nav>
+
+    <section class="hero">
+        <h1><span class="highlight">Airbnb Management</span> Toronto</h1>
+        <p class="hero-subtitle">The GTA's trusted Airbnb management company. We handle everything while you collect passive income.</p>
+        <div class="hero-stats">
+            <div class="stat"><div class="stat-number">4.9★</div><div class="stat-label">Average Rating</div></div>
+            <div class="stat"><div class="stat-number">9 min</div><div class="stat-label">Response Time</div></div>
+            <div class="stat"><div class="stat-number">10-15%</div><div class="stat-label">Commission Only</div></div>
+        </div>
+        <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Complete Airbnb Management Services</h2>
+                <p class="subtitle serif">Everything you need, nothing you don't</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>💰 Dynamic Pricing</h3>
+                    <p>AI-powered pricing optimizes your rates daily. <a href="/services/airbnb-dynamic-pricing-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
+                </div>
+                <div class="service-card">
+                    <h3>💬 24/7 Guest Support</h3>
+                    <p>We respond to guests in 9 minutes, day or night. Your guests are always taken care of.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🧹 Professional Cleaning</h3>
+                    <p>5-star cleanliness after every guest. <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
+                </div>
+                <div class="service-card">
+                    <h3>🔐 Key Exchange</h3>
+                    <p>Smart locks, lockboxes, or in-person meet. <a href="/services/airbnb-key-exchange-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
+                </div>
+                <div class="service-card">
+                    <h3>📸 Photography</h3>
+                    <p>Professional photos that get bookings. <a href="/services/airbnb-photography-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
+                </div>
+                <div class="service-card">
+                    <h3>🔧 Maintenance</h3>
+                    <p>24/7 emergency repairs and routine upkeep. <a href="/services/airbnb-property-maintenance-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
+                </div>
+                <div class="service-card">
+                    <h3>🔄 Turnover Management</h3>
+                    <p>Seamless guest transitions every time. <a href="/services/airbnb-turnover-management-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
+                </div>
+                <div class="service-card">
+                    <h3>📋 Compliance</h3>
+                    <p>We ensure you meet all Toronto STR regulations and bylaw requirements.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📊 Reporting</h3>
+                    <p>Transparent monthly reports showing revenue, expenses, and net profit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--cream);">
+        <div class="section-container">
+            <div class="content-grid">
+                <div class="main-content">
+                    <h2>Why Choose Nurture Stays?</h2>
+                    
+                    <h3>Local Toronto Expertise</h3>
+                    <p>We're not a faceless national company. We live and work in Toronto and the Greater Toronto Area. We know the neighborhoods, the regulations, and what guests want. From <a href="/downtown-toronto-airbnb-management" style="color: var(--sage-dark);">Downtown condos</a> to <a href="/mississauga-airbnb-management" style="color: var(--sage-dark);">Mississauga properties</a>, we have local teams ready.</p>
+
+                    <h3>Toronto Airbnb Regulations</h3>
+                    <div class="bylaw-box">
+                        <h4>📋 What You Need to Know</h4>
+                        <p>Toronto requires STR registration, limits rentals to your principal residence, and caps nights at 180 when you're away. We handle registration, tax remittance, and compliance monitoring so you stay legal.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Not Your Principal Residence?</h4>
+                        <p>Consider <a href="/services/mid-term-rental-management-toronto" style="color: var(--sage-dark);">mid-term rentals</a> (30+ days). No STR license needed, still earn 30-50% more than long-term tenants.</p>
+                    </div>
+
+                    <h3>Transparent Pricing</h3>
+                    <p>Just 10-15% of revenue. No setup fees, no hidden costs, no long contracts. We only make money when you make money. See our full <a href="/pricing-toronto-airbnb-management" style="color: var(--sage-dark);">pricing details</a>.</p>
+
+                    <h3>Tips for Airbnb Success in Toronto</h3>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Tip #1: Respond Fast</h4>
+                        <p>Airbnb's algorithm rewards quick responses. Our 9-minute average keeps your listing ranking high.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #2: Professional Photos Matter</h4>
+                        <p>Listings with professional photos earn 20-30% more. We include <a href="/services/airbnb-photography-toronto" style="color: var(--sage-dark);">professional photography</a> at no extra cost.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #3: Price Dynamically</h4>
+                        <p>Static pricing leaves money on the table. Our AI adjusts rates for events, seasons, and demand.</p>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-card" style="background: var(--sage); color: white;">
+                        <h4 style="color: white;">📞 Free Analysis</h4>
+                        <p style="margin-bottom: 1rem;">See how much your property could earn.</p>
+                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--sage-dark);">Call 647-957-8956</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📍 Service Areas</h4>
+                        <ul>
+                            <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
+                            <li><a href="/north-york-airbnb-management">North York</a></li>
+                            <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
+                            <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
+                            <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>🔗 Management Options</h4>
+                        <ul>
+                            <li><a href="/services/full-airbnb-management-toronto">Full Management</a></li>
+                            <li><a href="/services/short-term-rental-management-toronto">Short-Term Rentals</a></li>
+                            <li><a href="/services/mid-term-rental-management-toronto">Mid-Term Rentals</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready for Passive Income?</h2>
+        <p>Get a free property analysis and see how much you could earn.</p>
+        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+    </section>
+
+    <footer>
+        <p>© 2025 Nurture Stays | Airbnb Management Toronto</p>
+        <p><a href="/">Home</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
+    </footer>
+</body>
+</html>

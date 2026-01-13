@@ -1,0 +1,163 @@
+---
+// Airbnb Key Exchange Toronto - Service Page
+// Targets: airbnb key exchange toronto, airbnb check-in service, smart lock installation
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Key Exchange & Check-In Services Toronto & GTA | Nurture Stays</title>
+    <meta name="description" content="Seamless Airbnb key exchange across the Greater Toronto Area. Smart locks, lockboxes, in-person meet & greet, 24/7 lockout support. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --sage: #8B9B87; --sage-dark: #6B7B67; --cream: #F8F6F1; --warm-white: #FFFDF9; --charcoal: #2A2A2A; --gold: #C9A961; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .hero .highlight { color: var(--sage-dark); }
+        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
+        .section { padding: 5rem 2rem; }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
+        .main-content h2, .main-content h3 { color: var(--charcoal); margin: 2rem 0 1rem; }
+        .main-content p, .main-content li { color: #555; line-height: 1.8; margin-bottom: 1rem; }
+        .sidebar { position: sticky; top: 100px; }
+        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .sidebar-card h4 { margin-bottom: 1rem; }
+        .sidebar-card ul { list-style: none; }
+        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
+        .sidebar-card a { color: var(--sage-dark); text-decoration: none; }
+        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
+        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
+        .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
+        .option-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
+        .option-card.recommended { border: 3px solid var(--sage); position: relative; }
+        .option-card.recommended::before { content: 'RECOMMENDED'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--sage); color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.75rem; }
+        .option-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .option-card h3 { margin-bottom: 1rem; }
+        .option-pros { text-align: left; font-size: 0.9rem; list-style: none; padding: 0; }
+        .option-pros li { color: var(--sage-dark); margin-bottom: 0.5rem; }
+        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section .primary-button { background: white; color: var(--sage-dark); }
+        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
+        footer a { color: var(--sage); text-decoration: none; }
+        @media (max-width: 1024px) { .content-grid, .options-grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .mobile-menu-button { display: block; } }
+    </style>
+</head>
+<body>
+    <nav><div class="nav-container"><a href="/" class="logo">Nurture Stays</a><div class="nav-right"><a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a><button class="mobile-menu-button">☰</button></div></div></nav>
+
+    <section class="hero">
+        <h1>Airbnb <span class="highlight">Key Exchange</span> & Check-In GTA</h1>
+        <p class="hero-subtitle">Seamless guest access solutions across the Greater Toronto Area: smart locks, lockboxes, in-person greetings, and 24/7 lockout support. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & more.</p>
+        <a href="tel:647-957-8956" class="primary-button">Get Started</a>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="options-grid">
+                <div class="option-card recommended">
+                    <div class="option-icon">🔐</div>
+                    <h3>Smart Lock</h3>
+                    <p>Keyless entry with unique codes for each guest.</p>
+                    <ul class="option-pros">
+                        <li>✓ Unique code per guest</li>
+                        <li>✓ No physical key to lose</li>
+                        <li>✓ Remote access management</li>
+                        <li>✓ Entry/exit logging</li>
+                    </ul>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">🗝️</div>
+                    <h3>Lockbox</h3>
+                    <p>Secure combination box mounted near entry.</p>
+                    <ul class="option-pros">
+                        <li>✓ Low cost solution</li>
+                        <li>✓ No batteries needed</li>
+                        <li>✓ Change code easily</li>
+                        <li>✓ Reliable backup</li>
+                    </ul>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">👋</div>
+                    <h3>In-Person Meet</h3>
+                    <p>Personal greeting and property walkthrough.</p>
+                    <ul class="option-pros">
+                        <li>✓ Personal touch</li>
+                        <li>✓ Property orientation</li>
+                        <li>✓ Premium experience</li>
+                        <li>✓ Verify guest identity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="main-content">
+                    <h2>Tips for Smooth Check-Ins</h2>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Tip #1: Send Instructions Early</h4>
+                        <p>Send check-in instructions 24 hours before AND 2 hours before arrival. Include photos of the entry process.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #2: Always Have a Backup</h4>
+                        <p>Smart locks can fail. Always have a lockbox with a physical key as backup. We check batteries during every <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">turnover cleaning</a>.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Tip #3: Test Before Every Guest</h4>
+                        <p>Verify the access code works before each arrival. A 30-second test prevents frustrated guests.</p>
+                    </div>
+
+                    <h3>24/7 Lockout Support</h3>
+                    <p>Our <a href="/emergency-airbnb-support-toronto" style="color: var(--sage-dark);">emergency support</a> includes 24/7 lockout assistance with 9-minute average response time.</p>
+
+                    <h3>Condo Building Coordination</h3>
+                    <p>We handle key fob arrangements, concierge coordination, and building-specific access requirements for all <a href="/downtown-toronto-airbnb-management" style="color: var(--sage-dark);">Downtown Toronto</a> and GTA condos.</p>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-card" style="background: var(--sage); color: white;">
+                        <h4 style="color: white;">📞 Need Help?</h4>
+                        <p style="margin-bottom: 1rem;">We'll set up the perfect check-in system.</p>
+                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--sage-dark);">Call 647-957-8956</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>🔗 Related Services</h4>
+                        <ul>
+                            <li><a href="/services/full-airbnb-management-toronto">Full Management</a></li>
+                            <li><a href="/services/airbnb-turnover-management-toronto">Turnover Management</a></li>
+                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Never Worry About Check-Ins Again</h2>
+        <p>From smart lock installation to 24/7 lockout support — we've got you covered.</p>
+        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
+    </section>
+
+    <footer>
+        <p>© 2025 Nurture Stays | <a href="/">Home</a> · <a href="/services/full-airbnb-management-toronto">Full Management</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a></p>
+    </footer>
+</body>
+</html>
