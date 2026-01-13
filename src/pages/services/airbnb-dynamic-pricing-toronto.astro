@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const services = [
   { icon: '🤖', title: 'AI-Powered Algorithms', description: 'Machine learning models trained on thousands of Toronto bookings to predict optimal pricing for your specific property.' },
+  { icon: '🏙️', title: 'Local Expert Adjustments', description: 'Our Toronto team manually adjusts prices for major events like TIFF, Caribana, concerts, and sports playoffs. AI alone misses local nuances.' },
   { icon: '📈', title: 'Demand Forecasting', description: 'We predict high-demand periods before they happen, so you capture premium rates during events, holidays, and busy seasons.' },
   { icon: '🎯', title: 'Competitor Analysis', description: 'Real-time monitoring of similar properties in your area. We price you competitively without leaving money on the table.' },
   { icon: '📅', title: 'Gap Night Strategy', description: 'Smart discounts for orphan nights between bookings. Fill your calendar instead of losing those nights entirely.' },
@@ -33,7 +34,8 @@ const faqs = [
   { q: 'Can I set a minimum price?', a: 'Absolutely. You set the floor, and our AI optimizes above it. We\'ll never price below your comfort level, but we will capture every dollar above it.' },
   { q: 'How often do prices change?', a: 'Our system reviews and adjusts prices daily. During high-demand periods, prices may change multiple times per day to capture market movements.' },
   { q: 'Will lower prices hurt my listing?', a: 'Strategic pricing actually helps your listing. More bookings mean more reviews, which improves your search ranking. A booked night at $99 beats an empty night at $150.' },
-  { q: 'Do I need to do anything?', a: 'Nothing. Once we set up your parameters, the AI handles everything. You just watch your calendar fill up and your revenue grow.' }
+  { q: 'Why does local expertise matter?', a: 'AI tools miss local events and conditions. When Drake announces a concert or the Leafs make the playoffs, our Toronto team manually boosts prices. That's the Nurture difference.' },
+  { q: 'Do I need to do anything?', a: 'Nothing. Once we set up your parameters, we handle everything - both the AI optimization and manual adjustments for local events.' }
 ];
 ---
 
@@ -41,7 +43,7 @@ const faqs = [
   <section class="hero hero-small">
     <div class="container">
       <h1>Dynamic Pricing for Toronto Airbnb</h1>
-      <p class="hero-subtitle">AI-powered pricing that maximizes your revenue. Average 20-40% increase.</p>
+      <p class="hero-subtitle">AI-powered pricing combined with local expertise to maximize your revenue. Average 20-40% increase.</p>
     </div>
   </section>
 
@@ -71,12 +73,13 @@ const faqs = [
   <section class="section intro-section">
     <div class="container">
       <div class="intro-content">
-        <p class="intro-text">Stop leaving money on the table. Our AI analyzes 50+ market factors daily to set the perfect price for every night. No more guessing, no more missed opportunities.</p>
+        <p class="intro-text">Stop leaving money on the table. Our AI analyzes 50+ market factors daily, and our local team manually adjusts for Toronto events and conditions that algorithms miss. The best of technology and local expertise.</p>
         <ul class="feature-list">
           <li><span class="check">✓</span> AI adjusts prices daily based on demand</li>
           <li><span class="check">✓</span> Maximize revenue on high-demand nights</li>
           <li><span class="check">✓</span> Fill gaps with strategic discounts</li>
           <li><span class="check">✓</span> Outprice competitors intelligently</li>
+          <li><span class="check">✓</span> Local team adjusts for Toronto events</li>
           <li><span class="check">✓</span> No more pricing guesswork</li>
         </ul>
         <a href="/contact" class="btn btn-primary btn-large">Get Free Revenue Analysis</a>
