@@ -1290,25 +1290,51 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 2.5rem 1.5rem 4rem;
+                margin-top: 70px;
+            }
+
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
             }
 
             .hero-subtitle {
-                font-size: 1.25rem;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-description {
+                display: none;
             }
 
             .hero-stats {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1.5rem;
+                margin-bottom: 1.5rem;
+                justify-content: center;
             }
 
-            .stat {
-                text-align: center;
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
+            }
+
+            .primary-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .secondary-button {
+                display: none;
             }
 
             .benefits-grid {
@@ -1424,7 +1450,7 @@
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="/contact" class="primary-button">See How Much My Property Can Make</a>
+                    <a href="/contact" class="primary-button">Get Free Rental Estimate</a>
                 </div>
             </div>
             <div class="hero-image">
