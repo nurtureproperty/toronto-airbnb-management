@@ -49,6 +49,12 @@ const services = [
     description: 'Secure and convenient access solutions for your guests.',
     features: ['Smart locks', 'Key exchange', 'Access codes'],
     href: '/services/airbnb-key-exchange-toronto'
+  },
+  {
+    title: 'Emergency Support',
+    description: '24/7 emergency response for guest lockouts, urgent repairs, and crisis management.',
+    features: ['24/7 availability', 'Rapid response', 'Crisis management'],
+    href: '/emergency-airbnb-support-toronto'
   }
 ];
 
@@ -158,27 +164,11 @@ const managementPackages = [
     </div>
   </section>
 
-  <section class="section specialty-services">
-    <div class="container">
-      <div class="section-header">
-        <h2>Specialty Services</h2>
-        <p>Additional support when you need it most</p>
-      </div>
-      <div class="specialty-grid">
-        <a href="/emergency-airbnb-support-toronto" class="specialty-card emergency">
-          <h3>Emergency Support</h3>
-          <p>24/7 emergency response for guest lockouts, urgent repairs, and crisis management</p>
-          <span class="learn-more">Learn more →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <section class="section locations-section">
     <div class="container">
       <div class="section-header">
         <h2>Service Areas</h2>
-        <p>We provide property management across the Greater Toronto Area</p>
+        <p>We provide property management across the Greater Toronto Area and Southern Ontario</p>
       </div>
       <div class="locations-links">
         <a href="/downtown-toronto-airbnb-management">Downtown Toronto</a>
@@ -186,6 +176,7 @@ const managementPackages = [
         <a href="/etobicoke-airbnb-management">Etobicoke</a>
         <a href="/scarborough-airbnb-management">Scarborough</a>
         <a href="/mississauga-airbnb-management">Mississauga</a>
+        <a href="/locations">Southern Ontario</a>
       </div>
       <p class="locations-cta">View all <a href="/locations">service areas</a> or <a href="/about">learn about us</a></p>
     </div>
@@ -225,14 +216,6 @@ const managementPackages = [
   .pricing-details-link { text-align: center; margin-top: 2rem; color: var(--color-text-light); }
   .pricing-details-link a { color: var(--color-primary); text-decoration: underline; font-weight: 500; }
   .pricing-details-link a:hover { color: var(--color-primary-dark); }
-
-  .specialty-services { background: white; }
-  .specialty-grid { display: flex; justify-content: center; }
-  .specialty-card { display: block; max-width: 400px; padding: 2rem; background: var(--color-background-alt); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; text-align: center; border-top: 4px solid #dc2626; }
-  .specialty-card:hover { border-color: #dc2626; transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .specialty-card h3 { color: var(--color-text); margin: 0 0 0.75rem; font-size: 1.25rem; }
-  .specialty-card p { color: var(--color-text-light); margin: 0 0 1rem; font-size: 0.95rem; }
-  .specialty-card .learn-more { color: #dc2626; font-weight: 600; }
 
   .locations-section { background: var(--color-background-alt); }
   .locations-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
