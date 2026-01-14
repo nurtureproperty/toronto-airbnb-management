@@ -2,19 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { title: 'Professional Photography', description: 'DSLR photos with HDR editing, wide-angle lenses, and professional staging. Photos that make guests click "Book Now."' },
+  { title: 'Professional Photography', description: 'DSLR photos with HDR editing, wide-angle lenses, and professional staging. The same quality we use on our own Superhost listings.' },
   { title: 'SEO-Optimized Title', description: 'Keyword-rich titles that rank higher in search and communicate your property\'s best features in seconds.' },
   { title: 'Compelling Description', description: 'Storytelling copy that sells the experience, not just the space. Strategic keywords for search visibility.' },
   { title: 'Amenity Optimization', description: '75+ amenities added and ordered strategically. Guests filter by amenities - we make sure you show up.' },
-  { title: 'Local Area Guide', description: 'Neighborhood highlights, restaurant recommendations, and local tips that add value and build trust.' },
+  { title: 'Guest Favorite Strategy', description: 'We know what it takes to earn Guest Favorite status because we\'ve done it ourselves. We apply the same strategies to your listing.' },
   { title: 'Competitive Analysis', description: 'We analyze top performers in your area and apply winning strategies to your listing.' }
 ];
 
 const seoTips = [
   { title: 'Keyword Placement', description: 'Strategic keywords in your title, first paragraph, and amenities help Airbnb understand what your property offers and show it to the right guests.' },
   { title: 'Photo Quality Score', description: 'Airbnb\'s algorithm favors listings with high-quality photos. Professional photography improves your "quality score" and search ranking.' },
-  { title: 'Response Rate & Time', description: 'Quick responses boost your ranking. Our 9-minute average response time keeps your listing competitive in search results.' },
-  { title: 'Booking Velocity', description: 'More bookings = higher ranking. Optimized listings get more clicks, which leads to more bookings, which improves ranking further.' }
+  { title: 'Response Rate & Time', description: 'Quick responses boost your ranking. Our 9-minute average response time keeps your listing competitive and on track for Superhost status.' },
+  { title: 'Reviews & Ratings', description: 'We help you maintain a 4.9+ average rating through exceptional guest experiences. High ratings lead to Guest Favorite badges and more visibility.' }
 ];
 
 const steps = [
@@ -36,7 +36,7 @@ const faqs = [
 <Layout title="Airbnb Listing Optimization Toronto" description="Optimize your Toronto Airbnb listing for more bookings. Professional photography, SEO-optimized descriptions, and conversion-focused design. Rank higher, book more.">
   <section class="hero hero-small">
     <div class="container">
-      <h1>Listing Optimization for Toronto Airbnb</h1>
+      <h1>Optimize Your Airbnb Listing</h1>
       <p class="hero-subtitle">Professional photos, SEO copy, and conversion-focused design that gets you more bookings.</p>
     </div>
   </section>
@@ -53,12 +53,8 @@ const faqs = [
           <span class="trust-label">Higher Conversion</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">Page 1</span>
-          <span class="trust-label">Search Ranking</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-number">5-Star</span>
-          <span class="trust-label">First Impressions</span>
+          <span class="trust-number">4.9+</span>
+          <span class="trust-label">Average Rating</span>
         </div>
       </div>
     </div>
@@ -67,13 +63,13 @@ const faqs = [
   <section class="section intro-section">
     <div class="container">
       <div class="intro-content">
-        <p class="intro-text">Your listing is your storefront. We transform underperforming listings into booking machines with professional photos, SEO-optimized copy, and conversion-focused design.</p>
+        <p class="intro-text">Your listing is your storefront. We're Superhosts ourselves and have helped our clients consistently achieve Superhost status and Guest Favorite badges. We transform underperforming listings into booking machines with professional photos, SEO-optimized copy, and conversion-focused design.</p>
         <ul class="feature-list">
           <li><span class="check">✓</span> Professional photography that sells</li>
           <li><span class="check">✓</span> SEO-optimized titles and descriptions</li>
           <li><span class="check">✓</span> Strategic amenity highlighting</li>
           <li><span class="check">✓</span> Rank higher in Airbnb search</li>
-          <li><span class="check">✓</span> Convert more views into bookings</li>
+          <li><span class="check">✓</span> Proven path to Superhost & Guest Favorite status</li>
         </ul>
         <a href="/contact" class="btn btn-primary btn-large">Get Free Listing Audit</a>
       </div>
@@ -130,7 +126,7 @@ const faqs = [
     <div class="container">
       <div class="section-header">
         <h2>What Makes a Listing Rank Higher</h2>
-        <p>The Airbnb algorithm factors we optimize for</p>
+        <p>The same strategies we use to maintain Superhost status on our own properties</p>
       </div>
       <div class="seo-grid">
         {seoTips.map(tip => (
@@ -194,7 +190,7 @@ const faqs = [
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Transform Your Listing?</h2>
-        <p>Get a free listing audit and see exactly how we'd improve your property's performance.</p>
+        <p>Work with Superhosts who have consistently helped clients achieve Guest Favorite status and 4.9+ ratings.</p>
         <a href="/contact" class="btn btn-primary btn-large">Get Free Listing Audit</a>
       </div>
     </div>
@@ -215,7 +211,7 @@ const faqs = [
 
   .trust-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     text-align: center;
   }
