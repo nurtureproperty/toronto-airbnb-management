@@ -2,15 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '💰', title: 'Dynamic Pricing', description: 'AI-powered pricing adjusts daily based on demand, events, seasonality, and competition to maximize your revenue.', link: '/services/airbnb-dynamic-pricing-toronto' },
-  { icon: '💬', title: '24/7 Guest Communication', description: 'We handle all inquiries, bookings, check-in instructions, and guest questions. 9-minute average response time.' },
-  { icon: '🧹', title: 'Cleaning Coordination', description: 'Professional cleaners after every guest. Quality inspections ensure your property is always guest-ready.', link: '/services/airbnb-cleaning-toronto' },
-  { icon: '🔧', title: 'Maintenance & Repairs', description: 'Our network of trusted contractors handles any issues quickly. Emergency repairs available 24/7.', link: '/services/airbnb-property-maintenance-toronto' },
-  { icon: '📦', title: 'Supply Restocking', description: 'Toilet paper, soap, coffee, shampoo - all essentials restocked after each guest at no extra charge.' },
-  { icon: '✅', title: 'Guest Screening', description: 'We verify every guest before accepting bookings. No parties, no problems, no headaches for you.' },
-  { icon: '📸', title: 'Professional Photography', description: 'High-quality photos that make your listing stand out and attract more bookings at higher rates.', link: '/services/airbnb-photography-toronto' },
-  { icon: '📊', title: 'Revenue Reporting', description: 'Clear monthly reports showing bookings, revenue, expenses, and your net profit. Complete transparency.' },
-  { icon: '🎯', title: 'Listing Optimization', description: 'SEO-optimized titles, descriptions, and amenities that rank higher and convert more viewers to bookers.' }
+  { title: 'Dynamic Pricing', description: 'AI-powered pricing adjusts daily based on demand, events, seasonality, and competition to maximize your revenue.', link: '/services/airbnb-dynamic-pricing-toronto' },
+  { title: '24/7 Guest Communication', description: 'We handle all inquiries, bookings, check-in instructions, and guest questions. 9-minute average response time.' },
+  { title: 'Cleaning Coordination', description: 'Professional cleaners after every guest. Quality inspections ensure your property is always guest-ready.', link: '/services/airbnb-cleaning-toronto' },
+  { title: 'Maintenance & Repairs', description: 'Our network of trusted contractors handles any issues quickly. Emergency repairs available 24/7.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Supply Restocking', description: 'Toilet paper, soap, coffee, shampoo - all essentials restocked after each guest at no extra charge.' },
+  { title: 'Guest Screening', description: 'We verify every guest before accepting bookings. No parties, no problems, no headaches for you.' },
+  { title: 'Professional Photography', description: 'High-quality photos that make your listing stand out and attract more bookings at higher rates.', link: '/services/airbnb-photography-toronto' },
+  { title: 'Revenue Reporting', description: 'Clear monthly reports showing bookings, revenue, expenses, and your net profit. Complete transparency.' },
+  { title: 'Listing Optimization', description: 'SEO-optimized titles, descriptions, and amenities that rank higher and convert more viewers to bookers.' }
 ];
 
 const steps = [
@@ -88,7 +88,6 @@ const relatedServices = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
           </div>
@@ -123,7 +122,7 @@ const relatedServices = [
       </div>
       <div class="comparison-grid">
         <div class="comparison-card">
-          <h3>😓 DIY Hosting</h3>
+          <h3>DIY Hosting</h3>
           <ul class="comparison-list">
             <li><span class="icon-x">✗</span> Answer guest messages at 2am</li>
             <li><span class="icon-x">✗</span> Coordinate cleaners yourself</li>
@@ -136,7 +135,7 @@ const relatedServices = [
           </ul>
         </div>
         <div class="comparison-card highlight">
-          <h3>😎 Nurture Stays Full Management</h3>
+          <h3>Nurture Stays Full Management</h3>
           <ul class="comparison-list">
             <li><span class="icon-check">✓</span> We respond in 9 minutes, 24/7</li>
             <li><span class="icon-check">✓</span> Professional cleaners handled</li>
@@ -308,7 +307,7 @@ const relatedServices = [
   }
 
   .serif {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Poppins', sans-serif;
     font-style: italic;
   }
 
@@ -339,16 +338,10 @@ const relatedServices = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
   .service-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

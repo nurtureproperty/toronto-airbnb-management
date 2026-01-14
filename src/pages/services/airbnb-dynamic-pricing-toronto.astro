@@ -2,24 +2,24 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '🤖', title: 'AI-Powered Algorithms', description: 'Machine learning models trained on thousands of Toronto bookings to predict optimal pricing for your specific property.' },
-  { icon: '🏙️', title: 'Local Expert Adjustments', description: 'Our Toronto team manually adjusts prices for major events like TIFF, Caribana, concerts, and sports playoffs. AI alone misses local nuances.' },
-  { icon: '📈', title: 'Demand Forecasting', description: 'We predict high-demand periods before they happen, so you capture premium rates during events, holidays, and busy seasons.' },
-  { icon: '🎯', title: 'Competitor Analysis', description: 'Real-time monitoring of similar properties in your area. We price you competitively without leaving money on the table.' },
-  { icon: '📅', title: 'Gap Night Strategy', description: 'Smart discounts for orphan nights between bookings. Fill your calendar instead of losing those nights entirely.' },
-  { icon: '⚡', title: 'Instant Adjustments', description: 'Prices update automatically based on real-time market changes. No manual intervention needed.' },
-  { icon: '🔒', title: 'Minimum Price Protection', description: 'Set your floor price. Our AI optimizes above it but never goes below your comfort level.' }
+  { title: 'AI-Powered Algorithms', description: 'Machine learning models trained on thousands of Toronto bookings to predict optimal pricing for your specific property.' },
+  { title: 'Local Expert Adjustments', description: 'Our Toronto team manually adjusts prices for major events like TIFF, Caribana, concerts, and sports playoffs. AI alone misses local nuances.' },
+  { title: 'Demand Forecasting', description: 'We predict high-demand periods before they happen, so you capture premium rates during events, holidays, and busy seasons.' },
+  { title: 'Competitor Analysis', description: 'Real-time monitoring of similar properties in your area. We price you competitively without leaving money on the table.' },
+  { title: 'Gap Night Strategy', description: 'Smart discounts for orphan nights between bookings. Fill your calendar instead of losing those nights entirely.' },
+  { title: 'Instant Adjustments', description: 'Prices update automatically based on real-time market changes. No manual intervention needed.' },
+  { title: 'Minimum Price Protection', description: 'Set your floor price. Our AI optimizes above it but never goes below your comfort level.' }
 ];
 
 const factors = [
-  { icon: '📅', label: 'Day of Week' },
-  { icon: '🗓️', label: 'Seasonality' },
-  { icon: '🎉', label: 'Local Events' },
-  { icon: '🏨', label: 'Competitor Rates' },
-  { icon: '📊', label: 'Market Demand' },
-  { icon: '⏰', label: 'Lead Time' },
-  { icon: '📈', label: 'Booking Velocity' },
-  { icon: '🌡️', label: 'Weather Patterns' }
+  { label: 'Day of Week' },
+  { label: 'Seasonality' },
+  { label: 'Local Events' },
+  { label: 'Competitor Rates' },
+  { label: 'Market Demand' },
+  { label: 'Lead Time' },
+  { label: 'Booking Velocity' },
+  { label: 'Weather Patterns' }
 ];
 
 const steps = [
@@ -123,7 +123,6 @@ const faqs = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -141,7 +140,6 @@ const faqs = [
       <div class="factors-grid">
         {factors.map(factor => (
           <div class="factor-item">
-            <span class="factor-icon">{factor.icon}</span>
             <h4>{factor.label}</h4>
           </div>
         ))}
@@ -364,16 +362,10 @@ const faqs = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
   .service-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
   }
@@ -403,14 +395,8 @@ const faqs = [
     box-shadow: var(--shadow-sm);
   }
 
-  .factor-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
   .factor-item h4 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 1rem;

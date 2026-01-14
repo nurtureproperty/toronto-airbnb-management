@@ -8,7 +8,6 @@ const pageDescription = "Seamless Airbnb key exchange across the Greater Toronto
 
 const keyExchangeOptions = [
   {
-    icon: "🔐",
     title: "Smart Lock",
     description: "Keyless entry with unique codes for each guest.",
     recommended: true,
@@ -20,7 +19,6 @@ const keyExchangeOptions = [
     ]
   },
   {
-    icon: "🗝️",
     title: "Lockbox",
     description: "Secure combination box mounted near entry.",
     recommended: false,
@@ -32,7 +30,6 @@ const keyExchangeOptions = [
     ]
   },
   {
-    icon: "👋",
     title: "In-Person Meet",
     description: "Personal greeting and property walkthrough.",
     recommended: false,
@@ -109,7 +106,6 @@ const relatedServices = [
       <div class="options-grid">
         {keyExchangeOptions.map((option) => (
           <div class={`option-card ${option.recommended ? 'recommended' : ''}`}>
-            <div class="option-icon">{option.icon}</div>
             <h3>{option.title}</h3>
             <p>{option.description}</p>
             <ul class="option-pros">
@@ -368,14 +364,11 @@ const relatedServices = [
     font-weight: 600;
   }
 
-  .option-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
   .option-card h3 {
     margin-bottom: 1rem;
     color: var(--color-text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .option-card p {

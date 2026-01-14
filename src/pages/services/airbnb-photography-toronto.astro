@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const packages = [
-  { icon: '📸', title: 'Standard Package', description: '25-30 professional photos covering all spaces. Perfect for most 1-2 bedroom properties.' },
-  { icon: '✨', title: 'Premium Package', description: '40+ photos including twilight/golden hour shots. Ideal for luxury listings.' },
-  { icon: '🎥', title: 'Video Tour', description: '60-90 second walkthrough video. Great for larger properties and unique spaces.' },
-  { icon: '🌅', title: 'Twilight Shots', description: 'Dramatic evening photos showcasing city views and ambiance.' },
-  { icon: '🚁', title: 'Drone Photography', description: 'Aerial shots for properties with impressive locations or views.' },
-  { icon: '🔄', title: 'Seasonal Updates', description: 'Fresh photos each season to keep your listing current.' }
+  { title: 'Standard Package', description: '25-30 professional photos covering all spaces. Perfect for most 1-2 bedroom properties.' },
+  { title: 'Premium Package', description: '40+ photos including twilight/golden hour shots. Ideal for luxury listings.' },
+  { title: 'Video Tour', description: '60-90 second walkthrough video. Great for larger properties and unique spaces.' },
+  { title: 'Twilight Shots', description: 'Dramatic evening photos showcasing city views and ambiance.' },
+  { title: 'Drone Photography', description: 'Aerial shots for properties with impressive locations or views.' },
+  { title: 'Seasonal Updates', description: 'Fresh photos each season to keep your listing current.' }
 ];
 
 const relatedServices = [
@@ -69,12 +69,12 @@ const includes = [
 
           <div class="comparison-grid">
             <div class="comparison-card">
-              <h4>📱 DIY Phone Photos</h4>
+              <h4>DIY Phone Photos</h4>
               <p>Average nightly rate</p>
               <span class="result">$125</span>
             </div>
             <div class="comparison-card highlight">
-              <h4>📸 Professional Photos</h4>
+              <h4>Professional Photos</h4>
               <p>Average nightly rate</p>
               <span class="result">$155</span>
             </div>
@@ -94,27 +94,27 @@ const includes = [
           <h3>Photography Tips for Higher Bookings</h3>
 
           <div class="tip-box">
-            <h4>💡 Tip #1: Declutter Ruthlessly</h4>
+            <h4>Tip #1: Declutter Ruthlessly</h4>
             <p>Less is more. Remove personal items, excessive decorations, and anything that makes spaces look small. Clean surfaces photograph better than busy ones.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #2: Lighting is Everything</h4>
+            <h4>Tip #2: Lighting is Everything</h4>
             <p>We shoot during optimal natural light (usually mid-morning). All lights on, curtains open, no harsh shadows. This is why professional timing matters.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #3: Stage Like a Hotel</h4>
+            <h4>Tip #3: Stage Like a Hotel</h4>
             <p>Fluffy white towels fanned on beds, fresh flowers on tables, coffee cups arranged aesthetically. These "lifestyle" shots help guests imagine themselves there.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #4: Highlight What's Unique</h4>
+            <h4>Tip #4: Highlight What's Unique</h4>
             <p>CN Tower view? Photograph it. Amazing kitchen? Multiple angles. Hot tub? Make it the hero. Your unique features should dominate the photo set.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #5: Order Matters</h4>
+            <h4>Tip #5: Order Matters</h4>
             <p>Your first 5 photos appear in Airbnb's preview. Lead with your best shot, then bedroom, then kitchen/living. Bathroom photos should come later.</p>
           </div>
 
@@ -134,13 +134,13 @@ const includes = [
 
         <aside class="sidebar">
           <div class="sidebar-card sidebar-cta">
-            <h4>📸 Book a Shoot</h4>
+            <h4>Book a Shoot</h4>
             <p>Transform your listing with professional photos.</p>
             <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
           </div>
 
           <div class="sidebar-card">
-            <h4>🔗 Related Services</h4>
+            <h4>Related Services</h4>
             <ul>
               {relatedServices.map(service => (
                 <li><a href={service.href}>{service.name}</a></li>
@@ -149,7 +149,7 @@ const includes = [
           </div>
 
           <div class="sidebar-card">
-            <h4>📍 Service Areas</h4>
+            <h4>Service Areas</h4>
             <ul>
               {serviceAreas.map(area => (
                 <li><a href={area.href}>{area.name}</a></li>
@@ -158,7 +158,7 @@ const includes = [
           </div>
 
           <div class="sidebar-card">
-            <h4>📷 What's Included</h4>
+            <h4>What's Included</h4>
             <ul>
               {includes.map(item => (
                 <li>{item}</li>
@@ -179,7 +179,6 @@ const includes = [
       <div class="packages-grid">
         {packages.map(pkg => (
           <div class="package-card">
-            <span class="package-icon">{pkg.icon}</span>
             <h3>{pkg.title}</h3>
             <p>{pkg.description}</p>
           </div>
@@ -491,16 +490,10 @@ const includes = [
     box-shadow: var(--shadow-lg);
   }
 
-  .package-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
   .package-card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

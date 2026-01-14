@@ -2,15 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '💰', title: 'Dynamic Pricing', description: 'AI-powered pricing optimizes your rates daily.', link: '/services/airbnb-dynamic-pricing-toronto' },
-  { icon: '💬', title: '24/7 Guest Support', description: 'We respond to guests in 9 minutes, day or night. Your guests are always taken care of.', link: null },
-  { icon: '🧹', title: 'Professional Cleaning', description: '5-star cleanliness after every guest.', link: '/services/airbnb-cleaning-toronto' },
-  { icon: '🔐', title: 'Key Exchange', description: 'Smart locks, lockboxes, or in-person meet.', link: '/services/airbnb-key-exchange-toronto' },
-  { icon: '📸', title: 'Photography', description: 'Professional photos that get bookings.', link: '/services/airbnb-photography-toronto' },
-  { icon: '🔧', title: 'Maintenance', description: '24/7 emergency repairs and routine upkeep.', link: '/services/airbnb-property-maintenance-toronto' },
-  { icon: '🔄', title: 'Turnover Management', description: 'Seamless guest transitions every time.', link: '/services/airbnb-turnover-management-toronto' },
-  { icon: '📋', title: 'Compliance', description: 'We ensure you meet all Toronto STR regulations and bylaw requirements.', link: null },
-  { icon: '📊', title: 'Reporting', description: 'Transparent monthly reports showing revenue, expenses, and net profit.', link: null }
+  { title: 'Dynamic Pricing', description: 'AI-powered pricing optimizes your rates daily.', link: '/services/airbnb-dynamic-pricing-toronto' },
+  { title: '24/7 Guest Support', description: 'We respond to guests in 9 minutes, day or night. Your guests are always taken care of.', link: null },
+  { title: 'Professional Cleaning', description: '5-star cleanliness after every guest.', link: '/services/airbnb-cleaning-toronto' },
+  { title: 'Key Exchange', description: 'Smart locks, lockboxes, or in-person meet.', link: '/services/airbnb-key-exchange-toronto' },
+  { title: 'Photography', description: 'Professional photos that get bookings.', link: '/services/airbnb-photography-toronto' },
+  { title: 'Maintenance', description: '24/7 emergency repairs and routine upkeep.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Turnover Management', description: 'Seamless guest transitions every time.', link: '/services/airbnb-turnover-management-toronto' },
+  { title: 'Compliance', description: 'We ensure you meet all Toronto STR regulations and bylaw requirements.', link: null },
+  { title: 'Reporting', description: 'Transparent monthly reports showing revenue, expenses, and net profit.', link: null }
 ];
 
 const serviceAreas = [
@@ -60,7 +60,6 @@ const managementOptions = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
           </div>
@@ -80,12 +79,12 @@ const managementOptions = [
 
           <h3>Toronto Airbnb Regulations</h3>
           <div class="bylaw-box">
-            <h4>📋 What You Need to Know</h4>
+            <h4>What You Need to Know</h4>
             <p>Toronto requires STR registration, limits rentals to your principal residence, and caps nights at 180 when you're away. We handle registration, tax remittance, and compliance monitoring so you stay legal.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Not Your Principal Residence?</h4>
+            <h4>Not Your Principal Residence?</h4>
             <p>Consider <a href="/services/mid-term-rental-management-toronto">mid-term rentals</a> (30+ days). No STR license needed, still earn 30-50% more than long-term tenants.</p>
           </div>
 
@@ -95,30 +94,30 @@ const managementOptions = [
           <h3>Tips for Airbnb Success in Toronto</h3>
 
           <div class="tip-box">
-            <h4>💡 Tip #1: Respond Fast</h4>
+            <h4>Tip #1: Respond Fast</h4>
             <p>Airbnb's algorithm rewards quick responses. Our 9-minute average keeps your listing ranking high.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #2: Professional Photos Matter</h4>
+            <h4>Tip #2: Professional Photos Matter</h4>
             <p>Listings with professional photos earn 20-30% more. We include <a href="/services/airbnb-photography-toronto">professional photography</a> at no extra cost.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #3: Price Dynamically</h4>
+            <h4>Tip #3: Price Dynamically</h4>
             <p>Static pricing leaves money on the table. Our AI adjusts rates for events, seasons, and demand through our <a href="/services/airbnb-dynamic-pricing-toronto">dynamic pricing service</a>.</p>
           </div>
         </div>
 
         <aside class="sidebar">
           <div class="sidebar-card sidebar-cta">
-            <h4>📞 Free Analysis</h4>
+            <h4>Free Analysis</h4>
             <p>See how much your property could earn.</p>
             <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
           </div>
 
           <div class="sidebar-card">
-            <h4>📍 Service Areas</h4>
+            <h4>Service Areas</h4>
             <ul>
               {serviceAreas.map(area => (
                 <li><a href={area.href}>{area.name}</a></li>
@@ -127,7 +126,7 @@ const managementOptions = [
           </div>
 
           <div class="sidebar-card">
-            <h4>🔗 Management Options</h4>
+            <h4>Management Options</h4>
             <ul>
               {managementOptions.map(option => (
                 <li><a href={option.href}>{option.name}</a></li>
@@ -254,7 +253,7 @@ const managementOptions = [
   }
 
   .serif {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Poppins', sans-serif;
     font-style: italic;
   }
 
@@ -281,16 +280,10 @@ const managementOptions = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
   .service-card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

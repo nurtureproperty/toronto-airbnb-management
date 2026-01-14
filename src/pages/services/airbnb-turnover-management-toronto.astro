@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '📅', title: 'Booking Coordination', description: 'We monitor your calendar and coordinate cleaners automatically. No last-minute scrambling to find availability.' },
-  { icon: '🧹', title: 'Cleaning Management', description: 'Our vetted cleaning teams follow a 50+ point checklist. Quality inspections after every turnover.' },
-  { icon: '🛏️', title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, rotation, and replacement of worn items.' },
-  { icon: '📦', title: 'Supply Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished. Guests never arrive to empty shelves.' },
-  { icon: '🔍', title: 'Quality Inspection', description: 'Photo documentation after each turnover. We catch issues before guests do.' },
-  { icon: '⚡', title: 'Same-Day Capability', description: 'Tight checkout/check-in? Our network handles same-day turnovers with 2-hour notice.' }
+  { title: 'Booking Coordination', description: 'We monitor your calendar and coordinate cleaners automatically. No last-minute scrambling to find availability.' },
+  { title: 'Cleaning Management', description: 'Our vetted cleaning teams follow a 50+ point checklist. Quality inspections after every turnover.' },
+  { title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, rotation, and replacement of worn items.' },
+  { title: 'Supply Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished. Guests never arrive to empty shelves.' },
+  { title: 'Quality Inspection', description: 'Photo documentation after each turnover. We catch issues before guests do.' },
+  { title: 'Same-Day Capability', description: 'Tight checkout/check-in? Our network handles same-day turnovers with 2-hour notice.' }
 ];
 
 const steps = [
@@ -100,7 +100,7 @@ const serviceAreas = [
       </div>
       <div class="example-grid">
         <div class="example-card">
-          <h3>😰 DIY Turnover Problems</h3>
+          <h3>DIY Turnover Problems</h3>
           <div class="example-line"><span>Cleaner cancels last minute</span><span>→ Scramble</span></div>
           <div class="example-line"><span>Supplies not restocked</span><span>→ Bad review</span></div>
           <div class="example-line"><span>Damage not documented</span><span>→ Lost claim</span></div>
@@ -108,7 +108,7 @@ const serviceAreas = [
           <div class="example-line total"><span>Result</span><span>Stress + Lost Revenue</span></div>
         </div>
         <div class="example-card highlight">
-          <h3>😎 Managed Turnovers</h3>
+          <h3>Managed Turnovers</h3>
           <div class="example-line"><span>Backup cleaners available</span><span>→ Always covered</span></div>
           <div class="example-line"><span>Auto-restocking</span><span>→ 5-star reviews</span></div>
           <div class="example-line"><span>Photo documentation</span><span>→ Protected</span></div>
@@ -128,7 +128,6 @@ const serviceAreas = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -444,16 +443,10 @@ const serviceAreas = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
   .service-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

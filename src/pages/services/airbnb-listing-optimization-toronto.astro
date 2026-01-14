@@ -2,19 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '📸', title: 'Professional Photography', description: 'DSLR photos with HDR editing, wide-angle lenses, and professional staging. Photos that make guests click "Book Now."' },
-  { icon: '✍️', title: 'SEO-Optimized Title', description: 'Keyword-rich titles that rank higher in search and communicate your property\'s best features in seconds.' },
-  { icon: '📝', title: 'Compelling Description', description: 'Storytelling copy that sells the experience, not just the space. Strategic keywords for search visibility.' },
-  { icon: '✅', title: 'Amenity Optimization', description: '75+ amenities added and ordered strategically. Guests filter by amenities - we make sure you show up.' },
-  { icon: '🗺️', title: 'Local Area Guide', description: 'Neighborhood highlights, restaurant recommendations, and local tips that add value and build trust.' },
-  { icon: '📊', title: 'Competitive Analysis', description: 'We analyze top performers in your area and apply winning strategies to your listing.' }
+  { title: 'Professional Photography', description: 'DSLR photos with HDR editing, wide-angle lenses, and professional staging. Photos that make guests click "Book Now."' },
+  { title: 'SEO-Optimized Title', description: 'Keyword-rich titles that rank higher in search and communicate your property\'s best features in seconds.' },
+  { title: 'Compelling Description', description: 'Storytelling copy that sells the experience, not just the space. Strategic keywords for search visibility.' },
+  { title: 'Amenity Optimization', description: '75+ amenities added and ordered strategically. Guests filter by amenities - we make sure you show up.' },
+  { title: 'Local Area Guide', description: 'Neighborhood highlights, restaurant recommendations, and local tips that add value and build trust.' },
+  { title: 'Competitive Analysis', description: 'We analyze top performers in your area and apply winning strategies to your listing.' }
 ];
 
 const seoTips = [
-  { icon: '🔍', title: 'Keyword Placement', description: 'Strategic keywords in your title, first paragraph, and amenities help Airbnb understand what your property offers and show it to the right guests.' },
-  { icon: '📸', title: 'Photo Quality Score', description: 'Airbnb\'s algorithm favors listings with high-quality photos. Professional photography improves your "quality score" and search ranking.' },
-  { icon: '⚡', title: 'Response Rate & Time', description: 'Quick responses boost your ranking. Our 9-minute average response time keeps your listing competitive in search results.' },
-  { icon: '📅', title: 'Booking Velocity', description: 'More bookings = higher ranking. Optimized listings get more clicks, which leads to more bookings, which improves ranking further.' }
+  { title: 'Keyword Placement', description: 'Strategic keywords in your title, first paragraph, and amenities help Airbnb understand what your property offers and show it to the right guests.' },
+  { title: 'Photo Quality Score', description: 'Airbnb\'s algorithm favors listings with high-quality photos. Professional photography improves your "quality score" and search ranking.' },
+  { title: 'Response Rate & Time', description: 'Quick responses boost your ranking. Our 9-minute average response time keeps your listing competitive in search results.' },
+  { title: 'Booking Velocity', description: 'More bookings = higher ranking. Optimized listings get more clicks, which leads to more bookings, which improves ranking further.' }
 ];
 
 const steps = [
@@ -118,7 +118,6 @@ const faqs = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -136,7 +135,7 @@ const faqs = [
       <div class="seo-grid">
         {seoTips.map(tip => (
           <div class="seo-card">
-            <h3><span class="seo-icon">{tip.icon}</span> {tip.title}</h3>
+            <h3>{tip.title}</h3>
             <p>{tip.description}</p>
           </div>
         ))}
@@ -361,16 +360,10 @@ const faqs = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
   .service-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
   }
@@ -402,16 +395,9 @@ const faqs = [
   .seo-card h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .seo-icon {
-    font-size: 1.5rem;
   }
 
   .seo-card p {

@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '💰', title: 'Dynamic Pricing', description: 'We optimize your nightly rates using market data and AI to maximize your revenue without you guessing at prices.' },
-  { icon: '💬', title: 'Guest Communication', description: 'We handle all guest messages, inquiries, and booking requests. 9-minute average response time, 24/7.' },
-  { icon: '📋', title: 'Booking Management', description: 'We screen guests, manage reservations, and handle all the back-and-forth so you don\'t have to.' },
-  { icon: '★', title: 'Review Management', description: 'We craft thoughtful responses to reviews and help maintain your 5-star reputation on the platform.' },
-  { icon: '📊', title: 'Performance Reports', description: 'Monthly reports showing your bookings, revenue, and how your property is performing against the market.' },
-  { icon: '🎯', title: 'Listing Optimization', description: 'We continuously improve your listing title, description, and photos to rank higher and convert more views.' }
+  { title: 'Dynamic Pricing', description: 'We optimize your nightly rates using market data and AI to maximize your revenue without you guessing at prices.' },
+  { title: 'Guest Communication', description: 'We handle all guest messages, inquiries, and booking requests. 9-minute average response time, 24/7.' },
+  { title: 'Booking Management', description: 'We screen guests, manage reservations, and handle all the back-and-forth so you don\'t have to.' },
+  { title: 'Review Management', description: 'We craft thoughtful responses to reviews and help maintain your 5-star reputation on the platform.' },
+  { title: 'Performance Reports', description: 'Monthly reports showing your bookings, revenue, and how your property is performing against the market.' },
+  { title: 'Listing Optimization', description: 'We continuously improve your listing title, description, and photos to rank higher and convert more views.' }
 ];
 
 const steps = [
@@ -82,7 +82,6 @@ const faqs = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -279,24 +278,10 @@ const faqs = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--color-primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
   .service-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
   }

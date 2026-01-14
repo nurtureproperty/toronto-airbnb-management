@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '📋', title: 'Tenant Screening', description: 'Background checks, income verification, and reference checks for every mid-term tenant. Quality guests only.' },
-  { icon: '💰', title: 'Pricing Strategy', description: 'Market analysis to price competitively while maximizing your monthly income. Seasonal adjustments included.' },
-  { icon: '📝', title: 'Lease Management', description: 'Proper month-to-month furnished rental agreements that protect your interests while staying tenant-friendly.' },
-  { icon: '🧹', title: 'Turnover Cleaning', description: 'Deep cleaning between tenants.', link: '/services/airbnb-cleaning-toronto' },
-  { icon: '🔧', title: 'Maintenance', description: 'On-call maintenance for tenant issues.', link: '/services/airbnb-property-maintenance-toronto' },
-  { icon: '📊', title: 'Financial Reporting', description: 'Monthly statements showing rent collected, expenses, and net income. Full transparency.' }
+  { title: 'Tenant Screening', description: 'Background checks, income verification, and reference checks for every mid-term tenant. Quality guests only.' },
+  { title: 'Pricing Strategy', description: 'Market analysis to price competitively while maximizing your monthly income. Seasonal adjustments included.' },
+  { title: 'Lease Management', description: 'Proper month-to-month furnished rental agreements that protect your interests while staying tenant-friendly.' },
+  { title: 'Turnover Cleaning', description: 'Deep cleaning between tenants.', link: '/services/airbnb-cleaning-toronto' },
+  { title: 'Maintenance', description: 'On-call maintenance for tenant issues.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Financial Reporting', description: 'Monthly statements showing rent collected, expenses, and net income. Full transparency.' }
 ];
 
 const whoRents = [
@@ -216,7 +216,6 @@ const idealProperties = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
           </div>
@@ -582,16 +581,10 @@ const idealProperties = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
   .service-card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

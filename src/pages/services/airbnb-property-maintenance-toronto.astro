@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '🚨', title: 'Emergency Repairs', description: '24/7 response for floods, no heat/AC, lockouts, and safety issues. Under 2-hour dispatch.', emergency: true },
-  { icon: '🔧', title: 'Routine Maintenance', description: 'Scheduled repairs, touchups, and fixes coordinated during turnovers.' },
-  { icon: '🛠️', title: 'Preventive Care', description: 'Quarterly HVAC service, drain clearing, battery replacement, and inspections.' },
-  { icon: '📱', title: 'Appliance Repair', description: 'Fridge, dishwasher, washer, dryer, microwave — all major appliances covered.' },
-  { icon: '🔐', title: 'Lock & Security', description: 'Smart lock troubleshooting, battery replacement, lockout assistance, re-keying.' },
-  { icon: '📋', title: 'Vendor Management', description: 'We coordinate quotes, schedule work, and supervise all contractor visits.' }
+  { title: 'Emergency Repairs', description: '24/7 response for floods, no heat/AC, lockouts, and safety issues. Under 2-hour dispatch.', emergency: true },
+  { title: 'Routine Maintenance', description: 'Scheduled repairs, touchups, and fixes coordinated during turnovers.' },
+  { title: 'Preventive Care', description: 'Quarterly HVAC service, drain clearing, battery replacement, and inspections.' },
+  { title: 'Appliance Repair', description: 'Fridge, dishwasher, washer, dryer, microwave — all major appliances covered.' },
+  { title: 'Lock & Security', description: 'Smart lock troubleshooting, battery replacement, lockout assistance, re-keying.' },
+  { title: 'Vendor Management', description: 'We coordinate quotes, schedule work, and supervise all contractor visits.' }
 ];
 
 const relatedServices = [
@@ -35,9 +35,9 @@ const network = [
 ];
 
 const responseTimes = [
-  { type: '🚨 Emergency (flood, no heat, lockout)', time: 'Under 2 hours' },
-  { type: '⚡ Urgent (AC out, appliance broken)', time: 'Same day' },
-  { type: '📝 Routine (cosmetic, minor repairs)', time: 'Next available turnover' }
+  { type: 'Emergency (flood, no heat, lockout)', time: 'Under 2 hours' },
+  { type: 'Urgent (AC out, appliance broken)', time: 'Same day' },
+  { type: 'Routine (cosmetic, minor repairs)', time: 'Next available turnover' }
 ];
 ---
 
@@ -60,7 +60,7 @@ const responseTimes = [
           <p>Our maintenance network is built for short-term rental emergencies. We have plumbers, electricians, locksmiths, and handymen across the GTA who respond within hours — not days.</p>
 
           <div class="warning-box">
-            <h4>🚨 Emergency Maintenance</h4>
+            <h4>Emergency Maintenance</h4>
             <p>Plumbing leak? Power outage? Heat failure in winter? Our <a href="/emergency-airbnb-support-toronto">24/7 emergency line</a> dispatches contractors immediately. Don't let maintenance emergencies ruin your guest's stay.</p>
           </div>
 
@@ -77,27 +77,27 @@ const responseTimes = [
           <h3>Preventive Maintenance Tips</h3>
 
           <div class="tip-box">
-            <h4>💡 Tip #1: Schedule Quarterly HVAC Checks</h4>
+            <h4>Tip #1: Schedule Quarterly HVAC Checks</h4>
             <p>AC failures happen most often in summer heat waves — the worst possible time. Quarterly maintenance catches problems before peak demand. A $100 service call prevents a $1,000+ emergency.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #2: Clear Drains Monthly</h4>
+            <h4>Tip #2: Clear Drains Monthly</h4>
             <p>Hair buildup is the #1 cause of clogged drains. Pour boiling water mixed with baking soda and vinegar down drains monthly. We do this during routine <a href="/services/airbnb-turnover-management-toronto">turnovers</a>.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #3: Keep Spare Batteries</h4>
+            <h4>Tip #3: Keep Spare Batteries</h4>
             <p>Smart locks, smoke detectors, and TV remotes all need batteries. Dead batteries cause lockouts and angry guests. We check and replace batteries during every turnover.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #4: Document Everything</h4>
+            <h4>Tip #4: Document Everything</h4>
             <p>We photograph your property during every <a href="/services/airbnb-turnover-management-toronto">turnover</a>. This documents condition before/after each guest and helps with damage claims.</p>
           </div>
 
           <div class="tip-box">
-            <h4>💡 Tip #5: Build a Contractor Network NOW</h4>
+            <h4>Tip #5: Build a Contractor Network NOW</h4>
             <p>Don't wait for an emergency to find a plumber. With our management, you get instant access to our vetted contractor network across <a href="/downtown-toronto-airbnb-management">Downtown Toronto</a>, <a href="/north-york-airbnb-management">North York</a>, <a href="/mississauga-airbnb-management">Mississauga</a>, and all GTA areas.</p>
           </div>
 
@@ -123,13 +123,13 @@ const responseTimes = [
 
         <aside class="sidebar">
           <div class="sidebar-card sidebar-emergency">
-            <h4>🚨 Emergency Line</h4>
+            <h4>Emergency Line</h4>
             <p>24/7 emergency maintenance support.</p>
             <a href="tel:647-957-8956" class="btn btn-emergency">Call 647-957-8956</a>
           </div>
 
           <div class="sidebar-card">
-            <h4>🔗 Related Services</h4>
+            <h4>Related Services</h4>
             <ul>
               {relatedServices.map(service => (
                 <li><a href={service.href}>{service.name}</a></li>
@@ -138,7 +138,7 @@ const responseTimes = [
           </div>
 
           <div class="sidebar-card">
-            <h4>📍 Service Areas</h4>
+            <h4>Service Areas</h4>
             <ul>
               {serviceAreas.map(area => (
                 <li><a href={area.href}>{area.name}</a></li>
@@ -147,7 +147,7 @@ const responseTimes = [
           </div>
 
           <div class="sidebar-card">
-            <h4>🔧 Our Network</h4>
+            <h4>Our Network</h4>
             <ul>
               {network.map(item => (
                 <li>{item}</li>
@@ -168,7 +168,6 @@ const responseTimes = [
       <div class="services-grid">
         {services.map(service => (
           <div class={`service-card ${service.emergency ? 'emergency' : ''}`}>
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -484,16 +483,10 @@ const responseTimes = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
   .service-card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '📋', title: 'Licensing & Compliance', description: 'We help you register with the City of Toronto, collect Municipal Accommodation Tax, and stay compliant with all STR bylaws.' },
-  { icon: '💰', title: 'Dynamic Pricing', description: 'AI-powered pricing adjusts daily for events, seasonality, and demand. Maximize revenue without lifting a finger.', link: '/services/airbnb-dynamic-pricing-toronto' },
-  { icon: '💬', title: '24/7 Guest Support', description: 'We handle all guest communication with a 9-minute average response time. Day or night, your guests are taken care of.' },
-  { icon: '🧹', title: 'Professional Cleaning', description: 'Vetted cleaning teams ensure 5-star cleanliness after every guest.', link: '/services/airbnb-cleaning-toronto' },
-  { icon: '🔧', title: 'Maintenance', description: '24/7 emergency repairs and routine maintenance coordination.', link: '/services/airbnb-property-maintenance-toronto' },
-  { icon: '📊', title: 'Transparent Reporting', description: 'Monthly reports show all bookings, revenue, expenses, and your net profit. No hidden fees, ever.' }
+  { title: 'Licensing & Compliance', description: 'We help you register with the City of Toronto, collect Municipal Accommodation Tax, and stay compliant with all STR bylaws.' },
+  { title: 'Dynamic Pricing', description: 'AI-powered pricing adjusts daily for events, seasonality, and demand. Maximize revenue without lifting a finger.', link: '/services/airbnb-dynamic-pricing-toronto' },
+  { title: '24/7 Guest Support', description: 'We handle all guest communication with a 9-minute average response time. Day or night, your guests are taken care of.' },
+  { title: 'Professional Cleaning', description: 'Vetted cleaning teams ensure 5-star cleanliness after every guest.', link: '/services/airbnb-cleaning-toronto' },
+  { title: 'Maintenance', description: '24/7 emergency repairs and routine maintenance coordination.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Transparent Reporting', description: 'Monthly reports show all bookings, revenue, expenses, and your net profit. No hidden fees, ever.' }
 ];
 
 const serviceAreas = [
@@ -184,7 +184,6 @@ const relatedServices = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
           </div>
@@ -537,16 +536,10 @@ const relatedServices = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
   .service-card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 

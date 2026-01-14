@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { icon: '🧹', title: 'Standard Turnover', description: 'Complete cleaning between guests following our 50+ point checklist. Ready for 5-star reviews.' },
-  { icon: '✨', title: 'Deep Cleaning', description: 'Quarterly deep cleans including baseboards, inside cabinets, appliances, and often-missed areas.' },
-  { icon: '🛏️', title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, folding, and inventory management.' },
-  { icon: '📦', title: 'Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished after every stay.' },
-  { icon: '⚡', title: 'Same-Day Turnover', description: 'Tight schedule? Our teams can handle same-day turnovers with 2-hour notice.' },
-  { icon: '📸', title: 'Photo Reports', description: 'Documentation after each cleaning for your records and damage protection.' }
+  { title: 'Standard Turnover', description: 'Complete cleaning between guests following our 50+ point checklist. Ready for 5-star reviews.' },
+  { title: 'Deep Cleaning', description: 'Quarterly deep cleans including baseboards, inside cabinets, appliances, and often-missed areas.' },
+  { title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, folding, and inventory management.' },
+  { title: 'Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished after every stay.' },
+  { title: 'Same-Day Turnover', description: 'Tight schedule? Our teams can handle same-day turnovers with 2-hour notice.' },
+  { title: 'Photo Reports', description: 'Documentation after each cleaning for your records and damage protection.' }
 ];
 
 const checklist = [
@@ -211,7 +211,6 @@ const cleaningStandards = [
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
-            <span class="service-icon">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
@@ -600,16 +599,12 @@ const cleaningStandards = [
     box-shadow: var(--shadow-lg);
   }
 
-  .service-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
   .service-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     color: var(--color-text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .service-card p {
