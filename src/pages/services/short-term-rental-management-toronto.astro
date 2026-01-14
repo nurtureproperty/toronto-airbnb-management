@@ -192,6 +192,128 @@ const relatedServices = [
     </div>
   </section>
 
+  <section class="section pricing-comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compare Our Plans</h2>
+        <p>Choose the level of service that works for you</p>
+      </div>
+      <div class="feature-comparison">
+        <div class="feature-header">
+          <div class="feature-label"></div>
+          <div class="plan-header">
+            <span class="plan-name">Starter</span>
+            <span class="plan-rate">10%</span>
+          </div>
+          <div class="plan-header featured">
+            <span class="plan-name">Professional</span>
+            <span class="plan-rate">15%</span>
+          </div>
+        </div>
+
+        <div class="feature-category">Listing & Marketing</div>
+        <div class="feature-row">
+          <div class="feature-label">Professional listing creation</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Multi-platform distribution</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Dynamic pricing optimization</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Listing SEO & optimization</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Guest Management</div>
+        <div class="feature-row">
+          <div class="feature-label">Guest communication</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Guest vetting & screening</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Review management</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Property Operations</div>
+        <div class="feature-row">
+          <div class="feature-label">Booking management</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Professional cleaning coordination</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Linen & supply restocking</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Smart lock management</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Contractor coordination</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Support & Reporting</div>
+        <div class="feature-row">
+          <div class="feature-label">Monthly performance reports</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Dedicated account manager</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Insurance claim assistance</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Additional Services</div>
+        <div class="feature-row">
+          <div class="feature-label">Airbnb Guest E-book</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Short term rental licensing support</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-label">Furnishing consulting</div>
+          <div class="feature-check empty">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section related-section">
     <div class="container">
       <div class="section-header">
@@ -625,6 +747,90 @@ const relatedServices = [
     color: var(--color-primary);
   }
 
+  .pricing-comparison-section {
+    background: var(--color-background-alt);
+  }
+
+  .feature-comparison {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .feature-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: var(--color-dark);
+    color: white;
+  }
+
+  .plan-header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .plan-header.featured {
+    background: var(--color-primary);
+  }
+
+  .plan-name {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .plan-rate {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .feature-category {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .feature-row:last-child {
+    border-bottom: none;
+  }
+
+  .feature-label {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .feature-check {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-check.empty {
+    color: #ccc;
+    font-weight: 400;
+  }
+
   @media (max-width: 968px) {
     .content-grid {
       grid-template-columns: 1fr;
@@ -677,6 +883,28 @@ const relatedServices = [
 
     .related-grid {
       grid-template-columns: 1fr;
+    }
+
+    .feature-header, .feature-row {
+      grid-template-columns: 1.5fr 1fr 1fr;
+    }
+    .feature-label {
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+    }
+    .feature-check {
+      padding: 0.75rem 0.5rem;
+      font-size: 1rem;
+    }
+    .plan-name {
+      font-size: 0.9rem;
+    }
+    .plan-rate {
+      font-size: 1.25rem;
+    }
+    .feature-category {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
     }
   }
 </style>
