@@ -70,11 +70,10 @@ const relatedServices = [
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <section class="hero">
+  <section class="hero hero-small">
     <div class="container">
       <h1>Airbnb <span class="highlight">Key Exchange</span> & Check-In GTA</h1>
       <p class="hero-subtitle">Seamless guest access solutions across the Greater Toronto Area: smart locks, lockboxes, in-person greetings, and 24/7 lockout support. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & more.</p>
-      <a href="tel:647-957-8956" class="btn btn-primary btn-large">Get Started</a>
     </div>
   </section>
 
@@ -97,6 +96,22 @@ const relatedServices = [
           <span class="trust-number">0</span>
           <span class="trust-label">Lost Key Issues</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="intro-text">First impressions start at the door. A smooth check-in sets the tone for a 5-star stay, while a fumbled arrival can ruin even the most beautiful property. We ensure every guest enters effortlessly.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Smart lock installation and management</li>
+          <li><span class="check">✓</span> Unique codes for every guest</li>
+          <li><span class="check">✓</span> 24/7 lockout assistance</li>
+          <li><span class="check">✓</span> Condo building coordination</li>
+          <li><span class="check">✓</span> Backup key systems</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary btn-large">Get Check-In Setup</a>
       </div>
     </div>
   </section>
@@ -226,7 +241,6 @@ const relatedServices = [
   }
 
   .trust-number {
-    display: block;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
@@ -300,28 +314,66 @@ const relatedServices = [
     font-size: 1.25rem;
   }
 
-  .hero {
-    padding: 5rem 2rem;
-    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+  .hero-small {
     text-align: center;
+    padding: 6rem 0 3rem;
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
   }
 
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+  .hero-small h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1.5rem;
   }
 
-  .hero .highlight {
-    color: var(--color-primary-dark);
+  .highlight {
+    color: var(--color-primary);
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-text-light);
-    margin-bottom: 2rem;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-section {
+    background: white;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .feature-list li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .check {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
   }
 
   .options-grid {
