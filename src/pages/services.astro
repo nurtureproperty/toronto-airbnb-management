@@ -3,85 +3,73 @@ import Layout from '../layouts/Layout.astro';
 
 const services = [
   {
-    icon: '📸',
     title: 'Professional Photography',
     description: 'High-quality photos that showcase your property and attract more bookings.',
-    features: ['HDR photography', 'Drone shots available', 'Virtual staging', 'Regular updates'],
+    features: ['HDR photography', 'Virtual staging', 'Lifestyle shots'],
     href: '/services/airbnb-photography-toronto'
   },
   {
-    icon: '📋',
     title: 'Listing Optimization',
     description: 'Compelling descriptions and strategic positioning across all major platforms.',
-    features: ['Multi-platform listing', 'SEO optimization', 'Competitive analysis', 'Regular updates'],
+    features: ['Multi-platform listing', 'SEO optimization', 'Competitive analysis'],
     href: '/services/airbnb-listing-optimization-toronto'
   },
   {
-    icon: '💬',
     title: 'Guest Communication',
     description: 'Round-the-clock support ensuring guests always get quick responses.',
-    features: ['15-min response time', 'Multi-language support', 'Check-in coordination', 'Issue resolution'],
+    features: ['Under 9-minute avg response time', 'Check-in coordination', 'Issue resolution'],
     href: '/services/airbnb-co-host-toronto'
   },
   {
-    icon: '📈',
     title: 'Dynamic Pricing',
     description: 'AI-powered pricing that maximizes your revenue based on demand.',
-    features: ['Real-time adjustments', 'Event-based pricing', 'Competitor monitoring', 'Seasonal optimization'],
+    features: ['Real-time adjustments', 'Event-based pricing', 'Seasonal optimization'],
     href: '/services/airbnb-dynamic-pricing-toronto'
   },
   {
-    icon: '🧹',
     title: 'Professional Cleaning',
     description: 'Hotel-quality cleaning between every guest stay.',
-    features: ['Trained cleaners', 'Quality inspections', 'Linen service', 'Restocking supplies'],
+    features: ['Trained cleaners', 'Quality inspections', 'Restocking supplies'],
     href: '/services/airbnb-cleaning-toronto'
   },
   {
-    icon: '🔧',
     title: 'Maintenance & Repairs',
     description: 'Proactive maintenance and rapid response to any issues.',
-    features: ['24/7 emergency line', 'Regular inspections', 'Vendor network', 'Preventive care'],
+    features: ['Regular inspections', 'Trusted vendor network', 'Rapid response'],
     href: '/services/airbnb-property-maintenance-toronto'
   },
   {
-    icon: '🔄',
     title: 'Turnover Management',
     description: 'Seamless guest transitions with coordinated cleaning and restocking.',
-    features: ['Same-day turnovers', 'Quality checks', 'Supply restocking', 'Photo verification'],
+    features: ['Same-day turnovers', 'Quality checks', 'Photo verification'],
     href: '/services/airbnb-turnover-management-toronto'
   },
   {
-    icon: '🔑',
     title: 'Key Management',
     description: 'Secure and convenient access solutions for your guests.',
-    features: ['Smart locks', 'Key exchange', 'Access codes', 'Security monitoring'],
+    features: ['Smart locks', 'Key exchange', 'Access codes'],
     href: '/services/airbnb-key-exchange-toronto'
   }
 ];
 
 const managementPackages = [
   {
-    icon: '🏠',
     title: 'Full Airbnb Management',
     description: 'Complete hands-off management for short-term rentals. We handle everything.',
     href: '/services/full-airbnb-management-toronto'
   },
   {
-    icon: '📅',
     title: 'Short-Term Rental Management',
     description: 'Specialized management for vacation rentals and nightly bookings.',
     href: '/services/short-term-rental-management-toronto'
   },
   {
-    icon: '🗓️',
     title: 'Mid-Term Rental Management',
     description: 'Management for 30+ day rentals, corporate housing, and extended stays.',
     href: '/services/mid-term-rental-management-toronto'
   },
   {
-    icon: '🤝',
-    title: 'Co-Hosting Services',
+    title: 'Airbnb Co-Hosting Services',
     description: 'Flexible support while you stay in control. Perfect for hands-on hosts.',
     href: '/services/airbnb-co-host-toronto'
   }
@@ -92,7 +80,7 @@ const managementPackages = [
   <section class="hero hero-small">
     <div class="container">
       <h1>Our Services</h1>
-      <p>Comprehensive property management solutions tailored for the GTA's short-term rental market.</p>
+      <p class="hero-subtitle">Comprehensive property management solutions tailored for the GTA's short-term rental market.</p>
     </div>
   </section>
 
@@ -101,10 +89,7 @@ const managementPackages = [
       <div class="services-detailed-grid">
         {services.map(service => (
           <a href={service.href} class="service-detailed-card">
-            <div class="service-header">
-              <span class="service-icon">{service.icon}</span>
-              <h3>{service.title}</h3>
-            </div>
+            <h3>{service.title}</h3>
             <p class="service-desc">{service.description}</p>
             <ul class="service-features">
               {service.features.map(feature => (
@@ -127,7 +112,6 @@ const managementPackages = [
       <div class="packages-grid">
         {managementPackages.map(pkg => (
           <a href={pkg.href} class="package-card">
-            <span class="package-icon">{pkg.icon}</span>
             <h3>{pkg.title}</h3>
             <p>{pkg.description}</p>
             <span class="learn-more">Learn more →</span>
@@ -182,7 +166,6 @@ const managementPackages = [
       </div>
       <div class="specialty-grid">
         <a href="/emergency-airbnb-support-toronto" class="specialty-card emergency">
-          <span class="specialty-icon">🚨</span>
           <h3>Emergency Support</h3>
           <p>24/7 emergency response for guest lockouts, urgent repairs, and crisis management</p>
           <span class="learn-more">Learn more →</span>
@@ -210,16 +193,25 @@ const managementPackages = [
 </Layout>
 
 <style>
+  .hero-subtitle { text-align: center; max-width: 600px; margin: 0 auto; }
   .services-detailed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-  .service-detailed-card { display: block; text-decoration: none; color: inherit; background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; }
-  .service-detailed-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); }
-  .service-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-  .service-icon { font-size: 2.5rem; }
-  .service-header h3 { margin: 0; font-size: 1.25rem; }
-  .service-desc { color: var(--color-text-light); margin-bottom: 1.5rem; }
+  .service-detailed-card { display: block; text-decoration: none; color: inherit; background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; border-left: 4px solid var(--color-primary); }
+  .service-detailed-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .service-detailed-card h3 { margin: 0 0 0.75rem; font-size: 1.25rem; color: var(--color-text); }
+  .service-desc { color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6; }
   .service-features { list-style: none; padding: 0; margin: 0; }
-  .service-features li { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0; color: var(--color-text-light); }
+  .service-features li { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0; color: var(--color-text-light); font-size: 0.95rem; }
   .service-features .check { color: var(--color-primary); font-weight: bold; }
+  .service-detailed-card .learn-more { display: block; margin-top: 1.25rem; color: var(--color-primary); font-weight: 600; }
+
+  .management-packages { background: var(--color-background-alt); }
+  .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .package-card { display: flex; flex-direction: column; text-decoration: none; background: white; border-radius: 16px; padding: 2rem; text-align: left; border: 1px solid var(--color-border); transition: all 0.3s ease; border-top: 4px solid var(--color-primary); }
+  .package-card:hover { border-color: var(--color-primary); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .package-card h3 { color: var(--color-text); margin: 0 0 0.75rem; font-size: 1.1rem; font-weight: 600; }
+  .package-card p { color: var(--color-text-light); margin: 0; font-size: 0.9rem; line-height: 1.5; flex-grow: 1; }
+  .package-card .learn-more { color: var(--color-primary); font-weight: 600; margin-top: 1rem; }
+
   .pricing-section { background: var(--color-background-alt); padding: 5rem 0; }
   .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 700px; margin: 0 auto; }
   .pricing-card { background: white; border-radius: 16px; padding: 2rem; text-align: center; border: 2px solid var(--color-border); position: relative; }
@@ -233,15 +225,15 @@ const managementPackages = [
   .pricing-details-link { text-align: center; margin-top: 2rem; color: var(--color-text-light); }
   .pricing-details-link a { color: var(--color-primary); text-decoration: underline; font-weight: 500; }
   .pricing-details-link a:hover { color: var(--color-primary-dark); }
+
   .specialty-services { background: white; }
   .specialty-grid { display: flex; justify-content: center; }
-  .specialty-card { display: block; max-width: 400px; padding: 2rem; background: var(--color-background-alt); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; text-align: center; }
+  .specialty-card { display: block; max-width: 400px; padding: 2rem; background: var(--color-background-alt); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; text-align: center; border-top: 4px solid #dc2626; }
   .specialty-card:hover { border-color: #dc2626; transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .specialty-card.emergency { border-left: 4px solid #dc2626; }
-  .specialty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
-  .specialty-card h3 { color: var(--color-text); margin: 0 0 0.75rem; }
+  .specialty-card h3 { color: var(--color-text); margin: 0 0 0.75rem; font-size: 1.25rem; }
   .specialty-card p { color: var(--color-text-light); margin: 0 0 1rem; font-size: 0.95rem; }
   .specialty-card .learn-more { color: #dc2626; font-weight: 600; }
+
   .locations-section { background: var(--color-background-alt); }
   .locations-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
   .locations-links a { background: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; color: var(--color-text); font-weight: 500; transition: all 0.3s ease; border: 1px solid var(--color-border); }
@@ -249,15 +241,13 @@ const managementPackages = [
   .locations-cta { text-align: center; color: var(--color-text-light); }
   .locations-cta a { color: var(--color-primary); text-decoration: underline; }
   .locations-cta a:hover { color: var(--color-primary-dark); }
-  
-  .service-detailed-card .learn-more { display: block; margin-top: 1rem; color: var(--color-primary); font-weight: 600; }
-  .management-packages { background: var(--color-background-alt); }
-  .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .package-card { display: block; text-decoration: none; background: white; border-radius: 16px; padding: 2rem; text-align: center; border: 2px solid var(--color-border); transition: all 0.3s ease; }
-  .package-card:hover { border-color: var(--color-primary); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .package-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
-  .package-card h3 { color: var(--color-text); margin: 0 0 0.75rem; font-size: 1.1rem; }
-  .package-card p { color: var(--color-text-light); margin: 0 0 1rem; font-size: 0.9rem; }
-  .package-card .learn-more { color: var(--color-primary); font-weight: 600; }
-  @media (max-width: 968px) { .services-detailed-grid, .pricing-grid { grid-template-columns: 1fr; } .packages-grid { grid-template-columns: repeat(2, 1fr); } .pricing-card.featured { transform: none; } }
+
+  @media (max-width: 968px) {
+    .services-detailed-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .packages-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-card.featured { transform: none; }
+  }
+  @media (max-width: 600px) {
+    .packages-grid { grid-template-columns: 1fr; }
+  }
 </style>
