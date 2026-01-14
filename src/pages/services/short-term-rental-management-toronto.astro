@@ -1,318 +1,689 @@
 ---
-// Short Term Rental Management Toronto - Comprehensive Service Page
-// Targets: short term rental management toronto, STR management, vacation rental management
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  { icon: '📋', title: 'Licensing & Compliance', description: 'We help you register with the City of Toronto, collect Municipal Accommodation Tax, and stay compliant with all STR bylaws.' },
+  { icon: '💰', title: 'Dynamic Pricing', description: 'AI-powered pricing adjusts daily for events, seasonality, and demand. Maximize revenue without lifting a finger.', link: '/services/airbnb-dynamic-pricing-toronto' },
+  { icon: '💬', title: '24/7 Guest Support', description: 'We handle all guest communication with a 9-minute average response time. Day or night, your guests are taken care of.' },
+  { icon: '🧹', title: 'Professional Cleaning', description: 'Vetted cleaning teams ensure 5-star cleanliness after every guest.', link: '/services/airbnb-cleaning-toronto' },
+  { icon: '🔧', title: 'Maintenance', description: '24/7 emergency repairs and routine maintenance coordination.', link: '/services/airbnb-property-maintenance-toronto' },
+  { icon: '📊', title: 'Transparent Reporting', description: 'Monthly reports show all bookings, revenue, expenses, and your net profit. No hidden fees, ever.' }
+];
+
+const serviceAreas = [
+  { name: 'Downtown Toronto', href: '/downtown-toronto-airbnb-management' },
+  { name: 'North York', href: '/north-york-airbnb-management' },
+  { name: 'Mississauga', href: '/mississauga-airbnb-management' },
+  { name: 'Scarborough', href: '/scarborough-airbnb-management' },
+  { name: 'Etobicoke', href: '/etobicoke-airbnb-management' },
+  { name: 'Brampton', href: null },
+  { name: 'Vaughan', href: null },
+  { name: 'Markham', href: null },
+  { name: 'Richmond Hill', href: null },
+  { name: 'Oakville', href: null }
+];
+
+const relatedServices = [
+  { name: 'Mid-Term Rentals', href: '/services/mid-term-rental-management-toronto' },
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto' },
+  { name: 'Photography', href: '/services/airbnb-photography-toronto' },
+  { name: 'Emergency Support', href: '/emergency-airbnb-support-toronto' }
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Short Term Rental Management Toronto & GTA | STR Experts | Nurture Stays</title>
-    <meta name="description" content="Expert short term rental management across the Greater Toronto Area. We handle STR licensing, guest management, cleaning & compliance. 10-15% fees. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill & more.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --sage: #8B9B87;
-            --sage-dark: #6B7B67;
-            --cream: #F8F6F1;
-            --warm-white: #FFFDF9;
-            --charcoal: #2A2A2A;
-            --gold: #C9A961;
-        }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
-
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
-        .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
-        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
-        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; color: var(--charcoal); cursor: pointer; }
-
-        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); }
-        .hero-container { max-width: 1000px; margin: 0 auto; text-align: center; }
-        .hero h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--charcoal); }
-        .hero .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .hero-stats { display: flex; justify-content: center; gap: 4rem; margin: 3rem 0; flex-wrap: wrap; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--sage-dark); }
-        .stat-label { color: #666; font-size: 0.9rem; }
-        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
-        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
-
-        .section { padding: 5rem 2rem; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .section-header .subtitle { font-size: 1.25rem; color: var(--sage-dark); }
-
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
-        .main-content h3 { font-size: 1.75rem; margin: 2rem 0 1rem; color: var(--charcoal); }
-        .main-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #555; }
-        .main-content ul { margin: 1.5rem 0; padding-left: 1.5rem; }
-        .main-content li { margin-bottom: 0.75rem; line-height: 1.7; color: #555; }
-
-        .sidebar { position: sticky; top: 100px; }
-        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .sidebar-card h4 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .sidebar-card ul { list-style: none; }
-        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
-        .sidebar-card li:last-child { border-bottom: none; }
-        .sidebar-card a { color: var(--sage-dark); text-decoration: none; font-weight: 500; }
-        .sidebar-card a:hover { text-decoration: underline; }
-
-        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
-        .tip-box p { margin: 0; color: #555; }
-
-        .warning-box { background: #FFF3E0; border-left: 4px solid #F57C00; padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .warning-box h4 { color: #E65100; margin-bottom: 0.5rem; }
-        .warning-box p { margin: 0; color: #555; }
-
-        .bylaw-box { background: #E3F2FD; border-left: 4px solid #1976D2; padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .bylaw-box h4 { color: #1565C0; margin-bottom: 0.5rem; }
-        .bylaw-box p { margin: 0; color: #555; }
-        .bylaw-box ul { margin: 1rem 0 0; padding-left: 1.5rem; }
-        .bylaw-box li { color: #555; margin-bottom: 0.5rem; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--sage); }
-        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
-        .service-card p { color: #666; font-size: 0.95rem; }
-
-        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
-        footer a { color: var(--sage); text-decoration: none; }
-
-        @media (max-width: 1024px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-stats { gap: 2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .mobile-menu-button { display: block; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">Nurture Stays</a>
-            <div class="nav-right">
-                <a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a>
-                <button class="mobile-menu-button">☰</button>
-            </div>
+<Layout title="Short Term Rental Management Toronto & GTA | STR Experts" description="Expert short term rental management across the Greater Toronto Area. We handle STR licensing, guest management, cleaning & compliance. 10-15% fees. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill & more.">
+  <section class="hero">
+    <div class="container">
+      <h1><span class="highlight">Short Term Rental</span> Management Toronto</h1>
+      <p class="hero-subtitle">Navigate STR regulations with confidence across the Greater Toronto Area. We handle licensing, compliance, guests, and everything in between so you can earn more with less stress.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">30-100%</span>
+          <span class="stat-label">More Than Long-Term</span>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-container">
-            <h1><span class="highlight">Short Term Rental</span> Management Toronto</h1>
-            <p class="hero-subtitle">Navigate STR regulations with confidence across the Greater Toronto Area. We handle licensing, compliance, guests, and everything in between so you can earn more with less stress. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill, Oakville & more.</p>
-            
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">30-100%</div>
-                    <div class="stat-label">More Than Long-Term</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Bylaw Compliant</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">10-15%</div>
-                    <div class="stat-label">Management Fee</div>
-                </div>
-            </div>
-
-            <a href="tel:647-957-8956" class="primary-button">Get Free STR Analysis</a>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Bylaw Compliant</span>
         </div>
-    </section>
-
-    <section class="section" style="background: var(--warm-white);">
-        <div class="section-container">
-            <div class="content-grid">
-                <div class="main-content">
-                    <h2>What is Short Term Rental Management?</h2>
-                    <p>Short term rental (STR) management is the professional handling of properties listed on platforms like Airbnb, VRBO, and Booking.com. In Toronto, STR management has become increasingly complex due to municipal regulations, making professional management more valuable than ever.</p>
-                    
-                    <p>Unlike <a href="/services/mid-term-rental-management-toronto" style="color: var(--sage-dark);">mid-term rental management</a> (30+ days), short term rentals involve stays under 28 nights and require specific licensing in Toronto and the Greater Toronto Area. Our team handles all aspects of STR operations so you can maximize revenue while staying compliant.</p>
-
-                    <h3>Toronto Short Term Rental Bylaws</h3>
-                    
-                    <div class="bylaw-box">
-                        <h4>📋 Toronto STR Regulations (2025)</h4>
-                        <ul>
-                            <li><strong>Registration Required:</strong> All STR operators must register with the City of Toronto</li>
-                            <li><strong>Principal Residence Rule:</strong> You can only STR your principal residence (where you live)</li>
-                            <li><strong>180-Night Cap:</strong> Maximum 180 nights per year if you're away during the rental</li>
-                            <li><strong>No Cap:</strong> Unlimited nights if you remain in the home during guest stays</li>
-                            <li><strong>4% Municipal Tax:</strong> Must collect and remit Municipal Accommodation Tax</li>
-                            <li><strong>$50 Registration Fee:</strong> Annual registration renewal required</li>
-                        </ul>
-                    </div>
-
-                    <div class="warning-box">
-                        <h4>⚠️ Penalties for Non-Compliance</h4>
-                        <p>Operating an unregistered STR in Toronto can result in fines up to $10,000 per day. Platforms like Airbnb are required to share host data with the city, making enforcement increasingly effective.</p>
-                    </div>
-
-                    <h3>Tips for Short Term Rental Success in Toronto</h3>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #1: Get Your Registration First</h4>
-                        <p>Never list your property before obtaining your STR registration number. Airbnb now requires valid registration numbers for Toronto listings and will remove non-compliant listings.</p>
-                    </div>
-
-                    <p>Success in Toronto's short term rental market requires more than just listing your property. Here are proven strategies we implement for our clients:</p>
-
-                    <ul>
-                        <li><strong>Optimize for Business Travelers:</strong> Toronto's Financial District generates consistent weekday demand. Equip your space with fast WiFi, a dedicated workspace, and business-friendly amenities.</li>
-                        <li><strong>Leverage Events:</strong> TIFF, Pride, Caribbean Carnival, and major sports events create surge pricing opportunities. Our <a href="/services/airbnb-dynamic-pricing-toronto" style="color: var(--sage-dark);">dynamic pricing system</a> automatically adjusts rates for these events.</li>
-                        <li><strong>Invest in Professional Photos:</strong> Listings with <a href="/services/airbnb-photography-toronto" style="color: var(--sage-dark);">professional photography</a> earn 20-30% more and book faster.</li>
-                        <li><strong>Response Time Matters:</strong> Airbnb's algorithm favors hosts who respond quickly. Our 9-minute average response time keeps your listing ranking high.</li>
-                        <li><strong>Cleanliness is Everything:</strong> One bad review about cleanliness can tank your listing. Our <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">professional cleaning teams</a> maintain 5-star standards.</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #2: Consider Your Building's Rules</h4>
-                        <p>Many Toronto condos have their own STR restrictions beyond city bylaws. Check your condo corporation's rules before listing. We can help you navigate building-specific requirements.</p>
-                    </div>
-
-                    <h3>Short Term vs. Long Term Rental Income</h3>
-                    <p>The question every Toronto property owner asks: is short term rental worth the extra effort? Here's a real comparison from one of our managed properties:</p>
-
-                    <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
-                        <tr style="background: var(--sage-dark); color: white;">
-                            <th style="padding: 1rem; text-align: left;">Factor</th>
-                            <th style="padding: 1rem; text-align: left;">Long-Term Rental</th>
-                            <th style="padding: 1rem; text-align: left;">Short-Term (Managed)</th>
-                        </tr>
-                        <tr style="background: white;">
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">Monthly Revenue</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">$2,200</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">$4,100</td>
-                        </tr>
-                        <tr style="background: var(--cream);">
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">Management Fee</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">$0</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">$615 (15%)</td>
-                        </tr>
-                        <tr style="background: white;">
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">Flexibility</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">1-year lease</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid #eee;">Use anytime</td>
-                        </tr>
-                        <tr style="background: var(--cream);">
-                            <td style="padding: 1rem; font-weight: 700;">Net Income</td>
-                            <td style="padding: 1rem; font-weight: 700;">$2,200</td>
-                            <td style="padding: 1rem; font-weight: 700; color: var(--sage-dark);">$3,485</td>
-                        </tr>
-                    </table>
-
-                    <p>That's an extra <strong>$1,285 per month</strong> — or <strong>$15,420 per year</strong> — while maintaining the flexibility to use your property whenever you want. Learn more about <a href="/toronto-airbnb-not-making-money" style="color: var(--sage-dark);">maximizing your Airbnb revenue</a>.</p>
-
-                    <h3>What's Included in Our STR Management</h3>
-                </div>
-
-                <div class="sidebar">
-                    <div class="sidebar-card">
-                        <h4>📍 GTA Service Areas</h4>
-                        <ul>
-                            <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
-                            <li><a href="/north-york-airbnb-management">North York</a></li>
-                            <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
-                            <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
-                            <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
-                            <li>Brampton</li>
-                            <li>Vaughan</li>
-                            <li>Markham</li>
-                            <li>Richmond Hill</li>
-                            <li>Oakville</li>
-                            <li>Burlington</li>
-                            <li>Ajax & Pickering</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>🔗 Related Services</h4>
-                        <ul>
-                            <li><a href="/services/mid-term-rental-management-toronto">Mid-Term Rentals</a></li>
-                            <li><a href="/services/airbnb-cleaning-toronto">Cleaning Services</a></li>
-                            <li><a href="/services/airbnb-photography-toronto">Photography</a></li>
-                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card" style="background: var(--sage); color: white;">
-                        <h4 style="color: white;">📞 Free Consultation</h4>
-                        <p style="margin-bottom: 1rem; opacity: 0.9;">Find out how much your property could earn as an STR.</p>
-                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--sage-dark);">Call 647-957-8956</a>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>📚 Helpful Resources</h4>
-                        <ul>
-                            <li><a href="/pricing-toronto-airbnb-management">Our Pricing</a></li>
-                            <li><a href="/toronto-airbnb-not-making-money">Fix Low Revenue</a></li>
-                            <li><a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-standards/short-term-rentals/" target="_blank">City of Toronto STR Info ↗</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>📋 Licensing & Compliance</h3>
-                    <p>We help you register with the City of Toronto, collect Municipal Accommodation Tax, and stay compliant with all STR bylaws.</p>
-                </div>
-                <div class="service-card">
-                    <h3>💰 Dynamic Pricing</h3>
-                    <p>AI-powered pricing adjusts daily for events, seasonality, and demand. Maximize revenue without lifting a finger.</p>
-                </div>
-                <div class="service-card">
-                    <h3>💬 24/7 Guest Support</h3>
-                    <p>We handle all guest communication with a 9-minute average response time. Day or night, your guests are taken care of.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🧹 Professional Cleaning</h3>
-                    <p>Vetted cleaning teams ensure 5-star cleanliness after every guest. <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
-                </div>
-                <div class="service-card">
-                    <h3>🔧 Maintenance</h3>
-                    <p>24/7 emergency repairs and routine maintenance coordination. <a href="/services/airbnb-property-maintenance-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
-                </div>
-                <div class="service-card">
-                    <h3>📊 Transparent Reporting</h3>
-                    <p>Monthly reports show all bookings, revenue, expenses, and your net profit. No hidden fees, ever.</p>
-                </div>
-            </div>
+        <div class="stat">
+          <span class="stat-number">10-15%</span>
+          <span class="stat-label">Management Fee</span>
         </div>
-    </section>
+      </div>
+      <a href="tel:647-957-8956" class="btn btn-primary btn-large">Get Free STR Analysis</a>
+    </div>
+  </section>
 
-    <section class="cta-section">
+  <section class="section content-section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-content">
+          <h2>What is Short Term Rental Management?</h2>
+          <p>Short term rental (STR) management is the professional handling of properties listed on platforms like Airbnb, VRBO, and Booking.com. In Toronto, STR management has become increasingly complex due to municipal regulations, making professional management more valuable than ever.</p>
+
+          <p>Unlike <a href="/services/mid-term-rental-management-toronto">mid-term rental management</a> (30+ days), short term rentals involve stays under 28 nights and require specific licensing in Toronto and the Greater Toronto Area. Our team handles all aspects of STR operations so you can maximize revenue while staying compliant.</p>
+
+          <h3>Toronto Short Term Rental Bylaws</h3>
+          <div class="bylaw-box">
+            <h4>📋 Toronto STR Regulations (2025)</h4>
+            <ul>
+              <li><strong>Registration Required:</strong> All STR operators must register with the City of Toronto</li>
+              <li><strong>Principal Residence Rule:</strong> You can only STR your principal residence (where you live)</li>
+              <li><strong>180-Night Cap:</strong> Maximum 180 nights per year if you're away during the rental</li>
+              <li><strong>No Cap:</strong> Unlimited nights if you remain in the home during guest stays</li>
+              <li><strong>4% Municipal Tax:</strong> Must collect and remit Municipal Accommodation Tax</li>
+              <li><strong>$50 Registration Fee:</strong> Annual registration renewal required</li>
+            </ul>
+          </div>
+
+          <div class="warning-box">
+            <h4>⚠️ Penalties for Non-Compliance</h4>
+            <p>Operating an unregistered STR in Toronto can result in fines up to $10,000 per day. Platforms like Airbnb are required to share host data with the city, making enforcement increasingly effective.</p>
+          </div>
+
+          <h3>Tips for Short Term Rental Success in Toronto</h3>
+
+          <div class="tip-box">
+            <h4>💡 Tip #1: Get Your Registration First</h4>
+            <p>Never list your property before obtaining your STR registration number. Airbnb now requires valid registration numbers for Toronto listings and will remove non-compliant listings.</p>
+          </div>
+
+          <p>Success in Toronto's short term rental market requires more than just listing your property. Here are proven strategies we implement for our clients:</p>
+
+          <ul>
+            <li><strong>Optimize for Business Travelers:</strong> Toronto's Financial District generates consistent weekday demand. Equip your space with fast WiFi, a dedicated workspace, and business-friendly amenities.</li>
+            <li><strong>Leverage Events:</strong> TIFF, Pride, Caribbean Carnival, and major sports events create surge pricing opportunities. Our <a href="/services/airbnb-dynamic-pricing-toronto">dynamic pricing system</a> automatically adjusts rates for these events.</li>
+            <li><strong>Invest in Professional Photos:</strong> Listings with <a href="/services/airbnb-photography-toronto">professional photography</a> earn 20-30% more and book faster.</li>
+            <li><strong>Response Time Matters:</strong> Airbnb's algorithm favors hosts who respond quickly. Our 9-minute average response time keeps your listing ranking high.</li>
+            <li><strong>Cleanliness is Everything:</strong> One bad review about cleanliness can tank your listing. Our <a href="/services/airbnb-cleaning-toronto">professional cleaning teams</a> maintain 5-star standards.</li>
+          </ul>
+
+          <div class="tip-box">
+            <h4>💡 Tip #2: Consider Your Building's Rules</h4>
+            <p>Many Toronto condos have their own STR restrictions beyond city bylaws. Check your condo corporation's rules before listing. We can help you navigate building-specific requirements.</p>
+          </div>
+
+          <h3>Short Term vs. Long Term Rental Income</h3>
+          <p>The question every Toronto property owner asks: is short term rental worth the extra effort? Here's a real comparison from one of our managed properties:</p>
+
+          <div class="income-comparison">
+            <div class="income-row header">
+              <span>Factor</span>
+              <span>Long-Term Rental</span>
+              <span>Short-Term (Managed)</span>
+            </div>
+            <div class="income-row">
+              <span>Monthly Revenue</span>
+              <span>$2,200</span>
+              <span>$4,100</span>
+            </div>
+            <div class="income-row">
+              <span>Management Fee</span>
+              <span>$0</span>
+              <span>$615 (15%)</span>
+            </div>
+            <div class="income-row">
+              <span>Flexibility</span>
+              <span>1-year lease</span>
+              <span>Use anytime</span>
+            </div>
+            <div class="income-row total">
+              <span>Net Income</span>
+              <span>$2,200</span>
+              <span class="highlight-value">$3,485</span>
+            </div>
+          </div>
+
+          <p>That's an extra <strong>$1,285 per month</strong> — or <strong>$15,420 per year</strong> — while maintaining the flexibility to use your property whenever you want. Learn more about <a href="/toronto-airbnb-not-making-money">maximizing your Airbnb revenue</a>.</p>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-cta">
+            <h4>📞 Free Consultation</h4>
+            <p>Find out how much your property could earn as an STR.</p>
+            <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>📍 GTA Service Areas</h4>
+            <ul>
+              {serviceAreas.map(area => (
+                <li>{area.href ? <a href={area.href}>{area.name}</a> : area.name}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>🔗 Related Services</h4>
+            <ul>
+              {relatedServices.map(service => (
+                <li><a href={service.href}>{service.name}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>📚 Helpful Resources</h4>
+            <ul>
+              <li><a href="/pricing-toronto-airbnb-management">Our Pricing</a></li>
+              <li><a href="/toronto-airbnb-not-making-money">Fix Low Revenue</a></li>
+              <li><a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-standards/short-term-rentals/" target="_blank" rel="noopener">City of Toronto STR Info ↗</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's Included in Our STR Management</h2>
+        <p>Complete short-term rental support</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <span class="service-icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Complete Your STR Strategy</h2>
+        <p>Services that maximize your short-term rental success</p>
+      </div>
+      <div class="related-grid">
+        <a href="/services/full-airbnb-management-toronto" class="related-card">
+          <h4>Full Management</h4>
+          <p>Complete hands-off hosting</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/mid-term-rental-management-toronto" class="related-card">
+          <h4>Mid-Term Rentals</h4>
+          <p>30+ day rentals - no license needed</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-dynamic-pricing-toronto" class="related-card">
+          <h4>Dynamic Pricing</h4>
+          <p>AI-powered rate optimization</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-photography-toronto" class="related-card">
+          <h4>Photography</h4>
+          <p>Professional listing photos</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-cleaning-toronto" class="related-card">
+          <h4>Cleaning Services</h4>
+          <p>5-star cleanliness guaranteed</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-turnover-management-toronto" class="related-card">
+          <h4>Turnover Management</h4>
+          <p>Seamless guest transitions</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
         <h2>Ready to Start Your STR Journey?</h2>
         <p>Get a free property analysis and compliance check. We'll show you exactly what your property could earn.</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-    </section>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+      </div>
+    </div>
+  </section>
+</Layout>
 
-    <footer>
-        <p>© 2025 Nurture Stays | Short Term Rental Management Toronto</p>
-        <p><a href="/">Home</a> · <a href="/services/full-airbnb-management-toronto">Full Management</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
-    </footer>
-</body>
-</html>
+<style>
+  .hero {
+    text-align: center;
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 750px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+  }
+
+  .stat-label {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .content-section {
+    background: white;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-content h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .main-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .main-content ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .main-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .main-content a {
+    color: var(--color-primary);
+  }
+
+  .tip-box {
+    background: #E8F5E9;
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .tip-box h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .tip-box p {
+    margin: 0;
+    color: #555;
+  }
+
+  .warning-box {
+    background: #FFF3E0;
+    border-left: 4px solid #F57C00;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .warning-box h4 {
+    color: #E65100;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: #555;
+  }
+
+  .bylaw-box {
+    background: #E3F2FD;
+    border-left: 4px solid #1976D2;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .bylaw-box h4 {
+    color: #1565C0;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .bylaw-box ul {
+    margin: 1rem 0 0;
+    padding-left: 1.5rem;
+  }
+
+  .bylaw-box li {
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+
+  .income-comparison {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .income-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    background: white;
+  }
+
+  .income-row.header {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+  }
+
+  .income-row:nth-child(even):not(.header) {
+    background: var(--color-background-alt);
+  }
+
+  .income-row.total {
+    font-weight: 700;
+  }
+
+  .income-row:last-child {
+    border-bottom: none;
+  }
+
+  .highlight-value {
+    color: var(--color-primary-dark);
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .sidebar-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .sidebar-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-light);
+  }
+
+  .sidebar-card li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar-card a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar-card a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar-cta {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .sidebar-cta h4 {
+    color: white;
+  }
+
+  .sidebar-cta p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .sidebar-cta .btn {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .services-section {
+    background: var(--color-background-alt);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .service-card a {
+    color: var(--color-primary);
+  }
+
+  .related-section {
+    background: white;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .related-card .arrow {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: static;
+    }
+
+    .income-row {
+      grid-template-columns: 1.2fr 1fr 1fr;
+      font-size: 0.9rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .income-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .income-row.header {
+      display: none;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

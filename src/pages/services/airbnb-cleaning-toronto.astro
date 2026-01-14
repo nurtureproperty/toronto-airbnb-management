@@ -1,294 +1,708 @@
 ---
-// Airbnb Cleaning Toronto - Service Page
-// Targets: airbnb cleaning toronto, vacation rental cleaning, turnover cleaning service
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  { icon: '🧹', title: 'Standard Turnover', description: 'Complete cleaning between guests following our 50+ point checklist. Ready for 5-star reviews.' },
+  { icon: '✨', title: 'Deep Cleaning', description: 'Quarterly deep cleans including baseboards, inside cabinets, appliances, and often-missed areas.' },
+  { icon: '🛏️', title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, folding, and inventory management.' },
+  { icon: '📦', title: 'Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished after every stay.' },
+  { icon: '⚡', title: 'Same-Day Turnover', description: 'Tight schedule? Our teams can handle same-day turnovers with 2-hour notice.' },
+  { icon: '📸', title: 'Photo Reports', description: 'Documentation after each cleaning for your records and damage protection.' }
+];
+
+const checklist = [
+  'Strip and remake all beds with fresh linens',
+  'Replace all towels (bath, hand, face)',
+  'Deep clean bathrooms (toilet, shower, sink)',
+  'Sanitize all high-touch surfaces',
+  'Clean kitchen appliances inside/out',
+  'Wash all dishes and cookware',
+  'Empty all garbage and recycling',
+  'Vacuum all floors and carpets',
+  'Mop hard floors',
+  'Dust all surfaces and furniture',
+  'Clean mirrors and glass',
+  'Restock toilet paper, soap, shampoo',
+  'Restock coffee, tea, and snacks',
+  'Check all lights and replace bulbs',
+  'Set thermostat to welcome temperature',
+  'Photo documentation for records'
+];
+
+const tips = [
+  { title: 'Invest in Quality Linens', content: 'White, hotel-quality linens (300+ thread count) look cleaner, feel luxurious, and can be bleached to maintain brightness. Guests notice the difference immediately.' },
+  { title: 'Create a Hotel Feel', content: 'Fold toilet paper ends into points, fan towels on the bed, and leave a small welcome note. These touches take 30 seconds but create lasting impressions that earn 5-star reviews.' },
+  { title: 'Address Odors Proactively', content: 'The second most common complaint after visible dirt is smell. Run the dishwasher empty with vinegar, clean garbage disposals monthly, and use subtle, universally appealing scents (fresh linen, light citrus).' },
+  { title: 'Build in Buffer Time', content: 'Do not schedule back-to-back check-out and check-in. A 4-5 hour gap allows thorough cleaning without rushing. Rushed cleanings lead to missed spots and bad reviews.' }
+];
+
+const relatedServices = [
+  { name: 'Turnover Management', href: '/services/airbnb-turnover-management-toronto' },
+  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto' },
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto' },
+  { name: 'Emergency Support', href: '/emergency-airbnb-support-toronto' }
+];
+
+const serviceAreas = [
+  { name: 'Downtown Toronto', href: '/downtown-toronto-airbnb-management' },
+  { name: 'North York', href: '/north-york-airbnb-management' },
+  { name: 'Mississauga', href: '/mississauga-airbnb-management' },
+  { name: 'Scarborough', href: '/scarborough-airbnb-management' },
+  { name: 'Etobicoke', href: '/etobicoke-airbnb-management' },
+  { name: 'Brampton', href: null },
+  { name: 'Vaughan', href: null },
+  { name: 'Markham', href: null },
+  { name: 'Richmond Hill', href: null },
+  { name: 'Oakville', href: null },
+  { name: 'Burlington', href: null }
+];
+
+const cleaningStandards = [
+  '50+ point checklist',
+  'Photo documentation',
+  'Quality inspections',
+  'Background-checked staff',
+  'Insured and bonded'
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airbnb Cleaning Services Toronto & GTA | 5-Star Turnover Cleaning | Nurture Stays</title>
-    <meta name="description" content="Professional Airbnb cleaning across the Greater Toronto Area. Same-day turnovers, 5-star standards, vetted cleaners. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Oakville & more.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --sage: #8B9B87; --sage-dark: #6B7B67; --cream: #F8F6F1; --warm-white: #FFFDF9; --charcoal: #2A2A2A; --gold: #C9A961; }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+<Layout
+  title="Airbnb Cleaning Services Toronto and GTA | 5-Star Turnover Cleaning"
+  description="Professional Airbnb cleaning across the Greater Toronto Area. Same-day turnovers, 5-star standards, vetted cleaners. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Oakville and more."
+>
+  <section class="hero hero-small">
+    <div class="container">
+      <h1><span class="highlight">Airbnb Cleaning</span> Services Toronto</h1>
+      <p class="hero-subtitle">5-star cleanliness is the number one factor in guest reviews. Our professional cleaning teams ensure your property sparkles after every guest, even for same-day turnovers. Serving the entire Greater Toronto Area.</p>
+      <a href="/contact" class="btn btn-primary btn-large">Get Cleaning Quote</a>
+    </div>
+  </section>
 
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
-        .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
-        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
-        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; color: var(--charcoal); cursor: pointer; }
-
-        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); }
-        .hero-container { max-width: 1000px; margin: 0 auto; text-align: center; }
-        .hero h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--charcoal); }
-        .hero .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
-        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
-
-        .section { padding: 5rem 2rem; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .section-header .subtitle { font-size: 1.25rem; color: var(--sage-dark); }
-
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
-        .main-content h3 { font-size: 1.75rem; margin: 2rem 0 1rem; color: var(--charcoal); }
-        .main-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #555; }
-        .main-content ul, .main-content ol { margin: 1.5rem 0; padding-left: 1.5rem; }
-        .main-content li { margin-bottom: 0.75rem; line-height: 1.7; color: #555; }
-
-        .sidebar { position: sticky; top: 100px; }
-        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .sidebar-card h4 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .sidebar-card ul { list-style: none; }
-        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
-        .sidebar-card li:last-child { border-bottom: none; }
-        .sidebar-card a { color: var(--sage-dark); text-decoration: none; font-weight: 500; }
-        .sidebar-card a:hover { text-decoration: underline; }
-
-        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
-        .tip-box p { margin: 0; color: #555; }
-
-        .warning-box { background: #FFF3E0; border-left: 4px solid #F57C00; padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .warning-box h4 { color: #E65100; margin-bottom: 0.5rem; }
-        .warning-box p { margin: 0; color: #555; }
-
-        .checklist { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin: 2rem 0; }
-        .checklist h4 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        .checklist-item { display: flex; align-items: flex-start; gap: 0.5rem; }
-        .checklist-item .check { color: var(--sage); font-weight: 700; flex-shrink: 0; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--sage); }
-        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
-        .service-card p { color: #666; font-size: 0.95rem; }
-
-        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
-        footer a { color: var(--sage); text-decoration: none; }
-
-        @media (max-width: 1024px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
-            .services-grid, .checklist-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .services-grid, .checklist-grid { grid-template-columns: 1fr; }
-            .mobile-menu-button { display: block; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">Nurture Stays</a>
-            <div class="nav-right">
-                <a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a>
-                <button class="mobile-menu-button">☰</button>
-            </div>
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">50+</span>
+          <span class="trust-label">Point Checklist</span>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-container">
-            <h1><span class="highlight">Airbnb Cleaning</span> Services Toronto</h1>
-            <p class="hero-subtitle">5-star cleanliness is the #1 factor in guest reviews. Our professional cleaning teams ensure your property sparkles after every guest — even for same-day turnovers. Serving the entire Greater Toronto Area.</p>
-            <a href="tel:647-957-8956" class="primary-button">Get Cleaning Quote</a>
+        <div class="trust-item">
+          <span class="trust-number">2hr</span>
+          <span class="trust-label">Emergency Response</span>
         </div>
-    </section>
-
-    <section class="section" style="background: var(--warm-white);">
-        <div class="section-container">
-            <div class="content-grid">
-                <div class="main-content">
-                    <h2>Why Professional Airbnb Cleaning Matters</h2>
-                    <p>Cleanliness is mentioned in over 40% of negative Airbnb reviews. One bad cleaning experience can result in a 1-star review that tanks your listing's visibility and booking rate for months. Professional cleaning isn't an expense — it's insurance for your investment.</p>
-
-                    <div class="warning-box">
-                        <h4>⚠️ The Cost of Bad Cleaning</h4>
-                        <p>A single 1-star cleanliness review can drop your overall rating below 4.5 stars, removing you from Airbnb's "Guest Favorite" status and pushing your listing down in search results. The revenue lost far exceeds any cleaning savings.</p>
-                    </div>
-
-                    <h3>Our 5-Star Cleaning Process</h3>
-                    <p>Every cleaning follows our comprehensive 50+ point checklist, developed from thousands of turnovers and refined based on guest feedback:</p>
-
-                    <div class="checklist">
-                        <h4>🧹 Standard Turnover Checklist</h4>
-                        <div class="checklist-grid">
-                            <div class="checklist-item"><span class="check">✓</span> Strip and remake all beds with fresh linens</div>
-                            <div class="checklist-item"><span class="check">✓</span> Replace all towels (bath, hand, face)</div>
-                            <div class="checklist-item"><span class="check">✓</span> Deep clean bathrooms (toilet, shower, sink)</div>
-                            <div class="checklist-item"><span class="check">✓</span> Sanitize all high-touch surfaces</div>
-                            <div class="checklist-item"><span class="check">✓</span> Clean kitchen appliances inside/out</div>
-                            <div class="checklist-item"><span class="check">✓</span> Wash all dishes and cookware</div>
-                            <div class="checklist-item"><span class="check">✓</span> Empty all garbage and recycling</div>
-                            <div class="checklist-item"><span class="check">✓</span> Vacuum all floors and carpets</div>
-                            <div class="checklist-item"><span class="check">✓</span> Mop hard floors</div>
-                            <div class="checklist-item"><span class="check">✓</span> Dust all surfaces and furniture</div>
-                            <div class="checklist-item"><span class="check">✓</span> Clean mirrors and glass</div>
-                            <div class="checklist-item"><span class="check">✓</span> Restock toilet paper, soap, shampoo</div>
-                            <div class="checklist-item"><span class="check">✓</span> Restock coffee, tea, and snacks</div>
-                            <div class="checklist-item"><span class="check">✓</span> Check all lights and replace bulbs</div>
-                            <div class="checklist-item"><span class="check">✓</span> Set thermostat to welcome temperature</div>
-                            <div class="checklist-item"><span class="check">✓</span> Photo documentation for records</div>
-                        </div>
-                    </div>
-
-                    <h3>Tips for Maintaining 5-Star Cleanliness</h3>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #1: Invest in Quality Linens</h4>
-                        <p>White, hotel-quality linens (300+ thread count) look cleaner, feel luxurious, and can be bleached to maintain brightness. Guests notice the difference immediately.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #2: Create a "Hotel Feel"</h4>
-                        <p>Fold toilet paper ends into points, fan towels on the bed, and leave a small welcome note. These touches take 30 seconds but create lasting impressions that earn 5-star reviews.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #3: Address Odors Proactively</h4>
-                        <p>The #2 complaint after visible dirt is smell. Run the dishwasher empty with vinegar, clean garbage disposals monthly, and use subtle, universally appealing scents (fresh linen, light citrus).</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #4: Build in Buffer Time</h4>
-                        <p>Don't schedule back-to-back check-out and check-in. A 4-5 hour gap allows thorough cleaning without rushing. Rushed cleanings lead to missed spots and bad reviews.</p>
-                    </div>
-
-                    <h3>Same-Day Turnover Capability</h3>
-                    <p>Sometimes you'll get a last-minute booking with a tight turnover window. Our Toronto-based teams can handle same-day turnovers when needed:</p>
-                    <ul>
-                        <li>Network of backup cleaners across the GTA</li>
-                        <li>2-hour emergency response time</li>
-                        <li>Real-time communication and updates</li>
-                        <li>Quality never compromised for speed</li>
-                    </ul>
-                    <p>Need <a href="/emergency-airbnb-support-toronto" style="color: var(--sage-dark);">emergency cleaning support</a>? Our emergency line operates 24/7.</p>
-
-                    <h3>Linen Service Options</h3>
-                    <p>Managing linens is one of the biggest headaches for Airbnb hosts. We offer multiple solutions:</p>
-                    <ul>
-                        <li><strong>Full Linen Service:</strong> We provide, wash, and replace all linens. No inventory management for you.</li>
-                        <li><strong>Owner-Supplied Linens:</strong> You provide linens, we wash on-site or take to professional laundry.</li>
-                        <li><strong>Hybrid:</strong> You provide backup sets, we rotate and wash between guests.</li>
-                    </ul>
-
-                    <h3>Supply Restocking (Included)</h3>
-                    <p>Unlike many cleaning services, our <a href="/services/full-airbnb-management-toronto" style="color: var(--sage-dark);">full management</a> includes supply restocking at no extra charge:</p>
-                    <ul>
-                        <li>Toilet paper (premium quality)</li>
-                        <li>Paper towels</li>
-                        <li>Hand soap and dish soap</li>
-                        <li>Shampoo, conditioner, body wash</li>
-                        <li>Coffee, tea, and basic snacks</li>
-                        <li>Garbage bags and cleaning supplies</li>
-                    </ul>
-                </div>
-
-                <div class="sidebar">
-                    <div class="sidebar-card">
-                        <h4>🔗 Related Services</h4>
-                        <ul>
-                            <li><a href="/services/airbnb-turnover-management-toronto">Turnover Management</a></li>
-                            <li><a href="/services/airbnb-property-maintenance-toronto">Property Maintenance</a></li>
-                            <li><a href="/services/full-airbnb-management-toronto">Full Management</a></li>
-                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card" style="background: var(--sage); color: white;">
-                        <h4 style="color: white;">📞 Get a Quote</h4>
-                        <p style="margin-bottom: 1rem; opacity: 0.9;">Professional cleaning starting at competitive rates.</p>
-                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--sage-dark);">Call 647-957-8956</a>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>📍 GTA Service Areas</h4>
-                        <ul>
-                            <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
-                            <li><a href="/north-york-airbnb-management">North York</a></li>
-                            <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
-                            <li><a href="/scarborough-airbnb-management">Scarborough</a></li>
-                            <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
-                            <li>Brampton</li>
-                            <li>Vaughan</li>
-                            <li>Markham</li>
-                            <li>Richmond Hill</li>
-                            <li>Oakville</li>
-                            <li>Burlington</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>⭐ Cleaning Standards</h4>
-                        <ul>
-                            <li>50+ point checklist</li>
-                            <li>Photo documentation</li>
-                            <li>Quality inspections</li>
-                            <li>Background-checked staff</li>
-                            <li>Insured & bonded</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>🧹 Standard Turnover</h3>
-                    <p>Complete cleaning between guests following our 50+ point checklist. Ready for 5-star reviews.</p>
-                </div>
-                <div class="service-card">
-                    <h3>✨ Deep Cleaning</h3>
-                    <p>Quarterly deep cleans including baseboards, inside cabinets, appliances, and often-missed areas.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🛏️ Linen Service</h3>
-                    <p>Fresh linens for every guest. We handle washing, folding, and inventory management.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📦 Restocking</h3>
-                    <p>Toiletries, paper products, coffee, and snacks replenished after every stay.</p>
-                </div>
-                <div class="service-card">
-                    <h3>⚡ Same-Day Turnover</h3>
-                    <p>Tight schedule? Our teams can handle same-day turnovers with 2-hour notice.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📸 Photo Reports</h3>
-                    <p>Documentation after each cleaning for your records and damage protection.</p>
-                </div>
-            </div>
+        <div class="trust-item">
+          <span class="trust-number">100%</span>
+          <span class="trust-label">Photo Verified</span>
         </div>
-    </section>
+        <div class="trust-item">
+          <span class="trust-number">5-Star</span>
+          <span class="trust-label">Standards</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta-section">
-        <h2>Never Worry About Cleaning Again</h2>
-        <p>Let our professional teams handle every turnover while you enjoy passive income.</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-    </section>
+  <section class="section content-section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-content">
+          <h2>Why Professional Airbnb Cleaning Matters</h2>
+          <p>Cleanliness is mentioned in over 40% of negative Airbnb reviews. One bad cleaning experience can result in a 1-star review that tanks your listing visibility and booking rate for months. Professional cleaning is not an expense. It is insurance for your investment.</p>
 
-    <footer>
-        <p>© 2025 Nurture Stays | Airbnb Cleaning Services Toronto</p>
-        <p><a href="/">Home</a> · <a href="/services/full-airbnb-management-toronto">Full Management</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
-    </footer>
-</body>
-</html>
+          <div class="warning-box">
+            <h4>The Cost of Bad Cleaning</h4>
+            <p>A single 1-star cleanliness review can drop your overall rating below 4.5 stars, removing you from Airbnb Guest Favorite status and pushing your listing down in search results. The revenue lost far exceeds any cleaning savings.</p>
+          </div>
+
+          <h3>Our 5-Star Cleaning Process</h3>
+          <p>Every cleaning follows our comprehensive 50+ point checklist, developed from thousands of turnovers and refined based on guest feedback:</p>
+
+          <div class="checklist-box">
+            <h4>Standard Turnover Checklist</h4>
+            <div class="checklist-grid">
+              {checklist.map(item => (
+                <div class="checklist-item">
+                  <span class="check">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <h3>Tips for Maintaining 5-Star Cleanliness</h3>
+          {tips.map((tip, index) => (
+            <div class="tip-box">
+              <h4>Tip #{index + 1}: {tip.title}</h4>
+              <p>{tip.content}</p>
+            </div>
+          ))}
+
+          <h3>Same-Day Turnover Capability</h3>
+          <p>Sometimes you will get a last-minute booking with a tight turnover window. Our Toronto-based teams can handle same-day turnovers when needed:</p>
+          <ul>
+            <li>Network of backup cleaners across the GTA</li>
+            <li>2-hour emergency response time</li>
+            <li>Real-time communication and updates</li>
+            <li>Quality never compromised for speed</li>
+          </ul>
+          <p>Need <a href="/emergency-airbnb-support-toronto">emergency cleaning support</a>? Our emergency line operates 24/7.</p>
+
+          <h3>Linen Service Options</h3>
+          <p>Managing linens is one of the biggest headaches for Airbnb hosts. We offer multiple solutions:</p>
+          <ul>
+            <li><strong>Full Linen Service:</strong> We provide, wash, and replace all linens. No inventory management for you.</li>
+            <li><strong>Owner-Supplied Linens:</strong> You provide linens, we wash on-site or take to professional laundry.</li>
+            <li><strong>Hybrid:</strong> You provide backup sets, we rotate and wash between guests.</li>
+          </ul>
+
+          <h3>Supply Restocking (Included)</h3>
+          <p>Unlike many cleaning services, our <a href="/services/full-airbnb-management-toronto">full management</a> includes supply restocking at no extra charge:</p>
+          <ul>
+            <li>Toilet paper (premium quality)</li>
+            <li>Paper towels</li>
+            <li>Hand soap and dish soap</li>
+            <li>Shampoo, conditioner, body wash</li>
+            <li>Coffee, tea, and basic snacks</li>
+            <li>Garbage bags and cleaning supplies</li>
+          </ul>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h4>Related Services</h4>
+            <ul>
+              {relatedServices.map(service => (
+                <li><a href={service.href}>{service.name}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-cta">
+            <h4>Get a Quote</h4>
+            <p>Professional cleaning starting at competitive rates.</p>
+            <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>GTA Service Areas</h4>
+            <ul>
+              {serviceAreas.map(area => (
+                <li>
+                  {area.href ? (
+                    <a href={area.href}>{area.name}</a>
+                  ) : (
+                    <span>{area.name}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>Cleaning Standards</h4>
+            <ul>
+              {cleaningStandards.map(standard => (
+                <li><span>{standard}</span></li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <span class="service-icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Complete Your Hosting Setup</h2>
+        <p>Services that work together with professional cleaning</p>
+      </div>
+      <div class="related-grid">
+        <a href="/services/airbnb-turnover-management-toronto" class="related-card">
+          <h4>Turnover Management</h4>
+          <p>End-to-end guest transition coordination</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-property-maintenance-toronto" class="related-card">
+          <h4>Property Maintenance</h4>
+          <p>24/7 repairs and emergency support</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/full-airbnb-management-toronto" class="related-card">
+          <h4>Full Management</h4>
+          <p>Hands-off hosting - we do everything</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-key-exchange-toronto" class="related-card">
+          <h4>Key Exchange</h4>
+          <p>Smart locks and seamless check-ins</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-dynamic-pricing-toronto" class="related-card">
+          <h4>Dynamic Pricing</h4>
+          <p>AI-powered rate optimization</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-photography-toronto" class="related-card">
+          <h4>Photography</h4>
+          <p>Professional listing photos</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Never Worry About Cleaning Again</h2>
+      <p>Let our professional teams handle every turnover while you enjoy passive income.</p>
+      <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .trust-bar {
+    background: var(--color-primary-dark);
+    padding: 1.5rem 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .trust-item {
+    color: white;
+  }
+
+  .trust-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .related-card .arrow {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+
+  .hero-small {
+    text-align: center;
+    padding: 4rem 0 3rem;
+  }
+
+  .hero-small h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  .content-section {
+    background: var(--color-background);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .main-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .main-content h3 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--color-text);
+  }
+
+  .main-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .main-content ul, .main-content ol {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .main-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .main-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .main-content a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .warning-box {
+    background: #FFF3E0;
+    border-left: 4px solid #F57C00;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .warning-box h4 {
+    color: #E65100;
+    margin-bottom: 0.5rem;
+    font-family: DM Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .tip-box {
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .tip-box h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: 0.5rem;
+    font-family: DM Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .tip-box p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .checklist-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+  }
+
+  .checklist-box h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    font-family: DM Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .checklist-item .check {
+    color: var(--color-primary);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .sidebar-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    font-family: DM Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .sidebar-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-card li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar-card a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar-card a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar-cta {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .sidebar-cta h4 {
+    color: white;
+  }
+
+  .sidebar-cta p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .sidebar-cta .btn {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .sidebar-cta .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--color-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .cta-section .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .sidebar-card {
+      margin-bottom: 0;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checklist-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .checklist-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .trust-number {
+      font-size: 1.5rem;
+    }
+  }
+</style>

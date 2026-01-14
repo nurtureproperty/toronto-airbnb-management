@@ -1,343 +1,734 @@
 ---
-// Mid Term Rental Management Toronto - Comprehensive Service Page
-// Targets: mid term rental management toronto, 30 day rentals, furnished rentals, monthly rentals
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  { icon: '📋', title: 'Tenant Screening', description: 'Background checks, income verification, and reference checks for every mid-term tenant. Quality guests only.' },
+  { icon: '💰', title: 'Pricing Strategy', description: 'Market analysis to price competitively while maximizing your monthly income. Seasonal adjustments included.' },
+  { icon: '📝', title: 'Lease Management', description: 'Proper month-to-month furnished rental agreements that protect your interests while staying tenant-friendly.' },
+  { icon: '🧹', title: 'Turnover Cleaning', description: 'Deep cleaning between tenants.', link: '/services/airbnb-cleaning-toronto' },
+  { icon: '🔧', title: 'Maintenance', description: 'On-call maintenance for tenant issues.', link: '/services/airbnb-property-maintenance-toronto' },
+  { icon: '📊', title: 'Financial Reporting', description: 'Monthly statements showing rent collected, expenses, and net income. Full transparency.' }
+];
+
+const whoRents = [
+  { type: 'Corporate Relocations', description: 'Professionals moving to Toronto for work, often with housing allowances from employers' },
+  { type: 'Medical Travelers', description: "Patients and families receiving treatment at Toronto's world-class hospitals" },
+  { type: 'Insurance Displacement', description: 'Homeowners temporarily displaced by renovations, fires, or floods' },
+  { type: 'Digital Nomads', description: 'Remote workers exploring Toronto for 1-3 months at a time' },
+  { type: 'Film & TV Production', description: "Toronto's booming film industry brings cast and crew needing monthly housing" },
+  { type: 'New Immigrants', description: 'Newcomers to Canada needing temporary furnished housing while they settle' }
+];
+
+const serviceAreas = [
+  { name: 'Downtown Toronto', href: '/downtown-toronto-airbnb-management' },
+  { name: 'North York', href: '/north-york-airbnb-management' },
+  { name: 'Mississauga', href: '/mississauga-airbnb-management' },
+  { name: 'Etobicoke', href: '/etobicoke-airbnb-management' },
+  { name: 'Vaughan', href: null },
+  { name: 'Markham', href: null },
+  { name: 'Richmond Hill', href: null },
+  { name: 'Oakville', href: null }
+];
+
+const relatedServices = [
+  { name: 'Short-Term Management', href: '/services/short-term-rental-management-toronto' },
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto' },
+  { name: 'Photography', href: '/services/airbnb-photography-toronto' },
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto' }
+];
+
+const idealProperties = [
+  'Investment condos',
+  'Second homes',
+  'Properties near hospitals',
+  'Downtown locations',
+  'Airport-adjacent units'
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mid-Term Rental Management Toronto & GTA | 30+ Day Rentals | Nurture Stays</title>
-    <meta name="description" content="Mid-term rental management across the GTA (30+ day stays). No STR license needed. Corporate housing, relocations & extended stays. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & all of the Greater Toronto Area.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --sage: #8B9B87; --sage-dark: #6B7B67; --cream: #F8F6F1; --warm-white: #FFFDF9; --charcoal: #2A2A2A; --gold: #C9A961; }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        .serif { font-family: 'Instrument Serif', serif; font-style: italic; }
-
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(139, 155, 135, 0.1); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
-        .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
-        .cta-button:hover { background: var(--sage-dark); transform: translateY(-2px); }
-        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; color: var(--charcoal); cursor: pointer; }
-
-        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); }
-        .hero-container { max-width: 1000px; margin: 0 auto; text-align: center; }
-        .hero-badge { display: inline-block; background: var(--gold); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 1.5rem; }
-        .hero h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--charcoal); }
-        .hero .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .hero-stats { display: flex; justify-content: center; gap: 4rem; margin: 3rem 0; flex-wrap: wrap; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--sage-dark); }
-        .stat-label { color: #666; font-size: 0.9rem; }
-        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem; transition: all 0.3s; display: inline-block; }
-        .primary-button:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 155, 135, 0.3); }
-
-        .section { padding: 5rem 2rem; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .section-header .subtitle { font-size: 1.25rem; color: var(--sage-dark); }
-
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
-        .main-content h3 { font-size: 1.75rem; margin: 2rem 0 1rem; color: var(--charcoal); }
-        .main-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #555; }
-        .main-content ul { margin: 1.5rem 0; padding-left: 1.5rem; }
-        .main-content li { margin-bottom: 0.75rem; line-height: 1.7; color: #555; }
-
-        .sidebar { position: sticky; top: 100px; }
-        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .sidebar-card h4 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--charcoal); }
-        .sidebar-card ul { list-style: none; }
-        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
-        .sidebar-card li:last-child { border-bottom: none; }
-        .sidebar-card a { color: var(--sage-dark); text-decoration: none; font-weight: 500; }
-        .sidebar-card a:hover { text-decoration: underline; }
-
-        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
-        .tip-box p { margin: 0; color: #555; }
-
-        .highlight-box { background: #FFF8E1; border-left: 4px solid var(--gold); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .highlight-box h4 { color: #F57C00; margin-bottom: 0.5rem; }
-        .highlight-box p { margin: 0; color: #555; }
-
-        .bylaw-box { background: #E3F2FD; border-left: 4px solid #1976D2; padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .bylaw-box h4 { color: #1565C0; margin-bottom: 0.5rem; }
-        .bylaw-box p { margin: 0; color: #555; }
-
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
-        .comparison-table th { background: var(--sage-dark); color: white; padding: 1rem; text-align: left; }
-        .comparison-table td { padding: 1rem; border-bottom: 1px solid #eee; }
-        .comparison-table tr:nth-child(even) { background: var(--cream); }
-
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--sage); }
-        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--charcoal); }
-        .service-card p { color: #666; font-size: 0.95rem; }
-
-        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
-        footer a { color: var(--sage); text-decoration: none; }
-
-        @media (max-width: 1024px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-stats { gap: 2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .mobile-menu-button { display: block; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">Nurture Stays</a>
-            <div class="nav-right">
-                <a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a>
-                <button class="mobile-menu-button">☰</button>
-            </div>
+<Layout title="Mid-Term Rental Management Toronto & GTA | 30+ Day Rentals" description="Mid-term rental management across the GTA (30+ day stays). No STR license needed. Corporate housing, relocations & extended stays. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & all of the Greater Toronto Area.">
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">NO STR LICENSE REQUIRED</span>
+      <h1><span class="highlight">Mid-Term Rental</span> Management Toronto</h1>
+      <p class="hero-subtitle">30+ day furnished rentals across the Greater Toronto Area: Higher income than long-term leases, fewer turnovers than Airbnb, and no short-term rental restrictions.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">30-50%</span>
+          <span class="stat-label">More Than Long-Term</span>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-container">
-            <span class="hero-badge">🏆 NO STR LICENSE REQUIRED</span>
-            <h1><span class="highlight">Mid-Term Rental</span> Management Toronto</h1>
-            <p class="hero-subtitle">30+ day furnished rentals across the Greater Toronto Area: Higher income than long-term leases, fewer turnovers than Airbnb, and no short-term rental restrictions. Serving Toronto, Mississauga, Vaughan, Markham, Brampton, Oakville & more.</p>
-            
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">30-50%</div>
-                    <div class="stat-label">More Than Long-Term</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">No License</div>
-                    <div class="stat-label">Required</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">90%+</div>
-                    <div class="stat-label">Occupancy Rate</div>
-                </div>
-            </div>
-
-            <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+        <div class="stat">
+          <span class="stat-number">No License</span>
+          <span class="stat-label">Required</span>
         </div>
-    </section>
-
-    <section class="section" style="background: var(--warm-white);">
-        <div class="section-container">
-            <div class="content-grid">
-                <div class="main-content">
-                    <h2>What is Mid-Term Rental Management?</h2>
-                    <p>Mid-term rentals (MTRs) are furnished rentals with stays of 30 days or longer. They occupy the sweet spot between traditional long-term leases and <a href="/services/short-term-rental-management-toronto" style="color: var(--sage-dark);">short-term vacation rentals</a> — offering higher income without the regulatory headaches of Airbnb.</p>
-
-                    <div class="highlight-box">
-                        <h4>🎯 The Mid-Term Advantage</h4>
-                        <p>Because stays are 30+ days, mid-term rentals are NOT subject to Toronto's short-term rental bylaws. No registration, no 180-night cap, no principal residence requirement. You can MTR any property you own.</p>
-                    </div>
-
-                    <h3>Who Rents Mid-Term in Toronto?</h3>
-                    <p>Toronto has robust demand for furnished monthly rentals from various sources:</p>
-
-                    <ul>
-                        <li><strong>Corporate Relocations:</strong> Professionals moving to Toronto for work, often with housing allowances from employers</li>
-                        <li><strong>Medical Travelers:</strong> Patients and families receiving treatment at Toronto's world-class hospitals</li>
-                        <li><strong>Insurance Displacement:</strong> Homeowners temporarily displaced by renovations, fires, or floods</li>
-                        <li><strong>Digital Nomads:</strong> Remote workers exploring Toronto for 1-3 months at a time</li>
-                        <li><strong>Film & TV Production:</strong> Toronto's booming film industry brings cast and crew needing monthly housing</li>
-                        <li><strong>University Visitors:</strong> Visiting professors, researchers, and graduate students</li>
-                        <li><strong>New Immigrants:</strong> Newcomers to Canada needing temporary furnished housing while they settle</li>
-                    </ul>
-
-                    <h3>Toronto Regulations for Mid-Term Rentals</h3>
-
-                    <div class="bylaw-box">
-                        <h4>📋 Key Regulatory Advantages</h4>
-                        <p>Mid-term rentals (30+ days) are treated as residential tenancies in Ontario, which means:</p>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>No STR registration or license required</li>
-                            <li>No 180-night annual cap</li>
-                            <li>No principal residence requirement</li>
-                            <li>Can operate from investment properties</li>
-                            <li>No Municipal Accommodation Tax (4%)</li>
-                            <li>Most condo buildings allow 30+ day rentals</li>
-                        </ul>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Pro Tip: The 28-Day Threshold</h4>
-                        <p>While Toronto's STR rules kick in at under 28 days, we recommend 30+ day minimums to be safe and to align with standard monthly billing cycles. Most platforms (Airbnb, Furnished Finder) support 30-day minimums.</p>
-                    </div>
-
-                    <h3>Mid-Term vs. Short-Term vs. Long-Term</h3>
-
-                    <table class="comparison-table">
-                        <tr>
-                            <th>Factor</th>
-                            <th>Long-Term</th>
-                            <th>Mid-Term</th>
-                            <th>Short-Term</th>
-                        </tr>
-                        <tr>
-                            <td>Stay Length</td>
-                            <td>12+ months</td>
-                            <td>1-6 months</td>
-                            <td>1-28 nights</td>
-                        </tr>
-                        <tr>
-                            <td>Monthly Revenue</td>
-                            <td>$2,200</td>
-                            <td>$3,300</td>
-                            <td>$4,100</td>
-                        </tr>
-                        <tr>
-                            <td>Turnover Frequency</td>
-                            <td>1x/year</td>
-                            <td>4-6x/year</td>
-                            <td>20-30x/month</td>
-                        </tr>
-                        <tr>
-                            <td>License Required</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Furnished</td>
-                            <td>Usually No</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Flexibility</td>
-                            <td>Low</td>
-                            <td>Medium</td>
-                            <td>High</td>
-                        </tr>
-                    </table>
-
-                    <h3>Tips for Mid-Term Rental Success</h3>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #1: Furnish for Extended Stays</h4>
-                        <p>MTR guests need more than vacation rentals: full kitchenware, washer/dryer, ample closet space, reliable WiFi, and a proper workspace. Invest in quality — these guests treat your space as their home.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #2: Include Utilities</h4>
-                        <p>Mid-term renters expect an all-inclusive rate. Bundle hydro, internet, and water into your price. It simplifies their budgeting and makes your listing more attractive.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #3: Target Corporate Platforms</h4>
-                        <p>List beyond Airbnb: Furnished Finder, Corporate Housing by Owner, and Relocations.com attract higher-quality corporate tenants with employer-guaranteed payments.</p>
-                    </div>
-
-                    <p>Mid-term rentals offer the best of both worlds: significantly higher income than long-term leases without the high turnover and regulatory burden of short-term rentals. For properties that can't qualify for STR (investment properties, non-principal residences), mid-term is often the optimal strategy.</p>
-
-                    <h3>What's Included in Our MTR Management</h3>
-                </div>
-
-                <div class="sidebar">
-                    <div class="sidebar-card">
-                        <h4>📍 Best GTA Areas for MTR</h4>
-                        <ul>
-                            <li><a href="/downtown-toronto-airbnb-management">Downtown Toronto</a></li>
-                            <li><a href="/north-york-airbnb-management">North York</a></li>
-                            <li><a href="/mississauga-airbnb-management">Mississauga</a></li>
-                            <li><a href="/etobicoke-airbnb-management">Etobicoke</a></li>
-                            <li>Vaughan</li>
-                            <li>Markham</li>
-                            <li>Richmond Hill</li>
-                            <li>Oakville</li>
-                            <li>Burlington</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>🔗 Related Services</h4>
-                        <ul>
-                            <li><a href="/services/short-term-rental-management-toronto">Short-Term Management</a></li>
-                            <li><a href="/services/airbnb-cleaning-toronto">Cleaning Services</a></li>
-                            <li><a href="/services/airbnb-photography-toronto">Photography</a></li>
-                            <li><a href="/services/full-airbnb-management-toronto">Full Management</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card" style="background: var(--sage); color: white;">
-                        <h4 style="color: white;">📞 Free Consultation</h4>
-                        <p style="margin-bottom: 1rem; opacity: 0.9;">See if mid-term rental is right for your property.</p>
-                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--sage-dark);">Call 647-957-8956</a>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>🏆 Ideal Properties</h4>
-                        <ul>
-                            <li>Investment condos</li>
-                            <li>Second homes</li>
-                            <li>Properties near hospitals</li>
-                            <li>Downtown locations</li>
-                            <li>Airport-adjacent units</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>📋 Tenant Screening</h3>
-                    <p>Background checks, income verification, and reference checks for every mid-term tenant. Quality guests only.</p>
-                </div>
-                <div class="service-card">
-                    <h3>💰 Pricing Strategy</h3>
-                    <p>Market analysis to price competitively while maximizing your monthly income. Seasonal adjustments included.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📝 Lease Management</h3>
-                    <p>Proper month-to-month furnished rental agreements that protect your interests while staying tenant-friendly.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🧹 Turnover Cleaning</h3>
-                    <p>Deep cleaning between tenants. <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
-                </div>
-                <div class="service-card">
-                    <h3>🔧 Maintenance</h3>
-                    <p>On-call maintenance for tenant issues. <a href="/services/airbnb-property-maintenance-toronto" style="color: var(--sage-dark);">Learn more →</a></p>
-                </div>
-                <div class="service-card">
-                    <h3>📊 Financial Reporting</h3>
-                    <p>Monthly statements showing rent collected, expenses, and net income. Full transparency.</p>
-                </div>
-            </div>
+        <div class="stat">
+          <span class="stat-number">90%+</span>
+          <span class="stat-label">Occupancy Rate</span>
         </div>
-    </section>
+      </div>
+      <a href="tel:647-957-8956" class="btn btn-primary btn-large">Get Free Property Analysis</a>
+    </div>
+  </section>
 
-    <section class="cta-section">
+  <section class="section content-section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-content">
+          <h2>What is Mid-Term Rental Management?</h2>
+          <p>Mid-term rentals (MTRs) are furnished rentals with stays of 30 days or longer. They occupy the sweet spot between traditional long-term leases and <a href="/services/short-term-rental-management-toronto">short-term vacation rentals</a> — offering higher income without the regulatory headaches of Airbnb.</p>
+
+          <div class="highlight-box">
+            <h4>🎯 The Mid-Term Advantage</h4>
+            <p>Because stays are 30+ days, mid-term rentals are NOT subject to Toronto's short-term rental bylaws. No registration, no 180-night cap, no principal residence requirement. You can MTR any property you own.</p>
+          </div>
+
+          <h3>Who Rents Mid-Term in Toronto?</h3>
+          <p>Toronto has robust demand for furnished monthly rentals from various sources:</p>
+          <ul>
+            {whoRents.map(item => (
+              <li><strong>{item.type}:</strong> {item.description}</li>
+            ))}
+          </ul>
+
+          <h3>Toronto Regulations for Mid-Term Rentals</h3>
+          <div class="bylaw-box">
+            <h4>📋 Key Regulatory Advantages</h4>
+            <p>Mid-term rentals (30+ days) are treated as residential tenancies in Ontario, which means:</p>
+            <ul>
+              <li>No STR registration or license required</li>
+              <li>No 180-night annual cap</li>
+              <li>No principal residence requirement</li>
+              <li>Can operate from investment properties</li>
+              <li>No Municipal Accommodation Tax (4%)</li>
+              <li>Most condo buildings allow 30+ day rentals</li>
+            </ul>
+          </div>
+
+          <div class="tip-box">
+            <h4>💡 Pro Tip: The 28-Day Threshold</h4>
+            <p>While Toronto's STR rules kick in at under 28 days, we recommend 30+ day minimums to be safe and to align with standard monthly billing cycles. Most platforms (Airbnb, Furnished Finder) support 30-day minimums.</p>
+          </div>
+
+          <h3>Mid-Term vs. Short-Term vs. Long-Term</h3>
+          <div class="comparison-table">
+            <div class="table-row header">
+              <span>Factor</span>
+              <span>Long-Term</span>
+              <span>Mid-Term</span>
+              <span>Short-Term</span>
+            </div>
+            <div class="table-row">
+              <span>Stay Length</span>
+              <span>12+ months</span>
+              <span>1-6 months</span>
+              <span>1-28 nights</span>
+            </div>
+            <div class="table-row">
+              <span>Monthly Revenue</span>
+              <span>$2,200</span>
+              <span class="highlight-value">$3,300</span>
+              <span>$4,100</span>
+            </div>
+            <div class="table-row">
+              <span>Turnover Frequency</span>
+              <span>1x/year</span>
+              <span>4-6x/year</span>
+              <span>20-30x/month</span>
+            </div>
+            <div class="table-row">
+              <span>License Required</span>
+              <span>No</span>
+              <span class="highlight-value">No</span>
+              <span>Yes</span>
+            </div>
+            <div class="table-row">
+              <span>Furnished</span>
+              <span>Usually No</span>
+              <span>Yes</span>
+              <span>Yes</span>
+            </div>
+          </div>
+
+          <h3>Tips for Mid-Term Rental Success</h3>
+
+          <div class="tip-box">
+            <h4>💡 Tip #1: Furnish for Extended Stays</h4>
+            <p>MTR guests need more than vacation rentals: full kitchenware, washer/dryer, ample closet space, reliable WiFi, and a proper workspace. Invest in quality — these guests treat your space as their home.</p>
+          </div>
+
+          <div class="tip-box">
+            <h4>💡 Tip #2: Include Utilities</h4>
+            <p>Mid-term renters expect an all-inclusive rate. Bundle hydro, internet, and water into your price. It simplifies their budgeting and makes your listing more attractive.</p>
+          </div>
+
+          <div class="tip-box">
+            <h4>💡 Tip #3: Target Corporate Platforms</h4>
+            <p>List beyond Airbnb: Furnished Finder, Corporate Housing by Owner, and Relocations.com attract higher-quality corporate tenants with employer-guaranteed payments.</p>
+          </div>
+
+          <p>Mid-term rentals offer the best of both worlds: significantly higher income than long-term leases without the high turnover and regulatory burden of short-term rentals.</p>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-cta">
+            <h4>📞 Free Consultation</h4>
+            <p>See if mid-term rental is right for your property.</p>
+            <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>📍 Best GTA Areas for MTR</h4>
+            <ul>
+              {serviceAreas.map(area => (
+                <li>{area.href ? <a href={area.href}>{area.name}</a> : area.name}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>🔗 Related Services</h4>
+            <ul>
+              {relatedServices.map(service => (
+                <li><a href={service.href}>{service.name}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>🏆 Ideal Properties</h4>
+            <ul>
+              {idealProperties.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's Included in Our MTR Management</h2>
+        <p>Complete mid-term rental support</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <span class="service-icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compare Your Options</h2>
+        <p>Find the right rental strategy for your property</p>
+      </div>
+      <div class="related-grid">
+        <a href="/services/short-term-rental-management-toronto" class="related-card">
+          <h4>Short-Term Rentals</h4>
+          <p>Maximum revenue with Airbnb/VRBO</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/full-airbnb-management-toronto" class="related-card">
+          <h4>Full Management</h4>
+          <p>Hands-off hosting for any rental type</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-cleaning-toronto" class="related-card">
+          <h4>Cleaning Services</h4>
+          <p>Professional turnover cleaning</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-photography-toronto" class="related-card">
+          <h4>Photography</h4>
+          <p>Professional listing photos</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/services/airbnb-property-maintenance-toronto" class="related-card">
+          <h4>Maintenance</h4>
+          <p>24/7 repairs and upkeep</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/pricing-toronto-airbnb-management" class="related-card">
+          <h4>Pricing</h4>
+          <p>Transparent fee structure</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
         <h2>Is Mid-Term Right for Your Property?</h2>
         <p>Get a free analysis comparing your potential MTR income to long-term and short-term options.</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-    </section>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+      </div>
+    </div>
+  </section>
+</Layout>
 
-    <footer>
-        <p>© 2025 Nurture Stays | Mid-Term Rental Management Toronto</p>
-        <p><a href="/">Home</a> · <a href="/services/short-term-rental-management-toronto">Short-Term</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
-    </footer>
-</body>
-</html>
+<style>
+  .hero {
+    text-align: center;
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--color-gold);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 750px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+  }
+
+  .stat-label {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .content-section {
+    background: white;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-content h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .main-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .main-content ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .main-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .main-content a {
+    color: var(--color-primary);
+  }
+
+  .tip-box {
+    background: #E8F5E9;
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .tip-box h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .tip-box p {
+    margin: 0;
+    color: #555;
+  }
+
+  .highlight-box {
+    background: #FFF8E1;
+    border-left: 4px solid var(--color-gold);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .highlight-box h4 {
+    color: #F57C00;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .highlight-box p {
+    margin: 0;
+    color: #555;
+  }
+
+  .bylaw-box {
+    background: #E3F2FD;
+    border-left: 4px solid #1976D2;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .bylaw-box h4 {
+    color: #1565C0;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .bylaw-box p {
+    margin: 0 0 1rem;
+    color: #555;
+  }
+
+  .bylaw-box ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .bylaw-box li {
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+
+  .comparison-table {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: white;
+  }
+
+  .table-row.header {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+  }
+
+  .table-row:nth-child(even):not(.header) {
+    background: var(--color-background-alt);
+  }
+
+  .table-row:last-child {
+    border-bottom: none;
+  }
+
+  .highlight-value {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .sidebar-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .sidebar-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-light);
+  }
+
+  .sidebar-card li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar-card a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar-card a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar-cta {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .sidebar-cta h4 {
+    color: white;
+  }
+
+  .sidebar-cta p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .sidebar-cta .btn {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .services-section {
+    background: var(--color-background-alt);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .service-card a {
+    color: var(--color-primary);
+  }
+
+  .related-section {
+    background: white;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .related-card .arrow {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: static;
+    }
+
+    .table-row {
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      font-size: 0.85rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .table-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .table-row.header {
+      display: none;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

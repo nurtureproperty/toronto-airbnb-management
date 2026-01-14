@@ -1,227 +1,778 @@
 ---
-// Airbnb Turnover Management Toronto - Service Page
-// Targets: airbnb turnover management, guest turnover service, same day turnover toronto
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  { icon: '📅', title: 'Booking Coordination', description: 'We monitor your calendar and coordinate cleaners automatically. No last-minute scrambling to find availability.' },
+  { icon: '🧹', title: 'Cleaning Management', description: 'Our vetted cleaning teams follow a 50+ point checklist. Quality inspections after every turnover.' },
+  { icon: '🛏️', title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, rotation, and replacement of worn items.' },
+  { icon: '📦', title: 'Supply Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished. Guests never arrive to empty shelves.' },
+  { icon: '🔍', title: 'Quality Inspection', description: 'Photo documentation after each turnover. We catch issues before guests do.' },
+  { icon: '⚡', title: 'Same-Day Capability', description: 'Tight checkout/check-in? Our network handles same-day turnovers with 2-hour notice.' }
+];
+
+const steps = [
+  { number: '1', title: 'Guest Checks Out', description: 'We receive automatic notification when checkout is confirmed.' },
+  { number: '2', title: 'Team Dispatched', description: 'Cleaning team is already scheduled and arrives promptly.' },
+  { number: '3', title: 'Full Turnover', description: 'Cleaning, linen change, restocking, and inspection completed.' },
+  { number: '4', title: 'Ready Confirmation', description: 'Photo verification sent. Property is guest-ready.' }
+];
+
+const faqs = [
+  { q: 'What if my checkout and check-in are on the same day?', a: 'We handle same-day turnovers regularly. Standard checkout is 11am, check-in is 4pm - that gives us a 5-hour window. For tighter windows, we can request early checkout or late check-in from guests.' },
+  { q: 'How do you handle last-minute bookings?', a: 'Our cleaning network has backup availability across the GTA. We can typically accommodate bookings made within 24 hours, even for same-day turnovers.' },
+  { q: 'What happens if the cleaner finds damage?', a: 'We document everything with photos and notify you immediately. We can file Airbnb damage claims on your behalf and coordinate any needed repairs through our maintenance network.' },
+  { q: 'Are supplies included in the turnover cost?', a: 'Basic supplies (toilet paper, soap, coffee) are included in our full management plans. For standalone turnover service, supplies are billed at cost with no markup.' },
+  { q: 'How do you ensure quality?', a: 'Every turnover includes a 50+ point checklist and photo documentation. We conduct random quality audits and immediately address any guest feedback about cleanliness.' },
+  { q: 'Can you handle multiple properties?', a: 'Absolutely. We manage portfolios of all sizes. Our scheduling system coordinates turnovers across all your properties to ensure no conflicts.' }
+];
+
+const relatedServices = [
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto', description: 'Deep cleaning and turnover cleaning details' },
+  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto', description: '24/7 repairs and upkeep' },
+  { name: 'Key Exchange', href: '/services/airbnb-key-exchange-toronto', description: 'Smart locks and guest access' },
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto', description: 'Complete hands-off hosting' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'Maximize your revenue' },
+  { name: 'Photography', href: '/services/airbnb-photography-toronto', description: 'Professional listing photos' }
+];
+
+const serviceAreas = [
+  { name: 'Downtown Toronto', href: '/downtown-toronto-airbnb-management' },
+  { name: 'North York', href: '/north-york-airbnb-management' },
+  { name: 'Mississauga', href: '/mississauga-airbnb-management' },
+  { name: 'Scarborough', href: '/scarborough-airbnb-management' },
+  { name: 'Etobicoke', href: '/etobicoke-airbnb-management' }
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airbnb Turnover Management Toronto & GTA | Same-Day Turnovers | Nurture Stays</title>
-    <meta name="description" content="Professional Airbnb turnover management in Toronto and the Greater Toronto Area. Same-day turnovers, cleaning coordination, supply restocking, quality inspections. Never miss a booking due to turnover delays.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --sage: #8B9B87; --sage-dark: #6B7B67; --cream: #F8F6F1; --warm-white: #FFFDF9; --charcoal: #2A2A2A; --gold: #C9A961; }
-        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); line-height: 1.6; }
-        nav { position: fixed; top: 0; width: 100%; background: rgba(248, 246, 241, 0.95); backdrop-filter: blur(10px); z-index: 1000; }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--sage-dark); text-decoration: none; }
-        .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .cta-button { background: var(--sage); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; white-space: nowrap; }
-        .mobile-menu-button { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-        .hero { margin-top: 80px; padding: 5rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%); text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; }
-        .hero .highlight { color: var(--sage-dark); }
-        .hero-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .primary-button { background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
-        .section { padding: 5rem 2rem; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
-        .main-content h2, .main-content h3 { color: var(--charcoal); margin: 2rem 0 1rem; }
-        .main-content p, .main-content li { color: #555; line-height: 1.8; margin-bottom: 1rem; }
-        .sidebar { position: sticky; top: 100px; }
-        .sidebar-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .sidebar-card h4 { margin-bottom: 1rem; }
-        .sidebar-card ul { list-style: none; }
-        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
-        .sidebar-card a { color: var(--sage-dark); text-decoration: none; }
-        .tip-box { background: #E8F5E9; border-left: 4px solid var(--sage); padding: 1.5rem; margin: 2rem 0; border-radius: 0 10px 10px 0; }
-        .tip-box h4 { color: var(--sage-dark); margin-bottom: 0.5rem; }
-        .timeline { margin: 2rem 0; }
-        .timeline-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
-        .timeline-time { background: var(--sage); color: white; padding: 0.5rem 1rem; border-radius: 25px; font-weight: 600; min-width: 100px; text-align: center; height: fit-content; }
-        .timeline-content h4 { margin-bottom: 0.5rem; }
-        .timeline-content p { color: #666; margin: 0; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
-        .service-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-left: 4px solid var(--sage); }
-        .service-card h3 { margin-bottom: 0.75rem; }
-        .service-card p { color: #666; font-size: 0.95rem; }
-        .cta-section { padding: 5rem 2rem; background: var(--sage); color: white; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section .primary-button { background: white; color: var(--sage-dark); }
-        footer { background: var(--charcoal); color: white; padding: 3rem 2rem; text-align: center; }
-        footer a { color: var(--sage); text-decoration: none; }
-        @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .services-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .services-grid { grid-template-columns: 1fr; } .mobile-menu-button { display: block; } .timeline-item { flex-direction: column; } }
-    </style>
-</head>
-<body>
-    <nav><div class="nav-container"><a href="/" class="logo">Nurture Stays</a><div class="nav-right"><a href="tel:647-957-8956" class="cta-button">📞 647-957-8956</a><button class="mobile-menu-button">☰</button></div></div></nav>
+<Layout title="Airbnb Turnover Management Toronto & GTA | Same-Day Turnovers" description="Professional Airbnb turnover management in Toronto and the Greater Toronto Area. Same-day turnovers, cleaning coordination, supply restocking, quality inspections. Never miss a booking due to turnover delays.">
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Airbnb <span class="highlight">Turnover Management</span> Toronto</h1>
+      <p class="hero-subtitle">Seamless guest transitions every time. We coordinate cleaning, restocking, and inspections so your property is always guest-ready - even for same-day turnovers.</p>
+    </div>
+  </section>
 
-    <section class="hero">
-        <h1>Airbnb <span class="highlight">Turnover Management</span> Toronto</h1>
-        <p class="hero-subtitle">Seamless guest transitions, every time. From checkout to check-in ready in as little as 2 hours.</p>
-        <a href="tel:647-957-8956" class="primary-button">Get Started</a>
-    </section>
-
-    <section class="section">
-        <div class="section-container">
-            <div class="content-grid">
-                <div class="main-content">
-                    <h2>What is Turnover Management?</h2>
-                    <p>Turnover management is everything that happens between one guest leaving and the next arriving. Done poorly, it leads to delayed check-ins, dirty units, and bad reviews. Done right, it's invisible — guests arrive to a perfect space, every time.</p>
-
-                    <p>With high-volume Airbnb rentals, you might have 20-30 turnovers per month. That's 20-30 opportunities to impress or disappoint. Our turnover management ensures every single one is flawless.</p>
-
-                    <h3>Our Turnover Timeline</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-time">11:00 AM</span>
-                            <div class="timeline-content">
-                                <h4>Guest Checkout</h4>
-                                <p>Automated checkout reminders sent. Guest departs.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">11:15 AM</span>
-                            <div class="timeline-content">
-                                <h4>Cleaning Team Arrives</h4>
-                                <p>Our vetted <a href="/services/airbnb-cleaning-toronto" style="color: var(--sage-dark);">cleaning team</a> begins 50+ point checklist.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">1:00 PM</span>
-                            <div class="timeline-content">
-                                <h4>Cleaning Complete</h4>
-                                <p>Deep clean done. Linens changed. Bathrooms sanitized.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">1:15 PM</span>
-                            <div class="timeline-content">
-                                <h4>Quality Inspection</h4>
-                                <p>Photo documentation. Any issues flagged immediately.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">1:30 PM</span>
-                            <div class="timeline-content">
-                                <h4>Restocking</h4>
-                                <p>Toiletries, coffee, supplies replenished. Welcome items placed.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">2:00 PM</span>
-                            <div class="timeline-content">
-                                <h4>Ready for Check-In</h4>
-                                <p>Smart lock code updated. Check-in instructions sent to next guest.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">3:00 PM</span>
-                            <div class="timeline-content">
-                                <h4>Guest Arrives</h4>
-                                <p>Seamless self check-in. 5-star experience begins.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Tips for Efficient Turnovers</h3>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #1: Build in Buffer Time</h4>
-                        <p>Don't schedule back-to-back 11am checkout / 3pm check-in for same day. A 4-hour window allows for thorough cleaning without stress. If you must do tighter turnovers, let us know in advance.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #2: Standardize Your Setup</h4>
-                        <p>The more standardized your property setup, the faster turnovers go. Use the same linens, same towel placement, same supply locations. Our teams know exactly where everything goes.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #3: Keep Backup Supplies</h4>
-                        <p>We maintain supply inventory at your property so we never run out during a turnover. Extra linens, toiletries, and essentials on-hand prevent delays.</p>
-                    </div>
-
-                    <div class="tip-box">
-                        <h4>💡 Tip #4: Communicate Early</h4>
-                        <p>Send checkout reminders 24 hours AND 2 hours before checkout time. Guests who leave on time make turnovers smoother.</p>
-                    </div>
-
-                    <h3>Same-Day Turnover Capability</h3>
-                    <p>Need an emergency same-day turnover? Our <a href="/emergency-airbnb-support-toronto" style="color: var(--sage-dark);">emergency response team</a> can get your property guest-ready in as little as 2 hours. We maintain backup cleaning crews across <a href="/downtown-toronto-airbnb-management" style="color: var(--sage-dark);">Downtown Toronto</a>, <a href="/north-york-airbnb-management" style="color: var(--sage-dark);">North York</a>, <a href="/mississauga-airbnb-management" style="color: var(--sage-dark);">Mississauga</a>, and all GTA areas.</p>
-                </div>
-
-                <div class="sidebar">
-                    <div class="sidebar-card" style="background: var(--sage); color: white;">
-                        <h4 style="color: white;">📞 Need Turnover Help?</h4>
-                        <p style="margin-bottom: 1rem;">We coordinate everything seamlessly.</p>
-                        <a href="tel:647-957-8956" class="primary-button" style="display: block; text-align: center; background: white; color: var(--sage-dark);">Call 647-957-8956</a>
-                    </div>
-                    <div class="sidebar-card">
-                        <h4>🔗 Related Services</h4>
-                        <ul>
-                            <li><a href="/services/airbnb-cleaning-toronto">Cleaning Services</a></li>
-                            <li><a href="/services/airbnb-key-exchange-toronto">Key Exchange</a></li>
-                            <li><a href="/services/airbnb-property-maintenance-toronto">Maintenance</a></li>
-                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-card">
-                        <h4>✅ Turnover Includes</h4>
-                        <ul>
-                            <li>Full cleaning (50+ points)</li>
-                            <li>Linen change</li>
-                            <li>Supply restocking</li>
-                            <li>Quality inspection</li>
-                            <li>Photo documentation</li>
-                            <li>Smart lock code update</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>🧹 Cleaning Coordination</h3>
-                    <p>We dispatch vetted cleaners automatically. You never have to call or schedule anyone.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📸 Photo Documentation</h3>
-                    <p>Every turnover photographed. Proof of condition for damage claims.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📦 Supply Management</h3>
-                    <p>Toiletries, paper products, coffee, snacks — always restocked.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🔐 Access Coordination</h3>
-                    <p>Smart lock codes updated. <a href="/services/airbnb-key-exchange-toronto" style="color: var(--sage-dark);">Key exchange</a> managed seamlessly.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🔧 Issue Flagging</h3>
-                    <p>Damage or <a href="/services/airbnb-property-maintenance-toronto" style="color: var(--sage-dark);">maintenance issues</a> reported immediately with photos.</p>
-                </div>
-                <div class="service-card">
-                    <h3>💬 Guest Communication</h3>
-                    <p>Check-in instructions sent automatically. Guests know exactly what to expect.</p>
-                </div>
-            </div>
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">2hr</span>
+          <span class="trust-label">Emergency Notice</span>
         </div>
-    </section>
+        <div class="trust-item">
+          <span class="trust-number">50+</span>
+          <span class="trust-label">Point Checklist</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">100%</span>
+          <span class="trust-label">Photo Verified</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">24/7</span>
+          <span class="trust-label">Coordination</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta-section">
-        <h2>Seamless Turnovers, Every Time</h2>
-        <p>Let us handle the coordination while you enjoy passive income.</p>
-        <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-    </section>
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="intro-text">Turnover management is the backbone of successful Airbnb hosting. One missed turnover means a cancelled booking, a refund, and a 1-star review. We make sure that never happens.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Automatic scheduling synced to your calendar</li>
+          <li><span class="check">✓</span> Vetted, insured cleaning teams</li>
+          <li><span class="check">✓</span> Same-day turnover capability</li>
+          <li><span class="check">✓</span> Photo documentation every time</li>
+          <li><span class="check">✓</span> Supplies restocked automatically</li>
+          <li><span class="check">✓</span> Damage detection and reporting</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary btn-large">Get Turnover Quote</a>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2025 Nurture Stays | <a href="/">Home</a> · <a href="/services/full-airbnb-management-toronto">Full Management</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a></p>
-    </footer>
-</body>
-</html>
+  <section class="section example-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Cost of Poor Turnover Management</h2>
+        <p>What happens when turnovers go wrong</p>
+      </div>
+      <div class="example-grid">
+        <div class="example-card">
+          <h3>😰 DIY Turnover Problems</h3>
+          <div class="example-line"><span>Cleaner cancels last minute</span><span>→ Scramble</span></div>
+          <div class="example-line"><span>Supplies not restocked</span><span>→ Bad review</span></div>
+          <div class="example-line"><span>Damage not documented</span><span>→ Lost claim</span></div>
+          <div class="example-line"><span>Quality inconsistent</span><span>→ Complaints</span></div>
+          <div class="example-line total"><span>Result</span><span>Stress + Lost Revenue</span></div>
+        </div>
+        <div class="example-card highlight">
+          <h3>😎 Managed Turnovers</h3>
+          <div class="example-line"><span>Backup cleaners available</span><span>→ Always covered</span></div>
+          <div class="example-line"><span>Auto-restocking</span><span>→ 5-star reviews</span></div>
+          <div class="example-line"><span>Photo documentation</span><span>→ Protected</span></div>
+          <div class="example-line"><span>50+ point checklist</span><span>→ Consistent</span></div>
+          <div class="example-line total"><span>Result</span><span>Peace of Mind</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's Included in Turnover Management</h2>
+        <p>Everything handled, every time</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <span class="service-icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section steps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How Our Turnover Process Works</h2>
+        <p>Seamless coordination from checkout to check-in</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map(step => (
+          <div class="step-card">
+            <span class="step-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-content">
+          <h2>Why Professional Turnover Management Matters</h2>
+          <p>The difference between amateur and professional hosting often comes down to turnover execution. A rushed or missed turnover can result in:</p>
+          <ul>
+            <li>Cancelled bookings and full refunds</li>
+            <li>1-star reviews that tank your listing</li>
+            <li>Lost Superhost status</li>
+            <li>Reduced search visibility</li>
+            <li>Lower future booking rates</li>
+          </ul>
+
+          <p>Our turnover management eliminates these risks. We've handled thousands of turnovers across the GTA and have systems in place for every scenario.</p>
+
+          <h3>Same-Day Turnover Capability</h3>
+          <p>Sometimes you'll get a same-day booking or a guest who checks out late. Our network of <a href="/services/airbnb-cleaning-toronto">professional cleaners</a> across Toronto, <a href="/mississauga-airbnb-management">Mississauga</a>, <a href="/north-york-airbnb-management">North York</a>, and the entire GTA can handle tight turnovers with as little as 2 hours notice.</p>
+
+          <h3>Integrated with Full Management</h3>
+          <p>Turnover management is included in our <a href="/services/full-airbnb-management-toronto">full management service</a>. Combined with <a href="/services/airbnb-dynamic-pricing-toronto">dynamic pricing</a> and 24/7 <a href="/emergency-airbnb-support-toronto">guest support</a>, you get truly hands-off hosting.</p>
+
+          <h3>Quality You Can Trust</h3>
+          <p>Every turnover includes photo documentation sent directly to you. Our <a href="/services/airbnb-cleaning-toronto">cleaning teams</a> follow a 50+ point checklist developed from thousands of guest reviews and feedback.</p>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card sidebar-cta">
+            <h4>Get Started</h4>
+            <p>Professional turnover management for your Airbnb.</p>
+            <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>Related Services</h4>
+            <ul>
+              {relatedServices.slice(0, 4).map(service => (
+                <li><a href={service.href}>{service.name}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>Service Areas</h4>
+            <ul>
+              {serviceAreas.map(area => (
+                <li><a href={area.href}>{area.name}</a></li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Turnover Questions</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Services</h2>
+        <p>Complete Airbnb management solutions</p>
+      </div>
+      <div class="related-grid">
+        {relatedServices.map(service => (
+          <a href={service.href} class="related-card">
+            <h4>{service.name}</h4>
+            <p>{service.description}</p>
+            <span class="arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Never Miss a Turnover Again</h2>
+        <p>Let our team handle every guest transition while you enjoy stress-free hosting.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Get Turnover Quote</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-small {
+    text-align: center;
+    padding: 6rem 0 3rem;
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+  }
+
+  .hero-small h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .trust-bar {
+    background: var(--color-primary-dark);
+    padding: 1.5rem 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .trust-item {
+    color: white;
+  }
+
+  .trust-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .intro-section {
+    background: white;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .feature-list li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .check {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .example-section {
+    background: var(--color-background-alt);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .example-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .example-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .example-card.highlight {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .example-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .example-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.95rem;
+  }
+
+  .example-card.highlight .example-line {
+    border-bottom-color: rgba(255,255,255,0.2);
+  }
+
+  .example-line:last-child {
+    border-bottom: none;
+  }
+
+  .example-line.total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 2px solid rgba(0,0,0,0.1);
+  }
+
+  .example-card.highlight .example-line.total {
+    border-top-color: rgba(255,255,255,0.3);
+  }
+
+  .services-section {
+    background: white;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: var(--color-background-alt);
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .steps-section {
+    background: var(--color-background-alt);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .step-card {
+    text-align: center;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+  }
+
+  .step-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .step-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .content-section {
+    background: white;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-content h3 {
+    font-size: 1.35rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .main-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .main-content ul {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .main-content li {
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .main-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .sidebar-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .sidebar-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-card li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar-card a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar-card a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar-cta {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .sidebar-cta h4 {
+    color: white;
+  }
+
+  .sidebar-cta p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .sidebar-cta .btn {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .faq-section {
+    background: var(--color-background-alt);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .faq-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .related-section {
+    background: white;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .related-card .arrow {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-section .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  @media (max-width: 968px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .example-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: static;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .trust-number {
+      font-size: 1.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
