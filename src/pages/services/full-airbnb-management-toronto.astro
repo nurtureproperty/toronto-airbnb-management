@@ -2,10 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { title: 'Dynamic Pricing', description: 'AI-powered pricing adjusts daily based on demand, events, seasonality, and competition to maximize your revenue.', link: '/services/airbnb-dynamic-pricing-toronto' },
-  { title: '24/7 Guest Communication', description: 'We handle all inquiries, bookings, check-in instructions, and guest questions. 9-minute average response time.' },
+  { title: 'Dynamic Pricing', description: 'Manual and AI-optimized pricing adjusts daily based on demand, events, seasonality, and competition to maximize your revenue.', link: '/services/airbnb-dynamic-pricing-toronto' },
+  { title: 'Guest Communication', description: 'We handle all inquiries, bookings, check-in instructions, and guest questions. Less than 9-minute average response time.' },
   { title: 'Cleaning Coordination', description: 'Professional cleaners after every guest. Quality inspections ensure your property is always guest-ready.', link: '/services/airbnb-cleaning-toronto' },
-  { title: 'Maintenance & Repairs', description: 'Our network of trusted contractors handles any issues quickly. Emergency repairs available 24/7.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Maintenance & Repairs', description: 'Our network of trusted contractors handles any issues quickly. Emergency repairs available.', link: '/services/airbnb-property-maintenance-toronto' },
   { title: 'Supply Restocking', description: 'Toilet paper, soap, coffee, shampoo - all essentials restocked after each guest at no extra charge.' },
   { title: 'Guest Screening', description: 'We verify every guest before accepting bookings. No parties, no problems, no headaches for you.' },
   { title: 'Professional Photography', description: 'High-quality photos that make your listing stand out and attract more bookings at higher rates.', link: '/services/airbnb-photography-toronto' },
@@ -29,30 +29,20 @@ const faqs = [
 ];
 
 const relatedServices = [
-  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'AI-powered rate optimization' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'Manual and AI-optimized pricing' },
   { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto', description: 'Professional turnover cleaning' },
   { name: 'Photography', href: '/services/airbnb-photography-toronto', description: 'Professional listing photos' },
   { name: 'Turnover Management', href: '/services/airbnb-turnover-management-toronto', description: 'Seamless guest transitions' },
   { name: 'Key Exchange', href: '/services/airbnb-key-exchange-toronto', description: 'Smart locks and access' },
-  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto', description: '24/7 repairs and upkeep' }
+  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto', description: 'Repairs and upkeep' }
 ];
 ---
 
-<Layout title="Full-Service Airbnb Management Toronto & GTA | 10-15%" description="Complete Airbnb management in Toronto and the Greater Toronto Area. We handle everything: pricing, guests, cleaning, maintenance. 10-15% commission, 9-min response time. You collect rent, we do the work.">
-  <section class="hero">
+<Layout title="Full-Service Airbnb Management Toronto & GTA | 10-15%" description="Complete Airbnb management in Toronto and the Greater Toronto Area. We handle everything: pricing, guests, cleaning, maintenance. 10-15% commission. You collect rent, we do the work.">
+  <section class="hero hero-small">
     <div class="container">
-      <div class="hero-content">
-        <h1><span class="highlight">Full-Service</span> Airbnb Management across the GTA</h1>
-        <p class="hero-subtitle">We handle absolutely everything while you collect rent. From guest inquiries to cleaning coordination, pricing optimization to maintenance - you never lift a finger.</p>
-        <ul class="hero-features">
-          <li><span class="check">✓</span> 24/7 guest communication & support</li>
-          <li><span class="check">✓</span> Dynamic pricing to maximize revenue</li>
-          <li><span class="check">✓</span> Professional cleaning after every guest</li>
-          <li><span class="check">✓</span> Maintenance coordination & repairs</li>
-          <li><span class="check">✓</span> All supplies restocked (included!)</li>
-        </ul>
-        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Get Free Property Analysis</a>
-      </div>
+      <h1>Full-Service Airbnb Management</h1>
+      <p class="hero-subtitle">We handle absolutely everything while you collect rent. From guest inquiries to cleaning coordination, pricing optimization to maintenance - you never lift a finger.</p>
     </div>
   </section>
 
@@ -60,21 +50,37 @@ const relatedServices = [
     <div class="container">
       <div class="trust-grid">
         <div class="trust-item">
-          <span class="trust-number">4.9★</span>
+          <span class="trust-number">4.9+</span>
           <span class="trust-label">Average Rating</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">9 min</span>
+          <span class="trust-number">&lt;9 min</span>
           <span class="trust-label">Response Time</span>
         </div>
         <div class="trust-item">
           <span class="trust-number">10-15%</span>
-          <span class="trust-label">Commission Only</span>
+          <span class="trust-label">Of Host Payout</span>
         </div>
         <div class="trust-item">
           <span class="trust-number">30 day</span>
           <span class="trust-label">Cancel Anytime</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="intro-text">True passive income from your property. We're Superhosts ourselves and have helped clients consistently achieve Superhost status and Guest Favorite badges. Our commission is only on your host payout - we never take a cut of cleaning fees or Airbnb's service charges.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Guest communication with less than 9-minute response</li>
+          <li><span class="check">✓</span> Manual and AI-optimized dynamic pricing</li>
+          <li><span class="check">✓</span> Professional cleaning after every guest</li>
+          <li><span class="check">✓</span> Maintenance coordination & repairs</li>
+          <li><span class="check">✓</span> All supplies restocked</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free Property Analysis</a>
       </div>
     </div>
   </section>
@@ -137,12 +143,12 @@ const relatedServices = [
         <div class="comparison-card highlight">
           <h3>Nurture Stays Full Management</h3>
           <ul class="comparison-list">
-            <li><span class="icon-check">✓</span> We respond in 9 minutes, 24/7</li>
+            <li><span class="icon-check">✓</span> Less than 9-minute response time</li>
             <li><span class="icon-check">✓</span> Professional cleaners handled</li>
             <li><span class="icon-check">✓</span> We resolve all guest issues</li>
-            <li><span class="icon-check">✓</span> AI-optimized dynamic pricing</li>
+            <li><span class="icon-check">✓</span> Manual + AI dynamic pricing</li>
             <li><span class="icon-check">✓</span> Emergency team on standby</li>
-            <li><span class="icon-check">✓</span> Supplies restocked (included)</li>
+            <li><span class="icon-check">✓</span> Supplies restocked at no extra cost</li>
             <li><span class="icon-check">✓</span> 5-star experiences guaranteed</li>
             <li><span class="icon-check">✓</span> 30-100% more revenue</li>
           </ul>
@@ -159,8 +165,8 @@ const relatedServices = [
       </div>
       <div class="pricing-box">
         <span class="price">10-15%</span>
-        <span class="price-label">of monthly revenue</span>
-        <p class="price-note">That's it. No setup fees. No monthly minimums.<br>We only make money when you make money.</p>
+        <span class="price-label">of your host payout only</span>
+        <p class="price-note">We only take commission on what you actually receive - never on cleaning fees or Airbnb charges.<br>No setup fees. No monthly minimums.</p>
         <a href="/pricing-toronto-airbnb-management" class="btn btn-primary">See Full Pricing Details</a>
       </div>
     </div>
@@ -213,54 +219,10 @@ const relatedServices = [
 </Layout>
 
 <style>
-  .hero {
-    padding: 6rem 0 4rem;
-    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
-  }
-
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1.5rem;
-    line-height: 1.15;
-  }
-
-  .highlight {
-    color: var(--color-primary);
-  }
-
   .hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-
-  .hero-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem;
-    display: inline-block;
-    text-align: left;
-  }
-
-  .hero-features li {
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .check {
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1.25rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
   }
 
   .trust-bar {
@@ -289,6 +251,45 @@ const relatedServices = [
   .trust-label {
     font-size: 0.875rem;
     opacity: 0.9;
+  }
+
+  .intro-section {
+    background: white;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .feature-list li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .check {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
   }
 
   .section-header {
