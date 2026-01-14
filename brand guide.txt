@@ -1,4 +1,4 @@
-NURTURE STAYS BRAND GUIDE
+NURTURE BRAND GUIDE
 
 Make sure ALL pages use the same design system:
 
@@ -14,11 +14,11 @@ Contact info on every page:
 - Website: nurturestays.ca
 
 Fonts:
-- Headings: Instrument Serif (italic)
+- Headings: Poppins SemiBold
 - Body: DM Sans
 
 NAVIGATION:
-- Logo: Nurture Stays (left)
+- Logo: Nurture (left)
 - Links: Services, How It Works, FAQ
 - CTA Button: Phone number (right)
 
