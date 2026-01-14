@@ -142,14 +142,13 @@
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: -1rem;
-            min-width: 200px;
+            left: -100px;
+            width: 420px;
             background: white;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-            padding: 0.5rem;
-            list-style: none;
-            margin: 0.75rem 0 0;
+            padding: 1.25rem;
+            margin: 0.5rem 0 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -162,16 +161,75 @@
             transform: translateY(0);
         }
 
-        .dropdown-menu li a {
+        .dropdown-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .dropdown-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .dropdown-category {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-header {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .category-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-link {
             display: block;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
+            padding: 0.5rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            color: #8B9B87;
+            background: rgba(139, 155, 135, 0.08);
+        }
+
+        .dropdown-footer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .view-all-link {
+            display: block;
+            text-align: center;
+            color: #8B9B87;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            border-radius: 6px;
             transition: all 0.2s ease;
         }
 
-        .dropdown-menu li a:hover {
-            background: rgba(117, 155, 143, 0.1);
-            color: var(--primary-dark);
+        .view-all-link:hover {
+            background: rgba(139, 155, 135, 0.08);
         }
 
         .nav-phone {
@@ -1389,22 +1447,43 @@
                                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="/services">All Services</a></li>
-                            <li><a href="/services/full-airbnb-management-toronto">Full Management</a></li>
-                            <li><a href="/services/short-term-rental-management-toronto">Short-Term Rentals</a></li>
-                            <li><a href="/services/mid-term-rental-management-toronto">Mid-Term Rentals</a></li>
-                            <li><a href="/services/airbnb-management-toronto">Airbnb Management</a></li>
-                            <li><a href="/services/airbnb-dynamic-pricing-toronto">Dynamic Pricing</a></li>
-                            <li><a href="/services/airbnb-cleaning-toronto">Cleaning Services</a></li>
-                            <li><a href="/services/airbnb-turnover-management-toronto">Turnover Management</a></li>
-                            <li><a href="/services/airbnb-key-exchange-toronto">Key Exchange</a></li>
-                            <li><a href="/services/airbnb-photography-toronto">Photography</a></li>
-                            <li><a href="/services/airbnb-property-maintenance-toronto">Property Maintenance</a></li>
-                            <li><a href="/services/airbnb-co-host-toronto">Co-Hosting</a></li>
-                            <li><a href="/services/airbnb-listing-optimization-toronto">Listing Optimization</a></li>
-                            <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
-                        </ul>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-category">
+                                        <span class="category-header">Management</span>
+                                        <ul class="category-links">
+                                            <li><a href="/services/full-airbnb-management-toronto" class="dropdown-link">Full Management</a></li>
+                                            <li><a href="/services/short-term-rental-management-toronto" class="dropdown-link">Short-Term Rentals</a></li>
+                                            <li><a href="/services/mid-term-rental-management-toronto" class="dropdown-link">Mid-Term Rentals</a></li>
+                                            <li><a href="/services/airbnb-co-host-toronto" class="dropdown-link">Airbnb Co-Hosting</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-category">
+                                        <span class="category-header">Marketing</span>
+                                        <ul class="category-links">
+                                            <li><a href="/services/airbnb-dynamic-pricing-toronto" class="dropdown-link">Dynamic Pricing</a></li>
+                                            <li><a href="/services/airbnb-listing-optimization-toronto" class="dropdown-link">Listing Optimization</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-category">
+                                        <span class="category-header">Operations</span>
+                                        <ul class="category-links">
+                                            <li><a href="/services/airbnb-cleaning-toronto" class="dropdown-link">Cleaning Services</a></li>
+                                            <li><a href="/services/airbnb-turnover-management-toronto" class="dropdown-link">Turnover Management</a></li>
+                                            <li><a href="/services/airbnb-key-exchange-toronto" class="dropdown-link">Key Exchange</a></li>
+                                            <li><a href="/services/airbnb-property-maintenance-toronto" class="dropdown-link">Property Maintenance</a></li>
+                                            <li><a href="/services/airbnb-photography-toronto" class="dropdown-link">Photography</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="/services" class="view-all-link">View All Services &rarr;</a>
+                            </div>
+                        </div>
                     </li>
                     <li><a href="/pricing-toronto-airbnb-management">Pricing</a></li>
                     <li><a href="/about">About</a></li>
