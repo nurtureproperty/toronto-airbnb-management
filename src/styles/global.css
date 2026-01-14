@@ -56,10 +56,10 @@ input, button, textarea, select {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h1 {
