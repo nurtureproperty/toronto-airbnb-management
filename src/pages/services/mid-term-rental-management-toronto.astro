@@ -70,6 +70,10 @@ const relatedServices = [
           <span class="trust-number">10-15%</span>
           <span class="trust-label">Of Host Payout</span>
         </div>
+        <div class="trust-item">
+          <span class="trust-number">30+ Days</span>
+          <span class="trust-label">Minimum Stay</span>
+        </div>
       </div>
     </div>
   </section>
@@ -383,24 +387,10 @@ const relatedServices = [
 </Layout>
 
 <style>
-  .hero-small {
-    text-align: center;
-    padding: 4rem 0 2rem;
-    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
-  }
-
-  .hero-small h1 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    margin-bottom: 1rem;
-    line-height: 1.15;
-  }
-
   .hero-subtitle {
-    font-size: 1.15rem;
-    color: var(--color-text-light);
-    max-width: 700px;
+    text-align: center;
     margin: 0 auto;
-    line-height: 1.6;
+    max-width: 600px;
   }
 
   .trust-bar {
@@ -410,7 +400,7 @@ const relatedServices = [
 
   .trust-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     text-align: center;
   }
@@ -420,7 +410,6 @@ const relatedServices = [
   }
 
   .trust-number {
-    display: block;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
@@ -437,7 +426,6 @@ const relatedServices = [
 
   .intro-section {
     background: white;
-    padding: 4rem 0;
   }
 
   .intro-content {
@@ -447,10 +435,10 @@ const relatedServices = [
   }
 
   .intro-text {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     color: var(--color-text-light);
-    line-height: 1.8;
     margin-bottom: 2rem;
+    line-height: 1.8;
   }
 
   .feature-list {
@@ -983,6 +971,10 @@ const relatedServices = [
   }
 
   @media (max-width: 968px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .info-grid {
       grid-template-columns: 1fr;
     }
@@ -1023,8 +1015,12 @@ const relatedServices = [
 
   @media (max-width: 576px) {
     .trust-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
+    }
+
+    .trust-number {
+      font-size: 1.5rem;
     }
 
     .who-rents-grid {
