@@ -5,204 +5,78 @@ const services = [
   { title: 'Tenant Screening', description: 'Background checks, income verification, and reference checks for every mid-term tenant. Quality guests only.' },
   { title: 'Pricing Strategy', description: 'Market analysis to price competitively while maximizing your monthly income. Seasonal adjustments included.' },
   { title: 'Lease Management', description: 'Proper month-to-month furnished rental agreements that protect your interests while staying tenant-friendly.' },
-  { title: 'Turnover Cleaning', description: 'Deep cleaning between tenants.', link: '/services/airbnb-cleaning-toronto' },
-  { title: 'Maintenance', description: 'On-call maintenance for tenant issues.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Guest Communication', description: 'We handle all inquiries, showings, and tenant questions. Professional support throughout every stay.' },
+  { title: 'Professional Cleaning', description: 'Deep cleaning between tenants ensures your property is always guest-ready.', link: '/services/airbnb-cleaning-toronto' },
+  { title: 'Maintenance & Repairs', description: 'On-call maintenance for tenant issues. Our network of trusted contractors handles any problems quickly.', link: '/services/airbnb-property-maintenance-toronto' },
+  { title: 'Professional Photography', description: 'High-quality photos that make your listing stand out on Furnished Finder, Airbnb, and corporate platforms.', link: '/services/airbnb-photography-toronto' },
+  { title: 'Multi-Platform Listing', description: 'We list your property on Airbnb, Furnished Finder, Corporate Housing, and other platforms to maximize exposure.' },
   { title: 'Financial Reporting', description: 'Monthly statements showing rent collected, expenses, and net income. Full transparency.' }
 ];
 
-const whoRents = [
-  { type: 'Corporate Relocations', description: 'Professionals moving to Toronto for work, often with housing allowances from employers' },
-  { type: 'Medical Travelers', description: "Patients and families receiving treatment at Toronto's world-class hospitals" },
-  { type: 'Insurance Displacement', description: 'Homeowners temporarily displaced by renovations, fires, or floods' },
-  { type: 'Digital Nomads', description: 'Remote workers exploring Toronto for 1-3 months at a time' },
-  { type: 'Film & TV Production', description: "Toronto's booming film industry brings cast and crew needing monthly housing" },
-  { type: 'New Immigrants', description: 'Newcomers to Canada needing temporary furnished housing while they settle' }
+const steps = [
+  { number: '1', title: 'Free Consultation', description: 'We analyze your property and show you exactly how much you could earn with mid-term rental.' },
+  { number: '2', title: 'We Set Everything Up', description: 'Professional photos, optimized listing across multiple platforms, and pricing strategy.' },
+  { number: '3', title: 'We Manage Everything', description: 'Tenant screening, communication, cleaning, maintenance. We handle it all while you relax.' },
+  { number: '4', title: 'You Collect Rent', description: 'Money deposited to your account. Clear reports. True passive income.' }
 ];
 
-const serviceAreas = [
-  { name: 'Downtown Toronto', href: '/downtown-toronto-airbnb-management' },
-  { name: 'North York', href: '/north-york-airbnb-management' },
-  { name: 'Mississauga', href: '/mississauga-airbnb-management' },
-  { name: 'Etobicoke', href: '/etobicoke-airbnb-management' },
-  { name: 'Vaughan', href: null },
-  { name: 'Markham', href: null },
-  { name: 'Richmond Hill', href: null },
-  { name: 'Oakville', href: null }
+const faqs = [
+  { q: "Do I need an STR license for mid-term rentals?", a: "No. Mid-term rentals (30+ days) are not subject to Toronto's short-term rental bylaws. No registration, no 180-night cap, no principal residence requirement. You can MTR any property you own." },
+  { q: "Who rents mid-term in Toronto?", a: "Corporate relocations, medical travelers, insurance displacement, film & TV production crews, digital nomads, and new immigrants. Toronto has strong year-round demand for furnished monthly rentals." },
+  { q: "How much more can I make vs long-term rental?", a: "Most Toronto hosts see 30-50% more revenue compared to long-term tenants. You also maintain flexibility to use your property or switch strategies." },
+  { q: "What's the minimum stay length?", a: "We recommend 30+ day minimums to stay clearly outside STR regulations and align with monthly billing cycles. Most platforms support this." },
+  { q: "Do I need to sign a long contract?", a: "No. We work on a simple 30-day notice agreement. You can cancel anytime. We keep clients through great service, not contracts." }
 ];
 
 const relatedServices = [
-  { name: 'Short-Term Management', href: '/services/short-term-rental-management-toronto' },
-  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto' },
-  { name: 'Photography', href: '/services/airbnb-photography-toronto' },
-  { name: 'Full Management', href: '/services/full-airbnb-management-toronto' }
-];
-
-const idealProperties = [
-  'Investment condos',
-  'Second homes',
-  'Properties near hospitals',
-  'Downtown locations',
-  'Airport-adjacent units'
+  { name: 'Short-Term Rentals', href: '/services/short-term-rental-management-toronto', description: 'Nightly bookings, higher revenue' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'Manual and AI-optimized pricing' },
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto', description: 'Professional turnover cleaning' },
+  { name: 'Photography', href: '/services/airbnb-photography-toronto', description: 'Professional listing photos' },
+  { name: 'Maintenance', href: '/services/airbnb-property-maintenance-toronto', description: 'Repairs and upkeep' },
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto', description: 'Complete hands-off hosting' }
 ];
 ---
 
-<Layout title="Mid-Term Rental Management Toronto & GTA | 30+ Day Rentals" description="Mid-term rental management across the GTA (30+ day stays). No STR license needed. Corporate housing, relocations & extended stays. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & all of the Greater Toronto Area.">
-  <section class="hero">
+<Layout title="Mid-Term Rental Management Toronto & GTA | 30+ Day Rentals" description="Mid-term rental management across the GTA (30+ day stays). No STR license needed. Corporate housing, relocations & extended stays. 10-15% fees. Serving Toronto, Mississauga, Vaughan, Markham & more.">
+  <section class="hero hero-small">
     <div class="container">
-      <span class="hero-badge">NO STR LICENSE REQUIRED</span>
-      <h1><span class="highlight">Mid-Term Rental</span> Management Toronto</h1>
-      <p class="hero-subtitle">30+ day furnished rentals across the Greater Toronto Area: Higher income than long-term leases, fewer turnovers than Airbnb, and no short-term rental restrictions.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">30-50%</span>
-          <span class="stat-label">More Than Long-Term</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">No License</span>
-          <span class="stat-label">Required</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">90%+</span>
-          <span class="stat-label">Occupancy Rate</span>
-        </div>
-      </div>
-      <a href="tel:647-957-8956" class="btn btn-primary btn-large">Get Free Property Analysis</a>
+      <h1>Mid-Term Rental Management Toronto</h1>
+      <p class="hero-subtitle">30+ day furnished rentals across the GTA. Higher income than long-term leases, fewer turnovers than Airbnb, and no STR license required.</p>
     </div>
   </section>
 
-  <section class="section content-section">
+  <section class="trust-bar">
     <div class="container">
-      <div class="content-grid">
-        <div class="main-content">
-          <h2>What is Mid-Term Rental Management?</h2>
-          <p>Mid-term rentals (MTRs) are furnished rentals with stays of 30 days or longer. They occupy the sweet spot between traditional long-term leases and <a href="/services/short-term-rental-management-toronto">short-term vacation rentals</a> — offering higher income without the regulatory headaches of Airbnb.</p>
-
-          <div class="highlight-box">
-            <h4>🎯 The Mid-Term Advantage</h4>
-            <p>Because stays are 30+ days, mid-term rentals are NOT subject to Toronto's short-term rental bylaws. No registration, no 180-night cap, no principal residence requirement. You can MTR any property you own.</p>
-          </div>
-
-          <h3>Who Rents Mid-Term in Toronto?</h3>
-          <p>Toronto has robust demand for furnished monthly rentals from various sources:</p>
-          <ul>
-            {whoRents.map(item => (
-              <li><strong>{item.type}:</strong> {item.description}</li>
-            ))}
-          </ul>
-
-          <h3>Toronto Regulations for Mid-Term Rentals</h3>
-          <div class="bylaw-box">
-            <h4>📋 Key Regulatory Advantages</h4>
-            <p>Mid-term rentals (30+ days) are treated as residential tenancies in Ontario, which means:</p>
-            <ul>
-              <li>No STR registration or license required</li>
-              <li>No 180-night annual cap</li>
-              <li>No principal residence requirement</li>
-              <li>Can operate from investment properties</li>
-              <li>No Municipal Accommodation Tax (4%)</li>
-              <li>Most condo buildings allow 30+ day rentals</li>
-            </ul>
-          </div>
-
-          <div class="tip-box">
-            <h4>💡 Pro Tip: The 28-Day Threshold</h4>
-            <p>While Toronto's STR rules kick in at under 28 days, we recommend 30+ day minimums to be safe and to align with standard monthly billing cycles. Most platforms (Airbnb, Furnished Finder) support 30-day minimums.</p>
-          </div>
-
-          <h3>Mid-Term vs. Short-Term vs. Long-Term</h3>
-          <div class="comparison-table">
-            <div class="table-row header">
-              <span>Factor</span>
-              <span>Long-Term</span>
-              <span>Mid-Term</span>
-              <span>Short-Term</span>
-            </div>
-            <div class="table-row">
-              <span>Stay Length</span>
-              <span>12+ months</span>
-              <span>1-6 months</span>
-              <span>1-28 nights</span>
-            </div>
-            <div class="table-row">
-              <span>Monthly Revenue</span>
-              <span>$2,200</span>
-              <span class="highlight-value">$3,300</span>
-              <span>$4,100</span>
-            </div>
-            <div class="table-row">
-              <span>Turnover Frequency</span>
-              <span>1x/year</span>
-              <span>4-6x/year</span>
-              <span>20-30x/month</span>
-            </div>
-            <div class="table-row">
-              <span>License Required</span>
-              <span>No</span>
-              <span class="highlight-value">No</span>
-              <span>Yes</span>
-            </div>
-            <div class="table-row">
-              <span>Furnished</span>
-              <span>Usually No</span>
-              <span>Yes</span>
-              <span>Yes</span>
-            </div>
-          </div>
-
-          <h3>Tips for Mid-Term Rental Success</h3>
-
-          <div class="tip-box">
-            <h4>💡 Tip #1: Furnish for Extended Stays</h4>
-            <p>MTR guests need more than vacation rentals: full kitchenware, washer/dryer, ample closet space, reliable WiFi, and a proper workspace. Invest in quality — these guests treat your space as their home.</p>
-          </div>
-
-          <div class="tip-box">
-            <h4>💡 Tip #2: Include Utilities</h4>
-            <p>Mid-term renters expect an all-inclusive rate. Bundle hydro, internet, and water into your price. It simplifies their budgeting and makes your listing more attractive.</p>
-          </div>
-
-          <div class="tip-box">
-            <h4>💡 Tip #3: Target Corporate Platforms</h4>
-            <p>List beyond Airbnb: Furnished Finder, Corporate Housing by Owner, and Relocations.com attract higher-quality corporate tenants with employer-guaranteed payments.</p>
-          </div>
-
-          <p>Mid-term rentals offer the best of both worlds: significantly higher income than long-term leases without the high turnover and regulatory burden of short-term rentals.</p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">30-50%</span>
+          <span class="trust-label">More Than Long-Term</span>
         </div>
+        <div class="trust-item">
+          <span class="trust-number">No License</span>
+          <span class="trust-label">Required</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">10-15%</span>
+          <span class="trust-label">Of Host Payout</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <aside class="sidebar">
-          <div class="sidebar-card sidebar-cta">
-            <h4>📞 Free Consultation</h4>
-            <p>See if mid-term rental is right for your property.</p>
-            <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
-          </div>
-
-          <div class="sidebar-card">
-            <h4>📍 Best GTA Areas for MTR</h4>
-            <ul>
-              {serviceAreas.map(area => (
-                <li>{area.href ? <a href={area.href}>{area.name}</a> : area.name}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="sidebar-card">
-            <h4>🔗 Related Services</h4>
-            <ul>
-              {relatedServices.map(service => (
-                <li><a href={service.href}>{service.name}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="sidebar-card">
-            <h4>🏆 Ideal Properties</h4>
-            <ul>
-              {idealProperties.map(item => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </aside>
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="intro-text">Mid-term rentals occupy the sweet spot between traditional long-term leases and short-term vacation rentals. You get significantly higher income without the regulatory headaches of Airbnb. Because stays are 30+ days, mid-term rentals are NOT subject to Toronto's short-term rental bylaws. Our commission is only on your host payout. We never take a cut of cleaning fees.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> No STR registration required</li>
+          <li><span class="check">✓</span> Professional tenant screening</li>
+          <li><span class="check">✓</span> Multi-platform listing (Airbnb, Furnished Finder, Corporate Housing)</li>
+          <li><span class="check">✓</span> Professional cleaning between tenants</li>
+          <li><span class="check">✓</span> Can operate from any property you own</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free MTR Analysis</a>
       </div>
     </div>
   </section>
@@ -210,14 +84,196 @@ const idealProperties = [
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>What's Included in Our MTR Management</h2>
-        <p>Complete mid-term rental support</p>
+        <h2>Everything Included in MTR Management</h2>
+        <p class="serif">One simple commission covers all of this</p>
       </div>
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
             <h3>{service.title}</h3>
-            <p>{service.description} {service.link && <a href={service.link}>Learn more →</a>}</p>
+            <p>{service.description}</p>
+            {service.link && <a href={service.link} class="service-link">Learn more →</a>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section steps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p class="serif">From consultation to passive income in 4 simple steps</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map(step => (
+          <div class="step-card">
+            <div class="step-number">{step.number}</div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mid-Term vs Long-Term vs Short-Term</h2>
+        <p class="serif">Find the right rental strategy for your property</p>
+      </div>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h3>Long-Term Rental</h3>
+          <ul>
+            <li><span class="icon-x">✗</span> Lower monthly revenue (~$2,200)</li>
+            <li><span class="icon-check">✓</span> Minimal turnover (1x/year)</li>
+            <li><span class="icon-check">✓</span> No license required</li>
+            <li><span class="icon-x">✗</span> No flexibility to use property</li>
+            <li><span class="icon-x">✗</span> Tenant protection laws apply</li>
+            <li><span class="icon-x">✗</span> 1-year lease commitments</li>
+          </ul>
+        </div>
+        <div class="comparison-card featured">
+          <div class="featured-badge">Best Balance</div>
+          <h3>Mid-Term Rental</h3>
+          <ul>
+            <li><span class="icon-check">✓</span> Higher revenue (~$3,300/month)</li>
+            <li><span class="icon-check">✓</span> Low turnover (4-6x/year)</li>
+            <li><span class="icon-check">✓</span> No license required</li>
+            <li><span class="icon-check">✓</span> Keep flexibility</li>
+            <li><span class="icon-check">✓</span> Quality screened tenants</li>
+            <li><span class="icon-check">✓</span> Any property you own</li>
+          </ul>
+        </div>
+        <div class="comparison-card">
+          <h3>Short-Term Rental</h3>
+          <ul>
+            <li><span class="icon-check">✓</span> Highest revenue (~$4,100/month)</li>
+            <li><span class="icon-x">✗</span> High turnover (20-30x/month)</li>
+            <li><span class="icon-x">✗</span> STR license required</li>
+            <li><span class="icon-check">✓</span> Maximum flexibility</li>
+            <li><span class="icon-x">✗</span> Principal residence only</li>
+            <li><span class="icon-x">✗</span> 180-night annual cap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, Transparent Pricing</h2>
+        <p class="serif">No hidden fees. You only pay when you earn.</p>
+      </div>
+      <div class="pricing-box">
+        <div class="pricing-main">
+          <span class="pricing-amount">10-15%</span>
+          <span class="pricing-label">of your host payout</span>
+        </div>
+        <p class="pricing-note">Commission is only on what you actually receive. We never take a percentage of cleaning fees or platform service charges.</p>
+        <a href="/pricing-toronto-airbnb-management" class="btn btn-secondary">See Full Pricing Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's Included at Each Tier</h2>
+        <p class="serif">Choose the level of support that works for you</p>
+      </div>
+      <div class="feature-comparison">
+        <div class="feature-header">
+          <div class="feature-name"></div>
+          <div class="tier-header">Starter (10%)</div>
+          <div class="tier-header featured">Professional (15%)</div>
+        </div>
+
+        <div class="feature-category">Listing & Marketing</div>
+        <div class="feature-row">
+          <div class="feature-name">Professional listing creation</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Multi-platform syndication</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Pricing optimization</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Tenant Management</div>
+        <div class="feature-row">
+          <div class="feature-name">Tenant communication (business hours)</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Tenant communication (extended hours)</div>
+          <div class="feature-check">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Professional tenant screening</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Property Operations</div>
+        <div class="feature-row">
+          <div class="feature-name">Cleaning coordination</div>
+          <div class="feature-check">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Maintenance coordination</div>
+          <div class="feature-check">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Supply restocking</div>
+          <div class="feature-check">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+
+        <div class="feature-category">Support & Reporting</div>
+        <div class="feature-row">
+          <div class="feature-name">Monthly reporting</div>
+          <div class="feature-check">✓</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Dedicated account manager</div>
+          <div class="feature-check">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Insurance claim assistance</div>
+          <div class="feature-check">—</div>
+          <div class="feature-check">✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mid-Term Rental FAQs</h2>
+        <p class="serif">Common questions about MTR in Toronto</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
           </div>
         ))}
       </div>
@@ -227,40 +283,17 @@ const idealProperties = [
   <section class="section related-section">
     <div class="container">
       <div class="section-header">
-        <h2>Compare Your Options</h2>
-        <p>Find the right rental strategy for your property</p>
+        <h2>Related Services</h2>
+        <p class="serif">Explore other ways we can help</p>
       </div>
       <div class="related-grid">
-        <a href="/services/short-term-rental-management-toronto" class="related-card">
-          <h4>Short-Term Rentals</h4>
-          <p>Maximum revenue with Airbnb/VRBO</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/full-airbnb-management-toronto" class="related-card">
-          <h4>Full Management</h4>
-          <p>Hands-off hosting for any rental type</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-cleaning-toronto" class="related-card">
-          <h4>Cleaning Services</h4>
-          <p>Professional turnover cleaning</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-photography-toronto" class="related-card">
-          <h4>Photography</h4>
-          <p>Professional listing photos</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-property-maintenance-toronto" class="related-card">
-          <h4>Maintenance</h4>
-          <p>Repairs and upkeep</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/pricing-toronto-airbnb-management" class="related-card">
-          <h4>Pricing</h4>
-          <p>Transparent fee structure</p>
-          <span class="arrow">→</span>
-        </a>
+        {relatedServices.map(service => (
+          <a href={service.href} class="related-card">
+            <h4>{service.name}</h4>
+            <p>{service.description}</p>
+            <span class="arrow">→</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -271,280 +304,106 @@ const idealProperties = [
         <h2>Is Mid-Term Right for Your Property?</h2>
         <p>Get a free analysis comparing your potential MTR income to long-term and short-term options.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .hero {
+  .hero-small {
     text-align: center;
-    padding: 6rem 0 4rem;
+    padding: 4rem 0 2rem;
     background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
   }
 
-  .hero-badge {
-    display: inline-block;
-    background: var(--color-gold);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1.5rem;
+  .hero-small h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 1rem;
     line-height: 1.15;
   }
 
-  .highlight {
-    color: var(--color-primary);
-  }
-
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--color-text-light);
-    max-width: 750px;
-    margin: 0 auto 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
   }
 
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin: 3rem 0;
-    flex-wrap: wrap;
+  .trust-bar {
+    background: var(--color-primary-dark);
+    padding: 1.5rem 0;
   }
 
-  .stat {
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     text-align: center;
   }
 
-  .stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-primary-dark);
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
-  .stat-label {
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-  }
-
-  .content-section {
-    background: white;
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-  }
-
-  .main-content h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .main-content h3 {
+  .trust-number {
     font-size: 1.5rem;
-    margin: 2rem 0 1rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Poppins', sans-serif;
   }
 
-  .main-content p {
+  .trust-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .intro-section {
+    background: white;
+    padding: 4rem 0;
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
     color: var(--color-text-light);
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  .main-content ul {
-    margin: 1.5rem 0;
-    padding-left: 1.5rem;
-  }
-
-  .main-content li {
-    margin-bottom: 0.75rem;
-    line-height: 1.7;
-    color: var(--color-text-light);
-  }
-
-  .main-content a {
-    color: var(--color-primary);
-  }
-
-  .tip-box {
-    background: #E8F5E9;
-    border-left: 4px solid var(--color-primary);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
-  }
-
-  .tip-box h4 {
-    color: var(--color-primary-dark);
-    margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .tip-box p {
-    margin: 0;
-    color: #555;
-  }
-
-  .highlight-box {
-    background: #FFF8E1;
-    border-left: 4px solid var(--color-gold);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
-  }
-
-  .highlight-box h4 {
-    color: #F57C00;
-    margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .highlight-box p {
-    margin: 0;
-    color: #555;
-  }
-
-  .bylaw-box {
-    background: #E3F2FD;
-    border-left: 4px solid #1976D2;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
-  }
-
-  .bylaw-box h4 {
-    color: #1565C0;
-    margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .bylaw-box p {
-    margin: 0 0 1rem;
-    color: #555;
-  }
-
-  .bylaw-box ul {
-    margin: 0;
-    padding-left: 1.5rem;
-  }
-
-  .bylaw-box li {
-    color: #555;
-    margin-bottom: 0.5rem;
-  }
-
-  .comparison-table {
-    margin: 2rem 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .table-row {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    padding: 1rem;
-    border-bottom: 1px solid var(--color-border);
-    background: white;
-  }
-
-  .table-row.header {
-    background: var(--color-primary-dark);
-    color: white;
-    font-weight: 600;
-  }
-
-  .table-row:nth-child(even):not(.header) {
-    background: var(--color-background-alt);
-  }
-
-  .table-row:last-child {
-    border-bottom: none;
-  }
-
-  .highlight-value {
-    color: var(--color-primary-dark);
-    font-weight: 600;
-  }
-
-  .sidebar {
-    position: sticky;
-    top: 100px;
-  }
-
-  .sidebar-card {
-    background: var(--color-background-alt);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-  }
-
-  .sidebar-card h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-  }
-
-  .sidebar-card ul {
+  .feature-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 2rem;
+    display: inline-block;
+    text-align: left;
   }
 
-  .sidebar-card li {
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-text-light);
+    color: var(--color-text);
+    font-size: 1rem;
   }
 
-  .sidebar-card li:last-child {
-    border-bottom: none;
+  .feature-list .check {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.1rem;
   }
 
-  .sidebar-card a {
-    color: var(--color-primary-dark);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .sidebar-card a:hover {
-    text-decoration: underline;
-  }
-
-  .sidebar-cta {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .sidebar-cta h4 {
-    color: white;
-  }
-
-  .sidebar-cta p {
-    margin-bottom: 1rem;
-    opacity: 0.9;
-  }
-
-  .sidebar-cta .btn {
-    display: block;
-    text-align: center;
-    background: white;
-    color: var(--color-primary-dark);
-  }
-
-  .services-section {
-    background: var(--color-background-alt);
+  .section {
+    padding: 5rem 0;
   }
 
   .section-header {
@@ -555,6 +414,8 @@ const idealProperties = [
   .section-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .section-header p {
@@ -562,16 +423,24 @@ const idealProperties = [
     font-size: 1.1rem;
   }
 
+  .section-header .serif {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .services-section {
+    background: var(--color-background-alt);
+  }
+
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .service-card {
     background: white;
-    padding: 2rem;
-    border-radius: 16px;
+    padding: 1.75rem;
+    border-radius: 12px;
     border-left: 4px solid var(--color-primary);
     transition: all 0.3s ease;
   }
@@ -582,10 +451,11 @@ const idealProperties = [
   }
 
   .service-card h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    color: var(--color-text);
   }
 
   .service-card p {
@@ -595,12 +465,270 @@ const idealProperties = [
     margin: 0;
   }
 
-  .service-card a {
+  .service-card .service-link {
+    display: inline-block;
+    margin-top: 0.75rem;
     color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .steps-section {
+    background: white;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .step-card {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .step-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .step-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .comparison-section {
+    background: var(--color-background-alt);
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .comparison-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 2px solid var(--color-border);
+    position: relative;
+  }
+
+  .comparison-card.featured {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .comparison-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .comparison-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .comparison-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .icon-check {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .icon-x {
+    color: #e57373;
+    font-weight: bold;
+  }
+
+  .pricing-section {
+    background: white;
+  }
+
+  .pricing-box {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--color-background-alt);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 2px solid var(--color-primary);
+  }
+
+  .pricing-main {
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-amount {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+  }
+
+  .pricing-label {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+  }
+
+  .pricing-note {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .pricing-comparison-section {
+    background: var(--color-background-alt);
+  }
+
+  .feature-comparison {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .feature-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+  }
+
+  .feature-header > div {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .feature-header .feature-name {
+    text-align: left;
+  }
+
+  .tier-header.featured {
+    background: var(--color-primary);
+  }
+
+  .feature-category {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .feature-row:last-child {
+    border-bottom: none;
+  }
+
+  .feature-row > div {
+    padding: 0.75rem 1rem;
+  }
+
+  .feature-row .feature-name {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .feature-check {
+    text-align: center;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .faq-section {
+    background: white;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .faq-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .related-section {
-    background: white;
+    background: var(--color-background-alt);
   }
 
   .related-grid {
@@ -610,31 +738,35 @@ const idealProperties = [
   }
 
   .related-card {
-    background: var(--color-background-alt);
+    background: white;
     padding: 1.5rem;
     border-radius: 12px;
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
     position: relative;
+    border: 1px solid var(--color-border);
   }
 
   .related-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
   }
 
   .related-card h4 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--color-primary-dark);
+    font-size: 1rem;
   }
 
   .related-card p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-text-light);
     margin: 0;
+    padding-right: 1.5rem;
   }
 
   .related-card .arrow {
@@ -655,12 +787,14 @@ const idealProperties = [
 
   .cta-content h2 {
     color: white;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .cta-content p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     opacity: 0.95;
     margin-bottom: 2rem;
   }
@@ -670,58 +804,73 @@ const idealProperties = [
     color: var(--color-primary);
   }
 
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
   @media (max-width: 968px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-      position: static;
-    }
-
-    .table-row {
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      font-size: 0.85rem;
-    }
-
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+
+    .comparison-card.featured {
+      transform: none;
+      order: -1;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
     .related-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-row .feature-name {
+      font-size: 0.8rem;
     }
   }
 
   @media (max-width: 576px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-
-    .hero-stats {
-      gap: 2rem;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-    }
-
-    .table-row {
+    .trust-grid {
       grid-template-columns: 1fr;
-      gap: 0.5rem;
-      text-align: center;
-    }
-
-    .table-row.header {
-      display: none;
+      gap: 1rem;
     }
 
     .services-grid {
       grid-template-columns: 1fr;
     }
 
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
     .related-grid {
       grid-template-columns: 1fr;
+    }
+
+    .feature-comparison {
+      font-size: 0.85rem;
+    }
+
+    .feature-header > div,
+    .feature-row > div {
+      padding: 0.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 1.75rem;
     }
   }
 </style>
