@@ -24,6 +24,15 @@ const faqs = [
   { q: 'Will I still learn how to run my Airbnb?', a: 'Yes! Co-hosting is a great way to learn best practices while having professional backup. We share insights and strategies so you become a better host.' },
   { q: 'Who owns the listing?', a: 'You do. We work on your existing listing under your account. All reviews, history, and superhost status remain yours.' }
 ];
+
+const relatedServices = [
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto', description: 'Hands-off hosting. We do everything.' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'Maximize revenue with smart pricing' },
+  { name: 'Listing Optimization', href: '/services/airbnb-listing-optimization-toronto', description: 'Get more bookings with better listings' },
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto', description: 'Professional turnover cleaning' },
+  { name: 'Photography', href: '/services/airbnb-photography-toronto', description: 'Professional listing photos' },
+  { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
+];
 ---
 
 <Layout title="Airbnb Co-Hosting Greater Toronto Area" description="Airbnb co-hosting in the Greater Toronto Area. Get professional help while staying involved. Flexible, affordable part-time management starting at 10%. Keep control, get support.">
@@ -165,6 +174,24 @@ const faqs = [
             <h4>{faq.q}</h4>
             <p>{faq.a}</p>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Services</h2>
+        <p>Explore our other Airbnb management services</p>
+      </div>
+      <div class="related-grid">
+        {relatedServices.map(service => (
+          <a href={service.href} class="related-card">
+            <h4>{service.name}</h4>
+            <p>{service.description}</p>
+            <span class="arrow">→</span>
+          </a>
         ))}
       </div>
     </div>
@@ -548,6 +575,69 @@ const faqs = [
 
     .price {
       font-size: 3rem;
+    }
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid var(--color-border);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
+
+  .related-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+    font-size: 1rem;
+  }
+
+  .related-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
+    padding-right: 1.5rem;
+  }
+
+  .related-card .arrow {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 968px) {
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .related-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
