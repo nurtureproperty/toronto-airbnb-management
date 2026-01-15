@@ -1,0 +1,14 @@
+# robots.txt for nurturestays.ca
+# Nurture Airbnb Property Management
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.nurturestays.ca/sitemap.xml
+
+# Disallow utility pages
+Disallow: /thank-you
+
+# Disallow old/duplicate pages
+Disallow: /full-airbnb-management-toronto
