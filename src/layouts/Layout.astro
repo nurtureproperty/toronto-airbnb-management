@@ -7,9 +7,15 @@ interface Props {
   title: string;
   description?: string;
   schema?: object | object[];
+  canonical?: string;
 }
 
-const { title, description = "Nurture - The GTA's premier Airbnb property management company. We handle everything so you can earn more while doing less.", schema } = Astro.props;
+const { title, description = "Nurture - The GTA's premier Airbnb property management company. We handle everything so you can earn more while doing less.", schema, canonical } = Astro.props;
+
+// Generate canonical URL
+const siteUrl = "https://www.nurturestays.ca";
+const currentPath = Astro.url.pathname;
+const canonicalUrl = canonical || `${siteUrl}${currentPath === '/' ? '' : currentPath}`;
 
 // Base Organization schema for all pages
 const organizationSchema = {
@@ -57,6 +63,32 @@ const allSchemas = schema
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Nurture</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={`${title} | Nurture`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/images/logo.png`} />
+    <meta property="og:site_name" content="Nurture Airbnb Property Management" />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={`${title} | Nurture`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/images/logo.png`} />
+
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
