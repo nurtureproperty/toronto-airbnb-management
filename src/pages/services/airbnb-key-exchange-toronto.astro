@@ -1,15 +1,13 @@
 ---
-// Airbnb Key Exchange Toronto - Service Page
-// Targets: airbnb key exchange toronto, airbnb check-in service, smart lock installation
 import Layout from '../../layouts/Layout.astro';
 
 const pageTitle = "Airbnb Key Exchange & Check-In Services Toronto & GTA";
-const pageDescription = "Seamless Airbnb key exchange across the Greater Toronto Area. Smart locks, lockboxes, in-person meet & greet, 24/7 lockout support. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & more.";
+const pageDescription = "Seamless Airbnb key exchange across the Greater Toronto Area. Smart locks, lockboxes, lockout support. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & more.";
 
 const keyExchangeOptions = [
   {
     title: "Smart Lock",
-    description: "Keyless entry with unique codes for each guest.",
+    description: "Keyless entry with unique codes for each guest. Our recommended solution for modern hosting.",
     recommended: true,
     pros: [
       "Unique code per guest",
@@ -20,7 +18,7 @@ const keyExchangeOptions = [
   },
   {
     title: "Lockbox",
-    description: "Secure combination box mounted near entry.",
+    description: "Secure combination box mounted near entry. Reliable backup option.",
     recommended: false,
     pros: [
       "Low cost solution",
@@ -28,52 +26,55 @@ const keyExchangeOptions = [
       "Change code easily",
       "Reliable backup"
     ]
-  },
-  {
-    title: "In-Person Meet",
-    description: "Personal greeting and property walkthrough.",
-    recommended: false,
-    pros: [
-      "Personal touch",
-      "Property orientation",
-      "Premium experience",
-      "Verify guest identity"
-    ]
   }
+];
+
+const steps = [
+  { number: '1', title: 'We Assess Your Property', description: 'We evaluate your door type, building requirements, and guest volume to recommend the best access solution.' },
+  { number: '2', title: 'Setup Access', description: 'Based on our consultation, you set up your smart lock or lockbox. We guide you through the entire process.' },
+  { number: '3', title: 'Automated Guest Codes', description: 'Unique access codes generated for each booking. Codes automatically expire after checkout.' },
+  { number: '4', title: 'Seamless Check-Ins', description: 'Guests receive clear instructions with photos. We monitor every arrival and provide lockout support.' }
 ];
 
 const tips = [
   {
-    number: 1,
     title: "Send Instructions Early",
-    content: "Send check-in instructions 24 hours before AND 2 hours before arrival. Include photos of the entry process."
+    content: "Send check-in instructions 24 hours before AND 2 hours before arrival. Include photos of the entry process for a stress-free arrival."
   },
   {
-    number: 2,
     title: "Always Have a Backup",
-    content: "Smart locks can fail. Always have a lockbox with a physical key as backup. We check batteries during every",
-    linkText: "turnover cleaning",
-    linkUrl: "/services/airbnb-cleaning-toronto"
+    content: "Smart locks can fail. Always have a lockbox with a physical key as backup. We check batteries during every turnover cleaning."
   },
   {
-    number: 3,
     title: "Test Before Every Guest",
-    content: "Verify the access code works before each arrival. A 30-second test prevents frustrated guests."
+    content: "Verify the access code works before each arrival. A 30-second test prevents frustrated guests and bad reviews."
   }
 ];
 
+const faqs = [
+  { q: "What's the best key exchange method for Airbnb?", a: "Smart locks are our top recommendation for most hosts. They allow unique codes per guest, remote management, and eliminate lost key issues. We recommend August, Schlage, or Yale smart locks for reliability." },
+  { q: "Do I need to be present for every guest check-in?", a: "No. With smart locks or lockboxes, guests can self-check-in at any time. We handle code generation and guest communication, so you never need to meet guests unless you want to." },
+  { q: "What happens if a guest gets locked out?", a: "Our emergency support team responds in under 9 minutes on average. We can remotely generate new codes, dispatch a team member with backup keys, or coordinate with your building's concierge." },
+  { q: "Will my condo building allow smart locks?", a: "Not all condo buildings allow smart locks, so you'll need to check with your condo board first. If smart locks aren't permitted, we recommend the lockbox method or arranging key handover through your building's concierge if allowed." },
+  { q: "How do you handle key fobs for condo buildings?", a: "We coordinate with your building's concierge or management to arrange fob access for guests. This can include concierge handoff or lockbox storage." },
+  { q: "What if my door isn't compatible with smart locks?", a: "We assess your door type during our free consultation. Most standard doors work with smart locks. For incompatible doors, we recommend lockboxes as a reliable alternative." }
+];
+
 const relatedServices = [
-  { title: "Full Management", url: "/services/full-airbnb-management-toronto" },
-  { title: "Turnover Management", url: "/services/airbnb-turnover-management-toronto" },
-  { title: "Emergency Support", url: "/emergency-airbnb-support-toronto" }
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto', description: 'Complete hands-off hosting' },
+  { name: 'Turnover Management', href: '/services/airbnb-turnover-management-toronto', description: 'End-to-end guest transitions' },
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto', description: 'Professional turnover cleaning' },
+  { name: 'Emergency Support', href: '/emergency-airbnb-support-toronto', description: '24/7 crisis response' },
+  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto', description: 'Repairs and upkeep' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'Manual + AI rate optimization' }
 ];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <section class="hero hero-small">
     <div class="container">
-      <h1>Airbnb <span class="highlight">Key Exchange</span> & Check-In GTA</h1>
-      <p class="hero-subtitle">Seamless guest access solutions across the Greater Toronto Area: smart locks, lockboxes, in-person greetings, and 24/7 lockout support. Serving Toronto, Mississauga, Vaughan, Markham, Brampton & more.</p>
+      <h1>Airbnb Key Exchange & Check-In</h1>
+      <p class="hero-subtitle">Seamless guest access solutions across the Greater Toronto Area: smart locks, lockboxes, and lockout support.</p>
     </div>
   </section>
 
@@ -85,16 +86,12 @@ const relatedServices = [
           <span class="trust-label">Lockout Response</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">24/7</span>
-          <span class="trust-label">Support Available</span>
+          <span class="trust-number">Unique</span>
+          <span class="trust-label">Guest Codes</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">100%</span>
-          <span class="trust-label">Secure Access</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-number">0</span>
-          <span class="trust-label">Lost Key Issues</span>
+          <span class="trust-number">Screened</span>
+          <span class="trust-label">Guests</span>
         </div>
       </div>
     </div>
@@ -105,9 +102,9 @@ const relatedServices = [
       <div class="intro-content">
         <p class="intro-text">First impressions start at the door. A smooth check-in sets the tone for a 5-star stay, while a fumbled arrival can ruin even the most beautiful property. We ensure every guest enters effortlessly.</p>
         <ul class="feature-list">
-          <li><span class="check">✓</span> Smart lock installation and management</li>
+          <li><span class="check">✓</span> Smart lock consultation and management</li>
           <li><span class="check">✓</span> Unique codes for every guest</li>
-          <li><span class="check">✓</span> 24/7 lockout assistance</li>
+          <li><span class="check">✓</span> Lockout assistance</li>
           <li><span class="check">✓</span> Condo building coordination</li>
           <li><span class="check">✓</span> Backup key systems</li>
         </ul>
@@ -116,59 +113,127 @@ const relatedServices = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section info-section">
     <div class="container">
+      <div class="info-grid">
+        <div class="info-box highlight-box">
+          <h3>Why Check-In Matters</h3>
+          <p>Studies show that check-in experience is the #1 factor guests mention in reviews. A smooth arrival creates goodwill that lasts the entire stay, while a frustrating check-in puts guests in a negative mindset before they even see your property.</p>
+        </div>
+        <div class="info-box tip-box">
+          <h3>Pro Tip: Redundancy is Key</h3>
+          <p>Always have a backup access method. Smart lock batteries die, lockbox combinations get forgotten, and flights get delayed. We set up multiple access layers so guests never get stranded.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section options-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Exchange Options</h2>
+        <p class="serif">Choose the right access method for your property</p>
+      </div>
       <div class="options-grid">
         {keyExchangeOptions.map((option) => (
           <div class={`option-card ${option.recommended ? 'recommended' : ''}`}>
+            {option.recommended && <span class="recommended-badge">RECOMMENDED</span>}
             <h3>{option.title}</h3>
-            <p>{option.description}</p>
+            <p class="option-description">{option.description}</p>
             <ul class="option-pros">
               {option.pros.map((pro) => (
-                <li>✓ {pro}</li>
+                <li><span class="check-icon">✓</span> {pro}</li>
               ))}
             </ul>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
-      <div class="content-grid">
-        <div class="main-content">
-          <h2>Tips for Smooth Check-Ins</h2>
+  <section class="section steps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p class="serif">From setup to seamless guest arrivals</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map(step => (
+          <div class="step-card">
+            <div class="step-number">{step.number}</div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          {tips.map((tip) => (
-            <div class="tip-box">
-              <h4>Tip #{tip.number}: {tip.title}</h4>
-              {tip.linkUrl ? (
-                <p>{tip.content} <a href={tip.linkUrl} class="inline-link">{tip.linkText}</a>.</p>
-              ) : (
-                <p>{tip.content}</p>
-              )}
-            </div>
-          ))}
+  <section class="section tips-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tips for Smooth Check-Ins</h2>
+        <p class="serif">Maximize guest satisfaction from the first moment</p>
+      </div>
+      <div class="tips-grid">
+        {tips.map((tip) => (
+          <div class="tip-card">
+            <h3>{tip.title}</h3>
+            <p>{tip.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <h3>Lockout Support</h3>
-          <p>Our <a href="/emergency-airbnb-support-toronto" class="inline-link">emergency support</a> includes lockout assistance with less than 9-minute average response time.</p>
-
-          <h3>Condo Building Coordination</h3>
-          <p>We handle key fob arrangements, concierge coordination, and building-specific access requirements for all <a href="/downtown-toronto-airbnb-management" class="inline-link">Downtown Toronto</a> and GTA condos.</p>
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We Handle</h2>
+        <p class="serif">Complete check-in management included</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Smart Lock Consultation</h3>
+          <p>We recommend the best smart locks compatible with your door and building requirements, and guide you through setup.</p>
         </div>
+        <div class="service-card">
+          <h3>Code Management</h3>
+          <p>Unique access codes generated automatically for each booking, with automatic expiration after checkout.</p>
+        </div>
+        <div class="service-card">
+          <h3>Guest Communication</h3>
+          <p>Clear check-in instructions with photos sent at the right times. Guests know exactly how to enter.</p>
+        </div>
+        <div class="service-card">
+          <h3>Lockout Support</h3>
+          <p>Emergency response for lockouts. New codes, backup keys, or on-site assistance within minutes.</p>
+        </div>
+        <div class="service-card">
+          <h3>Condo Coordination</h3>
+          <p>We handle key fob arrangements, concierge coordination, and building-specific access requirements.</p>
+        </div>
+        <div class="service-card">
+          <h3>Battery Monitoring</h3>
+          <p>Smart lock batteries checked during every turnover. No guest ever arrives to a dead lock.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <aside class="sidebar">
-          <div class="sidebar-card sidebar-card-cta">
-            <h4>Need Help?</h4>
-            <p>We will set up the perfect check-in system.</p>
-            <a href="tel:647-957-8956" class="btn btn-secondary sidebar-btn">Call 647-957-8956</a>
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Exchange FAQs</h2>
+        <p class="serif">Common questions about Airbnb check-in</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
           </div>
-          <div class="sidebar-card">
-            <h4>Related Services</h4>
-            <ul class="related-list">
-              {relatedServices.map((service) => (
-                <li><a href={service.url}>{service.title}</a></li>
-              ))}
-            </ul>
-          </div>
-        </aside>
+        ))}
       </div>
     </div>
   </section>
@@ -176,54 +241,40 @@ const relatedServices = [
   <section class="section related-section">
     <div class="container">
       <div class="section-header">
-        <h2>Complete Your Guest Experience</h2>
-        <p>Services that pair perfectly with seamless check-ins</p>
+        <h2>Related Services</h2>
+        <p class="serif">Complete your guest experience</p>
       </div>
       <div class="related-grid">
-        <a href="/services/airbnb-turnover-management-toronto" class="related-card">
-          <h4>Turnover Management</h4>
-          <p>End-to-end guest transition coordination</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-cleaning-toronto" class="related-card">
-          <h4>Cleaning Services</h4>
-          <p>5-star cleanliness guaranteed</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/full-airbnb-management-toronto" class="related-card">
-          <h4>Full Management</h4>
-          <p>Hands-off hosting. We do everything</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-property-maintenance-toronto" class="related-card">
-          <h4>Property Maintenance</h4>
-          <p>Repairs and emergency support</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-dynamic-pricing-toronto" class="related-card">
-          <h4>Dynamic Pricing</h4>
-          <p>Manual + AI rate optimization</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/short-term-rental-management-toronto" class="related-card">
-          <h4>STR Management</h4>
-          <p>Short-term rental expertise</p>
-          <span class="arrow">→</span>
-        </a>
+        {relatedServices.map(service => (
+          <a href={service.href} class="related-card">
+            <h4>{service.name}</h4>
+            <p>{service.description}</p>
+            <span class="arrow">→</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="container">
-      <h2>Never Worry About Check-Ins Again</h2>
-      <p>From smart lock installation to 24/7 lockout support, we have got you covered.</p>
-      <a href="tel:647-957-8956" class="btn btn-secondary btn-large">Call Now: 647-957-8956</a>
+      <div class="cta-content">
+        <h2>Never Worry About Check-Ins Again</h2>
+        <p>From smart lock consultation to lockout support, we've got you covered.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation • No obligation • Same-day response</p>
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
+  .hero-subtitle {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
   .trust-bar {
     background: var(--color-primary-dark);
     padding: 1.5rem 0;
@@ -231,7 +282,7 @@ const relatedServices = [
 
   .trust-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     text-align: center;
   }
@@ -251,90 +302,8 @@ const relatedServices = [
     opacity: 0.9;
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .section-header h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-header p {
-    color: var(--color-text-light);
-    font-size: 1.1rem;
-  }
-
-  .related-section {
-    background: var(--color-background-alt);
+  .section {
     padding: 5rem 0;
-  }
-
-  .related-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .related-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-
-  .related-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .related-card h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--color-primary-dark);
-  }
-
-  .related-card p {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    margin: 0;
-  }
-
-  .related-card .arrow {
-    position: absolute;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-primary);
-    font-size: 1.25rem;
-  }
-
-  .hero-small {
-    text-align: center;
-    padding: 6rem 0 3rem;
-    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
-  }
-
-  .hero-small h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1.5rem;
-  }
-
-  .highlight {
-    color: var(--color-primary);
-  }
-
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
   }
 
   .intro-section {
@@ -363,33 +332,117 @@ const relatedServices = [
   }
 
   .feature-list li {
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    font-size: 1rem;
   }
 
-  .check {
+  .feature-list .check {
     color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .info-section {
+    background: var(--color-background-alt);
+    padding: 3rem 0;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .info-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-box p {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .highlight-box {
+    background: #FFF8E1;
+    border-left: 4px solid #F9A825;
+  }
+
+  .highlight-box h3 {
+    color: #F57C00;
+  }
+
+  .highlight-box p {
+    color: #555;
+  }
+
+  .tip-box {
+    background: #E8F5E9;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .tip-box h3 {
+    color: var(--color-primary-dark);
+  }
+
+  .tip-box p {
+    color: #555;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .section-header p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .section-header .serif {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .options-section {
+    background: white;
   }
 
   .options-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 3rem 0;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .option-card {
-    background: white;
+    background: var(--color-background-alt);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    border-top: 4px solid var(--color-border);
+    position: relative;
+    transition: all 0.3s ease;
   }
 
   .option-card:hover {
@@ -398,12 +451,12 @@ const relatedServices = [
   }
 
   .option-card.recommended {
-    border: 3px solid var(--color-primary);
-    position: relative;
+    border-top-color: var(--color-primary);
+    background: white;
+    box-shadow: var(--shadow-md);
   }
 
-  .option-card.recommended::before {
-    content: 'RECOMMENDED';
+  .recommended-badge {
     position: absolute;
     top: -12px;
     left: 50%;
@@ -412,213 +465,306 @@ const relatedServices = [
     color: white;
     padding: 0.25rem 1rem;
     border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
   }
 
   .option-card h3 {
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     color: var(--color-text);
+  }
+
+  .option-description {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .option-pros {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .option-pros li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  .check-icon {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .steps-section {
+    background: var(--color-background-alt);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .step-card {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .step-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
 
-  .option-card p {
+  .step-card p {
     color: var(--color-text-light);
-    margin-bottom: 1rem;
-  }
-
-  .option-pros {
-    text-align: left;
     font-size: 0.9rem;
-    list-style: none;
-    padding: 0;
+    line-height: 1.5;
   }
 
-  .option-pros li {
-    color: var(--color-primary-dark);
-    margin-bottom: 0.5rem;
+  .tips-section {
+    background: white;
   }
 
-  .content-grid {
+  .tips-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 
-  .main-content h2,
-  .main-content h3 {
-    color: var(--color-text);
-    margin: 2rem 0 1rem;
-  }
-
-  .main-content h2 {
-    margin-top: 0;
-  }
-
-  .main-content p {
-    color: var(--color-text-light);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  .inline-link {
-    color: var(--color-primary-dark);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .inline-link:hover {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
-
-  .tip-box {
-    background: var(--color-primary-light);
-    border-left: 4px solid var(--color-primary);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
-  }
-
-  .tip-box h4 {
-    color: var(--color-primary-dark);
-    margin-bottom: 0.5rem;
-    font-style: normal;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-  }
-
-  .tip-box p {
-    margin-bottom: 0;
-  }
-
-  .sidebar {
-    position: sticky;
-    top: 100px;
-  }
-
-  .sidebar-card {
-    background: white;
+  .tip-card {
+    background: #E8F5E9;
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-md);
-    margin-bottom: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
   }
 
-  .sidebar-card-cta {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .sidebar-card-cta h4,
-  .sidebar-card-cta p {
-    color: white;
-  }
-
-  .sidebar-card h4 {
-    margin-bottom: 1rem;
-    font-style: normal;
-    font-family: 'DM Sans', sans-serif;
+  .tip-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
-  }
-
-  .sidebar-card p {
-    margin-bottom: 1rem;
-  }
-
-  .sidebar-btn {
-    display: block;
-    text-align: center;
-    background: white;
     color: var(--color-primary-dark);
   }
 
-  .sidebar-btn:hover {
+  .tip-card p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .services-section {
     background: var(--color-background-alt);
   }
 
-  .related-list {
-    list-style: none;
-    padding: 0;
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 
-  .related-list li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--color-border);
+  .service-card {
+    background: white;
+    padding: 1.75rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
   }
 
-  .related-list li:last-child {
-    border-bottom: none;
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
 
-  .related-list a {
-    color: var(--color-primary-dark);
+  .service-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .faq-section {
+    background: white;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .faq-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
     text-decoration: none;
-    transition: color 0.2s ease;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid var(--color-border);
   }
 
-  .related-list a:hover {
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
+
+  .related-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+    font-size: 1rem;
+  }
+
+  .related-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
+    padding-right: 1.5rem;
+  }
+
+  .related-card .arrow {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     color: var(--color-primary);
+    font-size: 1.25rem;
   }
 
   .cta-section {
-    padding: 5rem 2rem;
-    background: var(--color-primary);
-    color: white;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
     text-align: center;
+    color: white;
   }
 
-  .cta-section h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  .cta-content h2 {
+    color: white;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
-  .cta-section p {
+  .cta-content p {
+    font-size: 1.15rem;
+    opacity: 0.95;
     margin-bottom: 2rem;
-    font-size: 1.125rem;
-    opacity: 0.9;
   }
 
-  .cta-section .btn-secondary {
+  .cta-section .btn {
     background: white;
-    color: var(--color-primary-dark);
-    border-color: white;
+    color: var(--color-primary);
   }
 
-  .cta-section .btn-secondary:hover {
-    background: var(--color-background-alt);
-    border-color: var(--color-background-alt);
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
   }
 
-  @media (max-width: 1024px) {
-    .content-grid,
-    .options-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-      position: static;
-    }
-
+  @media (max-width: 968px) {
     .trust-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .related-grid {
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
+    .tips-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
     }
 
     .related-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -630,6 +776,22 @@ const relatedServices = [
 
     .trust-number {
       font-size: 1.5rem;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-content h2 {
+      font-size: 1.75rem;
     }
   }
 </style>

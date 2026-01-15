@@ -99,7 +99,7 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
           </a>
         </li>
       </ul>
-      <a href="tel:+16479578956" class="nav-phone">647-957-8956</a>
+      <a href="tel:+16479578956" class="nav-phone"><span class="phone-icon">📞</span> (647) 957-8956</a>
       <a href="/contact" class="btn btn-primary nav-cta">Contact Us</a>
     </nav>
 
@@ -107,6 +107,9 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
       <span class="hamburger"></span>
     </button>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay"></div>
 
     <!-- Mobile Navigation (slide-out menu) -->
     <nav class="mobile-nav">
@@ -152,58 +155,104 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
   </div>
 </header>
 
-<script>
-  // Mobile menu toggle
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileNav = document.querySelector('.mobile-nav');
-  const header = document.querySelector('.header');
+<script is:inline>
+(function() {
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
-  menuBtn?.addEventListener('click', () => {
-    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
-    mobileNav?.classList.toggle('open');
-    header?.classList.toggle('menu-open');
-  });
+  function init() {
+    // Mobile menu toggle
+    var menuBtn = document.querySelector('.mobile-menu-btn');
+    var mobileNav = document.querySelector('.mobile-nav');
+    var overlay = document.querySelector('.mobile-overlay');
 
-  // Desktop dropdown toggles
-  const desktopDropdowns = document.querySelectorAll('.desktop-nav .dropdown-toggle');
-  desktopDropdowns.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const parent = toggle.parentElement;
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-      desktopDropdowns.forEach(other => {
-        if (other !== toggle) {
-          other.setAttribute('aria-expanded', 'false');
-          other.parentElement?.classList.remove('dropdown-open');
-        }
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', function() {
+        var isOpen = mobileNav.classList.contains('open');
+        menuBtn.classList.toggle('active');
+        mobileNav.classList.toggle('open');
+        if (overlay) overlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
       });
 
-      toggle.setAttribute('aria-expanded', (!isExpanded).toString());
-      parent?.classList.toggle('dropdown-open');
-    });
-  });
+      if (overlay) {
+        overlay.addEventListener('click', function() {
+          menuBtn.classList.remove('active');
+          mobileNav.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
 
-  // Mobile dropdown toggles
-  const mobileDropdowns = document.querySelectorAll('.mobile-nav .dropdown-toggle');
-  mobileDropdowns.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const parent = toggle.parentElement;
-      parent?.classList.toggle('dropdown-open');
-    });
-  });
-
-  // Close desktop dropdowns when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!(e.target as Element).closest('.has-dropdown')) {
-      desktopDropdowns.forEach(toggle => {
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.parentElement?.classList.remove('dropdown-open');
-      });
+      // Close menu on link click
+      var links = mobileNav.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function() {
+          menuBtn.classList.remove('active');
+          mobileNav.classList.remove('open');
+          if (overlay) overlay.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
     }
-  });
+
+    // Desktop dropdown toggles
+    var desktopDropdowns = document.querySelectorAll('.desktop-nav .dropdown-toggle');
+    for (var j = 0; j < desktopDropdowns.length; j++) {
+      (function(toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          var parent = toggle.parentElement;
+          var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+          // Close other dropdowns
+          for (var k = 0; k < desktopDropdowns.length; k++) {
+            if (desktopDropdowns[k] !== toggle) {
+              desktopDropdowns[k].setAttribute('aria-expanded', 'false');
+              if (desktopDropdowns[k].parentElement) {
+                desktopDropdowns[k].parentElement.classList.remove('dropdown-open');
+              }
+            }
+          }
+
+          toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+          if (parent) parent.classList.toggle('dropdown-open');
+        });
+      })(desktopDropdowns[j]);
+    }
+
+    // Close desktop dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.has-dropdown')) {
+        for (var m = 0; m < desktopDropdowns.length; m++) {
+          desktopDropdowns[m].setAttribute('aria-expanded', 'false');
+          if (desktopDropdowns[m].parentElement) {
+            desktopDropdowns[m].parentElement.classList.remove('dropdown-open');
+          }
+        }
+      }
+    });
+
+    // Mobile dropdown toggles
+    var mobileDropdowns = document.querySelectorAll('.mobile-nav .dropdown-toggle');
+    for (var n = 0; n < mobileDropdowns.length; n++) {
+      (function(toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          var parent = toggle.parentElement;
+          if (parent) parent.classList.toggle('dropdown-open');
+        });
+      })(mobileDropdowns[n]);
+    }
+  }
+})();
 </script>
 
 <style>
@@ -233,6 +282,8 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
+    position: relative;
+    z-index: 1002;
   }
 
   .logo-img {
@@ -397,6 +448,11 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     color: var(--color-primary);
   }
 
+  .phone-icon {
+    filter: grayscale(100%) brightness(0);
+    display: inline-block;
+  }
+
   .nav-cta {
     display: inline-flex;
     font-weight: 600;
@@ -438,9 +494,47 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
   .hamburger::before { top: -7px; }
   .hamburger::after { bottom: -7px; }
 
+  /* Hamburger to X animation */
+  .mobile-menu-btn.active .hamburger {
+    background: transparent;
+  }
+
+  .mobile-menu-btn.active .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .mobile-menu-btn.active .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Mobile Overlay */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-overlay.active {
+    opacity: 1;
+  }
+
   /* Mobile Navigation - Hidden by default */
   .mobile-nav {
     display: none;
+  }
+
+  /* Body scroll lock when menu open */
+  :global(body.menu-open) {
+    overflow: hidden;
   }
 
   /* ========== MOBILE STYLES ========== */
@@ -461,6 +555,13 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     /* Show mobile menu button */
     .mobile-menu-btn {
       display: flex;
+      z-index: 1001;
+      position: relative;
+    }
+
+    /* Show mobile overlay */
+    .mobile-overlay {
+      display: block;
     }
 
     /* Mobile Navigation Slide-out */
@@ -477,7 +578,7 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
       transition: right 0.3s ease;
       overflow-y: auto;
-      z-index: 999;
+      z-index: 1000;
     }
 
     .mobile-nav.open {

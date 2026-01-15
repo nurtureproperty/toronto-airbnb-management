@@ -203,6 +203,38 @@ main {
   .section {
     padding: 3rem 0;
   }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-large {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    padding-top: 70px;
+  }
+
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .hero-small {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
 }
 
 /* Form Styles */
@@ -312,3 +344,24 @@ main {
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
+
+/* Brand color filter for emojis */
+.emoji-brand,
+.phone-icon,
+.service-icon,
+.service-check,
+.feature-icon,
+.benefit-icon,
+.step-icon,
+.info-icon,
+.learn-icon,
+.contact-bar-icon,
+.sameday-icon,
+.tip-icon,
+.area-icon,
+.check,
+.icon-check,
+.check-icon,
+.emergency-icon {
+  filter: sepia(1) hue-rotate(85deg) saturate(0.6) brightness(0.85);
+}

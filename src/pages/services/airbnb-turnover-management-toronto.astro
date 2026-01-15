@@ -609,6 +609,7 @@ const serviceAreas = [
     font-size: 2rem;
     display: block;
     margin-bottom: 0.75rem;
+    filter: sepia(1) hue-rotate(85deg) saturate(0.6) brightness(0.85);
   }
 
   .sameday-item h4 {
@@ -811,12 +812,23 @@ const serviceAreas = [
 
   @media (max-width: 576px) {
     .trust-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .trust-item {
+      flex-direction: row;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
     }
 
     .trust-number {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    .trust-label {
+      font-size: 0.8rem;
     }
 
     .services-grid {
