@@ -27,7 +27,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { display: block; max-width: 100%; }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* Prevent layout shift by maintaining aspect ratio */
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', -apple-system, sans-serif;
@@ -57,6 +68,8 @@ main { padding-top: 80px; }
   z-index: 1000;
   padding: 1rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  /* Containment for better rendering performance */
+  contain: layout style;
 }
 
 .header-container {
@@ -151,6 +164,11 @@ main { padding-top: 80px; }
   background: var(--color-primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/* Improve touch responsiveness for INP */
+.btn, .nav-link, a {
+  touch-action: manipulation;
 }
 
 .btn-large {

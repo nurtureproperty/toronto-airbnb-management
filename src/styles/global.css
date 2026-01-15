@@ -365,3 +365,34 @@ main {
 .emergency-icon {
   filter: sepia(1) hue-rotate(85deg) saturate(0.6) brightness(0.85);
 }
+
+/* Core Web Vitals Optimizations */
+
+/* Content visibility for below-fold sections - improves initial render */
+.section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* Footer rendering optimization */
+footer, .footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize paint for fixed elements */
+.header, nav {
+  will-change: transform;
+  backface-visibility: hidden;
+}
