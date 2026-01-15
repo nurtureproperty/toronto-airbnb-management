@@ -7,7 +7,16 @@ const currentYear = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          <img src="/images/logo.webp" alt="Nurture" class="logo-img" width="700" height="225" loading="lazy" />
+          <img
+            src="/images/logo.webp"
+            srcset="/images/logo-mobile.webp 350w, /images/logo.webp 700w"
+            sizes="(max-width: 768px) 120px, 160px"
+            alt="Nurture"
+            class="logo-img"
+            width="700"
+            height="225"
+            loading="lazy"
+          />
         </a>
         <p>Short and mid term property management experts in the Greater Toronto Area. We help owners earn more from their property.</p>
         <div class="social-links">

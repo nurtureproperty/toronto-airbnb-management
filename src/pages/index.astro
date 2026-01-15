@@ -34,10 +34,20 @@
     <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Fonts -->
+    <!-- Preload critical assets - responsive for mobile -->
+    <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
+    <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" media="(min-width: 769px)">
+
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+    <!-- Fonts - deferred loading for mobile performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         * {
             margin: 0;
@@ -1816,7 +1826,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo"><img src="/images/logo.webp" alt="Nurture" class="logo-img" width="700" height="225" fetchpriority="high" /></a>
+            <a href="/" class="logo"><img src="/images/logo.webp" srcset="/images/logo-mobile.webp 350w, /images/logo.webp 700w" sizes="(max-width: 768px) 150px, 200px" alt="Nurture" class="logo-img" width="700" height="225" fetchpriority="high" /></a>
 
             <!-- Desktop Nav (hidden on mobile via CSS) -->
             <div class="desktop-only">
@@ -2319,7 +2329,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <a href="/" class="footer-logo"><img src="/images/logo.webp" alt="Nurture" class="footer-logo-img" width="700" height="225" loading="lazy" /></a>
+                <a href="/" class="footer-logo"><img src="/images/logo.webp" srcset="/images/logo-mobile.webp 350w, /images/logo.webp 700w" sizes="(max-width: 768px) 120px, 160px" alt="Nurture" class="footer-logo-img" width="700" height="225" loading="lazy" /></a>
                 <p>Short and mid term property management experts in the Greater Toronto Area. We help owners earn more from their property.</p>
                 <div class="contact-info">
                     <a href="tel:647-957-8956"><span class="emoji-brand">📞</span> 647-957-8956</a>

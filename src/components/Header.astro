@@ -27,7 +27,16 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
 <header class="header">
   <div class="header-container">
     <a href="/" class="logo">
-      <img src="/images/logo.webp" alt="Nurture" class="logo-img" width="700" height="225" fetchpriority="high" />
+      <img
+        src="/images/logo.webp"
+        srcset="/images/logo-mobile.webp 350w, /images/logo.webp 700w"
+        sizes="(max-width: 768px) 150px, 200px"
+        alt="Nurture"
+        class="logo-img"
+        width="700"
+        height="225"
+        fetchpriority="high"
+      />
     </a>
 
     <!-- Desktop Navigation -->

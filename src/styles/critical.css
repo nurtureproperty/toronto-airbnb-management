@@ -243,4 +243,20 @@ main { padding-top: 80px; }
 @media (max-width: 576px) {
   .container { padding: 0 1rem; }
   main { padding-top: 70px; }
+
+  /* Optimize hero for mobile */
+  .hero { padding: 4rem 0; }
+  .hero-small { padding: 3rem 0 2rem; }
+  .hero p { font-size: 1.1rem; }
+
+  /* Smaller buttons on mobile */
+  .btn { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+  .btn-large { padding: 0.875rem 1.75rem; font-size: 1rem; }
+}
+
+/* Fast tap highlighting for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .nav-link, a {
+    -webkit-tap-highlight-color: rgba(117, 155, 143, 0.2);
+  }
 }
