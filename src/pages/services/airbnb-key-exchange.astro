@@ -68,9 +68,37 @@ const relatedServices = [
   { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance', description: 'Repairs and upkeep' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Key Exchange & Check-In Services",
+  "description": "Seamless Airbnb key exchange and check-in services across the Greater Toronto Area. Smart locks, lockboxes, and lockout support.",
+  "url": "https://www.nurturestays.ca/services/airbnb-key-exchange",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Property Management"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Airbnb Key Exchange & Check-In</h1>

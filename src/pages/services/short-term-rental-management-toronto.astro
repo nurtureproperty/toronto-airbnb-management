@@ -36,9 +36,37 @@ const relatedServices = [
   { name: 'Turnover Management', href: '/services/airbnb-turnover-management', description: 'Seamless guest transitions' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Short-Term Rental Management Toronto",
+  "description": "Expert short-term rental management in Toronto with STR registration assistance, guest management, and compliance support. 10-15% commission.",
+  "url": "https://www.nurturestays.ca/services/short-term-rental-management-toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Property Management"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Short Term Rental Management Toronto & GTA | STR Experts" description="Expert short term rental management across the Greater Toronto Area. We handle STR registration, guest management, and cleaning. 10-15% fees. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill & more.">
+<Layout title="Short Term Rental Management Toronto & GTA | STR Experts" description="Expert short term rental management across the Greater Toronto Area. We handle STR registration, guest management, and cleaning. 10-15% fees. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill & more." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Short-Term Rental Management Toronto</h1>

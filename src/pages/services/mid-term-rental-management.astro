@@ -49,9 +49,37 @@ const relatedServices = [
   { name: 'Maintenance', href: '/services/airbnb-property-maintenance', description: 'Repairs and upkeep' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Mid-Term Rental Management",
+  "description": "Mid-term rental management (30+ day stays) across the Greater Toronto Area. No STR license required. Corporate relocations, medical travelers, and extended stays.",
+  "url": "https://www.nurturestays.ca/services/mid-term-rental-management",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Property Management"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Mid-Term Rental Management Toronto & GTA | 30+ Day Rentals" description="Mid-term rental management across the GTA (30+ day stays). No STR license needed. Relocations & extended stays. 10-15% fees. Serving Toronto, Mississauga, Vaughan, Markham & more.">
+<Layout title="Mid-Term Rental Management Toronto & GTA | 30+ Day Rentals" description="Mid-term rental management across the GTA (30+ day stays). No STR license needed. Relocations & extended stays. 10-15% fees. Serving Toronto, Mississauga, Vaughan, Markham & more." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Mid-Term Rental Management Toronto</h1>

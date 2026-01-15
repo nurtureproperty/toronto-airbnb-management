@@ -46,9 +46,37 @@ const relatedServices = [
   { name: 'Cleaning Services', href: '/services/airbnb-cleaning', description: '5-star turnover cleaning' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Dynamic Pricing",
+  "description": "AI-powered and manually optimized dynamic pricing for Airbnb in Toronto. Analyzes 50+ factors daily including events, seasonality, and demand. Average 20-40% revenue increase.",
+  "url": "https://www.nurturestays.ca/services/airbnb-dynamic-pricing",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Revenue Management"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Dynamic Pricing Toronto" description="Maximize your Airbnb revenue with AI-powered dynamic pricing in Toronto. Our algorithms analyze 50+ factors daily to optimize your rates. Average 20-40% revenue increase.">
+<Layout title="Airbnb Dynamic Pricing Toronto" description="Maximize your Airbnb revenue with AI-powered dynamic pricing in Toronto. Our algorithms analyze 50+ factors daily to optimize your rates. Average 20-40% revenue increase." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Dynamic Pricing for Toronto Airbnb</h1>

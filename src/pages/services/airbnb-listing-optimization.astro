@@ -40,9 +40,37 @@ const relatedServices = [
   { name: 'Cleaning Services', href: '/services/airbnb-cleaning', description: '5-star turnover cleaning' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Listing Optimization",
+  "description": "Professional Airbnb listing optimization in Toronto. SEO-optimized titles, compelling descriptions, and strategic amenity placement to rank higher and convert more bookings.",
+  "url": "https://www.nurturestays.ca/services/airbnb-listing-optimization",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Marketing Service"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Listing Optimization Toronto" description="Optimize your Toronto Airbnb listing for more bookings. Professional photography, SEO-optimized descriptions, and conversion-focused design. Rank higher, book more.">
+<Layout title="Airbnb Listing Optimization Toronto" description="Optimize your Toronto Airbnb listing for more bookings. Professional photography, SEO-optimized descriptions, and conversion-focused design. Rank higher, book more." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Optimize Your Airbnb Listing</h1>

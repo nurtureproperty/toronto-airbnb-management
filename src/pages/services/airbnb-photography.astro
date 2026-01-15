@@ -60,9 +60,48 @@ const relatedServices = [
   { name: 'Turnover Management', href: '/services/airbnb-turnover-management', description: 'Maintain that perfect look' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Complete revenue optimization guide' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Professional Airbnb Photography",
+  "description": "Professional HDR photography for Airbnb listings in Toronto and the Greater Toronto Area. Stunning photos that increase booking rates by 23% on average.",
+  "url": "https://www.nurturestays.ca/services/airbnb-photography",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Greater Toronto Area, Ontario, Canada"
+  },
+  "serviceType": "Real Estate Photography",
+  "offers": {
+    "@type": "Offer",
+    "description": "15-30 HDR-processed photos covering all spaces",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Photography Toronto & GTA | Professional Listing Photos" description="Professional Airbnb photography in Toronto and the Greater Toronto Area. Stunning listing photos that get more bookings at higher rates. HDR and twilight shots available.">
+<Layout title="Airbnb Photography Toronto & GTA | Professional Listing Photos" description="Professional Airbnb photography in Toronto and the Greater Toronto Area. Stunning listing photos that get more bookings at higher rates. HDR and twilight shots available." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Professional Airbnb Photography</h1>

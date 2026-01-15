@@ -33,9 +33,37 @@ const relatedServices = [
   { name: 'Photography', href: '/services/airbnb-photography', description: 'Professional listing photos' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Co-Hosting",
+  "description": "Flexible Airbnb co-hosting in the Greater Toronto Area. Professional guest communication, pricing, and booking management while you stay in control.",
+  "url": "https://www.nurturestays.ca/services/airbnb-co-host-toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Property Management"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Co-Hosting Greater Toronto Area" description="Airbnb co-hosting in the Greater Toronto Area. Get professional help while staying involved. Flexible, affordable part-time management starting at 10%. Keep control, get support.">
+<Layout title="Airbnb Co-Hosting Greater Toronto Area" description="Airbnb co-hosting in the Greater Toronto Area. Get professional help while staying involved. Flexible, affordable part-time management starting at 10%. Keep control, get support." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Airbnb Co-Hosting in the Greater Toronto Area</h1>

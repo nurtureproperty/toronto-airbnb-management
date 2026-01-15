@@ -58,9 +58,37 @@ const relatedServices = [
   { name: 'Full Management', href: '/services/full-airbnb-management', description: 'Complete hands-off hosting' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Property Maintenance",
+  "description": "Airbnb property maintenance in Toronto and the GTA. Emergency repairs with 3-hour response, routine upkeep, and trusted contractor network.",
+  "url": "https://www.nurturestays.ca/services/airbnb-property-maintenance",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Property Maintenance"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Property Maintenance Toronto & GTA | Repairs" description="Airbnb property maintenance in Toronto and the Greater Toronto Area. Emergency repairs, routine upkeep, trusted contractor network. Protect your investment and keep guests happy.">
+<Layout title="Airbnb Property Maintenance Toronto & GTA | Repairs" description="Airbnb property maintenance in Toronto and the Greater Toronto Area. Emergency repairs, routine upkeep, trusted contractor network. Protect your investment and keep guests happy." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Airbnb Property Maintenance</h1>

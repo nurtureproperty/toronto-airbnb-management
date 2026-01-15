@@ -36,9 +36,41 @@ const relatedServices = [
   { name: 'Key Exchange', href: '/services/airbnb-key-exchange', description: 'Smart locks and access' },
   { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Full-Service Airbnb Management",
+  "description": "Complete hands-off Airbnb management in Toronto and the Greater Toronto Area. We handle pricing, guests, cleaning, and maintenance. 10-15% commission.",
+  "url": "https://www.nurturestays.ca/services/full-airbnb-management",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+  "serviceType": "Property Management",
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": { "@type": "PriceSpecification", "price": "10-15%", "priceCurrency": "CAD", "description": "Commission on rental revenue" }
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Full-Service Airbnb Management Toronto & GTA | 10-15%" description="Complete Airbnb management in Toronto and the Greater Toronto Area. We handle everything: pricing, guests, cleaning, maintenance. 10-15% commission. You collect rent, we do the work.">
+<Layout title="Full-Service Airbnb Management Toronto & GTA | 10-15%" description="Complete Airbnb management in Toronto and the Greater Toronto Area. We handle everything: pricing, guests, cleaning, maintenance. 10-15% commission. You collect rent, we do the work." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Full-Service Airbnb Management</h1>

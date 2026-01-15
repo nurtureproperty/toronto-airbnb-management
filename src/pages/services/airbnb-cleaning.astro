@@ -63,11 +63,38 @@ const serviceAreas = [
   'Downtown Toronto', 'North York', 'Mississauga', 'Scarborough', 'Etobicoke',
   'Brampton', 'Vaughan', 'Markham', 'Richmond Hill', 'Oakville', 'Burlington'
 ];
+
+// Schema.org structured data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Cleaning Services",
+  "description": "Professional Airbnb turnover cleaning across the Greater Toronto Area. 50+ point checklist, same-day turnovers, vetted cleaners, photo documentation.",
+  "url": "https://www.nurturestays.ca/services/airbnb-cleaning",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": serviceAreas.map(area => ({ "@type": "City", "name": area })),
+  "serviceType": "Cleaning Service",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cleaning Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Turnover Cleaning" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Linen Service" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Same-Day Turnover" }}
+    ]
+  }
+};
 ---
 
 <Layout
   title="Airbnb Cleaning Services Toronto and GTA | 5-Star Turnover Cleaning"
   description="Professional Airbnb cleaning across the Greater Toronto Area. Same-day turnovers, 5-star standards, vetted cleaners. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Oakville and more."
+  schema={serviceSchema}
 >
   <section class="hero hero-small">
     <div class="container">
