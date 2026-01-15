@@ -1,0 +1,228 @@
+/* Critical CSS - Above-fold styles for fast initial render */
+
+:root {
+  --color-primary: #759b8f;
+  --color-primary-dark: #5a7d73;
+  --color-primary-light: #e8f0ee;
+  --color-accent: #d4a373;
+  --color-cream: #F8F6F1;
+  --color-warm-white: #FFFDF9;
+  --color-charcoal: #2A2A2A;
+  --color-text: var(--color-charcoal);
+  --color-text-light: #4a4a4a;
+  --color-background: var(--color-warm-white);
+  --color-background-alt: var(--color-cream);
+  --color-border: #e0ddd5;
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', -apple-system, sans-serif;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+
+main { padding-top: 80px; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header - Critical for above-fold */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1002;
+}
+
+.logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.nav-cta {
+  display: inline-flex;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Buttons - Critical for hero CTAs */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Hero Section - Critical for above-fold */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: white;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-small {
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.hero-small h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.hero h1 { margin-bottom: 1.5rem; }
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* Mobile menu button - hidden by default */
+.mobile-menu-btn { display: none; }
+
+/* Mobile responsive - critical breakpoints */
+@media (max-width: 968px) {
+  .desktop-nav { display: none; }
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+    z-index: 1001;
+  }
+  .hamburger {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-text);
+    position: relative;
+  }
+  .hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--color-text);
+    left: 0;
+  }
+  .hamburger::before { top: -7px; }
+  .hamburger::after { bottom: -7px; }
+  .logo-img { height: 36px; }
+}
+
+@media (max-width: 576px) {
+  .container { padding: 0 1rem; }
+  main { padding-top: 70px; }
+}

@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import criticalCSS from '../styles/critical.css?raw';
 
 interface Props {
   title: string;
@@ -87,6 +87,13 @@ const allSchemas = schema
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Critical CSS - Inlined for fast initial render -->
+    <style set:html={criticalCSS}></style>
+
+    <!-- Non-critical CSS - Deferred loading -->
+    <link rel="preload" href="/styles/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/styles/global.css"></noscript>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
