@@ -5,7 +5,7 @@ const services = [
   { title: 'Standard Turnover', description: 'Complete cleaning between guests following our 50+ point checklist. Ready for 5-star reviews.' },
   { title: 'Deep Cleaning', description: 'Quarterly deep cleans including baseboards, inside cabinets, appliances, and often-missed areas.' },
   { title: 'Linen Service', description: 'Fresh linens for every guest. We handle washing, folding, and inventory management.' },
-  { title: 'Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished after every stay.' },
+  { title: 'Restocking', description: 'Toiletries, paper products, coffee, and snacks replenished after every stay. Supplies billed at cost with no markup.' },
   { title: 'Same-Day Turnover', description: 'Tight schedule? Our teams can handle same-day turnovers with 2-hour notice.' },
   { title: 'Photo Reports', description: 'Documentation after each cleaning for your records and damage protection.' }
 ];
@@ -32,37 +32,36 @@ const checklist = [
 const tips = [
   { title: 'Invest in Quality Linens', content: 'White, hotel-quality linens (300+ thread count) look cleaner, feel luxurious, and can be bleached to maintain brightness. Guests notice the difference immediately.' },
   { title: 'Create a Hotel Feel', content: 'Fold toilet paper ends into points, fan towels on the bed, and leave a small welcome note. These touches take 30 seconds but create lasting impressions that earn 5-star reviews.' },
-  { title: 'Address Odors Proactively', content: 'The second most common complaint after visible dirt is smell. Run the dishwasher empty with vinegar, clean garbage disposals monthly, and use subtle, universally appealing scents (fresh linen, light citrus).' },
-  { title: 'Build in Buffer Time', content: 'Do not schedule back-to-back check-out and check-in. A 4-5 hour gap allows thorough cleaning without rushing. Rushed cleanings lead to missed spots and bad reviews.' }
+  { title: 'Address Odors Proactively', content: 'The second most common complaint after visible dirt is smell. Run the dishwasher empty with vinegar, clean garbage disposals monthly, and use subtle, universally appealing scents (fresh linen, light citrus).' }
+];
+
+const linenOptions = [
+  { title: 'Full Linen Service', description: 'We provide, wash, and replace all linens. No inventory management for you.' },
+  { title: 'Owner-Supplied Linens', description: 'You provide linens, we wash on-site or take to professional laundry.' },
+  { title: 'Hybrid Approach', description: 'You provide backup sets, we rotate and wash between guests.' }
+];
+
+const restockingItems = [
+  'Toilet paper (premium quality)',
+  'Paper towels',
+  'Hand soap and dish soap',
+  'Shampoo, conditioner, body wash',
+  'Coffee, tea, and basic snacks',
+  'Garbage bags and cleaning supplies'
 ];
 
 const relatedServices = [
-  { name: 'Turnover Management', href: '/services/airbnb-turnover-management-toronto' },
-  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto' },
-  { name: 'Full Management', href: '/services/full-airbnb-management-toronto' },
-  { name: 'Emergency Support', href: '/emergency-airbnb-support-toronto' }
+  { name: 'Turnover Management', href: '/services/airbnb-turnover-management-toronto', description: 'End-to-end guest transition coordination' },
+  { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance-toronto', description: 'Repairs and emergency support' },
+  { name: 'Full Management', href: '/services/full-airbnb-management-toronto', description: 'Hands-off hosting. We do everything' },
+  { name: 'Key Exchange', href: '/services/airbnb-key-exchange-toronto', description: 'Smart locks and seamless check-ins' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing-toronto', description: 'Manual + AI rate optimization' },
+  { name: 'Photography', href: '/services/airbnb-photography-toronto', description: 'Professional listing photos' }
 ];
 
 const serviceAreas = [
-  { name: 'Downtown Toronto', href: '/downtown-toronto-airbnb-management' },
-  { name: 'North York', href: '/north-york-airbnb-management' },
-  { name: 'Mississauga', href: '/mississauga-airbnb-management' },
-  { name: 'Scarborough', href: '/scarborough-airbnb-management' },
-  { name: 'Etobicoke', href: '/etobicoke-airbnb-management' },
-  { name: 'Brampton', href: null },
-  { name: 'Vaughan', href: null },
-  { name: 'Markham', href: null },
-  { name: 'Richmond Hill', href: null },
-  { name: 'Oakville', href: null },
-  { name: 'Burlington', href: null }
-];
-
-const cleaningStandards = [
-  '50+ point checklist',
-  'Photo documentation',
-  'Quality inspections',
-  'Background-checked staff',
-  'Insured and bonded'
+  'Downtown Toronto', 'North York', 'Mississauga', 'Scarborough', 'Etobicoke',
+  'Brampton', 'Vaughan', 'Markham', 'Richmond Hill', 'Oakville', 'Burlington'
 ];
 ---
 
@@ -116,113 +115,27 @@ const cleaningStandards = [
     </div>
   </section>
 
-  <section class="section content-section">
+  <section class="section info-section">
     <div class="container">
-      <div class="content-grid">
-        <div class="main-content">
-          <h2>Why Professional Airbnb Cleaning Matters</h2>
-          <p>Cleanliness is mentioned in over 40% of negative Airbnb reviews. One bad cleaning experience can result in a 1-star review that tanks your listing visibility and booking rate for months. Professional cleaning is not an expense. It is insurance for your investment.</p>
-
-          <div class="warning-box">
-            <h4>The Cost of Bad Cleaning</h4>
-            <p>A single 1-star cleanliness review can drop your overall rating below 4.5 stars, removing you from Airbnb Guest Favorite status and pushing your listing down in search results. The revenue lost far exceeds any cleaning savings.</p>
-          </div>
-
-          <h3>Our 5-Star Cleaning Process</h3>
-          <p>Every cleaning follows our comprehensive 50+ point checklist, developed from thousands of turnovers and refined based on guest feedback:</p>
-
-          <div class="checklist-box">
-            <h4>Standard Turnover Checklist</h4>
-            <div class="checklist-grid">
-              {checklist.map(item => (
-                <div class="checklist-item">
-                  <span class="check">✓</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <h3>Tips for Maintaining 5-Star Cleanliness</h3>
-          {tips.map((tip, index) => (
-            <div class="tip-box">
-              <h4>Tip #{index + 1}: {tip.title}</h4>
-              <p>{tip.content}</p>
-            </div>
-          ))}
-
-          <h3>Same-Day Turnover Capability</h3>
-          <p>Sometimes you will get a last-minute booking with a tight turnover window. Our Toronto-based teams can handle same-day turnovers when needed:</p>
-          <ul>
-            <li>Network of backup cleaners across the GTA</li>
-            <li>2-hour emergency response time</li>
-            <li>Real-time communication and updates</li>
-            <li>Quality never compromised for speed</li>
-          </ul>
-          <p>Need <a href="/emergency-airbnb-support-toronto">emergency cleaning support</a>? Contact our emergency line for urgent requests.</p>
-
-          <h3>Linen Service Options</h3>
-          <p>Managing linens is one of the biggest headaches for Airbnb hosts. We offer multiple solutions:</p>
-          <ul>
-            <li><strong>Full Linen Service:</strong> We provide, wash, and replace all linens. No inventory management for you.</li>
-            <li><strong>Owner-Supplied Linens:</strong> You provide linens, we wash on-site or take to professional laundry.</li>
-            <li><strong>Hybrid:</strong> You provide backup sets, we rotate and wash between guests.</li>
-          </ul>
-
-          <h3>Supply Restocking</h3>
-          <p>Unlike many cleaning services, our <a href="/services/full-airbnb-management-toronto">full management</a> includes supply restocking at no extra charge:</p>
-          <ul>
-            <li>Toilet paper (premium quality)</li>
-            <li>Paper towels</li>
-            <li>Hand soap and dish soap</li>
-            <li>Shampoo, conditioner, body wash</li>
-            <li>Coffee, tea, and basic snacks</li>
-            <li>Garbage bags and cleaning supplies</li>
-          </ul>
+      <div class="info-grid">
+        <div class="info-box highlight-box">
+          <h3>The Cost of Bad Cleaning</h3>
+          <p>A single 1-star cleanliness review can drop your overall rating below 4.5 stars, removing you from Airbnb Guest Favorite status and pushing your listing down in search results. The revenue lost far exceeds any cleaning savings.</p>
         </div>
-
-        <aside class="sidebar">
-          <div class="sidebar-card">
-            <h4>Related Services</h4>
-            <ul>
-              {relatedServices.map(service => (
-                <li><a href={service.href}>{service.name}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="sidebar-card sidebar-cta">
-            <h4>Get a Quote</h4>
-            <p>Professional cleaning starting at competitive rates.</p>
-            <a href="tel:647-957-8956" class="btn btn-primary">Call 647-957-8956</a>
-          </div>
-
-          <div class="sidebar-card">
-            <h4>GTA Service Areas</h4>
-            <ul>
-              {serviceAreas.map(area => (
-                <li>
-                  {area.href ? (
-                    <a href={area.href}>{area.name}</a>
-                  ) : (
-                    <span>{area.name}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="sidebar-card">
-            <h4>Cleaning Standards</h4>
-            <ul>
-              {cleaningStandards.map(standard => (
-                <li><span>{standard}</span></li>
-              ))}
-            </ul>
-          </div>
-        </aside>
+        <div class="info-box tip-box">
+          <h3>Pro Tip: Buffer Time</h3>
+          <p>Do not schedule back-to-back check-out and check-in. A 4-5 hour gap allows thorough cleaning without rushing. Rushed cleanings lead to missed spots and bad reviews.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Cleaning Services</h2>
+        <p class="serif">Everything you need for 5-star cleanliness</p>
+      </div>
       <div class="services-grid">
         {services.map(service => (
           <div class="service-card">
@@ -234,52 +147,153 @@ const cleaningStandards = [
     </div>
   </section>
 
+  <section class="section checklist-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our 50+ Point Checklist</h2>
+        <p class="serif">Developed from thousands of turnovers and refined based on guest feedback</p>
+      </div>
+      <div class="checklist-box">
+        <div class="checklist-grid">
+          {checklist.map(item => (
+            <div class="checklist-item">
+              <span class="check">✓</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section linen-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Linen Service Options</h2>
+        <p class="serif">Managing linens is one of the biggest headaches for Airbnb hosts</p>
+      </div>
+      <div class="linen-grid">
+        {linenOptions.map(option => (
+          <div class="linen-card">
+            <h3>{option.title}</h3>
+            <p>{option.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section restocking-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Supply Restocking</h2>
+        <p class="serif">Supplies billed at cost — we never mark up</p>
+      </div>
+      <div class="restocking-content">
+        <p class="restocking-intro">Our <a href="/services/full-airbnb-management-toronto">full management</a> includes supply restocking coordination. All supplies are billed at cost with no markup — you pay exactly what we pay.</p>
+        <div class="restocking-grid">
+          {restockingItems.map(item => (
+            <div class="restocking-item">
+              <span class="check">✓</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sameday-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Same-Day Turnover Capability</h2>
+        <p class="serif">For those last-minute bookings with tight windows</p>
+      </div>
+      <div class="sameday-content">
+        <p>Sometimes you will get a last-minute booking with a tight turnover window. Our Toronto-based teams can handle same-day turnovers when needed.</p>
+        <div class="sameday-grid">
+          <div class="sameday-item">
+            <span class="sameday-icon">🌐</span>
+            <h4>GTA-Wide Network</h4>
+            <p>Backup cleaners across the Greater Toronto Area</p>
+          </div>
+          <div class="sameday-item">
+            <span class="sameday-icon">⚡</span>
+            <h4>2-Hour Response</h4>
+            <p>Emergency response time for urgent requests</p>
+          </div>
+          <div class="sameday-item">
+            <span class="sameday-icon">📱</span>
+            <h4>Real-Time Updates</h4>
+            <p>Communication and progress updates throughout</p>
+          </div>
+          <div class="sameday-item">
+            <span class="sameday-icon">✨</span>
+            <h4>Quality First</h4>
+            <p>Quality never compromised for speed</p>
+          </div>
+        </div>
+        <p>Need <a href="/emergency-airbnb-support-toronto">emergency cleaning support</a>? Contact our emergency line for urgent requests.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tips-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tips for 5-Star Cleanliness</h2>
+        <p class="serif">Maximize your guest reviews with these strategies</p>
+      </div>
+      <div class="tips-grid">
+        {tips.map(tip => (
+          <div class="tip-card">
+            <h3>{tip.title}</h3>
+            <p>{tip.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section areas-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>GTA Service Areas</h2>
+        <p class="serif">Professional cleaning across the Greater Toronto Area</p>
+      </div>
+      <div class="areas-grid">
+        {serviceAreas.map(area => (
+          <span class="area-tag">{area}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section related-section">
     <div class="container">
       <div class="section-header">
         <h2>Complete Your Hosting Setup</h2>
-        <p>Services that work together with professional cleaning</p>
+        <p class="serif">Services that work together with professional cleaning</p>
       </div>
       <div class="related-grid">
-        <a href="/services/airbnb-turnover-management-toronto" class="related-card">
-          <h4>Turnover Management</h4>
-          <p>End-to-end guest transition coordination</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-property-maintenance-toronto" class="related-card">
-          <h4>Property Maintenance</h4>
-          <p>Repairs and emergency support</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/full-airbnb-management-toronto" class="related-card">
-          <h4>Full Management</h4>
-          <p>Hands-off hosting. We do everything</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-key-exchange-toronto" class="related-card">
-          <h4>Key Exchange</h4>
-          <p>Smart locks and seamless check-ins</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-dynamic-pricing-toronto" class="related-card">
-          <h4>Dynamic Pricing</h4>
-          <p>Manual + AI rate optimization</p>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/services/airbnb-photography-toronto" class="related-card">
-          <h4>Photography</h4>
-          <p>Professional listing photos</p>
-          <span class="arrow">→</span>
-        </a>
+        {relatedServices.map(service => (
+          <a href={service.href} class="related-card">
+            <h4>{service.name}</h4>
+            <p>{service.description}</p>
+            <span class="arrow">→</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="container">
-      <h2>Never Worry About Cleaning Again</h2>
-      <p>Let our professional teams handle every turnover while you enjoy passive income.</p>
-      <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+      <div class="cta-content">
+        <h2>Never Worry About Cleaning Again</h2>
+        <p>Let our professional teams handle every turnover while you enjoy passive income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+      </div>
     </div>
   </section>
 </Layout>
@@ -316,6 +330,10 @@ const cleaningStandards = [
   .trust-label {
     font-size: 0.875rem;
     opacity: 0.9;
+  }
+
+  .section {
+    padding: 5rem 0;
   }
 
   .intro-section {
@@ -358,6 +376,63 @@ const cleaningStandards = [
     font-size: 1.1rem;
   }
 
+  .info-section {
+    background: var(--color-background-alt);
+    padding: 3rem 0;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .info-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-box p {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .highlight-box {
+    background: #FFF8E1;
+    border-left: 4px solid #F9A825;
+  }
+
+  .highlight-box h3 {
+    color: #F57C00;
+  }
+
+  .highlight-box p {
+    color: #555;
+  }
+
+  .tip-box {
+    background: #E8F5E9;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .tip-box h3 {
+    color: var(--color-primary-dark);
+  }
+
+  .tip-box p {
+    color: #555;
+  }
+
   .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -366,11 +441,269 @@ const cleaningStandards = [
   .section-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .section-header p {
     color: var(--color-text-light);
     font-size: 1.1rem;
+  }
+
+  .section-header .serif {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .services-section {
+    background: white;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--color-background-alt);
+    padding: 1.75rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .service-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .checklist-section {
+    background: var(--color-background-alt);
+  }
+
+  .checklist-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .checklist-item .check {
+    color: var(--color-primary);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .linen-section {
+    background: white;
+  }
+
+  .linen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .linen-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 3px solid var(--color-primary);
+  }
+
+  .linen-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .linen-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .restocking-section {
+    background: var(--color-background-alt);
+  }
+
+  .restocking-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .restocking-intro {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .restocking-intro a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .restocking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    text-align: left;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .restocking-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .restocking-item .check {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .sameday-section {
+    background: white;
+  }
+
+  .sameday-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .sameday-content > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .sameday-content > p a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .sameday-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sameday-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .sameday-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .sameday-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .sameday-item p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .tips-section {
+    background: var(--color-background-alt);
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .tip-card {
+    background: #E8F5E9;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .tip-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .tip-card p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .areas-section {
+    background: white;
+  }
+
+  .areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .area-tag {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
   }
 
   .related-section {
@@ -391,24 +724,28 @@ const cleaningStandards = [
     color: inherit;
     transition: all 0.3s ease;
     position: relative;
+    border: 1px solid var(--color-border);
   }
 
   .related-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
   }
 
   .related-card h4 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--color-primary-dark);
+    font-size: 1rem;
   }
 
   .related-card p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-text-light);
     margin: 0;
+    padding-right: 1.5rem;
   }
 
   .related-card .arrow {
@@ -420,259 +757,6 @@ const cleaningStandards = [
     font-size: 1.25rem;
   }
 
-  .hero-small {
-    text-align: center;
-    padding: 4rem 0 3rem;
-  }
-
-  .hero-small h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1.5rem;
-  }
-
-  .highlight {
-    color: var(--color-primary);
-  }
-
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    max-width: 700px;
-    margin: 0 auto 2rem;
-  }
-
-  .content-section {
-    background: var(--color-background);
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-  }
-
-  .main-content h2 {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    margin-bottom: 1.5rem;
-    color: var(--color-text);
-  }
-
-  .main-content h3 {
-    font-size: 1.5rem;
-    margin: 2.5rem 0 1rem;
-    color: var(--color-text);
-  }
-
-  .main-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    color: var(--color-text-light);
-  }
-
-  .main-content ul, .main-content ol {
-    margin: 1.5rem 0;
-    padding-left: 1.5rem;
-  }
-
-  .main-content li {
-    margin-bottom: 0.75rem;
-    line-height: 1.7;
-    color: var(--color-text-light);
-  }
-
-  .main-content a {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
-
-  .main-content a:hover {
-    color: var(--color-primary-dark);
-  }
-
-  .warning-box {
-    background: #FFF3E0;
-    border-left: 4px solid #F57C00;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
-  }
-
-  .warning-box h4 {
-    color: #E65100;
-    margin-bottom: 0.5rem;
-    font-family: DM Sans, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  .warning-box p {
-    margin: 0;
-    color: var(--color-text-light);
-  }
-
-  .tip-box {
-    background: var(--color-primary-light);
-    border-left: 4px solid var(--color-primary);
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 0 10px 10px 0;
-  }
-
-  .tip-box h4 {
-    color: var(--color-primary-dark);
-    margin-bottom: 0.5rem;
-    font-family: DM Sans, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  .tip-box p {
-    margin: 0;
-    color: var(--color-text-light);
-  }
-
-  .checklist-box {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-md);
-    margin: 2rem 0;
-  }
-
-  .checklist-box h4 {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    color: var(--color-text);
-    font-family: DM Sans, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  .checklist-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .checklist-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .checklist-item .check {
-    color: var(--color-primary);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .sidebar {
-    position: sticky;
-    top: 100px;
-  }
-
-  .sidebar-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-md);
-    margin-bottom: 1.5rem;
-  }
-
-  .sidebar-card h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-    font-family: DM Sans, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  .sidebar-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sidebar-card li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .sidebar-card li:last-child {
-    border-bottom: none;
-  }
-
-  .sidebar-card a {
-    color: var(--color-primary-dark);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .sidebar-card a:hover {
-    text-decoration: underline;
-  }
-
-  .sidebar-cta {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .sidebar-cta h4 {
-    color: white;
-  }
-
-  .sidebar-cta p {
-    margin-bottom: 1rem;
-    opacity: 0.9;
-  }
-
-  .sidebar-cta .btn {
-    display: block;
-    text-align: center;
-    background: white;
-    color: var(--color-primary-dark);
-  }
-
-  .sidebar-cta .btn:hover {
-    background: var(--color-background-alt);
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-md);
-    border-left: 4px solid var(--color-primary);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .service-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: var(--color-text);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-  }
-
-  .service-card p {
-    color: var(--color-text-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
   .cta-section {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     padding: 5rem 0;
@@ -680,45 +764,32 @@ const cleaningStandards = [
     color: white;
   }
 
-  .cta-section h2 {
+  .cta-content h2 {
+    color: white;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
-  .cta-section p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+  .cta-content p {
+    font-size: 1.15rem;
     opacity: 0.95;
+    margin-bottom: 2rem;
   }
 
   .cta-section .btn {
     background: white;
-    color: var(--color-primary-dark);
-  }
-
-  .cta-section .btn:hover {
-    background: var(--color-background-alt);
+    color: var(--color-primary);
   }
 
   @media (max-width: 968px) {
     .trust-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  @media (max-width: 1024px) {
-    .content-grid {
+    .info-grid {
       grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-      position: static;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .sidebar-card {
-      margin-bottom: 0;
     }
 
     .services-grid {
@@ -726,33 +797,27 @@ const cleaningStandards = [
     }
 
     .checklist-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .linen-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .restocking-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sameday-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .trust-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .tips-grid {
+      grid-template-columns: 1fr;
     }
 
     .related-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .sidebar {
-      grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .checklist-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .related-grid {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -764,6 +829,22 @@ const cleaningStandards = [
 
     .trust-number {
       font-size: 1.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sameday-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-content h2 {
+      font-size: 1.75rem;
     }
   }
 </style>
