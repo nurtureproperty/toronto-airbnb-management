@@ -1,14 +1,194 @@
+# ============================================
 # robots.txt for nurturestays.ca
 # Nurture Airbnb Property Management
+# ============================================
 
+# Sitemap location (submit to Google Search Console)
+Sitemap: https://www.nurturestays.ca/sitemap.xml
+
+# ============================================
+# Google - Full access, no restrictions
+# ============================================
+User-agent: Googlebot
+Allow: /
+Disallow: /thank-you
+Disallow: /index-old
+Disallow: /full-airbnb-management-toronto
+Disallow: /_astro/
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+User-agent: Googlebot-News
+Allow: /
+
+# ============================================
+# Bing - Full access
+# ============================================
+User-agent: Bingbot
+Allow: /
+Disallow: /thank-you
+Disallow: /index-old
+Disallow: /full-airbnb-management-toronto
+Disallow: /_astro/
+Disallow: /api/
+
+User-agent: msnbot
+Allow: /
+Disallow: /thank-you
+Disallow: /_astro/
+
+# ============================================
+# Other Major Search Engines
+# ============================================
+User-agent: Slurp
+Allow: /
+Disallow: /thank-you
+Disallow: /_astro/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /thank-you
+Disallow: /_astro/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /thank-you
+Disallow: /_astro/
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+Disallow: /thank-you
+Disallow: /_astro/
+
+# ============================================
+# Social Media Crawlers - Allow for previews
+# ============================================
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+# ============================================
+# SEO & Analytics Tools - Allow
+# ============================================
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 10
+
+# ============================================
+# AI Training Bots - Block
+# ============================================
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# ============================================
+# Known Bad/Aggressive Bots - Block
+# ============================================
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+User-agent: TurnitinBot
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# ============================================
+# Default - All other crawlers
+# ============================================
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://www.nurturestays.ca/sitemap.xml
+# Important pages - explicitly allow
+Allow: /services/
+Allow: /about
+Allow: /contact
+Allow: /pricing-toronto-airbnb-management
+Allow: /locations
 
-# Disallow utility pages
+# Location pages
+Allow: /downtown-toronto-airbnb-management
+Allow: /north-york-airbnb-management
+Allow: /mississauga-airbnb-management
+Allow: /scarborough-airbnb-management
+Allow: /etobicoke-airbnb-management
+
+# Disallow non-content paths
 Disallow: /thank-you
-
-# Disallow old/duplicate pages
+Disallow: /index-old
 Disallow: /full-airbnb-management-toronto
+Disallow: /_astro/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+
+# Rate limiting for unknown bots
+Crawl-delay: 5
