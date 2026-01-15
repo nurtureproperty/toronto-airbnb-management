@@ -1,70 +1,72 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const services = [
-  { title: 'Emergency Repairs', description: 'Response for floods, no heat/AC, lockouts, and safety issues. Under 3-hour dispatch.', emergency: true },
-  { title: 'Routine Maintenance', description: 'Scheduled repairs, touchups, and fixes coordinated during turnovers.' },
-  { title: 'Preventive Care', description: 'Quarterly HVAC service, drain clearing, battery replacement, and inspections.' },
-  { title: 'Appliance Repair', description: 'Fridge, dishwasher, washer, dryer, microwave — all major appliances covered.' },
-  { title: 'Lock & Security', description: 'Smart lock troubleshooting, battery replacement, lockout assistance, re-keying.' },
-  { title: 'Vendor Management', description: 'We coordinate quotes, schedule work, and supervise all contractor visits.' }
+const packages = [
+  { title: 'Professional Photo Package', description: '15-30 HDR-processed photos covering all spaces, optimized for Airbnb listings.' },
+  { title: 'Twilight Shots', description: 'Dramatic evening photos showcasing city views and ambiance.' },
+  { title: 'Seasonal Updates', description: 'Fresh photos each season to keep your listing current.' }
 ];
 
 const steps = [
-  { number: '1', title: 'Report the Issue', description: 'Call our line or message us. Describe the problem and we assess urgency immediately.' },
-  { number: '2', title: 'We Dispatch', description: 'We contact the right contractor from our vetted network and coordinate access to your property.' },
-  { number: '3', title: 'Problem Resolved', description: 'Contractor completes the repair. We supervise, communicate with guests, and verify completion.' },
-  { number: '4', title: 'Documentation', description: 'You receive photos, invoices, and a full report. We handle any insurance claims if needed.' }
+  { number: '1', title: 'Consultation', description: 'We discuss your property\'s best features and target guest.' },
+  { number: '2', title: 'Prep Guidance', description: 'We send a checklist to prepare your space for the shoot.' },
+  { number: '3', title: 'Photo Shoot', description: '1-2 hours on-site with professional equipment.' },
+  { number: '4', title: 'Delivery', description: 'Edited, Airbnb-optimized images delivered within 48 hours.' }
+];
+
+const whatWePhotograph = [
+  { title: 'Hero Shot', description: 'The first photo that appears in search results. Usually living room or stunning view.' },
+  { title: 'All Rooms', description: 'Bedrooms, bathrooms, kitchen, living areas — each from multiple angles.' },
+  { title: 'Details', description: 'Amenities, decor touches, welcome items that show your property\'s personality.' },
+  { title: 'Outdoor Spaces', description: 'Balconies, patios, building amenities, pool, parking.' },
+  { title: 'Building & Location', description: 'Exterior shots, neighborhood highlights, nearby attractions.' },
+  { title: 'Unique Features', description: 'CN Tower view? Hot tub? Amazing kitchen? We make it shine.' }
 ];
 
 const tips = [
   {
-    title: "Schedule Quarterly HVAC Checks",
-    content: "AC failures happen most often in summer heat waves — the worst possible time. Quarterly maintenance catches problems before peak demand. A $100 service call prevents a $1,000+ emergency."
+    title: "Declutter Ruthlessly",
+    content: "Less is more. Remove personal items, excessive decorations, and anything that makes spaces look small. Clean surfaces photograph better than busy ones."
   },
   {
-    title: "Clear Drains Monthly",
-    content: "Hair buildup is the #1 cause of clogged drains. Pour boiling water mixed with baking soda and vinegar down drains monthly."
+    title: "Lighting is Everything",
+    content: "We shoot during optimal natural light (usually mid-morning). All lights on, curtains open, no harsh shadows. This is why professional timing matters."
   },
   {
-    title: "Keep Spare Batteries",
-    content: "Smart locks, smoke detectors, and TV remotes all need batteries. Dead batteries cause lockouts and angry guests. We check and replace batteries during every turnover."
+    title: "Stage Like a Hotel",
+    content: "Fluffy white towels fanned on beds, fresh flowers on tables, coffee cups arranged aesthetically. These \"lifestyle\" shots help guests imagine themselves there."
   }
 ];
 
-const commonIssues = [
-  { category: 'Plumbing', issues: 'Clogged toilets, slow drains, leaky faucets, running toilets' },
-  { category: 'HVAC', issues: 'AC not cooling, furnace not heating, thermostat issues' },
-  { category: 'Appliances', issues: 'Fridge, dishwasher, washer/dryer, microwave repairs' },
-  { category: 'Electrical', issues: 'Tripped breakers, outlet issues, light fixtures' },
-  { category: 'Locks/Security', issues: 'Smart lock issues, lockouts, door repairs' },
-  { category: 'General', issues: 'Blinds, cabinet doors, loose fixtures, paint touchups' }
-];
-
 const faqs = [
-  { q: "How fast can you respond to emergencies?", a: "For true emergencies like floods, no heat in winter, or safety issues, we dispatch contractors within 3 hours. Urgent issues like broken AC or appliances are handled same-day." },
-  { q: "Do I need to be present for repairs?", a: "No. We coordinate access with smart locks, lockboxes, or building concierge. We supervise the work and send you photos and updates throughout." },
-  { q: "How do you handle condo building repairs?", a: "We coordinate with building management for suite entry, HVAC issues requiring engineer access, water shutoffs, and after-hours emergencies requiring concierge assistance." },
-  { q: "How much does maintenance cost?", a: "You pay the contractor's rate directly — we don't mark up repair costs. Our management fee covers coordination, supervision, and vendor management." },
-  { q: "What areas do you cover?", a: "We have contractors across Southern Ontario including Toronto, Mississauga, Brampton, Vaughan, Markham, Hamilton, and surrounding areas." },
-  { q: "Can you handle after-hours emergencies?", a: "Yes. Our emergency line is available for urgent issues like floods, no heat, or lockouts. We dispatch contractors as quickly as possible regardless of the time." }
+  { q: "How many photos will I receive?", a: "You'll receive 15-30 professionally edited photos depending on your property size, covering all rooms and key features." },
+  { q: "How do I receive my photos?", a: "All your photos are delivered in a downloadable folder within 48 hours of the shoot. You'll receive a link to access and download all images at once." },
+  { q: "How long does the photo shoot take?", a: "Most shoots take 1-2 hours depending on property size. We recommend scheduling during mid-morning for optimal natural light." },
+  { q: "How should I prepare my property?", a: "Declutter surfaces, make beds with fresh linens, open all curtains, turn on all lights, and remove personal items. Our team can also help with staging during a deep clean of your home before the shoot." },
+  { q: "Can you help upload photos to my listing?", a: "Yes. We can upload and arrange photos on your Airbnb listing to ensure the best presentation and photo order for maximum bookings." },
+  { q: "What's the best time of day for photos?", a: "Mid-morning (9-11am) typically offers the best natural light. Avoid harsh midday sun or dark evenings unless you're specifically getting twilight shots." },
+  { q: "How should I stage my bedroom?", a: "Use crisp white or neutral bedding, add accent pillows, and keep nightstands minimal with just a lamp and perhaps a book. Fresh flowers or a small plant adds warmth." },
+  { q: "What makes a great hero photo?", a: "Your hero photo (first image) should showcase your property's best feature — usually the living room, a stunning view, or unique architectural element. It needs to stop scrollers in their tracks." },
+  { q: "Should I include photos of the neighbourhood?", a: "Yes! Guests want to see what's nearby. Photos of local cafes, parks, transit, and landmarks help them envision their stay and can set your listing apart." },
+  { q: "How many photos should I use on my listing?", a: "Aim for 20-30 photos. Too few leaves questions unanswered, too many overwhelms guests. Quality matters more than quantity — every photo should serve a purpose." },
+  { q: "What order should my photos be in?", a: "Start with your best shot (hero), then bedroom, living area, kitchen, bathroom, and amenities. Save building exterior and neighbourhood shots for the end." }
 ];
 
 const relatedServices = [
-  { name: 'Emergency Support', href: '/emergency-airbnb-support-toronto', description: 'Crisis response' },
-  { name: 'Turnover Management', href: '/services/airbnb-turnover-management-toronto', description: 'Seamless guest transitions' },
-  { name: 'Cleaning Services', href: '/services/airbnb-cleaning-toronto', description: 'Professional turnover cleaning' },
-  { name: 'Key Exchange', href: '/services/airbnb-key-exchange-toronto', description: 'Smart locks and access' },
-  { name: 'Full Management', href: '/services/full-airbnb-management-toronto', description: 'Complete hands-off hosting' },
-  { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Fix underperforming listings' }
+  { name: 'Listing Optimization', href: '/services/airbnb-listing-optimization', description: 'SEO-optimized titles and descriptions' },
+  { name: 'Dynamic Pricing', href: '/services/airbnb-dynamic-pricing', description: 'Maximize your newly improved listing' },
+  { name: 'Full Management', href: '/services/full-airbnb-management', description: 'Complete Airbnb property management' },
+  { name: 'Cleaning Services', href: '/services/airbnb-cleaning', description: 'Keep your space photo-ready' },
+  { name: 'Turnover Management', href: '/services/airbnb-turnover-management', description: 'Maintain that perfect look' },
+  { name: 'Improve Revenue', href: '/toronto-airbnb-not-making-money', description: 'Complete revenue optimization guide' }
 ];
 ---
 
-<Layout title="Airbnb Property Maintenance Toronto & GTA | Repairs" description="Airbnb property maintenance in Toronto and the Greater Toronto Area. Emergency repairs, routine upkeep, trusted contractor network. Protect your investment and keep guests happy.">
+<Layout title="Airbnb Photography Toronto & GTA | Professional Listing Photos" description="Professional Airbnb photography in Toronto and the Greater Toronto Area. Stunning listing photos that get more bookings at higher rates. HDR and twilight shots available.">
   <section class="hero hero-small">
     <div class="container">
-      <h1>Airbnb Property Maintenance</h1>
-      <p class="hero-subtitle">Emergency repairs and routine maintenance. Protect your investment, keep guests happy, and never scramble to find a contractor again.</p>
+      <h1>Professional Airbnb Photography</h1>
+      <p class="hero-subtitle">Stunning photos that stop scrollers and convert browsers into bookers. The single highest-ROI investment for your listing.</p>
     </div>
   </section>
 
@@ -72,16 +74,16 @@ const relatedServices = [
     <div class="container">
       <div class="trust-grid">
         <div class="trust-item">
-          <span class="trust-number">3hr</span>
-          <span class="trust-label">Emergency Response</span>
+          <span class="trust-number">23%</span>
+          <span class="trust-label">Higher Rates</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">40+</span>
-          <span class="trust-label">Vetted Contractors</span>
+          <span class="trust-number">40%</span>
+          <span class="trust-label">More Bookings</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">Southern Ontario</span>
-          <span class="trust-label">Wide Coverage</span>
+          <span class="trust-number">48hr</span>
+          <span class="trust-label">Photo Delivery</span>
         </div>
       </div>
     </div>
@@ -90,15 +92,14 @@ const relatedServices = [
   <section class="section intro-section">
     <div class="container">
       <div class="intro-content">
-        <p class="intro-text">With short-term rentals, maintenance emergencies don't wait for business hours. A clogged toilet at midnight can mean a cancelled booking and a 1-star review. Our contractor network keeps you protected.</p>
+        <p class="intro-text">Airbnb is a visual platform. Guests scroll through dozens of listings, and you have about 2 seconds to grab their attention. Professional photos are the difference between getting clicked and getting skipped.</p>
         <ul class="feature-list">
-          <li><span class="check">✓</span> Emergency repairs under 3 hours</li>
-          <li><span class="check">✓</span> Vetted contractors</li>
-          <li><span class="check">✓</span> All major appliances covered</li>
-          <li><span class="check">✓</span> Vendor coordination included</li>
-          <li><span class="check">✓</span> Southern Ontario coverage</li>
+          <li><span class="check">✓</span> 15-30 HDR-processed photos</li>
+          <li><span class="check">✓</span> Professional equipment</li>
+          <li><span class="check">✓</span> Staging guidance included</li>
+          <li><span class="check">✓</span> Airbnb-optimized sizing</li>
         </ul>
-        <a href="/contact" class="btn btn-primary btn-large">Get Maintenance Quote</a>
+        <a href="/contact" class="btn btn-primary btn-large">Book Photo Shoot</a>
       </div>
     </div>
   </section>
@@ -107,28 +108,50 @@ const relatedServices = [
     <div class="container">
       <div class="info-grid">
         <div class="info-box highlight-box">
-          <h3>Why Airbnb Maintenance is Different</h3>
-          <p>With traditional rentals, you can schedule repairs at your convenience. With Airbnb, a clogged toilet at 11pm means an angry guest, a bad review, and potentially a cancelled booking. Speed matters — our network responds in hours, not days.</p>
+          <h3>Why Professional Photos Matter</h3>
+          <p>According to Airbnb's own data, listings with professional photos earn up to 40% more than those with amateur shots. That's not a small improvement — it's the difference between breaking even and profitable hosting.</p>
         </div>
         <div class="info-box tip-box">
-          <h3>Pro Tip: Build Your Network Now</h3>
-          <p>Don't wait for an emergency to find a plumber. With our management, you get instant access to vetted contractors across Downtown Toronto, North York, Mississauga, and all GTA areas.</p>
+          <h3>Pro Tip: Photo Order Matters</h3>
+          <p>Your first 5 photos appear in Airbnb's preview. Lead with your best shot, then bedroom, then kitchen/living. Bathroom photos should come later. We help you arrange for maximum impact.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section services-section">
+  <section class="section comparison-section">
     <div class="container">
       <div class="section-header">
-        <h2>Maintenance Services</h2>
-        <p class="serif">Comprehensive property care for Airbnb hosts</p>
+        <h2>The ROI of Professional Photos</h2>
+        <p class="serif">Professional photos pay for themselves within days</p>
       </div>
-      <div class="services-grid">
-        {services.map(service => (
-          <div class={`service-card ${service.emergency ? 'emergency' : ''}`}>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h4>DIY Phone Photos</h4>
+          <p>Average nightly rate</p>
+          <span class="result">$125</span>
+        </div>
+        <div class="comparison-card highlight">
+          <h4>Professional Photos</h4>
+          <p>Average nightly rate</p>
+          <span class="result">$155</span>
+        </div>
+      </div>
+      <p class="comparison-note">That's $30/night more — or $900+/month at typical occupancy.</p>
+    </div>
+  </section>
+
+  <section class="section packages-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Photography Packages</h2>
+        <p class="serif">Options for every property type</p>
+      </div>
+      <div class="packages-grid">
+        {packages.map(pkg => (
+          <div class="package-card">
+            <h3>{pkg.title}</h3>
+            <p>{pkg.description}</p>
           </div>
         ))}
       </div>
@@ -139,7 +162,7 @@ const relatedServices = [
     <div class="container">
       <div class="section-header">
         <h2>How It Works</h2>
-        <p class="serif">From issue to resolution</p>
+        <p class="serif">From booking to beautiful photos</p>
       </div>
       <div class="steps-grid">
         {steps.map(step => (
@@ -153,17 +176,17 @@ const relatedServices = [
     </div>
   </section>
 
-  <section class="section issues-section">
+  <section class="section photograph-section">
     <div class="container">
       <div class="section-header">
-        <h2>Common Airbnb Maintenance Issues</h2>
-        <p class="serif">We handle all of these and more</p>
+        <h2>What We Photograph</h2>
+        <p class="serif">Complete coverage of your property</p>
       </div>
-      <div class="issues-grid">
-        {commonIssues.map(item => (
-          <div class="issue-card">
-            <h3>{item.category}</h3>
-            <p>{item.issues}</p>
+      <div class="photograph-grid">
+        {whatWePhotograph.map(item => (
+          <div class="photograph-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
           </div>
         ))}
       </div>
@@ -173,8 +196,8 @@ const relatedServices = [
   <section class="section tips-section">
     <div class="container">
       <div class="section-header">
-        <h2>Preventive Maintenance Tips</h2>
-        <p class="serif">Avoid emergencies with proactive care</p>
+        <h2>Photography Tips for Higher Bookings</h2>
+        <p class="serif">Prepare your space for the best results</p>
       </div>
       <div class="tips-grid">
         {tips.map((tip) => (
@@ -187,38 +210,11 @@ const relatedServices = [
     </div>
   </section>
 
-  <section class="section response-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Response Time Standards</h2>
-        <p class="serif">We prioritize based on urgency</p>
-      </div>
-      <div class="response-table">
-        <div class="response-row header">
-          <span class="response-type">Issue Type</span>
-          <span class="response-time">Response Time</span>
-        </div>
-        <div class="response-row">
-          <span class="response-type">Emergency (flood, no heat, lockout)</span>
-          <span class="response-time">Under 3 hours</span>
-        </div>
-        <div class="response-row">
-          <span class="response-type">Urgent (AC out, appliance broken)</span>
-          <span class="response-time">Same day</span>
-        </div>
-        <div class="response-row">
-          <span class="response-type">Routine (cosmetic, minor repairs)</span>
-          <span class="response-time">Next available turnover</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section faq-section">
     <div class="container">
       <div class="section-header">
-        <h2>Maintenance FAQs</h2>
-        <p class="serif">Common questions about property maintenance</p>
+        <h2>Photography FAQs</h2>
+        <p class="serif">Common questions about our photo services</p>
       </div>
       <div class="faq-grid">
         {faqs.map(faq => (
@@ -235,7 +231,7 @@ const relatedServices = [
     <div class="container">
       <div class="section-header">
         <h2>Related Services</h2>
-        <p class="serif">Complete your property care</p>
+        <p class="serif">Complete your listing optimization</p>
       </div>
       <div class="related-grid">
         {relatedServices.map(service => (
@@ -252,8 +248,8 @@ const relatedServices = [
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Never Scramble for a Contractor Again</h2>
-        <p>Our maintenance network protects your property.</p>
+        <h2>Ready to Transform Your Listing?</h2>
+        <p>Professional photos pay for themselves within days.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
         <p class="cta-note">Free consultation • No obligation • Same-day response</p>
       </div>
@@ -417,34 +413,83 @@ const relatedServices = [
     font-family: 'DM Sans', sans-serif;
   }
 
-  .services-section {
+  .comparison-section {
     background: white;
   }
 
-  .services-grid {
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .comparison-card {
+    background: var(--color-background-alt);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .comparison-card.highlight {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .comparison-card h4 {
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .comparison-card p {
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem;
+    opacity: 0.8;
+  }
+
+  .comparison-card .result {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+  }
+
+  .comparison-card.highlight .result {
+    color: white;
+  }
+
+  .comparison-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .packages-section {
+    background: var(--color-background-alt);
+  }
+
+  .packages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
-  .service-card {
-    background: var(--color-background-alt);
+  .package-card {
+    background: white;
     padding: 1.75rem;
     border-radius: 12px;
     border-left: 4px solid var(--color-primary);
     transition: all 0.3s ease;
   }
 
-  .service-card.emergency {
-    border-left-color: #D32F2F;
-  }
-
-  .service-card:hover {
+  .package-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
   }
 
-  .service-card h3 {
+  .package-card h3 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-family: 'Poppins', sans-serif;
@@ -452,7 +497,7 @@ const relatedServices = [
     color: var(--color-text);
   }
 
-  .service-card p {
+  .package-card p {
     color: var(--color-text-light);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -460,7 +505,7 @@ const relatedServices = [
   }
 
   .steps-section {
-    background: var(--color-background-alt);
+    background: white;
   }
 
   .steps-grid {
@@ -502,24 +547,24 @@ const relatedServices = [
     line-height: 1.5;
   }
 
-  .issues-section {
-    background: white;
+  .photograph-section {
+    background: var(--color-background-alt);
   }
 
-  .issues-grid {
+  .photograph-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
-  .issue-card {
-    background: var(--color-background-alt);
+  .photograph-card {
+    background: white;
     padding: 1.5rem;
     border-radius: 12px;
     border-top: 3px solid var(--color-primary);
   }
 
-  .issue-card h3 {
+  .photograph-card h3 {
     font-size: 1rem;
     margin-bottom: 0.5rem;
     font-family: 'Poppins', sans-serif;
@@ -527,7 +572,7 @@ const relatedServices = [
     color: var(--color-text);
   }
 
-  .issue-card p {
+  .photograph-card p {
     color: var(--color-text-light);
     font-size: 0.9rem;
     line-height: 1.5;
@@ -535,7 +580,7 @@ const relatedServices = [
   }
 
   .tips-section {
-    background: var(--color-background-alt);
+    background: white;
   }
 
   .tips-grid {
@@ -564,49 +609,6 @@ const relatedServices = [
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 0;
-  }
-
-  .response-section {
-    background: white;
-  }
-
-  .response-table {
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-  }
-
-  .response-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--color-border);
-    background: white;
-  }
-
-  .response-row:last-child {
-    border-bottom: none;
-  }
-
-  .response-row.header {
-    background: var(--color-primary-dark);
-    color: white;
-    font-weight: 600;
-  }
-
-  .response-type {
-    flex: 1;
-  }
-
-  .response-time {
-    font-weight: 600;
-    color: var(--color-primary-dark);
-  }
-
-  .response-row.header .response-time {
-    color: white;
   }
 
   .faq-section {
@@ -734,7 +736,12 @@ const relatedServices = [
       grid-template-columns: 1fr;
     }
 
-    .services-grid {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+    }
+
+    .packages-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -742,7 +749,7 @@ const relatedServices = [
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .issues-grid {
+    .photograph-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -757,19 +764,6 @@ const relatedServices = [
     .related-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-
-    .response-row {
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .response-row.header {
-      display: none;
-    }
-
-    .response-time {
-      font-size: 0.9rem;
-    }
   }
 
   @media (max-width: 576px) {
@@ -782,7 +776,7 @@ const relatedServices = [
       font-size: 1.5rem;
     }
 
-    .services-grid {
+    .packages-grid {
       grid-template-columns: 1fr;
     }
 
@@ -790,7 +784,7 @@ const relatedServices = [
       grid-template-columns: 1fr;
     }
 
-    .issues-grid {
+    .photograph-grid {
       grid-template-columns: 1fr;
     }
 
