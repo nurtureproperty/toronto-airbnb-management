@@ -1,16 +1,16 @@
 ---
-title: "Complete List: 444 Toronto Condos That Allow Short Term Rentals (2025)"
-description: "The definitive list of every condo building in Toronto that permits Airbnb and short term rentals. Updated for 2025 with addresses organized by neighbourhood."
-pubDate: "2025-01-18"
+title: "Complete List of Every Toronto Condo That Allows Airbnb Short Term Rental (2026 Updated)"
+description: "The definitive list of every condo building in Toronto that permits Airbnb and short term rentals. Updated for 2026 with addresses organized by neighbourhood."
+pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Toronto STR Regulations"
 tags: ["toronto condos", "airbnb allowed", "short term rental", "condo buildings", "str friendly"]
 draft: false
 ---
 
-# Complete List: 444 Toronto Condos That Allow Short Term Rentals
+# Complete List of Every Toronto Condo That Allows Airbnb Short Term Rental
 
-Looking to buy an investment condo in Toronto for Airbnb? Or wondering if your building allows short term rentals? We've compiled the most comprehensive list available: **444 condo buildings in Toronto with registered short term rental units.**
+Looking to buy an investment condo in Toronto for Airbnb? Or wondering if your building allows short term rentals? We've compiled the most comprehensive list available: **over 400 condo buildings in Toronto with registered short term rental units.**
 
 This list is based on actual STR registrations with the City of Toronto. If a building appears here, it means at least one unit owner has successfully operated a short term rental there.
 
@@ -363,7 +363,7 @@ More affordable entry points for STR investment.
 
 ---
 
-## Complete Alphabetical List (All 444 Buildings)
+## Complete Alphabetical List (All 400+ Buildings)
 
 For your reference, here's every building in alphabetical order:
 
@@ -401,6 +401,6 @@ Regulations change. Buildings on this list may have updated their policies. Alwa
 
 ---
 
-*Last updated: January 2025*
+*Last updated: January 2026*
 
 *Data source: City of Toronto Short Term Rental Registry*
