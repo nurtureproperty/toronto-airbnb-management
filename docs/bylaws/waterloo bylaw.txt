@@ -1,0 +1,750 @@
+Rental Housing Licensing Bylaw
+This bylaw is a consolidated digital version of the official legal document. It is not an exact reproduction and is for information purposes only.
+
+For any questions related to this bylaw contact 519-747-8785 or municipalenforcement@waterloo.ca
+
+Bylaw number: 2011-047
+Last passed by council: Bylaw 2023-056, June 12 2023
+
+A bylaw to provide for the licensing, regulating and governing for the business of residential rental units in the City of Waterloo
+Definitions
+Prohibitions 
+Licensing requirements 
+Licence issuance 
+Revocation or suspension of licence
+Appeal
+Notice
+Inspection
+Order to discontinue activity 
+Work order 
+Remedial action 
+Enforcement 
+Penalties  
+Collection of unpaid fines 
+Schedules 
+Short title 
+Severability 
+Repeal/transition 
+Coming into force
+Schedule 1 - class "A" license 
+Schedule 2 - class "B" license
+Schedule 3 - class "C" license 
+Schedule 4 - class "D" license 
+Schedule 5 - class "E" license 
+Schedule 6 -  all license classes 
+Schedule 7 - class "Z" license
+Whereas section 151(1) of the Municipal Act, 2001,S.O. 2001, c. 25, as amended (the “Municipal Act, 2001”)states that a municipality may provide for a system of licences with respect to a business and may:
+
+(a) prohibit the carrying on or engaging in the business without a licence;
+
+(b) refuse to grant a licence or to revoke or suspend a licence;
+
+(c) impose conditions as a requirement of obtaining, continuing to hold or renewing a licence;
+
+(d) impose special conditions on a business in a class that have not been imposed on all of the businesses in that class in order to obtain, continue to hold or renew a licence;
+
+(e) impose conditions, including special conditions, as a requirement of continuing to hold a licence at any time during the term of the licence;
+
+(f) licence, regulate or govern real and personal property used for the business and the persons carrying it on or engaged in it; and,
+
+(g) require a person, subject to such conditions as the municipality considers appropriate, to pay an administrative penalty if the municipality is satisfied that the person has failed to comply with any part of a system of licences established by the municipality.
+
+And whereas the Council for The Corporation of the City of Waterloo considers it necessary and desirable to regulate residential rental units in order to:
+
+(a) protect the health and safety and human rights of the persons residing in rental units;
+
+(b) ensure that certain essentials are provided in residential rental units such as plumbing, heating and water; and,
+
+(c) protect the residential amenity, character and stability of residential areas.
+
+Now therefore the Council of The Corporation of the City of Waterloo enacts as follows:
+
+1.0 Definitions
+For the purpose of this by-law the following terms shall have the corresponding meanings set out below:
+
+“Administrative Penalty By-law”means the Administrative Penalty By-law of the City, as amended from time to time, or any successor thereof;
+
+“Adult”means a person eighteen years of age or older;
+
+“Apartment Building”means a Building, including a maisonette:
+
+(a) containing four (4) or more Dwelling Units;
+
+(b) where the Dwelling Units are horizontally separated; and,
+
+(c) where each Dwelling Unit has access to a common interior corridor system with a common exit at grade level.
+
+“Bedroom”means a room or area in a Dwelling Unit used, designed, equipped or intended for sleeping;
+
+“Building”means:
+
+(a) a structure occupying an area greater than ten square metres consisting of a wall, roof and floor or any of them or a structural system serving the function thereof including all plumbing, works, fixtures and service systems appurtenant thereto;
+
+(b) a structure occupying an area of ten square metres or less that contains plumbing, including the plumbing appurtenant thereto; or,
+
+(c) structures designated in the Building Code.
+
+“Building Code”meansOntario Regulation 350/06, as amended;
+
+“Chief Building Official” means the Chief Building Official for the City appointed or constituted under section 3 or 4 of the Building Code Act, 1992, S.O. 1992, c.23, as amended (the “Building Code Act, 1992”);
+
+“Chief Fire Prevention Officer” means the Chief Fire Prevention Officer for the City or his or her designate(s);
+
+“Chief of Police” means the Chief of the Waterloo Regional Police Service or his or her designate(s);
+
+“City” means The Corporation of the City of Waterloo;
+
+“College” means a college established under the Ontario College of Applied Arts and Technology Act, 2002 , S.O. 2002, c. 8, Sched. F, as amended;
+
+“Council” means the Council of the City;
+
+“Designated Provision” means any section of this by-law designated in accordance with section 13.7;
+
+“Director” means the Director of Municipal Enforcement Services for the City or his or her designate(s);
+
+“Dwelling Unit” means a unit, whether in whole or in part, that:
+
+(a) consists of a self-contained set of rooms located in a Building;
+
+(b) is used, or is intended to be used, as a residence; and,
+
+(c) contains a Kitchen and bathroom facilities.
+
+“Fire Chief” means the Fire Chief for the City or his or her designate(s);
+
+“General Manager of Development Services”means the General Manager of Development Services for the City;
+
+“Gross Floor Area”means the area of a floor, measured to the inside of all outside walls enclosing any floor or part of a floor that complies with all applicable law for the shelter, accommodation or enclosure of persons, above which is a clear height of at least two (2) metres for any floor below grade and above which is a clear height of at least one (1) metre for any floor above grade, excluding the area of any garage, porch, veranda, sun room or stairwell;
+
+“Group Home” means a residence licensed or funded under a federal or provincial statute for the accommodation of three to 10 persons, exclusive of staff, living under supervision in a single housekeeping unit and who, by reason of their emotional, mental, social or physical condition or legal status, require a group living arrangement for their well being;
+
+“Human Rights Code” means the Human Rights Code , R.S.O. 1990, c. H.19, as amended;
+
+“Kitchen”means a room or area in a Dwelling Unit used, designed, equipped or intended to contain cooking facilities including any two or more of a refrigerator, stove and sink;
+
+“Licensing Appeal Tribunal” means the tribunal established by s. 6 of this by-law;
+
+“Local Contact” means an agent or representative of an Owner who does not reside in the Regional Municipality of Waterloo, who is responsible for managing or addressing issues in relation to the Owner’s Rental Unit;
+
+“Lot” means a parcel of land which is:
+
+(a) shown as a lot or block on a registered plan of subdivision; or,
+
+(b) described in a single Transfer/Deed of Land that is registered in the Land Registry Office or the Land Titles Office for the Land Registry Division of Waterloo;
+
+“Medical Officer of Health” means the Medical Officer of Health for the Regional Municipality of Waterloo or his or her designate(s);
+
+“Municipal Law Enforcement Officer” means an individual appointed by the Council of the City pursuant to s. 15 of the Police Services Act , R.S.O. 1990, c. P. 15, as amended;
+
+“Owner”includes a person who, alone or with others, owns premises containing a Rental Unit;
+
+“Owner Occupied” means occupied by persons holding at least fifty per cent (50%) of the title to the property as identified in the Ministry of Government and Consumer Services Parcel register;
+
+“person” means an individual, sole proprietorship, partnership, unincorporated association, organization, including a charitable organization, or a corporation;
+
+“Police Officer” means a police officer, as defined by the Police Services Act, R.S.O. 1990, c. P.15, as amended;
+
+“Rent” includes the amount of any consideration paid or required to be paid for the right to occupy a Dwelling Unit and for any services and facilities and any privilege, accommodation or thing provided in respect of the occupancy of the Rental Unit; and, for greater certainty, “Rent” includes the amount of any such consideration paid or required to be paid by (i) an Owner to another Owner, and (ii) by a shareholder of a corporate Owner to the corporate Owner or another Owner;
+
+“Rental Unit” means a Dwelling Unit offered for Rent;
+
+“Residential Rental Business” means the operation of a Rental Unit;
+
+"Short-Term Rental" means all or part of a Dwelling Unit that is used to provide transient sleeping accommodations for a period of thirty (30) consecutive days or less, typically facilitated through a Short-Term Rental Platform, but does not include a hotel, inn or bed and breakfast. A Short-Term Rental must be Owner Occupied, and does not include rental arrangements exceeding thirty (30) consecutive days, provided such arrangements are not facilitated through a Short-Term Rental Platform and comply with all applicable requirements under the Residential Tenancies Act, 2006, S.O. 2006, c. 17;
+
+"Short-Term Rental Platform" means any online service, website, mobile application, or other digital platform that facilitates the rental, advertisement, or listing of a Dwelling Unit or part thereof for the purpose of transient accommodation;”
+
+“Tenant”means a person who pays rent or is required to pay Rent in return for a right to occupy a Rental Unit;
+
+“University” means the University of Waterloo or Wilfrid Laurier University; and,
+
+“Zoning By-Law” means a Zoning By-Law passed by the City pursuant to s. 34 of the Planning Act, R.S.O. 1990, c. P.13, as amended.
+
+2.0 Prohibitions 
+2.1 No person shall do any of the following, except in accordance with a licence issued under this by-law:
+
+(a) carry on a Residential Rental Business;
+
+(b) permit a person to carry on a Residential Rental Business;
+
+(c) collect Rent, or permit Rent to be collected, for a Rental Unit; or,
+
+(d) hold themselves out as being licensed to carry on a Residential Rental Business.
+
+2.2 No person shall do any of the following, other than at a location for which a licence has been issued under this by-law:
+
+(a) carry on a Residential Rental Business;
+
+(b) permit a person to carry on a Residential Rental Business; or,
+
+(c) hold themselves out as being licensed to carry on a Residential Rental Business.
+
+2.3 No person shall do any of the following, under a name other than the name under which a licence has been issued under this by-law:
+
+(a) carry on a Residential Rental Business;
+
+(b) permit a person to carry on a Residential Rental Business; or,
+
+(c) hold themselves out as being licensed to carry on a Residential Rental Business.
+
+2.4 No person shall do any of the following, except in accordance with the provisions as set out in this by-law:
+
+(a) carry on a Residential Rental Business;
+
+(b) permit a person to carry on a Residential Rental Business;
+
+(c) collect Rent, or permit Rent to be collected, for a Rental Unit; or,
+
+(d) hold themselves out as being licensed to carry on a Residential Rental Business.
+
+2.5 No person shall transfer or assign a licence issued under this by-law.
+
+2.6 No person shall provide false or misleading information to the City when applying for a licence under this by-law, renewing a licence or at any other time.
+
+2.7 Notwithstanding any other provision in this by-law to the contrary, a licence to carry on a Residential Rental Business shall not be required for:
+
+(b) a student residence operated by a University or College and zoned “BI” under the relevant Zoning By-Law;
+
+(c) an Apartment Building;
+
+(d) a Group Home;
+
+(e) a hotel, inn or bed and breakfast; or,
+
+(f) a Rental Unit to which any of the following statutes, or their regulations, apply:
+
+(i) the Homes for Special Care Act, R.S.O. 1990, c. H.12, as amended;
+
+(ii) the Inkeepers Act, R.S.O. 1990, c. 17, as amended;
+
+(iii) the Long-Term Care Homes Act, 2007, S.O. 2007, c. 8, as amended;
+
+(iv) the Retirement Homes Act, 2010, S.O. 2010, c. 11, as amended; and,
+
+(v) the Social Housing Reform Act, 2000, S.O. 2000, c. 27, as amended;
+
+(g) social housing or affordable housing that is not subject to Social Housing Reform Act, 2000, S.O. 2000, c. 27, as amended, but which is subject to an agreement with the Regional Municipality of Waterloo and which has been approved for exemption by the Director.
+
+3.0 Licensing requirements 
+There shall be six (6) types of licences to carry on a Residential Rental Business under this by-law:
+
+(a) Class “A” licences, more particularly described in Schedule 1 of this by-law, which are required for all Rental Units that are not covered by any other Classes in this section;
+
+(b) Class “B” licences, more particularly described in Schedule 2 of this bylaw, which are required for all Rental Units and Short-Term Rentals on residential rental properties that are Owner Occupied except those Rental Units for which another class of licence has been obtained;
+
+(c) Class “C” licences, more particularly described in Schedule 3 of this by-law, which are required for all Rental Units with five (5) or more bedrooms;
+
+(d) Class “D” licences, more particularly described in Schedule 4 of this by-law, which are required for all recognized lodging houses;
+
+(e) Class “E” licences, more particularly described in Schedule 5 of this by-law, which are required for all temporary Rental Units; and,
+
+(f) Class “Z” licences, more particularly described in Schedule 7 of this by-law, which are required for all Rental Units in Buildings that contain four (4) or more Dwelling Units, where the Dwelling Units are horizontally separated.”
+
+3.2 Any person seeking to obtain or renew a licence to carry on a Residential Rental Business shall:
+
+(a) be at least eighteen (18) years of age;
+
+(b) complete an application in the form prescribed by the Director, including setting out such information and attaching such additional documentation as may be required by the Director which includes the information and documentation outlined in Schedule 6;
+
+(c) submit their completed application to the Director; and,
+
+(c) pay the applicable fee pursuant to the City’s Fees and Charges By-Law.
+
+3.3 Once a person has been issued a licence to carry on a Residential Rental Business under this by-law, they shall:
+
+(a) at all times, post a copy of the licence issued to them in a conspicuous place in the Rental Unit as well as a floor plan;
+
+(b) when requested to do so by a Municipal Law Enforcement Officer, immediately produce a copy of their licence for inspection;
+
+(c) notify the Director, in writing, within fourteen (14) days of any change to the information or documentation submitted with their application and then the person shall, as soon as is practicable, provide such updated information or documentation as may be required by the Director; and,
+
+(d) attend a single training or education session, whether on-line or in-person, in relation to their licence, as required by the Director.
+
+3.4 A property on which a Rental Unit is situated shall be subject to only one (1) Class of licence at any time.
+
+3.4.1 Notwithstanding section 3.4 of this by-law, a property on which a Rental Unit is situated may have, at the same time:
+
+3.4.1.1 a Class “A” and a Class “B” licence; or,
+
+3.4.1.2 a Class “D” and a Class “A” or “B” licence.
+
+3.5 Each Rental Unit shall be individually licensed to carry on a Residential Rental Business.
+
+4.0 Licence issuance 
+4.1 The Director shall issue or renew a licence to carry on a Residential Rental Business to any person who meets the requirements of this by-law, except where:
+
+(a) the past conduct of the person who applies for the licence affords the Director reasonable grounds to believe that the applicant has not or will not carry on their Residential Rental Business in accordance with applicable law or with honesty and integrity;
+
+(b) the Director reasonably believes that the issuing of a licence to a person might be adverse to the public interest;
+
+(c) the property on which the Rental Unit is situated is subject to an order, or orders, made pursuant to (or by):
+
+(i) the City’s Property Standards By-Law;
+
+(ii) the Building Code Act, 1992 or any regulations made under it, including the Building Code;
+
+(iii) the Fire Protection and Prevention Act, 1997, S.O. 1997, c.4, as amended (the “Fire Protection and Prevention Act, 1997”), or any regulations made under it, including the Fire Code; or,
+
+(iv) the Medical Officer of Health;
+
+(d) the Rental Unit itself, the Building in which the Rental Unit is situated or the property on which the Rental Unit is situated is not in compliance with a Zoning By-Law; or,
+
+(e) the person who is applying for the licence is indebted to the City by way of fines, penalties, judgments or outstanding (past due) property taxes.
+
+4.2 The Director may deny the issuance or renewal of a licence to carry on a Residential Rental Business where the person who is applying for the licence has been convicted within the past five (5) years of:
+
+(a) a criminal offence for which a pardon has not been granted; or,
+
+(b) a statutory or a regulatory offence in any way related to the ownership or management of residential rental properties.
+
+4.3 For the purposes of sections 4.1 and 4.2 of this by-law, the term “person” shall include any director, officer, partner or principal of a partnership or a corporation or any shareholder of a corporation that holds at least fifty per cent (50%) of the shares of that corporation.
+
+4.4 The Director may, at any time, when issuing or renewing a licence to carry on a Residential Rental Business, impose such terms or conditions on the aforementioned licence as the Director considers appropriate.
+
+4.5 Should the Director refuse to issue or renew a licence to carry on a Residential Rental Business or, should the Director impose terms or conditions on a licence, the Director shall provide written reasons thereafter.
+
+4.6 Unless renewed, a licence issued or renewed under this by-law to carry on a Residential Rental Business expires on the 31st day of March next following the issuance or renewal of the licence.
+
+5.0 Revocation or suspension of licence
+5.1 The Director may revoke or suspend a licence to carry on a Residential Rental Business at any time where:
+
+(a) the Director is of the opinion that the Residential Rental Business being licensed poses a threat to the health or safety of persons or property;
+
+(b) the licence holder has violated any of the provisions of this by-law;
+
+(c) the licence was issued because false or misleading information was provided to the City;
+
+(d) a licence was issued in error; or,
+
+(e) where authorized in accordance with this by-law.
+
+5.2 The Director may revoke or suspend a licence to carry on a Residential Rental Business for a period of time and subject to such terms or conditions that the Director considers appropriate.
+
+5.3 The Director, before revoking or suspending a licence pursuant to section 5.2 of this by-law, shall consider:
+
+(a) the impact of any such licence revocation or suspension on any Tenants; and,
+
+(b) imposing terms or conditions on any such licence revocation or suspension that would minimize the adverse impact on any Tenants, including the possibility of providing a reasonable time period before the licence revocation or suspension takes place to permit Tenants to find new housing or to seek relief in a Court or before the Ontario Landlord and Tenant Board.
+
+5.4 The Director shall provide the holder of the licence that has been suspended or revoked written reasons outlining why their licence has been suspended or revoked.
+
+5.5 Pursuant to section 151(2) of the Municipal Act, 2001 , if the Director is satisfied that the continuation of a Residential Rental Business poses an immediate danger to the health or safety of any person or to any property, the Director may, for the time and on such conditions as he or she considers appropriate, without a hearing, suspend a licence subject to the following:
+
+(a) before suspending the licence, the Director shall provide the licencee with the reasons for the suspension, either orally or in writing, and an opportunity to respond to them;
+
+(b) the suspension shall not exceed fourteen (14) days.
+
+6.0 Appeal
+6.1 Any person who has been denied a licence, or the renewal of a licence, has had their licence suspended or revoked or has had terms or conditions imposed on a licence, may appeal the decision of the Director to a Licensing Appeal Tribunal.
+
+6.2 Section 6.1 of this by-law does not apply to licence suspensions under section 5.5 of this by-law.
+
+6.3 The Licensing Appeal Tribunal shall be composed of such persons, not fewer than three (3), as Council considers advisable.
+
+6.4 The members of the Licensing Appeal Tribunal shall hold office for three (3) years with one (1) term expiring annually so that the first appointments shall be for one (1), two (2) and three (3) years. When a vacancy occurs in the membership of the Licensing Appeal Tribunal, Council shall forthwith fill the vacancy.
+
+6.5 The members of the Licensing Appeal Tribunal shall be paid such compensation as the Council may provide.
+
+6.6 The members of the Licensing Appeal Tribunal shall elect a Chair from among themselves. When the Chair is absent through illness or otherwise, the Licensing Appeal Tribunal may appoint another member as acting Chair.
+
+6.7 A majority of the members of the Licensing Appeal Tribunal constitutes a quorum for transacting the Licensing Appeal Tribunal’s business.
+
+6.8 The members of the Licensing Appeal Tribunal shall provide for a Secretary for the Licensing Appeal Tribunal.
+
+6.9 The Secretary of the Licensing Appeal Tribunal shall keep on file the records of all official business of the Licensing Appeal Tribunal, including records of all applications and minutes of all decisions respecting those applications.
+
+6.10 The Licensing Appeal Tribunal shall give notice or direct that notice be given of the hearing of an appeal to such persons as the Licensing Appeal Tribunal considers advisable.
+
+6.11 All appeals shall be submitted:
+
+(a) within twenty one (21) days of the decision of the Director to deny issuing or renewing a licence or suspending or revoking a licence or imposing terms or conditions on a licence;
+
+(b) in writing;
+
+(c) to the Secretary of the Licensing Appeal Tribunal;
+
+(d) setting out, in detail, the grounds for the appeal; and,
+
+(e) along with the applicable fee, as outlined in the City’s Fees and Charges By-Law.
+
+6.12 Where an appeal is not submitted within the time set out in section 6.11(a), the decision of the Director shall be deemed to be confirmed and no appeal shall be allowed.
+
+6.13 The Licensing Appeal Tribunal shall hear all appeals.
+
+6.14 On an appeal, the Licensing Appeal Tribunal has all the powers and functions of the Director who made the decision and the Licensing Appeal Tribunal may do any of the following things if, in the Licensing Appeal Tribunal’s opinion, doing so would maintain the general intent and purpose of the by-law:
+
+(a) confirm, modify or rescind the decision of the Director to deny issuing or renewing a licence or suspending or revoking a licence or to impose terms or conditions on a licence.
+
+6.15 Council hereby delegates decision-making authority to the Licensing Appeal Tribunal with regards to appeals under this by-law, as Council is of the opinion that the powers that it is delegating to the Licensing Appeal Tribunal are of a minor nature, and the decision of the Licensing Appeal Tribunal shall be final.
+
+7.0 Notice
+7.1 All notices pursuant to this by-law shall be made in writing and shall be effective:
+
+(a) on the date on which the notice is delivered to the person to whom it is addressed; or,
+
+(b) on the fifth (5th) day after the notice has been sent by registered mail to the person’s last known address.
+
+8.0 Inspection
+8.1 The City may enter on land at any reasonable time for the purpose of carrying out an inspection to determine whether or not the following are being complied with:
+
+(a) this by-law;
+
+(b) a condition of a licence issued this by-law; or,
+
+(c) an order made under s. 431 of the Municipal Act, 2001 .
+
+8.2 For the purposes of conducting an inspection pursuant to s. 8.1 of this by-law, the City may, in accordance with the provisions of s. 436 of the Municipal Act, 2001:
+
+(a) require the production for inspection of documents or things relevant to the inspection;
+
+(b) inspect and remove documents or things relevant to the inspection for the purpose of making copies or extracts;
+
+(c) require information from any person concerning a matter related to the inspection; and,
+
+(d) alone or in conjunction with a person possessing special or expert knowledge, make examinations or take tests, samples or photographs necessary for the purposes of the inspection.
+
+8.3 No person exercising a power of entry on behalf of the City shall enter or remain in any room or place actually being used as a dwelling unless:
+
+(a) the consent of the occupier is obtained, the occupier first having been informed that the right of entry may be refused and, if refused, may only be made under the authority of an order issued under section 438 of the Municipal Act, 2001, a warrant issued under section 439 of the Municipal Act, 2001or a warrant under section 386.3 of the Municipal Act, 2001;
+
+(b) an order issued under section 438of the Municipal Act, 2001is obtained;
+
+(c) a warrant issued under section 439 of the Municipal Act, 2001 is obtained;
+
+(d) a warrant issued under section 386.3 of the Municipal Act, 2001 is obtained;
+
+(e) the delay necessary to obtain an order under section 438 of the Municipal Act, 2001, to obtain a warrant under section 439 of the Municipal Act, 2001or to obtain the consent of the occupier would result in an immediate danger to the health or safety of any person; or,
+
+(f) the City has given notice of its intention to enter to the occupier of the land as required under subsection 435(2) of the Municipal Act, 2001 and the entry is authorized under sections 79, 80 or 446 of the Municipal Act, 2001.
+
+8.4 No person shall hinder or obstruct, or attempt to hinder or obstruct, any person who is exercising a power or performing a duty under this by-law.
+
+(a) A refusal of consent to enter or to remain in a room or place actually used as a dwelling does not constitute hindering or obstruction within the meaning of section 8.4 unless the City is acting under an order under section 438 of the Municipal Act, 2001or a warrant under section 439 of the Municipal Act, 2001or in the circumstances described in clause 437 (d) or (e) of the Municipal Act, 2001.
+
+9.0 Order to discontinue activity 
+9.1 Where the Director has reasonable grounds to believe that a contravention of this by-law has occurred, the Director may make an order requiring the person who contravened this by-law, or who caused or permitted the contravention, or the Owner or occupier of the land on which the contravention occurred, to discontinue the contravening activity.
+
+9.2 An order under s. 9.1 of this by-law shall set out:
+
+(a) reasonable particulars of the contravention adequate to identify the contravention and the location of the land on which the contravention occurred; and,
+
+(b) the date by which there must be compliance with the order.
+
+9.3 Any person who contravenes an order under s. 9.1 of this by-law is guilty of an offence.
+
+10.0 Work order 
+10.1 Where the Director has reasonable grounds to believe that a contravention of this by-law has occurred, the Director may make an order requiring the person who contravened this by-law, or who caused or permitted the contravention, or the Owner or occupier of the land on which the contravention occurred, to do work to correct the contravention.
+
+10.2 An order under s. 10.1 of this by-law shall set out:
+
+(a) reasonable particulars of the contravention adequate to identify the contravention and the location of the land on which the contravention occurred; and,
+
+(b) the work to be done and the date by which the work must be done.
+
+10.3 An order under s. 10.1 of this by-law may require work to be done even though the facts which constitute the contravention of this by-law were present before this by-law came into force.
+
+10.4 Any person who contravenes an order under s. 10.1 of this by-law is guilty of an offence.
+
+11.0 Remedial action 
+11.1 If a person fails to do a matter or thing, including comply with an order under this by-law, as directed or required by this by-law, the City may, in default of it being done by the person directed or required to do it, do the matter or thing at the person’s expense. The City may recover the costs of doing a matter or thing from the person directed or required to do it by action or by adding the costs to the tax roll and collecting them in the same manner as municipal taxes.
+
+11.2 The costs outlined in s. 11.1 of this by-law shall include interest calculated at a rate of 15 per cent, calculated for the period commencing on the day the City incurs the costs and ending on the day the costs, including the interest, are paid in full.
+
+11.3 The amount of the costs, including interest, constitutes a lien on the land upon the registration in the proper land registry office of a notice of lien. The lien is in respect of all costs that are payable at the time the notice is registered plus interest accrued to the date the payment is made. Upon receiving payment of all costs payable plus interest accrued to the date of payment, the City shall register a discharge of the lien in the proper land registry office.
+
+12.0 Enforcement 
+12.1 This by-law may be enforced by Municipal Law Enforcement Officers, Building Inspectors,the Medical Officer of Health or a Police Officer.
+
+13.0 Penalties  
+13.1 Every person who contravenes any of the provisions of this by-law is guilty of an offence and pursuant to section 429 of the Municipal Act, 2001 and all contraventions of this by-law are designated as continuing offences.
+
+13.2 Every person, excluding a corporation, who is convicted of an offence is liable to a minimum fine of Three Hundred and Fifty Dollars ($350.00) and a maximum fine of Twenty-Five Thousand Dollars ($25,000.00) for the first offence and a maximum fine of Fifty Thousand Dollars ($50,000.00) for a subsequent offence
+
+13.3 Every corporation who is convicted of an offence is liable to a maximum fine of Fifty Thousand Dollars ($50,000.00) for the first offence and One Hundred Thousand Dollars ($100,000.00) for a subsequent offence
+
+13.4 In addition to the fine amounts set out in sections 13.2 and 13.3, for each day or part of a day that an offence continues, the minimum fine shall be Three Hundred and Fifty Dollars ($350.00) and the maximum fine shall be Ten Thousand Dollars ($10,000.00). The total of all daily fines for the offence is not limited to One Hundred Thousand Dollars ($100,000.00).
+
+13.5 Pursuant to s. 447 of the Municipal Act, 2001, where an Owner is convicted of knowingly carrying on or engaging in a trade, business or occupation on, in or in respect of any premises or any part of any premises without a licence required by this by-law, the Court may order that the premises or part of the premises be closed to any use for a period not exceeding two (2) years.
+
+13.6 Where a person is convicted of a contravention of this by-law, other than a conviction described in section 13.5, and the Court determines that the Owner or Tenant of the premises or part of the premises in respect of which the conviction was made knew or ought to have known of the conduct which formed the subject-matter of the conviction or of any pattern of similar conduct, the Court may order that the premises or part of the premises be closed to any use for a period not exceeding two (2) years.
+
+13.7 Sections 2.1,, 2.2, 2.3(a), 2.3(b), 2.3(d), 2.5, 2.6, 3.3, 4.4, 8.4, 9.3 and 10.4, inclusive of all subsections thereunder, of this By-law are hereby designated as parts of this by-law to which the Administrative Penalty By-law applies.
+
+13.8 Any person who contravenes any Designated Provision of this by-law shall, upon issuance of a penalty notice in accordance with the Administrative Penalty By-law, be liable to pay an administrative penalty and any administrative fees.”
+
+14.0 Collection of unpaid fines 
+14.1 Pursuant to s. 441 of the Municipal Act, 2001, if any part of a fine for a contravention of this by-law remains unpaid after the fine becomes due and payable under s. 66 of the Provincial Offences Act , R.S.O. 1990, c. P.33, as amended, including any extension of time for payment ordered under that section, the Director may give the person against whom the fine was imposed a written notice specifying the amount of the fine payable and the final date on which it is payable, which shall be not less than twenty one (21) days after the date of the notice.
+
+14.2 If the fine remains unpaid after the final date specified in the notice, the fine shall be deemed to be unpaid taxes for the purposes of s. 351 of the Municipal Act, 2001.
+
+15.0 Schedules 
+15.1 Any schedules which are attached to this by-law shall form a part of this by-law.
+
+16.0 Short title 
+16.1 This by-law shall be known as the “Rental Housing Licensing By-Law.”
+
+17.0 Severability 
+17.1 If a Court of competent jurisdiction should declare any section or part of a section of this by-law to be invalid, such section or part of a section shall not be construed as having persuaded or influenced Council to pass the remainder of this by-law and it is hereby declared that the remainder of this by-law shall be valid and shall remain in full force and effect.
+
+18.0 Repeal/transition 
+18.1 By-Law No. 00-140 of the City is hereby repealed as well as all by-laws amending the same and any portions of the Municipal Code relating to lodging houses.
+
+18.2 A licence issued or renewed under this by-law shall be deemed to be a licence issued under By-Law No. 00-140 for the purposes of the applicable Zoning By-Law.
+
+19.0 Coming into force
+19.1 This by-law shall come into force and effect on April 1, 2012.
+
+20.0 Schedule 1 - class "A" license 
+Rental UNITS that are not covered by any other Classes
+
+1. In addition to the requirements set out in this by-law, Class “A” Rental Units shall comply with the following provisions:
+
+(a) The minimum floor area of a Bedroom:
+
+i. with three Adult occupants, shall be fourteen (14) square metres; and,
+
+ii. with four or more Adult occupants, shall be seven (7) square metres per Adult occupant.
+
+(b) The number of Bedrooms shall not exceed four (4).
+
+(c) No more than forty per cent (40%) of the Rental Unit’s Gross Floor Area shall be comprised of Bedrooms.
+
+(d) No room within the Rental Unit may be used as a Bedroom, except where a Bedroom has been depicted on the licence application, which was submitted to the City.
+
+2. Notwithstanding section 1(b) of this Schedule, if, on the date this by-law comes into force and effect, one or more written leases have been entered into permitting five (5) occupants in a Rental Unit, the number of Bedrooms permitted in the Rental Unit shall equal five (5) so long as section 4 of this Schedule is complied with..
+
+3. Notwithstanding section 1(c) of this Schedule, if, on the date this by-law comes into force and effect, or within three (3) months thereafter, a Rental Unit:
+
+(a) has Bedrooms which comprise more than forty per cent (40%) of the Rental Unit’s Gross Floor Area; and,
+
+(b) is in compliance with all applicable federal or provincial legislation and regulations as well as all City by-laws and the number of Bedrooms does not exceed four (4);
+
+then the Rental Unit may continue to have Bedrooms which comprise more than forty per cent (40%) of the Rental Unit’s Gross Floor Area, so long as section 4 of this Schedule is complied with.
+
+4. To obtain an exemption under sections 2 or 3 of this Schedule, the Owner shall, within three (3) months of this by-law coming into force and effect:
+
+(a) apply for and obtain a Class “A” licence and include in the licence application an exemption application in the form prescribed by the Director; and,
+
+(b) pay the applicable fee pursuant to the City’s Fees and Charges By-Law.
+
+5. Section 2 of this Schedule shall expire and be of no force or effect after December 31, 2012.
+
+6. An exemption under section 3 of this Schedule shall be immediately rendered null and void and cease to be of any force or effect if:
+
+(a) the Class “A” licence expires pursuant to section 4.6 of this by-law; or,
+
+(b) the percentage of the Rental Unit’s Gross Floor Area comprised of Bedrooms increases following the date this by-law comes into force and effect.
+
+7. All Class “A” Rental Units shall comply with all federal or provincial legislation or regulations, including the Ontario Human Rights Code , as well as all municipal by-laws, including any applicable Zoning By-Laws.
+
+21.0 Schedule 2 - class "B" license
+Owner Occupied Residential Rental Properties
+
+1. In addition to the requirements set out in this by-law, Class “B” Rental Units shall comply with the following provisions:
+
+(a) The minimum floor area for a Bedroom:
+
+i. With three Adult occupants, shall be fourteen (14) square metres; and,
+
+ii. With four or more Adult occupants, shall be seven (7) square metres per Adult occupant.
+
+(b) The number of Bedrooms for Rent in a Rental Unit shall not exceed four (4).
+
+(c) No more than fifty per cent (50%) of the Rental Unit’s Gross Floor Area shall be comprised of Bedrooms.
+
+(d) No room within the Rental Unit may be used as a Bedroom, except where a Bedroom has been depicted on the licence application, which was submitted to the City.
+
+(e) The Building in which the Rental Unit is situated shall be Owner Occupied.
+
+2. Notwithstanding section 1(b) of this Schedule, if, on the date this by-law comes into force and effect, one or more written leases have been entered into permitting five (5) occupants in a Rental Unit, the number of Bedrooms for Rent in the Rental Unit shall equal five (5) so long as section 4 of this Schedule is complied with.
+
+3. Notwithstanding section 1(c) of this Schedule, if, on the date this by-law comes into force and effect, or within three (3) months thereafter, a Rental Unit:
+
+(a) has Bedrooms which comprise more than fifty per cent (50%) of the Rental Unit’s Gross Floor Area; and,
+
+(b) is in compliance with all applicable federal or provincial legislation and regulations as well as all City by-laws and the number of Bedrooms for Rent does not exceed four (4);
+
+then the Rental Unit may continue to have Bedrooms which comprise more than fifty per cent (50%) of the Rental Unit’s Gross Floor Area, so long as section 4 of this Schedule is complied with.
+
+4. To obtain an exemption under sections 2 or 3 of this Schedule, the Owner shall, within three (3) months of this by-law coming into force and effect:
+
+(a) apply for and obtain a Class “B” licence and include in the licence application an exemption application in the form prescribed by the Director; and,
+
+(b) pay the applicable fee pursuant to the City’s Fees and Charges By-Law.
+
+5. Section 2 of this Schedule shall expire and be of no force or effect after December 31, 2012.
+
+6. An exemption under section 3 of this Schedule shall be immediately rendered null and void and cease to be of any force or effect if:
+
+(a) the Class “B” licence expires pursuant to section 4.6 of this by-law; or,
+
+(b) the percentage of the Rental Unit’s Gross Floor Area comprised of Bedrooms increases following the date this by-law comes into force and effect.
+
+7. All Class “B” Rental Units shall comply with all federal or provincial legislation or regulations, including the Ontario Human Rights Code , as well as all municipal by-laws, including any applicable Zoning By-Laws.
+
+8. All Short-Term Rentals require a Class “B” licence, notwithstanding the number of Bedrooms in the Dwelling Unit. Class “B” licence holders operating a Short-Term Rental may only rent to any one (1) person for a maximum of thirty (30) consecutive days, and shall not operate a Short-Term Rental for more than 275 days in a calendar year.
+
+22.0 Schedule 3 - class "C" license 
+Rental units with 5 or more bedrooms
+
+1. In addition to the requirements set out in this by-law, Class “C” Rental Units shall comply with the following provisions:
+
+(a) All Class “C” Rental Units shall:
+
+(i) operate as, and be deemed to be, “boarding houses”, “lodging houses” or “rooming houses” for the purposes of Part 9 of the Fire Code (Ontario Regulation 213/07, as amended);
+
+(ii) shall comply with the requirements of Part 9 of the Fire Code (Ontario Regulation 213/07, as amended) relating to “Boarding, Lodging and Rooming Houses”, as if they were “boarding houses”, “lodging houses” or “rooming houses” to which Part 9 of the Fire Code applies;
+
+(iii) operate as, and be deemed to be, “boarding, lodging or rooming houses”, as defined in the Building Code;
+
+(iv) shall comply with the requirements of the Building Code as if they were “boarding, lodging or rooming houses”, as defined in the Building Code;
+
+(v) operate as and be deemed to be a “lodging house” for the purposes of the applicable Zoning By-Law; and,
+
+(vi) shall comply with the requirements of the applicable Zoning By-Law, as if it was a “lodging house” under that Zoning By-Law.
+
+(b) All Class “C” Rental Units shall comply with all federal or provincial legislation or regulations, including the Ontario Human Rights Code , as well as all municipal by-laws, including any applicable Zoning By-Laws.
+
+(c) The Building area shall not exceed six hundred (600) square metres and the Building shall not exceed three (3) storeys in height.
+
+(d) Any Kitchen or bathroom shall not be for the exclusive use of any individual Tenant.
+
+(e) There shall be no more than two (2) bathrooms, no more than (1) Kitchen and no less than five (5) Bedrooms.
+
+(f) Each Bedroom shall have a door that is capable of being locked.
+
+(g) There shall be written leases with only one (1) Tenant per lease, unless the Tenant is under the age of sixteen (16) years, in which case a parent or guardian may execute a lease on their behalf.
+
+(h) No Bedroom shall have a working water distribution system installed which would convey water to or from a Bedroom.
+
+(i) The minimum floor area for a Bedroom:
+
+(i) with three Adult occupants, shall be fourteen (14) square metres; and,
+
+(ii) with four or more Adult occupants, shall be seven (7) square metres per Adult occupant.
+
+(j) No room within a Rental Unit may be used as a Bedroom, except where a Bedroom has been depicted on the licence application, which was submitted to the City.
+
+23.0 Schedule 4 - class "D" license 
+Recognized lodging houses:
+
+1. In addition to the requirements set out in this by-law, Class “D” Rental Units shall comply with the following provisions:
+
+(a) Class “D” licences shall only be granted to those Rental Units which had valid lodging house licences issued under City By-Law No. 00-140 on the date this by-law was passed by Council.
+
+(b) A person who had a valid lodging house license under City By-Law No. 00-140 for a Rental Unit shall apply within three (3) months of this by-law coming into force and effect for a Class “D” license or else they shall not be entitled to apply for a Class “D” license.
+
+(c) Class “D” licences shall not be renewed should:
+
+(i) the Class “D” licence expire pursuant to section 4.6 of this by-law; or,
+
+(ii) the use of the Rental Unit changes at any time.
+
+(d) Once a Class “D” licence has expired, no person may thereafter apply for, or otherwise renew, a Class “D” licence in respect of the Rental Unit.
+
+(e) The number of Bedrooms permitted in the Rental Unit shall be no greater than the number of persons permitted to inhabit the Rental Unit under the lodging house licence most previously issued under City By-Law No. 00-140.
+
+(f) No room within a Rental Unit may be used as a Bedroom, except where a Bedroom has been depicted on the licence application which was submitted to the City.
+
+2. All Class “D” Rental Units shall comply with all federal or provincial legislation or regulations, including the Ontario Human Rights Code , as well as all municipal by-laws, including any applicable Zoning By-Laws.
+
+24.0 Schedule 5 - class "E" license 
+Temporary rental unit
+
+1. In addition to the requirements set out in this by-law, Class “E” Rental Units shall comply with the following provisions:
+
+(a) A Rental Unit shall only be licensed for a period of up to thirty six (36) months and its licence shall not be renewed by the City. A subsequent Class “E” licence shall not be granted thereafter unless the Rental Unit has been Owner Occupied for a period of at least two (2) full years following the last expiry of a Class “E” licence by the City.
+
+(b) No room within a Rental Unit may be used as a Bedroom, except where a Bedroom has been depicted on the licence application, which was submitted to the City. All Class “E” Rental Units shall comply with all federal or provincial legislation or regulations, including the Ontario Human Rights Code , as well as all municipal by-laws, including any applicable Zoning By-Laws.
+
+25.0 Schedule 6 -  all license classes 
+1. The Director may require the following information and documentation in an application for the issuance or renewal of any Class of licence:
+
+(a) the municipal address and legal description of the property on which the Rental Unit is situated;
+
+(b) the applicant’s name and contact information, including their address, telephone number, facsimile number and e-mail address;
+
+(c) the Owner’s name and contact information, including their address, telephone number, facsimile number and e-mail address, if different from the applicant’s;
+
+(d) if the Owner is a partnership, the name and contact information of each partner including their address, telephone number, facsimile number and e-mail address;
+
+(e) if the Owner is a corporation:
+
+(i) the name and contact information of each director, officer and shareholder who holds more than 30% of the issued shares in the corporation, including their address, telephone number, facsimile number and e-mail address; and,
+
+(ii) a certificate of status of the corporation.
+
+(f) if the Owner does not reside in the Regional Municipality of Waterloo, the name and contact information of any Local Contact including their address, telephone number, facsimile number and e-mail address;
+
+(g) a copy of the transfer/deed providing proof of ownership of the property on which the Rental Unit is situated;
+
+(i) a completed police records check for the Owner and the applicant (if different from the Owner), including:
+
+(i) if the Owner or applicant is a partnership, a completed police records check for each partner; or,
+
+(ii) if the Owner or applicant is a corporation, a completed police records check for each director, officer or shareholder who holds more than 30% of the issued shares in the corporation.
+
+(j) a parking plan for the property on which the Rental Unit is situated that complies with the relevant Zoning By-Law and which outlines where all of the parking spaces shall be located and the dimensions of those parking spaces;
+
+(k) a floor plan of the Rental Unit, including identifying:
+
+(i) all rooms, spaces or common areas;
+
+(ii) how each room, space or common area shall be used, which means specifically indicating where all Bedrooms will be located on the floor plan; and,
+
+(iii) the dimensions (in square meters) of all rooms, spaces or common areas.
+
+(l) a property maintenance plan which shall:
+
+(i) specify measures to be undertaken to ensure existing and continued compliance with all relevant City by-laws, including this by-law, the City’s Property Standards, Lot Maintenance and Snow and Ice By-Laws;
+
+(ii) identify the location of refuse and recycling containers;
+
+(iii) identify snow storage areas;
+
+(iv) identify who is responsible for ensuring that all necessary property maintenance is undertaken.
+
+(m) a signed written statement that:
+
+(i) the applicant or Owner will comply with the maintenance plan;
+
+(ii) the applicant or Owner will comply with the parking plan;
+
+(iii) the Rental Unit is in compliance with the Building Code Act, 1992 or any regulations made under it, including the Building Code;
+
+(iv) the Rental Unit is in compliance with the “Fire Protection and Prevention Act, 1997, or any regulations made under it, including the Fire Code;
+
+(v) the Rental Unit is in compliance with the Electricity Act, 1998 , S.O. 1998, c. 15, Sched. A, as amended (the “Electricity Act, 1998”) or any regulations made under it, including the Electrical Safety Code ;
+
+(vi) the Owner or the applicant (if different from the Owner) and any Local Contacts are aware of all relevant federal and provincial legislation, including the Ontario Human Rights Code, as well as all relevant municipal by-laws, and that they, and the Rental Unit, will comply with all of them; and
+
+(vii) the applicant or Owner confirms the accuracy, truthfulness and completeness of the information submitted.
+
+(n) proof of insurance which:
+
+(i) includes a liability limit of no less than two million dollars ($2,000,000.00) per occurrence for property damage and bodily injury; and,
+
+(ii) identifies that a Residential Rental Business is being operated on the property on which the Rental Unit is situated.
+
+(o) an inspection certificate from a certified HVAC technician that confirms that the HVAC system is in proper working order; and,
+
+(p) an inspection certificate from a certified Electrical Safety Authority technician confirming the electrical system is in proper working order, which results from an inspection that was conducted within the six (6) months preceding the submission of the application.
+
+2. The information or documentation referred to in sections 1(i), 1(j), 1(k), 1(l) and 1(p) of this Schedule shall only be required for the issuance of any Class of licence, not a renewal, except for every fifth renewal (meaning every five (5) years), at which time the Director may require the information or documentation to be produced.
+
+26.0 Schedule 7 - class "Z" license
+Buildings with 4 or more horizontally separated dwelling units:
+
+1. In addition to the requirements set out in this by-law, the Director may impose terms and conditions on Class “Z” Rental Units that are reasonable and in keeping with the general intent of the by-law regarding the following:
+
+(a) minimum Bedroom floor space per occupant;
+
+(b) maximum Gross Floor Area of the Rental Unit comprised of Bedrooms;
+
+(c) number of Bedrooms per Rental Unit; and,
+
+(d) any other terms or conditions as may be appropriate from time to time.
+
+2. No room within a Class “Z” Rental Unit may be used as a Bedroom, except where a Bedroom has been depicted on the licence application, which was submitted to the City.
+
+3. All Class “Z” Rental Units shall comply with all federal or provincial legislation and regulations, including the Ontario Human Rights Code, as well as all municipal by-laws, including any applicable Zoning By-laws.

@@ -44,3 +44,222 @@ Each page defines its own scoped styles within `<style>` tags. Data arrays (pack
 ## Deployment
 
 Changes pushed to `master` branch auto-deploy to production (GitHub → hosting provider).
+
+# Nurture - Airbnb Property Management
+
+## Company Overview
+- **Company Name:** Nurture (stylized as "Nurture" - NOT "Nurtre")
+- **Website:** https://www.nurturestays.ca/
+- **Phone:** (647) 957-8956
+- **Address:** 140 Simcoe St, Toronto, ON M5H 4E9
+- **Tagline:** "Earn 30-100% More by Switching to Airbnb"
+
+## What We Do
+Premium Airbnb management in the Greater Toronto Area. We help GTA homeowners maximize their rental income through expert Airbnb management - from listing optimization to guest communication.
+
+## Key Stats & Differentiators
+- 4.9? Average Airbnb Rating
+- 9 minute average response time
+- 10-15% management fee (competitors charge 18-25%)
+- No long-term contracts
+- Clients own their listings (no hostage situations)
+- Direct owner contact (not group chats)
+- Locally owned in GTA
+- No startup costs - commission only
+- No markup on supply restocking
+- First booking within 1 week on average
+
+
+## Services Offered
+
+### Management
+- Full Airbnb Management
+- Short-Term Rental Management
+- Mid-Term Rental Management
+- Airbnb Co-Hosting
+
+### Marketing
+- Dynamic Pricing & Revenue Optimization
+- Listing Optimization & SEO
+- Multi-platform distribution
+
+### Operations
+- Professional Cleaning Coordination
+- Turnover Management
+- Key Exchange / Smart Lock Management
+- Property Maintenance
+- Professional Photography
+- Supply Restocking & Inventory
+- Linen management
+
+### Guest Services
+- Guest Communication & Support
+- Guest Screening & Verification
+- Review Management
+- On-site support when needed
+
+## Pricing
+
+### Starter Plan - 10%
+- Professional listing creation
+- Multi-platform distribution
+- Dynamic pricing optimization
+- Guest communication
+- Guest vetting & screening
+- Review management
+
+### Professional Plan - 15%
+Everything in Starter, plus:
+- Professional cleaning coordination
+- Linen & supply restocking
+- Smart lock management
+- Dedicated account manager
+- Insurance claim assistance
+
+## Value Proposition
+Most see 30-100% increases in monthly revenue."
+
+## Client Results Example
+1-Bedroom Condo in GTA:
+- BEFORE: -$926/month cashflow (long-term rental)
+- AFTER: +$847/month cashflow (Airbnb with Nurture)
+- Result: 87% increase in first month
+
+## Brand Voice
+@docs/brand-voice.md
+
+## Competitor overview
+@docs/Competitoranalysis
+
+## Bylaws - GTA Core Markets
+
+### Toronto (All Boroughs)
+@docs/bylaws/toronto short term rental bylaw.pdf
+- 180 nights/year (entire home), unlimited (partial)
+- Principal residence only
+- Registration required
+- 8.5% MAT tax
+
+### Mississauga
+@docs/bylaws/Mississauga short term rental bylaw.pdf
+- 180 days/year limit
+- Principal residence only
+- License: $283/year
+- Penalties up to $100K
+
+### Brampton
+@docs/bylaws/brampton bylaw.txt
+- 180 days/year limit
+- Principal residence only
+- Max 3 bedrooms rented individually
+- 4% MAT
+
+### Vaughan
+@docs/bylaws/vaughan bylaw.pdf
+- 29 consecutive days or less = STR
+- Principal residence only
+- License required + MAT registration
+- 4% MAT
+
+### Hamilton
+@docs/bylaws/hamilton bylaw.txt
+- Principal residence only
+- License: $200-$1,000
+- $2M liability insurance required
+- License valid 2 years
+
+### Oakville
+@docs/bylaws/oakville STR bylaw.pdf
+- 28 consecutive days or less = STR
+- Principal residence required
+- License: $237/year
+- 4% MAT
+
+## Bylaws - Niagara Region
+
+### Niagara Falls
+@docs/bylaws/Niagara falls bylaw.txt
+- VRU (Vacation Rental Unit) license required
+- Zoning restricted (Tourist/Commercial zones only)
+- License: $500 initial, $250 renewal
+- $2/night MAT
+
+### Niagara-on-the-Lake
+@docs/bylaws/niagara on the lake bylaw.txt
+- License required
+- Processing time: up to 10 weeks
+
+### St. Catharines
+@docs/bylaws/st. catherines bylaw.txt
+- By-law 2021-67
+- Principal residence required
+- 4% MAT
+
+## Bylaws - Cottage Country
+
+### Muskoka Lakes
+@docs/bylaws/Muskoka bylaw.txt
+- Effective January 1, 2025
+- License: $1,000/year
+- 2 persons per bedroom max
+- Demerit point system
+
+### Huntsville
+@docs/bylaws/Huntsville bylaw.pdf
+- Principal residence or 2 bedrooms in primary home
+- Secondary units NOT permitted for STR
+
+## Bylaws - Other Ontario
+
+### Ottawa
+@docs/bylaws/Ottawa bylaw.txt
+- Under 30 consecutive nights
+- Principal residence required
+- Permit: $112/2 years
+- 4% MAT
+
+### London
+@docs/bylaws/London bylaw.txt
+- 29 days or less = STR
+- Principal residence required
+- License: $196/year
+- 4% MAT
+
+### Waterloo
+@docs/bylaws/waterloo bylaw.txt
+- Effective January 2025
+- Principal residence required (low-rise)
+- License required
+
+### Sault Ste. Marie
+@docs/bylaws/sault ste marie bylaw.pdf
+- License: $500/year
+- 4% MAT
+- No principal residence requirement
+
+## Bylaws - Summary Reference
+@docs/bylaws/ontario-str-bylaws-summary.md
+- Comprehensive summary of 70+ Ontario municipalities
+- Quick reference tables
+- Official links
+
+---
+
+# Quick Reference
+
+## Common Client Questions
+
+**Q: Can I Airbnb my investment property?**
+A: Most GTA cities (Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville) require STRs to be your principal residence. Investment properties generally cannot be used for short-term rentals. Mid-term rentals (30+ days) are often an alternative.
+
+**Q: What's the night limit in Toronto?**
+A: 180 nights/year for entire home rentals. Unlimited for partial unit (renting rooms while you're home).
+
+
+## Important Notes
+- Always verify bylaws directly with municipality before listing
+- Condo corporations can prohibit STRs even if city allows
+- Regulations change frequently - check for updates
+- Mid-term rentals (30+ days) often exempt from STR rules
+
+

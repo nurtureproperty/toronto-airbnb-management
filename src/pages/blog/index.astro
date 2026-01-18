@@ -1,7 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const posts = [
+// Get posts from content collection (auto-generated posts)
+const collectionPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+// Convert collection posts to same format as manual posts
+const generatedPosts = collectionPosts.map(post => ({
+  slug: post.slug,
+  title: post.data.title,
+  excerpt: post.data.description,
+  date: post.data.pubDate,
+  readTime: '5 min read',
+  tags: post.data.tags,
+  category: post.data.category,
+  isGenerated: true
+}));
+
+// Manual posts (existing .astro pages)
+const manualPosts = [
   {
     slug: 'toronto-airbnb-short-term-rental-regulations-2026',
     title: "Toronto Airbnb Short Term Rental Regulations 2026",
@@ -48,6 +67,11 @@ const posts = [
     category: 'Investment'
   }
 ];
+
+// Combine and sort all posts by date (newest first)
+const posts = [...manualPosts, ...generatedPosts].sort((a, b) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
 // Schema.org structured data
 const blogSchema = {
