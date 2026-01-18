@@ -114,23 +114,22 @@ const blogSchema = {
       </div>
 
       <div class="blog-grid" id="blog-grid">
-        {posts.map(post => (
+        {posts.map(post => {
+          const shortExcerpt = post.excerpt.length > 100 ? post.excerpt.substring(0, 100).trim() + '...' : post.excerpt;
+          return (
           <article class="blog-card" data-title={post.title.toLowerCase()} data-tags={post.tags.join(' ').toLowerCase()}>
-            <div class="blog-card-image">
-              <div class="image-placeholder">
-                <span class="category-badge">{post.category}</span>
-              </div>
-            </div>
             <div class="blog-card-content">
               <div class="blog-meta">
-                <span class="blog-date">{new Date(post.date).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span class="category-badge">{post.category}</span>
+                <span class="blog-separator">·</span>
+                <span class="blog-date">{new Date(post.date).toLocaleDateString('en-CA', { year: 'numeric', month: 'long' })}</span>
                 <span class="blog-separator">·</span>
                 <span class="blog-read-time">{post.readTime}</span>
               </div>
               <h2 class="blog-title">
                 <a href={`/blog/${post.slug}`}>{post.title}</a>
               </h2>
-              <p class="blog-excerpt">{post.excerpt}</p>
+              <p class="blog-excerpt">{shortExcerpt}</p>
               <div class="blog-tags">
                 {post.tags.map(tag => (
                   <span class="tag">{tag}</span>
@@ -138,7 +137,7 @@ const blogSchema = {
               </div>
             </div>
           </article>
-        ))}
+        )})}
       </div>
 
       <div id="no-results" class="no-results" style="display: none;">
@@ -256,34 +255,19 @@ const blogSchema = {
     box-shadow: var(--shadow-xl);
   }
 
-  .blog-card-image {
-    aspect-ratio: 16/9;
-    overflow: hidden;
-  }
-
-  .image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 1rem;
-  }
-
   .category-badge {
     background: var(--color-primary);
     color: white;
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
   .blog-card-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .blog-meta {
