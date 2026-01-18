@@ -194,7 +194,7 @@ title: "[SEO optimized title, 50-60 characters, include location if relevant]"
 description: "[Meta description, 150-160 characters, compelling and includes target keyword]"
 pubDate: "{today_date}"
 author: "Nurture Airbnb Property Management"
-category: "[News/Regulations/Tips/Market Update]"
+category: "[News/Tips/Guides]"
 tags: [{tags_list}]
 sourceUrl: "{article_url}"
 sourceTitle: "{article_title}"
@@ -445,17 +445,23 @@ def generate_blog_post(article: dict, client: anthropic.Anthropic) -> Optional[s
 
     today = datetime.now().strftime("%Y-%m-%d")
 
-    # Determine appropriate tags
+    # Determine appropriate tags (only use: News, Tips, Guides)
     tags = []
-    title_lower = article["title"].lower()
-    if "toronto" in title_lower or "ontario" in title_lower or "gta" in title_lower:
-        tags.append('"Ontario"')
-    if "regulation" in title_lower or "bylaw" in title_lower or "law" in title_lower:
-        tags.append('"Regulations"')
-    if "airbnb" in title_lower:
-        tags.append('"Airbnb"')
-    if "tax" in title_lower:
-        tags.append('"Taxes"')
+    content_lower = (article["title"] + " " + content).lower()
+
+    # Guides: regulation guides, how-to content, comprehensive information
+    if any(word in content_lower for word in ["regulation", "bylaw", "law", "rule", "policy", "guide", "how to", "step by step", "complete", "everything you need"]):
+        tags.append('"Guides"')
+
+    # Tips: actionable advice, strategies, recommendations
+    if any(word in content_lower for word in ["tip", "strategy", "advice", "recommend", "should", "best practice", "optimize", "improve", "increase", "maximize"]):
+        tags.append('"Tips"')
+
+    # News: current events, announcements, updates, market trends
+    if any(word in content_lower for word in ["announce", "new", "update", "launch", "report", "study", "trend", "market", "data", "statistics"]):
+        tags.append('"News"')
+
+    # Default to News if no tags matched
     if not tags:
         tags.append('"News"')
 

@@ -137,7 +137,7 @@ title: "[SEO optimized title, 50-60 characters, include location if relevant]"
 description: "[Meta description, 150-160 characters, compelling and includes target keyword]"
 pubDate: "{today_date}"
 author: "Nurture Airbnb Property Management"
-category: "[News/Regulations/Tips/Market Update]"
+category: "[News/Tips/Guides]"
 tags: [{tags_list}]
 sourceUrl: "{article_url}"
 sourceTitle: "{article_title}"
@@ -342,20 +342,23 @@ def generate_blog_post(title: str, content: str, url: str, source: str, client: 
     """Generate a blog post using Claude API."""
     today = datetime.now().strftime("%Y-%m-%d")
 
-    # Determine appropriate tags based on content
+    # Determine appropriate tags based on content (only use: News, Tips, Guides)
     tags = []
     content_lower = (title + " " + content).lower()
 
-    if any(word in content_lower for word in ["toronto", "ontario", "gta", "mississauga", "brampton"]):
-        tags.append('"Ontario"')
-    if any(word in content_lower for word in ["regulation", "bylaw", "law", "rule", "policy"]):
-        tags.append('"Regulations"')
-    if "airbnb" in content_lower:
-        tags.append('"Airbnb"')
-    if any(word in content_lower for word in ["tax", "mat", "hst"]):
-        tags.append('"Taxes"')
-    if any(word in content_lower for word in ["market", "trend", "growth", "data", "statistics"]):
-        tags.append('"Market Update"')
+    # Guides: regulation guides, how-to content, comprehensive information
+    if any(word in content_lower for word in ["regulation", "bylaw", "law", "rule", "policy", "guide", "how to", "step by step", "complete", "everything you need"]):
+        tags.append('"Guides"')
+
+    # Tips: actionable advice, strategies, recommendations
+    if any(word in content_lower for word in ["tip", "strategy", "advice", "recommend", "should", "best practice", "optimize", "improve", "increase", "maximize"]):
+        tags.append('"Tips"')
+
+    # News: current events, announcements, updates, market trends
+    if any(word in content_lower for word in ["announce", "new", "update", "launch", "report", "study", "trend", "market", "data", "statistics"]):
+        tags.append('"News"')
+
+    # Default to News if no tags matched
     if not tags:
         tags.append('"News"')
 

@@ -47,6 +47,14 @@ The blog generator follows these rules to create natural, human-sounding content
 - Cite specific facts, numbers, and dates from the source
 - End with a natural CTA, not a forced sales pitch
 
+### Tags and Categories
+All blog posts must use only these 3 tags/categories:
+- **News** - Current events, announcements, market updates, industry trends
+- **Tips** - Actionable advice, strategies, recommendations, best practices
+- **Guides** - Comprehensive how-to content, regulation guides, step-by-step instructions
+
+The script automatically assigns tags based on content keywords. Posts can have multiple tags if relevant.
+
 ---
 
 ## Prerequisites
