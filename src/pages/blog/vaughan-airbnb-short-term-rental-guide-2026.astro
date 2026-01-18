@@ -1,0 +1,934 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Vaughan?", a: "No. Vaughan requires your STR to be your principal residence, meaning you must ordinarily live there. Investment properties, vacation homes, and second properties do not qualify. However, mid-term rentals of 30+ days are exempt from these restrictions." },
+  { q: "Is there a night limit for Airbnb in Vaughan?", a: "Unlike Toronto and Mississauga, Vaughan does not impose an annual night limit on short-term rentals. You can rent your principal residence year-round, subject to all other licensing requirements." },
+  { q: "How much is the Vaughan STR license?", a: "License fees are set by the City's Fees and Charges By-law 171-2013. The license is non-refundable and must be renewed annually. Check the City of Vaughan website for current rates." },
+  { q: "Can a corporation own an STR license in Vaughan?", a: "No. Only individual persons can hold an STR Owner license. Corporations, partnerships, and other business entities cannot be licensed as STR operators in Vaughan." },
+  { q: "Do I need a background check for a Vaughan STR license?", a: "Yes. Every applicant must provide a complete Vulnerable Sector Check issued by an Ontario Police Service, dated within 90 days of your application." },
+  { q: "Can I rent my condo on Airbnb in Vaughan?", a: "Only if your condo corporation permits it. You must provide a letter from the building owner declaring that STR operations are allowed. Many condos prohibit short-term rentals regardless of city rules." },
+  { q: "What happens if I operate without a license?", a: "You can face administrative penalties of $750 per breach, or fines ranging from $500 to $5,000 for first offences, up to $10,000 for repeat offences, and up to $100,000 for corporations." },
+  { q: "Can I rent to multiple groups at the same time?", a: "No. The bylaw prohibits accepting multiple reservations where the rental periods overlap. You cannot have separate guests staying simultaneously." },
+  { q: "What's the difference between Vaughan and Toronto rules?", a: "The main differences: Vaughan uses 29 days as the STR threshold (Toronto uses 28), and Vaughan has no annual night limit (Toronto has 180 nights). Both require principal residence and licensing." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR rules including the 180-night limit' },
+  { title: 'Mississauga Airbnb Short Term Rental Guide 2026', href: '/blog/mississauga-airbnb-short-term-rental-rules-2026', description: 'Understanding Mississauga STR regulations and the 180-day limit' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as Short-Term Rental?' },
+  { id: 'no-night-limit', text: 'No Annual Night Limit' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'mid-term-strategy', text: 'Mid-Term Rental Strategy' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'background-check', text: 'Background Check Requirements' },
+  { id: 'property-types', text: 'What Properties Qualify?' },
+  { id: 'compliance', text: 'Compliance Requirements' },
+  { id: 'penalties', text: 'Penalties for Non-Compliance' },
+  { id: 'why-worth-it', text: 'Why STR Is Worth It in Vaughan' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Vaughan Airbnb Short Term Rental Guide 2026: Complete Host Guide";
+const pageDescription = "Complete guide to Vaughan's short term rental regulations for Airbnb hosts. Learn about the principal residence rule, license requirements, background checks, and 4% MAT under By-Law 158-2019.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-18",
+  "dateModified": "2026-01-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/vaughan-airbnb-short-term-rental-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Vaughan Regulations</span>
+      </nav>
+      <h1>Vaughan Airbnb Short Term Rental Guide 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Updated January 18, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Vaughan regulates short-term rentals under <strong>By-Law 158-2019</strong>, which has been amended several times through 2025. If you're thinking about listing your property on Airbnb or VRBO in Vaughan, understanding these rules is essential for staying compliant and avoiding significant penalties.</p>
+            <p class="lead">This guide covers everything you need to know about Vaughan's STR regulations, from the principal residence requirement to licensing, background checks, and the 4% Municipal Accommodation Tax.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Under Vaughan's bylaw, a short-term rental is defined as:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-Term Rental means a Dwelling Unit or part of a Dwelling Unit used to provide temporary accommodation for a Rental Period of not more than 29 consecutive days and shall not include a hotel, motel or Bed-and-Breakfast Establishment."
+            <cite>Vaughan By-Law 158-2019, Section 3.0(4)(cc)</cite>
+          </blockquote>
+
+          <p>This means any rental of 29 days or less requires licensing and must follow all STR regulations. Rentals of 30 consecutive days or more are not considered short-term rentals and are exempt from these rules.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key Difference from Other GTA Cities:</strong> Vaughan uses 29 days as the STR threshold, while Toronto uses 28 days and Mississauga uses 30 days. This affects what counts as a short-term vs. mid-term rental.
+            </div>
+          </div>
+
+          <h2 id="no-night-limit">No Annual Night Limit</h2>
+          <p>One significant advantage of Vaughan's STR regulations compared to Toronto and Mississauga:</p>
+
+          <div class="highlight-box">
+            <h4>Vaughan Has No Annual Night Limit</h4>
+            <p>Unlike Toronto and Mississauga (both 180 days/year), Vaughan does not impose a cap on how many nights you can rent your principal residence as a short-term rental.</p>
+          </div>
+
+          <p>This means if you have a licensed STR at your principal residence in Vaughan, you can technically operate it year-round without hitting a regulatory ceiling. However, you must still:</p>
+          <ul>
+            <li>Maintain a valid license</li>
+            <li>Keep it as your principal residence</li>
+            <li>Comply with all other bylaw requirements</li>
+            <li>Collect and remit the 4% MAT</li>
+          </ul>
+
+          <h2 id="principal-residence">The Principal Residence Rule</h2>
+          <p>This is the most important rule for prospective hosts to understand. Vaughan only allows STRs at your principal residence:</p>
+
+          <blockquote class="bylaw-quote">
+            "Principal Residence means a dwelling unit owned or rented by an Individual Person, either alone or jointly with others, where the Individual Person is ordinarily resident."
+            <cite>Vaughan By-Law 158-2019, Section 3.0(4)(aa)</cite>
+          </blockquote>
+
+          <p>The property must be:</p>
+          <ul>
+            <li>The <strong>principal residence</strong> of at least one of the applicants</li>
+            <li>Located in an area that <strong>permits residential uses</strong></li>
+            <li>In compliance with the <strong>Ontario Building Code and Fire Code</strong></li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>What This Means for Property Investors</h4>
+            <p>If you own an investment property, vacation home, or second property in Vaughan, you <strong>cannot</strong> operate it as a short-term rental. The principal residence rule means you can only STR the home where you actually live.</p>
+            <p>Looking to rent an investment property? Consider <a href="/services/mid-term-rental-management">mid-term rentals</a> (30+ days) which are exempt from these restrictions.</p>
+          </div>
+
+          <h2 id="mid-term-strategy">Mid-Term Rentals: The Alternative Strategy</h2>
+          <p>Since Vaughan's STR rules only apply to rentals of 29 days or less, <strong>mid-term rentals are completely exempt</strong> from these regulations.</p>
+
+          <h3>What Qualifies as Mid-Term?</h3>
+          <p>Any rental of 30 consecutive days or more in Vaughan:</p>
+          <ul>
+            <li>Does <strong>not</strong> require an STR license</li>
+            <li>Does <strong>not</strong> require principal residence status</li>
+            <li>Can be operated on investment properties</li>
+            <li>Is not subject to the MAT</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Why Mid-Term Works Well in Vaughan</h4>
+            <p>Vaughan has strong mid-term rental demand due to:</p>
+            <ul>
+              <li><strong>Corporate relocations:</strong> Major employers like CN, FedEx, and numerous corporate headquarters</li>
+              <li><strong>Canada's Wonderland:</strong> Seasonal workers during peak season</li>
+              <li><strong>Healthcare workers:</strong> Proximity to Mackenzie Health hospital</li>
+              <li><strong>Construction projects:</strong> Ongoing development throughout York Region</li>
+              <li><strong>New immigrants:</strong> Vaughan has a large newcomer population</li>
+            </ul>
+          </div>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>Before operating any STR in Vaughan, you must obtain a license from the city.</p>
+
+          <h3>Who Can Get a License?</h3>
+          <p>Licenses are only available to:</p>
+          <ul>
+            <li><strong>Individual persons</strong> (not corporations, partnerships, or other business entities)</li>
+            <li>Persons with <strong>permanent residency in Canada</strong></li>
+            <li>Persons <strong>18 years of age or older</strong></li>
+          </ul>
+
+          <h3>Application Requirements</h3>
+          <p>To apply for an STR Owner license in Vaughan, you must provide:</p>
+          <ol>
+            <li><strong>Completed application form</strong> signed by all applicants</li>
+            <li><strong>Proof of ownership or tenancy</strong></li>
+            <li><strong>License fee</strong> (non-refundable)</li>
+            <li><strong>Proof of Canadian permanent residency</strong></li>
+            <li><strong>Government-issued photo ID</strong> for all applicants</li>
+            <li><strong>Vulnerable Sector Check</strong> from an Ontario Police Service (within 90 days)</li>
+            <li><strong>Proof of principal residence</strong></li>
+            <li><strong>List of all STR operators</strong> with contact information</li>
+            <li><strong>MAT registration</strong> (must register before applying for license)</li>
+          </ol>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>For Tenants:</strong> If you rent your home, you need an original, notarized letter from your landlord giving explicit permission to operate an STR. The letter must be certified by a notary public or commissioner of oaths.
+            </div>
+          </div>
+
+          <h3>License Validity and Renewal</h3>
+          <p>STR licenses in Vaughan:</p>
+          <ul>
+            <li>Must be renewed <strong>annually</strong> by the anniversary date</li>
+            <li>Can be renewed no earlier than 2 months before the anniversary</li>
+            <li>If lapsed up to 30 days: 15% late fee applies</li>
+            <li>If lapsed 30-90 days: 30% late fee applies</li>
+            <li>If lapsed more than 90 days: license is <strong>cancelled</strong> and you cannot reapply for 2 years</li>
+          </ul>
+
+          <h2 id="background-check">Background Check Requirements</h2>
+          <p>Vaughan requires a comprehensive background check for all STR license applicants:</p>
+
+          <blockquote class="bylaw-quote">
+            "A complete Vulnerable Sector Check for every Applicant, issued by an Ontario Police Service, not more than 90 days old, from the date of application."
+            <cite>Vaughan By-Law 158-2019, Section 5.0(13)(g)</cite>
+          </blockquote>
+
+          <h3>Automatic Disqualifications</h3>
+          <p>You cannot obtain a license if, within the previous 5 years, you have been convicted of:</p>
+          <ul>
+            <li>Homicide or manslaughter</li>
+            <li>Sexual offences</li>
+            <li>Assault offences</li>
+            <li>Confinement offences</li>
+            <li>Robbery or extortion</li>
+            <li>Break and enter</li>
+            <li>Fraud or forgery</li>
+          </ul>
+
+          <h2 id="property-types">What Properties Qualify?</h2>
+          <p>STRs can only be operated in a dwelling unit that is your principal residence.</p>
+
+          <h3>Allowed</h3>
+          <ul>
+            <li>Single-family homes</li>
+            <li>Townhouses</li>
+            <li>Condo units (if condo corporation permits)</li>
+            <li>Apartments (with landlord authorization)</li>
+            <li>Part of your dwelling unit (room rentals)</li>
+          </ul>
+
+          <h3>Additional Requirements for Condos/Multi-Unit Buildings</h3>
+          <blockquote class="bylaw-quote">
+            "If the proposed Short-Term Rental is to be located in a Multiple Unit Dwelling, Applicants shall provide, at the time of application, a letter from the owner of such Multiple Unit Dwelling declaring that the Operation of Short-Term Rentals is permitted."
+            <cite>Vaughan By-Law 158-2019, Section 5.0(9)</cite>
+          </blockquote>
+
+          <p>This means you need written permission from your condo corporation or building owner before the city will even consider your application.</p>
+
+          <h2 id="compliance">Compliance Requirements</h2>
+          <p>Once licensed, you must follow these ongoing requirements:</p>
+
+          <h3>Display Your License</h3>
+          <blockquote class="bylaw-quote">
+            "Every Short-Term Rental Owner shall post the licence supplied by the City at the time of issuance or renewal in a conspicuous place visible from the outside of the Dwelling Unit, on, or as near as possible to, the main entrance to the Short-Term Rental."
+            <cite>Vaughan By-Law 158-2019, Section 11.0(8)</cite>
+          </blockquote>
+
+          <h3>No Overlapping Bookings</h3>
+          <blockquote class="bylaw-quote">
+            "No Short-Term Rental Owner shall offer or accept multiple reservations where the proposed accommodation Rental Periods of said reservations overlap."
+            <cite>Vaughan By-Law 158-2019, Section 11.0(2)</cite>
+          </blockquote>
+
+          <h3>Building Code Compliance</h3>
+          <p>Your property must comply with both the Ontario Building Code and Fire Code. The city may require an inspection before issuing or renewing your license.</p>
+
+          <h3>Only Use Licensed Brokerages</h3>
+          <p>You can only list your STR through platforms that hold a valid City of Vaughan brokerage license. Major platforms like Airbnb typically have this, but verify before listing elsewhere.</p>
+
+          <h3>Record Keeping</h3>
+          <p>Brokerages (and by extension, hosts working with them) must maintain records for <strong>3 years</strong> including:</p>
+          <ul>
+            <li>Number of nights rented</li>
+            <li>Nightly and total prices charged</li>
+            <li>Whether it was entire-unit or partial-unit rental</li>
+            <li>MAT collected on each transaction</li>
+          </ul>
+
+          <h2 id="penalties">Penalties for Non-Compliance</h2>
+          <p>Vaughan takes STR compliance seriously with significant penalties:</p>
+
+          <h3>Administrative Penalties</h3>
+          <p>The city can issue administrative penalties of <strong>$750 per breach</strong> instead of laying charges.</p>
+
+          <h3>Fines Upon Conviction</h3>
+          <div class="penalty-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Offence Type</th>
+                  <th>Individual</th>
+                  <th>Corporation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First conviction</td>
+                  <td>$500 - $5,000</td>
+                  <td>$500 - $100,000</td>
+                </tr>
+                <tr>
+                  <td>Second/subsequent</td>
+                  <td>$500 - $10,000</td>
+                  <td>$500 - $100,000</td>
+                </tr>
+                <tr>
+                  <td>Multiple offences</td>
+                  <td>$500 - $10,000 each</td>
+                  <td>$500 - $100,000 each</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Party House Penalties</h3>
+          <p>If your STR is used for a party where entrance fees were charged, you face an additional special fine equal to: (estimated number of attendees) x (amount charged per person).</p>
+
+          <h2 id="why-worth-it">Why STR Is Worth It in Vaughan</h2>
+          <p>Despite the regulations, operating a licensed STR in Vaughan offers significant advantages:</p>
+
+          <h3>1. No Night Limit</h3>
+          <p>Unlike Toronto and Mississauga's 180-day caps, Vaughan allows year-round STR operation at your principal residence. This maximizes your earning potential.</p>
+
+          <h3>2. Strong Location Demand</h3>
+          <p>Vaughan attracts visitors due to:</p>
+          <ul>
+            <li><strong>Canada's Wonderland:</strong> Millions of visitors annually need nearby accommodation</li>
+            <li><strong>Vaughan Mills:</strong> Major shopping destination</li>
+            <li><strong>Corporate headquarters:</strong> Business travelers visiting offices</li>
+            <li><strong>TTC Subway access:</strong> Line 1 extension makes Vaughan accessible to Toronto</li>
+            <li><strong>Events and weddings:</strong> Numerous event venues in the area</li>
+          </ul>
+
+          <h3>3. Premium Pricing</h3>
+          <p>Vaughan's suburban setting with larger homes commands premium rates compared to downtown Toronto condos, especially for families and groups.</p>
+
+          <h3>4. Professional Support Available</h3>
+          <p>Managing compliance, guest communication, and turnover can be time-consuming. Professional property managers like <a href="/">Nurture</a> handle everything including license compliance, guest screening, cleaning coordination, and revenue optimization so you can earn passive income without the day-to-day stress.</p>
+
+          <h2 id="official-resources">Official Resources</h2>
+          <p>For the most current and authoritative information, consult these official City of Vaughan sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.vaughan.ca/residential/building-and-home-improvement/short-term-rentals" target="_blank" rel="noopener">City of Vaughan STR Information</a></li>
+              <li><a href="https://www.vaughan.ca/residential/building-and-home-improvement/short-term-rentals/str-application-and-licensing" target="_blank" rel="noopener">STR Application and Licensing</a></li>
+              <li><a href="https://www.vaughan.ca/sites/default/files/Short-Term%20Rental%20By-law.pdf" target="_blank" rel="noopener">By-Law 158-2019 (Full Text PDF)</a></li>
+            </ul>
+          </div>
+
+          <p>Regulations can change. We recommend verifying current requirements directly with the City of Vaughan before making any decisions about listing your property.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Navigating Vaughan's STR Rules?</h3>
+            <p>Nurture handles license compliance, guest management, and revenue optimization for Vaughan hosts. Our local team knows the bylaws inside and out so you can earn more while staying fully compliant.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Vaughan STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin-bottom: 0.75rem;
+  }
+
+  .warning-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .warning-box a {
+    color: #c0392b;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-left: 4px solid #4caf50;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .highlight-box h4 {
+    color: #2e7d32;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .highlight-box p {
+    margin-bottom: 0;
+    color: #1b5e20;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ul {
+    margin-bottom: 0;
+  }
+
+  .penalty-table {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .penalty-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .penalty-table th,
+  .penalty-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .penalty-table th {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  .penalty-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .penalty-table tr:hover td {
+    background: var(--color-background-alt);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .penalty-table th,
+    .penalty-table td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
