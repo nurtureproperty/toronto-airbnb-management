@@ -542,10 +542,12 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     z-index: 998;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
   .mobile-overlay.active {
     opacity: 1;
+    pointer-events: auto;
   }
 
   /* Mobile Navigation - Hidden by default */
@@ -588,6 +590,9 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       border-radius: 50%;
       background: #e8f0ee;
       flex-shrink: 0;
+      position: relative;
+      z-index: 1001;
+      cursor: pointer;
     }
 
     .mobile-phone-link:hover,
