@@ -1,0 +1,933 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Mississauga?", a: "No. Mississauga requires your STR to be your principal residence, meaning you must ordinarily live there. Investment properties, vacation homes, and second properties do not qualify. However, mid-term rentals of 31+ days are exempt from these restrictions." },
+  { q: "What is the night limit for Airbnb in Mississauga?", a: "You can rent your entire home for a maximum of 180 days per calendar year. The limit resets every January 1st. Nights across all booking platforms count toward this total." },
+  { q: "How much is the Mississauga STR license?", a: "License fees are set by the City's User Fees and Charges By-law and are paid annually. Check the City of Mississauga website for current rates. The license is valid for one year from the date of issue." },
+  { q: "Can I rent my basement apartment on Airbnb in Mississauga?", a: "Yes, if the basement is your principal residence. However, you cannot operate an STR in an accessory building (detached structures like a coach house or garage suite)." },
+  { q: "Do I need insurance for my Mississauga Airbnb?", a: "Yes. You must have commercial general liability insurance of at least $2,000,000. The City of Mississauga must be listed as an additional insured on your policy." },
+  { q: "Can a corporation own an STR license in Mississauga?", a: "No. Only individual persons can hold an STR license. Corporations, partnerships, and other business entities cannot be licensed as STR operators." },
+  { q: "What records do I need to keep?", a: "You must maintain records for at least 3 years including the number of nights rented, nightly and total price, whether it was entire or partial unit, and any municipal accommodation tax collected." },
+  { q: "Can I rent to multiple groups at the same time?", a: "No. The bylaw prohibits booking separate guests for the same days. You cannot have two or more unrelated persons or groups staying in the same dwelling simultaneously." },
+  { q: "What's the difference between Mississauga and Toronto rules?", a: "Both cities have a 180-day limit and principal residence requirement. The main difference is the STR definition: Mississauga uses 30 days (Toronto uses 28 days) as the cutoff. Both require licensing and insurance." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR rules including the 180-night limit' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements across the GTA' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as Short-Term Rental?' },
+  { id: 'night-limit', text: 'The 180-Day Limit' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'mid-term-strategy', text: 'Mid-Term Rental Strategy' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'property-types', text: 'What Properties Qualify?' },
+  { id: 'compliance', text: 'Compliance Requirements' },
+  { id: 'why-worth-it', text: 'Why STR Is Still Worth It' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Mississauga Airbnb Short Term Rental Rules 2026: Complete Host Guide";
+const pageDescription = "Complete guide to Mississauga's short term rental regulations for Airbnb hosts. Learn about the 180-day limit, principal residence rule, license requirements, and $2M insurance requirements under By-Law 0289-2020.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-18",
+  "dateModified": "2026-01-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/mississauga-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Mississauga Regulations</span>
+      </nav>
+      <h1>Mississauga Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Updated January 18, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Mississauga regulates short-term rentals under <strong>By-Law 0289-2020</strong>, which has been amended several times through 2025. If you're thinking about listing your property on Airbnb or VRBO, understanding these rules is essential for staying compliant and avoiding significant fines.</p>
+            <p class="lead">This guide covers everything you need to know about Mississauga's STR regulations, from the 180-day annual limit to license requirements and insurance obligations.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Under Mississauga's bylaw, a short-term rental is defined as:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short Term Rental Accommodation means a temporary accommodation in all or part of a Dwelling that is provided for 30 consecutive days or less in exchange for payment or service."
+            <cite>Mississauga By-Law 0289-2020, Section 1</cite>
+          </blockquote>
+
+          <p>This means any rental of 30 days or less requires licensing and must follow all STR regulations. Rentals of 31 consecutive days or more are not considered short-term rentals and are exempt from these rules.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key Difference from Toronto:</strong> Mississauga uses 30 days as the STR threshold, while Toronto uses 28 days. This small difference can affect your strategy if you operate in both cities.
+            </div>
+          </div>
+
+          <h2 id="night-limit">The 180-Day Annual Limit</h2>
+          <p>Mississauga limits how many days you can rent your home as a short-term rental:</p>
+
+          <blockquote class="bylaw-quote">
+            "No Licensee shall rent out a Short Term Rental Accommodation for more than 180 days in a calendar year."
+            <cite>Mississauga By-Law 0289-2020, Schedule B, Section 7(1)</cite>
+          </blockquote>
+
+          <p>Important things to know about this limit:</p>
+          <ul>
+            <li>The 180-day limit applies per <strong>calendar year</strong> (January 1 to December 31)</li>
+            <li>Days across <strong>all platforms</strong> (Airbnb, VRBO, direct bookings) count toward this total</li>
+            <li>The limit resets every January 1st</li>
+            <li>You must track and record all rental nights for at least 3 years</li>
+          </ul>
+
+          <h2 id="principal-residence">The Principal Residence Rule</h2>
+          <p>This is the most important rule for prospective hosts to understand. Mississauga only allows STRs at your principal residence:</p>
+
+          <blockquote class="bylaw-quote">
+            "No Person shall operate, advertise, broker, carry on the business of or permit the operation...of a Short Term Rental Accommodation unless the property is the Principal Residence of that Person."
+            <cite>Mississauga By-Law 0289-2020, Schedule B, Section 6(1)</cite>
+          </blockquote>
+
+          <p>Principal residence is defined as:</p>
+
+          <blockquote class="bylaw-quote">
+            "Principal Residence means a Dwelling owned or rented by an individual person, either alone or jointly with others, where the individual person is ordinarily resident."
+            <cite>Mississauga By-Law 0289-2020, Section 1</cite>
+          </blockquote>
+
+          <div class="warning-box">
+            <h4>What This Means for Property Investors</h4>
+            <p>If you own an investment property, vacation home, or second property in Mississauga, you <strong>cannot</strong> operate it as a short-term rental. The principal residence rule means you can only STR the home where you actually live.</p>
+            <p>Looking to rent an investment property? Consider <a href="/services/mid-term-rental-management">mid-term rentals</a> (31+ days) which are exempt from these restrictions.</p>
+          </div>
+
+          <h2 id="mid-term-strategy">Mid-Term Rentals: The Alternative Strategy</h2>
+          <p>Since Mississauga's STR rules only apply to rentals of 30 days or less, <strong>mid-term rentals are completely exempt</strong> from these regulations.</p>
+
+          <h3>What Qualifies as Mid-Term?</h3>
+          <p>Any rental of 31 consecutive days or more in Mississauga:</p>
+          <ul>
+            <li>Does <strong>not</strong> require an STR license</li>
+            <li>Does <strong>not</strong> count toward your 180-day limit</li>
+            <li>Does <strong>not</strong> require principal residence status</li>
+            <li>Can be operated on investment properties</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>The Hybrid Strategy for Mississauga Hosts</h4>
+            <p>Many successful hosts combine both approaches:</p>
+            <ol>
+              <li><strong>Peak season (May to October):</strong> Short-term Airbnb rentals to capture premium nightly rates during high-demand periods</li>
+              <li><strong>Off-season (November to April):</strong> Mid-term rentals (31+ days) to traveling professionals, students, or corporate relocations</li>
+            </ol>
+            <p>This strategy maximizes revenue while staying well under the 180-day STR limit.</p>
+          </div>
+
+          <h3>Mid-Term Demand in Mississauga</h3>
+          <p>Mississauga has strong mid-term rental demand from:</p>
+          <ul>
+            <li><strong>Corporate travelers:</strong> The city hosts major corporate headquarters and business parks</li>
+            <li><strong>Healthcare workers:</strong> Proximity to hospitals including Trillium Health Partners</li>
+            <li><strong>University students:</strong> Students at University of Toronto Mississauga campus</li>
+            <li><strong>New immigrants:</strong> Many newcomers need housing while they settle in the GTA</li>
+            <li><strong>Insurance relocation:</strong> Families displaced by home repairs or renovations</li>
+          </ul>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>Before operating any STR in Mississauga, you must obtain a license from the city.</p>
+
+          <h3>Who Can Get a License?</h3>
+          <p>Licenses are only available to:</p>
+          <ul>
+            <li><strong>Individual persons</strong> (not corporations, partnerships, or other business entities)</li>
+            <li>Persons <strong>18 years of age or older</strong></li>
+            <li>One license per person (since you can only have one principal residence)</li>
+          </ul>
+
+          <h3>Application Requirements</h3>
+          <p>To apply for an STR license in Mississauga, you must provide:</p>
+          <ol>
+            <li><strong>Completed application form</strong> from the Licence Manager</li>
+            <li><strong>Proof of principal residence</strong> with government ID and signed declaration</li>
+            <li><strong>Criminal record check</strong> issued within the last 60 days</li>
+            <li><strong>Proof of ownership</strong> or landlord authorization (if you're a tenant)</li>
+            <li><strong>Condo compliance</strong> proving STRs are permitted (if applicable)</li>
+            <li><strong>Building code compliance</strong> certification</li>
+            <li><strong>Insurance certificate</strong> with $2M liability coverage</li>
+            <li><strong>License fee</strong> as per City's User Fees schedule</li>
+          </ol>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>For Tenants:</strong> If you rent your home, you need written authorization from your landlord to operate an STR. Your landlord must sign off on this before the city will issue your license.
+            </div>
+          </div>
+
+          <h3>License Validity</h3>
+          <p>An STR license in Mississauga is valid for <strong>one year</strong> from the date of issue. You must renew annually and meet all the same requirements again, including a fresh criminal record check.</p>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Mississauga has strict insurance requirements for STR operators:</p>
+
+          <blockquote class="bylaw-quote">
+            "An insurance certificate demonstrating commercial general liability business insurance for the operations of the Short Term Rental Accommodation against claims filed against the Applicant with respect to bodily injury, including personal injury and death, and property damage with a per occurrence limit of at least $2,000,000."
+            <cite>Mississauga By-Law 0289-2020, Schedule A, Section 1(8)</cite>
+          </blockquote>
+
+          <p>Key insurance requirements:</p>
+          <ul>
+            <li><strong>$2,000,000 minimum</strong> commercial general liability coverage</li>
+            <li>Coverage for bodily injury, personal injury, death, and property damage</li>
+            <li><strong>City of Mississauga must be listed</strong> as an additional insured</li>
+            <li>Must be commercial/business insurance (standard homeowner's insurance likely won't qualify)</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Don't Rely on Airbnb's Insurance</h4>
+            <p>While Airbnb offers AirCover protection, the City of Mississauga requires you to have your own commercial liability policy with the city named as additional insured. Platform coverage alone does not satisfy this requirement.</p>
+          </div>
+
+          <h2 id="property-types">What Properties Qualify?</h2>
+          <p>STRs can only be operated in a dwelling unit that is your principal residence. The bylaw also has specific restrictions:</p>
+
+          <h3>Allowed</h3>
+          <ul>
+            <li>Single-family homes</li>
+            <li>Townhouses</li>
+            <li>Condo units (if condo corporation permits)</li>
+            <li>Apartments (with landlord authorization)</li>
+            <li>Basement units (if it's your principal residence)</li>
+          </ul>
+
+          <h3>Not Allowed</h3>
+          <blockquote class="bylaw-quote">
+            "No Person shall operate...a Short Term Rental Accommodation located within an Accessory Building as defined in the City's Zoning By-law 225-2007."
+            <cite>Mississauga By-Law 0289-2020, Schedule B, Section 6(2)</cite>
+          </blockquote>
+
+          <p>This means you <strong>cannot</strong> operate an STR in:</p>
+          <ul>
+            <li>Detached coach houses or garage suites</li>
+            <li>Garden suites in the backyard</li>
+            <li>Any other accessory building separate from the main dwelling</li>
+          </ul>
+
+          <h3>Condo Considerations</h3>
+          <p>If you live in a condominium, you must provide proof that your condo corporation allows short-term rentals. Many condos in Mississauga have rules prohibiting or restricting STRs. Always check your condo's declaration and bylaws before applying for a license.</p>
+
+          <h2 id="compliance">Compliance Requirements</h2>
+          <p>Once licensed, you must follow these ongoing requirements:</p>
+
+          <h3>Display Your License Number</h3>
+          <p>Your valid business license number must appear prominently in all advertising and marketing materials for your STR.</p>
+
+          <h3>Guest Safety</h3>
+          <ul>
+            <li>Provide an emergency contact name and number to all guests</li>
+            <li>Post an evacuation plan at all entrances and exits</li>
+            <li>Issue invoices or receipts that include your license number</li>
+          </ul>
+
+          <h3>No Overlapping Bookings</h3>
+          <blockquote class="bylaw-quote">
+            "No Licensee shall book or reserve separate guests in a Short Term Rental Accommodation for the same days, whereby two (2) or more unrelated or unassociated persons are accommodated in the same Dwelling at the same time."
+            <cite>Mississauga By-Law 0289-2020, Schedule B, Section 7(2)</cite>
+          </blockquote>
+
+          <p>This means you cannot rent to multiple separate groups simultaneously, even if they would occupy different rooms.</p>
+
+          <h3>Record Keeping</h3>
+          <p>You must maintain records for at least <strong>3 years</strong> including:</p>
+          <ul>
+            <li>Number of nights rented each calendar year</li>
+            <li>Nightly and total prices charged</li>
+            <li>Whether each rental was entire unit or partial unit</li>
+            <li>Any municipal accommodation tax collected</li>
+          </ul>
+
+          <p>You must provide these records to the Licence Manager within 30 days if requested.</p>
+
+          <h2 id="why-worth-it">Why STR Is Still Worth It in Mississauga</h2>
+          <p>Despite the regulations, operating a licensed STR in Mississauga can still be highly profitable:</p>
+
+          <h3>1. Higher Income Potential</h3>
+          <p>Even with the 180-day limit, short-term rentals typically generate significantly more revenue than traditional long-term leases:</p>
+
+          <div class="comparison-example">
+            <h4>Example: 2-Bedroom Condo in Square One Area</h4>
+            <div class="example-grid">
+              <div class="example-item">
+                <span class="label">Long-term rental</span>
+                <span class="value">$2,800/month</span>
+                <span class="annual">$33,600/year</span>
+              </div>
+              <div class="example-item highlight">
+                <span class="label">Airbnb (180 nights @ $180/night)</span>
+                <span class="value">$32,400/year</span>
+                <span class="annual">+ mid-term income potential</span>
+              </div>
+            </div>
+            <p class="example-note">Add mid-term rentals for the remaining 185 days and total income often exceeds long-term rental by 30% or more.</p>
+          </div>
+
+          <h3>2. Strategic Location</h3>
+          <p>Mississauga offers strong STR demand due to:</p>
+          <ul>
+            <li><strong>Pearson Airport proximity:</strong> Business travelers, flight crews, and passengers with early flights</li>
+            <li><strong>Corporate headquarters:</strong> Many Fortune 500 companies have offices in Mississauga</li>
+            <li><strong>Square One:</strong> Major shopping and entertainment destination draws visitors</li>
+            <li><strong>Easy Toronto access:</strong> Guests can visit Toronto while enjoying lower accommodation costs</li>
+          </ul>
+
+          <h3>3. Flexibility</h3>
+          <p>Unlike long-term leases, STR hosting gives you:</p>
+          <ul>
+            <li>Ability to use your home during gaps between bookings</li>
+            <li>Dynamic pricing to maximize revenue during peak demand</li>
+            <li>No long-term tenant issues or eviction processes</li>
+            <li>Control over who stays in your home</li>
+          </ul>
+
+          <h3>4. Professional Support Available</h3>
+          <p>Managing compliance, guest communication, and turnover can be time-consuming. Professional property managers like <a href="/">Nurture</a> handle everything including license compliance, guest screening, cleaning coordination, and revenue optimization so you can earn passive income without the day-to-day stress.</p>
+
+          <h2 id="official-resources">Official Resources</h2>
+          <p>For the most current and authoritative information, consult these official City of Mississauga sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.mississauga.ca/services-and-programs/business/licences-and-permits/short-term-rental-accommodation/" target="_blank" rel="noopener">City of Mississauga STR Information</a></li>
+              <li><a href="https://www.mississauga.ca/sitemap/services-and-programs/business/licences-and-permits/" target="_blank" rel="noopener">Business Licences and Permits</a></li>
+              <li><a href="https://web.mississauga.ca/wp-content/uploads/2020/12/16095054/Short-Term-Rental-Accommodation-Licensing-By-law-0289-2020.pdf" target="_blank" rel="noopener">By-Law 0289-2020 (Full Text PDF)</a></li>
+              <li><a href="https://www.mississauga.ca/services-and-programs/home-and-yard/building-and-renovating/zoning/" target="_blank" rel="noopener">Mississauga Zoning Information</a></li>
+            </ul>
+          </div>
+
+          <p>Regulations can change. We recommend verifying current requirements directly with the City of Mississauga before making any decisions about listing your property.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Navigating Mississauga's STR Rules?</h3>
+            <p>Nurture handles license compliance, guest management, and revenue optimization for Mississauga hosts. Our local team knows the bylaws inside and out so you can earn more while staying fully compliant.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Mississauga STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin-bottom: 0.75rem;
+  }
+
+  .warning-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .warning-box a {
+    color: #c0392b;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ol {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .comparison-example {
+    background: var(--color-background-alt);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .comparison-example h4 {
+    margin-bottom: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .example-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .example-item {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .example-item.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .example-item .label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .example-item .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .example-item .annual {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .example-note {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .example-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
