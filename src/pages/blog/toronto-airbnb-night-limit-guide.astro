@@ -1,0 +1,663 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I rent my Airbnb for more than 180 nights?", a: "Yes, but only for partial unit rentals (renting rooms while you remain home). Entire home rentals are limited to 180 nights per year." },
+  { q: "What happens if I exceed the 180-night limit?", a: "You could face fines up to $10,000 per offense, and your registration may be revoked. The City of Toronto actively enforces these rules." },
+  { q: "Does the limit reset at the start of each year?", a: "Yes, the 180-night limit is calculated on a calendar year basis, resetting each January 1st." },
+  { q: "Are there exceptions to the principal residence rule?", a: "Limited exceptions exist for properties in certain commercial zones. Consult with the city's Municipal Licensing & Standards division for specific cases." }
+];
+
+const relatedPosts = [
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements' }
+];
+
+const tocItems = [
+  { id: 'what-is-limit', text: 'What is the 180-Night Limit?' },
+  { id: 'who-does-it-apply', text: 'Who Does It Apply To?' },
+  { id: 'how-nights-counted', text: 'How Are Nights Counted?' },
+  { id: 'registration', text: 'Registration Requirements' },
+  { id: 'mat-tax', text: 'The 8.5% MAT Tax' },
+  { id: 'penalties', text: 'Penalties for Non-Compliance' },
+  { id: 'compliance-tips', text: 'Tips for Staying Compliant' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What's the Night Limit for Airbnb in Toronto? Complete 2026 Guide",
+  "description": "Learn about Toronto's 180-night annual limit for entire home rentals, registration requirements, and how to stay compliant with the city's short-term rental bylaws.",
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-01-15",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-airbnb-night-limit-guide"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title="What's the Night Limit for Airbnb in Toronto? Complete 2026 Guide" description="Learn about Toronto's 180-night annual limit for entire home rentals, registration requirements, and how to stay compliant with the city's short-term rental bylaws." schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Toronto Regulations</span>
+      </nav>
+      <h1>What's the Night Limit for Airbnb in Toronto?</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 15, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">8 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">If you're considering short-term rentals in Toronto, understanding the city's night limits is essential. Toronto enforces strict regulations on Airbnb and other short-term rental platforms, with the most important rule being the <strong>180-night annual limit</strong> for entire home rentals.</p>
+          </div>
+
+          <h2 id="what-is-limit">What is the 180-Night Limit?</h2>
+          <p>Toronto's short-term rental bylaw restricts <strong>entire home rentals</strong> to a maximum of 180 nights per calendar year. This means if you rent out your complete property (when you're not there), you can only do so for roughly half the year.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key Point:</strong> Partial unit rentals (renting a room while you stay in the property) have <strong>no night limit</strong>. This is an important distinction many hosts overlook.
+            </div>
+          </div>
+
+          <h2 id="who-does-it-apply">Who Does the Limit Apply To?</h2>
+          <p>The 180-night limit applies to any property registered as a short-term rental in Toronto where:</p>
+          <ul>
+            <li>The property is your <strong>principal residence</strong></li>
+            <li>You're renting the <strong>entire unit</strong> (not just a room)</li>
+            <li>Rentals are for <strong>less than 28 consecutive days</strong></li>
+          </ul>
+
+          <p>The principal residence requirement is crucial. In Toronto, you can only operate a short-term rental from the home where you actually live. Investment properties and secondary homes are not eligible for short-term rentals under 28 days.</p>
+
+          <h2 id="how-nights-counted">How Are Nights Counted?</h2>
+          <p>Toronto counts nights on a calendar year basis (January 1 to December 31). Here's what you need to know:</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Entire Home Rentals</h4>
+              <p>Each night your entire property is booked counts toward your 180-night limit.</p>
+            </div>
+            <div class="info-card">
+              <h4>Partial Unit Rentals</h4>
+              <p>Nights when you rent a room while home don't count toward the limit.</p>
+            </div>
+            <div class="info-card">
+              <h4>Multiple Platforms</h4>
+              <p>Nights across all platforms (Airbnb, VRBO, etc.) are combined in the count.</p>
+            </div>
+          </div>
+
+          <h2 id="registration">Registration Requirements</h2>
+          <p>Before you can legally operate a short-term rental in Toronto, you must:</p>
+
+          <ol>
+            <li><strong>Register with the City</strong> - Apply through Toronto's Municipal Licensing & Standards</li>
+            <li><strong>Obtain a registration number</strong> - This must be displayed on all listings</li>
+            <li><strong>Prove principal residence</strong> - Provide documentation showing it's your primary home</li>
+            <li><strong>Maintain compliance</strong> - Keep records and renew registration as required</li>
+          </ol>
+
+          <p>Registration costs approximately $50 and must be renewed annually. Operating without valid registration can result in significant fines.</p>
+
+          <h2 id="mat-tax">The 8.5% MAT Tax</h2>
+          <p>Toronto charges a <strong>Municipal Accommodation Tax (MAT)</strong> of 8.5% on all short-term rentals. This tax is:</p>
+          <ul>
+            <li>Collected automatically by Airbnb and remitted to the city</li>
+            <li>Applied to the accommodation portion of your booking</li>
+            <li>One of the highest MAT rates in Ontario</li>
+          </ul>
+
+          <p>As a host, you don't need to manually collect or remit this tax when using major platforms, but you should understand it affects your guests' total cost.</p>
+
+          <h2 id="penalties">Penalties for Non-Compliance</h2>
+          <p>Toronto actively enforces its short-term rental rules. Penalties include:</p>
+
+          <div class="warning-box">
+            <h4>Potential Fines:</h4>
+            <ul>
+              <li>Up to <strong>$10,000</strong> for individuals per offense</li>
+              <li>Up to <strong>$50,000</strong> for corporations per offense</li>
+              <li>Registration revocation</li>
+              <li>Platform account suspension</li>
+            </ul>
+          </div>
+
+          <p>The city uses data from platforms and neighbour complaints to identify non-compliant listings. Enforcement has increased significantly since the bylaws were introduced.</p>
+
+          <h2 id="compliance-tips">Tips for Staying Compliant</h2>
+          <p>To avoid issues with Toronto's STR regulations:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Track your nights carefully</strong> - Use a spreadsheet or property management software to monitor your entire-home rental nights.</li>
+            <li><span class="tip-icon">2</span> <strong>Consider mid-term rentals</strong> - Rentals of 28+ days are exempt from STR regulations and the night limit.</li>
+            <li><span class="tip-icon">3</span> <strong>Keep documentation</strong> - Maintain records of all bookings, registration, and principal residence proof.</li>
+            <li><span class="tip-icon">4</span> <strong>Display your registration</strong> - Always show your valid registration number on all listing platforms.</li>
+            <li><span class="tip-icon">5</span> <strong>Work with professionals</strong> - A property management company can help ensure compliance while maximizing your returns.</li>
+          </ul>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Toronto Airbnb?</h3>
+            <p>Nurture handles compliance, guest management, and revenue optimization so you can earn more while staying worry-free.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Toronto STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .warning-box li {
+    color: var(--color-text);
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

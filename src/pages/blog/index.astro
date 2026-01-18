@@ -1,0 +1,343 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: 'toronto-airbnb-night-limit-guide',
+    title: "What's the Night Limit for Airbnb in Toronto? Complete 2026 Guide",
+    excerpt: "Learn about Toronto's 180-night annual limit for entire home rentals, registration requirements, and how to stay compliant with the city's short-term rental bylaws.",
+    date: '2026-01-15',
+    readTime: '8 min read',
+    tags: ['Toronto', 'Regulations', 'Bylaws'],
+    category: 'Regulations'
+  },
+  {
+    slug: 'airbnb-investment-property-gta',
+    title: 'Can I Airbnb My Investment Property in the GTA?',
+    excerpt: "Understanding the principal residence rule and what it means for investment property owners looking to short-term rent in Toronto, Mississauga, Brampton, and other GTA cities.",
+    date: '2026-01-10',
+    readTime: '7 min read',
+    tags: ['Investment', 'GTA', 'Principal Residence'],
+    category: 'Investment'
+  }
+];
+
+// Schema.org structured data
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Airbnb Hosting Insights - Nurture Blog",
+  "description": "Expert guides and insights for Airbnb hosts in Toronto and the Greater Toronto Area. Learn about regulations, maximize your revenue, and master short-term rental hosting.",
+  "url": "https://www.nurturestays.ca/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  }
+};
+---
+
+<Layout title="Airbnb Hosting Insights - Blog" description="Expert guides and insights for Airbnb hosts in Toronto and the Greater Toronto Area. Learn about regulations, maximize your revenue, and master short-term rental hosting." schema={blogSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Airbnb Hosting Insights</h1>
+      <p class="hero-subtitle">Expert guides for Toronto & GTA hosts</p>
+    </div>
+  </section>
+
+  <section class="section blog-section">
+    <div class="container">
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="blog-search"
+            placeholder="Search articles..."
+            class="search-input"
+          />
+        </div>
+      </div>
+
+      <div class="blog-grid" id="blog-grid">
+        {posts.map(post => (
+          <article class="blog-card" data-title={post.title.toLowerCase()} data-tags={post.tags.join(' ').toLowerCase()}>
+            <div class="blog-card-image">
+              <div class="image-placeholder">
+                <span class="category-badge">{post.category}</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">{new Date(post.date).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span class="blog-separator">·</span>
+                <span class="blog-read-time">{post.readTime}</span>
+              </div>
+              <h2 class="blog-title">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p class="blog-excerpt">{post.excerpt}</p>
+              <div class="blog-tags">
+                {post.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>No articles found matching your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Need Help Managing Your Airbnb?</h2>
+        <p>Let our experts handle everything while you earn more passive income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var searchInput = document.getElementById('blog-search');
+  var blogGrid = document.getElementById('blog-grid');
+  var noResults = document.getElementById('no-results');
+
+  if (searchInput && blogGrid) {
+    searchInput.addEventListener('input', function() {
+      var query = this.value.toLowerCase().trim();
+      var cards = blogGrid.querySelectorAll('.blog-card');
+      var visibleCount = 0;
+
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var title = card.getAttribute('data-title') || '';
+        var tags = card.getAttribute('data-tags') || '';
+
+        if (query === '' || title.indexOf(query) !== -1 || tags.indexOf(query) !== -1) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      }
+
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    });
+  }
+})();
+</script>
+
+<style>
+  .hero-subtitle {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    opacity: 0.9;
+  }
+
+  .blog-section {
+    background: var(--color-background-alt);
+  }
+
+  .search-container {
+    max-width: 500px;
+    margin: 0 auto 3rem;
+  }
+
+  .search-box {
+    position: relative;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .blog-card-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .category-badge {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-separator {
+    opacity: 0.5;
+  }
+
+  .blog-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .blog-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .blog-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .blog-excerpt {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: var(--color-background-alt);
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    color: var(--color-text-muted);
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,779 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I rent my investment condo on Airbnb in Toronto?", a: "Generally no. Toronto requires short-term rentals to be your principal residence. Investment properties (where you don't live) cannot be used for rentals under 28 days." },
+  { q: "What if my condo allows short-term rentals?", a: "Even if your condo corporation permits STRs, you still need to comply with city bylaws. The principal residence rule applies regardless of condo rules." },
+  { q: "Are there any cities in the GTA without the principal residence rule?", a: "Most regulated GTA cities enforce principal residence requirements. Some less-regulated areas like Burlington and King Township don't have specific STR bylaws, but this can change." },
+  { q: "Can I do mid-term rentals on an investment property?", a: "Yes! Rentals of 28-30+ days are exempt from most STR regulations in the GTA. Many investors use mid-term rentals for corporate housing, relocations, and extended stays." }
+];
+
+const cityRules = [
+  { city: 'Toronto', rule: 'Principal residence required', limit: '180 nights/year', mat: '8.5%' },
+  { city: 'Mississauga', rule: 'Principal residence required', limit: '180 days/year', mat: 'Check with city' },
+  { city: 'Brampton', rule: 'Principal residence required', limit: '180 days/year', mat: '4%' },
+  { city: 'Vaughan', rule: 'Principal residence required', limit: 'License required', mat: '4%' },
+  { city: 'Hamilton', rule: 'Principal residence required', limit: 'License required', mat: 'Check with city' },
+  { city: 'Oakville', rule: 'Principal residence required', limit: '28 days max stay', mat: '4%' }
+];
+
+const relatedPosts = [
+  { title: "What's the Night Limit for Airbnb in Toronto?", href: '/blog/toronto-airbnb-night-limit-guide', description: 'Complete guide to Toronto STR regulations' }
+];
+
+const tocItems = [
+  { id: 'principal-residence', text: 'The Principal Residence Rule' },
+  { id: 'why-exists', text: 'Why This Rule Exists' },
+  { id: 'gta-cities', text: 'GTA Cities & Their Rules' },
+  { id: 'what-qualifies', text: 'What Qualifies as Principal Residence?' },
+  { id: 'alternatives', text: 'Alternatives for Investment Properties' },
+  { id: 'mid-term', text: 'Mid-Term Rental Strategy' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Can I Airbnb My Investment Property in the GTA?",
+  "description": "Understanding the principal residence rule and what it means for investment property owners looking to short-term rent in Toronto, Mississauga, Brampton, and other GTA cities.",
+  "datePublished": "2026-01-10",
+  "dateModified": "2026-01-10",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-investment-property-gta"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title="Can I Airbnb My Investment Property in the GTA?" description="Understanding the principal residence rule and what it means for investment property owners looking to short-term rent in Toronto, Mississauga, Brampton, and other GTA cities." schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Investment</span>
+      </nav>
+      <h1>Can I Airbnb My Investment Property in the GTA?</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 10, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">7 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">If you own an investment property in the Greater Toronto Area and are considering listing it on Airbnb, there's one critical rule you need to understand: the <strong>principal residence requirement</strong>. In most GTA cities, you cannot short-term rent a property unless you actually live there.</p>
+          </div>
+
+          <h2 id="principal-residence">The Principal Residence Rule</h2>
+          <p>Most municipalities in the GTA have implemented short-term rental regulations that include a <strong>principal residence requirement</strong>. This means:</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Important:</strong> In Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville, you can only operate a short-term rental (under 28-30 days) from your primary home - the place where you actually live.
+            </div>
+          </div>
+
+          <p>Investment properties, secondary homes, and vacation properties are <strong>not eligible</strong> for short-term rental licenses in these cities.</p>
+
+          <h2 id="why-exists">Why This Rule Exists</h2>
+          <p>GTA municipalities implemented the principal residence requirement for several reasons:</p>
+          <ul>
+            <li><strong>Housing supply concerns</strong> - Prevent investment properties from being converted to short-term rentals, reducing long-term housing availability</li>
+            <li><strong>Neighbourhood stability</strong> - Maintain residential character in neighbourhoods by limiting commercial-style operations</li>
+            <li><strong>Accountability</strong> - Ensure there's a local resident responsible for the property and guest behaviour</li>
+            <li><strong>Tax base protection</strong> - Keep residential properties in residential use</li>
+          </ul>
+
+          <h2 id="gta-cities">GTA Cities & Their Rules</h2>
+          <p>Here's a quick overview of how major GTA cities handle investment properties and short-term rentals:</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Principal Residence</th>
+                  <th>Limits</th>
+                  <th>MAT Tax</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cityRules.map(city => (
+                  <tr>
+                    <td><strong>{city.city}</strong></td>
+                    <td>{city.rule}</td>
+                    <td>{city.limit}</td>
+                    <td>{city.mat}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Note: Regulations change frequently. Always verify current rules with your municipality before listing.</p>
+
+          <h2 id="what-qualifies">What Qualifies as Principal Residence?</h2>
+          <p>To meet the principal residence requirement, your property typically must be:</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Where You Live</h4>
+              <p>The address on your driver's license, tax returns, and voter registration.</p>
+            </div>
+            <div class="info-card">
+              <h4>Your Primary Home</h4>
+              <p>Where you spend most of your time and receive mail.</p>
+            </div>
+            <div class="info-card">
+              <h4>Documented</h4>
+              <p>You'll need proof of residency when registering with the city.</p>
+            </div>
+          </div>
+
+          <p>Common documentation includes:</p>
+          <ul>
+            <li>Ontario driver's license with the property address</li>
+            <li>Tax returns showing the address</li>
+            <li>Utility bills in your name</li>
+            <li>Bank statements</li>
+            <li>Voter registration</li>
+          </ul>
+
+          <h2 id="alternatives">Alternatives for Investment Properties</h2>
+          <p>If you own an investment property in the GTA and can't do short-term rentals, you have several options:</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Mid-Term Rentals (30+ days)</h4>
+              <p>Rentals of 28-30+ days are typically exempt from STR regulations. This can still yield higher returns than traditional long-term leases.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Traditional Long-Term Rental</h4>
+              <p>Standard 12-month leases provide stable, predictable income with less management overhead.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Corporate Housing</h4>
+              <p>Furnished rentals for business travelers, often 1-6 months. Higher rates than unfurnished long-term.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Relocation Rentals</h4>
+              <p>Target families relocating to the GTA who need temporary housing while house hunting.</p>
+            </div>
+          </div>
+
+          <h2 id="mid-term">Mid-Term Rental Strategy</h2>
+          <p>Mid-term rentals (30+ days) offer a compelling middle ground for investment property owners:</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Benefits of Mid-Term Rentals:</strong>
+              <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                <li>Exempt from most STR regulations</li>
+                <li>Higher rates than traditional long-term leases</li>
+                <li>Less turnover than short-term rentals</li>
+                <li>Still listed on Airbnb, VRBO, and Furnished Finder</li>
+                <li>Attracts quality tenants (business travelers, relocations)</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>Many property owners find mid-term rentals provide 20-50% higher returns than traditional long-term leases while avoiding the regulatory complexities of short-term rentals.</p>
+
+          <h3>Who Rents Mid-Term?</h3>
+          <ul>
+            <li>Corporate employees on temporary assignments</li>
+            <li>Healthcare professionals on contracts</li>
+            <li>Families relocating to the GTA</li>
+            <li>Students doing internships or co-op terms</li>
+            <li>People between homes during renovations or sales</li>
+            <li>Snowbirds needing a base for part of the year</li>
+          </ul>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help with Your GTA Investment Property?</h3>
+            <p>Nurture manages both short-term and mid-term rentals across the Greater Toronto Area. We'll help you find the right strategy for your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Consultation</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own an Investment Property in the GTA?</h2>
+        <p>Let us help you maximize your rental income within the regulations.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content ul {
+    padding-left: 1.25rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
