@@ -1,6 +1,6 @@
 ---
-title: "GTA Airbnb Management Fees: What Toronto Hosts Pay in 2026"
-description: "Toronto Airbnb management fees range 10-25% in 2026. Learn what GTA hosts actually pay, how fees are calculated, and see how top companies compare."
+title: "Toronto Airbnb Management Companies Compared: Fees, Services, and What to Watch For"
+description: "Compare Toronto Airbnb management fees and services. See how top GTA companies stack up on pricing, contracts, and what hosts actually pay in 2026."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Tips"
@@ -42,7 +42,7 @@ We analyzed 20 Airbnb management companies operating in the GTA. Here's what we 
 | **Nurture** | **10-15%** | **Net payout pricing, no contracts, you own listing, locally focused GTA team** |
 | MasterHost | 18-20% | Cleaning complaints in recent reviews |
 | Maxima Properties | 18%+ | Premium properties only |
-| HeartHomes | 15% | Wide coverage area |
+| HeartHomes | 15% | Not locally focused |
 | Guestable | Varies | Pricing not transparent, waitlist |
 | Park Place | 18% | Payment delay complaints |
 | HostGenius | Varies | National focus, less local expertise |
@@ -55,7 +55,7 @@ Notice how many companies say "varies" or don't disclose pricing? That's a red f
 
 The type of property you own makes a huge difference in management fees. According to recent industry data, here's what Toronto area hosts typically see:
 
-**Downtown condos and apartments:** Around 10-15% of net income. These properties are straightforward to manage and book consistently, especially in areas like King West, Entertainment District, or near Union Station.
+**Downtown condos and apartments:** Around 15-18% of net income. These properties are straightforward to manage and book consistently, especially in areas like King West, Entertainment District, or near Union Station.
 
 **Single-family homes in the suburbs:** Generally 15-20%. Think properties in Mississauga, Markham, or Vaughan that need more coordination for maintenance and guest logistics.
 
@@ -76,32 +76,6 @@ We charge 10-15%. Here's why we can do that:
 **We calculate on net, not gross.** You keep more because we don't inflate our take with Airbnb's fees and cleaning charges.
 
 **No long contracts.** Month-to-month means we have to earn your business every month. Companies that lock you in for a year don't have to try as hard.
-
-## The Real Cost Breakdown (Beyond the Base Fee)
-
-Most management companies quote their percentage fee, but there are other costs to consider:
-
-**Setup fees:** One-time charges for professional photos and listing creation. Some companies charge $500+ for this. We don't charge setup fees.
-
-**Cleaning and maintenance:** This might be billed separately or rolled into the fee. Make sure you understand which. At Nurture, cleaning is billed at cost with no markup.
-
-**Airbnb's own fees:** Don't forget Airbnb typically charges hosts about 3% in service fees on top of your management company's cut.
-
-So if you're paying 18% management fees plus 3% to Airbnb, you're looking at 21% total before cleaning and other expenses. With Nurture at 10-15%, your total is 13-18%.
-
-## What Should Be Included for Your Money
-
-A decent Toronto Airbnb management company should handle the basics without extra charges:
-
-- Professional listing creation and photos
-- Dynamic pricing (this is huge in Toronto's seasonal market)
-- Guest screening and 24/7 communication
-- Check-in coordination
-- Cleaning and turnover
-- Maintenance coordination
-- Compliance with Toronto's short-term rental regulations
-
-The better companies also provide detailed financial reports, tax-ready summaries, and marketing across multiple platforms beyond just Airbnb.
 
 ## Red Flags When Choosing Toronto Airbnb Management
 
@@ -131,8 +105,7 @@ The math is simple: focus on your bottom line, not just the management fee.
 |---------|---------|------------------|
 | Management Fee | 10-15% | 15-25% |
 | Fee Basis | Net payout | Often gross (higher) |
-| Setup Fees | None | $0-500+ |
-| Contracts | Month-to-month | 6-12 month lock-in |
+| Contracts | No long contracts | 6-12 month lock-in |
 | Listing Ownership | You own it | Sometimes they own it |
 | Response Time | Under 9 minutes | Hours to days |
 | Supply Markup | None | 10-20% markup common |
