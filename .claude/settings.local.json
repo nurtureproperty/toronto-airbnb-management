@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tasklist:*)",
+      "Bash(Select-String \"node\")",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "WebFetch(domain:www.nurturestays.ca)",
+      "Bash(magick:*)",
+      "Bash(cwebp -version:*)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(findstr:*)",
+      "Bash(Select-String -Path \"dist/index.html\" -Pattern \"mobile-phone-link\")",
+      "Skill(xlsx)",
+      "Bash(where:*)",
+      "Bash(python3:*)",
+      "Bash(py:*)",
+      "Skill(webapp-testing)",
+      "WebFetch(domain:masterhost.ca)",
+      "WebFetch(domain:guestable.com)",
+      "WebFetch(domain:fullhome.ca)",
+      "WebFetch(domain:hearthomes.ca)",
+      "WebFetch(domain:hostgenius.ca)",
+      "WebFetch(domain:sorastays.com)",
+      "WebSearch"
+    ]
+  }
+}
