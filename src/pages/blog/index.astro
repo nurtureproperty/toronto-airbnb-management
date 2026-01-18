@@ -98,7 +98,13 @@ const blogSchema = {
 
   <section class="section blog-section">
     <div class="container">
-      <div class="search-container">
+      <div class="filter-container">
+        <div class="tag-filters">
+          <button class="tag-filter active" data-filter="all">All</button>
+          <button class="tag-filter" data-filter="news">News</button>
+          <button class="tag-filter" data-filter="tips">Tips</button>
+          <button class="tag-filter" data-filter="guides">Guides</button>
+        </div>
         <div class="search-box">
           <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
@@ -163,29 +169,47 @@ const blogSchema = {
   var searchInput = document.getElementById('blog-search');
   var blogGrid = document.getElementById('blog-grid');
   var noResults = document.getElementById('no-results');
+  var tagFilters = document.querySelectorAll('.tag-filter');
+  var activeFilter = 'all';
+
+  function filterPosts() {
+    var query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    var cards = blogGrid.querySelectorAll('.blog-card');
+    var visibleCount = 0;
+
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var title = card.getAttribute('data-title') || '';
+      var tags = card.getAttribute('data-tags') || '';
+
+      var matchesSearch = query === '' || title.indexOf(query) !== -1 || tags.indexOf(query) !== -1;
+      var matchesFilter = activeFilter === 'all' || tags.indexOf(activeFilter) !== -1;
+
+      if (matchesSearch && matchesFilter) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    }
+
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
 
   if (searchInput && blogGrid) {
-    searchInput.addEventListener('input', function() {
-      var query = this.value.toLowerCase().trim();
-      var cards = blogGrid.querySelectorAll('.blog-card');
-      var visibleCount = 0;
+    searchInput.addEventListener('input', filterPosts);
+  }
 
-      for (var i = 0; i < cards.length; i++) {
-        var card = cards[i];
-        var title = card.getAttribute('data-title') || '';
-        var tags = card.getAttribute('data-tags') || '';
-
-        if (query === '' || title.indexOf(query) !== -1 || tags.indexOf(query) !== -1) {
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
+  for (var i = 0; i < tagFilters.length; i++) {
+    tagFilters[i].addEventListener('click', function() {
+      for (var j = 0; j < tagFilters.length; j++) {
+        tagFilters[j].classList.remove('active');
       }
-
-      if (noResults) {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-      }
+      this.classList.add('active');
+      activeFilter = this.getAttribute('data-filter');
+      filterPosts();
     });
   }
 })();
@@ -203,9 +227,39 @@ const blogSchema = {
     background: var(--color-background-alt);
   }
 
-  .search-container {
-    max-width: 500px;
+  .filter-container {
+    max-width: 600px;
     margin: 0 auto 3rem;
+  }
+
+  .tag-filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag-filter {
+    padding: 0.6rem 1.25rem;
+    border: 2px solid var(--color-border);
+    border-radius: 25px;
+    background: white;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tag-filter:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .tag-filter.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
   }
 
   .search-box {
@@ -373,6 +427,16 @@ const blogSchema = {
 
     .cta-content h2 {
       font-size: 2rem;
+    }
+
+    .tag-filters {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag-filter {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
     }
   }
 </style>
