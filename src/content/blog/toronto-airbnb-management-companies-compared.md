@@ -18,18 +18,18 @@ And here's something most management companies don't tell you upfront: **how the
 
 Before comparing fees, you need to understand what companies actually charge on. This is where hosts get confused, and where some companies quietly take more than you expect.
 
-**Gross booking value** is the total amount the guest pays, including Airbnb's service fees, cleaning fees, and taxes.
+**Gross booking value** is the total amount the guest pays, including cleaning fees.
 
-**Net host payout** is what actually lands in your bank account after Airbnb takes their cut.
+**Net host payout** is what actually lands in your bank account after cleaning costs.
 
-Here's why this matters. Say a guest books your Toronto condo for $1,000:
-- Airbnb takes roughly 3% ($30) as their host fee
-- Your actual payout is $970
+Here's why this matters. Say a guest books your Toronto condo for $1,000 total, which includes a $150 cleaning fee:
+- Your actual rental income is $850
+- The cleaning fee ($150) passes through to pay your cleaner
 
-A company charging "15% of gross" takes $150.
-A company charging "15% of net payout" takes $145.50.
+A company charging "15% of gross" takes $150 (15% of $1,000).
+A company charging "15% of net payout" takes $127.50 (15% of $850).
 
-Seems small, right? But over a year with $50,000 in bookings, that difference adds up to $250+ extra in your pocket. And some companies charge on the gross amount *including* cleaning fees, which inflates their cut even more.
+That's $22.50 more per booking going to the management company instead of you. Over a year with 50 bookings, that's $1,125 extra out of your pocket. And this doesn't even account for Airbnb's service fees and taxes, which some companies also include in their "gross" calculation.
 
 **At Nurture, we charge 10-15% of your net host payout.** That's the money you actually receive, not the inflated gross number. No games.
 
@@ -128,7 +128,7 @@ Look, not every company is worth their fee. Here are warning signs:
 
 **No local Toronto knowledge:** Managing a Liberty Village condo is different from handling a Beaches house rental. Your management company should understand GTA neighborhoods, seasonal patterns, and local regulations.
 
-**Locked into long contracts:** The best management companies are confident enough to work month-to-month. If they're demanding year-long commitments, ask yourself why.
+**Locked into long contracts:** The best management companies are confident enough to offer flexibility with no long contracts. If they're demanding year-long commitments, ask yourself why.
 
 **They own your listing:** Some companies create listings under their account, not yours. If you leave, you lose your reviews. Always confirm you own your listing.
 
