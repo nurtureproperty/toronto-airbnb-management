@@ -2,14 +2,14 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I Airbnb my investment property in Brampton?", a: "No. Brampton requires your STR to be your principal residence, meaning you must ordinarily live there. Investment properties, vacation homes, and second properties do not qualify. However, mid-term rentals of 28+ days are exempt from these restrictions." },
-  { q: "Is there a night limit for Airbnb in Brampton?", a: "Yes. Brampton limits short-term rentals to a maximum of 180 nights per calendar year, the same as Toronto and Mississauga. This applies to entire-unit rentals at your principal residence." },
-  { q: "How much is the Brampton STR license?", a: "The license fee is $150.00 annually, due by September 30th each year. Late renewals incur a $50 fee. The license is non-refundable once issued." },
-  { q: "How many bedrooms can I rent in Brampton?", a: "If you're renting rooms individually (partial-unit rental while you remain home), no more than 3 bedrooms can be rented at any one time. This limit does not apply to entire-unit rentals where guests have the whole property." },
-  { q: "Do I need a background check for a Brampton STR license?", a: "Yes. You must provide a criminal record check confirming no criminal convictions within the last 3 years. This applies to individuals or all officers/directors if applying as a corporation." },
-  { q: "Can tenants operate an STR in Brampton?", a: "Yes, if you're a tenant in a two-unit dwelling and it's your principal residence. You need written permission from your landlord and must meet all other application requirements." },
-  { q: "What insurance do I need for Airbnb in Brampton?", a: "You need Commercial General Liability insurance of at least $2,000,000 per occurrence. The insurance must be maintained throughout the license period." },
-  { q: "What's the difference between Brampton and Toronto rules?", a: "Both cities use 28 days as the STR threshold and have a 180-night annual limit. Both require principal residence and licensing. Brampton's license fee ($150) is generally lower than Toronto's registration process." }
+  { q: "Can I Airbnb my investment property in Brampton?", a: "Nope. Same story as Toronto and Mississauga - Brampton only allows STRs at your principal residence. That investment property in Heart Lake or Springdale? Can't STR it. But mid-term rentals (28+ days) are exempt from this rule, so there's still a path to rental income." },
+  { q: "Is there a night limit for Airbnb in Brampton?", a: "Yes, 180 nights per calendar year for entire-unit rentals. It's the same cap as Toronto and Mississauga. After you hit 180 nights, you're done until January 1st unless you pivot to mid-term rentals or switch to renting rooms while you're home." },
+  { q: "How much is the Brampton STR license?", a: "$150 per year, due by September 30th. Miss the deadline and you'll pay an extra $50 late fee. It's actually one of the more affordable licenses in the GTA - cheaper than most other cities' registration processes." },
+  { q: "How many bedrooms can I rent in Brampton?", a: "For room rentals where you stay home, max 3 bedrooms at any one time. Got a 5-bedroom house and want to rent individual rooms? Pick your best 3. This doesn't apply if you're renting the whole place to one guest or group." },
+  { q: "Do I need a background check for a Brampton STR license?", a: "Yes, but it's less intensive than some cities. You need a criminal record check showing no convictions in the last 3 years. If you're applying through a corporation, every officer and director needs one." },
+  { q: "Can tenants operate an STR in Brampton?", a: "Actually yes, which is different from some cities. If you're a tenant in a two-unit dwelling and it's your principal residence, you can STR. You'll need written permission from your landlord though - don't skip that step." },
+  { q: "What insurance do I need for Airbnb in Brampton?", a: "Commercial General Liability insurance with at least $2M coverage per occurrence. Your regular homeowner's insurance probably doesn't cover STR activity, so you'll need to get specific coverage. Airbnb's host protection helps but the city wants to see your own policy." },
+  { q: "What's the difference between Brampton and Toronto rules?", a: "Honestly? Pretty similar. Both use 28 days as the STR threshold. Both have a 180-night annual limit. Both require principal residence and licensing. Brampton's license is cheaper ($150 vs Toronto's higher fees) but the overall framework is basically the same." }
 ];
 
 const relatedPosts = [
@@ -109,19 +109,19 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">Brampton regulates short-term rentals under <strong>By-Law 165-2021</strong>, which came into effect on July 8, 2021. If you're thinking about listing your property on Airbnb or VRBO in Brampton, understanding these rules is essential for staying compliant and operating legally.</p>
-            <p class="lead">This guide covers everything you need to know about Brampton's STR regulations, from the principal residence requirement to licensing, insurance, and the 4% Municipal Accommodation Tax.</p>
+            <p class="lead">Brampton's STR rules are pretty similar to Toronto's - same 180-night annual limit, same principal residence requirement, same basic framework. But here's the thing: Brampton's licensing process is actually simpler and cheaper than most GTA cities. $150 a year, straightforward application, and you're good to go.</p>
+            <p class="lead">The rules come from <strong>By-Law 165-2021</strong>, in effect since July 2021. Let me walk you through what actually matters: who can host, night limits, the 3-bedroom rule for room rentals, insurance requirements, and the 4% MAT.</p>
           </div>
 
           <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
-          <p>Under Brampton's bylaw, a short-term rental is defined as:</p>
+          <p>In Brampton, anything under 28 consecutive days is a short-term rental. The official definition from the bylaw:</p>
 
           <blockquote class="bylaw-quote">
             "Short-Term Rental (STR) means all or part of a Principal Residence used to provide sleeping accommodations for any rental period that is less than twenty-eight (28) consecutive days in exchange for payment, but does not include bed and breakfast, hotels, motels, or hospital, or other short-term rentals where there is no payment."
             <cite>Brampton By-Law 165-2021, Part II, Section 2</cite>
           </blockquote>
 
-          <p>This means any rental of less than 28 days requires licensing and must follow all STR regulations. Rentals of 28 consecutive days or more are not considered short-term rentals and are exempt from these rules.</p>
+          <p>So a weekend rental to families visiting Wet'n'Wild Toronto? Short-term. A 3-week stay for someone relocating to Peel Region? Still short-term. But hit 28 days exactly? That's mid-term - different rules entirely.</p>
 
           <div class="callout">
             <div class="callout-icon">
@@ -132,12 +132,12 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>Same as Toronto:</strong> Brampton uses the same 28-day threshold as Toronto. This is different from Vaughan (29 days) and Mississauga (30 days).
+              <strong>Same Threshold as Toronto:</strong> Both Brampton and Toronto use 28 days. Vaughan uses 29 days, Mississauga uses 30. Keep this straight if you're comparing options across cities.
             </div>
           </div>
 
           <h2 id="night-limit">180-Night Annual Limit</h2>
-          <p>Brampton imposes a strict annual limit on short-term rentals:</p>
+          <p>Like Toronto and Mississauga, Brampton caps you at 180 nights per year for entire-unit rentals:</p>
 
           <blockquote class="bylaw-quote">
             "No Short-Term Rental Host shall rent a property for a total of more than one hundred eighty (180) nights per calendar year."
@@ -146,70 +146,69 @@ const pageSchema = [articleSchema, faqSchema];
 
           <div class="highlight-box">
             <h4>180 Nights Per Year Maximum</h4>
-            <p>Like Toronto and Mississauga, Brampton caps entire-home short-term rentals at 180 nights per calendar year. The count resets on January 1st each year.</p>
+            <p>Count resets January 1st. If you're running a busy listing, you'll hit this sometime in July or August. Plan accordingly.</p>
           </div>
 
-          <p>This 180-night limit means you can STR your principal residence for roughly half the year. For hosts wanting year-round rental income, consider combining STR with mid-term rentals (28+ days) which don't count toward this limit.</p>
+          <p>The math works out to roughly half the year. For hosts who want income year-round, the play is combining short-term with mid-term rentals. Use your 180 nights during peak demand (summer, holidays), then switch to 28+ day stays for the rest of the year. Those don't count against your limit.</p>
 
           <h2 id="principal-residence">The Principal Residence Rule</h2>
-          <p>This is the most important rule for prospective hosts to understand. Brampton only allows STRs at your principal residence:</p>
+          <p>Same deal as the rest of the GTA - you can only STR where you actually live. The bylaw defines it this way:</p>
 
           <blockquote class="bylaw-quote">
             "Principal Residence means a dwelling unit owned or rented by a Person, either alone or jointly with others, where the Person is ordinarily resident."
             <cite>Brampton By-Law 165-2021, Part II, Section 2</cite>
           </blockquote>
 
-          <p>Key requirements:</p>
+          <p>What this boils down to:</p>
           <ul>
-            <li>The property must be your <strong>principal residence</strong></li>
-            <li>You can only have <strong>one principal residence</strong> at any time</li>
-            <li>You must <strong>ordinarily reside</strong> at the property</li>
-            <li>The property must comply with <strong>zoning, building code, and fire code</strong></li>
+            <li>It has to be your <strong>actual home</strong> - where you sleep, get mail, pay bills</li>
+            <li>You can only have <strong>one principal residence</strong> at a time (obviously)</li>
+            <li>The property needs to meet <strong>zoning, building code, and fire code</strong> requirements</li>
           </ul>
 
           <div class="warning-box">
-            <h4>What This Means for Property Investors</h4>
-            <p>If you own an investment property, vacation home, or second property in Brampton, you <strong>cannot</strong> operate it as a short-term rental. The bylaw explicitly states:</p>
-            <p><em>"You are no longer permitted to operate an investment property for the purpose of a short-term rental accommodation as it will be in violation of the business licensing by-law."</em></p>
-            <p>Looking to rent an investment property? Consider <a href="/services/mid-term-rental-management">mid-term rentals</a> (28+ days) which are exempt from these restrictions.</p>
+            <h4>Investment Property Owners</h4>
+            <p>The city is explicit about this one. Their exact words: <em>"You are no longer permitted to operate an investment property for the purpose of a short-term rental accommodation as it will be in violation of the business licensing by-law."</em></p>
+            <p>Got a rental property in Castlemore or a condo in downtown Brampton? Can't STR it. But <a href="/services/mid-term-rental-management">mid-term rentals</a> (28+ days) are exempt - that's the path for investment properties.</p>
           </div>
 
-          <h3>Maximum Bedrooms for Room Rentals</h3>
+          <h3>The 3-Bedroom Rule for Room Rentals</h3>
           <blockquote class="bylaw-quote">
             "No more than three (3) Bedrooms are to be individually rented in the Principal Residence at any one time."
             <cite>Brampton By-Law 165-2021, Section 16</cite>
           </blockquote>
 
-          <p>This rule applies to <strong>partial-unit rentals</strong> where you rent individual rooms while remaining in the home. If you have a 5-bedroom house and want to rent rooms separately, you can only rent 3 at any given time. This limit does not apply to entire-unit rentals where guests book the whole property.</p>
+          <p>This trips some people up, so let me be clear: <strong>this only applies when you're renting rooms individually while you stay home</strong>. Got a 5-bedroom house in Sandalwood and want to rent 3 rooms on Airbnb while you live there? That's fine. Want to rent 4? Nope.</p>
+
+          <p>If you're doing entire-unit rentals where you leave and guests have the whole place? This bedroom limit doesn't apply - they can use all the bedrooms.</p>
 
           <h2 id="mid-term-strategy">Mid-Term Rentals: The Alternative Strategy</h2>
-          <p>Since Brampton's STR rules only apply to rentals under 28 days, <strong>mid-term rentals are completely exempt</strong> from these regulations.</p>
+          <p>Here's the workaround that makes investment properties viable. Since Brampton's STR rules only apply to rentals under 28 days, <strong>mid-term rentals are completely exempt</strong>.</p>
 
-          <h3>What Qualifies as Mid-Term?</h3>
-          <p>Any rental of 28 consecutive days or more in Brampton:</p>
+          <h3>What Changes at 28 Days?</h3>
+          <p>When your rental hits 28 consecutive days or more:</p>
           <ul>
-            <li>Does <strong>not</strong> require an STR license</li>
-            <li>Does <strong>not</strong> require principal residence status</li>
-            <li>Can be operated on investment properties</li>
-            <li>Is not subject to the 180-night limit</li>
-            <li>Is not subject to the MAT</li>
+            <li><strong>No STR license needed</strong></li>
+            <li><strong>No principal residence requirement</strong> - investment properties work</li>
+            <li><strong>No 180-night cap</strong> - rent year-round</li>
+            <li><strong>No MAT</strong> - you keep that extra 4%</li>
           </ul>
 
           <div class="strategy-box">
             <h4>Why Mid-Term Works Well in Brampton</h4>
-            <p>Brampton has strong mid-term rental demand due to:</p>
+            <p>Brampton has seriously strong mid-term demand. We've placed tenants from all these sources:</p>
             <ul>
-              <li><strong>Pearson Airport proximity:</strong> Airline crews and airport workers need housing</li>
-              <li><strong>Amazon &amp; logistics hubs:</strong> Distribution centers bring temporary workers</li>
-              <li><strong>Healthcare workers:</strong> Brampton Civic Hospital and healthcare facilities</li>
-              <li><strong>New immigrants:</strong> Large newcomer population seeking temporary housing</li>
-              <li><strong>Construction projects:</strong> Ongoing development throughout Peel Region</li>
-              <li><strong>Students:</strong> Sheridan College Brampton campus</li>
+              <li><strong>Pearson Airport:</strong> Flight crews, ground staff, airline contractors. The airport is 15 minutes away and always needs housing.</li>
+              <li><strong>Amazon and logistics:</strong> The distribution centers in Brampton and nearby Mississauga bring in workers on 3-6 month contracts.</li>
+              <li><strong>Healthcare workers:</strong> Brampton Civic Hospital is one of the busiest in Ontario. Travel nurses, specialists, administrative staff all need temporary housing.</li>
+              <li><strong>New immigrants:</strong> Brampton has one of the largest newcomer populations in Canada. Families need landing spots while they find permanent housing.</li>
+              <li><strong>Construction crews:</strong> With all the development in Peel Region, contractors need places to stay.</li>
+              <li><strong>Students:</strong> Sheridan College's Brampton campus brings students who don't want traditional dorms.</li>
             </ul>
           </div>
 
           <h2 id="license-requirements">License Requirements</h2>
-          <p>Before operating any STR in Brampton, you must obtain a license from the city.</p>
+          <p>Good news: Brampton's licensing process is one of the more straightforward ones in the GTA. $150, some paperwork, and you're set.</p>
 
           <h3>License Fees</h3>
           <div class="fee-table">
@@ -237,19 +236,19 @@ const pageSchema = [articleSchema, faqSchema];
             </table>
           </div>
 
-          <p>Note: Fees automatically increase each January based on the Consumer Price Index for the Toronto area.</p>
+          <p>Heads up: these fees adjust each January based on Toronto's Consumer Price Index. They creep up a bit every year.</p>
 
-          <h3>Application Requirements</h3>
-          <p>To apply for an STR Host license in Brampton, you must provide:</p>
+          <h3>What You Need to Apply</h3>
+          <p>The application checklist:</p>
           <ol>
             <li><strong>Completed application form</strong></li>
-            <li><strong>Declaration</strong> that the property is your principal residence</li>
-            <li><strong>Floor plan</strong> showing rental areas and square footage</li>
-            <li><strong>Proof of ownership</strong> or landlord consent (if tenant)</li>
-            <li><strong>License fee</strong> ($150.00)</li>
-            <li><strong>Proof of insurance</strong> ($2M liability)</li>
-            <li><strong>Criminal record check</strong> (no convictions within 3 years)</li>
-            <li><strong>Guest information package</strong> including emergency contacts, fire safety, parking, and waste disposal info</li>
+            <li><strong>Declaration</strong> confirming it's your principal residence</li>
+            <li><strong>Floor plan</strong> showing which areas you'll rent and square footage</li>
+            <li><strong>Proof of ownership</strong> - or landlord permission if you're a tenant</li>
+            <li><strong>$150 license fee</strong></li>
+            <li><strong>Proof of $2M liability insurance</strong></li>
+            <li><strong>Criminal record check</strong> showing no convictions in the past 3 years</li>
+            <li><strong>Guest information package</strong> - emergency contacts, fire safety info, parking rules, waste disposal</li>
           </ol>
 
           <div class="callout">
@@ -261,42 +260,42 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>For Tenants:</strong> If you rent your home, you need written permission from your landlord to operate an STR. This is required even if you're in a two-unit dwelling.
+              <strong>Tenants:</strong> You can STR as a tenant in Brampton (two-unit dwellings), but you need written landlord permission. Get it in writing before you apply - the city will ask.
             </div>
           </div>
 
-          <h3>License Validity and Renewal</h3>
-          <p>STR licenses in Brampton:</p>
+          <h3>Don't Let Your License Lapse</h3>
+          <p>Mark your calendar - licenses expire <strong>September 30th</strong> every year:</p>
           <ul>
-            <li>Expire on <strong>September 30th annually</strong></li>
-            <li>Must be renewed before expiry to avoid late fees</li>
-            <li>Late renewal within 60 days: subject to additional fees</li>
-            <li>If lapsed more than 90 days: license is <strong>cancelled</strong> and you must reapply as new</li>
+            <li>Renew before September 30th = no problems</li>
+            <li>Late by up to 60 days = $50 late fee</li>
+            <li>Late by 90+ days = license cancelled, you start over from scratch</li>
           </ul>
 
-          <h3>How to Apply</h3>
-          <p>Submit your completed application package to:</p>
+          <h3>Where to Submit</h3>
+          <p>Send everything to:</p>
           <ul>
             <li><strong>Email:</strong> licensing@brampton.ca</li>
-            <li><strong>In Person:</strong> Licensing Administration Office, First Floor, Brampton City Hall (City Clerk's Office)</li>
+            <li><strong>In Person:</strong> City Hall, First Floor, City Clerk's Office (Licensing Administration)</li>
           </ul>
 
           <h2 id="background-check">Background Check Requirements</h2>
-          <p>Brampton requires a criminal record check for all STR license applicants:</p>
+          <p>You'll need a criminal record check - but Brampton's requirements are actually less stringent than some other cities like Vaughan. Here's what the bylaw says:</p>
 
           <blockquote class="bylaw-quote">
             "A criminal record search conducted by the Police in whose jurisdiction the Applicant resides, or where the Applicant is a corporation or partnership then a criminal record search of all officers, directors or partners, confirming that there are no outstanding criminal charges or warrants pending before any courts, or any criminal record convictions within the last three (3) years."
             <cite>Brampton By-Law 165-2021, Section 14(6)</cite>
           </blockquote>
 
-          <p>The background check must confirm:</p>
+          <p>What they're looking for:</p>
           <ul>
             <li>No outstanding criminal charges or warrants</li>
-            <li>No criminal convictions within the past 3 years</li>
+            <li>No criminal convictions in the past 3 years</li>
           </ul>
+          <p>Get this from Peel Regional Police. Unlike Vaughan's Vulnerable Sector Check, a standard criminal record check works here - it's faster and easier to obtain.</p>
 
           <h2 id="insurance">Insurance Requirements</h2>
-          <p>Brampton requires comprehensive liability insurance for all STR operators:</p>
+          <p>This is non-negotiable - you need $2 million in liability coverage. Most people's regular homeowner's insurance doesn't cover STR activity, so you'll likely need a separate policy.</p>
 
           <blockquote class="bylaw-quote">
             "Every Person shall, before the issuance of a Licence to him or her, provide proof of Commercial General Liability insurance against all claims for personal injury including bodily injury resulting in death, and property damage with an inclusive limit of not less than Two Million Dollars ($2,000,000.00) per occurrence."
@@ -304,69 +303,76 @@ const pageSchema = [articleSchema, faqSchema];
           </blockquote>
 
           <div class="highlight-box">
-            <h4>Insurance Requirements Summary</h4>
+            <h4>Insurance Checklist</h4>
             <ul>
               <li><strong>Type:</strong> Commercial General Liability</li>
-              <li><strong>Minimum Coverage:</strong> $2,000,000 per occurrence</li>
-              <li><strong>Covers:</strong> Personal injury, bodily injury, death, and property damage</li>
-              <li><strong>Ongoing:</strong> Must be maintained throughout license period</li>
-              <li><strong>Notice:</strong> 10 days written notice to the city if policy is cancelled or changed</li>
+              <li><strong>Minimum:</strong> $2,000,000 per occurrence</li>
+              <li><strong>Coverage:</strong> Personal injury, bodily injury, death, property damage</li>
+              <li><strong>Keep it active:</strong> Must maintain throughout your license period</li>
+              <li><strong>Heads up:</strong> If your policy gets cancelled or changed, you have 10 days to notify the city</li>
             </ul>
           </div>
 
+          <p>Airbnb offers host protection, but that's not a substitute - Brampton wants to see your own policy. Talk to your insurance broker about STR-specific coverage. Some specialize in this and the rates are reasonable.</p>
+
           <h2 id="compliance">Compliance Requirements</h2>
-          <p>Once licensed, you must follow these ongoing requirements:</p>
+          <p>Once you've got your license, here's what you need to stay on top of to keep it.</p>
 
           <h3>Display Your License</h3>
-          <p>Your license must be posted in a conspicuous place clearly visible to renters.</p>
+          <p>Post it somewhere guests can actually see it. Don't hide it in a drawer.</p>
 
-          <h3>Include License Number in Ads</h3>
+          <h3>Include License Number in All Listings</h3>
+          <p>This one's important - your license number needs to appear on every listing, every ad:</p>
           <blockquote class="bylaw-quote">
             "Every Short-Term Rental Host holding a Licence under this By-law shall include their Licence number in any advertisements soliciting Short-Term Rental Guests."
             <cite>Brampton By-Law 165-2021, Section 52</cite>
           </blockquote>
 
           <h3>Occupancy Limits</h3>
-          <p>The bylaw sets strict occupancy standards:</p>
+          <p>Brampton has specific rules about how many people can stay:</p>
           <ul>
-            <li>Maximum 1 person per 14 sq metres (150 sq ft) of habitable floor area</li>
-            <li>Minimum bedroom width: 1.83 metres (6 feet)</li>
-            <li>Minimum bedroom size: 5.6 sq metres (60 sq ft) for one person</li>
-            <li>For 2+ persons: at least 3.7 sq metres (40 sq ft) per person</li>
-            <li>Children under 12 count as 0.5 persons</li>
+            <li>Max 1 person per 150 sq ft of habitable floor area</li>
+            <li>Bedrooms must be at least 6 feet wide</li>
+            <li>Single person bedroom: minimum 60 sq ft</li>
+            <li>Multiple people: at least 40 sq ft per person</li>
+            <li>Kids under 12 count as half a person for these calculations</li>
           </ul>
 
           <h3>Guest Information Package</h3>
-          <p>You must provide every guest with a package containing:</p>
+          <p>Every guest needs to receive a package with:</p>
           <ul>
-            <li>24-hour emergency contact information</li>
-            <li>Floor plan with safety equipment locations and exits</li>
+            <li>Your 24-hour emergency contact number</li>
+            <li>Floor plan showing exits and fire safety equipment</li>
             <li>Police emergency and non-emergency contacts</li>
-            <li>Nearest emergency medical services</li>
-            <li>Waste disposal and property maintenance info</li>
-            <li>Parking instructions</li>
-            <li>Complaint procedures</li>
-            <li>Fire safety plan and occupancy limit</li>
+            <li>Nearest hospital/emergency medical services</li>
+            <li>Garbage and recycling instructions</li>
+            <li>Parking rules</li>
+            <li>How to file complaints</li>
+            <li>Fire safety plan and maximum occupancy</li>
           </ul>
+          <p>This sounds like a lot, but it's basically a one-page info sheet you create once and print for every guest. Takes 20 minutes to put together.</p>
 
-          <h3>Record Keeping</h3>
-          <p>You must keep records of each rental for <strong>6 years</strong> including:</p>
+          <h3>Keep Records for 6 Years</h3>
+          <p>Track everything:</p>
           <ul>
             <li>Number of nights rented</li>
-            <li>Nightly and total price charged</li>
+            <li>Nightly and total price</li>
             <li>Whether it was entire-unit or partial-unit rental</li>
           </ul>
+          <p>Export your booking history from Airbnb annually and keep it filed. The city can ask for these records anytime.</p>
 
           <h2 id="mat">Municipal Accommodation Tax (MAT)</h2>
-          <p>Brampton collects a 4% Municipal Accommodation Tax on all short-term rentals.</p>
+          <p>Brampton charges a 4% Municipal Accommodation Tax on all short-term rentals - same rate as most other GTA cities.</p>
 
           <div class="highlight-box">
             <h4>4% MAT</h4>
-            <p>The 4% tax applies to the rental price and must be collected from guests and remitted to the city. Major platforms like Airbnb typically collect and remit this automatically.</p>
+            <p>This gets added to the rental price and collected from guests. Good news: Airbnb and VRBO collect and remit this automatically, so you don't have to worry about it.</p>
           </div>
 
+          <p>If you're listing on a platform that doesn't handle MAT automatically, you'll need to collect it yourself and remit to the city. Most hosts stick to the major platforms specifically to avoid this hassle.</p>
+
           <h2 id="official-resources">Official Resources</h2>
-          <p>For the most current and authoritative information, consult these official City of Brampton sources:</p>
+          <p>Don't just take my word for it - here are the official City of Brampton sources. Rules can change, so check these before you commit to anything.</p>
 
           <div class="resources-box">
             <h4>Official Links</h4>
@@ -378,7 +384,7 @@ const pageSchema = [articleSchema, faqSchema];
             <p class="resources-contact"><strong>Email:</strong> shorttermrentals@brampton.ca</p>
           </div>
 
-          <p>Regulations can change. We recommend verifying current requirements directly with the City of Brampton before making any decisions about listing your property.</p>
+          <p>Bylaws get amended. The city might change fees, add requirements, or adjust rules. Always verify with Brampton directly before making decisions about your property.</p>
 
           <h2 id="faqs">Frequently Asked Questions</h2>
           <div class="faq-list">
@@ -391,8 +397,8 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <div class="article-cta">
-            <h3>Need Help Navigating Brampton's STR Rules?</h3>
-            <p>Nurture handles license compliance, guest management, and revenue optimization for Brampton hosts. Our local team knows the bylaws inside and out so you can earn more while staying fully compliant.</p>
+            <h3>Want to STR in Brampton Without the Hassle?</h3>
+            <p>We manage Airbnbs across Brampton - Sandalwood, Heart Lake, Springdale, downtown, you name it. License compliance, guest screening, cleaning coordination, dynamic pricing. You collect the rent, we handle everything else.</p>
             <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
           </div>
         </article>
