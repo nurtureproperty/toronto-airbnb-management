@@ -189,11 +189,20 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
   }
 
   function init() {
+    // DEBUG: Log all clicks in header area
+    var header = document.querySelector('.header');
+    if (header) {
+      header.addEventListener('click', function(e) {
+        alert('Clicked: ' + e.target.tagName + ' class=' + e.target.className);
+      }, true); // Use capture phase
+    }
+
     // Mobile phone link - ensure clicks work and don't bubble
     var phoneLink = document.querySelector('.mobile-phone-link');
     if (phoneLink) {
       phoneLink.addEventListener('click', function(e) {
         e.stopPropagation();
+        alert('Phone link clicked!');
         // Let the default tel: link behavior happen
       });
     }
@@ -603,6 +612,8 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       align-items: center;
       gap: 8px;
       margin-left: auto;
+      /* DEBUG */
+      outline: 3px solid green;
     }
 
     /* Show mobile phone link */
