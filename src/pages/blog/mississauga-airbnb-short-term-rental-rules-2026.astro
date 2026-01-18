@@ -2,15 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I Airbnb my investment property in Mississauga?", a: "No. Mississauga requires your STR to be your principal residence, meaning you must ordinarily live there. Investment properties, vacation homes, and second properties do not qualify. However, mid-term rentals of 31+ days are exempt from these restrictions." },
-  { q: "What is the night limit for Airbnb in Mississauga?", a: "You can rent your entire home for a maximum of 180 days per calendar year. The limit resets every January 1st. Nights across all booking platforms count toward this total." },
-  { q: "How much is the Mississauga STR license?", a: "License fees are set by the City's User Fees and Charges By-law and are paid annually. Check the City of Mississauga website for current rates. The license is valid for one year from the date of issue." },
-  { q: "Can I rent my basement apartment on Airbnb in Mississauga?", a: "Yes, if the basement is your principal residence. However, you cannot operate an STR in an accessory building (detached structures like a coach house or garage suite)." },
-  { q: "Do I need insurance for my Mississauga Airbnb?", a: "Yes. You must have commercial general liability insurance of at least $2,000,000. The City of Mississauga must be listed as an additional insured on your policy." },
-  { q: "Can a corporation own an STR license in Mississauga?", a: "No. Only individual persons can hold an STR license. Corporations, partnerships, and other business entities cannot be licensed as STR operators." },
-  { q: "What records do I need to keep?", a: "You must maintain records for at least 3 years including the number of nights rented, nightly and total price, whether it was entire or partial unit, and any municipal accommodation tax collected." },
-  { q: "Can I rent to multiple groups at the same time?", a: "No. The bylaw prohibits booking separate guests for the same days. You cannot have two or more unrelated persons or groups staying in the same dwelling simultaneously." },
-  { q: "What's the difference between Mississauga and Toronto rules?", a: "Both cities have a 180-day limit and principal residence requirement. The main difference is the STR definition: Mississauga uses 30 days (Toronto uses 28 days) as the cutoff. Both require licensing and insurance." }
+  { q: "Can I Airbnb my investment property in Mississauga?", a: "No, and this catches a lot of investors off guard. Mississauga only allows STRs at your principal residence - the place you actually live. Got a rental condo near Square One? Can't STR it. But here's the workaround: mid-term rentals (31+ days) are exempt from these rules entirely." },
+  { q: "What is the night limit for Airbnb in Mississauga?", a: "180 days per calendar year. Resets every January 1st. And here's the thing - it's the total across ALL platforms combined. Airbnb, VRBO, direct bookings, that random Facebook inquiry - they all count toward your 180." },
+  { q: "How much is the Mississauga STR license?", a: "The city sets fees through their User Fees schedule. Check the city website for current rates since they update periodically. You'll pay annually when you renew. Not cheap, but also not the biggest expense you'll face." },
+  { q: "Can I rent my basement apartment on Airbnb in Mississauga?", a: "Yes, if you live in the basement (it's your principal residence). But detached structures are a no-go - coach houses, garage suites, laneway homes that are separate buildings. Those aren't allowed for STR in Mississauga." },
+  { q: "Do I need insurance for my Mississauga Airbnb?", a: "Absolutely. $2,000,000 minimum in commercial general liability. And here's the kicker - the City of Mississauga has to be listed as additional insured on your policy. Your regular home insurance won't cut it." },
+  { q: "Can a corporation own an STR license in Mississauga?", a: "Nope. Individual people only. Your numbered company can't hold the license. Neither can your partnership. It's got to be you, personally, 18+ years old." },
+  { q: "What records do I need to keep?", a: "Everything, for 3 years minimum. Nights rented, prices charged, entire vs partial unit, any MAT collected. If the city asks for records, you've got 30 days to produce them. Don't wing it - set up a system from day one." },
+  { q: "Can I rent to multiple groups at the same time?", a: "No. One group at a time. You can't have different guests in different rooms simultaneously - even if they're paying separately. It's not like a hostel situation." },
+  { q: "What's the difference between Mississauga and Toronto rules?", a: "Both have 180-day limits and principal residence requirements. The key difference: Mississauga uses 30 days as the STR cutoff while Toronto uses 28 days. Two days doesn't sound like much, but it matters for your mid-term strategy." }
 ];
 
 const relatedPosts = [
@@ -109,19 +109,19 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">Mississauga regulates short-term rentals under <strong>By-Law 0289-2020</strong>, which has been amended several times through 2025. If you're thinking about listing your property on Airbnb or VRBO, understanding these rules is essential for staying compliant and avoiding significant fines.</p>
-            <p class="lead">This guide covers everything you need to know about Mississauga's STR regulations, from the 180-day annual limit to license requirements and insurance obligations.</p>
+            <p class="lead">Mississauga's STR rules under <strong>By-Law 0289-2020</strong> are pretty similar to Toronto's, but there are a few key differences that matter. If you're thinking about Airbnb in Mississauga - whether you live near Square One, Port Credit, or out in Meadowvale - here's what you actually need to know.</p>
+            <p class="lead">I'll cut through the legal jargon and give you the practical stuff: the 180-day limit, why your investment property won't work, and how mid-term rentals can save your rental income strategy.</p>
           </div>
 
-          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
-          <p>Under Mississauga's bylaw, a short-term rental is defined as:</p>
+          <h2 id="what-is-str">What's Considered a Short-Term Rental?</h2>
+          <p>First, the definition. This is where Mississauga differs from Toronto:</p>
 
           <blockquote class="bylaw-quote">
             "Short Term Rental Accommodation means a temporary accommodation in all or part of a Dwelling that is provided for 30 consecutive days or less in exchange for payment or service."
             <cite>Mississauga By-Law 0289-2020, Section 1</cite>
           </blockquote>
 
-          <p>This means any rental of 30 days or less requires licensing and must follow all STR regulations. Rentals of 31 consecutive days or more are not considered short-term rentals and are exempt from these rules.</p>
+          <p>So anything 30 days or shorter needs a license and follows all the STR rules. Book someone for 31 days? That's mid-term - completely different category, completely different rules (or really, lack of rules).</p>
 
           <div class="callout">
             <div class="callout-icon">
@@ -132,35 +132,37 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>Key Difference from Toronto:</strong> Mississauga uses 30 days as the STR threshold, while Toronto uses 28 days. This small difference can affect your strategy if you operate in both cities.
+              <strong>Toronto vs Mississauga:</strong> Toronto's cutoff is 28 days. Mississauga's is 30 days. Seems like a tiny difference, but it actually matters if you're trying to max out short-term before switching to mid-term. Those two extra days give you a bit more flexibility here.
             </div>
           </div>
 
-          <h2 id="night-limit">The 180-Day Annual Limit</h2>
-          <p>Mississauga limits how many days you can rent your home as a short-term rental:</p>
+          <h2 id="night-limit">The 180-Day Cap</h2>
+          <p>Same as Toronto - you've got 180 days per year to work with:</p>
 
           <blockquote class="bylaw-quote">
             "No Licensee shall rent out a Short Term Rental Accommodation for more than 180 days in a calendar year."
             <cite>Mississauga By-Law 0289-2020, Schedule B, Section 7(1)</cite>
           </blockquote>
 
-          <p>Important things to know about this limit:</p>
+          <p>The basics:</p>
           <ul>
-            <li>The 180-day limit applies per <strong>calendar year</strong> (January 1 to December 31)</li>
-            <li>Days across <strong>all platforms</strong> (Airbnb, VRBO, direct bookings) count toward this total</li>
-            <li>The limit resets every January 1st</li>
-            <li>You must track and record all rental nights for at least 3 years</li>
+            <li>Calendar year counting - January 1st to December 31st</li>
+            <li>Everything counts: Airbnb, VRBO, Booking.com, direct bookings, your buddy who paid cash</li>
+            <li>Resets every New Year's Day</li>
+            <li>You need to track this yourself. Keep records for 3+ years.</li>
           </ul>
 
-          <h2 id="principal-residence">The Principal Residence Rule</h2>
-          <p>This is the most important rule for prospective hosts to understand. Mississauga only allows STRs at your principal residence:</p>
+          <p>Honestly, 180 days is about half the year. Time it right with peak summer season and you can still make great money.</p>
+
+          <h2 id="principal-residence">The Principal Residence Rule (This Is the Big One)</h2>
+          <p>This rule trips up more people than any other. You can ONLY short-term rent where you actually live:</p>
 
           <blockquote class="bylaw-quote">
             "No Person shall operate, advertise, broker, carry on the business of or permit the operation...of a Short Term Rental Accommodation unless the property is the Principal Residence of that Person."
             <cite>Mississauga By-Law 0289-2020, Schedule B, Section 6(1)</cite>
           </blockquote>
 
-          <p>Principal residence is defined as:</p>
+          <p>The city defines this pretty clearly:</p>
 
           <blockquote class="bylaw-quote">
             "Principal Residence means a Dwelling owned or rented by an individual person, either alone or jointly with others, where the individual person is ordinarily resident."
@@ -168,65 +170,65 @@ const pageSchema = [articleSchema, faqSchema];
           </blockquote>
 
           <div class="warning-box">
-            <h4>What This Means for Property Investors</h4>
-            <p>If you own an investment property, vacation home, or second property in Mississauga, you <strong>cannot</strong> operate it as a short-term rental. The principal residence rule means you can only STR the home where you actually live.</p>
-            <p>Looking to rent an investment property? Consider <a href="/services/mid-term-rental-management">mid-term rentals</a> (31+ days) which are exempt from these restrictions.</p>
+            <h4>Investment Property Owners: Read This</h4>
+            <p>I know this isn't what you want to hear, but if you bought a condo in Square One as an investment, you <strong>can't</strong> short-term rent it. Same goes for any second property, vacation property, or inherited home you don't live in.</p>
+            <p>The good news? <a href="/services/mid-term-rental-management">Mid-term rentals</a> (31+ days) are exempt from all of this. That's your path forward.</p>
           </div>
 
-          <h2 id="mid-term-strategy">Mid-Term Rentals: The Alternative Strategy</h2>
-          <p>Since Mississauga's STR rules only apply to rentals of 30 days or less, <strong>mid-term rentals are completely exempt</strong> from these regulations.</p>
+          <h2 id="mid-term-strategy">Mid-Term Rentals: How Investment Properties Actually Work</h2>
+          <p>Here's the strategy that actually works in Mississauga. Since STR rules only apply to stays of 30 days or less, <strong>31+ day rentals play by completely different rules</strong>.</p>
 
-          <h3>What Qualifies as Mid-Term?</h3>
-          <p>Any rental of 31 consecutive days or more in Mississauga:</p>
+          <h3>What Changes at 31 Days?</h3>
+          <p>Book someone for 31 consecutive days or more and suddenly:</p>
           <ul>
-            <li>Does <strong>not</strong> require an STR license</li>
-            <li>Does <strong>not</strong> count toward your 180-day limit</li>
-            <li>Does <strong>not</strong> require principal residence status</li>
-            <li>Can be operated on investment properties</li>
+            <li>No STR license needed</li>
+            <li>Doesn't touch your 180-day cap</li>
+            <li>Principal residence? Doesn't matter</li>
+            <li>Your investment property is fair game</li>
           </ul>
 
           <div class="strategy-box">
-            <h4>The Hybrid Strategy for Mississauga Hosts</h4>
-            <p>Many successful hosts combine both approaches:</p>
+            <h4>The Play Smart Mississauga Hosts Are Making</h4>
+            <p>Combine both rental types strategically:</p>
             <ol>
-              <li><strong>Peak season (May to October):</strong> Short-term Airbnb rentals to capture premium nightly rates during high-demand periods</li>
-              <li><strong>Off-season (November to April):</strong> Mid-term rentals (31+ days) to traveling professionals, students, or corporate relocations</li>
+              <li><strong>May through October:</strong> Short-term Airbnb at peak rates. Pearson Airport travelers, families visiting, summer tourists. This is when you burn through your 180 days.</li>
+              <li><strong>November through April:</strong> Flip to 31+ day rentals. Corporate relocations, UTM students, healthcare workers at Trillium - there's consistent demand.</li>
             </ol>
-            <p>This strategy maximizes revenue while staying well under the 180-day STR limit.</p>
+            <p>You stay under 180 days STR, maximize revenue year-round, and don't leave gaps in your calendar.</p>
           </div>
 
-          <h3>Mid-Term Demand in Mississauga</h3>
-          <p>Mississauga has strong mid-term rental demand from:</p>
+          <h3>Who Actually Books Mid-Term in Mississauga?</h3>
+          <p>Mississauga has genuinely strong demand for 31+ day stays. We're not making this up:</p>
           <ul>
-            <li><strong>Corporate travelers:</strong> The city hosts major corporate headquarters and business parks</li>
-            <li><strong>Healthcare workers:</strong> Proximity to hospitals including Trillium Health Partners</li>
-            <li><strong>University students:</strong> Students at University of Toronto Mississauga campus</li>
-            <li><strong>New immigrants:</strong> Many newcomers need housing while they settle in the GTA</li>
-            <li><strong>Insurance relocation:</strong> Families displaced by home repairs or renovations</li>
+            <li><strong>Corporate travelers:</strong> So many company HQs here - Microsoft Canada, Amazon warehouses, countless others in the business parks</li>
+            <li><strong>Healthcare workers:</strong> Trillium Health Partners is huge. Traveling nurses, contract workers, new hires needing temporary housing.</li>
+            <li><strong>UTM students:</strong> University of Toronto Mississauga campus. Students between semesters, waiting for dorm availability, doing internships.</li>
+            <li><strong>New immigrants:</strong> Mississauga has one of Canada's largest newcomer populations. People need furnished housing while they get settled.</li>
+            <li><strong>Insurance displacement:</strong> Families whose homes are being repaired after water damage, fire, whatever. Insurance companies pay for temporary housing.</li>
           </ul>
 
-          <h2 id="license-requirements">License Requirements</h2>
-          <p>Before operating any STR in Mississauga, you must obtain a license from the city.</p>
+          <h2 id="license-requirements">Getting Your License</h2>
+          <p>You can't just list on Airbnb and hope for the best. Mississauga requires a license before you host anyone.</p>
 
-          <h3>Who Can Get a License?</h3>
-          <p>Licenses are only available to:</p>
+          <h3>Who Can Apply?</h3>
+          <p>Not everyone qualifies:</p>
           <ul>
-            <li><strong>Individual persons</strong> (not corporations, partnerships, or other business entities)</li>
-            <li>Persons <strong>18 years of age or older</strong></li>
-            <li>One license per person (since you can only have one principal residence)</li>
+            <li><strong>Individuals only</strong> - your numbered company can't hold this license</li>
+            <li><strong>18+ years old</strong></li>
+            <li><strong>One license per person</strong> - because you only have one principal residence, right?</li>
           </ul>
 
-          <h3>Application Requirements</h3>
-          <p>To apply for an STR license in Mississauga, you must provide:</p>
+          <h3>What You'll Need to Apply</h3>
+          <p>The application isn't complicated, but it's thorough. Gather these before you start:</p>
           <ol>
-            <li><strong>Completed application form</strong> from the Licence Manager</li>
-            <li><strong>Proof of principal residence</strong> with government ID and signed declaration</li>
-            <li><strong>Criminal record check</strong> issued within the last 60 days</li>
-            <li><strong>Proof of ownership</strong> or landlord authorization (if you're a tenant)</li>
-            <li><strong>Condo compliance</strong> proving STRs are permitted (if applicable)</li>
-            <li><strong>Building code compliance</strong> certification</li>
-            <li><strong>Insurance certificate</strong> with $2M liability coverage</li>
-            <li><strong>License fee</strong> as per City's User Fees schedule</li>
+            <li><strong>Application form</strong> - get it from the city</li>
+            <li><strong>Proof you actually live there</strong> - ID plus a signed declaration</li>
+            <li><strong>Criminal record check</strong> - has to be from the last 60 days. Fresh one.</li>
+            <li><strong>Ownership proof</strong> - or if you're renting, written permission from your landlord</li>
+            <li><strong>Condo clearance</strong> - if you're in a condo, proof that your condo corp allows STRs</li>
+            <li><strong>Building code compliance</strong> - certification that your place meets code</li>
+            <li><strong>Insurance certificate</strong> - $2M liability, city named as additional insured</li>
+            <li><strong>Fee</strong> - check the city's current rates</li>
           </ol>
 
           <div class="callout">
@@ -238,140 +240,140 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>For Tenants:</strong> If you rent your home, you need written authorization from your landlord to operate an STR. Your landlord must sign off on this before the city will issue your license.
+              <strong>Renting your place?</strong> You'll need your landlord's written permission before the city will even process your application. Don't assume they'll say yes - some landlords have strong feelings about this.
             </div>
           </div>
 
-          <h3>License Validity</h3>
-          <p>An STR license in Mississauga is valid for <strong>one year</strong> from the date of issue. You must renew annually and meet all the same requirements again, including a fresh criminal record check.</p>
+          <h3>License Renewal</h3>
+          <p>Your license lasts <strong>one year</strong>. Then you renew and go through the whole thing again - yes, including another fresh criminal record check. Mark your calendar.</p>
 
-          <h2 id="insurance">Insurance Requirements</h2>
-          <p>Mississauga has strict insurance requirements for STR operators:</p>
+          <h2 id="insurance">The $2 Million Insurance Requirement</h2>
+          <p>This is where Mississauga gets serious. You need real commercial insurance:</p>
 
           <blockquote class="bylaw-quote">
             "An insurance certificate demonstrating commercial general liability business insurance for the operations of the Short Term Rental Accommodation against claims filed against the Applicant with respect to bodily injury, including personal injury and death, and property damage with a per occurrence limit of at least $2,000,000."
             <cite>Mississauga By-Law 0289-2020, Schedule A, Section 1(8)</cite>
           </blockquote>
 
-          <p>Key insurance requirements:</p>
+          <p>Breaking that down:</p>
           <ul>
-            <li><strong>$2,000,000 minimum</strong> commercial general liability coverage</li>
-            <li>Coverage for bodily injury, personal injury, death, and property damage</li>
-            <li><strong>City of Mississauga must be listed</strong> as an additional insured</li>
-            <li>Must be commercial/business insurance (standard homeowner's insurance likely won't qualify)</li>
+            <li><strong>$2,000,000 minimum</strong> - no, $1M won't cut it</li>
+            <li>Has to cover bodily injury, personal injury, death, and property damage</li>
+            <li><strong>City of Mississauga must be named</strong> as additional insured on the policy</li>
+            <li>Must be actual commercial/business insurance - your regular condo insurance doesn't count</li>
           </ul>
 
           <div class="warning-box">
-            <h4>Don't Rely on Airbnb's Insurance</h4>
-            <p>While Airbnb offers AirCover protection, the City of Mississauga requires you to have your own commercial liability policy with the city named as additional insured. Platform coverage alone does not satisfy this requirement.</p>
+            <h4>Airbnb's AirCover Isn't Enough</h4>
+            <p>I see this mistake constantly. People think "I've got AirCover, I'm good." You're not. Mississauga specifically requires your OWN policy with the city named as additional insured. AirCover is backup protection, not a replacement for what the city demands. Budget for real commercial insurance - it's usually $500-1,500/year depending on your property.</p>
           </div>
 
-          <h2 id="property-types">What Properties Qualify?</h2>
-          <p>STRs can only be operated in a dwelling unit that is your principal residence. The bylaw also has specific restrictions:</p>
+          <h2 id="property-types">Which Properties Work?</h2>
+          <p>Assuming it's your principal residence, here's what qualifies:</p>
 
-          <h3>Allowed</h3>
+          <h3>Good to Go:</h3>
           <ul>
-            <li>Single-family homes</li>
+            <li>Single-family homes (common in Streetsville, Erin Mills, Clarkson)</li>
             <li>Townhouses</li>
-            <li>Condo units (if condo corporation permits)</li>
-            <li>Apartments (with landlord authorization)</li>
-            <li>Basement units (if it's your principal residence)</li>
+            <li>Condo units (but check with your condo corp first - many say no)</li>
+            <li>Apartments (need landlord permission in writing)</li>
+            <li>Basement units (if that's where you actually live)</li>
           </ul>
 
-          <h3>Not Allowed</h3>
+          <h3>Not Allowed - No Exceptions:</h3>
           <blockquote class="bylaw-quote">
             "No Person shall operate...a Short Term Rental Accommodation located within an Accessory Building as defined in the City's Zoning By-law 225-2007."
             <cite>Mississauga By-Law 0289-2020, Schedule B, Section 6(2)</cite>
           </blockquote>
 
-          <p>This means you <strong>cannot</strong> operate an STR in:</p>
+          <p>Translation: detached structures are out. This includes:</p>
           <ul>
-            <li>Detached coach houses or garage suites</li>
-            <li>Garden suites in the backyard</li>
-            <li>Any other accessory building separate from the main dwelling</li>
+            <li>Coach houses or garage suites separate from the main house</li>
+            <li>Backyard garden suites</li>
+            <li>Any building that's not attached to your main home</li>
           </ul>
 
-          <h3>Condo Considerations</h3>
-          <p>If you live in a condominium, you must provide proof that your condo corporation allows short-term rentals. Many condos in Mississauga have rules prohibiting or restricting STRs. Always check your condo's declaration and bylaws before applying for a license.</p>
+          <h3>The Condo Situation</h3>
+          <p>Condos in Mississauga are tricky. Even if you get city approval, your condo corporation can still say no. And many do. Before you spend time and money on the license application, dig out your condo's declaration and rules. Look for anything about short-term rentals or minimum lease periods. I've seen hosts go through the whole process only to get shut down by their condo board afterward. Not fun.</p>
 
-          <h2 id="compliance">Compliance Requirements</h2>
-          <p>Once licensed, you must follow these ongoing requirements:</p>
+          <h2 id="compliance">Staying Compliant</h2>
+          <p>Got your license? Great. Here's what you need to keep doing:</p>
 
-          <h3>Display Your License Number</h3>
-          <p>Your valid business license number must appear prominently in all advertising and marketing materials for your STR.</p>
+          <h3>License Number Goes Everywhere</h3>
+          <p>Every Airbnb listing, every VRBO listing, every ad - your license number has to be visible. The city checks.</p>
 
-          <h3>Guest Safety</h3>
+          <h3>Guest Safety Stuff</h3>
           <ul>
-            <li>Provide an emergency contact name and number to all guests</li>
-            <li>Post an evacuation plan at all entrances and exits</li>
-            <li>Issue invoices or receipts that include your license number</li>
+            <li>Give every guest your emergency contact number</li>
+            <li>Post evacuation plans at entrances/exits (yes, really)</li>
+            <li>Put your license number on all receipts and invoices</li>
           </ul>
 
-          <h3>No Overlapping Bookings</h3>
+          <h3>One Group at a Time</h3>
           <blockquote class="bylaw-quote">
             "No Licensee shall book or reserve separate guests in a Short Term Rental Accommodation for the same days, whereby two (2) or more unrelated or unassociated persons are accommodated in the same Dwelling at the same time."
             <cite>Mississauga By-Law 0289-2020, Schedule B, Section 7(2)</cite>
           </blockquote>
 
-          <p>This means you cannot rent to multiple separate groups simultaneously, even if they would occupy different rooms.</p>
+          <p>Can't run it like a hostel. One booking, one group. Even if you've got extra rooms you could rent separately - that's not allowed.</p>
 
-          <h3>Record Keeping</h3>
-          <p>You must maintain records for at least <strong>3 years</strong> including:</p>
+          <h3>Keep Your Records (For 3 Years)</h3>
+          <p>Track everything:</p>
           <ul>
-            <li>Number of nights rented each calendar year</li>
-            <li>Nightly and total prices charged</li>
-            <li>Whether each rental was entire unit or partial unit</li>
-            <li>Any municipal accommodation tax collected</li>
+            <li>How many nights you rented each year</li>
+            <li>What you charged (nightly and total)</li>
+            <li>Entire unit vs partial unit</li>
+            <li>Any accommodation tax collected</li>
           </ul>
 
-          <p>You must provide these records to the Licence Manager within 30 days if requested.</p>
+          <p>If the city asks for records, you've got 30 days to produce them. Don't be scrambling through old emails when that request comes in.</p>
 
-          <h2 id="why-worth-it">Why STR Is Still Worth It in Mississauga</h2>
-          <p>Despite the regulations, operating a licensed STR in Mississauga can still be highly profitable:</p>
+          <h2 id="why-worth-it">Is It Actually Worth It in Mississauga?</h2>
+          <p>With all these rules, you might wonder if it's even worth the hassle. Here's my honest take: <strong>yes, it usually is</strong>.</p>
 
-          <h3>1. Higher Income Potential</h3>
-          <p>Even with the 180-day limit, short-term rentals typically generate significantly more revenue than traditional long-term leases:</p>
+          <h3>The Money Still Works</h3>
+          <p>Even capped at 180 days, short-term typically beats long-term rent:</p>
 
           <div class="comparison-example">
-            <h4>Example: 2-Bedroom Condo in Square One Area</h4>
+            <h4>Real Numbers: 2-Bedroom Near Square One</h4>
             <div class="example-grid">
               <div class="example-item">
-                <span class="label">Long-term rental</span>
+                <span class="label">Long-term tenant</span>
                 <span class="value">$2,800/month</span>
                 <span class="annual">$33,600/year</span>
               </div>
               <div class="example-item highlight">
                 <span class="label">Airbnb (180 nights @ $180/night)</span>
                 <span class="value">$32,400/year</span>
-                <span class="annual">+ mid-term income potential</span>
+                <span class="annual">+ the other 185 days</span>
               </div>
             </div>
-            <p class="example-note">Add mid-term rentals for the remaining 185 days and total income often exceeds long-term rental by 30% or more.</p>
+            <p class="example-note">That's just 180 nights of STR. Fill the rest with 31+ day rentals at $3,200/month and you're looking at $50,000+/year. That's nearly 50% more than a long-term tenant. And you keep control of your property.</p>
           </div>
 
-          <h3>2. Strategic Location</h3>
-          <p>Mississauga offers strong STR demand due to:</p>
+          <h3>Mississauga's Location Actually Helps</h3>
+          <p>Here's why demand in Mississauga is genuinely strong:</p>
           <ul>
-            <li><strong>Pearson Airport proximity:</strong> Business travelers, flight crews, and passengers with early flights</li>
-            <li><strong>Corporate headquarters:</strong> Many Fortune 500 companies have offices in Mississauga</li>
-            <li><strong>Square One:</strong> Major shopping and entertainment destination draws visitors</li>
-            <li><strong>Easy Toronto access:</strong> Guests can visit Toronto while enjoying lower accommodation costs</li>
+            <li><strong>Pearson Airport:</strong> 5 minutes away. Flight crews, business travelers, people with 6am flights who don't want to wake up at 3am to drive from Toronto.</li>
+            <li><strong>Corporate HQs everywhere:</strong> Microsoft, Amazon, tons of companies in Meadowvale and Airport Corporate Centre. Executives and consultants need temporary housing.</li>
+            <li><strong>Square One:</strong> Second largest mall in Canada. People come specifically to shop and want to stay nearby.</li>
+            <li><strong>Toronto proximity without Toronto prices:</strong> Guests can easily take the GO Train or Uber to downtown Toronto while paying 20-30% less for accommodation.</li>
           </ul>
 
-          <h3>3. Flexibility</h3>
-          <p>Unlike long-term leases, STR hosting gives you:</p>
+          <h3>You Keep Control</h3>
+          <p>Unlike having a long-term tenant:</p>
           <ul>
-            <li>Ability to use your home during gaps between bookings</li>
-            <li>Dynamic pricing to maximize revenue during peak demand</li>
-            <li>No long-term tenant issues or eviction processes</li>
-            <li>Control over who stays in your home</li>
+            <li>Need your place for visiting family? Block those dates.</li>
+            <li>Major conference in town? Raise your rates.</li>
+            <li>Guest being difficult? They're gone in a few days, not 12+ months of Landlord Tenant Board hearings.</li>
+            <li>Sell your place? No lease to navigate around.</li>
           </ul>
 
-          <h3>4. Professional Support Available</h3>
-          <p>Managing compliance, guest communication, and turnover can be time-consuming. Professional property managers like <a href="/">Nurture</a> handle everything including license compliance, guest screening, cleaning coordination, and revenue optimization so you can earn passive income without the day-to-day stress.</p>
+          <h3>Don't Want to Deal With It?</h3>
+          <p>Real talk - managing an STR takes work. If tracking nights, screening guests, handling turnovers, and staying compliant sounds like more than you want to deal with, that's exactly what we do. Property managers handle all of it so you get the income without the headaches.</p>
 
-          <h2 id="official-resources">Official Resources</h2>
-          <p>For the most current and authoritative information, consult these official City of Mississauga sources:</p>
+          <h2 id="official-resources">Official City of Mississauga Resources</h2>
+          <p>Don't take my word for it. Here's where to verify everything:</p>
 
           <div class="resources-box">
             <h4>Official Links</h4>
@@ -382,9 +384,9 @@ const pageSchema = [articleSchema, faqSchema];
             </ul>
           </div>
 
-          <p>Regulations can change. We recommend verifying current requirements directly with the City of Mississauga before making any decisions about listing your property.</p>
+          <p>Rules change. Always double-check with the city before making any big decisions.</p>
 
-          <h2 id="faqs">Frequently Asked Questions</h2>
+          <h2 id="faqs">Common Questions From Mississauga Hosts</h2>
           <div class="faq-list">
             {faqs.map(faq => (
               <div class="faq-item">
