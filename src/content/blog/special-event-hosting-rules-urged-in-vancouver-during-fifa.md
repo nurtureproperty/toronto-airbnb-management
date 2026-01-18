@@ -4,7 +4,7 @@ description: "Vancouver's FIFA accommodation shortage means huge pricing opportu
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Market Update"
-tags: ["Pricing", "Airbnb", "Market Update", "Toronto"]
+tags: ["News", "Tips"]
 sourceUrl: "https://news.airbnb.com/special-event-hosting-rules-urged-in-vancouver-during-fifa/"
 sourceTitle: "Special event hosting rules urged in Vancouver during FIFA"
 draft: false

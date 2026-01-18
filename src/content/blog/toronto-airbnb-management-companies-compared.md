@@ -4,7 +4,7 @@ description: "Compare Toronto Airbnb management fees and services. See how top G
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Tips"
-tags: ["Toronto", "GTA", "Airbnb Management", "Fees", "Property Management"]
+tags: ["Guides", "Tips"]
 sourceUrl: "https://www.guestable.com/blog/airbnb-management-fees/"
 sourceTitle: "Airbnb Management Fees 2026 Guide | Guestable"
 draft: false

@@ -4,7 +4,7 @@ description: "Three Ontario destinations made Airbnb's most wishlisted winter ca
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Market Update"
-tags: ["Ontario", "Market Trends", "Airbnb"]
+tags: ["News"]
 sourceUrl: "https://news.airbnb.com/the-winter-destinations-defining-canadian-travel-this-season/"
 sourceTitle: "The winter destinations defining Canadian travel this season"
 draft: false

@@ -4,7 +4,7 @@ description: "The definitive list of every condo building in Toronto that permit
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Toronto STR Regulations"
-tags: ["toronto condos", "airbnb allowed", "short term rental", "condo buildings", "str friendly"]
+tags: ["Guides"]
 draft: false
 ---
 

@@ -4,7 +4,7 @@ description: "Airbnb launches Icons with celebrity experiences while ignoring ba
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "News"
-tags: ["Airbnb", "Toronto", "GTA", "Host Tools"]
+tags: ["News"]
 sourceUrl: "https://news.airbnb.com/2024-summer-release/"
 sourceTitle: "2024 Summer Release"
 draft: false

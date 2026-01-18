@@ -4,7 +4,7 @@ description: "Airbnb removed strict cancellation policies and added 24-hour free
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
 category: "Market Update"
-tags: ["Market Update", "Airbnb", "Toronto", "GTA"]
+tags: ["News", "Tips"]
 sourceUrl: "https://www.rentalscaleup.com/airbnb-2026-predictions-what-hosts-managers-must-prepare-for/"
 sourceTitle: "Airbnb 2026 Predictions: What Property Managers Need to Prepare For"
 draft: false
