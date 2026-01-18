@@ -3,7 +3,7 @@ title: "FIFA 2026 is Coming to Toronto. Here's How to Price Your Airbnb"
 description: "Vancouver's FIFA accommodation shortage means huge pricing opportunities for Toronto hosts. Learn how to maximize your rental income during the World Cup."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
-category: "Market Update"
+category: "News"
 tags: ["News", "Tips"]
 sourceUrl: "https://news.airbnb.com/special-event-hosting-rules-urged-in-vancouver-during-fifa/"
 sourceTitle: "Special event hosting rules urged in Vancouver during FIFA"

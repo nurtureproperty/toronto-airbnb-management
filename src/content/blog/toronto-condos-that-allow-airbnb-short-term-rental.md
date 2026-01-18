@@ -3,7 +3,7 @@ title: "Complete List of Every Toronto Condo That Allows Airbnb Short Term Renta
 description: "The definitive list of every condo building in Toronto that permits Airbnb and short term rentals. Updated for 2026 with addresses organized by neighbourhood."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
-category: "Toronto STR Regulations"
+category: "Guides"
 tags: ["Guides"]
 draft: false
 ---

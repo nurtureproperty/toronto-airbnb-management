@@ -3,7 +3,7 @@ title: "Toronto Airbnb Owners: Brace for More Cancellations in 2026"
 description: "Airbnb removed strict cancellation policies and added 24-hour free cancellations. Here's how GTA hosts can protect their rental income in 2026."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
-category: "Market Update"
+category: "News"
 tags: ["News", "Tips"]
 sourceUrl: "https://www.rentalscaleup.com/airbnb-2026-predictions-what-hosts-managers-must-prepare-for/"
 sourceTitle: "Airbnb 2026 Predictions: What Property Managers Need to Prepare For"

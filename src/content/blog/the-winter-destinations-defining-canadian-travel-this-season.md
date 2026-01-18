@@ -3,7 +3,7 @@ title: "Muskoka Airbnbs Dominate Winter Travel. What GTA Hosts Need to Know"
 description: "Three Ontario destinations made Airbnb's most wishlisted winter cabins list. Here's what GTA property owners can learn from their success."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
-category: "Market Update"
+category: "News"
 tags: ["News"]
 sourceUrl: "https://news.airbnb.com/the-winter-destinations-defining-canadian-travel-this-season/"
 sourceTitle: "The winter destinations defining Canadian travel this season"
