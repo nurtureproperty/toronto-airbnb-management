@@ -378,10 +378,9 @@ def save_post(content: str, title: str) -> Optional[tuple[Path, str]]:
     # Ensure posts directory exists
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Generate filename from title
+    # Generate filename from title (no date prefix - slug becomes the URL)
     slug = slugify(title)
-    date_prefix = datetime.now().strftime("%Y-%m-%d")
-    filename = f"{date_prefix}-{slug}.md"
+    filename = f"{slug}.md"
     filepath = POSTS_DIR / filename
 
     # Handle duplicate filenames
@@ -389,7 +388,7 @@ def save_post(content: str, title: str) -> Optional[tuple[Path, str]]:
     base_slug = slug
     while filepath.exists():
         slug = f"{base_slug}-{counter}"
-        filename = f"{date_prefix}-{slug}.md"
+        filename = f"{slug}.md"
         filepath = POSTS_DIR / filename
         counter += 1
 
