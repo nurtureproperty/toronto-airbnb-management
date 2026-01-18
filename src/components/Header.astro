@@ -107,6 +107,11 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
             About
           </a>
         </li>
+        <li class="nav-item">
+          <a href="/blog" class:list={['nav-link', { active: currentPath.startsWith('/blog') }]}>
+            Blog
+          </a>
+        </li>
       </ul>
       <a href="tel:+16479578956" class="nav-phone"><span class="phone-icon">📞</span> (647) 957-8956</a>
       <a href="/contact" class="btn btn-primary nav-cta">Contact Us</a>
@@ -164,6 +169,9 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
         </li>
         <li class="mobile-nav-item">
           <a href="/about" class="mobile-nav-link">About</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="/blog" class="mobile-nav-link">Blog</a>
         </li>
       </ul>
       <a href="/contact" class="btn btn-primary mobile-nav-cta">Contact Us</a>
@@ -615,6 +623,8 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+      /* DEBUG */
+      outline: 3px solid red;
     }
 
     .mobile-phone-link:hover,
@@ -636,6 +646,8 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       z-index: 1001;
       position: relative;
       flex-shrink: 0;
+      /* DEBUG */
+      outline: 3px solid blue;
     }
 
     /* Show mobile overlay */
