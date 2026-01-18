@@ -1,5 +1,5 @@
 ---
-title: "Toronto Airbnb Management Companies Compared: Fees, Services, and What to Watch For"
+title: "GTA Airbnb Property Management Company Fee Comparison"
 description: "Compare Toronto Airbnb management fees and services. See how top GTA companies stack up on pricing, contracts, and what hosts actually pay in 2026."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"
