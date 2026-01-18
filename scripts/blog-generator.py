@@ -219,8 +219,11 @@ def send_email_notification(posts: list[dict]) -> bool:
         return False
 
     try:
-        # Build email content
-        subject = f"New Blog Post{'s' if len(posts) > 1 else ''} Published - {datetime.now().strftime('%Y-%m-%d')}"
+        # Build email content with post title(s) in subject
+        if len(posts) == 1:
+            subject = f"New Post: {posts[0]['title']}"
+        else:
+            subject = f"New Blog Posts: {posts[0]['title']} (+{len(posts) - 1} more)"
 
         html_content = f"""
         <html>
