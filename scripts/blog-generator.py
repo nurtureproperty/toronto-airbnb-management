@@ -6,6 +6,16 @@ This script scans RSS feeds for relevant short-term rental news and generates
 blog posts using the Claude API. Posts are auto-published and email notifications
 are sent to the configured address.
 
+DAILY LIMIT: Publishes at most 2 posts per day (configurable via MAX_POSTS_PER_DAY).
+             Additional high-priority articles are saved to a backlog and published
+             on subsequent days.
+
+BACKLOG SYSTEM:
+- High-priority articles that exceed the daily limit are saved to article_backlog.json
+- Backlog articles are processed first (oldest first) on the next run
+- Maximum 10 articles kept in backlog
+- Only high-priority articles are backlogged (medium priority are skipped)
+
 Usage:
     python scripts/blog-generator.py
 
@@ -45,7 +55,9 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 POSTS_DIR = PROJECT_ROOT / "src" / "content" / "blog"
 PROCESSED_FILE = SCRIPT_DIR / "processed_articles.json"
+BACKLOG_FILE = SCRIPT_DIR / "article_backlog.json"
 SITE_URL = "https://www.nurturestays.ca"
+MAX_POSTS_PER_DAY = 2  # Maximum posts to publish each day
 
 # RSS Feeds to monitor
 RSS_FEEDS = [
@@ -304,6 +316,38 @@ def save_processed_articles(data: dict) -> None:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
+def load_backlog() -> list[dict]:
+    """Load the article backlog."""
+    if BACKLOG_FILE.exists():
+        with open(BACKLOG_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data.get("backlog", [])
+    return []
+
+
+def save_backlog(articles: list[dict]) -> None:
+    """Save the article backlog."""
+    data = {
+        "backlog": articles,
+        "updated": datetime.now(timezone.utc).isoformat()
+    }
+    with open(BACKLOG_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
+def add_to_backlog(articles: list[dict]) -> None:
+    """Add articles to the backlog for future publishing."""
+    backlog = load_backlog()
+    existing_hashes = {a["hash"] for a in backlog}
+
+    for article in articles:
+        if article["hash"] not in existing_hashes:
+            backlog.append(article)
+            print(f"  + Added to backlog: {article['title'][:50]}...")
+
+    save_backlog(backlog)
+
+
 def get_article_hash(url: str) -> str:
     """Generate a unique hash for an article URL."""
     return hashlib.md5(url.encode()).hexdigest()
@@ -539,6 +583,7 @@ def main():
     print("=" * 60)
     print("Nurture Blog Post Generator")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Daily limit: {MAX_POSTS_PER_DAY} posts")
     print("=" * 60)
 
     # Check for API key
@@ -559,6 +604,10 @@ def main():
     if processed_data.get("last_run"):
         print(f"Last run: {processed_data['last_run']}")
 
+    # Load existing backlog
+    backlog = load_backlog()
+    print(f"Articles in backlog: {len(backlog)}")
+
     # Fetch RSS feeds
     print("\n" + "-" * 40)
     print("Scanning RSS feeds for relevant articles...")
@@ -569,25 +618,42 @@ def main():
     # Filter out already processed articles
     new_articles = [a for a in articles if a["hash"] not in processed_hashes]
 
+    # Combine backlog with new articles (backlog first, then new by priority)
+    backlog_hashes = {a["hash"] for a in backlog}
+    new_not_in_backlog = [a for a in new_articles if a["hash"] not in backlog_hashes]
+
+    # Sort new articles by priority
+    new_not_in_backlog.sort(key=lambda x: 0 if x["priority"] == "high" else 1)
+
+    # Articles to consider: backlog first (oldest), then new high-priority
+    articles_to_process = backlog + new_not_in_backlog
+
     print(f"\n" + "-" * 40)
-    print(f"Found {len(articles)} relevant articles total")
-    print(f"New articles to process: {len(new_articles)}")
+    print(f"Found {len(articles)} relevant articles in feeds")
+    print(f"New articles (not processed): {len(new_articles)}")
+    print(f"From backlog: {len(backlog)}")
+    print(f"Total to consider: {len(articles_to_process)}")
+    print(f"Will publish up to: {MAX_POSTS_PER_DAY}")
     print("-" * 40)
 
-    if not new_articles:
-        print("\nNo new articles to process. Exiting.")
+    if not articles_to_process:
+        print("\nNo articles to process. Exiting.")
         save_processed_articles(processed_data)
         return
 
-    # Sort by priority (high first)
-    new_articles.sort(key=lambda x: 0 if x["priority"] == "high" else 1)
-
-    # Process each new article
+    # Process articles up to daily limit
     posts_created = []
+    articles_published_hashes = []
 
-    for i, article in enumerate(new_articles, 1):
+    for i, article in enumerate(articles_to_process, 1):
+        # Stop if we've hit the daily limit
+        if len(posts_created) >= MAX_POSTS_PER_DAY:
+            print(f"\n{'=' * 60}")
+            print(f"Daily limit of {MAX_POSTS_PER_DAY} posts reached.")
+            break
+
         print(f"\n{'=' * 60}")
-        print(f"Processing article {i}/{len(new_articles)}")
+        print(f"Processing article {i}/{len(articles_to_process)} (published: {len(posts_created)}/{MAX_POSTS_PER_DAY})")
         print(f"Title: {article['title'][:70]}...")
         print(f"Source: {article['source']}")
         print(f"Priority: {article['priority']}")
@@ -610,14 +676,41 @@ def main():
                     "source_url": article["url"],
                 })
 
-                # Mark as processed
+                # Mark as processed and track for backlog removal
                 processed_data["processed"].append(article["hash"])
+                articles_published_hashes.append(article["hash"])
             else:
                 print(f"  Failed to save post")
         else:
             print(f"  Failed to generate blog post")
             # Still mark as processed to avoid retrying failed articles
             processed_data["processed"].append(article["hash"])
+            articles_published_hashes.append(article["hash"])
+
+    # Handle remaining articles (add high-priority ones to backlog)
+    remaining_articles = [
+        a for a in articles_to_process
+        if a["hash"] not in articles_published_hashes
+        and a["hash"] not in processed_hashes
+    ]
+
+    # Keep only high-priority articles in backlog, limit to 10
+    high_priority_remaining = [a for a in remaining_articles if a["priority"] == "high"][:10]
+
+    if high_priority_remaining:
+        print(f"\n" + "-" * 40)
+        print(f"Adding {len(high_priority_remaining)} high-priority articles to backlog for tomorrow")
+        print("-" * 40)
+        for article in high_priority_remaining:
+            print(f"  + {article['title'][:60]}...")
+
+    # Update backlog: remove published, add new high-priority
+    updated_backlog = [a for a in backlog if a["hash"] not in articles_published_hashes]
+    for article in high_priority_remaining:
+        if article["hash"] not in {a["hash"] for a in updated_backlog}:
+            updated_backlog.append(article)
+
+    save_backlog(updated_backlog[:10])  # Keep max 10 in backlog
 
     # Save processed articles list
     save_processed_articles(processed_data)
@@ -626,9 +719,10 @@ def main():
     print("\n" + "=" * 60)
     print("SUMMARY")
     print("=" * 60)
-    print(f"Articles scanned: {len(articles)}")
-    print(f"New articles processed: {len(new_articles)}")
-    print(f"Posts published: {len(posts_created)}")
+    print(f"Articles scanned from feeds: {len(articles)}")
+    print(f"Articles considered (incl. backlog): {len(articles_to_process)}")
+    print(f"Posts published today: {len(posts_created)} (limit: {MAX_POSTS_PER_DAY})")
+    print(f"Articles in backlog for tomorrow: {len(updated_backlog)}")
 
     if posts_created:
         print("\nNewly published posts:")
@@ -641,10 +735,16 @@ def main():
         print("\nSending email notification...")
         send_email_notification(posts_created)
 
+    if updated_backlog:
+        print(f"\nBacklogged for future publishing:")
+        for article in updated_backlog:
+            print(f"  - {article['title'][:60]}...")
+
     # Output for GitHub Actions
     if os.getenv("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a") as f:
             f.write(f"posts_created={len(posts_created)}\n")
+            f.write(f"backlog_count={len(updated_backlog)}\n")
 
     print(f"\nCompleted: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

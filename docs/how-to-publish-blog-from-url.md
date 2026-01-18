@@ -182,12 +182,38 @@ After each post is created, you'll receive an email at info@nurtre.io with:
 
 ---
 
+## Automated Blog Generator (RSS)
+
+The automated script (`blog-generator.py`) runs via GitHub Actions and has these limits:
+
+### Daily Limit
+- Publishes **maximum 2 posts per day**
+- Prevents content flooding and maintains quality
+
+### Backlog System
+When the script finds more than 2 good articles:
+1. Publishes the top 2 (high-priority first)
+2. Saves remaining high-priority articles to a backlog
+3. Backlogged articles are published on subsequent days
+4. Maximum 10 articles kept in backlog
+5. Only high-priority articles are backlogged (medium priority skipped)
+
+### Priority Levels
+- **High priority**: Articles mentioning Toronto, Ontario, GTA, specific regulations
+- **Medium priority**: General Airbnb/STR industry news
+
+### Backlog File
+The backlog is stored in `scripts/article_backlog.json` and persists between runs.
+
+---
+
 ## Quick Reference
 
 | Action | Command |
 |--------|---------|
 | Navigate to project | `cd C:\Users\jef_p\toronto-airbnb-management` |
 | Create post from URL | `python scripts/create-blog-from-url.py "URL"` |
+| Run automated generator | `python scripts/blog-generator.py` |
 | Commit changes | `git add . && git commit -m "Add blog post"` |
 | Push to publish | `git push` |
 
