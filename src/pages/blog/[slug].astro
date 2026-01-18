@@ -262,6 +262,101 @@ const articleSchema = {
     opacity: 0.9;
   }
 
+  /* Comparison Table Styles */
+  .article-content :global(.comparison-table) {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin: 1.5rem 0 2rem;
+  }
+
+  .article-content :global(.comparison-header) {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 2fr;
+    background: var(--color-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .article-content :global(.comparison-table.two-col .comparison-header) {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+  }
+
+  .article-content :global(.comparison-header > div) {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .article-content :global(.comparison-header .col-company),
+  .article-content :global(.comparison-header .col-feature) {
+    text-align: left;
+  }
+
+  .article-content :global(.comparison-row) {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 2fr;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.95rem;
+  }
+
+  .article-content :global(.comparison-table.two-col .comparison-row) {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+  }
+
+  .article-content :global(.comparison-row:last-child) {
+    border-bottom: none;
+  }
+
+  .article-content :global(.comparison-row > div) {
+    padding: 0.875rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .article-content :global(.comparison-row .col-commission),
+  .article-content :global(.comparison-row .col-nurture),
+  .article-content :global(.comparison-row .col-competitors) {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .article-content :global(.comparison-row.highlight) {
+    background: var(--color-primary-light);
+  }
+
+  .article-content :global(.comparison-row .highlight-good) {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+
+  .article-content :global(.col-nurture) {
+    background: rgba(117, 155, 143, 0.08);
+  }
+
+  @media (max-width: 768px) {
+    .article-content :global(.comparison-header),
+    .article-content :global(.comparison-row) {
+      grid-template-columns: 1fr 0.8fr 1.5fr;
+    }
+
+    .article-content :global(.comparison-table.two-col .comparison-header),
+    .article-content :global(.comparison-table.two-col .comparison-row) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .article-content :global(.comparison-row > div) {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .article-content :global(.comparison-header > div) {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+
   @media (max-width: 576px) {
     .hero h1 {
       font-size: 1.75rem;

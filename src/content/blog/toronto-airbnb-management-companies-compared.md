@@ -37,17 +37,58 @@ Seems small, right? But over a year with $50,000 in bookings, that difference ad
 
 We analyzed 20 Airbnb management companies operating in the GTA. Here's what we found:
 
-| Company | Commission | What to Know |
-|---------|------------|--------------|
-| **Nurture** | **10-15%** | **Net payout pricing, no contracts, you own listing, locally focused GTA team** |
-| MasterHost | 18-20% | Cleaning complaints in recent reviews |
-| Maxima Properties | 18%+ | Premium properties only |
-| HeartHomes | 15% | Not locally focused |
-| Guestable | Varies | Pricing not transparent, waitlist |
-| Park Place | 18% | Payment delay complaints |
-| HostGenius | Varies | National focus, less local expertise |
-| Sora Stays | Not disclosed | Selective, no pricing transparency |
-| Ad Astra Host | 20%+ | Top-quartile focus, expensive |
+<div class="comparison-table">
+  <div class="comparison-header">
+    <div class="col-company">Company</div>
+    <div class="col-commission">Commission</div>
+    <div class="col-notes">What to Know</div>
+  </div>
+  <div class="comparison-row highlight">
+    <div class="col-company"><strong>Nurture</strong></div>
+    <div class="col-commission"><strong>10-15%</strong></div>
+    <div class="col-notes"><strong>Net payout pricing, no contracts, you own listing, locally focused GTA team</strong></div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">MasterHost</div>
+    <div class="col-commission">18-20%</div>
+    <div class="col-notes">Cleaning complaints in recent reviews</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">Maxima Properties</div>
+    <div class="col-commission">18%+</div>
+    <div class="col-notes">Premium properties only</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">HeartHomes</div>
+    <div class="col-commission">15%</div>
+    <div class="col-notes">Not locally focused</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">Guestable</div>
+    <div class="col-commission">Varies</div>
+    <div class="col-notes">Pricing not transparent, waitlist</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">Park Place</div>
+    <div class="col-commission">18%</div>
+    <div class="col-notes">Payment delay complaints</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">HostGenius</div>
+    <div class="col-commission">Varies</div>
+    <div class="col-notes">National focus, less local expertise</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">Sora Stays</div>
+    <div class="col-commission">Not disclosed</div>
+    <div class="col-notes">Selective, no pricing transparency</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-company">Ad Astra Host</div>
+    <div class="col-commission">20%+</div>
+    <div class="col-notes">Top-quartile focus, expensive</div>
+  </div>
+</div>
 
 Notice how many companies say "varies" or don't disclose pricing? That's a red flag. If they won't tell you their fee structure upfront, expect surprises later.
 
@@ -101,15 +142,48 @@ The math is simple: focus on your bottom line, not just the management fee.
 
 ## Quick Comparison: Nurture vs Typical Competitors
 
-| Feature | Nurture | Most Competitors |
-|---------|---------|------------------|
-| Management Fee | 10-15% | 15-25% |
-| Fee Basis | Net payout | Often gross (higher) |
-| Contracts | No long contracts | 6-12 month lock-in |
-| Listing Ownership | You own it | Sometimes they own it |
-| Response Time | Under 9 minutes | Hours to days |
-| Supply Markup | None | 10-20% markup common |
-| Local Team | GTA-based | Often national/remote |
+<div class="comparison-table two-col">
+  <div class="comparison-header">
+    <div class="col-feature">Feature</div>
+    <div class="col-nurture">Nurture</div>
+    <div class="col-competitors">Most Competitors</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Management Fee</div>
+    <div class="col-nurture highlight-good">10-15%</div>
+    <div class="col-competitors">15-25%</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Fee Basis</div>
+    <div class="col-nurture highlight-good">Net payout</div>
+    <div class="col-competitors">Often gross (higher)</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Contracts</div>
+    <div class="col-nurture highlight-good">No long contracts</div>
+    <div class="col-competitors">6-12 month lock-in</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Listing Ownership</div>
+    <div class="col-nurture highlight-good">You own it</div>
+    <div class="col-competitors">Sometimes they own it</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Response Time</div>
+    <div class="col-nurture highlight-good">Under 9 minutes</div>
+    <div class="col-competitors">Hours to days</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Supply Markup</div>
+    <div class="col-nurture highlight-good">None</div>
+    <div class="col-competitors">10-20% markup common</div>
+  </div>
+  <div class="comparison-row">
+    <div class="col-feature">Local Team</div>
+    <div class="col-nurture highlight-good">GTA-based</div>
+    <div class="col-competitors">Often national/remote</div>
+  </div>
+</div>
 
 Ready to see what professional [Toronto Airbnb management](/services/full-airbnb-management-toronto) could do for your property? At Nurture, we charge 10-15% of your net payout (not the 18-25% many competitors ask for on gross bookings) and never lock you into long contracts. You own your listing, and we just make it perform better.
 
