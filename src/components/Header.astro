@@ -189,14 +189,6 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
   }
 
   function init() {
-    // DEBUG: Log all clicks in header area
-    var header = document.querySelector('.header');
-    if (header) {
-      header.addEventListener('click', function(e) {
-        alert('Clicked: ' + e.target.tagName + ' class=' + e.target.className);
-      }, true); // Use capture phase
-    }
-
     // Mobile phone link - ensure clicks work and don't bubble
     var phoneLink = document.querySelector('.mobile-phone-link');
     if (phoneLink) {
@@ -612,8 +604,6 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       align-items: center;
       gap: 8px;
       margin-left: auto;
-      /* DEBUG */
-      outline: 3px solid green;
     }
 
     /* Show mobile phone link */
@@ -634,8 +624,6 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
-      /* DEBUG */
-      outline: 3px solid red;
     }
 
     .mobile-phone-link:hover,
@@ -657,8 +645,6 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
       z-index: 1001;
       position: relative;
       flex-shrink: 0;
-      /* DEBUG */
-      outline: 3px solid blue;
     }
 
     /* Show mobile overlay */
