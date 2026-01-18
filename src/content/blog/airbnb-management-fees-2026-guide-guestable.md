@@ -37,18 +37,17 @@ Seems small, right? But over a year with $50,000 in bookings, that difference ad
 
 We analyzed 20 Airbnb management companies operating in the GTA. Here's what we found:
 
-| Company | Commission | Google Rating | Reviews | What to Know |
-|---------|------------|---------------|---------|--------------|
-| **Nurture** | **10-15%** | **4.9** | **Growing** | **Net payout pricing, no contracts, you own listing** |
-| MasterHost | 12-20% | 4.9 | 286 | Cleaning complaints in recent reviews |
-| Full Home | 10%+ | 4.6 | 100+ | Strong compliance focus |
-| Maxima Properties | 18%+ | 5.0 | 91 | Premium properties only |
-| HeartHomes | 15% | 5.0 | 75+ | Wide coverage area |
-| Guestable | Varies | 4.7 | 436 | Pricing not transparent, waitlist |
-| Park Place | 10%+ | 4.9 | 94 | Payment delay complaints |
-| HostGenius | Varies | 4.7 | 150+ | National focus, less local expertise |
-| Sora Stays | Not disclosed | 4.8 | 50+ | Selective, no pricing transparency |
-| Ad Astra Host | Premium | 4.9 | 35+ | Top-quartile focus, expensive |
+| Company | Commission | What to Know |
+|---------|------------|--------------|
+| **Nurture** | **10-15%** | **Net payout pricing, no contracts, you own listing, locally focused GTA team** |
+| MasterHost | 18-20% | Cleaning complaints in recent reviews |
+| Maxima Properties | 18%+ | Premium properties only |
+| HeartHomes | 15% | Wide coverage area |
+| Guestable | Varies | Pricing not transparent, waitlist |
+| Park Place | 18% | Payment delay complaints |
+| HostGenius | Varies | National focus, less local expertise |
+| Sora Stays | Not disclosed | Selective, no pricing transparency |
+| Ad Astra Host | 20%+ | Top-quartile focus, expensive |
 
 Notice how many companies say "varies" or don't disclose pricing? That's a red flag. If they won't tell you their fee structure upfront, expect surprises later.
 
