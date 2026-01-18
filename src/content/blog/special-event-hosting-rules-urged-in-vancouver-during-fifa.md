@@ -12,7 +12,7 @@ draft: false
 
 Good news for Toronto Airbnb hosts: FIFA World Cup 2026 is shaping up to be a goldmine.
 
-A new Deloitte report on Vancouver's FIFA preparations reveals just how much demand these matches will create. Vancouver is short **70,000 accommodation nights** over nine days. Up to **15,000 fans per day** won't find hotel rooms. And hotel rates? They're expected to spike by **200%**.
+A [new Deloitte report](https://news.airbnb.com/special-event-hosting-rules-urged-in-vancouver-during-fifa/) on Vancouver's FIFA preparations reveals just how much demand these matches will create. Vancouver is short **70,000 accommodation nights** over nine days. Up to **15,000 fans per day** won't find hotel rooms. And hotel rates? They're expected to spike by **200%**.
 
 Toronto is hosting FIFA matches too. And unlike Vancouver, we're not in crisis mode. That means GTA hosts can actually prepare and profit.
 
