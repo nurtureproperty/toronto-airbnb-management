@@ -13,7 +13,6 @@ User-agent: Googlebot
 Allow: /
 Disallow: /thank-you
 Disallow: /index-old
-Disallow: /full-airbnb-management-toronto
 Disallow: /_astro/
 Disallow: /api/
 
@@ -35,7 +34,6 @@ User-agent: Bingbot
 Allow: /
 Disallow: /thank-you
 Disallow: /index-old
-Disallow: /full-airbnb-management-toronto
 Disallow: /_astro/
 Disallow: /api/
 
@@ -182,7 +180,6 @@ Allow: /etobicoke-airbnb-management
 # Disallow non-content paths
 Disallow: /thank-you
 Disallow: /index-old
-Disallow: /full-airbnb-management-toronto
 Disallow: /_astro/
 Disallow: /api/
 Disallow: /*.json$

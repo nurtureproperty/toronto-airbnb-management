@@ -3,7 +3,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://www.nurturestays.ca/</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,25 +11,31 @@
   <!-- Main Service Pages - High Priority -->
   <url>
     <loc>https://www.nurturestays.ca/services</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/full-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/full-airbnb-management-toronto</loc>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/pricing-toronto-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -37,19 +43,19 @@
   <!-- Management Service Pages -->
   <url>
     <loc>https://www.nurturestays.ca/services/short-term-rental-management-toronto</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/mid-term-rental-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-co-host-toronto</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -57,19 +63,19 @@
   <!-- Marketing Service Pages -->
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-dynamic-pricing</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-listing-optimization</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-photography</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -77,25 +83,25 @@
   <!-- Operations Service Pages -->
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-cleaning</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-turnover-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-key-exchange</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/services/airbnb-property-maintenance</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -103,57 +109,165 @@
   <!-- Location Pages -->
   <url>
     <loc>https://www.nurturestays.ca/locations</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/downtown-toronto-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/north-york-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/mississauga-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/scarborough-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/etobicoke-airbnb-management</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://www.nurturestays.ca/blog</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts - Manual .astro pages -->
+  <url>
+    <loc>https://www.nurturestays.ca/blog/toronto-airbnb-short-term-rental-regulations-2026</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/mississauga-airbnb-short-term-rental-rules-2026</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/vaughan-airbnb-short-term-rental-guide-2026</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/brampton-airbnb-short-term-rental-guide-2026</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/hamilton-airbnb-short-term-rental-guide-2026</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/airbnb-investment-property-gta</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Posts - Content Collection (.md files) -->
+  <url>
+    <loc>https://www.nurturestays.ca/blog/first-time-airbnb-host-toronto-guide</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/toronto-condos-that-allow-airbnb-short-term-rental</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/toronto-airbnb-management-companies-compared</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/why-your-toronto-airbnb-isnt-making-money</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/2024-summer-release</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/airbnb-2026-predictions-what-property-managers-need-to-prepa</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/the-winter-destinations-defining-canadian-travel-this-season</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/special-event-hosting-rules-urged-in-vancouver-during-fifa</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/landlords-give-mixed-reviews-to-new-airbnb-rules-now-in-plac</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nurturestays.ca/blog/ontario-city-approves-new-short-term-rental-rules-canadian-u</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Important Content Pages -->
   <url>
     <loc>https://www.nurturestays.ca/about</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/contact</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.nurturestays.ca/toronto-airbnb-not-making-money</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -161,7 +275,7 @@
   <!-- Support Pages -->
   <url>
     <loc>https://www.nurturestays.ca/emergency-airbnb-support-toronto</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -169,13 +283,7 @@
   <!-- Legal Pages -->
   <url>
     <loc>https://www.nurturestays.ca/privacy-policy</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.nurturestays.ca/terms</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
