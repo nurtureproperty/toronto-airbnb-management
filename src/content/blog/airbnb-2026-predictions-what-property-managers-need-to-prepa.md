@@ -60,7 +60,7 @@ The takeaway? Make your listings AI-ready. Clear amenities, fast response times,
 
 Look, Airbnb's changes aren't slowing down. They're launching two new business lines every year, pivoting strategies quarterly, and your income's along for the ride.
 
-You don't have to figure this out alone. At Nurture, we help GTA property owners adapt to these platform shifts without losing sleep over every algorithm update. Our [Toronto Airbnb management services](/services/full-airbnb-management-toronto) include dynamic pricing, cancellation protection strategies, and listing optimization that actually works with these new AI systems.
+You don't have to figure this out alone. At Nurture, we help GTA property owners adapt to these platform shifts without losing sleep over every algorithm update. Our [Toronto Airbnb management services](/full-airbnb-management-toronto) include dynamic pricing, cancellation protection strategies, and listing optimization that actually works with these new AI systems.
 
 We're local, we don't lock you into long contracts, and you keep full ownership of your listing. Plus our fees are 10-15% instead of the 18-25% other companies charge.
 

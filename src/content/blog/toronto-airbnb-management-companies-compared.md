@@ -185,6 +185,6 @@ The math is simple: focus on your bottom line, not just the management fee.
   </div>
 </div>
 
-Ready to see what professional [Toronto Airbnb management](/services/full-airbnb-management-toronto) could do for your property? At Nurture, we charge 10-15% of your net payout (not the 18-25% many competitors ask for on gross bookings) and never lock you into long contracts. You own your listing, and we just make it perform better.
+Ready to see what professional [Toronto Airbnb management](/full-airbnb-management-toronto) could do for your property? At Nurture, we charge 10-15% of your net payout (not the 18-25% many competitors ask for on gross bookings) and never lock you into long contracts. You own your listing, and we just make it perform better.
 
 Want to know what you'd actually pay? Give us a call at (647) 957-8956 or [get in touch](/contact) for a no-obligation chat about your Toronto rental.

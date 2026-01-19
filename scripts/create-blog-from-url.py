@@ -102,7 +102,7 @@ COMPANY INFO:
 INTERNAL LINKS TO INCLUDE (use 2-3 naturally where relevant):
 - /services/short-term-rental-management-toronto - for STR management mentions
 - /services/mid-term-rental-management-toronto - for mid-term rental mentions
-- /services/full-airbnb-management-toronto - for full-service management mentions
+- /full-airbnb-management-toronto - for full-service management mentions (NOTE: this is a root-level page, not under /services/)
 - /pricing-toronto-airbnb-management - when discussing costs or fees
 - /contact - for CTAs
 

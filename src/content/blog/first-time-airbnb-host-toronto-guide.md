@@ -26,7 +26,7 @@ Before you do anything else, make sure you can legally operate a short term rent
 
 **Understand the 180 night limit.** If you're renting out your entire home while you're away (entire-unit rental), you're limited to 180 nights per calendar year. Renting a spare room while you're home (partial-unit rental)? No night limit applies.
 
-**Check your condo rules.** Even if the city allows STRs, your condo corporation may prohibit them. Review your declaration and rules, or ask your property manager. We've got a list of [444 Toronto condos that allow STRs](/blog/toronto-condos-allow-short-term-rentals) if you're trying to figure out what's permitted.
+**Check your condo rules.** Even if the city allows STRs, your condo corporation may prohibit them. Review your declaration and rules, or ask your property manager. We've got a list of [444 Toronto condos that allow STRs](/blog/toronto-condos-that-allow-airbnb-short-term-rental) if you're trying to figure out what's permitted.
 
 ## Step 2: Register With the City of Toronto
 
@@ -141,7 +141,7 @@ Don't overlook the details. Guests notice when there's no can opener, when the w
 
 Your listing is your sales page. It needs to do three things: grab attention, build trust, and answer questions.
 
-**Photos first:** Get professional photos. We've said it before, we'll say it again. This is the single most important factor in getting bookings. A professional photographer costs $200 to $400 and will pay for itself quickly. See our [photography service](/services/airbnb-photography-toronto) if you want help.
+**Photos first:** Get professional photos. We've said it before, we'll say it again. This is the single most important factor in getting bookings. A professional photographer costs $200 to $400 and will pay for itself quickly. See our [photography service](/services/airbnb-photography) if you want help.
 
 **Title that stands out:** Skip generic titles like "Nice condo downtown." Be specific and highlight your best feature. "CN Tower Views from Bed - King West 1BR" tells guests something useful.
 
@@ -185,7 +185,7 @@ If you've got the time, live nearby, and genuinely enjoy hosting, self managemen
 
 If you're busy, live far away, or just want passive income without the hassle, professional management makes sense. You'll pay 10 to 25% of revenue (we charge 10-15%), but you'll also likely earn more because a professional manager optimizes pricing, responds faster, and maintains higher review scores.
 
-Our [full management service](/services/full-airbnb-management-toronto) handles everything: listing creation, pricing, guest communication, cleaning, maintenance, and more. Most hosts actually net more money with us than they did on their own, even after our fee.
+Our [full management service](/full-airbnb-management-toronto) handles everything: listing creation, pricing, guest communication, cleaning, maintenance, and more. Most hosts actually net more money with us than they did on their own, even after our fee.
 
 ## Step 9: Get Your First Reviews
 
@@ -240,12 +240,12 @@ Here's your checklist:
 
 If you want help with any of this, we're here. Nurture manages Airbnb properties across the GTA with a focus on maximizing revenue while keeping things simple for owners.
 
-**Call us at 647-957-8956** for a free consultation, or check out our [services](/services/full-airbnb-management-toronto) to see how we can help.
+**Call us at 647-957-8956** for a free consultation, or check out our [services](/full-airbnb-management-toronto) to see how we can help.
 
 ---
 
 ## Related Articles
 
-- [Complete List: 444 Toronto Condos That Allow Short Term Rentals](/blog/toronto-condos-allow-short-term-rentals)
+- [Complete List: 444 Toronto Condos That Allow Short Term Rentals](/blog/toronto-condos-that-allow-airbnb-short-term-rental)
 - [Why Your Toronto Airbnb Isn't Making Money (And How to Fix It)](/blog/why-your-toronto-airbnb-isnt-making-money)
-- [Toronto Airbnb Regulations 2025: What You Need to Know](/blog/toronto-airbnb-regulations-2025)
+- [Toronto Airbnb Short Term Rental Regulations 2026](/blog/toronto-airbnb-short-term-rental-regulations-2026)

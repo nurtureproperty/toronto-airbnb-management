@@ -110,8 +110,23 @@ RELEVANCE_KEYWORDS = {
         "property management", "host", "listing", "booking", "guest",
     ],
     "exclude": [
+        # Financial/corporate news not relevant to hosts
         "stock price", "ipo", "quarterly earnings", "revenue report",
         "brian chesky net worth", "celebrity", "lawsuit unrelated",
+        # Negative STR sentiment - exclude articles that make STR look bad
+        "housing crisis", "blame airbnb", "ban short-term", "ban airbnb",
+        "crackdown", "crack down", "illegal airbnb", "illegal short-term",
+        "evict", "eviction", "tenant rights", "housing shortage",
+        "destroy neighborhood", "ruining neighborhood", "party house",
+        "noise complaint", "neighbor complaint", "neighbour complaint",
+        "affordable housing crisis", "housing affordability",
+        "anti-airbnb", "anti-str", "airbnb problem", "str problem",
+        "short-term rental problem", "airbnb plague", "airbnb scourge",
+        "hotel lobby", "regulate out", "shut down airbnb",
+        "ghost hotel", "illegal hotel", "homelessness", "homeless",
+        "protest airbnb", "airbnb protest", "community opposition",
+        "failed to", "failure", "nightmare", "horror story",
+        "scam", "fraud", "dangerous", "unsafe",
     ]
 }
 
@@ -171,7 +186,7 @@ COMPANY INFO:
 INTERNAL LINKS TO INCLUDE (use 2-3 naturally where relevant):
 - /services/short-term-rental-management-toronto - for STR management mentions
 - /services/mid-term-rental-management-toronto - for mid-term rental mentions
-- /services/full-airbnb-management-toronto - for full-service management mentions
+- /full-airbnb-management-toronto - for full-service management mentions (NOTE: this is a root-level page, not under /services/)
 - /pricing-toronto-airbnb-management - when discussing costs or fees
 - /contact - for CTAs
 

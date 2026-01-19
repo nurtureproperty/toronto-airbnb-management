@@ -80,6 +80,6 @@ Vancouver's FIFA accommodation crisis isn't your problem. It's your opportunity.
 
 Toronto hosts who prepare now will capture premium rates during one of the biggest events the city has ever hosted. The same strategy works for every major event on the calendar.
 
-Want help optimizing your pricing for FIFA and other peak periods? [Nurture's management team](/services/full-airbnb-management-toronto) handles dynamic pricing, listing optimization, and guest communication so you can maximize revenue without the hassle.
+Want help optimizing your pricing for FIFA and other peak periods? [Nurture's management team](/full-airbnb-management-toronto) handles dynamic pricing, listing optimization, and guest communication so you can maximize revenue without the hassle.
 
 Give us a call at (647) 957-8956. Let's make FIFA 2026 your most profitable season yet.

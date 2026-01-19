@@ -28,7 +28,7 @@ We see this constantly: hosts with beautiful properties getting zero bookings be
 
 **The fix:** Hire a professional photographer. Seriously. It costs $200 to $400 and will pay for itself within your first few bookings. If you absolutely can't afford that right now, at least shoot during the day with all the lights on, declutter everything, and take wide angle shots from corners.
 
-Check out our [photography service](/services/airbnb-photography-toronto) if you want this handled properly.
+Check out our [photography service](/services/airbnb-photography) if you want this handled properly.
 
 ## 2. Your Pricing Is All Wrong
 
@@ -82,7 +82,7 @@ One bad review can tank your ranking for weeks. And if you've got a pattern of c
 
 If cleanliness is the issue, hire professional cleaners. If communication is the problem, respond faster or get help. If accuracy is the issue, update your listing to match reality.
 
-See our [cleaning services](/services/airbnb-cleaning-toronto) for help with the cleanliness piece.
+See our [cleaning services](/services/airbnb-cleaning) for help with the cleanliness piece.
 
 ## 7. You're Only on Airbnb
 
@@ -112,7 +112,7 @@ The math often doesn't work out. You save 15% on management but lose 30% in book
 
 **The fix:** Be honest about your capacity. If you have a full time job and a family, you probably don't have time to manage an Airbnb properly. Either commit the time or get help.
 
-Our [full management service](/services/full-airbnb-management-toronto) handles everything for 10-15% of revenue. Most hosts actually make more money with us than they did on their own, even after our fee.
+Our [full management service](/full-airbnb-management-toronto) handles everything for 10-15% of revenue. Most hosts actually make more money with us than they did on their own, even after our fee.
 
 ## The Real Problem Might Be Simpler Than You Think
 
@@ -136,12 +136,12 @@ If you want a professional opinion, we offer free property analyses. We'll look 
 
 No sales pitch. Just honest feedback.
 
-**Call us at 647-957-8956** or check out our [services](/services/full-airbnb-management-toronto) to learn more.
+**Call us at 647-957-8956** or check out our [services](/full-airbnb-management-toronto) to learn more.
 
 ---
 
 ## Related Articles
 
-- [Complete List: 444 Toronto Condos That Allow Short Term Rentals](/blog/toronto-condos-allow-short-term-rentals)
-- [Toronto Airbnb Regulations 2025: What You Need to Know](/blog/toronto-airbnb-regulations-2025)
-- [How Much Can You Make on Airbnb in Toronto?](/blog/how-much-can-you-make-airbnb-toronto)
+- [Complete List: 444 Toronto Condos That Allow Short Term Rentals](/blog/toronto-condos-that-allow-airbnb-short-term-rental)
+- [Toronto Airbnb Short Term Rental Regulations 2026](/blog/toronto-airbnb-short-term-rental-regulations-2026)
+- [First Time Airbnb Host in Toronto: Step-by-Step Guide](/blog/first-time-airbnb-host-toronto-guide)

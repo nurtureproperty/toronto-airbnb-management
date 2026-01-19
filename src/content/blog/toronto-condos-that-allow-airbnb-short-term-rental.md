@@ -804,7 +804,7 @@ For your reference, here's every building in alphabetical order:
 
 ## How We Can Help
 
-Own a unit in one of these buildings? Nurture provides [full service Airbnb management](/services/full-airbnb-management-toronto) across the GTA. We handle everything:
+Own a unit in one of these buildings? Nurture provides [full service Airbnb management](/full-airbnb-management-toronto) across the GTA. We handle everything:
 
 - STR registration with the City of Toronto
 - Professional photography and listing optimization

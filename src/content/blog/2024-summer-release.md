@@ -42,7 +42,7 @@ For Toronto and GTA hosts, the real opportunity isn't in these flashy features. 
 
 Buried in the announcement are actual improvements for hosts: expanded earnings dashboards with interactive charts and automated earning reports. They've also improved the photo tour creation tools.
 
-But honestly, these feel like catch-up moves. Property management platforms have offered better analytics for years. If you're managing multiple properties or want serious data insights, [full Airbnb management services](/services/full-airbnb-management-toronto) that include advanced analytics still beat Airbnb's basic tools.
+But honestly, these feel like catch-up moves. Property management platforms have offered better analytics for years. If you're managing multiple properties or want serious data insights, [full Airbnb management services](/full-airbnb-management-toronto) that include advanced analytics still beat Airbnb's basic tools.
 
 ## My Take on the Icons Strategy
 
