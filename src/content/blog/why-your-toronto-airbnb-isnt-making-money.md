@@ -46,17 +46,19 @@ Airbnb's algorithm favors hosts who respond quickly. If you're taking 6 hours to
 
 The data is clear: hosts who respond within an hour get significantly more bookings than those who don't.
 
-**The fix:** Turn on notifications. Set up quick replies for common questions. If you can't be glued to your phone, consider instant book (more on that below) or hire someone to handle guest communication.
+**The fix:** Turn on notifications. Set up quick replies for common questions. If you can't be glued to your phone, hire someone to handle guest communication.
 
 Our average response time is 9 minutes. That's not a typo. And it makes a huge difference in conversion rates.
 
-## 4. You Haven't Turned On Instant Book
+## 4. You're Accepting Guests Who Tank Your Reviews
 
-Some hosts are scared of Instant Book. They want to vet every guest manually. They're worried about who might show up.
+Every host wants bookings. But accepting every guest who requests, especially those with poor review histories, can cost you more than the revenue is worth.
 
-Here's the reality: Instant Book listings get 2-3x more visibility in Airbnb search results. Guests prefer them because they can book immediately without waiting for approval. And you can still set requirements like verified ID, positive reviews, or government ID.
+One problem guest can leave a 3-star review that drags down your average for months. Worse, they might cause damage, disturb neighbours, or violate house rules in ways that create headaches far beyond one stay.
 
-**The fix:** Turn on Instant Book with guest requirements. You'll see an immediate boost in visibility and bookings. If you're worried about bad guests, set a minimum review score requirement.
+We've seen hosts accept guests with clear warning signs (previous hosts mentioning rule violations, low ratings, vague profiles) because they didn't want an empty night. Then they end up with a bad review that costs them dozens of future bookings.
+
+**The fix:** Check guest profiles and reviews before accepting. Look for patterns, not just the overall rating. If previous hosts mention noise complaints, cleanliness issues, or rule violations, trust that feedback. A few empty nights cost less than a 3-star review that tanks your ranking. Set minimum requirements for verified ID and positive review history.
 
 ## 5. Your Listing Description Is Boring (Or Worse, Misleading)
 
