@@ -1,0 +1,1093 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Hamilton?", a: "No. Hamilton requires STRs to be your principal residence. That means you actually have to live there. Investment properties, second homes, and vacation properties don't qualify. The only legal way to short-term rent an investment property is to switch to mid-term rentals of 28+ days, which aren't subject to STR rules." },
+  { q: "Is there a night limit in Hamilton?", a: "Nope. Unlike Toronto's 180-night cap, Hamilton has no annual limit on how many nights you can rent. As long as it's your principal residence and you have a valid license, you can rent year-round. That's actually a significant advantage over Toronto." },
+  { q: "How much does a Hamilton STR license cost?", a: "The exact fee is set in Hamilton's User Fees and Charges By-law, which gets updated annually. Check with the city's Licensing and By-law Services for current rates. Plan on budgeting a few hundred dollars for the initial application plus annual renewals." },
+  { q: "Do I need a criminal background check?", a: "Yes. Hamilton requires an original criminal record check (or police certification that no record exists) as part of your license application. You also need to disclose any criminal or provincial offences you've been convicted of but not pardoned for. This is stricter than most other GTA cities." },
+  { q: "What insurance do I need?", a: "Minimum $1 million liability coverage that specifically includes short-term rental or home sharing activity. Your regular homeowner's policy probably doesn't cover this, so you'll need to either add an endorsement or get specialized STR insurance. The policy must also notify the city 30 days before any cancellation." },
+  { q: "Can my condo be used for Airbnb?", a: "Even if you meet all of Hamilton's requirements, your condo corporation can still prohibit STRs. You'll need written approval from your condo board as part of the license application. Check your condo's declaration and rules first. Many condos ban short-term rentals entirely." },
+  { q: "What's the maximum occupancy?", a: "Two guests per sleeping room. Children 2 years and under don't count toward this limit. You must display the maximum guest limit in all your listings and advertisements." },
+  { q: "How long is the license valid?", a: "One year. You'll need to renew annually by paying the applicable fees and submitting updated documents. Keep your records current because changes need to be reported to the city." },
+  { q: "Can a corporation hold an STR license?", a: "No. Hamilton explicitly prohibits issuing STR Operator licenses to corporations. Only individuals can hold licenses, and you can only have one license per person. This is designed to prevent commercial operators from dominating the market." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR regulations and the 180-night limit' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements across the GTA' },
+  { title: 'Mississauga Airbnb Short Term Rental Rules 2026', href: '/blog/mississauga-airbnb-short-term-rental-rules-2026', description: 'Complete guide to Mississauga STR regulations' }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'Hamilton Overview' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'licensing', text: 'License Requirements' },
+  { id: 'application', text: 'Application Process' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'occupancy', text: 'Occupancy Limits' },
+  { id: 'operating', text: 'Operating Requirements' },
+  { id: 'records', text: 'Record Keeping' },
+  { id: 'enforcement', text: 'Enforcement & Penalties' },
+  { id: 'mid-term', text: 'Mid-Term Alternative' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Hamilton Airbnb Short Term Rental Guide 2026";
+const pageDescription = "Complete guide to Hamilton's STR regulations including the principal residence rule, license requirements, $1M insurance, criminal background checks, and application process under By-law 07-170 Schedule 32.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-18",
+  "dateModified": "2026-01-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/hamilton-airbnb-short-term-rental-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Hamilton Regulations</span>
+      </nav>
+      <h1>Hamilton Airbnb Short Term Rental Guide 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Updated January 18, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">8 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Hamilton's short-term rental rules came into effect in January 2023 under <strong>By-law 07-170, Schedule 32</strong>. Here's the good news: unlike Toronto, there's <strong>no annual night limit</strong>. You can rent your place year-round as long as it's your principal residence.</p>
+            <p class="lead">But Hamilton has some unique requirements that catch people off guard. You'll need a criminal background check, specific insurance coverage, and a detailed application with floor plans and fire escape routes. Let's break down what you actually need to know.</p>
+          </div>
+
+          <h2 id="overview">Hamilton STR Regulations at a Glance</h2>
+          <p>Before we dive into details, here's what makes Hamilton different from other GTA cities:</p>
+
+          <div class="key-points">
+            <div class="key-point">
+              <span class="point-icon good">✓</span>
+              <div class="point-content">
+                <strong>No Night Limit</strong>
+                <p>Unlike Toronto's 180-night cap, Hamilton has no restriction on how many nights you can rent per year</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <span class="point-icon neutral">!</span>
+              <div class="point-content">
+                <strong>Principal Residence Required</strong>
+                <p>Must be your primary home where you actually live. No investment properties.</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <span class="point-icon neutral">!</span>
+              <div class="point-content">
+                <strong>Criminal Background Check</strong>
+                <p>Original criminal record or police certification required with application</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <span class="point-icon neutral">!</span>
+              <div class="point-content">
+                <strong>$1M Liability Insurance</strong>
+                <p>Minimum coverage with STR activity specifically included</p>
+              </div>
+            </div>
+            <div class="key-point">
+              <span class="point-icon neutral">!</span>
+              <div class="point-content">
+                <strong>Individuals Only</strong>
+                <p>Corporations cannot hold STR licenses. One license per person maximum.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="principal-residence">The Principal Residence Rule</h2>
+          <p>This is the biggest hurdle for most people. Hamilton defines it pretty strictly:</p>
+
+          <blockquote class="bylaw-quote">
+            "Principal Residence means a dwelling unit owned or rented by an individual, either alone or jointly with others, where the individual is ordinarily resident, makes their home and conducts their daily affairs, including, without limitation, paying bills and receiving documentation related to identification, taxation and insurance purposes, driver's licenses, income tax returns, medical plan documentation, vehicle registration and voter registration."
+            <cite>Hamilton By-law 07-170, Schedule 32, Section 1.1</cite>
+          </blockquote>
+
+          <h3>What This Means in Practice</h3>
+          <ul>
+            <li><strong>One residence only:</strong> You can only have one principal residence at any time</li>
+            <li><strong>You must actually live there:</strong> It's where your mail goes, where you pay taxes, where your driver's license points to</li>
+            <li><strong>Government ID required:</strong> You'll need to prove it with official documents</li>
+            <li><strong>Investment properties don't qualify:</strong> That rental condo in downtown Hamilton? Can't STR it.</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key difference from Toronto:</strong> Hamilton doesn't distinguish between "entire-unit" and "partial-unit" rentals the way Toronto does. The principal residence rule applies regardless of whether you're home during stays or not. But on the plus side, there's no night limit at all.
+            </div>
+          </div>
+
+          <h2 id="licensing">License Requirements</h2>
+          <p>You absolutely cannot operate a short-term rental in Hamilton without a license. The bylaw is clear:</p>
+
+          <blockquote class="bylaw-quote">
+            "No person shall operate a Short-Term Rental unless they have obtained a licence to do so from the City."
+            <cite>Hamilton By-law 07-170, Schedule 32, Section 3.1</cite>
+          </blockquote>
+
+          <h3>License Rules</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Who Can Apply</div>
+              <div class="comparison-col highlight">Individuals 18+ only (no corporations)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License Limit</div>
+              <div class="comparison-col highlight">One license per person</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Validity Period</div>
+              <div class="comparison-col highlight">1 year (annual renewal)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Transferable</div>
+              <div class="comparison-col highlight">No, licenses cannot be sold or transferred</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Display Required</div>
+              <div class="comparison-col highlight">License number must appear in all listings</div>
+            </div>
+          </div>
+
+          <h2 id="application">Application Process</h2>
+          <p>Hamilton's application is more detailed than most cities. Here's everything you'll need:</p>
+
+          <h3>Personal Information</h3>
+          <ul>
+            <li>Your name, phone number, and email address</li>
+            <li>Address of the STR property</li>
+            <li>Name and phone number of a <strong>24/7 emergency contact</strong> (must be available during all rental periods)</li>
+          </ul>
+
+          <h3>Property Documentation</h3>
+          <ul>
+            <li><strong>Floor plan</strong> showing square footage and number of bedrooms</li>
+            <li>Location of all <strong>smoke alarms and CO detectors</strong></li>
+            <li>Description of which parts of the property will be used for STR</li>
+            <li>Type of building (house, condo, apartment, etc.)</li>
+            <li>Number of <strong>off-street parking spaces</strong> available</li>
+          </ul>
+
+          <h3>Safety Requirements</h3>
+          <ul>
+            <li><strong>Detailed fire escape plan</strong></li>
+            <li><strong>Statutory declaration</strong> of Fire Code compliance</li>
+            <li>Zoning verification (for secondary dwelling units)</li>
+            <li><strong>Condo board approval</strong> if applicable</li>
+          </ul>
+
+          <h3>Background Check</h3>
+          <p>This is where Hamilton differs from most cities:</p>
+          <ul>
+            <li><strong>Original criminal record</strong> from police (not a copy)</li>
+            <li>If no record exists, <strong>police certification</strong> confirming that</li>
+            <li>List of any criminal or provincial offences you've been convicted of but not pardoned for</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Background Check Can Disqualify You</h4>
+            <p>Hamilton can deny your license if you've been convicted of a criminal offence within the past 5 years (without a pardon). They also consider whether your past conduct suggests you won't operate with "honesty and integrity." This is stricter than Toronto, Mississauga, or most other GTA cities.</p>
+          </div>
+
+          <h3>Other Requirements</h3>
+          <ul>
+            <li><strong>Guest information package</strong> (we'll cover this below)</li>
+            <li>List of all platforms where you'll advertise (Airbnb, VRBO, etc.)</li>
+            <li><strong>Government-issued ID</strong> proving principal residence</li>
+            <li>Proof of insurance meeting minimum requirements</li>
+          </ul>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Hamilton requires specific insurance coverage. Your regular homeowner's policy probably won't cut it:</p>
+
+          <div class="info-grid">
+            <div class="info-card toronto">
+              <h4>Required Coverage</h4>
+              <ul>
+                <li><strong>$1,000,000</strong> minimum liability per occurrence</li>
+                <li>Coverage for personal injury, bodily injury, death, and property damage</li>
+                <li>Must specifically cover <strong>short-term rental or home sharing activity</strong></li>
+              </ul>
+            </div>
+            <div class="info-card other">
+              <h4>Policy Requirements</h4>
+              <ul>
+                <li>Homeowners, condo, or renters insurance (whichever applies)</li>
+                <li>Must include <strong>30 days written notice to City</strong> before any cancellation</li>
+                <li>Insurance lapse <strong>invalidates your license</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <p>Talk to your insurance provider about adding an STR endorsement, or look into specialized short-term rental insurance. Companies like Proper Insurance and CBIZ specialize in this. Don't assume your existing policy covers Airbnb activity, because it usually doesn't.</p>
+
+          <h2 id="occupancy">Occupancy Limits</h2>
+          <p>Hamilton sets clear limits on how many guests you can have:</p>
+
+          <blockquote class="bylaw-quote">
+            "No Operator shall exceed the maximum limit for overnight guests of two (2) persons per sleeping room. For the purpose of this requirement, children that are two (2) years old or younger are exempt."
+            <cite>Hamilton By-law 07-170, Schedule 32, Section 4.8</cite>
+          </blockquote>
+
+          <h3>What This Means</h3>
+          <ul>
+            <li><strong>2 guests per bedroom</strong> is the max (infants under 2 don't count)</li>
+            <li>You must <strong>display the guest limit</strong> in all your listings</li>
+            <li>Advertising for more guests than allowed is a violation</li>
+            <li>The limit is based on <strong>sleeping rooms</strong>, not total beds</li>
+          </ul>
+
+          <p>So if you have a 2-bedroom place, your maximum is 4 guests (plus any children under 2). A 3-bedroom maxes out at 6 guests. Keep this in mind when setting up your listing and pricing.</p>
+
+          <h2 id="operating">Operating Requirements</h2>
+
+          <h3>Display License Number</h3>
+          <p>Your license number must appear prominently in every listing and advertisement. This isn't optional:</p>
+
+          <blockquote class="bylaw-quote">
+            "No person shall provide or advertise a Short-Term Rental without prominently displaying in each advertisement or listing: (a) the Operator's licence number; and (b) the maximum overnight guest limit."
+            <cite>Hamilton By-law 07-170, Schedule 32, Section 3.4</cite>
+          </blockquote>
+
+          <h3>Fire Safety</h3>
+          <ul>
+            <li><strong>Fire escape plan posted</strong> on all floors in a visible location</li>
+            <li><strong>Working smoke alarms</strong> per Fire Code requirements</li>
+            <li><strong>Working CO detectors</strong> per Fire Code requirements</li>
+          </ul>
+
+          <h3>Guest Information Package</h3>
+          <p>This is required for every rental. You must provide it both electronically at booking AND in print within the unit:</p>
+
+          <div class="success-box">
+            <h4>Required Information Package Contents</h4>
+            <ul>
+              <li>Contact info for Operator or someone available during the rental</li>
+              <li>9-1-1 emergency system instructions</li>
+              <li>Two nearest hospitals/emergency medical services</li>
+              <li>Hamilton Police non-emergency contact</li>
+              <li>Floor plan showing evacuation routes and safety equipment</li>
+              <li>Notice of any video/audio recording systems on property</li>
+              <li>Waste disposal instructions (collection day, recycling, composting)</li>
+              <li>Parking instructions (on-site and nearby)</li>
+              <li>Copy of your Operator license with occupancy limits</li>
+            </ul>
+          </div>
+
+          <h3>Only Use Licensed Brokers</h3>
+          <p>Here's something unique to Hamilton: platforms like Airbnb and VRBO need to be licensed as "Short-Term Rental Brokers" to operate in the city. As an operator, you're not supposed to list with unlicensed brokers.</p>
+
+          <h2 id="records">Record Keeping</h2>
+          <p>Hamilton requires you to maintain records for <strong>3 years</strong> after each transaction:</p>
+
+          <ul>
+            <li>Number of nights the STR was rented</li>
+            <li>Nightly and total price charged for each rental</li>
+            <li>Any other information the city's Director may require</li>
+          </ul>
+
+          <p>If the city requests these records, you have <strong>30 days</strong> to provide them. Keep organized records of every booking, even ones from years ago. When the city audits (and they do), you'll be glad you kept everything.</p>
+
+          <h2 id="enforcement">Enforcement and Penalties</h2>
+          <p>Hamilton takes enforcement seriously. The city can:</p>
+
+          <ul>
+            <li><strong>Audit your books and records</strong> at any time</li>
+            <li>Require you to answer questions under oath</li>
+            <li><strong>Inspect your property</strong> (you must allow this within 7 days of request)</li>
+            <li>Revoke or refuse to renew your license</li>
+          </ul>
+
+          <h3>Grounds for License Denial or Revocation</h3>
+          <ul>
+            <li>Past conduct suggesting you won't operate with honesty and integrity</li>
+            <li>Criminal conviction within past 5 years (without pardon)</li>
+            <li>Outstanding Property Standards, Building Code, or Fire Code orders</li>
+            <li>Zoning non-compliance</li>
+            <li>Outstanding fines, penalties, or property taxes owed to the city</li>
+            <li>Providing false or misleading information</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Penalties Can Be Steep</h4>
+            <p>Violations are prosecuted under the Provincial Offences Act. Corporations can face fines up to $100,000. The city can also issue premises closure orders for up to 2 years. Don't mess around with compliance.</p>
+          </div>
+
+          <h2 id="mid-term">The Mid-Term Rental Alternative</h2>
+          <p>If you have an investment property or can't meet the principal residence requirement, there's another option. Hamilton's STR rules only apply to rentals of <strong>less than 28 consecutive days</strong>:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-Term Rental means all or part of a dwelling unit used to provide sleeping accommodations to the travelling public for any rental period that is less than 28 consecutive days in exchange for payment or other remuneration."
+            <cite>Hamilton By-law 07-170, Schedule 32, Section 1.1</cite>
+          </blockquote>
+
+          <h3>28+ Day Rentals Are Different</h3>
+          <p>Rent for 28 days or more, and suddenly:</p>
+          <ul>
+            <li><strong>No STR license needed</strong></li>
+            <li><strong>Principal residence rule doesn't apply</strong></li>
+            <li><strong>Background check not required</strong></li>
+            <li>You can rent investment properties</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Who Uses Mid-Term Rentals in Hamilton?</h4>
+            <p>Hamilton has strong demand for furnished monthly rentals:</p>
+            <ul>
+              <li><strong>Healthcare workers</strong> at Hamilton General, St. Joseph's, Juravinski Hospital</li>
+              <li><strong>McMaster University</strong> visiting professors and researchers</li>
+              <li><strong>ArcelorMittal Dofasco</strong> contractors and consultants</li>
+              <li><strong>Insurance relocations</strong> (families displaced by fires, floods, etc.)</li>
+              <li><strong>Corporate transfers</strong> for companies in the Hamilton area</li>
+            </ul>
+            <p>Platforms like Furnished Finder and Airbnb (with 28+ day minimum) work well for this market.</p>
+          </div>
+
+          <h2 id="official-resources">Official City of Hamilton Resources</h2>
+          <p>Don't take my word for it. Here are the official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.hamilton.ca/home-property-and-development/rental-housing/short-term-rentals" target="_blank" rel="noopener">City of Hamilton Short-Term Rentals Overview</a></li>
+              <li><a href="https://www.hamilton.ca/city-council/plans-strategies/legislation-by-laws" target="_blank" rel="noopener">Hamilton By-laws Page</a></li>
+              <li><a href="https://www.hamilton.ca/home-property-and-development/property-home-services/licensing-enforcement" target="_blank" rel="noopener">Licensing and By-law Services</a></li>
+            </ul>
+          </div>
+
+          <p>The full By-law 07-170, Schedule 32 has all the legal details. For specific questions about fees or application status, contact Hamilton's Licensing and By-law Services Division directly.</p>
+
+          <h2 id="faqs">Common Questions From Hamilton Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Hamilton's STR Rules?</h3>
+            <p>Nurture handles compliance, guest management, and revenue optimization for Hamilton hosts. Our local team knows the bylaws inside and out, so you can earn more while staying worry-free.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Hamilton STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .key-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .key-point {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--color-background-alt);
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  .point-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .point-icon.good {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .point-icon.neutral {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .point-content strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .point-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .success-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .success-box h4 {
+    color: #276749;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .success-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .success-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ul {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card.toronto {
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .info-card.other {
+    border-top: 4px solid var(--color-accent);
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+  }
+
+  .info-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .info-card li {
+    margin-bottom: 0.25rem;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
