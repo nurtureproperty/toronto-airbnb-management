@@ -63,6 +63,11 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
+          # Stash new files, pull latest, then re-apply
+          git stash --include-untracked
+          git pull origin master
+          git stash pop || true
+
           git add src/content/blog/
           git add scripts/processed_articles.json
 
@@ -73,7 +78,6 @@ jobs:
 
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
-          git pull --rebase origin master
           git push
 
       - name: Summary
