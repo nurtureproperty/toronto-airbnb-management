@@ -10,39 +10,66 @@ sourceTitle: "Average rent in Toronto is at its lowest since early 2022, a new r
 draft: false
 ---
 
-Toronto's rental market just hit a milestone that's got property owners talking. Average rent in the city has dropped to its lowest level since early 2022, according to a new report released this month.
+Toronto's rental market just hit a milestone that's got property owners talking. Average rent in the city has dropped to its lowest level since early 2022, [according to a new report from Rentals.ca and Urbanation](https://www.ctvnews.ca/toronto/article/average-rent-in-toronto-is-at-its-lowest-since-early-2022-a-new-report-finds/) covered by CTV News.
 
-But here's what the headlines won't tell you: this shift creates a unique opportunity for GTA short term rental owners who know how to play their cards right.
+The numbers are significant. Toronto rents have fallen 11.8% over the past two years, with the average now sitting at $2,498 per month. One-bedrooms are down 6.1% to $2,228, and two-bedrooms dropped 8.8% to $2,826. December marked the slowest month for rental demand in two years.
 
-## Why Long-Term Rent Drops Matter to Your Airbnb
+But here's what the headlines won't tell you: this shift creates a unique opportunity for GTA property owners who understand the real risk of locking in a long-term tenant right now.
 
-You might be thinking, "So what? I run a Toronto Airbnb, not a traditional rental." Here's the thing though. When long-term rental rates drop, it changes the entire game for property owners across the GTA.
+## The Hidden Danger of Signing a Long-Term Lease Today
 
-Think about it. Your potential guests are the same people who might be looking at those cheaper long-term rentals. Business travelers might consider monthly rentals instead of extended Airbnb stays. Young professionals relocating to Toronto have more affordable housing options now.
+If you're a property owner looking at these lower rents and thinking about signing a traditional one-year lease, stop and consider this: Ontario's rent control means that once you lock in a tenant, your rent increases are capped at the provincial guideline (typically 2-3% per year).
 
-This doesn't mean doom and gloom for your short-term rental. It means you need to adjust your approach.
+Sign a lease today at $2,498? That tenant could still be paying close to that rate in 2036. Meanwhile, the market will almost certainly recover. When rents bounce back to $3,000, $3,500, or higher, you'll be stuck collecting yesterday's prices.
+
+This is exactly what happened to landlords who signed leases during the 2020 pandemic dip. Many are still collecting rents hundreds of dollars below current market rates, with no legal way to catch up until their tenant leaves.
+
+## Short and Mid-Term Rentals Protect Your Future Income
+
+Here's where short-term and mid-term rentals become your hedge against market timing.
+
+With an Airbnb or furnished rental, you're never locked into today's rates. When the market recovers (and it will), your rates adjust immediately. No waiting for a lease to expire. No hoping your tenant decides to move out.
+
+Think of it this way:
+- **Long-term lease signed today:** You're betting rents stay flat or decline for years
+- **Short-term rental:** Your rates float with the market, capturing every uptick
+- **Mid-term rental (30-90 days):** You get stability without the decade-long commitment
+
+The Rentals.ca report notes that December was the slowest month for rental demand in two years, with demand cooling significantly from July's peak. Market cycles are normal. Locking yourself into the bottom of a cycle is not.
 
 ## The Mid-Term Rental Sweet Spot
 
-Lower long-term rents actually highlight something we've been seeing more of: the growing demand for stays that fall between traditional Airbnb bookings and annual leases. We're talking 30-90 day stays.
+Lower long-term rents actually highlight something we've been seeing more of: growing demand for stays that fall between traditional Airbnb bookings and annual leases. We're talking 30-90 day stays.
 
-These guests aren't quite ready to commit to a full lease, but they want more stability than a week-long vacation rental. Think remote workers, people between moves, or professionals on temporary assignments in Toronto.
+These guests aren't ready to commit to a full lease, but they want more stability than a week-long vacation rental. Think remote workers, people between moves, or professionals on temporary assignments in Toronto.
 
-With traditional rents dropping, these mid-term guests become even more price-conscious. But they're still willing to pay a premium for the flexibility and furnished convenience that comes with a well-managed short-term rental property.
+With traditional rents dropping, these mid-term guests become even more price-conscious. But they're still willing to pay a premium for the flexibility and furnished convenience that comes with a well-managed rental property. And you maintain the ability to reset your rates every few months.
 
-Our [mid-term rental management services](/services/mid-term-rental-management-toronto) have seen increased interest from both property owners and guests in this exact scenario.
+Our [mid-term rental management services](/services/mid-term-rental-management) have seen increased interest from property owners looking for exactly this balance.
+
+## What the Numbers Actually Show
+
+According to the CTV report, here's where things stand across the GTA:
+
+- **Toronto average:** $2,498/month (down 5.1% from December 2024 alone)
+- **North York:** $2,495/month (highest in Ontario)
+- **Ontario average:** $2,257/month (down 3.2% year-over-year)
+
+The report also notes that Canada-wide, December 2025 saw rents at their lowest in two-and-a-half years.
+
+For short-term rental operators, this means your competition just got cheaper. You need to make sure your value proposition is crystal clear.
 
 ## Adjusting Your Pricing Strategy
 
-Now's the time to take a hard look at your rates. If long-term rents are at their lowest since early 2022, your short-term rental pricing needs to reflect market reality.
+Now's the time to take a hard look at your rates. If long-term rents are at their lowest since early 2022, your short-term rental pricing needs to reflect market reality while still capturing the flexibility premium.
 
 Here's what you should do this week:
 
 **Review your competition.** Check what similar properties in your neighborhood are charging. Don't just look at other Airbnbs. Look at furnished apartment rentals and corporate housing options too.
 
-**Analyze your booking patterns.** Are you getting fewer bookings but maintaining high rates? Or are you booked solid but wondering if you're leaving money on the table? The data will tell you which direction to move.
+**Emphasize flexibility in your listing.** Your biggest advantage over a traditional landlord is that guests can book without credit checks, first and last month's rent, or year-long commitments. Make that clear.
 
-**Consider length-of-stay discounts.** With more people looking for longer stays, offering attractive weekly and monthly discounts can help you capture guests who might otherwise choose traditional rentals.
+**Consider length-of-stay discounts.** With more people looking for longer stays, offering attractive weekly and monthly discounts can help you capture guests who might otherwise choose traditional rentals, while still keeping you out of rent control territory.
 
 ## Focus on What Long-Term Rentals Can't Offer
 
@@ -52,20 +79,14 @@ Your Airbnb offers something completely different: immediate availability, no le
 
 Make sure your listing emphasizes these advantages. Professional cleaning, fast WiFi, kitchen essentials, and local neighborhood guides aren't just nice-to-haves anymore. They're what justify your rates in a more competitive market.
 
-## The Opportunity Hidden in Market Shifts
+## Don't Lock In at the Bottom
 
-Look, I'm not going to sugarcoat this. Any major market change creates challenges. But it also creates opportunities for hosts who adapt quickly.
+Look, market cycles happen. Rents go up, rents go down. The worst thing you can do as a property owner is lock yourself into a long-term arrangement at the bottom of a cycle.
 
-Properties that were borderline profitable as long-term rentals might become available for short-term rental conversion. Neighborhoods that were previously too expensive for some property investors might become accessible.
+Short-term and mid-term rentals give you the flexibility to ride out the dip and capture the recovery. When Toronto rents inevitably climb back up, you'll be adjusting your rates in real time instead of waiting for a lease to expire.
 
-And guests who are now more price-conscious might also be more willing to stay in areas they hadn't considered before, like Mississauga, Markham, or other parts of the GTA outside downtown Toronto.
+Managing a [Toronto Airbnb](/full-airbnb-management-toronto) during market shifts requires constant attention to pricing, marketing, and guest communication. You need someone monitoring market trends, adjusting rates dynamically, and optimizing your listing to attract the right guests at the right price points.
 
-## Getting Professional Help Makes Sense Now
-
-Managing a [Toronto Airbnb](/full-airbnb-management-toronto) during market shifts requires constant attention to pricing, marketing, and guest communication. It's not just about cleaning between guests anymore.
-
-You need someone monitoring market trends, adjusting rates dynamically, and optimizing your listing to attract the right guests at the right price points.
-
-That's exactly what we do at Nurture. We're seeing these market changes firsthand across our GTA properties, and we're helping our clients adapt their strategies in real time.
+That's exactly what we do at Nurture. We're seeing these market changes firsthand across our GTA properties, and we're helping our clients stay flexible while the market finds its footing.
 
 Want to discuss how these rental market changes might affect your specific property? Give us a call at (647) 957-8956. We'll give you an honest assessment of your situation and share what's working for other hosts in your area right now.
