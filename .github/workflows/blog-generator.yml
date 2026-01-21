@@ -11,6 +11,11 @@ on:
 permissions:
   contents: write
 
+# Prevent multiple runs at the same time
+concurrency:
+  group: blog-generator
+  cancel-in-progress: false
+
 jobs:
   generate-blog-posts:
     runs-on: ubuntu-latest
@@ -63,11 +68,6 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # Stash new files, pull latest, then re-apply
-          git stash --include-untracked
-          git pull origin master
-          git stash pop || true
-
           git add src/content/blog/
           git add scripts/processed_articles.json
 
@@ -78,7 +78,9 @@ jobs:
 
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
-          git push
+          # Pull with rebase to get any new commits, then push
+          git pull --rebase origin master
+          git push origin master
 
       - name: Summary
         run: |
