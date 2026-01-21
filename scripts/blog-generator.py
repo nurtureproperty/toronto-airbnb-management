@@ -537,7 +537,7 @@ def generate_blog_post(article: dict, client: anthropic.Anthropic) -> Optional[s
     try:
         print(f"  Generating blog post with Claude...")
         message = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-3-5-sonnet-20241022",
             max_tokens=2000,
             messages=[
                 {"role": "user", "content": prompt}
