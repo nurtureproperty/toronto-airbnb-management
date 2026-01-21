@@ -68,18 +68,19 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
+          # Fetch latest and rebase before committing
+          git fetch origin master
+          git rebase origin/master || true
+
           git add src/content/blog/
           git add scripts/processed_articles.json
 
           git commit -m "Publish new blog posts from automated scan
 
           Generated and published by blog-generator.py
-          Email notification sent to configured address.
 
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
-          # Pull with rebase to get any new commits, then push
-          git pull --rebase origin master
           git push origin master
 
       - name: Summary
