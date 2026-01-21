@@ -25,6 +25,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: master
+
+      - name: Pull latest changes
+        run: |
+          git pull origin master --rebase
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -68,20 +73,23 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # Fetch latest and rebase before committing
-          git fetch origin master
-          git rebase origin/master || true
-
+          # Add new files
           git add src/content/blog/
           git add scripts/processed_articles.json
+          git add scripts/article_backlog.json || true
 
+          # Pull latest with rebase to handle any concurrent changes
+          git pull origin master --rebase
+
+          # Commit
           git commit -m "Publish new blog posts from automated scan
 
           Generated and published by blog-generator.py
 
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
-          git push origin master
+          # Push with retry on failure
+          git push origin master || (git pull origin master --rebase && git push origin master)
 
       - name: Summary
         run: |
