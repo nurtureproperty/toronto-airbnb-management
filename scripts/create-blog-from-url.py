@@ -256,30 +256,49 @@ def fetch_article_content(url: str) -> tuple[Optional[str], Optional[str], Optio
     """
     Fetch and extract the main content from an article URL.
     Returns (title, content, source_name).
+    Tries multiple methods to handle various website structures.
     """
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "DNT": "1",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
     }
+
+    # Extract source name from domain
+    parsed = urlparse(url)
+    source_name = parsed.netloc.replace("www.", "").split(".")[0].title()
 
     try:
         print(f"  Fetching article from URL...")
-        response = requests.get(url, headers=headers, timeout=30)
+        response = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
 
-        # Extract title
+        # Extract title - try multiple methods
         title = None
-        title_tag = soup.find("title")
-        if title_tag:
-            title = title_tag.get_text(strip=True)
 
-        # Try og:title or h1 as fallback
+        # Method 1: og:title (usually most accurate)
+        og_title = soup.find("meta", property="og:title")
+        if og_title and og_title.get("content"):
+            title = og_title.get("content", "").strip()
+
+        # Method 2: title tag
         if not title:
-            og_title = soup.find("meta", property="og:title")
-            if og_title:
-                title = og_title.get("content", "")
+            title_tag = soup.find("title")
+            if title_tag:
+                title = title_tag.get_text(strip=True)
+                # Clean up title - often contains site name
+                if " | " in title:
+                    title = title.split(" | ")[0].strip()
+                elif " - " in title:
+                    title = title.split(" - ")[0].strip()
 
+        # Method 3: h1 tag
         if not title:
             h1 = soup.find("h1")
             if h1:
@@ -288,51 +307,120 @@ def fetch_article_content(url: str) -> tuple[Optional[str], Optional[str], Optio
         if not title:
             title = "Untitled Article"
 
-        # Extract source name from domain
-        parsed = urlparse(url)
-        source_name = parsed.netloc.replace("www.", "").split(".")[0].title()
-
         # Remove script, style, nav, footer, aside elements
-        for element in soup(["script", "style", "nav", "footer", "aside", "header", "form", "iframe"]):
+        for element in soup(["script", "style", "nav", "footer", "aside", "header", "form", "iframe", "noscript"]):
             element.decompose()
 
-        # Try to find the main article content
+        # Try to find the main article content using site-specific and generic selectors
         article = None
+        content_text = None
 
-        # Common article selectors
-        selectors = [
-            "article",
-            '[role="main"]',
+        # Site-specific selectors (add more as needed)
+        site_selectors = {
+            "ctvnews": [".article-content", ".c-text", '[data-component="text"]', ".article__content"],
+            "cbc": [".story-content", ".story"],
+            "globalnews": [".c-posts__content", ".article-body"],
+            "thestar": [".article__body", ".c-article-body"],
+            "blogto": [".content", ".article-content"],
+        }
+
+        # Generic selectors (order matters - most specific first)
+        generic_selectors = [
+            '[itemprop="articleBody"]',
+            '[data-testid="article-body"]',
+            ".article-body",
             ".article-content",
             ".post-content",
             ".entry-content",
             ".content-body",
-            ".article-body",
+            ".story-body",
+            "article .content",
+            "article",
+            '[role="main"]',
             "main",
             ".main-content",
         ]
 
-        for selector in selectors:
-            article = soup.select_one(selector)
-            if article:
-                break
+        # Try site-specific selectors first
+        domain_key = parsed.netloc.replace("www.", "").split(".")[0].lower()
+        if domain_key in site_selectors:
+            for selector in site_selectors[domain_key]:
+                article = soup.select_one(selector)
+                if article:
+                    print(f"  Found content using site-specific selector: {selector}")
+                    break
 
+        # Try generic selectors
         if not article:
-            # Fall back to body
-            article = soup.body
+            for selector in generic_selectors:
+                article = soup.select_one(selector)
+                if article:
+                    # Verify it has substantial text content
+                    text = article.get_text(strip=True)
+                    if len(text) > 200:  # Minimum content threshold
+                        print(f"  Found content using selector: {selector}")
+                        break
+                    article = None
 
-        if article:
-            # Get text and clean it up
+        # Try extracting from JSON-LD structured data (many news sites use this)
+        if not article:
+            json_ld = soup.find("script", type="application/ld+json")
+            if json_ld:
+                try:
+                    import json
+                    data = json.loads(json_ld.string)
+                    # Handle both single object and array formats
+                    if isinstance(data, list):
+                        for item in data:
+                            if item.get("@type") in ["NewsArticle", "Article", "BlogPosting"]:
+                                data = item
+                                break
+                    if data.get("articleBody"):
+                        content_text = data["articleBody"]
+                        print("  Found content in JSON-LD structured data")
+                        if not title and data.get("headline"):
+                            title = data["headline"]
+                except:
+                    pass
+
+        # Fall back to body with paragraph extraction
+        if not article and not content_text:
+            # Try to get all paragraphs from body
+            paragraphs = soup.find_all("p")
+            if paragraphs:
+                # Filter to paragraphs that seem like article content (reasonable length)
+                article_paragraphs = [p.get_text(strip=True) for p in paragraphs if len(p.get_text(strip=True)) > 50]
+                if article_paragraphs:
+                    content_text = "\n\n".join(article_paragraphs)
+                    print(f"  Extracted {len(article_paragraphs)} paragraphs from page")
+
+        # Get final text content
+        if content_text:
+            text = content_text
+        elif article:
             text = article.get_text(separator="\n", strip=True)
-            # Remove excessive whitespace
-            text = re.sub(r'\n\s*\n', '\n\n', text)
-            # Limit length
-            if len(text) > 15000:
-                text = text[:15000] + "...[truncated]"
-            return title, text, source_name
+        else:
+            print(f"  Warning: Could not find article content container")
+            return title, None, source_name
 
-        return title, None, source_name
+        # Clean up the text
+        text = re.sub(r'\n\s*\n', '\n\n', text)  # Remove excessive whitespace
+        text = re.sub(r'[ \t]+', ' ', text)  # Normalize spaces
 
+        # Limit length
+        if len(text) > 15000:
+            text = text[:15000] + "...[truncated]"
+
+        # Verify we got meaningful content
+        if len(text) < 100:
+            print(f"  Warning: Content too short ({len(text)} chars)")
+            return title, None, source_name
+
+        return title, text, source_name
+
+    except requests.exceptions.RequestException as e:
+        print(f"  Network error fetching article: {e}")
+        return None, None, None
     except Exception as e:
         print(f"  Error fetching article: {e}")
         return None, None, None
