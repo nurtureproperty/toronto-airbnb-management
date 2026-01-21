@@ -73,6 +73,7 @@ jobs:
 
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
+          git pull --rebase origin master
           git push
 
       - name: Summary
