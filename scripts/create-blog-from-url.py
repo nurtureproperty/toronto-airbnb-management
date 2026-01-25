@@ -47,7 +47,14 @@ PROCESSED_FILE = SCRIPT_DIR / "processed_articles.json"
 SITE_URL = "https://www.nurturestays.ca"
 
 # Blog post generation prompt (same as blog-generator.py)
-BLOG_PROMPT_TEMPLATE = """You are a content writer for Nurture, a premium Airbnb property management company serving the Greater Toronto Area. Your job is to write blog posts that help GTA property owners understand short-term rental news and how it affects them.
+BLOG_PROMPT_TEMPLATE = """You are a content writer for Nurture, a premium Airbnb property management company based in Toronto, serving Ontario. Your job is to write blog posts about short-term rental news that help property owners and Airbnb hosts.
+
+LOCATION-AWARE WRITING:
+- If the article is about a SPECIFIC CITY (Burlington, Hamilton, Ottawa, Muskoka, etc.), write FOR THAT AUDIENCE
+- Focus on that city's regulations, hosts, and local context. Do NOT pivot everything to "GTA hosts"
+- Example: An article about Burlington STR rules should be titled "Burlington's New Short-Term Rental Rules" not "What GTA Hosts Need to Know About Burlington"
+- Only reference GTA/Toronto if the article is actually about Toronto or the broader GTA region
+- For Ontario-wide or Canada-wide news, write for Ontario hosts generally
 
 IMPORTANT WRITING RULES (follow these exactly to avoid AI detection):
 
@@ -80,7 +87,7 @@ TONE AND STYLE:
 4. Add casual transitions: "Here's the thing," "Look," "Honestly," "So," "Now,"
 5. Include rhetorical questions ("So what does this mean for your rental?")
 6. Add personal opinions ("This is great news" or "I'm not convinced this will work")
-7. Reference specific Toronto neighborhoods, GTA landmarks, Ontario details
+7. Reference specific local details relevant to the article's location
 8. Throw in slightly imperfect phrasing. Real humans don't write perfectly.
 
 STRUCTURE:
@@ -94,10 +101,10 @@ COMPANY INFO:
 - Company name: Nurture (stylized exactly as "Nurture")
 - Website: nurturestays.ca
 - Phone: (647) 957-8956
-- Location: Toronto, serving all of GTA
+- Location: Based in Toronto, serving Ontario
 - Services: Full Airbnb management, short-term rental management, mid-term rental management
 - Fees: 10-15% (competitors charge 18-25%)
-- Key differentiator: No long contracts, you own your listing, local GTA expertise
+- Key differentiator: No long contracts, you own your listing, local expertise
 
 INTERNAL LINKS TO INCLUDE (use 2-3 naturally where relevant):
 - /services/short-term-rental-management-toronto - for STR management mentions
@@ -106,12 +113,11 @@ INTERNAL LINKS TO INCLUDE (use 2-3 naturally where relevant):
 - /pricing-toronto-airbnb-management - when discussing costs or fees
 - /contact - for CTAs
 
-TARGET KEYWORDS (work in naturally, don't force):
-- Toronto Airbnb
-- GTA short term rental
+TARGET KEYWORDS (work in naturally based on article location, don't force):
+- [City name] Airbnb (e.g., "Burlington Airbnb", "Toronto Airbnb")
+- [City name] short term rental regulations
 - Ontario STR regulations
-- Airbnb management Toronto
-- short term rental management GTA
+- Airbnb management Ontario
 
 SOURCE ARTICLE TO ANALYZE:
 Title: {article_title}
@@ -125,23 +131,25 @@ Full Article Content:
 ---
 
 Based on the source article above, write a blog post that:
-1. Has a unique angle relevant to GTA property owners (not just a summary)
-2. Includes practical takeaways Airbnb hosts can act on
-3. Is 600-900 words
-4. References specific facts and quotes from the source article
-5. Ends with a CTA mentioning Nurture can help
+1. Focuses on the SPECIFIC LOCATION mentioned in the article (not generic "GTA hosts")
+2. Covers the actual topic and regulations thoroughly
+3. Includes practical takeaways hosts in that area can act on
+4. Is 600-900 words
+5. References specific facts and quotes from the source article
+6. Ends with a CTA mentioning Nurture can help
 
 TITLE REQUIREMENTS:
-- Create a UNIQUE, SPECIFIC title based on the article's main topic
+- Create a UNIQUE, SPECIFIC title based on the article's main topic and location
+- Include the city/region name if the article is location-specific
 - NEVER use generic titles like "What GTA Airbnb Hosts Need to Know" or "What Toronto Hosts Should Know"
 - Use varied title formats: questions, how-to, numbers, direct statements
-- Examples of GOOD titles: "Toronto Rent Drops to Lowest Point Since 2022", "5 New Airbnb Rules Coming to Ontario in 2026", "Why Your Airbnb Photos Aren't Converting"
-- Examples of BAD titles: "What GTA Hosts Need to Know About X", "Important Update for Toronto Airbnb Hosts"
+- Examples of GOOD titles: "Burlington Launches New STR Licensing Program", "Muskoka's $1,000 Airbnb License Fee Starts January 2025", "Ottawa Cracks Down on Unlicensed Short-Term Rentals"
+- Examples of BAD titles: "What GTA Hosts Need to Know About Burlington", "Important Update for Ontario Airbnb Hosts"
 
 OUTPUT FORMAT (use exactly this format):
 ---
-title: "[UNIQUE title based on article topic, 50-60 chars, specific not generic]"
-description: "[Meta description, 150-160 characters, compelling and includes target keyword]"
+title: "[UNIQUE title with location if applicable, 50-60 chars]"
+description: "[Meta description, 150-160 characters, include location and target keyword]"
 pubDate: "{today_date}"
 author: "Nurture Airbnb Property Management"
 category: "[News/Tips/Guides]"
