@@ -131,9 +131,16 @@ Based on the source article above, write a blog post that:
 4. References specific facts and quotes from the source article
 5. Ends with a CTA mentioning Nurture can help
 
+TITLE REQUIREMENTS:
+- Create a UNIQUE, SPECIFIC title based on the article's main topic
+- NEVER use generic titles like "What GTA Airbnb Hosts Need to Know" or "What Toronto Hosts Should Know"
+- Use varied title formats: questions, how-to, numbers, direct statements
+- Examples of GOOD titles: "Toronto Rent Drops to Lowest Point Since 2022", "5 New Airbnb Rules Coming to Ontario in 2026", "Why Your Airbnb Photos Aren't Converting"
+- Examples of BAD titles: "What GTA Hosts Need to Know About X", "Important Update for Toronto Airbnb Hosts"
+
 OUTPUT FORMAT (use exactly this format):
 ---
-title: "[SEO optimized title, 50-60 characters, include location if relevant]"
+title: "[UNIQUE title based on article topic, 50-60 chars, specific not generic]"
 description: "[Meta description, 150-160 characters, compelling and includes target keyword]"
 pubDate: "{today_date}"
 author: "Nurture Airbnb Property Management"
