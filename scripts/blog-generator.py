@@ -6,7 +6,7 @@ This script scans RSS feeds for relevant short-term rental news and generates
 blog posts using the Claude API. Posts are auto-published and email notifications
 are sent to the configured address.
 
-DAILY LIMIT: Publishes at most 2 posts per day (configurable via MAX_POSTS_PER_DAY).
+DAILY LIMIT: Publishes at most 1 post per day (configurable via MAX_POSTS_PER_DAY).
              Additional high-priority articles are saved to a backlog and published
              on subsequent days.
 
@@ -57,7 +57,7 @@ POSTS_DIR = PROJECT_ROOT / "src" / "content" / "blog"
 PROCESSED_FILE = SCRIPT_DIR / "processed_articles.json"
 BACKLOG_FILE = SCRIPT_DIR / "article_backlog.json"
 SITE_URL = "https://www.nurturestays.ca"
-MAX_POSTS_PER_DAY = 2  # Maximum posts to publish each day
+MAX_POSTS_PER_DAY = 1  # Maximum posts to publish each day
 
 # RSS Feeds to monitor
 RSS_FEEDS = [
