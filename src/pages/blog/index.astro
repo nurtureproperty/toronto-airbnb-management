@@ -7,10 +7,10 @@ const collectionPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
 });
 
-// Calculate reading time from word count (average 200 words per minute)
+// Calculate reading time from word count (285 wpm = 30% faster than standard 200 wpm)
 function calculateReadTime(content: string): string {
   const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / 200);
+  const minutes = Math.ceil(words / 285);
   return `${minutes} min read`;
 }
 
