@@ -7,13 +7,20 @@ const collectionPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
 });
 
+// Calculate reading time from word count (average 200 words per minute)
+function calculateReadTime(content: string): string {
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / 200);
+  return `${minutes} min read`;
+}
+
 // Convert collection posts to same format as manual posts
 const generatedPosts = collectionPosts.map(post => ({
   slug: post.slug,
   title: post.data.title,
   excerpt: post.data.description,
   date: post.data.pubDate,
-  readTime: '5 min read',
+  readTime: calculateReadTime(post.body),
   tags: post.data.tags,
   category: post.data.category,
   isGenerated: true
@@ -136,8 +143,6 @@ const blogSchema = {
             <div class="blog-card-content">
               <div class="blog-meta">
                 <span class="category-badge">{post.category}</span>
-                <span class="blog-separator">·</span>
-                <span class="blog-date">{new Date(post.date).toLocaleDateString('en-CA', { year: 'numeric', month: 'long' })}</span>
                 <span class="blog-separator">·</span>
                 <span class="blog-read-time">{post.readTime}</span>
               </div>
