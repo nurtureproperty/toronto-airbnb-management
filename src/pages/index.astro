@@ -1,5 +1,12 @@
 ---
 // Nurture - Modern Astro Homepage
+import { getCollection } from 'astro:content';
+
+// Get latest 3 blog posts
+const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
 ---
 
 <!DOCTYPE html>
@@ -32,7 +39,7 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
     <!-- Preload critical assets - responsive for mobile -->
     <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
@@ -1292,6 +1299,92 @@
             text-decoration: underline;
         }
 
+        /* Blog Section */
+        .blog-section {
+            padding: 5rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .blog-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            text-align: left;
+        }
+
+        .blog-card {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .blog-view-all {
+            margin-top: 1rem;
+        }
+
+        .blog-view-all a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-view-all a:hover {
+            text-decoration: underline;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 6rem 2rem;
@@ -1655,6 +1748,10 @@
 
             .cta-section h2 {
                 font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -2315,6 +2412,10 @@
                 <div class="faq-answer">We have never had any clients make less with short and mid-term rental vs long-term rental. Most see 30-100% increases in monthly revenue.</div>
             </div>
             <div class="faq-item">
+                <div class="faq-question">My Airbnb isn't making money. Can you help?</div>
+                <div class="faq-answer">Yes. Most underperforming listings have fixable issues like poor pricing strategy, weak photos, or suboptimal listing copy. <a href="/toronto-airbnb-not-making-money">Read our guide on why your Toronto Airbnb might not be profitable</a> or contact us for a free assessment.</div>
+            </div>
+            <div class="faq-item">
                 <div class="faq-question">How long does it take to get my property listed?</div>
                 <div class="faq-answer">The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.</div>
             </div>
@@ -2359,6 +2460,29 @@
         </div>
     </section>
 
+    <!-- Latest Blog Posts -->
+    <section class="blog-section">
+        <div class="blog-container">
+            <div class="section-header">
+                <h2>Latest from Our Blog</h2>
+                <p>Tips, news, and insights for GTA property owners</p>
+            </div>
+            <div class="blog-grid">
+                {latestPosts.map((post) => (
+                    <a href={`/blog/${post.slug}`} class="blog-card">
+                        <span class="blog-category">{post.data.category}</span>
+                        <h3>{post.data.title}</h3>
+                        <p>{post.data.description}</p>
+                        <span class="blog-date">
+                            {new Date(post.data.pubDate).toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })}
+                        </span>
+                    </a>
+                ))}
+            </div>
+            <p class="blog-view-all"><a href="/blog">View all articles →</a></p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <h2>Ready to Maximize Your Rental Income?</h2>
@@ -2383,6 +2507,7 @@
                     <li><a href="/services">All Services</a></li>
                     <li><a href="/emergency-airbnb-support-toronto">Emergency Support</a></li>
                     <li><a href="/pricing-toronto-airbnb-management">Pricing</a></li>
+                    <li><a href="/toronto-airbnb-not-making-money">Airbnb Not Profitable?</a></li>
                 </ul>
             </div>
             <div class="footer-links">
