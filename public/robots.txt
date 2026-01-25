@@ -4,7 +4,7 @@
 # ============================================
 
 # Sitemap location (submit to Google Search Console)
-Sitemap: https://www.nurturestays.ca/sitemap.xml
+Sitemap: https://www.nurturestays.ca/sitemap-index.xml
 
 # ============================================
 # Google - Full access, no restrictions
