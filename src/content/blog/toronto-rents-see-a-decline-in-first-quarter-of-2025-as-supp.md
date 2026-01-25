@@ -1,5 +1,5 @@
 ---
-title: "Toronto Rent Drop: What GTA Airbnb Hosts Need to Know"
+title: "Toronto Rents Drop as Housing Supply Finally Catches Up"
 description: "Toronto rents fell in Q1 2025 as supply increased. Here's how this rental market shift affects your GTA short-term rental strategy and pricing."
 pubDate: "2026-01-25"
 author: "Nurture Airbnb Property Management"

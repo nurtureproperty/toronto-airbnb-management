@@ -1,5 +1,5 @@
 ---
-title: "Burlington STR Licensing: What Toronto Hosts Need to Know"
+title: "Burlington Launches New Short-Term Rental Licensing System"
 description: "Burlington's new short-term rental licensing could signal changes coming to Toronto. Learn what GTA Airbnb hosts should prepare for in 2025."
 pubDate: "2026-01-25"
 author: "Nurture Airbnb Property Management"

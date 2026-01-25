@@ -1,5 +1,5 @@
 ---
-title: "Northern Ontario STR Rules: What GTA Airbnb Hosts Need to Know"
+title: "Thunder Bay Caps Airbnb Licenses at Just 2% of Housing Stock"
 description: "Thunder Bay's new Airbnb regulations could signal changes coming to GTA markets. Learn what Toronto short-term rental hosts should watch for."
 pubDate: "2026-01-25"
 author: "Nurture Airbnb Property Management"
