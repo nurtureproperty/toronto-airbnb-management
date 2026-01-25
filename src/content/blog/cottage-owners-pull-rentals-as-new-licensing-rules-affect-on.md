@@ -1,5 +1,5 @@
 ---
-title: "Ontario Cottage Owners Exit STRs: What GTA Hosts Need to Know"
+title: "Why Ontario Cottage Owners Are Abandoning Short-Term Rentals"
 description: "New Ontario licensing rules force cottage owners out of short-term rentals. Here's what Toronto and GTA Airbnb hosts should expect and how to prepare."
 pubDate: "2026-01-22"
 author: "Nurture Airbnb Property Management"

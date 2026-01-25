@@ -1,5 +1,5 @@
 ---
-title: "Ontario Beach Town STR Rules: What GTA Hosts Need to Know"
+title: "Ontario Beach Town's New STR Rules Get Mixed Landlord Reviews"
 description: "New Airbnb regulations in Ontario beach communities offer lessons for Toronto STR hosts. Learn what's working and what's causing problems."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"

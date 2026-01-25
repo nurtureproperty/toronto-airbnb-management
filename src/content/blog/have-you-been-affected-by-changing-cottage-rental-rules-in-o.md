@@ -1,5 +1,5 @@
 ---
-title: "Ontario Cottage Rental Rules: What GTA Hosts Need to Know"
+title: "Ontario's Cottage Rental Crackdown Spreads Across Municipalities"
 description: "New Ontario cottage rental regulations are creating ripple effects for Toronto Airbnb hosts. Here's what GTA property owners should watch for."
 pubDate: "2026-01-22"
 author: "Nurture Airbnb Property Management"

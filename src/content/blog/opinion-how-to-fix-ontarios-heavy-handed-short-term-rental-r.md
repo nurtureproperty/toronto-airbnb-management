@@ -1,5 +1,5 @@
 ---
-title: "Ontario STR Rules Too Harsh? What GTA Hosts Need to Know"
+title: "Industry Experts Call Ontario's STR Rules 'Heavy-Handed'"
 description: "Industry experts call Ontario's short-term rental rules 'heavy-handed.' Here's what Toronto and GTA Airbnb hosts should know about potential changes."
 pubDate: "2026-01-21"
 author: "Nurture Airbnb Property Management"

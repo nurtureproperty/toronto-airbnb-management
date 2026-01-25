@@ -1,5 +1,5 @@
 ---
-title: "Toronto Rent Drop: What It Means for Your Airbnb Strategy"
+title: "Toronto Rent Hits Lowest Since 2022. Don't Sign That Lease Yet"
 description: "Toronto rent hits lowest point since early 2022. Here's how GTA Airbnb hosts can adapt their strategy and stay profitable in this changing market."
 pubDate: "2026-01-21"
 author: "Nurture Airbnb Property Management"

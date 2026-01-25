@@ -1,5 +1,5 @@
 ---
-title: "Northern Ontario STR Rules: What GTA Hosts Need to Know"
+title: "Northern Ontario Towns Set STR Rules Before Problems Start"
 description: "Northern Ontario municipalities are proactively regulating short-term rentals. Here's what Toronto and GTA Airbnb hosts can learn from their approach."
 pubDate: "2026-01-23"
 author: "Nurture Airbnb Property Management"

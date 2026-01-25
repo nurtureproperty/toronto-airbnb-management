@@ -1,5 +1,5 @@
 ---
-title: "Nova Scotia STR Crackdown: What GTA Hosts Should Watch"
+title: "Nova Scotia Bans Most Short-Term Rentals Starting September"
 description: "Nova Scotia's new September STR regulations offer warning signs for Toronto Airbnb hosts. Learn what changes could come to Ontario short-term rentals."
 pubDate: "2026-01-25"
 author: "Nurture Airbnb Property Management"

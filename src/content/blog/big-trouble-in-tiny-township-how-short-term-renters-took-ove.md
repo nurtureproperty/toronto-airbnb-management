@@ -1,5 +1,5 @@
 ---
-title: "Tiny Township's STR Wars: What GTA Hosts Should Know"
+title: "Tiny Township Passes Some of Ontario's Strictest Airbnb Rules"
 description: "Ontario cottage country battles short-term rentals. Learn what Tiny Township's STR crackdown means for your Toronto Airbnb property."
 pubDate: "2026-01-21"
 author: "Nurture Airbnb Property Management"

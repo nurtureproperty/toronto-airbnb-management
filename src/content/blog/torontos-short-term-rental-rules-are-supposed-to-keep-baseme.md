@@ -1,5 +1,5 @@
 ---
-title: "Toronto Basement Airbnbs: What Hosts Need to Know"
+title: "Toronto's Basement Airbnb Loophole: Why It's Not Worth the Risk"
 description: "Toronto homeowners are still listing basement apartments on Airbnb despite new rules. Here's what GTA property owners need to know about compliance."
 pubDate: "2026-01-24"
 author: "Nurture Airbnb Property Management"

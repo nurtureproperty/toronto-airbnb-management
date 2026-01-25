@@ -1,5 +1,5 @@
 ---
-title: "New Ontario STR Rules: What GTA Hosts Need to Know"
+title: "Another Ontario City Rolls Out New Short-Term Rental Rules"
 description: "Ontario city approves new short-term rental regulations. Learn how these changes could affect your Toronto Airbnb and what to prepare for in 2026."
 pubDate: "2026-01-18"
 author: "Nurture Airbnb Property Management"

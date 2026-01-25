@@ -1,5 +1,5 @@
 ---
-title: "Toronto Airbnb Rules Upheld: What GTA Hosts Need to Know"
+title: "Ontario Tribunal Confirms: Toronto Airbnb Rules Are Here to Stay"
 description: "Ontario tribunal confirms Toronto's short-term rental restrictions. Learn how these regulations affect your GTA Airbnb and what you can do about it."
 pubDate: "2026-01-24"
 author: "Nurture Airbnb Property Management"
