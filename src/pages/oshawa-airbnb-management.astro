@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '🏙️', name: 'Scarborough Town Centre', description: 'Urban hub with the LRT and major shopping. Convenient for business travelers and families visiting the east end of Toronto.', revenue: '$3,200-$4,200/month' },
-  { icon: '🌊', name: 'Scarborough Bluffs', description: 'Stunning lakefront cliffs and beaches. Nature lovers and photographers pay premium rates for Bluffs-adjacent properties.', revenue: '$3,500-$4,800/month' },
-  { icon: '🦁', name: 'Toronto Zoo Area', description: 'Families visiting the Zoo need nearby accommodation. Strong weekend and summer demand, especially for larger properties.', revenue: '$3,000-$4,000/month' },
-  { icon: '🥢', name: 'Agincourt', description: 'Cultural hub with amazing Asian cuisine and markets. Popular with visitors exploring Toronto\'s diverse food scene.', revenue: '$2,800-$3,600/month' },
-  { icon: '🌲', name: 'Rouge Valley', description: 'Gateway to Rouge National Urban Park. Nature enthusiasts and hikers seek properties close to trails and wilderness.', revenue: '$3,200-$4,200/month' },
-  { icon: '🎓', name: 'UTSC Area', description: 'University of Toronto Scarborough campus brings students, visiting professors, and families during graduations.', revenue: '$2,600-$3,400/month' }
+  { icon: '🏛️', name: 'Downtown Oshawa', description: 'Revitalized core with arts, dining, and the Regent Theatre. Appeals to visitors exploring Durham\'s cultural scene and heritage.', revenue: '$2,200-$3,000/month' },
+  { icon: '🎓', name: 'Ontario Tech University', description: 'Near campus and Durham College. Strong demand from visiting parents, prospective students, and academic conferences.', revenue: '$2,100-$2,900/month' },
+  { icon: '🚇', name: 'Oshawa GO Station', description: 'End of the Lakeshore East GO line. Business travelers and commuters appreciate the direct Toronto connection.', revenue: '$2,300-$3,100/month' },
+  { icon: '🏥', name: 'Lakeridge Health Oshawa', description: 'Near the regional hospital. Consistent demand from medical visitors, patient families, and healthcare workers.', revenue: '$2,200-$3,000/month' },
+  { icon: '🏭', name: 'GM Centre Area', description: 'Near the Tribute Communities Centre (events, concerts, Generals hockey). Event-driven demand peaks during shows and games.', revenue: '$2,400-$3,300/month' },
+  { icon: '🌳', name: 'North Oshawa', description: 'Growing residential area near conservation lands. Popular with families and nature enthusiasts visiting Oshawa Valley trails.', revenue: '$2,000-$2,700/month' }
 ];
 
 const services = [
@@ -18,25 +18,28 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Local Area Guide Creation',
+  'License & Compliance Management',
   'Transparent Revenue Reporting'
 ];
+
+const pageTitle = "Oshawa Airbnb Management | Durham Region STR Experts";
+const pageDescription = "Professional Airbnb management in Oshawa, Ontario. Licensed STR market with 180-day limit. University, hospital & event venue demand. 10-15% fees.";
 ---
 
-<Layout title="Scarborough Airbnb Management | 10-15% Fees" description="Professional Airbnb property management in Scarborough. Properties near Scarborough Town Centre, the Bluffs, Agincourt & Rouge Valley. 10-15% commission, 9-min response.">
+<Layout title={pageTitle} description={pageDescription}>
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Scarborough Airbnb Management</span></h1>
-      <p class="hero-subtitle">From the Bluffs to the Zoo: untapped Airbnb potential</p>
+      <h1><span class="highlight">Oshawa Airbnb Management</span></h1>
+      <p class="hero-subtitle">Durham's largest city with regulated STR market</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$3,200+</div>
+          <div class="stat-number">$2,300+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">78%+</div>
-          <div class="stat-label">Avg Occupancy Rate</div>
+          <div class="stat-number">180</div>
+          <div class="stat-label">Night Annual Limit</div>
         </div>
         <div class="stat">
           <div class="stat-number">10-15%</div>
@@ -44,15 +47,15 @@ const services = [
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Scarborough Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Oshawa Property Can Earn</a>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Scarborough Neighborhoods We Serve</h2>
-        <p>Diverse communities with unique appeal</p>
+        <h2>Oshawa Neighborhoods We Serve</h2>
+        <p>From downtown to the university district</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -69,27 +72,46 @@ const services = [
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Scarborough Short-Term Rental Bylaws</h2>
-        <p>What Scarborough property owners need to know</p>
+        <h2>Oshawa Short-Term Rental Regulations</h2>
+        <p>Licensed market with clear requirements</p>
       </div>
       <div class="bylaws-content">
         <div class="bylaws-grid">
-          <div class="bylaw-card">
-            <h3>Registration Required</h3>
-            <p>All short-term rentals in Toronto (including Scarborough) must be registered with the City. We can help you navigate the registration process. <a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-tenant-information/short-term-rentals/" target="_blank" rel="noopener">Register on the City of Toronto website</a>.</p>
+          <div class="bylaw-card highlight-card">
+            <h3>License Required</h3>
+            <p>Oshawa requires all short-term rental operators to obtain a license from the City. We handle the application process and ensure your property meets all requirements for approval.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Rule</h3>
-            <p>You can only operate a short-term rental in your principal residence. This is the home where you live and receive mail, file taxes, etc.</p>
+            <h3>Principal Residence Only</h3>
+            <p>Like Toronto, Oshawa only permits STRs in your principal residence. Investment properties cannot be used for short-term rentals under 28 days.</p>
           </div>
           <div class="bylaw-card">
-            <h3>180-Night Annual Limit</h3>
-            <p>Entire-home rentals are limited to 180 nights per year. However, mid-term rentals (stays of 28 days or more) do not count toward this limit. Partial unit rentals have some exemptions to allow for more than 180 nights per year.</p>
+            <h3>180-Day Annual Limit</h3>
+            <p>Entire-home rentals are limited to 180 days per calendar year. Stays of 28+ days don't count toward this limit. We track your nights to ensure compliance.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Municipal Accommodation Tax</h3>
-            <p>A Municipal Accommodation Tax (MAT) applies to all short-term rentals. Platforms like Airbnb collect and remit this automatically.</p>
+            <h3>28-Day STR Definition</h3>
+            <p>Rentals of 28 consecutive days or less are classified as short-term rentals. Longer stays fall under different regulations and don't require an STR license.</p>
           </div>
+          <div class="bylaw-card">
+            <h3>Visitor's Code Required</h3>
+            <p>Oshawa requires hosts to provide a Visitor's Code to all guests outlining rules and expectations. We include this automatically in our guest communications.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Record Keeping - 6 Years</h3>
+            <p>Hosts must keep rental records for 6 years - longer than most Ontario cities. We maintain detailed records for all bookings and can provide documentation if required.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Zoning Compliance</h3>
+            <p>Your property must comply with local zoning requirements. Most residential zones permit principal residence STRs, but we verify zoning before you list.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Significant Fines</h3>
+            <p>Penalties for non-compliance can reach $25,000 for individuals and $50,000 for corporations. Licensed, compliant operation protects your investment.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>We handle all Oshawa licensing and compliance requirements. <a href="/contact">Contact us</a> to get started the right way.</p>
         </div>
       </div>
     </div>
@@ -97,25 +119,27 @@ const services = [
 
   <section class="section why-section">
     <div class="container">
-      <div class="section-header">
-        <h2>Scarborough: The Untapped Opportunity</h2>
-        <p>Less competition, unique attractions, strong returns</p>
+      <div class="why-content">
+        <h2>The Oshawa Advantage</h2>
+        <p>Oshawa is Durham Region's largest city and economic hub. Ontario Tech University and Durham College bring consistent academic-related demand, while the Tribute Communities Centre drives event-based bookings for concerts and Oshawa Generals games.</p>
+        <p>As the end of the GO Train Lakeshore East line, Oshawa captures business travelers who prefer staying outside Toronto. The revitalized downtown and growing tech sector add diversity to your guest mix.</p>
       </div>
-      <div class="opportunity-content">
-        <p>While downtown Toronto is saturated with Airbnbs, Scarborough remains underserved. Fewer listings mean less competition, and unique attractions like the Bluffs, Zoo, and Rouge Park draw visitors year-round. Properties here often outperform expectations.</p>
-      </div>
-      <div class="opportunity-stats">
-        <div class="opp-stat">
-          <div class="number">40%</div>
-          <div class="label">Less Competition Than Downtown</div>
+      <div class="advantage-stats">
+        <div class="advantage-stat">
+          <div class="number">175K+</div>
+          <div class="label">Population</div>
         </div>
-        <div class="opp-stat">
-          <div class="number">2.7M</div>
-          <div class="label">Annual Zoo Visitors</div>
+        <div class="advantage-stat">
+          <div class="number">55 min</div>
+          <div class="label">GO Train to Toronto</div>
         </div>
-        <div class="opp-stat">
-          <div class="number">15km</div>
-          <div class="label">Of Bluffs Shoreline</div>
+        <div class="advantage-stat">
+          <div class="number">30K+</div>
+          <div class="label">University Students</div>
+        </div>
+        <div class="advantage-stat">
+          <div class="number">Events</div>
+          <div class="label">Tribute Centre</div>
         </div>
       </div>
     </div>
@@ -124,7 +148,7 @@ const services = [
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Scarborough Management</h2>
+        <h2>Full-Service Oshawa Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -141,24 +165,24 @@ const services = [
   <section class="section other-areas">
     <div class="container">
       <div class="section-header">
-        <h2>Explore Our Other Service Areas</h2>
+        <h2>Explore Durham Region & Beyond</h2>
         <p>We manage properties across the Greater Toronto Area</p>
       </div>
       <div class="areas-grid">
-        <a href="/pickering-airbnb-management" class="area-link">
-          <span>Pickering</span>
-          <span class="arrow">→</span>
-        </a>
         <a href="/ajax-airbnb-management" class="area-link">
           <span>Ajax</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/downtown-toronto-airbnb-management" class="area-link">
-          <span>Downtown Toronto</span>
+        <a href="/pickering-airbnb-management" class="area-link">
+          <span>Pickering</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/north-york-airbnb-management" class="area-link">
-          <span>North York</span>
+        <a href="/whitby-airbnb-management" class="area-link">
+          <span>Whitby</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/scarborough-airbnb-management" class="area-link">
+          <span>Scarborough</span>
           <span class="arrow">→</span>
         </a>
       </div>
@@ -169,8 +193,8 @@ const services = [
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Scarborough Property?</h2>
-        <p>Get a free analysis showing how much your Bluffs, Town Centre, or Rouge Valley property could earn with Airbnb.</p>
+        <h2>Own an Oshawa Property?</h2>
+        <p>Get a free analysis showing how much your university-area or downtown property could earn with proper licensing.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
@@ -184,17 +208,6 @@ const services = [
     padding: 8rem 0 6rem;
     text-align: center;
     margin-top: -2rem;
-  }
-
-  .location-badge {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
   }
 
   .hero h1 {
@@ -258,7 +271,6 @@ const services = [
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-bottom: 3rem;
   }
 
   .bylaw-card {
@@ -268,64 +280,73 @@ const services = [
     box-shadow: var(--shadow-sm);
   }
 
+  .bylaw-card.highlight-card {
+    border: 2px solid var(--color-primary);
+    grid-column: span 2;
+  }
+
   .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
   .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
   .bylaw-card a { color: var(--color-primary); text-decoration: underline; }
   .bylaw-card a:hover { color: var(--color-primary-dark); }
 
   .bylaws-cta {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
+    margin-top: 2rem;
     text-align: center;
-    border: 2px solid var(--color-primary);
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
   }
 
-  .bylaws-cta p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
 
   .why-section {
     background: var(--color-primary-dark);
     color: white;
-    text-align: center;
   }
 
-  .why-section .section-header h2 { color: white; }
-  .why-section .section-header p { color: rgba(255, 255, 255, 0.8); }
-
-  .opportunity-content {
-    max-width: 800px;
-    margin: 0 auto 3rem;
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
   }
 
-  .opportunity-content p {
-    font-size: 1.25rem;
+  .why-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-content p {
+    font-size: 1.125rem;
     line-height: 1.8;
+    margin-bottom: 1.5rem;
     color: rgba(255, 255, 255, 0.9);
   }
 
-  .opportunity-stats {
+  .advantage-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
-  .opp-stat {
+  .advantage-stat {
     background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 16px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
   }
 
-  .opp-stat .number {
-    font-size: 2.5rem;
+  .advantage-stat .number {
+    font-size: 2rem;
     font-weight: 700;
     color: #C9A961;
   }
 
-  .opp-stat .label {
+  .advantage-stat .label {
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.8);
-    margin-top: 0.5rem;
   }
 
   .services-section { background: var(--color-background-alt); }
@@ -399,14 +420,16 @@ const services = [
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
   @media (max-width: 968px) {
-    .neighborhoods-grid, .services-grid, .opportunity-stats { grid-template-columns: repeat(2, 1fr); }
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
+    .bylaw-card.highlight-card { grid-column: span 1; }
+    .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 576px) {
     .hero-stats { flex-direction: column; gap: 2rem; }
-    .neighborhoods-grid, .services-grid, .opportunity-stats { grid-template-columns: 1fr; }
+    .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: 1fr; }
   }
 </style>
