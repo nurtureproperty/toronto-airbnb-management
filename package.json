@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
     "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.16.8"
+    "astro": "^5.16.8",
+    "dotenv": "^17.2.3"
   },
   "devDependencies": {
     "xlsx": "^0.18.5"

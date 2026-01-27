@@ -21,6 +21,46 @@ const services = [
   'Listing SEO & Optimization',
   'Transparent Revenue Reporting'
 ];
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Toronto?",
+    answer: "Yes, Airbnb is legal in Toronto, but hosts must comply with the city's short term rental regulations that took effect in 2021. Toronto requires all Airbnb hosts to obtain a Municipal Accommodation Tax (MAT) certificate and limits short term rentals to principal residences only. The regulations also cap rentals at 180 nights per year for entire home listings."
+  },
+  {
+    question: "How much can I make on Airbnb in Toronto?",
+    answer: "Toronto Airbnb hosts typically earn between $3,000 to $8,000+ per month depending on property type, location, and management quality. A well-managed one-bedroom condo in downtown Toronto can generate $4,000 to $6,000 monthly, while larger properties in prime neighborhoods like King West or Entertainment District often exceed $8,000 per month."
+  },
+  {
+    question: "How much does Airbnb management cost in Toronto?",
+    answer: "Airbnb management companies in Toronto typically charge between 15% to 25% of rental revenue, with most established services falling in the 18% to 25% range. At Nurture, we offer comprehensive Airbnb management at 10% to 15% commission with no upfront costs or long term contracts, allowing Toronto property owners to keep more of their rental income."
+  },
+  {
+    question: "What is Airbnb management?",
+    answer: "Airbnb management is a comprehensive service where experienced professionals handle all aspects of running your short term rental property, from guest communication and booking management to cleaning coordination and pricing optimization. In competitive markets like Toronto, professional management typically increases rental income by 30 to 100% compared to self-managed properties."
+  },
+  {
+    question: "Is it worth hiring an Airbnb manager?",
+    answer: "Yes, hiring an Airbnb manager is typically worth it for Toronto property owners who want to maximize their rental income without the daily hassle. Professional managers handle everything from guest communications and cleaning coordination to dynamic pricing optimization, often increasing owner profits by 30 to 100% even after management fees."
+  },
+  {
+    question: "What are the short term rental rules in Toronto?",
+    answer: "In Toronto, short term rentals are legal but must comply with specific regulations including registration with the city, operation only in your principal residence, and a maximum of 180 nights per year for entire home rentals. All hosts must obtain a Municipal Accommodation Tax (MAT) certificate and pay the required tax on bookings."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout title="Downtown Toronto Airbnb Management | 10-15% Fees" description="Professional Airbnb property management in Downtown Toronto. Entertainment District, Financial District, Yorkville, Liberty Village & King West. 10-15% commission, 9-min response time.">
@@ -139,6 +179,25 @@ const services = [
     </div>
   </section>
 
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about Airbnb management in Downtown Toronto</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <section class="section other-areas">
     <div class="container">
       <div class="section-header">
@@ -150,16 +209,16 @@ const services = [
           <span>North York</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/etobicoke-airbnb-management" class="area-link">
-          <span>Etobicoke</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/scarborough-airbnb-management" class="area-link">
-          <span>Scarborough</span>
+        <a href="/vaughan-airbnb-management" class="area-link">
+          <span>Vaughan</span>
           <span class="arrow">→</span>
         </a>
         <a href="/mississauga-airbnb-management" class="area-link">
           <span>Mississauga</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/etobicoke-airbnb-management" class="area-link">
+          <span>Etobicoke</span>
           <span class="arrow">→</span>
         </a>
       </div>
@@ -477,6 +536,66 @@ const services = [
     color: var(--color-primary-dark);
   }
 
+  .faq-section {
+    background: var(--color-background-alt);
+  }
+
+  .faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq-item summary {
+    font-weight: 600;
+    font-size: 1.1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 400;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item[open] summary {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid, .bylaws-grid { grid-template-columns: 1fr; }
@@ -487,5 +606,7 @@ const services = [
     .hero-stats { flex-direction: column; gap: 2rem; }
     .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: 1fr; }
+    .faq-item { padding: 1.25rem 1.5rem; }
+    .faq-item summary { font-size: 1rem; }
   }
 </style>
