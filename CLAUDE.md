@@ -45,6 +45,47 @@ Each page defines its own scoped styles within `<style>` tags. Data arrays (pack
 
 Changes pushed to `master` branch auto-deploy to production (GitHub → hosting provider).
 
+---
+
+## SEO Guidelines: The 3 Kings
+
+When creating blog articles, ALWAYS optimize these three elements for the target keyword:
+
+### 1. Meta Title (pageTitle)
+- **Keep under 60 characters** to avoid truncation in search results
+- **Put focus keyword first** (e.g., "Oakville Airbnb Rules" not "Guide to Oakville...")
+- Format: `[City] Airbnb [Rules/Regulations] 2026 | [Hook]`
+- Example: `Ottawa Airbnb Short Term Rental Rules 2026`
+
+### 2. Meta Description (pageDescription)
+- **Keep between 150-160 characters**
+- **Include focus keyword naturally** (don't stuff)
+- **End with a CTA** (Get licensed now, Start hosting today, Get compliant now)
+- Formula: `[Key requirements] + [Differentiator] + [CTA]`
+- Example: `Ottawa Airbnb rules: principal residence required, $123 permit, 4% MAT, plus cottage exception for rural zones. Your complete 2026 compliance guide.`
+
+### 3. H1 Title (main heading)
+- **Match or closely align with meta title**
+- **Clear and keyword-focused** - visitors should know what the page is about in 2 seconds
+- Don't try to be clever - be crystal clear
+
+### Common Mistakes to Avoid
+- **Keyword stuffing** - Don't repeat keyword endlessly
+- **Duplicate titles/descriptions** - Every page needs unique meta
+- **Being vague** - "Welcome to Our Website" helps no one
+- **Missing CTAs** - Always include action words in descriptions
+
+### Blog Article Structure
+Each blog guide should include:
+1. `pageTitle` - Meta title (under 60 chars, keyword first)
+2. `pageDescription` - Meta description (150-160 chars with CTA)
+3. `faqs` array - For FAQ schema (targets long-tail keywords)
+4. `tocItems` - Table of contents for UX
+5. `relatedPosts` - Internal linking to related content
+6. `articleSchema` + `faqSchema` - Structured data for rich results
+
+---
+
 # Nurture - Airbnb Property Management
 
 ## Company Overview
