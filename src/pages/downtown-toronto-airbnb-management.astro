@@ -187,10 +187,10 @@ const faqSchema = {
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
-          <details class="faq-item">
-            <summary>{faq.question}</summary>
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
-          </details>
+          </div>
         ))}
       </div>
     </div>
@@ -548,46 +548,16 @@ const faqSchema = {
   .faq-item {
     background: white;
     border-radius: 12px;
-    margin-bottom: 1rem;
-    padding: 1.5rem 2rem;
-    cursor: pointer;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
     box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.3s ease;
   }
 
-  .faq-item:hover {
-    box-shadow: var(--shadow-md);
-  }
-
-  .faq-item summary {
-    font-weight: 600;
+  .faq-item h3 {
     font-size: 1.1rem;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-text);
-  }
-
-  .faq-item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-item summary::after {
-    content: '+';
-    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--color-primary);
-    font-weight: 400;
-    transition: transform 0.3s ease;
-  }
-
-  .faq-item[open] summary::after {
-    content: '−';
-  }
-
-  .faq-item[open] summary {
-    margin-bottom: 1rem;
-    color: var(--color-primary);
+    margin-bottom: 0.75rem;
   }
 
   .faq-item p {
@@ -606,7 +576,7 @@ const faqSchema = {
     .hero-stats { flex-direction: column; gap: 2rem; }
     .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: 1fr; }
-    .faq-item { padding: 1.25rem 1.5rem; }
-    .faq-item summary { font-size: 1rem; }
+    .faq-item { padding: 1.5rem; }
+    .faq-item h3 { font-size: 1rem; }
   }
 </style>
