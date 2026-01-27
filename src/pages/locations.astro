@@ -28,21 +28,41 @@ const locations = [
     description: 'Close to Pearson Airport and Port Credit waterfront. Consistent year-round demand from travelers.'
   },
   {
-    name: 'Southern Ontario',
-    slug: '/contact',
-    description: 'Have a property elsewhere in Southern Ontario? Get in touch to discuss how we can help manage your rental.'
+    name: 'Niagara Falls',
+    slug: '/niagara-falls-airbnb-management',
+    description: 'Canada\'s top tourist destination with 12M+ annual visitors. Premium rates in Fallsview and Casino District.'
+  },
+  {
+    name: 'Kitchener',
+    slug: '/kitchener-airbnb-management',
+    description: 'Tech hub with Google HQ and Oktoberfest tourism. Growing demand from business travelers and festival visitors.'
+  },
+  {
+    name: 'Waterloo',
+    slug: '/waterloo-airbnb-management',
+    description: 'Canada\'s Silicon Valley with major universities and 1,500+ tech startups. Strong year-round corporate demand.'
+  },
+  {
+    name: 'Guelph',
+    slug: '/guelph-airbnb-management',
+    description: 'Charming university city with 30K+ students. Consistent demand from visiting parents and academics.'
+  },
+  {
+    name: 'Calgary',
+    slug: '/calgary-airbnb-management',
+    description: 'Energy capital with Stampede tourism and year-round business travel. Gateway to Banff and the Rockies.'
   }
 ];
 ---
 
 <Layout
-  title="Airbnb Management Locations - Greater Toronto Area Service Areas"
-  description="Nurture provides Airbnb property management across the GTA including Downtown Toronto, North York, Etobicoke, Scarborough, and Mississauga. Local expertise for your rental."
+  title="Airbnb Management Locations | Toronto, Niagara Falls, Waterloo & More"
+  description="Professional Airbnb property management across Ontario and beyond. Toronto, Mississauga, Niagara Falls, Kitchener, Waterloo, Guelph, and Calgary. Local expertise, 10-15% fees."
 >
   <section class="hero hero-small">
     <div class="container">
-      <h1>Property Management in the Greater Toronto Area</h1>
-      <p class="hero-subtitle">Expert short and mid term rental property management across Southern Ontario</p>
+      <h1>Airbnb Management Across Ontario & Beyond</h1>
+      <p class="hero-subtitle">Expert short and mid term rental property management from Toronto to Calgary</p>
     </div>
   </section>
 
@@ -82,7 +102,7 @@ const locations = [
 
   .locations-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 
@@ -149,7 +169,13 @@ const locations = [
     background: var(--color-background-alt);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
+    .locations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
     .locations-grid {
       grid-template-columns: 1fr;
     }

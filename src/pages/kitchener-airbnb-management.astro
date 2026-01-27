@@ -1,0 +1,396 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '🏙️', name: 'Downtown Kitchener', description: 'Revitalized core with Google\'s Canadian HQ, tech startups, and the ION LRT. Strong demand from business travelers and tech workers.', revenue: '$2,600-$3,600/month' },
+  { icon: '🎭', name: 'King Street Corridor', description: 'Arts, culture, and entertainment district. Popular with visitors attending events at Centre in the Square and local festivals.', revenue: '$2,400-$3,200/month' },
+  { icon: '🏥', name: 'Grand River Hospital Area', description: 'Near the regional hospital. Consistent demand from medical professionals, patients\' families, and healthcare visitors.', revenue: '$2,200-$3,000/month' },
+  { icon: '🎓', name: 'Conestoga College Area', description: 'Near the Doon campus. Demand from visiting faculty, students\' families, and college event attendees.', revenue: '$2,000-$2,800/month' },
+  { icon: '🍺', name: 'Belmont Village', description: 'Charming neighborhood with local shops and restaurants. Appeals to leisure travelers seeking authentic experiences.', revenue: '$2,100-$2,900/month' },
+  { icon: '🏡', name: 'Stanley Park', description: 'Family-friendly area with parks and trails. Popular for mid-term stays from relocating families.', revenue: '$2,000-$2,700/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Repairs',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Oktoberfest Season Optimization',
+  'Transparent Revenue Reporting'
+];
+---
+
+<Layout title="Kitchener Airbnb Management | Tech Hub Property Management" description="Professional Airbnb property management in Kitchener, Ontario. Downtown, King Street, and hospital area. 10-15% commission. STR licensing support for 2025 regulations.">
+  <section class="hero">
+    <div class="container">
+      <h1><span class="highlight">Kitchener Airbnb Management</span></h1>
+      <p class="hero-subtitle">Expert property management in the heart of Waterloo Region</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">$2,600+</div>
+          <div class="stat-label">Avg Monthly Revenue</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">76%+</div>
+          <div class="stat-label">Avg Occupancy Rate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10-15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+      </div>
+
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Kitchener Property Can Earn</a>
+    </div>
+  </section>
+
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Kitchener Neighborhoods We Serve</h2>
+        <p>From tech corridor to historic villages</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Kitchener Short-Term Rental Bylaws</h2>
+        <p>What Kitchener property owners need to know</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-grid">
+          <div class="bylaw-card">
+            <h3>License Required (2025)</h3>
+            <p>As of January 2025, Kitchener requires licensing for short-term rentals under the new Lodging House Bylaw. We guide you through the registration process. <a href="https://www.kitchener.ca" target="_blank" rel="noopener">Visit the City website</a>.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Principal Residence Rule</h3>
+            <p>Short-term rentals must be your principal residence - the home where you live as your primary dwelling for most of the year.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Safety Inspections</h3>
+            <p>Properties must pass mandatory safety inspections to ensure compliance with fire and building codes before licensing.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Mid-Term Rentals</h3>
+            <p>Stays of 30+ days are generally exempt from STR restrictions. Great option for investment properties near Google HQ and tech companies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>The Oktoberfest & Tech Advantage</h2>
+        <p>Kitchener hosts the largest Oktoberfest celebration outside of Germany, bringing 700,000+ visitors over 9 days each fall. Properties can command 2-3x normal rates during this peak period.</p>
+        <p>Year-round, the growing tech sector centered around Google's Canadian headquarters and the ION LRT corridor drives consistent business travel demand. Downtown Kitchener has transformed into a thriving tech and innovation hub.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">700K+</div>
+          <div class="label">Oktoberfest Visitors</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">2-3x</div>
+          <div class="label">Oktoberfest Rates</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">Google</div>
+          <div class="label">Canadian HQ</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">ION</div>
+          <div class="label">LRT Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Kitchener Management</h2>
+        <p>Everything included at 10-15%</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Service Areas</h2>
+        <p>We manage properties across Ontario</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/waterloo-airbnb-management" class="area-link">
+          <span>Waterloo</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/guelph-airbnb-management" class="area-link">
+          <span>Guelph</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/downtown-toronto-airbnb-management" class="area-link">
+          <span>Downtown Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own a Kitchener Property?</h2>
+        <p>Get a free analysis showing how much your downtown or tech corridor property could earn with Airbnb.</p>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+  .bylaw-card a { color: var(--color-primary); text-decoration: underline; }
+  .bylaw-card a:hover { color: var(--color-primary-dark); }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #C9A961;
+  }
+
+  .airport-stat .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .services-section { background: var(--color-background-alt); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  .other-areas { background: var(--color-background); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+  .areas-cta a:hover { color: var(--color-primary-dark); }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+  }
+</style>
