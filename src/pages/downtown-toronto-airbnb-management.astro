@@ -25,27 +25,46 @@ const services = [
 const faqs = [
   {
     question: "Is Airbnb legal in Toronto?",
-    answer: "Yes, Airbnb is legal in Toronto, but hosts must comply with the city's short term rental regulations that took effect in 2021. Toronto requires all Airbnb hosts to obtain a Municipal Accommodation Tax (MAT) certificate and limits short term rentals to principal residences only. The regulations also cap rentals at 180 nights per year for entire home listings."
+    answer: "Yes, Airbnb is legal in Toronto, but hosts must comply with the city's short term rental regulations. Toronto requires all Airbnb hosts to register with the city ($375 initial fee, $55.35 annual renewal) and limits short term rentals to principal residences only. The regulations also cap entire-unit rentals at 180 nights per year.",
+    link: { text: "Read our complete Toronto Airbnb regulations guide", href: "/blog/toronto-airbnb-short-term-rental-regulations-2026" }
   },
   {
     question: "How much can I make on Airbnb in Toronto?",
-    answer: "Toronto Airbnb hosts typically earn between $3,000 to $8,000+ per month depending on property type, location, and management quality. A well-managed one-bedroom condo in downtown Toronto can generate $4,000 to $6,000 monthly, while larger properties in prime neighborhoods like King West or Entertainment District often exceed $8,000 per month."
+    answer: "Toronto Airbnb hosts typically earn between $3,000 to $8,000+ per month depending on property type, location, and management quality. A well-managed one-bedroom condo in downtown Toronto can generate $4,000 to $6,000 monthly, while larger properties in prime neighborhoods like King West or Entertainment District often exceed $8,000 per month. Even capped at 180 nights, most hosts earn 30 to 100% more than with a long term tenant."
+  },
+  {
+    question: "What is the 180 night limit in Toronto?",
+    answer: "Toronto's 180 night limit applies to entire-unit short term rentals per calendar year (January 1 to December 31). This limit resets annually and applies across ALL platforms combined, including Airbnb, VRBO, and direct bookings. Partial-unit rentals (renting rooms while you live there) have no night limit. Mid-term rentals of 28+ days also don't count toward this cap.",
+    link: { text: "Learn strategies to maximize nights legally", href: "/blog/toronto-airbnb-short-term-rental-regulations-2026" }
+  },
+  {
+    question: "How do I register my Airbnb in Toronto?",
+    answer: "To register your Toronto Airbnb, apply through the City of Toronto's online portal with proof of principal residence (2 to 3 documents like tax returns, driver's license, or utility bills). The registration fee is $375 initially and $55.35 for annual renewal. You must display your registration number on all listings. Registered properties can be inspected annually, and the operator must attend in person."
+  },
+  {
+    question: "What taxes do I pay on Toronto Airbnb income?",
+    answer: "Toronto Airbnb hosts must collect and remit the 8.5% Municipal Accommodation Tax (MAT) on all bookings under 28 days. Airbnb typically collects this automatically. You also owe federal and provincial income tax on your rental earnings. Keep detailed records for at least 3 years as the city can audit hosts at any time."
   },
   {
     question: "How much does Airbnb management cost in Toronto?",
     answer: "Airbnb management companies in Toronto typically charge between 15% to 25% of rental revenue, with most established services falling in the 18% to 25% range. At Nurture, we offer comprehensive Airbnb management at 10% to 15% commission with no upfront costs or long term contracts, allowing Toronto property owners to keep more of their rental income."
   },
   {
-    question: "What is Airbnb management?",
-    answer: "Airbnb management is a comprehensive service where experienced professionals handle all aspects of running your short term rental property, from guest communication and booking management to cleaning coordination and pricing optimization. In competitive markets like Toronto, professional management typically increases rental income by 30 to 100% compared to self-managed properties."
+    question: "What are the penalties for illegal Airbnb in Toronto?",
+    answer: "Non-compliance with Toronto's short term rental rules carries fines up to $50,000 for individuals and $100,000 for corporations, plus immediate listing removal. The city has increased enforcement with automated platform monitoring and can issue $7,000+ fines for exceeding 180 nights. All hosts must keep booking records for 3 years and make them available for inspection."
+  },
+  {
+    question: "Can I Airbnb my investment property in Toronto?",
+    answer: "No, Toronto requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (28+ days) which don't require STR registration or principal residence status. This is the best option for most investment property owners in Toronto's downtown core.",
+    link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
   },
   {
     question: "Is it worth hiring an Airbnb manager?",
-    answer: "Yes, hiring an Airbnb manager is typically worth it for Toronto property owners who want to maximize their rental income without the daily hassle. Professional managers handle everything from guest communications and cleaning coordination to dynamic pricing optimization, often increasing owner profits by 30 to 100% even after management fees."
+    answer: "Yes, hiring an Airbnb manager is typically worth it for Toronto property owners who want to maximize their rental income without the daily hassle. Professional managers handle everything from guest communications and cleaning coordination to dynamic pricing optimization, often increasing owner profits by 30 to 100% even after management fees. We respond to guests in under 9 minutes on average."
   },
   {
-    question: "What are the short term rental rules in Toronto?",
-    answer: "In Toronto, short term rentals are legal but must comply with specific regulations including registration with the city, operation only in your principal residence, and a maximum of 180 nights per year for entire home rentals. All hosts must obtain a Municipal Accommodation Tax (MAT) certificate and pay the required tax on bookings."
+    question: "What safety requirements do Toronto Airbnbs need?",
+    answer: "Every Toronto Airbnb must have working smoke and carbon monoxide detectors, fire extinguishers, and a clearly posted fire safety plan with emergency contact numbers (including 911). Hosts must also provide contact information for the nearest hospital and ensure the property meets all building and fire codes. These requirements are checked during annual inspections."
   }
 ];
 
@@ -190,6 +209,9 @@ const faqSchema = {
           <div class="faq-item">
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link.href} class="faq-link">{faq.link.text} →</a>
+            )}
           </div>
         ))}
       </div>
@@ -564,6 +586,20 @@ const faqSchema = {
     color: var(--color-text-light);
     line-height: 1.7;
     margin: 0;
+  }
+
+  .faq-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .faq-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
   }
 
   @media (max-width: 968px) {
