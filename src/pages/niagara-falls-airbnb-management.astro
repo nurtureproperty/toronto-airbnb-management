@@ -1,6 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const faqs = [
+  {
+    question: 'Is Airbnb legal in Niagara Falls?',
+    answer: 'Yes, but with strict zoning restrictions. Short-term rentals are ONLY permitted in Tourist, General Commercial, or Commercial zones in Niagara Falls. Residential zones do NOT allow Airbnb or other short-term rentals. Before listing your property, you must verify your zoning classification with the City of Niagara Falls.',
+    link: '/blog/niagara-falls-airbnb-short-term-rental-rules-2026'
+  },
+  {
+    question: 'Do I need a license to run an Airbnb in Niagara Falls?',
+    answer: 'Yes, all short-term rental operators in Niagara Falls must obtain a Vacation Rental Unit (VRU) license from the city. The initial license fee is $500, with an annual renewal fee of $250. Your VRU license number must be displayed on all listing platforms. Nurture handles the entire VRU application process for our clients.',
+    link: '/blog/niagara-falls-airbnb-short-term-rental-rules-2026'
+  },
+  {
+    question: 'How much can I make on Airbnb in Niagara Falls?',
+    answer: 'Niagara Falls is one of North America\'s top tourist destinations with over 12 million annual visitors, creating exceptional earning potential. Properties in prime areas like Fallsview can earn $4,500-$7,000 per month, while the Casino District sees $4,000-$6,000. Peak summer season and events like Winter Festival of Lights can command 3x normal rates.'
+  },
+  {
+    question: 'What are the zoning requirements for Airbnb in Niagara Falls?',
+    answer: 'Niagara Falls strictly limits short-term rentals to Tourist zones, General Commercial zones, and Commercial zones only. Residential zones are completely prohibited from operating STRs. This means most investment properties in residential neighborhoods cannot be used for Airbnb. Always verify your property\'s zoning before purchasing or listing.',
+    link: '/blog/niagara-falls-airbnb-short-term-rental-rules-2026'
+  },
+  {
+    question: 'What is the MAT tax in Niagara Falls?',
+    answer: 'Niagara Falls charges a Municipal Accommodation Tax (MAT) of $2 flat fee per night on all short-term rental bookings. This is typically collected automatically by platforms like Airbnb and remitted directly to the city, so hosts don\'t need to handle this separately.'
+  },
+  {
+    question: 'What insurance do I need for Airbnb in Niagara Falls?',
+    answer: 'Niagara Falls requires all VRU operators to maintain a minimum of $2 million in liability insurance coverage. Standard homeowner\'s insurance typically doesn\'t cover short-term rental activity, so you\'ll need specialized STR insurance. Nurture can recommend insurance providers experienced with vacation rental coverage.'
+  },
+  {
+    question: 'Should I self-manage my Niagara Falls Airbnb or hire a management company?',
+    answer: 'Niagara Falls\' unique regulations (VRU licensing, zoning restrictions, $2M insurance requirement) and high tourist volume make professional management valuable. Self-management works if you\'re local and available 24/7 for guest issues. However, with 12+ million annual visitors creating constant turnover, most owners find that a 10-15% management fee pays for itself through optimized pricing, faster response times, and compliance support.'
+  },
+  {
+    question: 'How does Nurture help with Niagara Falls Airbnb properties?',
+    answer: 'Nurture provides complete Airbnb management for Niagara Falls properties at 10-15% commission. We handle VRU license applications, dynamic pricing optimized for tourist seasons, 24/7 guest communication, professional cleaning coordination, and compliance with all local bylaws including the 3-bedroom maximum and 28-day stay limits. Our local expertise helps maximize your revenue in this competitive tourist market.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map(faq => ({
+    '@type': 'Question',
+    'name': faq.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': faq.answer
+    }
+  }))
+};
+
 const neighborhoods = [
   { icon: '🌊', name: 'Fallsview', description: 'Premium tourist zone with Falls views. Highest demand and rates in Niagara. Year-round tourism drives exceptional revenue.', revenue: '$4,500-$7,000/month' },
   { icon: '🎰', name: 'Casino District', description: 'Near Fallsview Casino and entertainment. Strong demand from casino visitors, concert goers, and tourists.', revenue: '$4,000-$6,000/month' },
@@ -155,26 +206,48 @@ const services = [
         <p>We manage properties across Ontario</p>
       </div>
       <div class="areas-grid">
-        <a href="/downtown-toronto-airbnb-management" class="area-link">
-          <span>Downtown Toronto</span>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
+        <a href="/oakville-airbnb-management" class="area-link">
+          <span>Oakville</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/downtown-toronto-airbnb-management" class="area-link">
+          <span>Downtown Toronto</span>
           <span class="arrow">→</span>
         </a>
         <a href="/kitchener-airbnb-management" class="area-link">
           <span>Kitchener</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/waterloo-airbnb-management" class="area-link">
-          <span>Waterloo</span>
-          <span class="arrow">→</span>
-        </a>
       </div>
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
     </div>
   </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Niagara Falls Airbnb</h2>
+        <p>Everything you need to know about short-term rentals in Niagara Falls</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link} class="faq-link">Learn more about Niagara Falls STR rules</a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">
@@ -394,11 +467,52 @@ const services = [
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .faq-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .faq-link:hover {
+    color: var(--color-primary-dark);
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 576px) {

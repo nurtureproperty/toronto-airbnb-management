@@ -22,11 +22,61 @@ const services = [
   'Transparent Revenue Reporting'
 ];
 
+const faqs = [
+  {
+    question: "Is Airbnb legal in Ajax, Ontario?",
+    answer: "Yes, Airbnb is legal in Ajax. Unlike many GTA municipalities, Ajax currently has no specific short-term rental bylaws or regulations. This means you can operate an Airbnb without the licensing requirements, principal residence rules, or night limits found in cities like Toronto or Mississauga. General property standards, noise bylaws, and parking regulations still apply."
+  },
+  {
+    question: "Do I need a license to run an Airbnb in Ajax?",
+    answer: "No, Ajax does not currently require a short-term rental license. You can list your property on Airbnb and other platforms without municipal registration or licensing fees. This is a significant advantage over nearby cities like Oshawa (which requires licensing) or Toronto (which has strict registration requirements)."
+  },
+  {
+    question: "Are there night limits for Airbnb rentals in Ajax?",
+    answer: "No, Ajax has no night limits for short-term rentals. Unlike Toronto's 180-night annual cap for entire-home rentals, you can rent your Ajax property year-round without restrictions on the number of nights. This makes Ajax one of the most flexible STR markets in the Greater Toronto Area."
+  },
+  {
+    question: "How much can I earn on Airbnb in Ajax?",
+    answer: "Ajax Airbnb properties typically earn $2,000-$3,200 per month depending on location and property type. Waterfront properties and those near the GO Station command premium rates. With no night limits, you can maximize occupancy year-round. Many hosts see 30-50% more income compared to traditional long-term rentals."
+  },
+  {
+    question: "Can I Airbnb an investment property in Ajax?",
+    answer: "Yes, you can operate an Airbnb on investment properties in Ajax. There's no principal residence requirement like in Toronto, Mississauga, or Brampton. This makes Ajax attractive for real estate investors looking to maximize rental income through short-term rentals on properties they don't live in."
+  },
+  {
+    question: "Will Ajax introduce STR regulations in the future?",
+    answer: "It's possible. Durham Region municipalities are monitoring short-term rental trends, and some like Oshawa have already implemented regulations. While Ajax currently has no STR bylaws, responsible hosting practices help maintain the current flexible environment. We recommend operating professionally to preserve this advantage."
+  },
+  {
+    question: "Should I self-manage my Ajax Airbnb or hire a property manager?",
+    answer: "Self-managing can work for local hosts with time flexibility, but professional management typically generates 20-30% higher revenue through optimized pricing, faster response times, and higher guest ratings. With Ajax's unregulated market allowing year-round rentals, maximizing each booking becomes even more valuable."
+  },
+  {
+    question: "How does Nurture help with Ajax Airbnb properties?",
+    answer: "Nurture provides full-service Airbnb management for Ajax properties at just 10-15% of revenue. We handle everything: professional photography, dynamic pricing, guest communication, cleaning coordination, and maintenance. Our local expertise in Durham Region helps you capitalize on Ajax's flexible STR market while maintaining excellent guest experiences."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
 const pageTitle = "Ajax Airbnb Management | Durham Region STR Experts";
 const pageDescription = "Professional Airbnb management in Ajax, Ontario. No STR regulations, no night limits. Durham Region's opportunity market. 10-15% fees. Get your free estimate.";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Ajax Airbnb Management</span></h1>
@@ -179,6 +229,23 @@ const pageDescription = "Professional Airbnb management in Ajax, Ontario. No STR
         </a>
       </div>
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Ajax Airbnb</h2>
+        <p>Everything you need to know about short-term rentals in Ajax</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -411,12 +478,42 @@ const pageDescription = "Professional Airbnb management in Ajax, Ontario. No STR
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .bylaw-card.highlight-card { grid-column: span 1; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 576px) {

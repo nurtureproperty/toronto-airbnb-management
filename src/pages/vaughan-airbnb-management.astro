@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '⚓', name: 'Port Credit', description: 'Charming waterfront village with boutiques, restaurants, and marina views. Popular with couples and families seeking a relaxing getaway close to Toronto.', revenue: '$3,500-$4,500/month' },
-  { icon: '🏙️', name: 'Square One District', description: 'Urban core with luxury condos, shopping, and entertainment. Strong demand from business travelers and shoppers visiting Square One Mall.', revenue: '$3,800-$5,000/month' },
-  { icon: '✈️', name: 'Airport Area', description: 'Prime location for flight crews, business travelers, and airport layovers. Consistent year-round demand with premium rates for convenience.', revenue: '$4,000-$5,500/month' },
-  { icon: '🏘️', name: 'Streetsville', description: 'Historic village charm with modern amenities. Popular with families and long-term corporate guests relocating to the GTA.', revenue: '$3,200-$4,200/month' },
-  { icon: '🌳', name: 'Erin Mills', description: 'Family-friendly suburb with parks and top schools. Strong mid-term rental demand from families in transition.', revenue: '$3,000-$4,000/month' },
-  { icon: '🏢', name: 'City Centre', description: 'Growing urban hub with new developments. Close to Celebration Square and civic amenities. Mix of short and mid-term demand.', revenue: '$3,400-$4,400/month' }
+  { icon: '🎢', name: 'Canada\'s Wonderland Area', description: 'Near the famous theme park with seasonal tourism surge. High summer demand from families visiting the park.', revenue: '$2,600-$3,600/month' },
+  { icon: '🏙️', name: 'Vaughan Metropolitan Centre', description: 'New downtown with subway access, KPMG tower, and SmartCentres Place. Strong business traveler demand.', revenue: '$2,800-$3,800/month' },
+  { icon: '🛍️', name: 'Vaughan Mills', description: 'Near Ontario\'s largest outlet mall. Attracts shoppers from across the province and cross-border visitors.', revenue: '$2,400-$3,200/month' },
+  { icon: '🏡', name: 'Thornhill', description: 'Affluent residential area with excellent schools. Popular with families relocating and visiting relatives.', revenue: '$2,500-$3,300/month' },
+  { icon: '🌳', name: 'Woodbridge', description: 'Established Italian-Canadian community with cultural events. Attracts visitors for weddings and family gatherings.', revenue: '$2,400-$3,200/month' },
+  { icon: '🏢', name: 'Concord', description: 'Industrial and commercial hub near Highway 7 and 407. Consistent demand from business travelers.', revenue: '$2,300-$3,100/month' }
 ];
 
 const services = [
@@ -18,45 +18,45 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Flexible Check-in/out for Flights',
+  'Bylaw Compliance & MAT Registration',
   'Transparent Revenue Reporting'
 ];
 
 const faqs = [
   {
-    question: "Is Airbnb legal in Mississauga?",
-    answer: "Yes, Airbnb is legal in Mississauga but requires a license from the City. The annual license fee is $283 and hosts must operate in their principal residence only. Mississauga limits entire-home rentals to 180 days per year and requires hosts to maintain proper insurance coverage.",
-    link: { text: "Read our complete Mississauga STR rules guide", href: "/blog/mississauga-airbnb-short-term-rental-rules-2026" }
+    question: "Is Airbnb legal in Vaughan?",
+    answer: "Yes, Airbnb is legal in Vaughan but requires registration and a license. Vaughan defines short term rentals as stays of 29 consecutive days or less. Only principal residences qualify, and hosts must register for the Municipal Accommodation Tax (MAT) which is 4% on all bookings.",
+    link: { text: "Read our complete Vaughan STR rules guide", href: "/blog/vaughan-airbnb-short-term-rental-guide-2026" }
   },
   {
-    question: "How much can I make on Airbnb in Mississauga?",
-    answer: "Mississauga Airbnb hosts typically earn $3,000 to $5,500+ per month depending on location and property type. Properties near Pearson Airport command premium rates ($4,000-$5,500/month) due to consistent year-round demand from flight crews and business travelers. Port Credit waterfront properties also perform exceptionally well."
+    question: "How much can I make on Airbnb in Vaughan?",
+    answer: "Vaughan Airbnb hosts typically earn $3,200 to $4,800+ per month depending on location and property type. Properties near Canada's Wonderland see peak summer demand, while Vaughan Metropolitan Centre condos attract year-round business travelers commuting to Toronto."
   },
   {
-    question: "What is the Mississauga Airbnb license fee?",
-    answer: "The Mississauga short term rental license costs $283 per year. You must apply through the City of Mississauga and provide proof that the property is your principal residence. The license must be renewed annually and your license number must appear on all listings.",
-    link: { text: "Learn more about Mississauga licensing requirements", href: "/blog/mississauga-airbnb-short-term-rental-rules-2026" }
+    question: "What is the Vaughan MAT tax?",
+    answer: "Vaughan charges a 4% Municipal Accommodation Tax (MAT) on all short term rental bookings. Hosts must register with the City and this tax is typically collected automatically by platforms like Airbnb. You must also display your license number on all listings.",
+    link: { text: "Learn more about Vaughan licensing requirements", href: "/blog/vaughan-airbnb-short-term-rental-guide-2026" }
   },
   {
-    question: "Can I Airbnb near Pearson Airport?",
-    answer: "Yes, properties near Pearson Airport in Mississauga are among the most profitable in the GTA. Flight crews, business travelers, and passengers with early flights or layovers create consistent year-round demand. We specialize in airport-area properties and can help optimize for this high-demand market."
+    question: "Can I Airbnb near Canada's Wonderland?",
+    answer: "Yes, properties near Canada's Wonderland in Vaughan are highly sought after during peak season (May-October). Families visiting the theme park prefer nearby accommodations over Toronto hotels. We help optimize listings to capture this seasonal demand with dynamic pricing."
   },
   {
-    question: "What are the penalties for unlicensed Airbnb in Mississauga?",
-    answer: "Operating an unlicensed short term rental in Mississauga can result in fines up to $100,000. The City actively enforces its bylaw and monitors listing platforms. We help all our Mississauga clients obtain proper licensing before listing their properties."
+    question: "What are the penalties for illegal Airbnb in Vaughan?",
+    answer: "Operating without proper registration in Vaughan can result in significant fines. The City monitors listing platforms and enforces its short term rental bylaw. We help all Vaughan clients obtain proper licensing before listing their properties."
   },
   {
-    question: "How much does Airbnb management cost in Mississauga?",
-    answer: "Airbnb management companies in Mississauga typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts. Our services include flexible check-in/out times essential for airport-area properties."
+    question: "How much does Airbnb management cost in Vaughan?",
+    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts, helping Vaughan property owners maximize their returns."
   },
   {
-    question: "Can I Airbnb my investment property in Mississauga?",
-    answer: "No, Mississauga's principal residence rule means you can only short term rent the home where you live. However, investment properties can operate as mid-term rentals (28+ days) which don't require STR licensing. This is a popular option for investors in Square One and airport areas.",
+    question: "Can I Airbnb my investment property in Vaughan?",
+    answer: "No, Vaughan requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (30+ days) which don't require STR registration. This is popular for properties near Vaughan Metropolitan Centre.",
     link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
   },
   {
-    question: "Is it worth hiring an Airbnb manager in Mississauga?",
-    answer: "Yes, especially for airport-area properties that benefit from flexible check-in times and rapid turnover. Professional managers handle everything from dynamic pricing to cleaning coordination, often increasing profits by 30 to 100% even after management fees. We respond to guests in under 9 minutes on average."
+    question: "Is it worth hiring an Airbnb manager in Vaughan?",
+    answer: "Yes, professional management typically increases profits by 30 to 100% through dynamic pricing, optimized listings, and superior guest communication. We respond to guests in under 9 minutes and handle everything from cleaning to maintenance."
   }
 ];
 
@@ -74,19 +74,19 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Mississauga Airbnb Management | Near Pearson Airport" description="Professional Airbnb property management in Mississauga. Port Credit, Square One, Streetsville & Erin Mills. Near Pearson Airport. 10-15% commission, 9-min response time.">
+<Layout title="Vaughan Airbnb Management | York Region Short-Term Rentals" description="Professional Airbnb property management in Vaughan, Ontario. VMC, Wonderland area, and Thornhill. 10-15% commission. Full licensing and MAT compliance support.">
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Mississauga Airbnb Management</span></h1>
-      <p class="hero-subtitle">Expert property management near Pearson Airport & the waterfront</p>
+      <h1><span class="highlight">Vaughan Airbnb Management</span></h1>
+      <p class="hero-subtitle">Expert property management in York Region's largest city</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$3,800+</div>
+          <div class="stat-number">$2,700+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">80%+</div>
+          <div class="stat-number">76%+</div>
           <div class="stat-label">Avg Occupancy Rate</div>
         </div>
         <div class="stat">
@@ -95,15 +95,15 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Mississauga Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Vaughan Property Can Earn</a>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Mississauga Neighborhoods We Serve</h2>
-        <p>From the airport to the waterfront</p>
+        <h2>Vaughan Neighborhoods We Serve</h2>
+        <p>From VMC to Canada's Wonderland</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -120,27 +120,49 @@ const faqSchema = {
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Mississauga Short-Term Rental Bylaws</h2>
-        <p>What Mississauga property owners need to know</p>
+        <h2>Vaughan Short-Term Rental Bylaws</h2>
+        <p>Complete guide to By-law 158-2019 requirements</p>
       </div>
       <div class="bylaws-content">
+        <div class="bylaws-intro">
+          <p>Vaughan regulates short-term rentals under By-law 158-2019 (consolidated February 2025). The city requires both a license and MAT registration. Here's what you need to know.</p>
+        </div>
         <div class="bylaws-grid">
           <div class="bylaw-card">
+            <h3>29-Day Maximum Stay</h3>
+            <p>In Vaughan, a short-term rental is defined as accommodation for 29 consecutive days or less. Rentals of 30+ days are considered long-term and exempt from STR regulations.</p>
+          </div>
+          <div class="bylaw-card">
             <h3>License Required</h3>
-            <p>Mississauga requires all short-term rental operators to obtain a license from the City. We can help you through the application process. <a href="https://www.mississauga.ca/services-and-programs/business/licences-and-permits/short-term-accommodation-licence/" target="_blank" rel="noopener">Apply on the City of Mississauga website</a>.</p>
+            <p>All STR operators must obtain a license from the City. Both individual operators and STR brokerages require separate licenses. Your license number must appear on all listings and advertisements.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Rule</h3>
-            <p>Like Toronto, Mississauga only allows short-term rentals in your principal residence, the home where you live as your primary dwelling.</p>
+            <h3>Principal Residence Only</h3>
+            <p>Short-term rentals must be your principal residence - where you ordinarily reside and conduct daily affairs. Investment properties cannot be used for STRs in Vaughan.</p>
           </div>
           <div class="bylaw-card">
-            <h3>180-Night Annual Limit</h3>
-            <p>Entire-home rentals are limited to 180 nights per calendar year. However, mid-term rentals (stays of 28 days or more) do not count toward this limit. Partial unit rentals have some exemptions to allow for more than 180 nights per year.</p>
+            <h3>$2 Million Insurance</h3>
+            <p>Operators must maintain liability insurance of at least $2,000,000 that specifically covers short-term rental activity. Proof of insurance is required for licensing.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Insurance Requirements</h3>
-            <p>Hosts must maintain adequate liability insurance. We recommend reviewing your policy with your insurance provider to ensure STR coverage.</p>
+            <h3>Vulnerable Sector Check</h3>
+            <p>Vaughan requires a vulnerable sector check (more comprehensive than a standard criminal record check) as part of your license application.</p>
           </div>
+          <div class="bylaw-card">
+            <h3>$750 Administrative Penalty</h3>
+            <p>Operating without a license or violating bylaw requirements can result in administrative penalties of $750 per offense. Multiple violations can lead to license revocation.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>4% Municipal Accommodation Tax</h3>
+            <p>Vaughan charges a 4% MAT on all short-term rentals. Operators must register for MAT separately from their STR license. Platforms like Airbnb collect this automatically.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Mid-Term Alternative</h3>
+            <p>Rentals of 30+ consecutive days are exempt from STR regulations. This is an excellent option for investment properties near VMC or Canada's Wonderland.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>We handle all licensing, MAT registration, and compliance. <a href="/contact">Contact us</a> to get started.</p>
         </div>
       </div>
     </div>
@@ -149,26 +171,26 @@ const faqSchema = {
   <section class="section why-section">
     <div class="container">
       <div class="why-content">
-        <h2>The Pearson Airport Advantage</h2>
-        <p>Mississauga properties near Pearson International Airport enjoy consistent year-round demand. Flight crews, business travelers, and passengers with early flights or layovers need quality accommodation close to the airport.</p>
-        <p>We specialize in optimizing airport-adjacent properties for maximum revenue, with flexible check-in/out times and amenities that airport guests need most.</p>
+        <h2>The Vaughan Advantage</h2>
+        <p>Vaughan has evolved from a suburban community into a major urban centre with its own downtown, subway connection to Toronto, and world-class attractions. Canada's Wonderland alone brings millions of visitors annually, creating summer demand spikes.</p>
+        <p>The new Vaughan Metropolitan Centre, with its high-rises, KPMG headquarters, and direct subway access, has transformed the city into a legitimate business destination. Combined with Vaughan Mills and ethnic cultural tourism, properties here enjoy diverse demand year-round.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">50M+</div>
-          <div class="label">Annual Pearson Passengers</div>
+          <div class="number">3.8M+</div>
+          <div class="label">Wonderland Visitors/Year</div>
         </div>
         <div class="airport-stat">
-          <div class="number">365</div>
-          <div class="label">Days of Demand</div>
+          <div class="number">340K+</div>
+          <div class="label">Population</div>
         </div>
         <div class="airport-stat">
-          <div class="number">90%+</div>
-          <div class="label">Airport Area Occupancy</div>
+          <div class="number">11,000+</div>
+          <div class="label">Businesses</div>
         </div>
         <div class="airport-stat">
-          <div class="number">$150+</div>
-          <div class="label">Avg Nightly Rate</div>
+          <div class="number">Direct</div>
+          <div class="label">Subway to Toronto</div>
         </div>
       </div>
     </div>
@@ -177,7 +199,7 @@ const faqSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Mississauga Management</h2>
+        <h2>Full-Service Vaughan Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -195,7 +217,7 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
-        <p>Common questions about Airbnb management in Mississauga</p>
+        <p>Common questions about Airbnb management in Vaughan</p>
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
@@ -217,19 +239,19 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Explore Our Other Service Areas</h2>
-        <p>We manage properties across the Greater Toronto Area</p>
+        <p>We manage properties across Ontario</p>
       </div>
       <div class="areas-grid">
+        <a href="/north-york-airbnb-management" class="area-link">
+          <span>North York</span>
+          <span class="arrow">→</span>
+        </a>
         <a href="/brampton-airbnb-management" class="area-link">
           <span>Brampton</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/oakville-airbnb-management" class="area-link">
-          <span>Oakville</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/etobicoke-airbnb-management" class="area-link">
-          <span>Etobicoke</span>
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
           <span class="arrow">→</span>
         </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
@@ -244,8 +266,8 @@ const faqSchema = {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Mississauga Property?</h2>
-        <p>Get a free analysis showing how much your Port Credit, Square One, or airport-area property could earn with Airbnb.</p>
+        <h2>Own a Vaughan Property?</h2>
+        <p>Get a free analysis showing how much your property could earn - whether near VMC, Wonderland, or Thornhill.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
@@ -259,17 +281,6 @@ const faqSchema = {
     padding: 8rem 0 6rem;
     text-align: center;
     margin-top: -2rem;
-  }
-
-  .location-badge {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
   }
 
   .hero h1 {
@@ -329,11 +340,18 @@ const faqSchema = {
 
   .bylaws-section { background: var(--color-background-alt); }
 
+  .bylaws-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
   .bylaws-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-bottom: 3rem;
   }
 
   .bylaw-card {
@@ -349,14 +367,15 @@ const faqSchema = {
   .bylaw-card a:hover { color: var(--color-primary-dark); }
 
   .bylaws-cta {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
+    margin-top: 2rem;
     text-align: center;
-    border: 2px solid var(--color-primary);
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
   }
 
-  .bylaws-cta p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
 
   .why-section {
     background: var(--color-primary-dark);
@@ -476,13 +495,6 @@ const faqSchema = {
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
-  @media (max-width: 968px) {
-    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .bylaws-grid { grid-template-columns: 1fr; }
-    .why-section .container { grid-template-columns: 1fr; }
-    .areas-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
   .faq-section { background: var(--color-background); }
   .faq-grid { max-width: 900px; margin: 0 auto; }
   .faq-item {
@@ -514,6 +526,13 @@ const faqSchema = {
   .faq-link:hover {
     color: var(--color-primary-dark);
     text-decoration: underline;
+  }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 576px) {

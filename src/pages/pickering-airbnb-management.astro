@@ -24,6 +24,54 @@ const services = [
 
 const pageTitle = "Pickering Airbnb Management | Durham Region STR Experts";
 const pageDescription = "Professional Airbnb management in Pickering, Ontario. No STR regulations, casino & waterfront demand. Durham's gateway to Toronto. 10-15% fees. Free estimate.";
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Pickering?",
+    answer: "Yes, Airbnb is legal in Pickering. Unlike Toronto, Mississauga, and other regulated GTA cities, Pickering currently has no specific short-term rental bylaws or restrictions. You can operate an Airbnb without a municipal license, principal residence requirements, or night limits. Standard property bylaws (noise, parking, property standards) still apply."
+  },
+  {
+    question: "Do I need a license for Airbnb in Pickering?",
+    answer: "No, Pickering does not currently require a short-term rental license. You can list your property on Airbnb and other platforms without registering with the city or paying licensing fees. This is a significant advantage over regulated markets like Toronto (which requires registration) or Mississauga (which requires a $283/year license)."
+  },
+  {
+    question: "Are there night limits for Airbnb in Pickering?",
+    answer: "No, there are no night limits for Airbnb rentals in Pickering. Unlike Toronto's 180-night annual cap for entire home rentals, you can operate your Pickering Airbnb year-round without restrictions. This allows for maximum revenue potential and consistent hosting throughout the year."
+  },
+  {
+    question: "How much can I make on Airbnb in Pickering?",
+    answer: "Pickering Airbnb properties typically earn $2,100-$3,500 per month depending on location, size, and amenities. Properties near Pickering Casino Resort and Frenchman's Bay command premium rates ($2,500-$3,500/month), while those near Rouge National Urban Park and the GO station also perform well. Demand comes from casino visitors, business travelers, contractors at Pickering Nuclear, and families visiting the area."
+  },
+  {
+    question: "Can I Airbnb an investment property in Pickering?",
+    answer: "Yes, investment properties can be used for Airbnb in Pickering. Unlike most regulated GTA cities that require STRs to be your principal residence, Pickering has no such restriction. This makes Pickering attractive for real estate investors looking to maximize rental income through short-term rentals on secondary properties."
+  },
+  {
+    question: "Will Pickering introduce STR regulations in the future?",
+    answer: "It's possible. Durham Region is developing STR frameworks, and nearby Whitby and Oshawa have introduced or are developing regulations. The City of Pickering monitors STR activity, particularly with increased demand from Pickering Casino Resort. Operating professionally and maintaining good neighbour relations helps preserve the current flexible regulatory environment."
+  },
+  {
+    question: "Should I self-manage my Pickering Airbnb or hire a property manager?",
+    answer: "Self-management works if you live nearby and have time for guest communication, cleaning coordination, and maintenance. However, professional management maximizes revenue through dynamic pricing, multi-platform distribution, and optimized listings. With Nurture's 10-15% fees (vs. 18-25% industry average), professional management often pays for itself through higher occupancy and nightly rates."
+  },
+  {
+    question: "How does Nurture help Pickering property owners?",
+    answer: "Nurture provides full-service Airbnb management for Pickering properties at 10-15% management fees. We handle professional photography, listing optimization, dynamic pricing, guest communication, cleaning coordination, maintenance, and 24/7 support. Our local Durham Region expertise helps maximize revenue from casino visitors, business travelers, and tourists visiting Rouge National Urban Park."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -181,6 +229,25 @@ const pageDescription = "Professional Airbnb management in Pickering, Ontario. N
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
     </div>
   </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Airbnb in Pickering</h2>
+        <p>Everything you need to know about short-term rentals in Pickering</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">
@@ -411,12 +478,41 @@ const pageDescription = "Professional Airbnb management in Pickering, Ontario. N
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background-alt); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item h3 {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .bylaw-card.highlight-card { grid-column: span 1; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 576px) {

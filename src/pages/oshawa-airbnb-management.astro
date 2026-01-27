@@ -22,6 +22,54 @@ const services = [
   'Transparent Revenue Reporting'
 ];
 
+const faqs = [
+  {
+    question: "Is Airbnb legal in Oshawa?",
+    answer: "Yes, Airbnb is legal in Oshawa but it is a regulated market. The City of Oshawa has specific short-term rental bylaws that define rentals of 28 consecutive days or less as short-term rentals. Operators must comply with licensing requirements, the principal residence rule, and zoning regulations. Operating legally protects you from fines up to $25,000 for individuals."
+  },
+  {
+    question: "Do I need a license for Airbnb in Oshawa?",
+    answer: "Yes, Oshawa requires all short-term rental operators to obtain a license from the City. You must apply through the municipality and meet all requirements including zoning compliance, providing a Visitor's Code to guests, and maintaining booking records for 6 years. Operating without a license can result in significant penalties."
+  },
+  {
+    question: "What is the 180-day limit for Airbnb in Oshawa?",
+    answer: "Oshawa limits entire-home short-term rentals to 180 nights per calendar year. This applies to rentals of 28 consecutive days or less. Stays longer than 28 days are considered mid-term rentals and do not count toward your 180-day limit. Proper tracking is essential to ensure compliance throughout the year."
+  },
+  {
+    question: "How much can I make on Airbnb in Oshawa?",
+    answer: "Oshawa Airbnb hosts typically earn between $2,000 and $3,300 per month depending on location, property type, and amenities. Properties near Ontario Tech University, Lakeridge Health hospital, or the Tribute Communities Centre tend to perform best due to consistent demand from students, medical visitors, and event attendees."
+  },
+  {
+    question: "Can I Airbnb an investment property in Oshawa?",
+    answer: "No, Oshawa's short-term rental bylaws require that the property be your principal residence. Investment properties, secondary homes, and rental properties cannot be used for short-term rentals under 28 days. However, mid-term rentals of 28+ days are an alternative for investment properties as they fall under different regulations."
+  },
+  {
+    question: "What are the penalties for Airbnb non-compliance in Oshawa?",
+    answer: "Oshawa enforces significant penalties for non-compliant short-term rental operations. Fines can reach up to $25,000 for individual operators and $50,000 for corporations. Violations include operating without a license, exceeding the 180-day limit, renting a non-principal residence, and failing to maintain required records."
+  },
+  {
+    question: "Should I self-manage my Oshawa Airbnb or hire a management company?",
+    answer: "Self-managing requires significant time for guest communication, cleaning coordination, and compliance tracking. With Oshawa's 6-year record-keeping requirement and 180-day limit tracking, professional management ensures nothing falls through the cracks. Management companies also optimize pricing to maximize your limited nights and handle licensing paperwork."
+  },
+  {
+    question: "How does Nurture help with Oshawa Airbnb properties?",
+    answer: "Nurture provides full-service Airbnb management in Oshawa at 10-15% fees. We handle license applications, compliance tracking for the 180-day limit, 6-year record keeping, Visitor's Code distribution to guests, dynamic pricing optimization, professional photography, guest screening, cleaning coordination, and 24/7 guest support. You earn passive income while we manage everything."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
 const pageTitle = "Oshawa Airbnb Management | Durham Region STR Experts";
 const pageDescription = "Professional Airbnb management in Oshawa, Ontario. Licensed STR market with 180-day limit. University, hospital & event venue demand. 10-15% fees.";
 ---
@@ -190,6 +238,23 @@ const pageDescription = "Professional Airbnb management in Oshawa, Ontario. Lice
     </div>
   </section>
 
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Oshawa Airbnb</h2>
+        <p>Everything you need to know about short-term rentals in Oshawa</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -200,6 +265,8 @@ const pageDescription = "Professional Airbnb management in Oshawa, Ontario. Lice
       </div>
     </div>
   </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
 <style>
@@ -419,12 +486,42 @@ const pageDescription = "Professional Airbnb management in Oshawa, Ontario. Lice
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .bylaw-card.highlight-card { grid-column: span 1; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 576px) {

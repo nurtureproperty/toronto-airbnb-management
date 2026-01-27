@@ -21,6 +21,56 @@ const services = [
   'Oktoberfest Season Optimization',
   'Transparent Revenue Reporting'
 ];
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Kitchener?",
+    answer: "Yes, Airbnb is legal in Kitchener. As of January 2025, short-term rentals are regulated under the new Lodging House Bylaw. You must obtain a license and meet specific requirements including the principal residence rule. Kitchener is part of the Waterloo Region, which has implemented coordinated STR regulations.",
+    link: "/blog/waterloo-airbnb-short-term-rental-rules-2026"
+  },
+  {
+    question: "Do I need a license for short-term rentals in Kitchener?",
+    answer: "Yes, a license is required for all short-term rentals in Kitchener as of January 2025. The license is issued under the new Lodging House Bylaw and requires you to register with the City of Kitchener, pass mandatory safety inspections, and comply with all STR regulations before hosting guests."
+  },
+  {
+    question: "What is the principal residence requirement in Kitchener?",
+    answer: "Kitchener requires that short-term rentals be your principal residence - the home where you live as your primary dwelling for the majority of the year. This means you must actually live in the property to legally operate it as an Airbnb. Investment properties and secondary homes are not eligible for STR licensing."
+  },
+  {
+    question: "Are safety inspections required for Kitchener Airbnbs?",
+    answer: "Yes, mandatory safety inspections are required before you can obtain an STR license in Kitchener. These inspections ensure your property meets fire safety codes, building standards, and other compliance requirements. Properties must have working smoke detectors, carbon monoxide alarms, fire extinguishers, and proper egress."
+  },
+  {
+    question: "How much can I make on Airbnb in Kitchener?",
+    answer: "Kitchener Airbnb hosts typically earn $2,000-$3,600 per month depending on location and property type. Properties near Downtown Kitchener (Google HQ area) and the King Street tech corridor command premium rates. During Oktoberfest season, hosts can see 2-3x normal rates. The strong tech sector and university presence (UW, Conestoga) drive year-round demand."
+  },
+  {
+    question: "Can I Airbnb an investment property in Kitchener?",
+    answer: "No, you cannot legally operate an investment property as a short-term rental in Kitchener. The principal residence requirement means only your primary home qualifies for STR licensing. However, mid-term rentals (30+ days) are typically exempt from these restrictions and can be a profitable alternative for investment properties near tech companies and universities.",
+    link: "/blog/waterloo-airbnb-short-term-rental-rules-2026"
+  },
+  {
+    question: "Should I self-manage my Kitchener Airbnb or hire a management company?",
+    answer: "Self-managing requires significant time for guest communication, cleaning coordination, pricing optimization, and compliance management. With Kitchener's 2025 licensing requirements and mandatory inspections, professional management can help ensure compliance while maximizing revenue. Nurture charges just 10-15% (vs. 18-25% industry average) with no long-term contracts."
+  },
+  {
+    question: "How does Nurture help Kitchener property owners?",
+    answer: "Nurture provides full-service Airbnb management for Kitchener properties including STR license application assistance, dynamic pricing optimized for tech travelers and Oktoberfest, professional photography, 24/7 guest communication, cleaning coordination, and compliance monitoring. We help you navigate the 2025 regulations while maximizing your rental income at just 10-15% commission."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout title="Kitchener Airbnb Management | Tech Hub Property Management" description="Professional Airbnb property management in Kitchener, Ontario. Downtown, King Street, and hospital area. 10-15% commission. STR licensing support for 2025 regulations.">
@@ -155,16 +205,36 @@ const services = [
           <span>Guelph</span>
           <span class="arrow">→</span>
         </a>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
+          <span class="arrow">→</span>
+        </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
           <span>Downtown Toronto</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
-          <span class="arrow">→</span>
-        </a>
       </div>
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Kitchener Airbnb</h2>
+        <p>Everything you need to know about short-term rentals in Kitchener</p>
+      </div>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link} class="faq-link">Learn more about Waterloo Region STR rules</a>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -178,6 +248,8 @@ const services = [
       </div>
     </div>
   </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
 <style>
@@ -380,6 +452,50 @@ const services = [
   .areas-cta { text-align: center; color: var(--color-text-light); }
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
+
+  .faq-section { background: var(--color-background-alt); }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+  .faq-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .faq-link:hover {
+    color: var(--color-primary-dark);
+  }
 
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }

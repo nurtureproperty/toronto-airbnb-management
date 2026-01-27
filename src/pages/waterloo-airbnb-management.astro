@@ -1,6 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const faqs = [
+  {
+    question: 'Is Airbnb legal in Waterloo?',
+    answer: 'Yes, Airbnb is legal in Waterloo, but it is now regulated. As of January 2025, the City of Waterloo requires a residential rental license for short-term rentals in low-rise residential buildings. Your property must also be your principal residence to qualify for short-term rental licensing.',
+    link: '/blog/waterloo-airbnb-short-term-rental-rules-2026'
+  },
+  {
+    question: 'Do I need a license for short-term rentals in Waterloo?',
+    answer: 'Yes, as of January 2025, Waterloo requires a license for STRs in low-rise residential buildings. Enforcement of these regulations began in May 2025. The city has approximately 500 STR listings, and around 100 are expected to convert to long-term rentals due to these new requirements.',
+    link: '/blog/waterloo-airbnb-short-term-rental-rules-2026'
+  },
+  {
+    question: 'What is the principal residence requirement in Waterloo?',
+    answer: 'The principal residence requirement means you can only operate a short-term rental in the home where you live as your primary dwelling for most of the year. This rule applies to low-rise residential units in Waterloo. You cannot short-term rent a property that is not your main home.'
+  },
+  {
+    question: 'How much can I make on Airbnb in Waterloo?',
+    answer: 'Waterloo is a strong Airbnb market due to its two major universities (University of Waterloo and Wilfrid Laurier) and thriving tech sector. Properties typically earn $2,400-$3,800 per month depending on location, with the Tech Corridor and Uptown areas commanding premium rates. Demand drivers include parents visiting students, conference attendees, tech workers on assignment, and interview candidates.'
+  },
+  {
+    question: 'Can I Airbnb an investment property in Waterloo?',
+    answer: 'No, investment properties cannot be used for short-term rentals in Waterloo. The principal residence requirement means only the home where you live as your primary residence qualifies for STR licensing in low-rise buildings. However, mid-term rentals (30+ days) are generally exempt from these restrictions and are an excellent alternative for investment properties near the universities and tech companies.'
+  },
+  {
+    question: 'When did Waterloo\'s STR regulations take effect?',
+    answer: 'Waterloo\'s short-term rental licensing requirements for low-rise residential buildings took effect in January 2025. Enforcement of these regulations began in May 2025. Property owners who were operating STRs before this date needed to obtain proper licensing to continue legally hosting guests.',
+    link: '/blog/waterloo-airbnb-short-term-rental-rules-2026'
+  },
+  {
+    question: 'Should I self-manage my Waterloo Airbnb or hire a management company?',
+    answer: 'Self-managing can work if you live nearby and have time for guest communication, cleaning coordination, and maintenance. However, Waterloo\'s tech-driven market demands quick responses (tech workers expect professionalism) and university events create surge periods requiring dynamic pricing expertise. A professional manager can maximize revenue during peak periods like convocation, parents\' weekends, and tech conferences while handling the 24/7 demands of hosting.'
+  },
+  {
+    question: 'How does Nurture help with Waterloo properties?',
+    answer: 'Nurture provides full-service Airbnb management for Waterloo properties at just 10-15% commission. We handle STR licensing assistance, professional photography, dynamic pricing optimized for university and tech events, 24/7 guest communication, cleaning coordination, and maintenance. Our local expertise means we understand Waterloo\'s unique demand patterns and can maximize your revenue while keeping you compliant with city regulations.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+};
+
 const neighborhoods = [
   { icon: '🎓', name: 'University District', description: 'Near University of Waterloo and Wilfrid Laurier. High demand from visiting professors, parents, and conference attendees.', revenue: '$2,400-$3,400/month' },
   { icon: '💼', name: 'Uptown Waterloo', description: 'Vibrant downtown core with tech companies, restaurants, and King Street nightlife. Popular with business travelers.', revenue: '$2,600-$3,600/month' },
@@ -155,18 +206,40 @@ const services = [
           <span>Guelph</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/downtown-toronto-airbnb-management" class="area-link">
-          <span>Downtown Toronto</span>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
+        <a href="/brampton-airbnb-management" class="area-link">
+          <span>Brampton</span>
           <span class="arrow">→</span>
         </a>
       </div>
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
     </div>
   </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Waterloo Airbnb Management</h2>
+        <p>Everything you need to know about short-term rentals in Waterloo</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link} class="faq-link">Learn more about Waterloo STR rules</a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">
@@ -381,9 +454,48 @@ const services = [
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background-alt); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item h3 {
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .faq-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .faq-link:hover {
+    color: var(--color-primary-dark);
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .bylaws-grid { grid-template-columns: 1fr; }
+    .bylaws-grid, .faq-grid { grid-template-columns: 1fr; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -392,5 +504,6 @@ const services = [
     .hero-stats { flex-direction: column; gap: 2rem; }
     .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 </style>

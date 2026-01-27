@@ -21,6 +21,54 @@ const services = [
   'University Event Optimization',
   'Transparent Revenue Reporting'
 ];
+
+const faqs = [
+  {
+    question: 'Is Airbnb legal in Guelph?',
+    answer: 'Guelph is currently reviewing its short-term rental regulations. While there is no comprehensive STR bylaw in place yet, property owners should check with the City of Guelph for the most current requirements. Standard zoning, building code, and fire safety regulations still apply to all rental properties. We recommend contacting the city directly and staying informed as regulations may be introduced.'
+  },
+  {
+    question: 'Do I need a license for Airbnb in Guelph?',
+    answer: 'As of now, Guelph does not have a mandatory STR licensing program, but this could change as the city evaluates its rental housing policies. Property owners should monitor city announcements for any new licensing requirements. Regardless of licensing, you must comply with all applicable zoning bylaws, building codes, and obtain any necessary business permits.'
+  },
+  {
+    question: 'Are there night limits for Airbnb in Guelph?',
+    answer: 'Currently, Guelph does not impose specific night limits on short-term rentals like some other Ontario cities. However, as the city develops its STR framework, restrictions similar to other municipalities (such as 180-night annual limits) may be considered. We stay updated on regulatory changes and help our clients adapt their strategies accordingly.'
+  },
+  {
+    question: 'How much can I make on Airbnb in Guelph?',
+    answer: 'Guelph properties typically earn $2,000 to $3,400 per month depending on location, size, and amenities. The University of Guelph creates consistent demand during the academic year, with peak periods around Parents Weekend, convocation, orientation, and academic conferences. Downtown properties and those near the hospital also perform well. Our dynamic pricing optimization helps capture premium rates during high-demand periods.'
+  },
+  {
+    question: 'Can I Airbnb an investment property in Guelph?',
+    answer: 'Currently, Guelph does not have principal residence requirements for short-term rentals, meaning investment properties may be eligible for Airbnb. However, this could change if the city introduces STR-specific regulations. Always verify with the city and check your condo corporation rules if applicable. For investment properties, mid-term rentals (30+ days) targeting visiting professors or students on placement are often a reliable strategy.'
+  },
+  {
+    question: 'What regulations is Guelph considering for short-term rentals?',
+    answer: 'Guelph is actively evaluating short-term rental regulations as part of broader housing policy discussions. Potential measures being considered by many Ontario cities include licensing requirements, principal residence rules, night limits, and municipal accommodation taxes. We monitor city council meetings and planning documents to keep our clients informed of any proposed changes that could affect their rental strategy.'
+  },
+  {
+    question: 'Should I self-manage my Guelph Airbnb or hire a management company?',
+    answer: 'Self-management works if you live nearby and can handle guest communications, cleaning coordination, maintenance issues, and be available for emergencies. However, Guelph\'s university-driven demand requires strategic pricing around academic events, quick turnover management, and 24/7 guest support. Professional management typically increases revenue by 30-50% through optimized pricing and higher occupancy rates while eliminating the time commitment.'
+  },
+  {
+    question: 'How does Nurture help with Guelph properties?',
+    answer: 'Nurture provides full-service Airbnb management for Guelph properties at 10-15% commission. We handle professional photography, listing optimization, dynamic pricing tuned to university events, guest screening and communication, cleaning coordination, and maintenance. Our local knowledge of Guelph\'s academic calendar and tourism patterns helps maximize your earnings while we stay current on any regulatory changes affecting your property.'
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout title="Guelph Airbnb Management | University Town Property Management" description="Professional Airbnb property management in Guelph, Ontario. University area, downtown, and hospital district. 10-15% commission. Expert local management for your rental.">
@@ -155,18 +203,37 @@ const services = [
           <span>Waterloo</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/downtown-toronto-airbnb-management" class="area-link">
-          <span>Downtown Toronto</span>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
+        <a href="/brampton-airbnb-management" class="area-link">
+          <span>Brampton</span>
           <span class="arrow">→</span>
         </a>
       </div>
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
     </div>
   </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Guelph Airbnb</h2>
+        <p>Common questions about short-term rentals in Guelph</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">
@@ -381,11 +448,40 @@ const services = [
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background-alt); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item h3 {
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 576px) {

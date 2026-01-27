@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '⚓', name: 'Port Credit', description: 'Charming waterfront village with boutiques, restaurants, and marina views. Popular with couples and families seeking a relaxing getaway close to Toronto.', revenue: '$3,500-$4,500/month' },
-  { icon: '🏙️', name: 'Square One District', description: 'Urban core with luxury condos, shopping, and entertainment. Strong demand from business travelers and shoppers visiting Square One Mall.', revenue: '$3,800-$5,000/month' },
-  { icon: '✈️', name: 'Airport Area', description: 'Prime location for flight crews, business travelers, and airport layovers. Consistent year-round demand with premium rates for convenience.', revenue: '$4,000-$5,500/month' },
-  { icon: '🏘️', name: 'Streetsville', description: 'Historic village charm with modern amenities. Popular with families and long-term corporate guests relocating to the GTA.', revenue: '$3,200-$4,200/month' },
-  { icon: '🌳', name: 'Erin Mills', description: 'Family-friendly suburb with parks and top schools. Strong mid-term rental demand from families in transition.', revenue: '$3,000-$4,000/month' },
-  { icon: '🏢', name: 'City Centre', description: 'Growing urban hub with new developments. Close to Celebration Square and civic amenities. Mix of short and mid-term demand.', revenue: '$3,400-$4,400/month' }
+  { icon: '🏙️', name: 'Downtown Hamilton', description: 'City centre with arts scene, restaurants, and Jackson Square. Great for business travelers and concert-goers at FirstOntario Centre.', revenue: '$2,200-$3,000/month' },
+  { icon: '🏥', name: 'McMaster Area', description: 'Near McMaster University and hospital. High demand from visiting academics, medical professionals, and parents.', revenue: '$2,400-$3,200/month' },
+  { icon: '⛰️', name: 'Hamilton Mountain', description: 'Residential area above the escarpment with stunning views. Popular with families and longer-term guests.', revenue: '$2,000-$2,800/month' },
+  { icon: '🏖️', name: 'Beach Strip', description: 'Between Hamilton Harbour and Lake Ontario. Seasonal hotspot for summer travelers seeking waterfront access.', revenue: '$2,600-$3,400/month' },
+  { icon: '🎭', name: 'James Street North', description: 'Arts and culture district with galleries, cafes, and the monthly Art Crawl. Attracts creative professionals and tourists.', revenue: '$2,300-$3,100/month' },
+  { icon: '🌳', name: 'Westdale', description: 'Charming village atmosphere near McMaster. Popular with visiting professors and families exploring Hamilton.', revenue: '$2,200-$3,000/month' }
 ];
 
 const services = [
@@ -18,45 +18,45 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Flexible Check-in/out for Flights',
+  'Bylaw Compliance & Licensing Support',
   'Transparent Revenue Reporting'
 ];
 
 const faqs = [
   {
-    question: "Is Airbnb legal in Mississauga?",
-    answer: "Yes, Airbnb is legal in Mississauga but requires a license from the City. The annual license fee is $283 and hosts must operate in their principal residence only. Mississauga limits entire-home rentals to 180 days per year and requires hosts to maintain proper insurance coverage.",
-    link: { text: "Read our complete Mississauga STR rules guide", href: "/blog/mississauga-airbnb-short-term-rental-rules-2026" }
+    question: "Is Airbnb legal in Hamilton?",
+    answer: "Yes, Airbnb is legal in Hamilton but requires a license. Only principal residences qualify, and hosts must maintain $2 million liability insurance. License fees range from $200 to $1,000 depending on the type, and licenses are valid for 2 years.",
+    link: { text: "Read our complete Hamilton STR rules guide", href: "/blog/hamilton-airbnb-short-term-rental-guide-2026" }
   },
   {
-    question: "How much can I make on Airbnb in Mississauga?",
-    answer: "Mississauga Airbnb hosts typically earn $3,000 to $5,500+ per month depending on location and property type. Properties near Pearson Airport command premium rates ($4,000-$5,500/month) due to consistent year-round demand from flight crews and business travelers. Port Credit waterfront properties also perform exceptionally well."
+    question: "How much can I make on Airbnb in Hamilton?",
+    answer: "Hamilton Airbnb hosts typically earn $2,500 to $4,000+ per month depending on location. Downtown Hamilton and waterfront properties near the harbourfront perform best, while properties near McMaster University see strong demand from visiting families and academics."
   },
   {
-    question: "What is the Mississauga Airbnb license fee?",
-    answer: "The Mississauga short term rental license costs $283 per year. You must apply through the City of Mississauga and provide proof that the property is your principal residence. The license must be renewed annually and your license number must appear on all listings.",
-    link: { text: "Learn more about Mississauga licensing requirements", href: "/blog/mississauga-airbnb-short-term-rental-rules-2026" }
+    question: "What insurance do I need for Airbnb in Hamilton?",
+    answer: "Hamilton requires all short term rental hosts to maintain $2 million in liability insurance. Standard homeowner's insurance typically doesn't cover STR activity, so you'll need specialized coverage. We can recommend insurance providers familiar with Hamilton's requirements.",
+    link: { text: "Learn more about Hamilton licensing requirements", href: "/blog/hamilton-airbnb-short-term-rental-guide-2026" }
   },
   {
-    question: "Can I Airbnb near Pearson Airport?",
-    answer: "Yes, properties near Pearson Airport in Mississauga are among the most profitable in the GTA. Flight crews, business travelers, and passengers with early flights or layovers create consistent year-round demand. We specialize in airport-area properties and can help optimize for this high-demand market."
+    question: "What is the Hamilton STR license fee?",
+    answer: "Hamilton's short term rental license fees range from $200 to $1,000 depending on the license type and property. Licenses are valid for 2 years, making the effective annual cost quite reasonable compared to other GTA municipalities."
   },
   {
-    question: "What are the penalties for unlicensed Airbnb in Mississauga?",
-    answer: "Operating an unlicensed short term rental in Mississauga can result in fines up to $100,000. The City actively enforces its bylaw and monitors listing platforms. We help all our Mississauga clients obtain proper licensing before listing their properties."
+    question: "What are the penalties for unlicensed Airbnb in Hamilton?",
+    answer: "Operating without a license in Hamilton can result in fines and enforcement action. The City actively monitors listing platforms and enforces its bylaw. We help all Hamilton clients obtain proper licensing and insurance before listing."
   },
   {
-    question: "How much does Airbnb management cost in Mississauga?",
-    answer: "Airbnb management companies in Mississauga typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts. Our services include flexible check-in/out times essential for airport-area properties."
+    question: "How much does Airbnb management cost in Hamilton?",
+    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts, helping Hamilton property owners maximize their returns."
   },
   {
-    question: "Can I Airbnb my investment property in Mississauga?",
-    answer: "No, Mississauga's principal residence rule means you can only short term rent the home where you live. However, investment properties can operate as mid-term rentals (28+ days) which don't require STR licensing. This is a popular option for investors in Square One and airport areas.",
+    question: "Can I Airbnb my investment property in Hamilton?",
+    answer: "No, Hamilton requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (28+ days) which don't require STR licensing. This is popular for properties near McMaster and downtown.",
     link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
   },
   {
-    question: "Is it worth hiring an Airbnb manager in Mississauga?",
-    answer: "Yes, especially for airport-area properties that benefit from flexible check-in times and rapid turnover. Professional managers handle everything from dynamic pricing to cleaning coordination, often increasing profits by 30 to 100% even after management fees. We respond to guests in under 9 minutes on average."
+    question: "Is it worth hiring an Airbnb manager in Hamilton?",
+    answer: "Yes, professional management typically increases profits by 30 to 100% through dynamic pricing, optimized listings, and superior guest communication. We handle everything from licensing assistance to cleaning and respond to guests in under 9 minutes."
   }
 ];
 
@@ -74,19 +74,19 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Mississauga Airbnb Management | Near Pearson Airport" description="Professional Airbnb property management in Mississauga. Port Credit, Square One, Streetsville & Erin Mills. Near Pearson Airport. 10-15% commission, 9-min response time.">
+<Layout title="Hamilton Airbnb Management | Steel City Short-Term Rentals" description="Professional Airbnb property management in Hamilton, Ontario. McMaster area, Downtown, and Beach Strip. 10-15% commission. Full licensing and bylaw compliance support.">
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Mississauga Airbnb Management</span></h1>
-      <p class="hero-subtitle">Expert property management near Pearson Airport & the waterfront</p>
+      <h1><span class="highlight">Hamilton Airbnb Management</span></h1>
+      <p class="hero-subtitle">Expert property management in the ambitious city</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$3,800+</div>
+          <div class="stat-number">$2,400+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">80%+</div>
+          <div class="stat-number">74%+</div>
           <div class="stat-label">Avg Occupancy Rate</div>
         </div>
         <div class="stat">
@@ -95,15 +95,15 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Mississauga Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Hamilton Property Can Earn</a>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Mississauga Neighborhoods We Serve</h2>
-        <p>From the airport to the waterfront</p>
+        <h2>Hamilton Neighborhoods We Serve</h2>
+        <p>From the mountain to the waterfront</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -120,27 +120,49 @@ const faqSchema = {
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Mississauga Short-Term Rental Bylaws</h2>
-        <p>What Mississauga property owners need to know</p>
+        <h2>Hamilton Short-Term Rental Bylaws</h2>
+        <p>Complete guide to Schedule 32 requirements</p>
       </div>
       <div class="bylaws-content">
+        <div class="bylaws-intro">
+          <p>Hamilton's STR regulations were added as Schedule 32 to the City's Business Licensing By-law (07-170) in January 2023. Here's what you need to know to operate legally.</p>
+        </div>
         <div class="bylaws-grid">
           <div class="bylaw-card">
             <h3>License Required</h3>
-            <p>Mississauga requires all short-term rental operators to obtain a license from the City. We can help you through the application process. <a href="https://www.mississauga.ca/services-and-programs/business/licences-and-permits/short-term-accommodation-licence/" target="_blank" rel="noopener">Apply on the City of Mississauga website</a>.</p>
+            <p>All STR operators must obtain a license from the City. Your license number must be displayed prominently in every listing and advertisement. Licenses are valid for one year and must be renewed annually.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Rule</h3>
-            <p>Like Toronto, Mississauga only allows short-term rentals in your principal residence, the home where you live as your primary dwelling.</p>
+            <h3>Principal Residence Only</h3>
+            <p>You can only operate an STR at your principal residence - where you ordinarily reside, pay bills, and receive mail. Only one principal residence is permitted per operator, and corporations cannot hold operator licenses.</p>
           </div>
           <div class="bylaw-card">
-            <h3>180-Night Annual Limit</h3>
-            <p>Entire-home rentals are limited to 180 nights per calendar year. However, mid-term rentals (stays of 28 days or more) do not count toward this limit. Partial unit rentals have some exemptions to allow for more than 180 nights per year.</p>
+            <h3>$1 Million Insurance</h3>
+            <p>Operators must maintain homeowners, condo, or renters insurance that includes STR coverage with minimum $1,000,000 liability per occurrence. The policy must include a clause notifying the City 30 days before cancellation.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Insurance Requirements</h3>
-            <p>Hosts must maintain adequate liability insurance. We recommend reviewing your policy with your insurance provider to ensure STR coverage.</p>
+            <h3>Criminal Record Check</h3>
+            <p>Your license application requires an original criminal record check (or certification that none exists). Convictions within the past 5 years may result in license denial.</p>
           </div>
+          <div class="bylaw-card">
+            <h3>Guest Limits & Information</h3>
+            <p>Maximum guest occupancy must be displayed in listings. You're required to provide guests with an information package including emergency contacts, house rules, and local bylaws.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Fire Safety Requirements</h3>
+            <p>A fire escape plan must be submitted with your application and posted on all floors. Working smoke alarms and CO detectors are required per Fire Code standards.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Record Keeping</h3>
+            <p>Operators must maintain records of all bookings for 3 years including: number of nights rented, nightly rates, and total prices charged. Records must be provided to the City within 30 days upon request.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Mid-Term Alternative</h3>
+            <p>Rentals of 28+ consecutive days are exempt from STR regulations. This is an excellent option for investment properties near McMaster University or Hamilton Health Sciences.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>We handle all licensing paperwork and compliance requirements. <a href="/contact">Contact us</a> to get started.</p>
         </div>
       </div>
     </div>
@@ -149,26 +171,26 @@ const faqSchema = {
   <section class="section why-section">
     <div class="container">
       <div class="why-content">
-        <h2>The Pearson Airport Advantage</h2>
-        <p>Mississauga properties near Pearson International Airport enjoy consistent year-round demand. Flight crews, business travelers, and passengers with early flights or layovers need quality accommodation close to the airport.</p>
-        <p>We specialize in optimizing airport-adjacent properties for maximum revenue, with flexible check-in/out times and amenities that airport guests need most.</p>
+        <h2>The Hamilton Advantage</h2>
+        <p>Hamilton has transformed from a steel town into one of Ontario's most exciting cities. With a booming arts scene, world-class healthcare facilities, and McMaster University drawing visitors year-round, the demand for short-term accommodation continues to grow.</p>
+        <p>The city's affordability compared to Toronto, combined with GO Train access and proximity to Niagara wine country, makes Hamilton properties attractive to diverse guest demographics - from medical professionals to weekend tourists.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">50M+</div>
-          <div class="label">Annual Pearson Passengers</div>
+          <div class="number">35K+</div>
+          <div class="label">McMaster Students</div>
         </div>
         <div class="airport-stat">
-          <div class="number">365</div>
-          <div class="label">Days of Demand</div>
+          <div class="number">800K+</div>
+          <div class="label">Hospital Visits/Year</div>
         </div>
         <div class="airport-stat">
-          <div class="number">90%+</div>
-          <div class="label">Airport Area Occupancy</div>
+          <div class="number">140+</div>
+          <div class="label">Waterfalls</div>
         </div>
         <div class="airport-stat">
-          <div class="number">$150+</div>
-          <div class="label">Avg Nightly Rate</div>
+          <div class="number">45 min</div>
+          <div class="label">GO Train to Toronto</div>
         </div>
       </div>
     </div>
@@ -177,7 +199,7 @@ const faqSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Mississauga Management</h2>
+        <h2>Full-Service Hamilton Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -195,7 +217,7 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
-        <p>Common questions about Airbnb management in Mississauga</p>
+        <p>Common questions about Airbnb management in Hamilton</p>
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
@@ -217,19 +239,19 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Explore Our Other Service Areas</h2>
-        <p>We manage properties across the Greater Toronto Area</p>
+        <p>We manage properties across Ontario</p>
       </div>
       <div class="areas-grid">
-        <a href="/brampton-airbnb-management" class="area-link">
-          <span>Brampton</span>
-          <span class="arrow">→</span>
-        </a>
         <a href="/oakville-airbnb-management" class="area-link">
           <span>Oakville</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/etobicoke-airbnb-management" class="area-link">
-          <span>Etobicoke</span>
+        <a href="/burlington-airbnb-management" class="area-link">
+          <span>Burlington</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/niagara-falls-airbnb-management" class="area-link">
+          <span>Niagara Falls</span>
           <span class="arrow">→</span>
         </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
@@ -244,8 +266,8 @@ const faqSchema = {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Mississauga Property?</h2>
-        <p>Get a free analysis showing how much your Port Credit, Square One, or airport-area property could earn with Airbnb.</p>
+        <h2>Own a Hamilton Property?</h2>
+        <p>Get a free analysis showing how much your property could earn - whether near McMaster, downtown, or on the Beach Strip.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
@@ -259,17 +281,6 @@ const faqSchema = {
     padding: 8rem 0 6rem;
     text-align: center;
     margin-top: -2rem;
-  }
-
-  .location-badge {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
   }
 
   .hero h1 {
@@ -329,11 +340,18 @@ const faqSchema = {
 
   .bylaws-section { background: var(--color-background-alt); }
 
+  .bylaws-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
   .bylaws-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-bottom: 3rem;
   }
 
   .bylaw-card {
@@ -349,14 +367,15 @@ const faqSchema = {
   .bylaw-card a:hover { color: var(--color-primary-dark); }
 
   .bylaws-cta {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
+    margin-top: 2rem;
     text-align: center;
-    border: 2px solid var(--color-primary);
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
   }
 
-  .bylaws-cta p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
 
   .why-section {
     background: var(--color-primary-dark);
@@ -476,44 +495,19 @@ const faqSchema = {
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+  .faq-grid { max-width: 900px; margin: 0 auto; }
+  .faq-item { background: white; border-radius: 12px; margin-bottom: 1.5rem; padding: 2rem; box-shadow: var(--shadow-sm); }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; margin: 0; }
+  .faq-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 500; text-decoration: none; font-size: 0.95rem; }
+  .faq-link:hover { color: var(--color-primary-dark); text-decoration: underline; }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .faq-section { background: var(--color-background); }
-  .faq-grid { max-width: 900px; margin: 0 auto; }
-  .faq-item {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
-  }
-  .faq-item h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 0.75rem;
-  }
-  .faq-item p {
-    color: var(--color-text-light);
-    line-height: 1.7;
-    margin: 0;
-  }
-  .faq-link {
-    display: inline-block;
-    margin-top: 0.75rem;
-    color: var(--color-primary);
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 0.95rem;
-  }
-  .faq-link:hover {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
   }
 
   @media (max-width: 576px) {

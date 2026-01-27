@@ -1,6 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const faqs = [
+  {
+    question: "Is Airbnb legal in Whitby?",
+    answer: "Yes, Airbnb is currently legal in Whitby. Unlike many Ontario municipalities, Whitby does not yet have specific short-term rental regulations in place. You can operate an Airbnb without a dedicated STR license, though standard property bylaws (noise, parking, property standards) still apply. However, the town is actively developing a new licensing framework, so this may change."
+  },
+  {
+    question: "Do I need a license for Airbnb in Whitby?",
+    answer: "Not yet. As of now, Whitby does not require a specific short-term rental license. However, the town is working on new STR regulations through ConnectWhitby.ca. We recommend establishing your Airbnb presence now, as existing operators often receive grandfather provisions when new rules take effect."
+  },
+  {
+    question: "Are there night limits for Airbnb in Whitby?",
+    answer: "Currently, there are no night limits for Airbnb rentals in Whitby. You can rent your property year-round without restrictions. When regulations are introduced, limits may follow the pattern of other Ontario cities (typically 180 nights per year for entire home rentals), but for now there are no caps."
+  },
+  {
+    question: "How much can I make on Airbnb in Whitby?",
+    answer: "Whitby properties typically earn $2,000-$3,500 per month depending on location, size, and amenities. Harbour-area properties and those near the GO station tend to command premium rates. A well-optimized 2-bedroom near downtown Whitby can generate $2,800+ monthly with proper pricing and management."
+  },
+  {
+    question: "Can I Airbnb an investment property in Whitby?",
+    answer: "Yes, currently you can Airbnb an investment property in Whitby since there are no principal residence requirements. This is a significant advantage over Toronto, Mississauga, and other GTA cities where STRs must be your primary home. However, this may change when new regulations are introduced."
+  },
+  {
+    question: "Is Whitby introducing STR regulations?",
+    answer: "Yes, Whitby is actively developing a new short-term rental licensing framework. The town has been engaging residents and stakeholders through ConnectWhitby.ca to gather input. While no specific timeline has been announced, hosts should prepare for regulations that may include licensing, insurance requirements, and potentially principal residence rules."
+  },
+  {
+    question: "Should I self-manage my Whitby Airbnb or hire a property manager?",
+    answer: "Self-management works if you have time for guest communication, cleaning coordination, pricing optimization, and maintenance. However, professional management typically increases revenue by 20-40% through dynamic pricing, better listings, and faster response times. With regulations coming, having a manager who monitors compliance changes is valuable."
+  },
+  {
+    question: "How does Nurture help with Whitby properties?",
+    answer: "We provide full-service Airbnb management at just 10-15% commission - significantly lower than competitors charging 18-25%. Our services include professional photography, dynamic pricing, guest communication, cleaning coordination, and regulatory monitoring. We track Whitby's developing STR framework and will help you adapt when new rules arrive."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
 const neighborhoods = [
   { icon: '⛵', name: 'Whitby Harbour', description: 'Historic port with marina, restaurants, and waterfront trails. Popular weekend destination attracting Toronto visitors seeking lakefront escapes.', revenue: '$2,600-$3,500/month' },
   { icon: '🏛️', name: 'Downtown Whitby', description: 'Charming main street with heritage buildings, boutiques, and eateries. Appeals to couples and history enthusiasts exploring Durham Region.', revenue: '$2,300-$3,100/month' },
@@ -181,6 +229,25 @@ const pageDescription = "Professional Airbnb management in Whitby, Ontario. Harb
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
     </div>
   </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Whitby Airbnb</h2>
+        <p>Everything you need to know about short-term rentals in Whitby</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">
@@ -411,12 +478,42 @@ const pageDescription = "Professional Airbnb management in Whitby, Ontario. Harb
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 {
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
     .bylaw-card.highlight-card { grid-column: span 1; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 576px) {

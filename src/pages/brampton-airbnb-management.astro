@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '⚓', name: 'Port Credit', description: 'Charming waterfront village with boutiques, restaurants, and marina views. Popular with couples and families seeking a relaxing getaway close to Toronto.', revenue: '$3,500-$4,500/month' },
-  { icon: '🏙️', name: 'Square One District', description: 'Urban core with luxury condos, shopping, and entertainment. Strong demand from business travelers and shoppers visiting Square One Mall.', revenue: '$3,800-$5,000/month' },
-  { icon: '✈️', name: 'Airport Area', description: 'Prime location for flight crews, business travelers, and airport layovers. Consistent year-round demand with premium rates for convenience.', revenue: '$4,000-$5,500/month' },
-  { icon: '🏘️', name: 'Streetsville', description: 'Historic village charm with modern amenities. Popular with families and long-term corporate guests relocating to the GTA.', revenue: '$3,200-$4,200/month' },
-  { icon: '🌳', name: 'Erin Mills', description: 'Family-friendly suburb with parks and top schools. Strong mid-term rental demand from families in transition.', revenue: '$3,000-$4,000/month' },
-  { icon: '🏢', name: 'City Centre', description: 'Growing urban hub with new developments. Close to Celebration Square and civic amenities. Mix of short and mid-term demand.', revenue: '$3,400-$4,400/month' }
+  { icon: '🏙️', name: 'Downtown Brampton', description: 'City centre with Garden Square events, Rose Theatre, and GO Transit hub. Popular with business travelers and event attendees.', revenue: '$2,300-$3,100/month' },
+  { icon: '✈️', name: 'Airport Corporate Centre', description: 'Near Pearson Airport and major corporate offices. High demand from business travelers and flight crews.', revenue: '$2,600-$3,500/month' },
+  { icon: '🏡', name: 'Mount Pleasant', description: 'Family-friendly area with shopping and parks. Great for relocating families and longer-term guests.', revenue: '$2,200-$3,000/month' },
+  { icon: '🎓', name: 'Sheridan College Area', description: 'Near Davis Campus with student and academic visitor demand. Popular during orientation and graduation seasons.', revenue: '$2,000-$2,800/month' },
+  { icon: '🌳', name: 'Heart Lake', description: 'Near Conservation Area with nature tourism appeal. Attracts outdoor enthusiasts and weekend visitors.', revenue: '$2,100-$2,900/month' },
+  { icon: '🏢', name: 'Bramalea', description: 'Industrial and commercial hub with diverse employment. Consistent business traveler demand year-round.', revenue: '$2,200-$3,000/month' }
 ];
 
 const services = [
@@ -18,45 +18,45 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Flexible Check-in/out for Flights',
+  'Bylaw Compliance & Licensing Support',
   'Transparent Revenue Reporting'
 ];
 
 const faqs = [
   {
-    question: "Is Airbnb legal in Mississauga?",
-    answer: "Yes, Airbnb is legal in Mississauga but requires a license from the City. The annual license fee is $283 and hosts must operate in their principal residence only. Mississauga limits entire-home rentals to 180 days per year and requires hosts to maintain proper insurance coverage.",
-    link: { text: "Read our complete Mississauga STR rules guide", href: "/blog/mississauga-airbnb-short-term-rental-rules-2026" }
+    question: "Is Airbnb legal in Brampton?",
+    answer: "Yes, Airbnb is legal in Brampton but strictly regulated. Only principal residences qualify, and hosts are limited to renting a maximum of 3 bedrooms individually. Brampton charges a 4% Municipal Accommodation Tax (MAT) on all short term rental bookings.",
+    link: { text: "Read our complete Brampton STR rules guide", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
   },
   {
-    question: "How much can I make on Airbnb in Mississauga?",
-    answer: "Mississauga Airbnb hosts typically earn $3,000 to $5,500+ per month depending on location and property type. Properties near Pearson Airport command premium rates ($4,000-$5,500/month) due to consistent year-round demand from flight crews and business travelers. Port Credit waterfront properties also perform exceptionally well."
+    question: "How much can I make on Airbnb in Brampton?",
+    answer: "Brampton Airbnb hosts typically earn $2,800 to $4,200+ per month depending on location and property type. Properties near the GO Transit stations and Sheridan College see strong demand from commuters and students seeking short term accommodation."
   },
   {
-    question: "What is the Mississauga Airbnb license fee?",
-    answer: "The Mississauga short term rental license costs $283 per year. You must apply through the City of Mississauga and provide proof that the property is your principal residence. The license must be renewed annually and your license number must appear on all listings.",
-    link: { text: "Learn more about Mississauga licensing requirements", href: "/blog/mississauga-airbnb-short-term-rental-rules-2026" }
+    question: "What is the Brampton STR bedroom limit?",
+    answer: "Brampton limits short term rentals to a maximum of 3 bedrooms rented individually at any time. This applies whether you're renting the entire home or individual rooms. The property must also be your principal residence.",
+    link: { text: "Learn more about Brampton rental requirements", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
   },
   {
-    question: "Can I Airbnb near Pearson Airport?",
-    answer: "Yes, properties near Pearson Airport in Mississauga are among the most profitable in the GTA. Flight crews, business travelers, and passengers with early flights or layovers create consistent year-round demand. We specialize in airport-area properties and can help optimize for this high-demand market."
+    question: "What is the Brampton MAT tax?",
+    answer: "Brampton charges a 4% Municipal Accommodation Tax on all short term rental bookings. This is typically collected automatically by platforms like Airbnb and remitted to the City. Hosts must register with the City to operate legally."
   },
   {
-    question: "What are the penalties for unlicensed Airbnb in Mississauga?",
-    answer: "Operating an unlicensed short term rental in Mississauga can result in fines up to $100,000. The City actively enforces its bylaw and monitors listing platforms. We help all our Mississauga clients obtain proper licensing before listing their properties."
+    question: "What are the penalties for illegal Airbnb in Brampton?",
+    answer: "Operating without proper registration in Brampton can result in fines and enforcement action. The City monitors listing platforms and enforces its short term rental bylaw. We help all Brampton clients ensure full compliance before listing."
   },
   {
-    question: "How much does Airbnb management cost in Mississauga?",
-    answer: "Airbnb management companies in Mississauga typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts. Our services include flexible check-in/out times essential for airport-area properties."
+    question: "How much does Airbnb management cost in Brampton?",
+    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts, helping Brampton property owners maximize their returns."
   },
   {
-    question: "Can I Airbnb my investment property in Mississauga?",
-    answer: "No, Mississauga's principal residence rule means you can only short term rent the home where you live. However, investment properties can operate as mid-term rentals (28+ days) which don't require STR licensing. This is a popular option for investors in Square One and airport areas.",
+    question: "Can I Airbnb my investment property in Brampton?",
+    answer: "No, Brampton requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (28+ days) which don't fall under STR regulations. This is a good option for properties near transit hubs.",
     link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
   },
   {
-    question: "Is it worth hiring an Airbnb manager in Mississauga?",
-    answer: "Yes, especially for airport-area properties that benefit from flexible check-in times and rapid turnover. Professional managers handle everything from dynamic pricing to cleaning coordination, often increasing profits by 30 to 100% even after management fees. We respond to guests in under 9 minutes on average."
+    question: "Is it worth hiring an Airbnb manager in Brampton?",
+    answer: "Yes, professional management typically increases profits by 30 to 100% through dynamic pricing, optimized listings, and superior guest communication. We handle everything from cleaning coordination to maintenance and respond to guests in under 9 minutes."
   }
 ];
 
@@ -74,19 +74,19 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Mississauga Airbnb Management | Near Pearson Airport" description="Professional Airbnb property management in Mississauga. Port Credit, Square One, Streetsville & Erin Mills. Near Pearson Airport. 10-15% commission, 9-min response time.">
+<Layout title="Brampton Airbnb Management | Flower City Short-Term Rentals" description="Professional Airbnb property management in Brampton, Ontario. Airport area, Downtown, and Mount Pleasant. 10-15% commission. Full bylaw compliance with 180-night limit support.">
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Mississauga Airbnb Management</span></h1>
-      <p class="hero-subtitle">Expert property management near Pearson Airport & the waterfront</p>
+      <h1><span class="highlight">Brampton Airbnb Management</span></h1>
+      <p class="hero-subtitle">Expert property management in the Flower City</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$3,800+</div>
+          <div class="stat-number">$2,400+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">80%+</div>
+          <div class="stat-number">75%+</div>
           <div class="stat-label">Avg Occupancy Rate</div>
         </div>
         <div class="stat">
@@ -95,15 +95,15 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Mississauga Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Brampton Property Can Earn</a>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Mississauga Neighborhoods We Serve</h2>
-        <p>From the airport to the waterfront</p>
+        <h2>Brampton Neighborhoods We Serve</h2>
+        <p>From downtown to the airport corridor</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -120,27 +120,49 @@ const faqSchema = {
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Mississauga Short-Term Rental Bylaws</h2>
-        <p>What Mississauga property owners need to know</p>
+        <h2>Brampton Short-Term Rental Bylaws</h2>
+        <p>Complete guide to By-law 165-2021 requirements</p>
       </div>
       <div class="bylaws-content">
+        <div class="bylaws-intro">
+          <p>Brampton regulates short-term rentals under By-law 165-2021. The city requires licensing and has specific limits on nights and bedrooms. Here's everything you need to operate legally.</p>
+        </div>
         <div class="bylaws-grid">
-          <div class="bylaw-card">
-            <h3>License Required</h3>
-            <p>Mississauga requires all short-term rental operators to obtain a license from the City. We can help you through the application process. <a href="https://www.mississauga.ca/services-and-programs/business/licences-and-permits/short-term-accommodation-licence/" target="_blank" rel="noopener">Apply on the City of Mississauga website</a>.</p>
+          <div class="bylaw-card highlight-card">
+            <h3>180 Night Annual Limit</h3>
+            <p>Brampton caps short-term rentals at <strong>180 nights per calendar year</strong>. This is one of the most important rules to track. We provide night tracking as part of our management service to ensure you stay compliant.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Rule</h3>
-            <p>Like Toronto, Mississauga only allows short-term rentals in your principal residence, the home where you live as your primary dwelling.</p>
+            <h3>License Required - $150/Year</h3>
+            <p>All STR operators must obtain a license from the City. The annual fee is $150, and licenses must be renewed by September 30 each year. Your license number must appear on all listings.</p>
           </div>
           <div class="bylaw-card">
-            <h3>180-Night Annual Limit</h3>
-            <p>Entire-home rentals are limited to 180 nights per calendar year. However, mid-term rentals (stays of 28 days or more) do not count toward this limit. Partial unit rentals have some exemptions to allow for more than 180 nights per year.</p>
+            <h3>Principal Residence Only</h3>
+            <p>Short-term rentals must be your principal residence - where you normally live and receive mail. Investment properties cannot be used for STRs under 28 days.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Insurance Requirements</h3>
-            <p>Hosts must maintain adequate liability insurance. We recommend reviewing your policy with your insurance provider to ensure STR coverage.</p>
+            <h3>Maximum 3 Bedrooms</h3>
+            <p>You can rent a maximum of 3 bedrooms individually within your STR. This limit applies regardless of your home's total bedroom count.</p>
           </div>
+          <div class="bylaw-card">
+            <h3>$2 Million Insurance</h3>
+            <p>Operators must maintain liability insurance of at least $2,000,000. Your insurance policy must specifically cover short-term rental activity.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Criminal Record Check</h3>
+            <p>License applications require a criminal record check. This must be submitted with your initial application and may be required for renewals.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Occupancy Limits</h3>
+            <p>Guest occupancy is limited to 1 person per 14 square metres of habitable floor space. This determines your maximum guest count regardless of bedroom number.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>4% Municipal Accommodation Tax</h3>
+            <p>Brampton charges a 4% MAT on all short-term rentals. This is typically collected and remitted automatically by platforms like Airbnb.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>We track your nights, handle licensing, and ensure full compliance. <a href="/contact">Contact us</a> to get started.</p>
         </div>
       </div>
     </div>
@@ -149,26 +171,26 @@ const faqSchema = {
   <section class="section why-section">
     <div class="container">
       <div class="why-content">
-        <h2>The Pearson Airport Advantage</h2>
-        <p>Mississauga properties near Pearson International Airport enjoy consistent year-round demand. Flight crews, business travelers, and passengers with early flights or layovers need quality accommodation close to the airport.</p>
-        <p>We specialize in optimizing airport-adjacent properties for maximum revenue, with flexible check-in/out times and amenities that airport guests need most.</p>
+        <h2>The Brampton Advantage</h2>
+        <p>As one of Canada's fastest-growing cities, Brampton offers unique opportunities for short-term rental hosts. Its proximity to Pearson Airport creates consistent demand from business travelers, flight crews, and transit passengers.</p>
+        <p>With major employers like Amazon, Loblaw, and Rogers nearby, plus a thriving South Asian cultural scene attracting visitors for weddings and festivals, Brampton properties enjoy diverse demand throughout the year.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">50M+</div>
-          <div class="label">Annual Pearson Passengers</div>
+          <div class="number">650K+</div>
+          <div class="label">Population</div>
         </div>
         <div class="airport-stat">
-          <div class="number">365</div>
-          <div class="label">Days of Demand</div>
+          <div class="number">15 min</div>
+          <div class="label">To Pearson Airport</div>
         </div>
         <div class="airport-stat">
-          <div class="number">90%+</div>
-          <div class="label">Airport Area Occupancy</div>
+          <div class="number">8,400+</div>
+          <div class="label">Businesses</div>
         </div>
         <div class="airport-stat">
-          <div class="number">$150+</div>
-          <div class="label">Avg Nightly Rate</div>
+          <div class="number">45 min</div>
+          <div class="label">GO Train to Toronto</div>
         </div>
       </div>
     </div>
@@ -177,7 +199,7 @@ const faqSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Mississauga Management</h2>
+        <h2>Full-Service Brampton Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -195,7 +217,7 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
-        <p>Common questions about Airbnb management in Mississauga</p>
+        <p>Common questions about Airbnb management in Brampton</p>
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
@@ -217,23 +239,23 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Explore Our Other Service Areas</h2>
-        <p>We manage properties across the Greater Toronto Area</p>
+        <p>We manage properties across Ontario</p>
       </div>
       <div class="areas-grid">
-        <a href="/brampton-airbnb-management" class="area-link">
-          <span>Brampton</span>
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/oakville-airbnb-management" class="area-link">
-          <span>Oakville</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/etobicoke-airbnb-management" class="area-link">
-          <span>Etobicoke</span>
+        <a href="/vaughan-airbnb-management" class="area-link">
+          <span>Vaughan</span>
           <span class="arrow">→</span>
         </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
           <span>Downtown Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/north-york-airbnb-management" class="area-link">
+          <span>North York</span>
           <span class="arrow">→</span>
         </a>
       </div>
@@ -244,8 +266,8 @@ const faqSchema = {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Mississauga Property?</h2>
-        <p>Get a free analysis showing how much your Port Credit, Square One, or airport-area property could earn with Airbnb.</p>
+        <h2>Own a Brampton Property?</h2>
+        <p>Get a free analysis showing how much your property could earn - and how to maximize your 180 allowed nights.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
@@ -259,17 +281,6 @@ const faqSchema = {
     padding: 8rem 0 6rem;
     text-align: center;
     margin-top: -2rem;
-  }
-
-  .location-badge {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
   }
 
   .hero h1 {
@@ -329,11 +340,18 @@ const faqSchema = {
 
   .bylaws-section { background: var(--color-background-alt); }
 
+  .bylaws-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
   .bylaws-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-bottom: 3rem;
   }
 
   .bylaw-card {
@@ -343,20 +361,26 @@ const faqSchema = {
     box-shadow: var(--shadow-sm);
   }
 
+  .bylaw-card.highlight-card {
+    border: 2px solid var(--color-primary);
+    grid-column: span 2;
+  }
+
   .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
   .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
   .bylaw-card a { color: var(--color-primary); text-decoration: underline; }
   .bylaw-card a:hover { color: var(--color-primary-dark); }
 
   .bylaws-cta {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
+    margin-top: 2rem;
     text-align: center;
-    border: 2px solid var(--color-primary);
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
   }
 
-  .bylaws-cta p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
 
   .why-section {
     background: var(--color-primary-dark);
@@ -476,44 +500,20 @@ const faqSchema = {
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+  .faq-grid { max-width: 900px; margin: 0 auto; }
+  .faq-item { background: white; border-radius: 12px; margin-bottom: 1.5rem; padding: 2rem; box-shadow: var(--shadow-sm); }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; margin: 0; }
+  .faq-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 500; text-decoration: none; font-size: 0.95rem; }
+  .faq-link:hover { color: var(--color-primary-dark); text-decoration: underline; }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .bylaws-grid { grid-template-columns: 1fr; }
+    .bylaw-card.highlight-card { grid-column: span 1; }
     .why-section .container { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .faq-section { background: var(--color-background); }
-  .faq-grid { max-width: 900px; margin: 0 auto; }
-  .faq-item {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
-  }
-  .faq-item h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 0.75rem;
-  }
-  .faq-item p {
-    color: var(--color-text-light);
-    line-height: 1.7;
-    margin: 0;
-  }
-  .faq-link {
-    display: inline-block;
-    margin-top: 0.75rem;
-    color: var(--color-primary);
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 0.95rem;
-  }
-  .faq-link:hover {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
   }
 
   @media (max-width: 576px) {

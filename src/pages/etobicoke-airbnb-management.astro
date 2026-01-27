@@ -21,6 +21,56 @@ const services = [
   'Event-Based Pricing (CNE, Games)',
   'Transparent Revenue Reporting'
 ];
+
+const faqs = [
+  {
+    question: 'Is Airbnb legal in Etobicoke?',
+    answer: 'Yes, Airbnb is legal in Etobicoke. As part of the City of Toronto, Etobicoke follows Toronto\'s short-term rental regulations. You must register your property with the City of Toronto, operate only in your principal residence, and follow the 180-night annual limit for entire home rentals.',
+    link: '/blog/toronto-airbnb-short-term-rental-regulations-2026'
+  },
+  {
+    question: 'What are the short-term rental rules for Etobicoke?',
+    answer: 'Etobicoke follows Toronto\'s STR bylaws: registration is required with the City of Toronto, only principal residences qualify, entire home rentals are capped at 180 nights per year (unlimited for partial unit rentals while you\'re home), and an 8.5% Municipal Accommodation Tax (MAT) applies to all bookings.',
+    link: '/blog/toronto-airbnb-short-term-rental-regulations-2026'
+  },
+  {
+    question: 'Do I need to register my Etobicoke property for Airbnb?',
+    answer: 'Yes, all short-term rentals in Etobicoke must be registered with the City of Toronto before listing on Airbnb or any other platform. You\'ll receive a registration number that must be displayed on all your listings. Nurture can help you navigate the registration process.'
+  },
+  {
+    question: 'What is the 180-night limit for Airbnb in Etobicoke?',
+    answer: 'The 180-night limit applies to entire home rentals in Etobicoke (and all of Toronto). You can rent your entire property for up to 180 nights per calendar year. However, if you rent rooms while you\'re home (partial unit rental), there is no night limit. Mid-term rentals of 28+ days also don\'t count toward the 180-night cap.'
+  },
+  {
+    question: 'How much can I make on Airbnb in Etobicoke?',
+    answer: 'Etobicoke Airbnb properties typically earn $2,800 to $5,500 per month depending on location and property type. Waterfront properties in Mimico and Humber Bay command premium rates ($3,800-$5,200/month), while areas near Exhibition Place see revenue spikes during CNE, concerts, and sporting events.'
+  },
+  {
+    question: 'Can I Airbnb an investment property in Etobicoke?',
+    answer: 'No, you cannot operate a short-term rental on an investment property in Etobicoke. Toronto\'s principal residence requirement means you can only Airbnb the home where you actually live. However, mid-term rentals (30+ days) are an alternative for investment properties as they\'re exempt from STR regulations.'
+  },
+  {
+    question: 'Should I self-manage my Etobicoke Airbnb or hire a management company?',
+    answer: 'Self-managing requires 24/7 availability for guest communication, coordinating cleaners, handling maintenance, and optimizing pricing. Professional management at 10-15% typically increases revenue by 30-100% through dynamic pricing, professional photography, and faster response times. Most hosts find the net income is higher with management than self-managing.'
+  },
+  {
+    question: 'How does Nurture help with Etobicoke Airbnb properties?',
+    answer: 'Nurture provides full-service Airbnb management for Etobicoke properties at just 10-15% commission. We handle professional photography, dynamic pricing optimized for waterfront and event-driven demand, guest communication (9-minute average response), cleaning coordination, maintenance, and compliance with Toronto\'s STR regulations.'
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout title="Etobicoke Airbnb Management | 10-15% Fees" description="Professional Airbnb property management in Etobicoke. Waterfront properties in Mimico, Humber Bay, The Queensway & Islington. 10-15% commission, 9-min response time.">
@@ -146,6 +196,14 @@ const services = [
         <p>We manage properties across the Greater Toronto Area</p>
       </div>
       <div class="areas-grid">
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/oakville-airbnb-management" class="area-link">
+          <span>Oakville</span>
+          <span class="arrow">→</span>
+        </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
           <span>Downtown Toronto</span>
           <span class="arrow">→</span>
@@ -154,16 +212,28 @@ const services = [
           <span>North York</span>
           <span class="arrow">→</span>
         </a>
-        <a href="/scarborough-airbnb-management" class="area-link">
-          <span>Scarborough</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
-          <span class="arrow">→</span>
-        </a>
       </div>
       <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions About Airbnb in Etobicoke</h2>
+        <p>Everything you need to know about short-term rentals in Etobicoke</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link} class="faq-link">Learn more about Toronto STR regulations</a>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -177,6 +247,8 @@ const services = [
       </div>
     </div>
   </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
 <style>
@@ -373,9 +445,51 @@ const services = [
   .areas-cta a { color: var(--color-primary); text-decoration: underline; }
   .areas-cta a:hover { color: var(--color-primary-dark); }
 
+  .faq-section { background: var(--color-background); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .faq-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .faq-link:hover {
+    color: var(--color-primary-dark);
+  }
+
   @media (max-width: 968px) {
     .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-grid, .bylaws-grid { grid-template-columns: 1fr; }
+    .why-grid, .bylaws-grid, .faq-grid { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
