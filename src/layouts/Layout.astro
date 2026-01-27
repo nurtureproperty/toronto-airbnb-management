@@ -17,24 +17,44 @@ const siteUrl = "https://www.nurturestays.ca";
 const currentPath = Astro.url.pathname;
 const canonicalUrl = canonical || `${siteUrl}${currentPath === '/' ? '' : currentPath}`;
 
-// Base Organization schema for all pages
-const organizationSchema = {
+// LocalBusiness schema for GBP ranking
+const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
+  "@id": "https://www.nurturestays.ca/#business",
   "name": "Nurture Airbnb Property Management",
   "url": "https://www.nurturestays.ca",
   "logo": "https://www.nurturestays.ca/images/logo.webp",
-  "description": "Professional Airbnb property management in the Greater Toronto Area. We handle guest communication, cleaning, pricing, and maintenance.",
+  "image": "https://www.nurturestays.ca/images/logo.webp",
+  "description": "Professional Airbnb property management in the Greater Toronto Area. We handle guest communication, cleaning, pricing, and maintenance. 10-15% fees, 9-minute response time.",
   "telephone": "+1-647-957-8956",
   "email": "hello@nurturestays.ca",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "140 Simcoe St",
     "addressLocality": "Toronto",
     "addressRegion": "ON",
+    "postalCode": "M5H 4E9",
     "addressCountry": "CA"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.6492,
+    "longitude": -79.3856
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "priceRange": "$$",
+  "currenciesAccepted": "CAD",
+  "paymentAccepted": "Credit Card, Debit Card, Bank Transfer",
   "areaServed": [
-    { "@type": "City", "name": "Toronto" },
+    { "@type": "City", "name": "Toronto", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario" } },
     { "@type": "City", "name": "Mississauga" },
     { "@type": "City", "name": "Brampton" },
     { "@type": "City", "name": "Vaughan" },
@@ -42,17 +62,35 @@ const organizationSchema = {
     { "@type": "City", "name": "Richmond Hill" },
     { "@type": "City", "name": "Oakville" },
     { "@type": "City", "name": "Burlington" },
-    { "@type": "City", "name": "Hamilton" }
+    { "@type": "City", "name": "Hamilton" },
+    { "@type": "City", "name": "Ajax" },
+    { "@type": "City", "name": "Pickering" },
+    { "@type": "City", "name": "Whitby" },
+    { "@type": "City", "name": "Oshawa" },
+    { "@type": "City", "name": "Scarborough" },
+    { "@type": "City", "name": "North York" },
+    { "@type": "City", "name": "Etobicoke" }
   ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Airbnb Management Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Airbnb Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airbnb Co-Hosting" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Short-Term Rental Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mid-Term Rental Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airbnb Cleaning Services" } }
+    ]
+  },
   "sameAs": []
 };
 
-// Combine organization schema with page-specific schema
+// Combine LocalBusiness schema with page-specific schema
 const allSchemas = schema
   ? Array.isArray(schema)
-    ? [organizationSchema, ...schema]
-    : [organizationSchema, schema]
-  : [organizationSchema];
+    ? [localBusinessSchema, ...schema]
+    : [localBusinessSchema, schema]
+  : [localBusinessSchema];
 ---
 
 <!doctype html>
