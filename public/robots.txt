@@ -176,6 +176,11 @@ Allow: /north-york-airbnb-management
 Allow: /mississauga-airbnb-management
 Allow: /scarborough-airbnb-management
 Allow: /etobicoke-airbnb-management
+Allow: /niagara-falls-airbnb-management
+Allow: /kitchener-airbnb-management
+Allow: /waterloo-airbnb-management
+Allow: /guelph-airbnb-management
+Allow: /calgary-airbnb-management
 
 # Disallow non-content paths
 Disallow: /thank-you
