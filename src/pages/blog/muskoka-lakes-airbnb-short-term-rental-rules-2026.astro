@@ -1,0 +1,958 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "What is the Summer Monthly Break rule?", a: "During June, July, and August, you must take at least 7 consecutive nights off from STR operation in each month. This means blocking out one full week per summer month when you cannot have paying guests. It's designed to reduce continuous tourist activity during peak season." },
+  { q: "What is the Summer Rental Frequency rule?", a: "During summer months, you can only rent to one new party per 6 consecutive nights. So if guests check out Sunday, you can't have new guests check in until Saturday. This limits turnover and reduces the 'revolving door' effect that disturbs neighbors." },
+  { q: "How does the demerit point system work?", a: "You accumulate demerit points for violations: minor infractions (noise, parking) earn fewer points, serious violations (overcrowding, safety issues) earn more. Reach 15 points and your license is suspended. Points remain on your record for 3 years." },
+  { q: "How much does the license cost?", a: "$1,000 per year - one of the highest STR license fees in Ontario. Early applications (before September 30, 2025) received a 20% discount. The high fee reflects the Township's commitment to serious regulation and enforcement." },
+  { q: "What's the maximum occupancy?", a: "2 persons per bedroom, regardless of bedroom size. There's no overall cap specified, but you're limited by your septic system capacity and the 2-per-bedroom rule. Most properties end up with 6-10 guests maximum." },
+  { q: "What insurance do I need?", a: "$2,000,000 liability insurance minimum. The policy must specifically cover short-term rental operations. Standard cottage insurance typically won't suffice - you need specialized STR coverage." },
+  { q: "Can I rent my boat or trailer?", a: "No. The by-law explicitly prohibits renting motor vehicles, trailers, and vessels as part of an STR. Boats must remain the owner's property - you can't include 'boat rental' as part of your cottage package." },
+  { q: "Who can be my Responsible Person?", a: "Anyone who can respond to issues during guest stays, including property managers. They must be designated in your application and available during all guest stays to handle complaints and emergencies." }
+];
+
+const relatedPosts = [
+  { title: 'Huntsville Airbnb Short Term Rental Rules 2026', href: '/blog/huntsville-airbnb-short-term-rental-rules-2026', description: 'Nearby Huntsville\'s 12-month ownership requirement and 3-strike rule' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Compare cottage country rules with Toronto\'s 180-night limit' },
+  { title: 'Oakville Airbnb Short Term Rental Rules 2026', href: '/blog/oakville-airbnb-short-term-rental-rules-2026', description: 'Oakville\'s demerit point system - similar to Muskoka Lakes' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'summer-rules', text: 'Summer Rental Restrictions' },
+  { id: 'demerit-system', text: 'Demerit Point System' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'responsible-person', text: 'Responsible Person' },
+  { id: 'occupancy-limits', text: 'Occupancy Rules' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'prohibited-items', text: 'What You Can\'t Rent' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-bylaws', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Muskoka Lakes Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Complete guide to Township of Muskoka Lakes short term rental regulations for Airbnb hosts. Learn about the unique Summer Monthly Break, rental frequency limits, $1,000 annual license fee, demerit point system, and $2M insurance under By-law 2025-049.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-03",
+  "dateModified": "2026-02-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/muskoka-lakes-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Muskoka Lakes Regulations</span>
+      </nav>
+      <h1>Muskoka Lakes Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 3, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">The Township of Muskoka Lakes includes some of Ontario's most sought-after waterfront properties - Lake Joseph, Lake Rosseau, and Lake Muskoka. Cottage rentals here command premium rates, especially during summer months.</p>
+            <p class="lead">The Township's By-law 2025-049, effective January 1, 2025, is one of Ontario's most detailed STR frameworks. It includes unique provisions like mandatory summer breaks and rental frequency limits that don't exist anywhere else in the province. Here's the complete breakdown.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Muskoka Lakes defines STRs with a standard 28-day threshold:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-Term Rental Accommodation means the use of a dwelling unit, or any part thereof, that operates or offers a place of temporary residence, lodging or occupancy for a period of twenty-eight (28) consecutive days or less."
+            <cite>Township of Muskoka Lakes By-law 2025-049 § Definitions</cite>
+          </blockquote>
+
+          <p>Key elements:</p>
+          <ul>
+            <li><strong>28 days or less</strong> - shorter threshold than some cities (30 days)</li>
+            <li><strong>Dwelling unit or part</strong> - includes whole-home and room rentals</li>
+            <li><strong>Requires compensation</strong> - free stays aren't regulated</li>
+            <li><strong>Hotels, motels, B&Bs excluded</strong> - separate commercial rules apply</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>29+ day bookings:</strong> If you book guests for 29+ consecutive days, it's not classified as an STR. Consider this for off-season rentals to corporate clients or snowbirds wanting to escape the city.
+            </div>
+          </div>
+
+          <h2 id="summer-rules">Summer Rental Restrictions</h2>
+          <p>Muskoka Lakes has the most restrictive summer rules in Ontario:</p>
+
+          <h3>Summer Monthly Break</h3>
+          <blockquote class="bylaw-quote">
+            "During June, July, and August, the Licensee must block at least seven (7) consecutive nights per month during which no Short-Term Rental Accommodation shall occur."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <p>What this means in practice:</p>
+          <ul>
+            <li><strong>Block one full week</strong> in each of June, July, and August</li>
+            <li><strong>No paying guests</strong> during these blocked periods</li>
+            <li><strong>Personal use allowed</strong> - you can stay at your cottage</li>
+            <li><strong>Cannot stack</strong> - you can't do 3 weeks straight in September instead</li>
+          </ul>
+
+          <h3>Summer Rental Frequency</h3>
+          <blockquote class="bylaw-quote">
+            "During the months of June, July, and August, a Short-Term Rental Accommodation shall only be rented to one renter per six (6) consecutive nights."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Summer Rule</div>
+              <div class="comparison-col highlight">Requirement</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Monthly Break</div>
+              <div class="comparison-col highlight"><strong>7 consecutive nights off per month</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Rental Frequency</div>
+              <div class="comparison-col highlight"><strong>1 renter per 6 consecutive nights</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Applies</div>
+              <div class="comparison-col highlight"><strong>June, July, August only</strong></div>
+            </div>
+          </div>
+
+          <p>The frequency rule limits "Saturday-to-Saturday" turnover. If guests check out Sunday, new guests can't check in until the following Saturday (6 nights later).</p>
+
+          <div class="warning-box">
+            <h4>Summer Revenue Impact</h4>
+            <p>These rules significantly limit summer rental potential. With 7 nights blocked plus the frequency limit, you might only manage 3 separate rental periods per summer month instead of 4. Budget your projected revenue accordingly - Muskoka Lakes properties earn less than unrestricted markets despite higher nightly rates.</p>
+          </div>
+
+          <h2 id="demerit-system">The Demerit Point System</h2>
+          <p>Muskoka Lakes uses a detailed point system for violations:</p>
+
+          <blockquote class="bylaw-quote">
+            "A Licensee who accumulates fifteen (15) or more demerit points shall have their licence suspended. Demerit points shall remain on record for three (3) years from the date of the violation."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Points</div>
+              <div class="comparison-col highlight">Consequence</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">1-14 points</div>
+              <div class="comparison-col highlight"><strong>Warning status</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">15+ points</div>
+              <div class="comparison-col highlight"><strong>License suspension</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Point duration</div>
+              <div class="comparison-col highlight"><strong>3 years</strong></div>
+            </div>
+          </div>
+
+          <p>Different violations carry different point values:</p>
+          <ul>
+            <li><strong>Minor violations</strong> (parking, minor noise): 2-3 points</li>
+            <li><strong>Moderate violations</strong> (occupancy limits, summer rules): 5-7 points</li>
+            <li><strong>Serious violations</strong> (safety issues, repeat offenses): 8-10 points</li>
+          </ul>
+
+          <p>The 3-year duration means one bad summer can haunt you for years. Three moderate violations could trigger suspension.</p>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>Muskoka Lakes has one of Ontario's most expensive licensing programs:</p>
+
+          <h3>License Fees</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Item</div>
+              <div class="comparison-col highlight">Cost</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual license fee</div>
+              <div class="comparison-col highlight"><strong>$1,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Inspection fees</div>
+              <div class="comparison-col highlight"><strong>Additional</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License validity</div>
+              <div class="comparison-col highlight"><strong>1 year from issuance</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Early application discount</div>
+              <div class="comparison-col highlight"><strong>20% (before Sept 30, 2025)</strong></div>
+            </div>
+          </div>
+
+          <h3>Application Requirements</h3>
+          <ul>
+            <li><strong>Completed application</strong> with property details</li>
+            <li><strong>Designated Responsible Person</strong></li>
+            <li><strong>Floor plan</strong> showing bedrooms and sleeping areas</li>
+            <li><strong>Septic system compliance</strong> documentation</li>
+            <li><strong>$2,000,000 liability insurance</strong></li>
+            <li><strong>Safety compliance</strong> (smoke/CO detectors, fire extinguishers)</li>
+          </ul>
+
+          <h2 id="responsible-person">Responsible Person Requirement</h2>
+          <p>Every licensed STR must designate a Responsible Person:</p>
+
+          <blockquote class="bylaw-quote">
+            "The Licensee must designate a Responsible Person who shall be available and contactable during all rental periods to respond to any issues, complaints, or emergencies."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <p>The Responsible Person must:</p>
+          <ul>
+            <li><strong>Be available 24/7</strong> during guest stays</li>
+            <li><strong>Be designated in the license application</strong></li>
+            <li><strong>Handle complaints and emergencies</strong></li>
+            <li><strong>Ensure Code of Conduct compliance</strong></li>
+          </ul>
+
+          <p>Property managers can serve as Responsible Persons, making this manageable for out-of-town cottage owners.</p>
+
+          <h2 id="occupancy-limits">Occupancy Rules</h2>
+          <p>Muskoka Lakes sets occupancy based on bedrooms:</p>
+
+          <blockquote class="bylaw-quote">
+            "Maximum occupancy shall be two (2) persons per bedroom."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Bedrooms</div>
+              <div class="comparison-col highlight">Maximum Occupancy</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">2 bedrooms</div>
+              <div class="comparison-col highlight"><strong>4 persons</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">3 bedrooms</div>
+              <div class="comparison-col highlight"><strong>6 persons</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">4 bedrooms</div>
+              <div class="comparison-col highlight"><strong>8 persons</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">5 bedrooms</div>
+              <div class="comparison-col highlight"><strong>10 persons</strong></div>
+            </div>
+          </div>
+
+          <p>Your septic system capacity may further limit occupancy. Large groups exceeding septic capacity can cause environmental issues and violations.</p>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Muskoka Lakes requires substantial coverage:</p>
+
+          <blockquote class="bylaw-quote">
+            "The Licensee shall maintain liability insurance of no less than two million dollars ($2,000,000) that covers the Short-Term Rental Accommodation operation."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <p>Key requirements:</p>
+          <ul>
+            <li><strong>$2,000,000 minimum</strong> liability per occurrence</li>
+            <li><strong>Must specifically cover</strong> STR operations</li>
+            <li><strong>Certificate required</strong> with license application</li>
+            <li><strong>Maintain continuously</strong> - gaps violate the license</li>
+          </ul>
+
+          <h2 id="prohibited-items">What You Can't Rent</h2>
+          <p>Muskoka Lakes explicitly prohibits certain rentals:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-Term Rental Accommodation shall not include motor vehicles, trailers, vessels, or non-habitable spaces."
+            <cite>Township of Muskoka Lakes By-law 2025-049</cite>
+          </blockquote>
+
+          <p>This means:</p>
+          <ul>
+            <li><strong>No boat rentals</strong> as part of your STR package</li>
+            <li><strong>No trailer/RV rentals</strong> on your property</li>
+            <li><strong>No tent camping</strong> or non-permanent structures</li>
+            <li><strong>No vehicle rentals</strong> bundled with accommodation</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Boats can still be available:</strong> You can allow guests to use your boat, but you can't charge for it separately or make it a selling point. Include it as a complimentary amenity rather than an add-on rental.
+            </div>
+          </div>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Beyond the demerit system, Muskoka Lakes has significant monetary penalties:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Violation Type</div>
+              <div class="comparison-col highlight">Consequence</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Operating without license</div>
+              <div class="comparison-col highlight"><strong>Fines + demerit points</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Summer rule violations</div>
+              <div class="comparison-col highlight"><strong>5-7 demerit points each</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">15+ demerit points</div>
+              <div class="comparison-col highlight"><strong>License suspension</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Repeat violations</div>
+              <div class="comparison-col highlight"><strong>License revocation</strong></div>
+            </div>
+          </div>
+
+          <h2 id="compliance-tips">Staying Compliant in Muskoka Lakes</h2>
+          <p>These restrictive rules require careful management. Here's how to succeed:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Plan summer blocks early.</strong> Before taking any summer bookings, identify your 7-night blocks for June, July, and August. Book them as owner-blocked in your calendar.</li>
+            <li><span class="tip-icon">2</span> <strong>Enforce the 6-night frequency.</strong> Set your booking calendar to prevent back-to-back reservations. Allow 6 nights between checkout and next check-in during summer.</li>
+            <li><span class="tip-icon">3</span> <strong>Track your demerit points.</strong> Keep a record of any violations. With 3 years on your record, you need to know your running total at all times.</li>
+            <li><span class="tip-icon">4</span> <strong>Get proper insurance immediately.</strong> Standard cottage insurance won't work. Get a $2M policy specifically endorsing STR activity before you apply.</li>
+            <li><span class="tip-icon">5</span> <strong>Guest Code of Conduct is mandatory.</strong> Every guest must sign a Code of Conduct. Keep signed copies on file - you may need them if disputes arise.</li>
+            <li><span class="tip-icon">6</span> <strong>Don't advertise boat rentals.</strong> If guests can use your boat, frame it as complimentary. Don't list it as a separate rental or add-on charge.</li>
+            <li><span class="tip-icon">7</span> <strong>Respect septic limits.</strong> Your occupancy may be capped by septic capacity. Overloading causes environmental damage and serious violations.</li>
+            <li><span class="tip-icon">8</span> <strong>Consider off-season focus.</strong> With summer restrictions, September-May rentals may be more profitable per rental than restricted summer periods.</li>
+          </ul>
+
+          <h2 id="official-bylaws">Official Township of Muskoka Lakes Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.muskokalakes.ca/township-hall/by-law-enforcement/short-term-rental-accommodations/" target="_blank" rel="noopener">Township of Muskoka Lakes - Short-Term Rental Accommodations</a></li>
+              <li><a href="https://www.muskokalakes.ca/township-hall/by-laws/" target="_blank" rel="noopener">Township of Muskoka Lakes - By-laws</a></li>
+              <li><strong>By-law Enforcement:</strong> 705-765-3156</li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Muskoka Lakes Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Muskoka Lakes STR Compliance?</h3>
+            <p>Nurture specializes in Muskoka cottage management. We handle summer scheduling, guest screening, Code of Conduct compliance, and Responsible Person duties so you can maximize your waterfront investment.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Muskoka Lakes STR Rules?</h2>
+        <p>Our cottage country specialists understand these complex regulations inside and out.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>

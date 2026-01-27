@@ -1,0 +1,1008 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Niagara Falls?", a: "Yes, and this is what makes Niagara Falls unusual. Their Vacation Rental Unit (VRU) license doesn't require principal residence. You need a licensed responsible person available 24/7 within one hour of the property, but you don't have to live there. This is one of the few Ontario cities where investment property STRs are genuinely viable." },
+  { q: "What's the difference between VRU and OOSTR licenses?", a: "VRU (Vacation Rental Unit) is for entire-home rentals where you're not on-site. No principal residence needed, but you need a responsible person within one hour. OOSTR (Owner Occupied Short-Term Accommodation) is like a B&B where you live on-site while hosting guests. OOSTR has a 150m spacing rule from other OOSTRs." },
+  { q: "What happens if I get complaints about my rental?", a: "Niagara Falls uses a three-strike system. Three sustained complaints or violations within one calendar year means automatic 6-month license suspension. After that, you can reapply but your track record follows you. The city takes noise and nuisance complaints seriously given the tourist area dynamics." },
+  { q: "Do I need to be available 24/7 for my rental?", a: "For VRU licenses, your designated responsible person must be available 24 hours a day, 7 days a week, and able to arrive at the property within one hour of being contacted. This can be you, a property manager, or another licensed responsible person." },
+  { q: "What inspections are required?", a: "You'll need three inspections: Fire Department (fire safety plan, smoke/CO detectors, extinguishers), Niagara Region Health (sanitation, water), and ESA electrical certificate. All must pass before your license is approved. Budget time for scheduling and potential re-inspections." },
+  { q: "Can I rent to large groups for bachelor/bachelorette parties?", a: "Technically yes, but you're liable for their behavior. The bylaw holds operators responsible for guest conduct. If a party gets three noise complaints in a year, that's your license suspended for 6 months. Many hosts set strict house rules and guest limits to avoid this." },
+  { q: "What's the maximum stay allowed?", a: "28 consecutive days or less qualifies as short-term rental under the bylaw. Anything longer is considered a regular tenancy and falls under different rules (Residential Tenancies Act). Most hosts target the tourist market with 2-7 night stays." },
+  { q: "Is there a MAT (Municipal Accommodation Tax)?", a: "Niagara Falls charges a flat $2 per night per room MAT, which is different from the percentage-based MAT in cities like Toronto. Airbnb collects and remits this automatically, so you don't have to handle it manually." },
+  { q: "Can I operate multiple STRs in Niagara Falls?", a: "Yes, there's no limit on how many VRU licenses you can hold. Each property needs its own license, inspections, and responsible person coverage. Some investors run multiple units, treating it like a hospitality business rather than a side hustle." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR rules and the 180-night limit' },
+  { title: 'Oakville Airbnb Short Term Rental Rules 2026', href: '/blog/oakville-airbnb-short-term-rental-rules-2026', description: 'Understanding Oakville\'s demerit point system and license requirements' }
+];
+
+const tocItems = [
+  { id: 'license-types', text: 'Two License Types' },
+  { id: 'vru-explained', text: 'VRU: Entire Home Rentals' },
+  { id: 'oostr-explained', text: 'OOSTR: Owner-Occupied' },
+  { id: 'requirements', text: 'License Requirements' },
+  { id: 'responsible-person', text: 'Responsible Person Rule' },
+  { id: 'inspections', text: 'Required Inspections' },
+  { id: 'three-strike', text: 'Three-Strike System' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'why-niagara', text: 'Why Niagara Falls Works' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Niagara Falls Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Complete guide to Niagara Falls VRU and OOSTR licenses for Airbnb hosts. Learn about the unique rules that allow investment property STRs, the three-strike system, and license requirements.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-30",
+  "dateModified": "2026-01-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/niagara-falls-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Niagara Falls Regulations</span>
+      </nav>
+      <h1>Niagara Falls Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published January 30, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Here's something most Ontario investors don't realize: <strong>Niagara Falls is one of the few cities where you can legally Airbnb an investment property</strong>. No principal residence requirement for their Vacation Rental Unit license. With 12+ million tourists visiting annually, that's a significant opportunity.</p>
+            <p class="lead">But the rules are different from Toronto or Mississauga. There are two license types, a three-strike complaint system, and some unique requirements. Let me walk you through how it actually works.</p>
+          </div>
+
+          <h2 id="license-types">Two Different License Types</h2>
+          <p>Niagara Falls has two distinct STR licenses under By-law 2021-57 (amended by 2025-033). Which one you need depends on whether you'll be living at the property:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">VRU (Vacation Rental Unit)</div>
+              <div class="comparison-col highlight">OOSTR (Owner Occupied)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Entire home rental</div>
+              <div class="comparison-col highlight">B&B style, owner on-site</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>No principal residence required</strong></div>
+              <div class="comparison-col highlight">Owner must reside on property</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Responsible person within 1 hour</div>
+              <div class="comparison-col highlight">Owner handles issues directly</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">No spacing restrictions</div>
+              <div class="comparison-col highlight">150m spacing from other OOSTRs</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Best for: Investors, vacation homes</div>
+              <div class="comparison-col highlight">Best for: Live-in hosts</div>
+            </div>
+          </div>
+
+          <h2 id="vru-explained">VRU License: The Investment Property Option</h2>
+          <p>This is what makes Niagara Falls attractive for investors. The Vacation Rental Unit license lets you rent out an entire dwelling unit without living there yourself.</p>
+
+          <blockquote class="bylaw-quote">
+            "Vacation Rental Unit means a dwelling unit that is used to provide sleeping accommodations for any rental period of twenty-eight (28) consecutive days or less in exchange for payment."
+            <cite>Niagara Falls By-law 2021-57, Section 1 Definitions</cite>
+          </blockquote>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key difference from most Ontario cities:</strong> Toronto, Mississauga, Brampton, and Oakville all require STRs to be your principal residence. Niagara Falls doesn't. You can own a condo near the Falls, live in Toronto, and legally rent it short-term with a VRU license.
+            </div>
+          </div>
+
+          <h3>VRU Requirements</h3>
+          <ul>
+            <li><strong>Responsible person</strong> available 24/7 who can arrive within 1 hour</li>
+            <li><strong>$2 million</strong> commercial general liability insurance</li>
+            <li><strong>Fire, health, and electrical inspections</strong> must pass</li>
+            <li><strong>License renewal</strong> required annually (expires April 30th)</li>
+            <li><strong>License number</strong> displayed on all advertisements</li>
+          </ul>
+
+          <h2 id="oostr-explained">OOSTR License: Owner-Occupied Option</h2>
+          <p>If you're going to live at the property while hosting guests, the Owner Occupied Short-Term Rental Accommodation license works more like a traditional B&B arrangement.</p>
+
+          <blockquote class="bylaw-quote">
+            "Owner Occupied Short-Term Rental Accommodation means a dwelling unit in which the owner of the dwelling unit resides and uses a portion of the dwelling unit to provide sleeping accommodations for twenty-eight (28) consecutive days or less."
+            <cite>Niagara Falls By-law 2021-57, Section 1 Definitions</cite>
+          </blockquote>
+
+          <h3>The 150-Metre Spacing Rule</h3>
+          <p>Here's the catch with OOSTR licenses: there's a minimum distance requirement.</p>
+
+          <blockquote class="bylaw-quote">
+            "No OOSTR Licence shall be issued for a property that is within 150 metres of another property that holds a valid OOSTR Licence."
+            <cite>Niagara Falls By-law 2021-57, Section 6.3</cite>
+          </blockquote>
+
+          <p>This means you can't have multiple owner-occupied STRs clustering on the same street. The city measures this property-line to property-line. If your neighbor already has an OOSTR license, you might be out of luck for that license type (though VRU has no spacing restriction).</p>
+
+          <h2 id="requirements">License Requirements Checklist</h2>
+          <p>Whether you're applying for VRU or OOSTR, here's what you'll need:</p>
+
+          <div class="requirements-grid">
+            <div class="requirement-card">
+              <h4>Documentation</h4>
+              <ul>
+                <li>Completed application form</li>
+                <li>Property ownership proof</li>
+                <li>Floor plan showing sleeping areas</li>
+                <li>Parking plan (2 spaces minimum)</li>
+                <li>$2M liability insurance certificate</li>
+              </ul>
+            </div>
+            <div class="requirement-card">
+              <h4>Inspections Required</h4>
+              <ul>
+                <li>Fire Department inspection</li>
+                <li>Niagara Region Health inspection</li>
+                <li>ESA electrical certificate</li>
+                <li>Building compliance verification</li>
+              </ul>
+            </div>
+            <div class="requirement-card">
+              <h4>Fees</h4>
+              <ul>
+                <li>Initial license application fee</li>
+                <li>Annual renewal fee</li>
+                <li>Inspection fees (separate)</li>
+                <li>$2/night MAT tax (collected by platforms)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 id="responsible-person">The Responsible Person Rule</h2>
+          <p>For VRU licenses, you must designate a "responsible person" who can handle emergencies and complaints. This is non-negotiable.</p>
+
+          <blockquote class="bylaw-quote">
+            "The Responsible Person shall be available twenty-four (24) hours a day, seven (7) days a week and be able to attend the property within one (1) hour of being contacted."
+            <cite>Niagara Falls By-law 2021-57, Section 5.7</cite>
+          </blockquote>
+
+          <div class="success-box">
+            <h4>Who Can Be Your Responsible Person:</h4>
+            <ul>
+              <li><strong>You</strong> (if you live within 1 hour of the property)</li>
+              <li><strong>A licensed property manager</strong> (like us at Nurture)</li>
+              <li><strong>A local contact</strong> you designate who meets the criteria</li>
+              <li><strong>A co-host</strong> who lives nearby and is listed on your license</li>
+            </ul>
+          </div>
+
+          <p>The responsible person's contact information must be provided to guests and to neighbors within a specified radius. If there's a noise complaint at 2am, someone needs to be able to respond.</p>
+
+          <h2 id="inspections">Required Inspections Explained</h2>
+          <p>Three separate inspections must pass before your license is approved:</p>
+
+          <h3>1. Fire Department Inspection</h3>
+          <p>The Niagara Falls Fire Department will check:</p>
+          <ul>
+            <li>Smoke detectors on every level and in sleeping areas</li>
+            <li>Carbon monoxide detectors near sleeping areas</li>
+            <li>Fire extinguisher (minimum 2A:10BC rating)</li>
+            <li>Clear exit paths and emergency egress</li>
+            <li>Fire safety plan posted for guests</li>
+          </ul>
+
+          <h3>2. Health Department Inspection</h3>
+          <p>Niagara Region Public Health verifies:</p>
+          <ul>
+            <li>Potable water supply</li>
+            <li>Proper sewage/septic system</li>
+            <li>Sanitary conditions throughout</li>
+            <li>Food preparation areas (if applicable)</li>
+          </ul>
+
+          <h3>3. Electrical Safety Authority (ESA)</h3>
+          <p>You'll need an ESA certificate confirming:</p>
+          <ul>
+            <li>Electrical system meets Ontario Electrical Safety Code</li>
+            <li>No hazardous conditions</li>
+            <li>Proper grounding and panel capacity</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Inspection Tips</h4>
+            <p>Schedule inspections early in your application process. Each department has its own timeline, and re-inspections (if you fail) add weeks. Budget 4-8 weeks for all inspections to clear.</p>
+          </div>
+
+          <h2 id="three-strike">The Three-Strike Complaint System</h2>
+          <p>This is where Niagara Falls gets serious. They track complaints and violations, and three strikes means automatic suspension.</p>
+
+          <blockquote class="bylaw-quote">
+            "Where an Operator accumulates three (3) or more demerit points within a calendar year, the Licence shall be automatically suspended for a period of six (6) months."
+            <cite>Niagara Falls By-law 2021-57, Section 8.2</cite>
+          </blockquote>
+
+          <h3>What Counts as a Strike</h3>
+          <ul>
+            <li><strong>Sustained noise complaints</strong> verified by bylaw officers</li>
+            <li><strong>Parking violations</strong> related to your rental</li>
+            <li><strong>Occupancy violations</strong> (too many guests)</li>
+            <li><strong>Operating without valid license</strong></li>
+            <li><strong>Failing to provide guest registry</strong> when requested</li>
+            <li><strong>Responsible person not responding</strong> within required time</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The bachelor party problem:</strong> Niagara Falls sees a lot of bachelor/bachelorette groups. Three noise complaints from one wild weekend could cost you your license for six months. Many successful hosts use strict guest screening and house rules to avoid this.
+            </div>
+          </div>
+
+          <h3>After a Suspension</h3>
+          <p>Once suspended, you cannot operate for 6 months. After that period, you can reapply, but the city considers your history. Repeated suspensions can lead to permanent license denial.</p>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Operating without a license or violating the bylaw comes with significant fines:</p>
+
+          <div class="penalty-table">
+            <div class="penalty-row">
+              <span class="penalty-type">First offense</span>
+              <span class="penalty-amount">Up to $50,000</span>
+            </div>
+            <div class="penalty-row">
+              <span class="penalty-type">Subsequent offenses</span>
+              <span class="penalty-amount">Up to $100,000</span>
+            </div>
+            <div class="penalty-row">
+              <span class="penalty-type">Corporate violations</span>
+              <span class="penalty-amount">Up to $100,000</span>
+            </div>
+          </div>
+
+          <blockquote class="bylaw-quote">
+            "Every person who contravenes any provision of this by-law is guilty of an offence and upon conviction is liable to a fine as provided for in the Provincial Offences Act."
+            <cite>Niagara Falls By-law 2021-57, Section 10</cite>
+          </blockquote>
+
+          <h2 id="why-niagara">Why Niagara Falls Works for Investors</h2>
+          <p>With all these rules, is it still worth it? For the right property, absolutely. Here's why:</p>
+
+          <h3>The Tourism Numbers</h3>
+          <ul>
+            <li><strong>12+ million visitors</strong> annually to Niagara Falls</li>
+            <li><strong>Peak season (May-October)</strong> commands premium rates</li>
+            <li><strong>Year-round events</strong>: Winter Festival of Lights, concerts at Fallsview Casino</li>
+            <li><strong>International draw</strong>: tourists from around the world, not just Ontario</li>
+          </ul>
+
+          <h3>No Night Limit</h3>
+          <p>Unlike Toronto's 180-night cap, Niagara Falls has no annual limit on rental nights. If you have consistent bookings, you can operate 365 days a year.</p>
+
+          <h3>Investment Property Friendly</h3>
+          <p>This is the big one. You can:</p>
+          <ul>
+            <li>Own a property in Niagara Falls while living in Toronto</li>
+            <li>Use a property manager as your responsible person</li>
+            <li>Build a portfolio of multiple VRU-licensed properties</li>
+            <li>Treat it as a real hospitality business, not just a side income</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Revenue Comparison: Niagara Falls vs. Long-Term Rental</h4>
+            <p>A 2-bedroom condo near Clifton Hill:</p>
+            <ul>
+              <li><strong>Long-term rental:</strong> ~$2,200/month = $26,400/year</li>
+              <li><strong>STR at 60% occupancy, $200/night average:</strong> ~$43,800/year</li>
+              <li><strong>STR at 75% occupancy (good management):</strong> ~$54,750/year</li>
+            </ul>
+            <p>Even accounting for management fees, cleaning, and supplies, the STR income significantly outpaces traditional rentals in this market.</p>
+          </div>
+
+          <h2 id="official-resources">Official City Resources</h2>
+          <p>Always verify current requirements with the city directly:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://niagarafalls.ca/living/by-law-services/vacation-rental-unit.aspx" target="_blank" rel="noopener">City of Niagara Falls - Vacation Rental Unit Information</a></li>
+              <li><a href="https://niagarafalls.ca/living/by-law-services/" target="_blank" rel="noopener">By-law Services Department</a></li>
+              <li><a href="https://niagarafalls.ca/city-hall/by-laws/" target="_blank" rel="noopener">By-law Library (for full bylaw text)</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Your Niagara Falls STR?</h3>
+            <p>Nurture provides full-service property management including responsible person coverage, guest screening, and compliance tracking. We help investors maximize their Niagara Falls rentals while staying fully licensed.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Niagara Falls STR Rules?</h2>
+        <p>Our team manages properties across the Niagara region. Let us handle compliance while you earn.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .requirement-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .requirement-card h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .requirement-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .requirement-card li {
+    margin-bottom: 0.5rem;
+  }
+
+  .success-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .success-box h4 {
+    color: #276749;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .success-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .success-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ul {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--color-text-light);
+  }
+
+  .penalty-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .penalty-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .penalty-row:last-child {
+    border-bottom: none;
+  }
+
+  .penalty-type {
+    font-weight: 500;
+  }
+
+  .penalty-amount {
+    color: #c0392b;
+    font-weight: 600;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .requirements-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>

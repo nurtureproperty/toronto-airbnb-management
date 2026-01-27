@@ -1,0 +1,902 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in London?", a: "No. London requires STRs to be at your Resident Address - the place where you habitually sleep, eat, and keep personal effects. You can only have one Resident Address. Investment properties don't qualify. Consider mid-term rentals (30+ days) for investment properties." },
+  { q: "How much does a London STR license cost?", a: "$196 per year, and the fee is not pro-rated. So if you get licensed in November, you still pay the full $196 and need to renew the following year. Plan your timing accordingly." },
+  { q: "What insurance do I need?", a: "$2,000,000 liability insurance per occurrence that covers short-term rental operations. Standard homeowner's insurance won't suffice - you need specialized STR coverage or a rider." },
+  { q: "How many bedrooms can I rent?", a: "Maximum 5 bedrooms can be offered as Short-term Accommodation. This applies regardless of how large your home is." },
+  { q: "Does Airbnb collect the MAT tax?", a: "Yes. Airbnb and other major platforms are registered as Short-term Accommodation Brokers with London and collect the 4% Municipal Accommodation Tax automatically on platform bookings." },
+  { q: "What if I'm a tenant, not an owner?", a: "You can still get licensed, but you need written proof that your landlord permits STR operation. If you're in a condo, you also need condo board approval. Both documents are required with your application." },
+  { q: "Do I need a criminal background check?", a: "Yes. London requires a Criminal Record and Judicial Matters Check (CRJMC) dated less than 90 days before your application. This is a stricter requirement than many Ontario cities." },
+  { q: "What are the fines for operating without a license?", a: "Fines start at $500 for the first offense but can reach $25,000 (individual) or $50,000 (corporation) for first offenses. Subsequent offenses can reach $50,000 individual or $100,000 corporate. Each day of violation can be a separate offense." }
+];
+
+const relatedPosts = [
+  { title: 'Ottawa Airbnb Short Term Rental Rules 2026', href: '/blog/ottawa-airbnb-short-term-rental-rules-2026', description: 'Ottawa\'s principal residence rule and cottage rental exception' },
+  { title: 'Waterloo Airbnb Short Term Rental Rules 2026', href: '/blog/waterloo-airbnb-short-term-rental-rules-2026', description: 'Nearby Waterloo\'s 275-night limit and Class B licensing' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements across Ontario' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'principal-residence', text: 'Resident Address Rule' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'broker-rules', text: 'Platform Broker Rules' },
+  { id: 'bedroom-limits', text: 'Bedroom Limits' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'mat-tax', text: 'Municipal Accommodation Tax' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-bylaws', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "London Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Complete guide to London Ontario's short term rental regulations for Airbnb hosts. Learn about the resident address requirement, $196 annual license fee, $2M insurance, 4% MAT tax, and criminal background check requirements under By-law L.-131-16.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-01",
+  "dateModified": "2026-02-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/london-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>London Regulations</span>
+      </nav>
+      <h1>London Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 1, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">London is Ontario's largest city outside the GTA, home to Western University's 40,000+ students and a growing tech sector. That creates year-round STR demand from visiting parents, academics, and professionals.</p>
+            <p class="lead">The city regulates short-term rentals through Schedule 21 of their Business Licensing By-law (L.-131-16), effective October 2022. It's a comprehensive framework with strict requirements including criminal background checks. Here's everything you need to know.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>London's definition is clear and specific:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-term Accommodation means a temporary accommodation in all or part of a Dwelling that is provided for 29 consecutive days or less in exchange for payment including a bed and breakfast, but not including a hotel, motel, inn, resort, hostel, lodging house or rooming house."
+            <cite>London By-law L.-131-16, Schedule 21 § 1.0</cite>
+          </blockquote>
+
+          <p>Key elements of this definition:</p>
+          <ul>
+            <li><strong>29 days or less</strong> - one day shorter than most Ontario cities (30 days)</li>
+            <li><strong>In exchange for payment</strong> - free stays aren't regulated</li>
+            <li><strong>Includes B&Bs</strong> - traditional bed and breakfasts fall under STR rules</li>
+            <li><strong>Excludes commercial hospitality</strong> - hotels, motels, hostels have separate rules</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The 29-day threshold:</strong> Unlike most Ontario cities that use 30 days, London uses 29. This means a 30-day booking is NOT an STR in London. If you want to avoid STR regulations entirely, book guests for 30+ consecutive days.
+            </div>
+          </div>
+
+          <h2 id="principal-residence">The Resident Address Requirement</h2>
+          <p>London takes a strict approach to ensuring STRs are in primary homes:</p>
+
+          <blockquote class="bylaw-quote">
+            "Resident Address means the place at which an individual habitually sleeps, eats, keeps their personal effects, and has a regular place of lodging; an individual may have only one Resident Address."
+            <cite>London By-law L.-131-16, Schedule 21 § 1.0</cite>
+          </blockquote>
+
+          <p>The application requires:</p>
+          <ul>
+            <li><strong>Sworn declaration</strong> that the STR address is your Resident Address</li>
+            <li><strong>Government-issued ID</strong> showing your Resident Address</li>
+            <li><strong>Attestation</strong> that you're an individual (corporations cannot be STR providers)</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Corporations Cannot Be STR Providers</h4>
+            <p>London explicitly requires STR providers to be individuals, not corporations or partnerships. The by-law states the provider "does not include a corporation or partnership." If you hold property through a corporation, you cannot operate it as an STR. This is stricter than many Ontario municipalities.</p>
+          </div>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>London has one of the more demanding application processes in Ontario:</p>
+
+          <h3>Application Requirements</h3>
+          <ul>
+            <li><strong>Sworn declaration</strong> that you're 18+, an individual, and the address is your Resident Address</li>
+            <li><strong>Government-issued ID</strong> with photo showing your Resident Address</li>
+            <li><strong>Criminal Record and Judicial Matters Check (CRJMC)</strong> dated within 90 days</li>
+            <li><strong>Proof of ownership</strong> if you own the dwelling</li>
+            <li><strong>Landlord permission</strong> (if you're a tenant)</li>
+            <li><strong>Condo board permission</strong> (if in a condo)</li>
+            <li><strong>$2,000,000 liability insurance</strong> certificate</li>
+            <li><strong>Signed indemnity</strong> in favor of the City</li>
+          </ul>
+
+          <h3>License Fees</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Item</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual license fee</div>
+              <div class="comparison-col highlight"><strong>$196</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Pro-rated?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Maximum bedrooms</div>
+              <div class="comparison-col highlight"><strong>5 bedrooms</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Maximum STRs per provider</div>
+              <div class="comparison-col highlight"><strong>2</strong></div>
+            </div>
+          </div>
+
+          <h3>Ongoing Requirements</h3>
+          <p>Once licensed, you must:</p>
+          <ul>
+            <li><strong>Display your license number</strong> on all listings and marketing materials</li>
+            <li><strong>Provide local emergency contact</strong> to all guests</li>
+            <li><strong>Post fire safety materials</strong> provided by London Fire Department</li>
+            <li><strong>Issue receipts/invoices</strong> showing license number, prices, and MAT</li>
+            <li><strong>Maintain insurance</strong> and file renewals 5 days before expiry</li>
+          </ul>
+
+          <h2 id="broker-rules">Platform Broker Requirements</h2>
+          <p>London also licenses the platforms themselves:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-term Accommodation Broker means any individual, partnership, or corporation that, for compensation, markets and brokers the booking, reservation, or rental, of a Short-term Accommodation on behalf of a Short-term Accommodation Provider by means of a website or digital application."
+            <cite>London By-law L.-131-16, Schedule 21 § 1.0</cite>
+          </blockquote>
+
+          <p>Platforms like Airbnb must:</p>
+          <ul>
+            <li><strong>Get a Broker License</strong> from the City of London</li>
+            <li><strong>Maintain $5,000,000 liability insurance</strong> (higher than host requirement)</li>
+            <li><strong>Verify host license numbers</strong> before allowing listings</li>
+            <li><strong>Collect and remit MAT</strong> on behalf of hosts</li>
+            <li><strong>Provide Ontario address</strong> for receiving city notices</li>
+          </ul>
+
+          <h2 id="bedroom-limits">Bedroom Limits</h2>
+          <p>London caps the size of STR operations:</p>
+
+          <blockquote class="bylaw-quote">
+            "shall not offer more than five bedrooms as Short-term Accommodation"
+            <cite>London By-law L.-131-16, Schedule 21 § 7.1(d)</cite>
+          </blockquote>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Limit Type</div>
+              <div class="comparison-col highlight">Maximum</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Bedrooms per STR</div>
+              <div class="comparison-col highlight"><strong>5</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STRs per provider</div>
+              <div class="comparison-col highlight"><strong>2</strong></div>
+            </div>
+          </div>
+
+          <p>The 2-STR limit is interesting - it means you could potentially operate your primary home and one other unit (though the other would need to be at your Resident Address, making this practically limited).</p>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>London requires substantial coverage:</p>
+
+          <blockquote class="bylaw-quote">
+            "an insurance certificate demonstrating general liability insurance for the operations of the proposed Short-term Accommodation against claims filed against the applicant with respect to bodily injury, including personal injury and death, and property damage with a per occurrence limit of at least $2,000,000"
+            <cite>London By-law L.-131-16, Schedule 21 § 5.1(h)</cite>
+          </blockquote>
+
+          <p>Key requirements:</p>
+          <ul>
+            <li><strong>$2,000,000 minimum</strong> per occurrence</li>
+            <li><strong>Must cover STR operations</strong> specifically</li>
+            <li><strong>Bodily injury and property damage</strong> coverage required</li>
+            <li><strong>File renewals 5 days before expiry</strong> of current policy</li>
+          </ul>
+
+          <p>Additionally, you must sign an <strong>indemnity agreement</strong> in favor of the City, protecting them from claims arising from your STR operation.</p>
+
+          <h2 id="mat-tax">Municipal Accommodation Tax (MAT)</h2>
+          <p>London charges 4% MAT on all short-term rentals:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">MAT Details</div>
+              <div class="comparison-col highlight">Information</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Tax rate</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">On top of</div>
+              <div class="comparison-col highlight"><strong>Plus HST</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Platform bookings</div>
+              <div class="comparison-col highlight"><strong>Collected by Airbnb</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Direct bookings</div>
+              <div class="comparison-col highlight"><strong>Host collects & remits</strong></div>
+            </div>
+          </div>
+
+          <p>For most hosts using Airbnb, the 4% MAT is collected automatically. For direct bookings, you're responsible for collecting from guests and remitting to the City.</p>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>London's penalty structure escalates significantly:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Violation Type</div>
+              <div class="comparison-col highlight">Fine Range</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Minimum fine</div>
+              <div class="comparison-col highlight"><strong>$500</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Individual - First offense max</div>
+              <div class="comparison-col highlight"><strong>$25,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Individual - Subsequent offense max</div>
+              <div class="comparison-col highlight"><strong>$50,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Corporation - First offense max</div>
+              <div class="comparison-col highlight"><strong>$50,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Corporation - Subsequent offense max</div>
+              <div class="comparison-col highlight"><strong>$100,000</strong></div>
+            </div>
+          </div>
+
+          <p>Fines double for subsequent offenses. And each day of continued violation can be treated as a separate offense, meaning penalties can accumulate rapidly.</p>
+
+          <h2 id="compliance-tips">Staying Compliant in London</h2>
+          <p>London has relatively low compliance rates (~152 licensed out of ~700 listings as of 2023). The city is increasing enforcement. Here's how to stay compliant:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get your CRJMC early.</strong> The criminal background check must be dated within 90 days of application. Schedule it well in advance so processing delays don't hold up your license.</li>
+            <li><span class="tip-icon">2</span> <strong>License before listing.</strong> Display your license number on every listing and advertisement. Operating without a visible license number is an easy violation to prove.</li>
+            <li><span class="tip-icon">3</span> <strong>Get landlord/condo approval in writing.</strong> If you don't own outright, you need documented permission. Verbal agreements won't satisfy the application requirements.</li>
+            <li><span class="tip-icon">4</span> <strong>Stay under 5 bedrooms.</strong> Even if your home has 6 bedrooms, you can only rent 5 as STR. Consider keeping one as personal space.</li>
+            <li><span class="tip-icon">5</span> <strong>Post fire safety materials.</strong> London Fire Department provides specific materials that must be displayed in your STR. Contact them if you haven't received them.</li>
+            <li><span class="tip-icon">6</span> <strong>Issue proper receipts.</strong> Every guest should get documentation showing your license number, itemized pricing, and MAT. This is a requirement, not optional.</li>
+            <li><span class="tip-icon">7</span> <strong>File insurance renewals 5 days early.</strong> Don't let your coverage lapse. Mark your calendar for 5 days before your policy expires to file the renewal.</li>
+            <li><span class="tip-icon">8</span> <strong>Consider the 30-day workaround.</strong> Bookings of 30+ consecutive days aren't STRs in London. Good for longer-term guests or slower seasons.</li>
+          </ul>
+
+          <h2 id="official-bylaws">Official City of London Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://london.ca/business-development/business-licences/short-term-accommodation-licensing" target="_blank" rel="noopener">City of London - Short-Term Accommodation Licensing</a></li>
+              <li><a href="https://london.ca/by-laws/business-licensing-law-l-131-16" target="_blank" rel="noopener">Business Licensing By-law L.-131-16</a></li>
+              <li><strong>Service London:</strong> 519-661-4500</li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From London Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With London STR Compliance?</h3>
+            <p>Nurture handles licensing, background checks, insurance coordination, and compliance management so you can focus on maximizing your rental income.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About London STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>

@@ -1,0 +1,907 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in St. Catharines?", a: "No. St. Catharines requires STRs to be in your principal residence - where you live at least 183 days per year. Investment properties don't qualify. For investment properties, consider mid-term rentals (29+ days) which fall outside the STR definition." },
+  { q: "How does the demerit point system work?", a: "You accumulate points for violations. At 5 points, your license is suspended for 3 months. At 10 points, it's revoked. At 15 points, it's revoked with no right to appeal. Points remain on your record, so violations have long-term consequences." },
+  { q: "How long is the license valid?", a: "2 years - one of the shorter terms in Ontario. You'll need to renew more frequently than in some other municipalities. Mark your calendar and start renewal well before expiration." },
+  { q: "What insurance do I need?", a: "$2,000,000 liability insurance minimum that specifically covers short-term rental operations. Standard homeowner's insurance won't work - you need specialized STR coverage or an endorsement." },
+  { q: "Do I need an electrical inspection?", a: "Yes. St. Catharines requires an electrical safety certificate from a licensed electrical contractor for your STR application. This is an extra requirement not all municipalities have." },
+  { q: "How quickly must I respond to issues?", a: "You or your designated agent must be able to attend the property within 1 hour if needed. You must designate someone who can meet this response time requirement." },
+  { q: "Does Airbnb collect the MAT automatically?", a: "Yes. Airbnb and other major platforms collect the 4% Municipal Accommodation Tax on St. Catharines bookings and remit it to the city. For direct bookings, you must collect and remit the 4% yourself." },
+  { q: "Can I rent rooms in my principal residence?", a: "Yes. As long as it's your principal residence (183+ days per year), you can rent the whole home when you're away or rent individual rooms. Both require a license." }
+];
+
+const relatedPosts = [
+  { title: 'Niagara Falls Airbnb Short Term Rental Rules 2026', href: '/blog/niagara-falls-airbnb-short-term-rental-rules-2026', description: 'Nearby Niagara Falls\' VRU licensing and tourist zone restrictions' },
+  { title: 'Niagara-on-the-Lake Airbnb Short Term Rental Rules 2026', href: '/blog/niagara-on-the-lake-airbnb-short-term-rental-rules-2026', description: 'NOTL\'s unique license types and 8-year occupancy requirement' },
+  { title: 'Can You Airbnb an Investment Property in Ontario?', href: '/blog/can-you-airbnb-an-investment-property-in-ontario', description: 'Understanding principal residence rules across Ontario municipalities' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'demerit-system', text: 'Demerit Point System' },
+  { id: 'electrical-certificate', text: 'Electrical Certificate' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'mat-tax', text: 'Municipal Accommodation Tax' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-bylaws', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "St. Catharines Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Complete guide to St. Catharines short term rental regulations for Airbnb hosts. Learn about the 183-day principal residence requirement, demerit point system, electrical certificate requirement, $2M insurance, and 4% MAT under By-law 2023-060.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-05",
+  "dateModified": "2026-02-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/st-catharines-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>St. Catharines Regulations</span>
+      </nav>
+      <h1>St. Catharines Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 5, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">St. Catharines is the largest city in the Niagara Region, home to Brock University and positioned between Toronto and Niagara Falls. STR demand comes from visiting parents, wine tourists, and travelers using it as a Niagara base.</p>
+            <p class="lead">The city's By-law 2023-060 creates a regulated STR market with a demerit point system and specific principal residence requirements. It includes some unique requirements like electrical certificates. Here's the complete breakdown.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>St. Catharines uses a 28-day threshold:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-term rental means the use of a dwelling unit, or portion thereof, for temporary accommodation for a period of twenty-eight (28) consecutive days or less, in exchange for payment."
+            <cite>St. Catharines By-law 2023-060 § Definitions</cite>
+          </blockquote>
+
+          <p>Key elements:</p>
+          <ul>
+            <li><strong>28 days or less</strong> - rentals of 29+ days aren't STRs</li>
+            <li><strong>In exchange for payment</strong> - free stays aren't regulated</li>
+            <li><strong>Whole unit or portion</strong> - covers both entire-home and room rentals</li>
+            <li><strong>Temporary accommodation</strong> - transient guests, not tenants</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>29+ day bookings:</strong> Bookings of 29+ consecutive days aren't classified as STRs. This can be useful for longer corporate stays or snowbirds. Different rules may apply for longer rentals.
+            </div>
+          </div>
+
+          <h2 id="principal-residence">The Principal Residence Requirement</h2>
+          <p>St. Catharines defines principal residence with specific criteria:</p>
+
+          <blockquote class="bylaw-quote">
+            "Principal residence means the dwelling unit where a person resides for at least one hundred and eighty-three (183) days per calendar year."
+            <cite>St. Catharines By-law 2023-060 § Definitions</cite>
+          </blockquote>
+
+          <p>The 183-day rule means:</p>
+          <ul>
+            <li><strong>Must be your primary home</strong> - where you live most of the year</li>
+            <li><strong>183 days = just over half the year</strong> - clear, measurable standard</li>
+            <li><strong>One principal residence per person</strong> - can't claim multiple</li>
+            <li><strong>Investment properties excluded</strong> - secondary properties don't qualify</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Investment Properties Don't Qualify</h4>
+            <p>You cannot operate an STR from an investment property, vacation home, or any dwelling that isn't your principal residence (183+ days/year). For investment properties in St. Catharines, consider mid-term rentals of 29+ consecutive days.</p>
+          </div>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>St. Catharines requires licensing for all STR operators:</p>
+
+          <h3>Application Requirements</h3>
+          <ul>
+            <li><strong>Proof of principal residence</strong> (183+ days/year)</li>
+            <li><strong>Electrical safety certificate</strong> from licensed contractor</li>
+            <li><strong>$2,000,000 liability insurance</strong></li>
+            <li><strong>Designated agent</strong> within 1-hour response time</li>
+            <li><strong>Floor plan</strong> showing rental areas</li>
+            <li><strong>Fire safety compliance</strong> documentation</li>
+          </ul>
+
+          <h3>License Terms</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Item</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License term</div>
+              <div class="comparison-col highlight"><strong>2 years</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence requirement</div>
+              <div class="comparison-col highlight"><strong>183+ days/year</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Agent response time</div>
+              <div class="comparison-col highlight"><strong>1 hour</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Insurance minimum</div>
+              <div class="comparison-col highlight"><strong>$2,000,000</strong></div>
+            </div>
+          </div>
+
+          <h2 id="demerit-system">The Demerit Point System</h2>
+          <p>St. Catharines uses a graduated enforcement system:</p>
+
+          <blockquote class="bylaw-quote">
+            "A licensee who accumulates five (5) demerit points shall have their licence suspended for three (3) months. Ten (10) points results in revocation. Fifteen (15) points results in revocation with no right of appeal."
+            <cite>St. Catharines By-law 2023-060</cite>
+          </blockquote>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Demerit Points</div>
+              <div class="comparison-col highlight">Consequence</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">5 points</div>
+              <div class="comparison-col highlight"><strong>3-month suspension</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">10 points</div>
+              <div class="comparison-col highlight"><strong>License revocation</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">15 points</div>
+              <div class="comparison-col highlight"><strong>Revocation - no appeal</strong></div>
+            </div>
+          </div>
+
+          <p>Different violations carry different point values:</p>
+          <ul>
+            <li><strong>Minor violations</strong> (documentation issues): 1-2 points</li>
+            <li><strong>Moderate violations</strong> (noise, parking): 2-3 points</li>
+            <li><strong>Serious violations</strong> (safety issues, overcrowding): 4-5 points</li>
+          </ul>
+
+          <p>The escalating consequences mean:</p>
+          <ul>
+            <li><strong>2-3 moderate violations = suspension</strong></li>
+            <li><strong>4-5 moderate violations = revocation</strong></li>
+            <li><strong>Points don't reset</strong> - they accumulate over time</li>
+          </ul>
+
+          <h2 id="electrical-certificate">Electrical Certificate Requirement</h2>
+          <p>St. Catharines has a unique electrical safety requirement:</p>
+
+          <blockquote class="bylaw-quote">
+            "An electrical safety certificate issued by a licensed electrical contractor shall be submitted with the application."
+            <cite>St. Catharines By-law 2023-060</cite>
+          </blockquote>
+
+          <p>This requirement:</p>
+          <ul>
+            <li><strong>Must be from a licensed electrical contractor</strong> - not a home inspector</li>
+            <li><strong>Required for initial application</strong></li>
+            <li><strong>Verifies electrical safety</strong> of the rental property</li>
+            <li><strong>Separate from ESA inspection</strong> - different from Electrical Safety Authority</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Plan ahead:</strong> Scheduling a licensed electrical contractor can take time. Start this process early in your application timeline. The certificate is required before your license can be issued.
+            </div>
+          </div>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>St. Catharines requires standard STR insurance coverage:</p>
+
+          <blockquote class="bylaw-quote">
+            "The licensee shall maintain liability insurance of no less than two million dollars ($2,000,000) covering the short-term rental operation."
+            <cite>St. Catharines By-law 2023-060</cite>
+          </blockquote>
+
+          <p>Key requirements:</p>
+          <ul>
+            <li><strong>$2,000,000 minimum</strong> liability per occurrence</li>
+            <li><strong>Must specifically cover</strong> STR operations</li>
+            <li><strong>Certificate required</strong> with application</li>
+            <li><strong>Maintain continuously</strong> - gaps violate the license</li>
+          </ul>
+
+          <h2 id="mat-tax">Municipal Accommodation Tax (MAT)</h2>
+          <p>St. Catharines charges 4% MAT on all short-term rentals:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">MAT Details</div>
+              <div class="comparison-col highlight">Information</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Tax rate</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Platform bookings</div>
+              <div class="comparison-col highlight"><strong>Collected by Airbnb</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Direct bookings</div>
+              <div class="comparison-col highlight"><strong>Host collects & remits</strong></div>
+            </div>
+          </div>
+
+          <p>For most hosts using Airbnb, the 4% is collected automatically. For direct bookings, you're responsible for collecting from guests and remitting to the City.</p>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Beyond the demerit system, St. Catharines has monetary penalties:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Violation</div>
+              <div class="comparison-col highlight">Consequence</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Operating without license</div>
+              <div class="comparison-col highlight"><strong>Fines + potential prosecution</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">5 demerit points</div>
+              <div class="comparison-col highlight"><strong>3-month suspension</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">10 demerit points</div>
+              <div class="comparison-col highlight"><strong>License revocation</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">15 demerit points</div>
+              <div class="comparison-col highlight"><strong>Revocation - no appeal</strong></div>
+            </div>
+          </div>
+
+          <h2 id="compliance-tips">Staying Compliant in St. Catharines</h2>
+          <p>With the demerit system, every violation counts. Here's how to stay compliant:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get your electrical certificate first.</strong> This requirement catches many hosts off-guard. Schedule a licensed electrical contractor before starting your application.</li>
+            <li><span class="tip-icon">2</span> <strong>Track your demerit points.</strong> Know where you stand at all times. Keep records of any violations or warnings. Two moderate violations can trigger a suspension.</li>
+            <li><span class="tip-icon">3</span> <strong>Set up 1-hour response capability.</strong> Designate an agent who can actually respond within 1 hour. Don't name someone who might be unavailable when needed.</li>
+            <li><span class="tip-icon">4</span> <strong>Document your principal residence.</strong> Keep records proving you live at the property 183+ days per year - utility bills, tax filings, driver's license.</li>
+            <li><span class="tip-icon">5</span> <strong>Prevent noise violations.</strong> Noise complaints accumulate demerit points quickly. Set clear quiet hours and communicate them to every guest.</li>
+            <li><span class="tip-icon">6</span> <strong>Maintain your insurance.</strong> An insurance lapse can trigger violations. Set up auto-renewal and calendar reminders.</li>
+            <li><span class="tip-icon">7</span> <strong>Remember the 2-year renewal.</strong> St. Catharines has shorter license terms than some cities. Mark your renewal date and start the process early.</li>
+            <li><span class="tip-icon">8</span> <strong>Consider mid-term for flexibility.</strong> 29+ day bookings aren't STRs. Use this for longer stays or during slower seasons.</li>
+          </ul>
+
+          <h2 id="official-bylaws">Official City of St. Catharines Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.stcatharines.ca/en/applications-licences-and-permits/short-term-rental-licensing.aspx" target="_blank" rel="noopener">City of St. Catharines - Short-Term Rental Licensing</a></li>
+              <li><a href="https://www.stcatharines.ca/en/city-services/by-laws.aspx" target="_blank" rel="noopener">City of St. Catharines - By-laws</a></li>
+              <li><strong>Licensing Services:</strong> 905-688-5600</li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From St. Catharines Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With St. Catharines STR Compliance?</h3>
+            <p>Nurture provides 1-hour response capability, demerit tracking, and full compliance management for Niagara Region hosts. Let us handle the details.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About St. Catharines STR Rules?</h2>
+        <p>Our Niagara specialists can help you navigate the demerit system and stay compliant.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>

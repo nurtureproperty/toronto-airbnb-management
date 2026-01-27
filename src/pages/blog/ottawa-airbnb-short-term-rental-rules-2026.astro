@@ -1,0 +1,925 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Ottawa?", a: "No. Ottawa requires STRs to be in your principal residence - the home where you normally live. Investment properties don't qualify. The exception is if you own a rural cottage in specific zones, but investment condos and urban properties must be your primary home." },
+  { q: "What's the maximum number of guests I can host?", a: "8 overnight guests in a standard dwelling, or 10 guests if you have an oversize dwelling (as defined in the by-law). During events, you can have additional daytime guests, but overnight stays are capped at these numbers." },
+  { q: "How much does an Ottawa STR permit cost?", a: "The host permit costs $123 total ($65 administrative fee + $58 permit fee) and is valid for 2 years. You'll need to renew before it expires. Additionally, platforms like Airbnb must register with the city." },
+  { q: "What insurance do I need for Ottawa STR?", a: "$1,000,000 liability insurance minimum that specifically covers short-term rental activities. Standard homeowner's insurance typically won't cover STR guests, so you'll need specialized coverage or a rider." },
+  { q: "Does Airbnb collect the MAT tax automatically?", a: "Yes. Major platforms like Airbnb are required to register with Ottawa and collect the 4% Municipal Accommodation Tax on your behalf. They remit it directly to the city, so you don't need to handle it separately for platform bookings." },
+  { q: "What about my cottage in rural Ottawa?", a: "Good news - Ottawa has a 'cottage rental' exception for rural zones. If your cottage is in a designated rural area and isn't your principal residence, you may still be able to rent it short-term. Check with the city to confirm your zone qualifies." },
+  { q: "How quickly do I need to respond to complaints?", a: "You or your designated contact must be reachable 24/7 and able to respond to urgent issues promptly. The by-law requires you to address nuisance complaints within a reasonable timeframe or face penalties." },
+  { q: "What records do I need to keep?", a: "Keep records of all rentals including guest names, dates, and any incidents. You may be required to produce these records for city inspectors. Keep them for at least 2 years after each rental." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Compare Ottawa rules with Toronto\'s 180-night limit and registration requirements' },
+  { title: 'London Airbnb Short Term Rental Rules 2026', href: '/blog/london-airbnb-short-term-rental-rules-2026', description: 'London\'s 29-day threshold and criminal background check requirements' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements across Ontario' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'cottage-exception', text: 'Cottage Rental Exception' },
+  { id: 'permit-requirements', text: 'Permit Requirements' },
+  { id: 'platform-rules', text: 'Platform Registration' },
+  { id: 'occupancy-limits', text: 'Guest Limits' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'mat-tax', text: 'Municipal Accommodation Tax' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-bylaws', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Ottawa Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Complete guide to Ottawa's short term rental regulations for Airbnb hosts. Learn about the principal residence requirement, $1M insurance, 4% MAT tax, platform registration rules, and cottage rental exceptions under By-law 2021-104.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-31",
+  "dateModified": "2026-01-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/ottawa-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Ottawa Regulations</span>
+      </nav>
+      <h1>Ottawa Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published January 31, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Ottawa is Canada's capital, attracting millions of visitors annually for government business, tourism, and major events like Winterlude. That creates steady demand for short-term rentals year-round.</p>
+            <p class="lead">The city implemented comprehensive STR regulations through By-law 2021-104 in July 2022. It's one of Ontario's more detailed frameworks, covering everything from host permits to platform registration requirements. Here's the complete breakdown.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Ottawa's definition is specific about what qualifies:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-term rental means temporary accommodation in all or part of a dwelling unit for less than thirty (30) consecutive nights, where the host is compensated for providing the accommodation."
+            <cite>Ottawa By-law 2021-104 § 2</cite>
+          </blockquote>
+
+          <p>Key elements of this definition:</p>
+          <ul>
+            <li><strong>Under 30 nights</strong> - rentals of 30+ consecutive nights aren't STRs</li>
+            <li><strong>Compensation required</strong> - free guest stays aren't regulated</li>
+            <li><strong>All or part</strong> - includes whole-home and room rentals</li>
+            <li><strong>Dwelling unit</strong> - must be in a residential property</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Hotels, motels, and B&Bs:</strong> Traditional hospitality businesses have separate regulations. The STR by-law specifically targets residential properties being rented through platforms like Airbnb.
+            </div>
+          </div>
+
+          <h2 id="principal-residence">The Principal Residence Requirement</h2>
+          <p>This is the cornerstone of Ottawa's STR rules:</p>
+
+          <blockquote class="bylaw-quote">
+            "No person shall operate a short-term rental unless the dwelling unit is the principal residence of the host."
+            <cite>Ottawa By-law 2021-104 § 4(1)</cite>
+          </blockquote>
+
+          <p>The by-law defines principal residence as where you "ordinarily reside" - your main home, not a vacation property or investment unit. You can only have one principal residence.</p>
+
+          <div class="warning-box">
+            <h4>Investment Properties Don't Qualify</h4>
+            <p>You cannot operate an STR from an investment condo, a second home in the city, or any property that isn't your primary residence. For investment properties, consider mid-term rentals (30+ consecutive nights) which fall outside the STR definition.</p>
+          </div>
+
+          <h2 id="cottage-exception">The Cottage Rental Exception</h2>
+          <p>Ottawa has a unique provision for rural cottage owners:</p>
+
+          <blockquote class="bylaw-quote">
+            "A cottage rental is the temporary use of a dwelling unit that is not the principal residence of the host, for less than thirty (30) consecutive nights... in a rural zone."
+            <cite>Ottawa By-law 2021-104 § 2</cite>
+          </blockquote>
+
+          <p>If your cottage is located in one of Ottawa's designated rural zones, you can rent it short-term even if it's not your principal residence. This recognizes the traditional cottage rental economy in Ottawa's vast rural areas.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Property Type</div>
+              <div class="comparison-col highlight">STR Allowed?</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence (urban)</div>
+              <div class="comparison-col highlight"><strong>Yes, with permit</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence (rural)</div>
+              <div class="comparison-col highlight"><strong>Yes, with permit</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Cottage (rural zone)</div>
+              <div class="comparison-col highlight"><strong>Yes, with permit</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment property (urban)</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Second home (urban)</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+          </div>
+
+          <h2 id="permit-requirements">Permit Requirements</h2>
+          <p>Every Ottawa STR host needs a valid permit:</p>
+
+          <h3>Application Requirements</h3>
+          <ul>
+            <li><strong>Completed application form</strong> with property details</li>
+            <li><strong>Proof of principal residence</strong> (or rural cottage ownership)</li>
+            <li><strong>Floor plan</strong> showing the rental space</li>
+            <li><strong>Proof of insurance</strong> ($1M liability minimum)</li>
+            <li><strong>Declaration</strong> agreeing to comply with all requirements</li>
+          </ul>
+
+          <h3>Permit Fees</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Fee Type</div>
+              <div class="comparison-col highlight">Amount</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Administrative fee</div>
+              <div class="comparison-col highlight"><strong>$65</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Permit fee</div>
+              <div class="comparison-col highlight"><strong>$58</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Total</div>
+              <div class="comparison-col highlight"><strong>$123</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Permit validity</div>
+              <div class="comparison-col highlight"><strong>2 years</strong></div>
+            </div>
+          </div>
+
+          <p>Your permit number must be displayed on all listings and advertisements for your property.</p>
+
+          <h2 id="platform-rules">Platform Registration Requirements</h2>
+          <p>Ottawa requires STR platforms to register and cooperate with enforcement:</p>
+
+          <blockquote class="bylaw-quote">
+            "No person shall operate a short-term rental platform unless registered with the City and compliant with the requirements of this by-law."
+            <cite>Ottawa By-law 2021-104 § 8</cite>
+          </blockquote>
+
+          <p>Platforms like Airbnb must:</p>
+          <ul>
+            <li><strong>Register with the City</strong> and pay applicable fees</li>
+            <li><strong>Only list permitted hosts</strong> - verify permit numbers</li>
+            <li><strong>Collect and remit MAT</strong> (4% Municipal Accommodation Tax)</li>
+            <li><strong>Share data with the City</strong> for enforcement purposes</li>
+            <li><strong>Remove unlicensed listings</strong> upon City request</li>
+          </ul>
+
+          <h2 id="occupancy-limits">Guest Limits</h2>
+          <p>Ottawa sets clear limits on how many people can stay:</p>
+
+          <blockquote class="bylaw-quote">
+            "The maximum number of overnight guests in a short-term rental shall not exceed eight (8) persons in a dwelling unit, or ten (10) persons in an oversize dwelling unit."
+            <cite>Ottawa By-law 2021-104 § 6</cite>
+          </blockquote>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Dwelling Type</div>
+              <div class="comparison-col highlight">Max Overnight Guests</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Standard dwelling unit</div>
+              <div class="comparison-col highlight"><strong>8 persons</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oversize dwelling unit</div>
+              <div class="comparison-col highlight"><strong>10 persons</strong></div>
+            </div>
+          </div>
+
+          <p>These are overnight limits. You can have additional guests during the day for events, but overnight stays are capped at these numbers.</p>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Ottawa requires hosts to maintain adequate coverage:</p>
+
+          <blockquote class="bylaw-quote">
+            "A host shall maintain liability insurance of at least one million dollars ($1,000,000) that covers the short-term rental operation."
+            <cite>Ottawa By-law 2021-104 § 5</cite>
+          </blockquote>
+
+          <p>Key insurance requirements:</p>
+          <ul>
+            <li><strong>$1,000,000 minimum</strong> liability coverage per occurrence</li>
+            <li><strong>Must specifically cover</strong> short-term rental activities</li>
+            <li><strong>Proof required</strong> with permit application and renewals</li>
+            <li><strong>Keep policy current</strong> - gaps in coverage violate the by-law</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Standard homeowner's insurance won't work:</strong> Most policies exclude short-term rental activities. Contact your insurer about a rider or get specialized STR insurance. Airbnb's Host Protection Insurance supplements but doesn't replace your own coverage.
+            </div>
+          </div>
+
+          <h2 id="mat-tax">Municipal Accommodation Tax (MAT)</h2>
+          <p>Ottawa charges 4% MAT on all short-term rentals:</p>
+
+          <blockquote class="bylaw-quote">
+            "Every purchaser of transient accommodation shall pay to the provider thereof a tax at the rate of four per cent (4%) of the purchase price."
+            <cite>Ottawa By-law 2017-255</cite>
+          </blockquote>
+
+          <p>For most hosts, this is handled automatically:</p>
+          <ul>
+            <li><strong>Platform bookings:</strong> Airbnb and other registered platforms collect and remit MAT directly</li>
+            <li><strong>Direct bookings:</strong> You must collect 4% from guests and remit to the City</li>
+            <li><strong>Reporting:</strong> Platforms report to the City quarterly</li>
+          </ul>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Ottawa's penalties are among the steepest in Ontario:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Violation Type</div>
+              <div class="comparison-col highlight">Maximum Fine</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Operating without permit</div>
+              <div class="comparison-col highlight"><strong>Up to $100,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">False information on application</div>
+              <div class="comparison-col highlight"><strong>Up to $100,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Exceeding guest limits</div>
+              <div class="comparison-col highlight"><strong>Up to $100,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Platform non-compliance</div>
+              <div class="comparison-col highlight"><strong>Up to $100,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Each day of continued violation</div>
+              <div class="comparison-col highlight"><strong>Separate offense</strong></div>
+            </div>
+          </div>
+
+          <blockquote class="bylaw-quote">
+            "Every person who contravenes any provision of this by-law is guilty of an offence and upon conviction is liable to a fine of up to $100,000."
+            <cite>Ottawa By-law 2021-104 § 14</cite>
+          </blockquote>
+
+          <h2 id="compliance-tips">Staying Compliant in Ottawa</h2>
+          <p>As Canada's capital, Ottawa takes bylaw enforcement seriously. Here's how to stay on the right side:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get your permit first.</strong> Don't list your property until you have a valid permit number. Operating without one is the easiest violation to catch.</li>
+            <li><span class="tip-icon">2</span> <strong>Display your permit number.</strong> It must appear on every listing, advertisement, and booking confirmation. This is how the City verifies compliance.</li>
+            <li><span class="tip-icon">3</span> <strong>Verify your insurance annually.</strong> Make sure your policy specifically mentions short-term rental coverage. Get written confirmation from your insurer.</li>
+            <li><span class="tip-icon">4</span> <strong>Track guest counts.</strong> The 8/10 person overnight limit is strict. Large groups booking for parties are a red flag.</li>
+            <li><span class="tip-icon">5</span> <strong>Respond to complaints promptly.</strong> Noise and nuisance complaints that go unaddressed can lead to permit revocation.</li>
+            <li><span class="tip-icon">6</span> <strong>Keep good records.</strong> Document all bookings, guest communications, and any incidents. You may need to produce these for inspectors.</li>
+            <li><span class="tip-icon">7</span> <strong>Renew before expiry.</strong> Your 2-year permit has a hard expiration date. Operating on an expired permit is operating without one.</li>
+            <li><span class="tip-icon">8</span> <strong>Consider mid-term for flexibility.</strong> Rentals of 30+ consecutive nights aren't subject to these STR rules. Good for off-peak seasons or corporate stays.</li>
+          </ul>
+
+          <h2 id="official-bylaws">Official City of Ottawa Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://ottawa.ca/en/living-ottawa/laws-licences-and-permits/laws/laws-z/short-term-rental-law-no-2021-104" target="_blank" rel="noopener">City of Ottawa - Short-Term Rental By-law 2021-104</a></li>
+              <li><a href="https://ottawa.ca/en/living-ottawa/laws-licences-and-permits/permits-and-licences/short-term-rentals" target="_blank" rel="noopener">City of Ottawa - STR Permits Information</a></li>
+              <li><strong>By-law Services:</strong> 311 or 613-580-2400</li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Ottawa Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Ottawa STR Compliance?</h3>
+            <p>Nurture handles permits, insurance coordination, guest vetting, and compliance management so you can focus on maximizing your rental income in Canada's capital.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Ottawa STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
