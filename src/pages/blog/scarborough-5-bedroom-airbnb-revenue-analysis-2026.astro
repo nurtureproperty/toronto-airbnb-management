@@ -1,0 +1,1283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "What's the average monthly revenue for a 5-bedroom Airbnb in Scarborough/Pickering?", a: "Based on our analysis of 296 active listings, the median monthly revenue is $1,984. The mean is higher at $2,680 due to top performers earning over $15,000/month. Revenue varies significantly based on amenities, guest capacity, and management practices." },
+  { q: "Does having a pool significantly increase Airbnb revenue?", a: "Yes, dramatically. Our data shows listings with pools earn an average of $4,972/month compared to $2,540/month without - a 96% premium. For 5-bedroom properties targeting families and groups, a pool is one of the highest-impact amenities you can offer." },
+  { q: "Should I allow pets in my 5-bedroom Airbnb?", a: "Interestingly, yes. Unlike smaller units, 5-bedroom listings that allow pets earn 34% more ($3,256/month vs $2,424/month). Larger groups traveling with pets are willing to pay premium rates for pet-friendly accommodations, and there's less competition in this niche." },
+  { q: "How much does a hot tub add to revenue?", a: "Hot tubs provide a 65% revenue boost on average. Listings with hot tubs earn $4,284/month compared to $2,600/month without. For vacation-style properties in Scarborough, Pickering, and Ajax, hot tubs are a strong investment." },
+  { q: "Does the Guest Favorite badge matter for larger properties?", a: "Absolutely. Listings with the Guest Favorite badge earn 81% more ($3,782/month vs $2,092/month). The badge signals quality to groups booking larger properties, where trust and reliability are even more important." },
+  { q: "How many bathrooms should a 5-bedroom Airbnb have?", a: "More is better. Properties with 4.5+ bathrooms earn $3,339/month on average, while those with only 1-2 bathrooms earn $2,119/month. For group accommodations, bathroom access is a major factor in guest satisfaction and pricing power." },
+  { q: "What's the ideal guest capacity for a 5-bedroom listing?", a: "Maximizing capacity pays off. Properties accommodating 13+ guests earn $3,608/month on average, while those limited to 6 or fewer guests earn only $1,844/month. Groups are willing to pay premium rates for properties that fit everyone comfortably." },
+  { q: "Does cancellation policy affect revenue for larger properties?", a: "Yes. Listings with Strict cancellation policies earn $3,996/month on average, compared to $2,208/month for Flexible policies - an 81% difference. Established properties with strong reviews can implement stricter policies without losing bookings." }
+];
+
+const relatedPosts = [
+  { title: 'How to Make More from Toronto Airbnb', href: '/blog/how-to-make-more-from-toronto-airbnb', description: 'Data analysis of 320 Toronto 2-bedroom listings' },
+  { title: 'Toronto Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Understanding STR rules and requirements' },
+  { title: 'Can You Airbnb an Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Know the rules before investing' }
+];
+
+const tocItems = [
+  { id: 'key-findings', text: 'Key Findings' },
+  { id: 'revenue-overview', text: 'Revenue Overview' },
+  { id: 'amenities-impact', text: 'Amenities That Pay Off' },
+  { id: 'guest-capacity', text: 'Guest Capacity' },
+  { id: 'reviews-ratings', text: 'Reviews & Ratings' },
+  { id: 'guest-favorite', text: 'Guest Favorite Badge' },
+  { id: 'pricing-strategy', text: 'Pricing Strategy' },
+  { id: 'cancellation-policy', text: 'Cancellation Policy' },
+  { id: 'actionable-tips', text: 'Actionable Tips' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Scarborough 5-Bedroom Airbnb Revenue Analysis 2026 | Data Study";
+const pageDescription = "We analyzed 296 5-bedroom Airbnbs in Scarborough, Pickering & Ajax. Pools add 96%, hot tubs 65%, pets +34%. See median $1,984/month data.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-28",
+  "dateModified": "2026-01-28",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/scarborough-5-bedroom-airbnb-revenue-analysis-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Revenue Analysis</span>
+      </nav>
+      <h1>Scarborough 5-Bedroom Airbnb Revenue Analysis 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 28, 2026</span>
+        <span class="meta-separator">|</span>
+        <span class="meta-read-time">14 min read</span>
+        <span class="meta-separator">|</span>
+        <span class="meta-badge">Data Study</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">We analyzed <strong>296 active 5-bedroom Airbnb listings</strong> in Scarborough, Pickering, and Ajax to understand what drives revenue for larger vacation-style properties in the GTA's eastern corridor.</p>
+            <p class="lead">The results reveal opportunities that most hosts are missing - particularly around amenities like pools and hot tubs, pet policies, and guest capacity optimization.</p>
+          </div>
+
+          <div class="data-callout">
+            <div class="data-callout-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <strong>Data Source</strong>
+            </div>
+            <p>This analysis covers 342 5-bedroom listings in the Scarborough, Pickering, and Ajax area from January 2026, of which 296 had sufficient revenue data for analysis. Revenue estimates are monthly figures based on trailing performance data.</p>
+          </div>
+
+          <h2 id="key-findings">Key Findings at a Glance</h2>
+
+          <div class="key-findings-grid">
+            <div class="finding-card">
+              <div class="finding-number">+96%</div>
+              <div class="finding-label">Revenue boost from having a pool</div>
+            </div>
+            <div class="finding-card highlight">
+              <div class="finding-number">+81%</div>
+              <div class="finding-label">Premium for Guest Favorite badge</div>
+            </div>
+            <div class="finding-card">
+              <div class="finding-number">+65%</div>
+              <div class="finding-label">Revenue boost from hot tub</div>
+            </div>
+            <div class="finding-card">
+              <div class="finding-number">$1,984</div>
+              <div class="finding-label">Median monthly revenue</div>
+            </div>
+          </div>
+
+          <h2 id="revenue-overview">Revenue Overview: The Full Picture</h2>
+          <p>Five-bedroom properties in this market show dramatic revenue variation - more so than smaller units. The gap between top and bottom performers is substantial.</p>
+
+          <div class="stats-box">
+            <div class="stat-item">
+              <span class="stat-value">$2,680</span>
+              <span class="stat-label">Mean Monthly Revenue</span>
+            </div>
+            <div class="stat-item highlight">
+              <span class="stat-value">$1,984</span>
+              <span class="stat-label">Median Monthly Revenue</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">$15,041</span>
+              <span class="stat-label">Top Performer</span>
+            </div>
+          </div>
+
+          <p>The significant gap between mean and median indicates a small number of highly optimized properties are pulling the average up. Most hosts aren't capturing the full potential of their 5-bedroom listings.</p>
+
+          <h3>Revenue Distribution</h3>
+          <div class="chart-container">
+            <div class="chart-title">Monthly Revenue Percentiles</div>
+            <svg viewBox="0 0 600 300" class="bar-chart">
+              <!-- Grid lines -->
+              <line x1="80" y1="250" x2="580" y2="250" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="200" x2="580" y2="200" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="150" x2="580" y2="150" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="100" x2="580" y2="100" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="50" x2="580" y2="50" stroke="#e5e7eb" stroke-width="1"/>
+
+              <!-- Y-axis labels -->
+              <text x="70" y="255" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
+              <text x="70" y="205" text-anchor="end" fill="#6b7280" font-size="12">$2K</text>
+              <text x="70" y="155" text-anchor="end" fill="#6b7280" font-size="12">$4K</text>
+              <text x="70" y="105" text-anchor="end" fill="#6b7280" font-size="12">$6K</text>
+              <text x="70" y="55" text-anchor="end" fill="#6b7280" font-size="12">$8K</text>
+
+              <!-- Bars - scaled for monthly values: $316, $838, $1,987, $3,763, $6,121 -->
+              <rect x="100" y="242" width="70" height="8" fill="#d4a373" rx="4"/>
+              <rect x="200" y="229" width="70" height="21" fill="#d4a373" rx="4"/>
+              <rect x="300" y="200" width="70" height="50" fill="#759b8f" rx="4"/>
+              <rect x="400" y="156" width="70" height="94" fill="#d4a373" rx="4"/>
+              <rect x="500" y="97" width="70" height="153" fill="#5a7d73" rx="4"/>
+
+              <!-- Value labels -->
+              <text x="135" y="237" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$316</text>
+              <text x="235" y="224" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$838</text>
+              <text x="335" y="195" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$1,987</text>
+              <text x="435" y="151" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$3,763</text>
+              <text x="535" y="92" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">$6,121</text>
+
+              <!-- X-axis labels -->
+              <text x="135" y="275" text-anchor="middle" fill="#6b7280" font-size="12">10th %</text>
+              <text x="235" y="275" text-anchor="middle" fill="#6b7280" font-size="12">25th %</text>
+              <text x="335" y="275" text-anchor="middle" fill="#6b7280" font-size="12">50th %</text>
+              <text x="435" y="275" text-anchor="middle" fill="#6b7280" font-size="12">75th %</text>
+              <text x="535" y="275" text-anchor="middle" fill="#6b7280" font-size="12">90th %</text>
+            </svg>
+          </div>
+
+          <p>The top 10% earn <strong>19x more</strong> than the bottom 10%. Understanding what separates them is key to maximizing your revenue.</p>
+
+          <h2 id="amenities-impact">Amenities That Pay Off Big</h2>
+          <p>For 5-bedroom properties targeting families and groups, certain amenities have an outsized impact on revenue. Here's what the data shows:</p>
+
+          <h3>Pool: The Biggest Revenue Driver</h3>
+          <p>Having a pool nearly doubles your revenue potential for 5-bedroom properties.</p>
+
+          <div class="chart-container">
+            <div class="chart-title">Pool Impact on Monthly Revenue</div>
+            <svg viewBox="0 0 500 220" class="bar-chart">
+              <!-- Bars - scaled for monthly: $4,972 vs $2,540 -->
+              <rect x="100" y="50" width="120" height="140" fill="#759b8f" rx="6"/>
+              <rect x="280" y="118" width="120" height="72" fill="#d4a373" rx="6"/>
+
+              <!-- Value labels -->
+              <text x="160" y="40" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$4,972</text>
+              <text x="340" y="108" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$2,540</text>
+
+              <!-- X-axis labels -->
+              <text x="160" y="210" text-anchor="middle" fill="#374151" font-size="13" font-weight="600">With Pool</text>
+              <text x="160" y="225" text-anchor="middle" fill="#9ca3af" font-size="11">(17 listings)</text>
+              <text x="340" y="210" text-anchor="middle" fill="#374151" font-size="13" font-weight="600">Without Pool</text>
+              <text x="340" y="225" text-anchor="middle" fill="#9ca3af" font-size="11">(279 listings)</text>
+
+              <!-- Annotation -->
+              <text x="250" y="25" text-anchor="middle" fill="#759b8f" font-size="16" font-weight="700">+96% Premium</text>
+            </svg>
+          </div>
+
+          <p>While only 17 of 296 listings have pools, they dramatically outperform. Groups traveling together for vacations, reunions, or celebrations actively seek pool properties and will pay a significant premium.</p>
+
+          <h3>Hot Tub: Strong Returns</h3>
+          <p>Hot tubs deliver a 65% revenue boost, making them one of the best investments for 5-bedroom properties.</p>
+
+          <div class="comparison-box">
+            <div class="comparison-item">
+              <span class="comparison-rating">With Hot Tub</span>
+              <span class="comparison-value">$4,284/month</span>
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-rating">Without Hot Tub</span>
+              <span class="comparison-value">$2,600/month</span>
+            </div>
+          </div>
+
+          <p>Hot tubs signal a "vacation experience" that justifies premium pricing. They're particularly attractive for winter bookings when pools aren't usable.</p>
+
+          <h3>Pets: A Surprising Revenue Booster</h3>
+          <p>Unlike smaller units where pets often correlate with lower revenue, <strong>5-bedroom properties that allow pets earn 34% more</strong>.</p>
+
+          <div class="comparison-box">
+            <div class="comparison-item">
+              <span class="comparison-rating">Pets Allowed</span>
+              <span class="comparison-value">$3,256/month</span>
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-rating">No Pets</span>
+              <span class="comparison-value">$2,424/month</span>
+            </div>
+          </div>
+
+          <div class="insight-box">
+            <h4>Why Pets Work for Larger Properties</h4>
+            <ul>
+              <li>Families traveling with dogs need larger spaces</li>
+              <li>Less competition - most hosts don't allow pets</li>
+              <li>Groups pay premium rates for pet-friendly options</li>
+              <li>Larger properties can better absorb any wear</li>
+            </ul>
+          </div>
+
+          <h2 id="guest-capacity">Guest Capacity: Maximize It</h2>
+          <p>For 5-bedroom properties, maximizing guest capacity directly correlates with revenue.</p>
+
+          <div class="chart-container">
+            <div class="chart-title">Average Monthly Revenue by Guest Capacity</div>
+            <svg viewBox="0 0 600 280" class="bar-chart">
+              <!-- Grid lines -->
+              <line x1="80" y1="230" x2="580" y2="230" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="170" x2="580" y2="170" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="110" x2="580" y2="110" stroke="#e5e7eb" stroke-width="1"/>
+
+              <!-- Y-axis labels -->
+              <text x="70" y="235" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
+              <text x="70" y="175" text-anchor="end" fill="#6b7280" font-size="12">$2.5K</text>
+              <text x="70" y="115" text-anchor="end" fill="#6b7280" font-size="12">$5K</text>
+
+              <!-- Bars - scaled for monthly: $1,844, $2,471, $2,841, $3,277, $3,608 -->
+              <rect x="95" y="186" width="80" height="44" fill="#ef4444" rx="4"/>
+              <rect x="195" y="171" width="80" height="59" fill="#d4a373" rx="4"/>
+              <rect x="295" y="162" width="80" height="68" fill="#d4a373" rx="4"/>
+              <rect x="395" y="151" width="80" height="79" fill="#759b8f" rx="4"/>
+              <rect x="495" y="143" width="80" height="87" fill="#5a7d73" rx="4"/>
+
+              <!-- Value labels -->
+              <text x="135" y="181" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$1,844</text>
+              <text x="235" y="166" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$2,471</text>
+              <text x="335" y="157" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$2,841</text>
+              <text x="435" y="146" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">$3,277</text>
+              <text x="535" y="138" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">$3,608</text>
+
+              <!-- X-axis labels -->
+              <text x="135" y="255" text-anchor="middle" fill="#6b7280" font-size="11">1-6 guests</text>
+              <text x="235" y="255" text-anchor="middle" fill="#6b7280" font-size="11">7-8 guests</text>
+              <text x="335" y="255" text-anchor="middle" fill="#6b7280" font-size="11">9-10 guests</text>
+              <text x="435" y="255" text-anchor="middle" fill="#6b7280" font-size="11">11-12 guests</text>
+              <text x="535" y="255" text-anchor="middle" fill="#6b7280" font-size="11">13+ guests</text>
+            </svg>
+          </div>
+
+          <p>Properties that can accommodate 13+ guests earn nearly <strong>double</strong> what those limited to 6 guests earn. Groups booking 5-bedroom properties are typically large - make sure you can serve them.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Pro tip:</strong> Add quality sofa beds, futons, or bunk beds to increase capacity. A 5-bedroom that sleeps 12-14 guests captures a much larger market than one limited to 8-10.
+            </div>
+          </div>
+
+          <h3>Bathroom Count Matters</h3>
+          <p>For larger properties, bathroom access is critical. More bathrooms = higher revenue.</p>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Bathrooms</th>
+                  <th>Avg Revenue</th>
+                  <th>Listings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>4.5+ bathrooms</td>
+                  <td>$3,339</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td>3.5-4 bathrooms</td>
+                  <td>$2,897</td>
+                  <td>102</td>
+                </tr>
+                <tr>
+                  <td>2.5-3 bathrooms</td>
+                  <td>$2,605</td>
+                  <td>113</td>
+                </tr>
+                <tr>
+                  <td>1-2 bathrooms</td>
+                  <td>$2,119</td>
+                  <td>55</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Properties with 4.5+ bathrooms earn <strong>58% more</strong> than those with only 1-2 bathrooms. For groups of 10-14, adequate bathroom access is a dealbreaker.</p>
+
+          <h2 id="reviews-ratings">Reviews: The Compounding Effect</h2>
+          <p>Review count is one of the strongest predictors of revenue for 5-bedroom properties.</p>
+
+          <div class="chart-container">
+            <div class="chart-title">Average Monthly Revenue by Review Count</div>
+            <svg viewBox="0 0 600 300" class="bar-chart">
+              <!-- Grid lines -->
+              <line x1="80" y1="250" x2="580" y2="250" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="190" x2="580" y2="190" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="130" x2="580" y2="130" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="80" y1="70" x2="580" y2="70" stroke="#e5e7eb" stroke-width="1"/>
+
+              <!-- Y-axis labels -->
+              <text x="70" y="255" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
+              <text x="70" y="195" text-anchor="end" fill="#6b7280" font-size="12">$2.5K</text>
+              <text x="70" y="135" text-anchor="end" fill="#6b7280" font-size="12">$5K</text>
+              <text x="70" y="75" text-anchor="end" fill="#6b7280" font-size="12">$7.5K</text>
+
+              <!-- Bars - scaled for monthly: $1,307, $1,568, $2,637, $5,038, $4,984, $6,214 -->
+              <rect x="95" y="218" width="60" height="32" fill="#ef4444" rx="4"/>
+              <rect x="170" y="211" width="60" height="39" fill="#f97316" rx="4"/>
+              <rect x="245" y="184" width="60" height="66" fill="#d4a373" rx="4"/>
+              <rect x="320" y="119" width="60" height="131" fill="#759b8f" rx="4"/>
+              <rect x="395" y="121" width="60" height="129" fill="#759b8f" rx="4"/>
+              <rect x="470" y="91" width="60" height="159" fill="#5a7d73" rx="4"/>
+
+              <!-- Value labels -->
+              <text x="125" y="213" text-anchor="middle" fill="#374151" font-size="9" font-weight="600">$1,307</text>
+              <text x="200" y="206" text-anchor="middle" fill="#374151" font-size="9" font-weight="600">$1,568</text>
+              <text x="275" y="179" text-anchor="middle" fill="#374151" font-size="9" font-weight="600">$2,637</text>
+              <text x="350" y="114" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">$5,038</text>
+              <text x="425" y="116" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">$4,984</text>
+              <text x="500" y="86" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">$6,214</text>
+
+              <!-- X-axis labels -->
+              <text x="125" y="275" text-anchor="middle" fill="#6b7280" font-size="10">0</text>
+              <text x="200" y="275" text-anchor="middle" fill="#6b7280" font-size="10">1-10</text>
+              <text x="275" y="275" text-anchor="middle" fill="#6b7280" font-size="10">11-30</text>
+              <text x="350" y="275" text-anchor="middle" fill="#6b7280" font-size="10">31-50</text>
+              <text x="425" y="275" text-anchor="middle" fill="#6b7280" font-size="10">51-100</text>
+              <text x="500" y="275" text-anchor="middle" fill="#6b7280" font-size="10">100+</text>
+              <text x="312" y="295" text-anchor="middle" fill="#9ca3af" font-size="11">Number of Reviews</text>
+            </svg>
+          </div>
+
+          <p>Listings with 100+ reviews earn nearly <strong>5x more</strong> than new listings with no reviews. For large group bookings, trust and social proof are paramount.</p>
+
+          <h3>The Rating Sweet Spot</h3>
+          <p>Similar to smaller properties, we see that 4.7-4.89 rated listings actually outperform 4.9-5.0 listings.</p>
+
+          <div class="comparison-box">
+            <div class="comparison-item">
+              <span class="comparison-rating">4.7-4.89</span>
+              <span class="comparison-value">$3,497/month</span>
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-rating">4.9-5.0</span>
+              <span class="comparison-value">$3,020/month</span>
+            </div>
+          </div>
+
+          <p>Listings in the 4.7-4.89 range typically have more reviews and longer track records. Perfect ratings often come from newer listings that haven't yet built booking momentum.</p>
+
+          <h2 id="guest-favorite">The Guest Favorite Badge: 81% Premium</h2>
+          <p>Airbnb's Guest Favorite badge has an enormous impact on 5-bedroom property revenue.</p>
+
+          <div class="chart-container">
+            <div class="chart-title">Guest Favorite Badge Impact on Revenue</div>
+            <svg viewBox="0 0 500 220" class="bar-chart">
+              <!-- Bars - scaled for monthly: $3,782 vs $2,092 -->
+              <rect x="100" y="55" width="120" height="135" fill="#759b8f" rx="6"/>
+              <rect x="280" y="125" width="120" height="65" fill="#d4a373" rx="6"/>
+
+              <!-- Value labels -->
+              <text x="160" y="45" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$3,782</text>
+              <text x="340" y="115" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$2,092</text>
+
+              <!-- X-axis labels -->
+              <text x="160" y="210" text-anchor="middle" fill="#374151" font-size="13" font-weight="600">With Badge</text>
+              <text x="160" y="225" text-anchor="middle" fill="#9ca3af" font-size="11">(103 listings)</text>
+              <text x="340" y="210" text-anchor="middle" fill="#374151" font-size="13" font-weight="600">Without Badge</text>
+              <text x="340" y="225" text-anchor="middle" fill="#9ca3af" font-size="11">(193 listings)</text>
+
+              <!-- Annotation -->
+              <text x="250" y="25" text-anchor="middle" fill="#759b8f" font-size="16" font-weight="700">+81% Premium</text>
+            </svg>
+          </div>
+
+          <p>For groups booking expensive 5-bedroom properties, the Guest Favorite badge provides crucial trust signals. Over a third of listings (103 of 296) have earned this badge.</p>
+
+          <h2 id="pricing-strategy">Dynamic Pricing: Still Important</h2>
+          <p>Dynamic pricing continues to drive results for larger properties, though the effect is less dramatic than for smaller units.</p>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Dynamic Pricing Level</th>
+                  <th>Avg Revenue</th>
+                  <th>Listings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>High</td>
+                  <td>$3,572</td>
+                  <td>39</td>
+                </tr>
+                <tr>
+                  <td>Moderate</td>
+                  <td>$3,030</td>
+                  <td>64</td>
+                </tr>
+                <tr>
+                  <td>Low</td>
+                  <td>$2,417</td>
+                  <td>65</td>
+                </tr>
+                <tr>
+                  <td>None</td>
+                  <td>$2,366</td>
+                  <td>121</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>High-intensity dynamic pricing delivers a <strong>51% boost</strong> over static pricing. Tools like PriceLabs or Wheelhouse help capture premium rates during high-demand periods (holidays, summer, long weekends).</p>
+
+          <h3>Economic Category Impact</h3>
+          <p>Positioning matters. Upscale properties dramatically outperform budget options.</p>
+
+          <div class="stats-box">
+            <div class="stat-item">
+              <span class="stat-value">$3,970</span>
+              <span class="stat-label">Upscale Properties</span>
+            </div>
+            <div class="stat-item highlight">
+              <span class="stat-value">$2,132</span>
+              <span class="stat-label">Midscale Properties</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">$1,372</span>
+              <span class="stat-label">Economy Properties</span>
+            </div>
+          </div>
+
+          <p>Upscale positioning earns nearly <strong>3x more</strong> than economy positioning. For 5-bedroom properties, investing in quality finishes, professional photos, and premium amenities pays dividends.</p>
+
+          <h2 id="cancellation-policy">Cancellation Policy: Be Strategic</h2>
+          <p>Established properties with strict cancellation policies significantly outperform those with flexible policies.</p>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Cancellation Policy</th>
+                  <th>Avg Revenue</th>
+                  <th>Listings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>Strict</td>
+                  <td>$3,996</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Firm</td>
+                  <td>$2,950</td>
+                  <td>119</td>
+                </tr>
+                <tr>
+                  <td>Limited</td>
+                  <td>$2,493</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td>Moderate</td>
+                  <td>$2,408</td>
+                  <td>44</td>
+                </tr>
+                <tr>
+                  <td>Flexible</td>
+                  <td>$2,208</td>
+                  <td>80</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Strict cancellation policies correlate with <strong>81% higher revenue</strong> compared to flexible policies. As you build reviews and demand, tightening your policy protects against costly last-minute cancellations.</p>
+
+          <h2 id="actionable-tips">Actionable Tips to Increase Your Revenue</h2>
+          <p>Based on this data, here are the highest-impact changes for 5-bedroom property hosts:</p>
+
+          <div class="tips-list">
+            <div class="tip-item">
+              <span class="tip-number">1</span>
+              <div class="tip-content">
+                <h4>Add a Hot Tub (or Pool if Possible)</h4>
+                <p>These amenities drive the biggest revenue premiums: pools (+96%) and hot tubs (+65%). For group properties, they transform a "place to stay" into a "vacation experience."</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-number">2</span>
+              <div class="tip-content">
+                <h4>Allow Pets</h4>
+                <p>Unlike smaller properties, 5-bedroom listings that allow pets earn 34% more. Large groups with pets have few options and will pay premium rates for pet-friendly accommodations.</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-number">3</span>
+              <div class="tip-content">
+                <h4>Maximize Guest Capacity</h4>
+                <p>Properties sleeping 13+ guests earn nearly double those limited to 6. Add quality sofa beds, bunk beds, or futons to increase capacity without sacrificing comfort.</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-number">4</span>
+              <div class="tip-content">
+                <h4>Add Bathrooms</h4>
+                <p>Properties with 4.5+ bathrooms earn 58% more than those with 1-2. If you're renovating, prioritize adding bathrooms to serve larger groups.</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-number">5</span>
+              <div class="tip-content">
+                <h4>Pursue the Guest Favorite Badge</h4>
+                <p>The 81% revenue premium is substantial. Focus on response time (under 1 hour), avoid cancellations, and resolve guest issues immediately.</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-number">6</span>
+              <div class="tip-content">
+                <h4>Position as Upscale</h4>
+                <p>Upscale properties earn 3x more than economy listings. Invest in professional photography, quality furnishings, and premium amenities. Price accordingly.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your 5-Bedroom Revenue?</h3>
+            <p>Nurture specializes in managing larger properties in Scarborough, Pickering, and Ajax. We use data-driven strategies to help hosts earn 30-100% more from their 5-bedroom listings.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Optimize Your Listing?</h2>
+        <p>Our local experts use data like this to maximize revenue for GTA hosts every day.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation - No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 900px;
+    margin: 0 auto 1rem;
+    font-size: 2.25rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .meta-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .data-callout {
+    background: #f0f9ff;
+    border-left: 4px solid #0ea5e9;
+    padding: 1.25rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .data-callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #0369a1;
+  }
+
+  .data-callout p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+  }
+
+  .key-findings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .finding-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .finding-card.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .finding-number {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.1;
+  }
+
+  .finding-label {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .stats-box {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  .stat-item.highlight {
+    border-left: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
+  }
+
+  .stat-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-primary);
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .chart-container {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .chart-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .bar-chart {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .insight-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.25rem;
+    border-radius: 0 12px 12px 0;
+    margin: 1.5rem 0;
+  }
+
+  .insight-box h4 {
+    color: #276749;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .insight-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .insight-box li {
+    margin-bottom: 0.25rem;
+  }
+
+  .comparison-box {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .comparison-item {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .comparison-rating {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .comparison-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .data-table th {
+    background: var(--color-background-alt);
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .data-table .highlight-row {
+    background: #f0fff4;
+  }
+
+  .data-table .highlight-row td {
+    font-weight: 600;
+  }
+
+  .tips-list {
+    margin: 2rem 0;
+  }
+
+  .tip-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tip-item:last-child {
+    border-bottom: none;
+  }
+
+  .tip-number {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .tip-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .tip-content p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .key-findings-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-box {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-item.highlight {
+      border: none;
+      border-top: 2px solid var(--color-primary);
+      border-bottom: 2px solid var(--color-primary);
+      padding: 1rem 0;
+    }
+
+    .comparison-box {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .key-findings-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .finding-number {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
