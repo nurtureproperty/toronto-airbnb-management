@@ -1,0 +1,153 @@
+{
+  "total_listings": 356,
+  "active_listings": 320,
+  "revenue_stats": {
+    "mean": 28047.0,
+    "median": 19166.0,
+    "min": 100.0,
+    "max": 145326.0,
+    "percentiles": {
+      "10": 3463.0,
+      "25": 8460.0,
+      "50": 19322.0,
+      "75": 41960.0,
+      "90": 67787.0
+    }
+  },
+  "dynamic_pricing": {
+    "None": {
+      "mean": 24234.0,
+      "count": 131
+    },
+    "Low": {
+      "mean": 28894.0,
+      "count": 51
+    },
+    "High": {
+      "mean": 39641.0,
+      "count": 59
+    },
+    "Moderate": {
+      "mean": 25695.0,
+      "count": 73
+    }
+  },
+  "management": {
+    "Small": {
+      "mean": 27295.0,
+      "count": 85
+    },
+    "Individual": {
+      "mean": 33977.0,
+      "count": 164
+    },
+    "Moderate": {
+      "mean": 13129.0,
+      "count": 47
+    },
+    "Large": {
+      "mean": 19630.0,
+      "count": 18
+    }
+  },
+  "bathrooms": {
+    "1 bath": {
+      "mean": 24411.0,
+      "count": 109
+    },
+    "2+ baths": {
+      "mean": 29757.0,
+      "count": 203
+    },
+    "1.5 baths": {
+      "mean": 34196.0,
+      "count": 8
+    }
+  },
+  "guests": {
+    "4 guests": {
+      "mean": 25749.0,
+      "count": 147
+    },
+    "1-3 guests": {
+      "mean": 19791.0,
+      "count": 30
+    },
+    "6 guests": {
+      "mean": 29297.0,
+      "count": 91
+    },
+    "5 guests": {
+      "mean": 37243.0,
+      "count": 34
+    },
+    "7+ guests": {
+      "mean": 36883.0,
+      "count": 18
+    }
+  },
+  "economic_category": {
+    "Midscale": {
+      "mean": 22488.0,
+      "count": 222
+    },
+    "Economy": {
+      "mean": 4749.0,
+      "count": 15
+    },
+    "Upscale": {
+      "mean": 47125.0,
+      "count": 83
+    }
+  },
+  "rating": {
+    "Below 4.5": {
+      "mean": 11754.0,
+      "count": 12
+    },
+    "4.5-4.69": {
+      "mean": 21712.0,
+      "count": 39
+    },
+    "4.9-5.0": {
+      "mean": 28466.0,
+      "count": 157
+    },
+    "4.7-4.89": {
+      "mean": 40512.0,
+      "count": 81
+    }
+  },
+  "reviews": {
+    "No reviews": {
+      "mean": 8087.0,
+      "count": 42
+    },
+    "1-10 reviews": {
+      "mean": 15678.0,
+      "count": 132
+    },
+    "11-30 reviews": {
+      "mean": 31033.0,
+      "count": 49
+    },
+    "51-100 reviews": {
+      "mean": 56757.0,
+      "count": 38
+    },
+    "31-50 reviews": {
+      "mean": 46259.0,
+      "count": 43
+    },
+    "100+ reviews": {
+      "mean": 56206.0,
+      "count": 16
+    }
+  },
+  "guest_favorite": {
+    "with": 44016.0,
+    "without": 21604.0,
+    "count_with": 92,
+    "count_without": 228
+  }
+}
