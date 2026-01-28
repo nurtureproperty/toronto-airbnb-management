@@ -2,10 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I rent my investment condo on Airbnb in Toronto?", a: "Generally no. Toronto requires short-term rentals to be your principal residence. Investment properties (where you don't live) cannot be used for rentals under 28 days." },
-  { q: "What if my condo allows short-term rentals?", a: "Even if your condo corporation permits STRs, you still need to comply with city bylaws. The principal residence rule applies regardless of condo rules." },
-  { q: "Are there any cities in the GTA without the principal residence rule?", a: "Most regulated GTA cities enforce principal residence requirements. Some less-regulated areas like Burlington and King Township don't have specific STR bylaws, but this can change." },
-  { q: "Can I do mid-term rentals on an investment property?", a: "Yes! Rentals of 28-30+ days are exempt from most STR regulations in the GTA. Many investors use mid-term rentals for corporate housing, relocations, and extended stays." }
+  { q: "Can I rent my investment condo on Airbnb in Toronto?", a: "The city's rules say short-term rentals should be your principal residence. However, many hosts find ways to make it work. We can't give legal advice, but mid-term rentals (28+ days) are a clear path that's exempt from these rules." },
+  { q: "What if my condo allows short-term rentals?", a: "Even if your condo corporation permits STRs, city bylaws still apply. Some hosts operate anyway, while others stick to mid-term rentals for a cleaner approach." },
+  { q: "Are there any cities in the GTA without the principal residence rule?", a: "Some areas like Burlington and King Township don't have specific STR bylaws yet. Others have varying enforcement levels. Regulations are always changing, so check your specific municipality." },
+  { q: "Can I do mid-term rentals on an investment property?", a: "Yes! Rentals of 28-30+ days are exempt from most STR regulations in the GTA. Many investors use mid-term rentals for corporate housing, relocations, and extended stays. This is often the easiest path." },
+  { q: "What are hosts actually doing with investment properties?", a: "Some hosts claim the property as their principal residence. Others focus on mid-term rentals. Some operate in areas with less regulation. Every situation is different, and we can't advise on what's right for you legally." }
 ];
 
 const cityRules = [
@@ -18,15 +19,16 @@ const cityRules = [
 ];
 
 const relatedPosts = [
-  { title: "Toronto Airbnb Short Term Rental Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR regulations' }
+  { title: "Toronto Airbnb Short Term Rental Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR regulations' },
+  { title: "Toronto Partial-Unit Registration: No 180-Night Limit", href: '/blog/toronto-airbnb-partial-unit-registration-guide-2026', description: 'How to rent 365 nights/year legally' }
 ];
 
 const tocItems = [
   { id: 'principal-residence', text: 'The Principal Residence Rule' },
-  { id: 'why-exists', text: 'Why This Rule Exists' },
+  { id: 'what-hosts-doing', text: 'What Hosts Are Actually Doing' },
   { id: 'gta-cities', text: 'GTA Cities & Their Rules' },
   { id: 'what-qualifies', text: 'What Qualifies as Principal Residence?' },
-  { id: 'alternatives', text: 'Alternatives for Investment Properties' },
+  { id: 'alternatives', text: 'Your Options' },
   { id: 'mid-term', text: 'Mid-Term Rental Strategy' },
   { id: 'faqs', text: 'FAQs' }
 ];
@@ -105,35 +107,46 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">If you own an investment property in the Greater Toronto Area and are considering listing it on Airbnb, there's one critical rule you need to understand: the <strong>principal residence requirement</strong>. In most GTA cities, you cannot short-term rent a property unless you actually live there.</p>
+            <p class="lead">If you own an investment property in the Greater Toronto Area and are considering listing it on Airbnb, you've probably heard about the <strong>principal residence requirement</strong>. Here's what the rules actually say, what hosts are doing in practice, and your options.</p>
           </div>
 
           <h2 id="principal-residence">The Principal Residence Rule</h2>
-          <p>Most municipalities in the GTA have implemented short-term rental regulations that include a <strong>principal residence requirement</strong>. This means:</p>
+          <p>Most municipalities in the GTA have short-term rental regulations that include a <strong>principal residence requirement</strong>. On paper, this means:</p>
 
-          <div class="callout callout-warning">
+          <div class="callout">
             <div class="callout-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                <line x1="12" y1="9" x2="12" y2="13"></line>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
             </div>
             <div class="callout-content">
-              <strong>Important:</strong> In Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville, you can only operate a short-term rental (under 28-30 days) from your primary home, the place where you actually live.
+              <strong>The Official Rule:</strong> In Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville, short-term rentals (under 28-30 days) are supposed to be operated from your primary home.
             </div>
           </div>
 
-          <p>Investment properties, secondary homes, and vacation properties are <strong>not eligible</strong> for short-term rental licenses in these cities.</p>
+          <p>That's what the bylaws say. But like many regulations, the reality on the ground is more nuanced.</p>
 
-          <h2 id="why-exists">Why This Rule Exists</h2>
-          <p>GTA municipalities implemented the principal residence requirement for several reasons:</p>
-          <ul>
-            <li><strong>Housing supply concerns:</strong> Prevent investment properties from being converted to short-term rentals, reducing long-term housing availability</li>
-            <li><strong>Neighbourhood stability:</strong> Maintain residential character in neighbourhoods by limiting commercial-style operations</li>
-            <li><strong>Accountability:</strong> Ensure there's a local resident responsible for the property and guest behaviour</li>
-            <li><strong>Tax base protection:</strong> Keep residential properties in residential use</li>
-          </ul>
+          <h2 id="what-hosts-doing">What Hosts Are Actually Doing</h2>
+          <p>We can't provide legal advice, and we're not suggesting anyone break rules. But here's what we're seeing across the GTA:</p>
+
+          <div class="info-grid" style="grid-template-columns: 1fr; margin: 2rem 0;">
+            <div class="info-card">
+              <h4>Some hosts claim principal residence</h4>
+              <p>Many investment property owners register their property as their principal residence for STR purposes. They may spend time there, keep belongings there, or have mail delivered there. This is between them and the city, how they structure their living situation is their choice.</p>
+            </div>
+            <div class="info-card">
+              <h4>Enforcement varies widely</h4>
+              <p>Different cities have different enforcement approaches. Some are complaint-driven, others are more proactive. Some hosts have operated for years without issues. Others have received notices. Every situation is different.</p>
+            </div>
+            <div class="info-card">
+              <h4>Mid-term is the clean path</h4>
+              <p>Many investors choose mid-term rentals (28+ days) because it's completely exempt from STR rules. No gray areas, no registration required, and strong demand from corporate travelers and relocations.</p>
+            </div>
+          </div>
+
+          <p><strong>We can't tell you what's right for your situation.</strong> That's a decision only you can make, ideally with proper legal advice if you're uncertain. What we can do is help you execute whatever strategy you choose.</p>
 
           <h2 id="gta-cities">GTA Cities & Their Rules</h2>
           <p>Here's a quick overview of how major GTA cities handle investment properties and short-term rentals:</p>
@@ -190,29 +203,29 @@ const pageSchema = [articleSchema, faqSchema];
             <li>Voter registration</li>
           </ul>
 
-          <h2 id="alternatives">Alternatives for Investment Properties</h2>
-          <p>If you own an investment property in the GTA and can't do short-term rentals, you have several options:</p>
+          <h2 id="alternatives">Your Options for Investment Properties</h2>
+          <p>Here are the paths investment property owners in the GTA are taking:</p>
 
           <div class="alternatives-grid">
             <div class="alternative-card">
               <span class="alt-number">1</span>
-              <h4>Mid-Term Rentals (30+ days)</h4>
-              <p>Rentals of 28-30+ days are typically exempt from STR regulations. This can still yield higher returns than traditional long-term leases.</p>
+              <h4>Short-Term with Registration</h4>
+              <p>Some owners register the property and operate STRs. How they establish residency is their decision. This is the highest-earning option for many.</p>
             </div>
             <div class="alternative-card">
               <span class="alt-number">2</span>
-              <h4>Traditional Long-Term Rental</h4>
-              <p>Standard 12-month leases provide stable, predictable income with less management overhead.</p>
+              <h4>Mid-Term Rentals (30+ days)</h4>
+              <p>Exempt from STR regulations entirely. Strong demand from corporate travelers and relocations. The "clean" path with no gray areas.</p>
             </div>
             <div class="alternative-card">
               <span class="alt-number">3</span>
               <h4>Corporate Housing</h4>
-              <p>Furnished rentals for business travelers, often 1-6 months. Higher rates than unfurnished long-term.</p>
+              <p>Furnished rentals for business travelers, often 1-6 months. Higher rates than unfurnished long-term, and listed on platforms like Furnished Finder.</p>
             </div>
             <div class="alternative-card">
               <span class="alt-number">4</span>
-              <h4>Relocation Rentals</h4>
-              <p>Target families relocating to the GTA who need temporary housing while house hunting.</p>
+              <h4>Traditional Long-Term Rental</h4>
+              <p>Standard 12-month leases provide stable, predictable income with less management overhead. Lower returns but lowest effort.</p>
             </div>
           </div>
 
@@ -261,9 +274,9 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <div class="article-cta">
-            <h3>Need Help with Your GTA Investment Property?</h3>
-            <p>Nurture manages both short-term and mid-term rentals across the Greater Toronto Area. We'll help you find the right strategy for your property.</p>
-            <a href="/contact" class="btn btn-primary">Get Your Free Consultation</a>
+            <h3>Ready to Put Your Investment Property to Work?</h3>
+            <p>Nurture manages both short-term and mid-term rentals across the Greater Toronto Area. Whatever strategy you choose, we'll help you maximize your returns.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
           </div>
         </article>
       </div>
@@ -289,9 +302,9 @@ const pageSchema = [articleSchema, faqSchema];
     <div class="container">
       <div class="cta-content">
         <h2>Own an Investment Property in the GTA?</h2>
-        <p>Let us help you maximize your rental income within the regulations.</p>
+        <p>Let us help you figure out the best strategy and maximize your returns.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
-        <p class="cta-note">Free consultation · No obligation</p>
+        <p class="cta-note">Free consultation · No obligation · We manage STR and mid-term</p>
       </div>
     </div>
   </section>
