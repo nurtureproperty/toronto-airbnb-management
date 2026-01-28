@@ -9,7 +9,7 @@ const faqs = [
   { q: "Does the Guest Favorite badge actually matter?", a: "Yes, significantly. Listings with the Guest Favorite badge earn an average of $3,668/month compared to $1,800/month without it - that's a 104% premium. The badge signals quality to potential guests and boosts your visibility in search results." },
   { q: "Is it worth upgrading to 2 bathrooms?", a: "The data supports it. 2-bedroom listings with 2+ bathrooms average $2,480/month versus $2,034/month for those with just 1 bathroom - a 22% premium. If you're renovating, adding a second bathroom could pay for itself relatively quickly." },
   { q: "What's the ideal guest capacity for a 2-bedroom?", a: "5 guests appears to be the sweet spot, averaging $3,104/month. This likely captures families and small groups willing to pay a premium. Listings capped at 4 guests average $2,146/month - 31% less. Consider adding a quality sofa bed to increase capacity." },
-  { q: "Do professionally managed listings earn more?", a: "Interestingly, individual hosts actually outperform professionally managed listings in our dataset - $2,831/month vs $1,094/month for moderate-sized management companies. This may reflect that engaged individual hosts often provide more personalized experiences and respond faster to market changes." }
+  { q: "Does cancellation policy affect revenue?", a: "Yes, and the correlation is stronger than you'd expect. Listings with Strict cancellation policies earn an average of $3,533/month compared to just $1,479/month for Flexible policies. This likely reflects that established, high-demand listings can afford stricter policies. As you build reviews and demand, consider tightening your policy to protect against costly last-minute cancellations." }
 ];
 
 const relatedPosts = [
@@ -546,7 +546,62 @@ const pageSchema = [articleSchema, faqSchema];
 
           <p><strong>Wait, Hot Tub and Pool hurt revenue?</strong> The correlation is likely explained by property types. Listings with pools tend to be in different areas or building types that command lower rates overall. The amenity itself isn't the cause.</p>
 
-          <p>The pets finding is more actionable: allowing pets correlates with 28% lower revenue. This could reflect more wear and tear concerns, or that pet-friendly listings discount to attract bookings.</p>
+          <h3>The Pets Question</h3>
+          <p>The pets finding deserves a closer look. Listings that allow pets earn an average of <strong>$1,804/month</strong> compared to <strong>$2,495/month</strong> for no-pets listings - a 38% difference.</p>
+
+          <div class="comparison-box">
+            <div class="comparison-item">
+              <span class="comparison-rating">No Pets</span>
+              <span class="comparison-value">$2,495/month</span>
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-rating">Pets Allowed</span>
+              <span class="comparison-value">$1,804/month</span>
+            </div>
+          </div>
+
+          <p>Why the gap? Several theories: pet-friendly listings may discount rates to attract bookings, hosts may face higher cleaning/maintenance costs that eat into margins, or pet-friendly properties tend to be in areas with lower overall demand. Whatever the reason, the data suggests being selective about pet policies can significantly impact your bottom line.</p>
+
+          <h3>Cancellation Policy Impact</h3>
+          <p>Your cancellation policy has a surprising correlation with revenue:</p>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Cancellation Policy</th>
+                  <th>Avg Revenue</th>
+                  <th>Listings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>Strict</td>
+                  <td>$3,533</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td>Moderate</td>
+                  <td>$3,056</td>
+                  <td>33</td>
+                </tr>
+                <tr>
+                  <td>Firm</td>
+                  <td>$2,309</td>
+                  <td>183</td>
+                </tr>
+                <tr>
+                  <td>Flexible</td>
+                  <td>$1,479</td>
+                  <td>57</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Listings with <strong>Strict</strong> cancellation policies earn 139% more than those with <strong>Flexible</strong> policies. But this likely reflects confounding factors: experienced hosts with premium, in-demand listings can afford to be strict. New hosts often use flexible policies to attract bookings while building reviews.</p>
+
+          <p>The takeaway? Don't be afraid to tighten your cancellation policy as you establish your listing. A moderate or firm policy protects your revenue from last-minute cancellations without scaring away guests.</p>
 
           <h2 id="pricing-tiers">Pricing Tiers: Where's the Sweet Spot?</h2>
           <p>We grouped listings by their listed nightly price to see how pricing strategy affects overall revenue.</p>
