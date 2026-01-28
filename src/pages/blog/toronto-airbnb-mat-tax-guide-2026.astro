@@ -1,0 +1,1011 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Does Airbnb automatically collect MAT for me?", a: "Yes, Airbnb has a Voluntary Collection Agreement with Toronto and automatically adds 8.5% MAT to your guests' bookings, collects it at checkout, and remits it to the city. You don't need to manually calculate or submit payments for Airbnb bookings. However, you still need to file quarterly MAT reports with the city." },
+  { q: "Do I still need to file MAT reports if Airbnb collects the tax?", a: "Yes. Even though Airbnb collects and remits MAT on your behalf, you're still legally required to file quarterly MAT reports with the City of Toronto. Don't include Airbnb revenue in your reports since Airbnb reports directly to the city. You must file even if you had zero bookings that quarter." },
+  { q: "What if I rent through VRBO or direct bookings?", a: "VRBO also has an agreement with Toronto and collects MAT automatically. For direct bookings (your own website, Facebook, etc.), you must collect the 8.5% MAT from guests yourself and remit it to the city quarterly. This is where many hosts get tripped up." },
+  { q: "Do mid-term rentals (28+ days) pay MAT?", a: "No. MAT only applies to short-term rentals under 28 consecutive days. If your guest books for 28 days or longer, no MAT is required. This is one reason the mid-term rental strategy is so popular with Toronto hosts." },
+  { q: "When are MAT reports due?", a: "Reports are due quarterly: Q1 (Jan-Mar) due April 30, Q2 (Apr-Jun) due July 30, Q3 (Jul-Sep) due October 30, Q4 (Oct-Dec) due January 30. Late payments accrue 1.25% monthly interest." },
+  { q: "What happens if I don't pay MAT?", a: "Non-compliance can result in your STR registration being revoked or renewal denied. Late payments accrue interest at 1.25% monthly, increasing to 15% annually. Fines can reach up to $100,000 per violation." },
+  { q: "Is MAT included in my nightly rate or added on top?", a: "MAT is added on top of your nightly rate. If you charge $200/night, your guest pays $200 + $17 MAT (8.5%) + HST on the total. The guest sees and pays the full amount including MAT." },
+  { q: "Why did Toronto increase MAT to 8.5%?", a: "Toronto temporarily raised MAT from 6% to 8.5% (June 2025 to July 2026) to help fund infrastructure and services for the FIFA World Cup 2026. The rate may return to 6% after July 2026, but check the city's website for updates." }
+];
+
+const relatedPosts = [
+  { title: "Toronto Airbnb Short Term Rental Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR regulations including the 180-night limit' },
+  { title: "Toronto Partial-Unit Registration: No 180-Night Limit", href: '/blog/toronto-airbnb-partial-unit-registration-guide-2026', description: 'How to rent 365 nights/year legally' },
+  { title: "Can I Airbnb My Investment Property in the GTA?", href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements' }
+];
+
+const tocItems = [
+  { id: 'what-is-mat', text: 'What is MAT?' },
+  { id: 'current-rate', text: 'Current Rate (8.5%)' },
+  { id: 'who-pays', text: 'Who Has to Pay?' },
+  { id: 'airbnb-collection', text: 'How Airbnb Handles It' },
+  { id: 'direct-bookings', text: 'Direct Bookings' },
+  { id: 'quarterly-reporting', text: 'Quarterly Reporting' },
+  { id: 'exemptions', text: 'Exemptions' },
+  { id: 'penalties', text: 'Penalties' },
+  { id: 'step-by-step', text: 'Step-by-Step Guide' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Toronto Airbnb MAT Tax Guide 2026 | 8.5% Explained";
+const pageDescription = "Toronto's 8.5% MAT tax explained for Airbnb hosts. Learn what Airbnb collects automatically, quarterly filing deadlines, exemptions for 28+ day stays, and how to stay compliant.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Toronto Airbnb MAT Tax Guide 2026",
+  "description": pageDescription,
+  "datePublished": "2026-01-28",
+  "dateModified": "2026-01-28",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-airbnb-mat-tax-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Toronto MAT Tax</span>
+      </nav>
+      <h1>Toronto Airbnb MAT Tax Guide 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 28, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">7 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">If you're hosting on Airbnb in Toronto, you've probably noticed that <strong>8.5%</strong> getting added to your guests' bills. That's the Municipal Accommodation Tax (MAT), and while Airbnb handles most of the heavy lifting, there are still things you need to know to stay compliant.</p>
+            <p class="lead">Here's the complete breakdown of how MAT works, what Airbnb does automatically, and what you still need to do yourself.</p>
+          </div>
+
+          <h2 id="what-is-mat">What is the Municipal Accommodation Tax (MAT)?</h2>
+          <p>MAT is a tax that Toronto charges on short-term accommodations. It applies to hotels, motels, bed and breakfasts, and yes, Airbnb rentals. The city uses MAT revenue to fund tourism marketing, infrastructure, and events.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key Point:</strong> MAT only applies to stays under 28 consecutive days. If your guest books for 28 days or longer, no MAT is required. This is one reason mid-term rentals are attractive to Toronto hosts.
+            </div>
+          </div>
+
+          <p>The tax is charged on the room portion of the rental only. Things like cleaning fees charged separately, food, or other services aren't subject to MAT (though HST still applies to everything).</p>
+
+          <h2 id="current-rate">The Current Rate: 8.5%</h2>
+          <p>As of June 1, 2025, Toronto's MAT rate increased from 6% to <strong>8.5%</strong>. This temporary increase runs until July 31, 2026, primarily to help fund infrastructure and services for the FIFA World Cup 2026.</p>
+
+          <div class="rate-box">
+            <div class="rate-item">
+              <span class="rate-label">Current MAT Rate</span>
+              <span class="rate-value">8.5%</span>
+            </div>
+            <div class="rate-item">
+              <span class="rate-label">Previous Rate</span>
+              <span class="rate-value">6%</span>
+            </div>
+            <div class="rate-item">
+              <span class="rate-label">Effective Period</span>
+              <span class="rate-value">June 2025 - July 2026</span>
+            </div>
+          </div>
+
+          <h3>What This Means for Your Guests</h3>
+          <p>MAT is added on top of your nightly rate. Here's how it breaks down for a typical booking:</p>
+
+          <div class="example-calculation">
+            <h4>Example: $200/Night Booking</h4>
+            <table class="calc-table">
+              <tr>
+                <td>Nightly Rate</td>
+                <td>$200.00</td>
+              </tr>
+              <tr>
+                <td>MAT (8.5%)</td>
+                <td>$17.00</td>
+              </tr>
+              <tr>
+                <td>Subtotal</td>
+                <td>$217.00</td>
+              </tr>
+              <tr>
+                <td>HST (13%)</td>
+                <td>$28.21</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Guest Pays</strong></td>
+                <td><strong>$245.21</strong></td>
+              </tr>
+            </table>
+            <p class="calc-note">Note: Cleaning fees and other charges are subject to HST but not MAT.</p>
+          </div>
+
+          <h2 id="who-pays">Who Has to Pay MAT?</h2>
+          <p>Let's be clear about this: <strong>your guests pay the MAT</strong>, not you. It's added to their booking total. Your job as a host is to either:</p>
+
+          <ul>
+            <li>Use a platform (like Airbnb or VRBO) that collects and remits MAT automatically, or</li>
+            <li>Collect the 8.5% yourself on direct bookings and remit it to the city quarterly</li>
+          </ul>
+
+          <p>Either way, the money comes from the guest. You're just the collection point if you're not using a platform with automatic collection.</p>
+
+          <h2 id="airbnb-collection">How Airbnb Handles MAT</h2>
+          <p>Here's the good news: if you're listing on Airbnb, you don't have to do much. Airbnb has signed a <strong>Voluntary Collection Agreement</strong> with Toronto, which means:</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Airbnb Adds It Automatically</h4>
+              <p>The 8.5% MAT is added to your guest's booking total. They see it as a separate line item at checkout.</p>
+            </div>
+            <div class="info-card">
+              <h4>Airbnb Collects It</h4>
+              <p>When your guest pays, Airbnb collects the MAT amount along with your payout.</p>
+            </div>
+            <div class="info-card">
+              <h4>Airbnb Remits It</h4>
+              <p>Airbnb sends the MAT directly to the City of Toronto. You never touch this money.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>You Still Need to File Reports!</strong> Even though Airbnb collects and remits MAT, you're still legally required to file quarterly MAT reports with the City of Toronto. Don't include Airbnb revenue in your reports (Airbnb reports that directly). But you must file, even if it's a zero report.
+            </div>
+          </div>
+
+          <h3>What About VRBO?</h3>
+          <p>VRBO also has an agreement with Toronto and handles MAT collection automatically, similar to Airbnb. The same rules apply: they collect and remit, but you still file quarterly reports (excluding VRBO revenue).</p>
+
+          <h2 id="direct-bookings">Direct Bookings: You're On the Hook</h2>
+          <p>If you take direct bookings (through your own website, social media, repeat guests who contact you directly), you need to:</p>
+
+          <ol>
+            <li><strong>Add 8.5% MAT</strong> to the room portion of every booking under 28 days</li>
+            <li><strong>Collect it from your guest</strong> at the time of booking or check-in</li>
+            <li><strong>Track every penny</strong> meticulously</li>
+            <li><strong>Remit it quarterly</strong> to the City of Toronto</li>
+            <li><strong>File your quarterly reports</strong> including this revenue</li>
+          </ol>
+
+          <p>This is where many hosts get into trouble. It's easy to forget to add MAT to a direct booking, or to lose track of what you've collected. If you take significant direct bookings, consider using accounting software or a property manager who handles this for you.</p>
+
+          <h2 id="quarterly-reporting">Quarterly Reporting Requirements</h2>
+          <p>Every registered STR operator in Toronto must file quarterly MAT reports. Here are the deadlines:</p>
+
+          <div class="deadline-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Quarter</th>
+                  <th>Period</th>
+                  <th>Report Due</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Q1</td>
+                  <td>January - March</td>
+                  <td>April 30</td>
+                </tr>
+                <tr>
+                  <td>Q2</td>
+                  <td>April - June</td>
+                  <td>July 30</td>
+                </tr>
+                <tr>
+                  <td>Q3</td>
+                  <td>July - September</td>
+                  <td>October 30</td>
+                </tr>
+                <tr>
+                  <td>Q4</td>
+                  <td>October - December</td>
+                  <td>January 30</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>What to Include in Your Report</h3>
+          <ul>
+            <li><strong>Direct bookings only</strong> if Airbnb/VRBO handles your other revenue</li>
+            <li><strong>Number of nights rented</strong> during the quarter</li>
+            <li><strong>Total revenue</strong> from room charges (not cleaning fees)</li>
+            <li><strong>MAT collected</strong> (8.5% of room revenue)</li>
+          </ul>
+
+          <p>If you had zero direct bookings and all your rentals went through Airbnb/VRBO, you still file a report. It'll just show zeros for the direct booking portion. The city wants to see that you're tracking everything.</p>
+
+          <h2 id="exemptions">When MAT Doesn't Apply</h2>
+          <p>MAT isn't charged on everything. Here are the key exemptions for Airbnb hosts:</p>
+
+          <div class="exemptions-list">
+            <div class="exemption-item">
+              <h4>Stays of 28+ Days</h4>
+              <p>If your guest books for 28 consecutive days or longer, it's not a "short-term rental" under Toronto's definition. No MAT applies. This is a big reason why the mid-term rental strategy (28+ days) is popular.</p>
+            </div>
+            <div class="exemption-item">
+              <h4>Non-Room Charges</h4>
+              <p>Cleaning fees, extra guest fees, pet fees, and similar charges aren't subject to MAT (as long as they're itemized separately). HST still applies to these, but not the 8.5% MAT.</p>
+            </div>
+          </div>
+
+          <h2 id="penalties">What Happens If You Don't Comply?</h2>
+          <p>Toronto takes MAT compliance seriously. Here's what you're looking at if you fall behind:</p>
+
+          <div class="penalty-grid">
+            <div class="penalty-card">
+              <h4>Late Payment Interest</h4>
+              <p><strong>1.25% monthly</strong> on overdue payments, increasing to <strong>15% annually</strong> for extended defaults.</p>
+            </div>
+            <div class="penalty-card">
+              <h4>Registration Impact</h4>
+              <p>Non-compliance can result in your <strong>STR registration being revoked</strong> or renewal denied.</p>
+            </div>
+            <div class="penalty-card">
+              <h4>Fines</h4>
+              <p>Violations can result in fines up to <strong>$100,000</strong> per offense.</p>
+            </div>
+            <div class="penalty-card">
+              <h4>NSF Charges</h4>
+              <p><strong>$40 fee</strong> for any payment returned due to insufficient funds.</p>
+            </div>
+          </div>
+
+          <h2 id="step-by-step">Step-by-Step: How to Handle MAT</h2>
+          <p>Here's your action plan for staying compliant:</p>
+
+          <div class="steps-list">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <h4>Confirm Airbnb/VRBO Collection</h4>
+                <p>Check that your platforms are collecting MAT automatically. In Airbnb, this should be automatic for Toronto listings. You'll see MAT as a separate line item in your booking details.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <h4>Track Direct Bookings Separately</h4>
+                <p>If you take any bookings outside of Airbnb/VRBO, track them meticulously. Record the room revenue, nights stayed, and MAT collected for each booking.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <div class="step-content">
+                <h4>Set Calendar Reminders</h4>
+                <p>Mark April 30, July 30, October 30, and January 30 in your calendar. These are your quarterly reporting deadlines. Don't wait until the last minute.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">4</span>
+              <div class="step-content">
+                <h4>File Your Quarterly Reports</h4>
+                <p>Log into the City of Toronto's MAT portal and file your report. If all your bookings were through Airbnb/VRBO, your direct booking numbers will be zero, but you still need to file.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">5</span>
+              <div class="step-content">
+                <h4>Remit Any MAT You Collected</h4>
+                <p>If you collected MAT on direct bookings, submit payment along with your quarterly report. Keep records of everything for at least 3 years.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="resources-box">
+            <h4>Official Resources</h4>
+            <ul>
+              <li><a href="https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-accommodation-tax/" target="_blank" rel="noopener">City of Toronto MAT Overview</a></li>
+              <li><a href="https://www.toronto.ca/community-people/housing-shelter/short-term-rentals/short-term-rental-operators-hosts/short-term-rental-municipal-accommodation-tax/" target="_blank" rel="noopener">STR-Specific MAT Information</a></li>
+              <li><a href="https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-accommodation-tax/rates-and-exemptions/" target="_blank" rel="noopener">MAT Rates & Exemptions</a></li>
+            </ul>
+          </div>
+
+          <div class="article-cta">
+            <h3>Don't Want to Deal with MAT Reporting?</h3>
+            <p>Nurture handles all compliance tracking, MAT reporting, and quarterly filings for our clients. Focus on earning while we handle the paperwork.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Toronto STR Taxes?</h2>
+        <p>Our local team knows Toronto's regulations inside and out. Get expert guidance for your Airbnb.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .rate-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .rate-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .rate-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .rate-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .example-calculation {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .example-calculation h4 {
+    margin-bottom: 1rem;
+  }
+
+  .calc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .calc-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .calc-table td:last-child {
+    text-align: right;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .calc-table .total-row td {
+    border-bottom: none;
+    padding-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .calc-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .deadline-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .deadline-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .deadline-table th,
+  .deadline-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .deadline-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .deadline-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .exemptions-list {
+    margin: 2rem 0;
+  }
+
+  .exemption-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .exemption-item h4 {
+    color: var(--color-primary);
+  }
+
+  .exemption-item p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .penalty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .penalty-card {
+    background: #fff5f5;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 4px solid #e74c3c;
+  }
+
+  .penalty-card h4 {
+    color: #c0392b;
+    font-size: 1rem;
+  }
+
+  .penalty-card p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .steps-list {
+    margin: 2rem 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box li {
+    margin-bottom: 0.5rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rate-box {
+      grid-template-columns: 1fr;
+    }
+
+    .penalty-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
