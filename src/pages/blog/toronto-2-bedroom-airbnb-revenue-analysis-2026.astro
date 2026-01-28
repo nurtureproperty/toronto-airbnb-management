@@ -2,14 +2,14 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "What's the average monthly revenue for a 2-bedroom Airbnb in Toronto?", a: "Based on our analysis of 320 active listings, the median monthly revenue is $19,322. However, there's significant variation - the top 10% earn over $67,787/month while the bottom 10% earn under $3,463/month. Your actual revenue depends heavily on factors like dynamic pricing, guest reviews, and listing optimization." },
-  { q: "Does dynamic pricing really make a difference?", a: "Absolutely. Our data shows listings using high-intensity dynamic pricing earn 63.6% more revenue on average than those with no dynamic pricing ($39,641 vs $24,234/month). Even moderate dynamic pricing gives you a meaningful edge. It's one of the highest-impact changes you can make." },
-  { q: "How important are guest reviews for revenue?", a: "Critically important. Listings with 100+ reviews earn an average of $56,206/month, while listings with fewer than 10 reviews average just $15,678/month. That's a 258% difference. Reviews build trust and improve your search ranking - every review matters." },
-  { q: "Should I allow longer minimum stays?", a: "Our data suggests shorter minimum stays correlate with higher revenue. Listings with 2-3 night minimums average $46,371/month, while those requiring 29+ nights average only $13,825/month. Shorter stays let you capture premium rates during high-demand periods." },
-  { q: "Does the Guest Favorite badge actually matter?", a: "Yes, significantly. Listings with the Guest Favorite badge earn an average of $44,016/month compared to $21,604/month without it - that's a 104% premium. The badge signals quality to potential guests and boosts your visibility in search results." },
-  { q: "Is it worth upgrading to 2 bathrooms?", a: "The data supports it. 2-bedroom listings with 2+ bathrooms average $29,757/month versus $24,411/month for those with just 1 bathroom - a 22% premium. If you're renovating, adding a second bathroom could pay for itself relatively quickly." },
-  { q: "What's the ideal guest capacity for a 2-bedroom?", a: "5 guests appears to be the sweet spot, averaging $37,243/month. This likely captures families and small groups willing to pay a premium. Listings capped at 4 guests average $25,749/month - 31% less. Consider adding a quality sofa bed to increase capacity." },
-  { q: "Do professionally managed listings earn more?", a: "Interestingly, individual hosts actually outperform professionally managed listings in our dataset - $33,977/month vs $13,129/month for moderate-sized management companies. This may reflect that engaged individual hosts often provide more personalized experiences and respond faster to market changes." }
+  { q: "What's the average monthly revenue for a 2-bedroom Airbnb in Toronto?", a: "Based on our analysis of 320 active listings, the median monthly revenue is $1,610. However, there's significant variation - the top 10% earn over $5,649/month while the bottom 10% earn under $289/month. Your actual revenue depends heavily on factors like dynamic pricing, guest reviews, and listing optimization." },
+  { q: "Does dynamic pricing really make a difference?", a: "Absolutely. Our data shows listings using high-intensity dynamic pricing earn 63.6% more revenue on average than those with no dynamic pricing ($3,303 vs $2,020/month). Even moderate dynamic pricing gives you a meaningful edge. It's one of the highest-impact changes you can make." },
+  { q: "How important are guest reviews for revenue?", a: "Critically important. Listings with 100+ reviews earn an average of $4,684/month, while listings with fewer than 10 reviews average just $1,307/month. That's a 258% difference. Reviews build trust and improve your search ranking - every review matters." },
+  { q: "Should I allow longer minimum stays?", a: "Our data suggests shorter minimum stays correlate with higher revenue. Listings with 2-3 night minimums average $3,864/month, while those requiring 29+ nights average only $1,152/month. Shorter stays let you capture premium rates during high-demand periods." },
+  { q: "Does the Guest Favorite badge actually matter?", a: "Yes, significantly. Listings with the Guest Favorite badge earn an average of $3,668/month compared to $1,800/month without it - that's a 104% premium. The badge signals quality to potential guests and boosts your visibility in search results." },
+  { q: "Is it worth upgrading to 2 bathrooms?", a: "The data supports it. 2-bedroom listings with 2+ bathrooms average $2,480/month versus $2,034/month for those with just 1 bathroom - a 22% premium. If you're renovating, adding a second bathroom could pay for itself relatively quickly." },
+  { q: "What's the ideal guest capacity for a 2-bedroom?", a: "5 guests appears to be the sweet spot, averaging $3,104/month. This likely captures families and small groups willing to pay a premium. Listings capped at 4 guests average $2,146/month - 31% less. Consider adding a quality sofa bed to increase capacity." },
+  { q: "Do professionally managed listings earn more?", a: "Interestingly, individual hosts actually outperform professionally managed listings in our dataset - $2,831/month vs $1,094/month for moderate-sized management companies. This may reflect that engaged individual hosts often provide more personalized experiences and respond faster to market changes." }
 ];
 
 const relatedPosts = [
@@ -140,10 +140,10 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
             <div class="finding-card">
               <div class="finding-number">+258%</div>
-              <div class="finding-label">100+ reviews vs <10 reviews</div>
+              <div class="finding-label">100+ reviews vs &lt;10 reviews</div>
             </div>
             <div class="finding-card">
-              <div class="finding-number">$19,322</div>
+              <div class="finding-number">$1,610</div>
               <div class="finding-label">Median monthly revenue</div>
             </div>
           </div>
@@ -153,20 +153,20 @@ const pageSchema = [articleSchema, faqSchema];
 
           <div class="stats-box">
             <div class="stat-item">
-              <span class="stat-value">$28,047</span>
+              <span class="stat-value">$2,337</span>
               <span class="stat-label">Mean Monthly Revenue</span>
             </div>
             <div class="stat-item highlight">
-              <span class="stat-value">$19,322</span>
+              <span class="stat-value">$1,610</span>
               <span class="stat-label">Median Monthly Revenue</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">$145,326</span>
+              <span class="stat-value">$12,111</span>
               <span class="stat-label">Top Performer</span>
             </div>
           </div>
 
-          <p>The gap between mean and median tells a story: a small number of high-performing listings pull the average up significantly. Half of all listings earn less than $19,322/month.</p>
+          <p>The gap between mean and median tells a story: a small number of high-performing listings pull the average up significantly. Half of all listings earn less than $1,610/month.</p>
 
           <h3>Revenue Distribution</h3>
           <div class="chart-container">
@@ -181,24 +181,24 @@ const pageSchema = [articleSchema, faqSchema];
 
               <!-- Y-axis labels -->
               <text x="70" y="255" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
-              <text x="70" y="205" text-anchor="end" fill="#6b7280" font-size="12">$20K</text>
-              <text x="70" y="155" text-anchor="end" fill="#6b7280" font-size="12">$40K</text>
-              <text x="70" y="105" text-anchor="end" fill="#6b7280" font-size="12">$60K</text>
-              <text x="70" y="55" text-anchor="end" fill="#6b7280" font-size="12">$80K</text>
+              <text x="70" y="205" text-anchor="end" fill="#6b7280" font-size="12">$2K</text>
+              <text x="70" y="155" text-anchor="end" fill="#6b7280" font-size="12">$4K</text>
+              <text x="70" y="105" text-anchor="end" fill="#6b7280" font-size="12">$6K</text>
+              <text x="70" y="55" text-anchor="end" fill="#6b7280" font-size="12">$8K</text>
 
-              <!-- Bars -->
-              <rect x="100" y="233" width="70" height="17" fill="#d4a373" rx="4"/>
-              <rect x="200" y="208" width="70" height="42" fill="#d4a373" rx="4"/>
-              <rect x="300" y="154" width="70" height="96" fill="#759b8f" rx="4"/>
-              <rect x="400" y="40" width="70" height="210" fill="#d4a373" rx="4"/>
-              <rect x="500" y="-35" width="70" height="285" fill="#5a7d73" rx="4"/>
+              <!-- Bars - scaled for monthly values: $289, $709, $1,610, $3,500, $5,649 -->
+              <rect x="100" y="243" width="70" height="7" fill="#d4a373" rx="4"/>
+              <rect x="200" y="232" width="70" height="18" fill="#d4a373" rx="4"/>
+              <rect x="300" y="210" width="70" height="40" fill="#759b8f" rx="4"/>
+              <rect x="400" y="162" width="70" height="88" fill="#d4a373" rx="4"/>
+              <rect x="500" y="109" width="70" height="141" fill="#5a7d73" rx="4"/>
 
               <!-- Value labels -->
-              <text x="135" y="228" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$3.5K</text>
-              <text x="235" y="203" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$8.5K</text>
-              <text x="335" y="149" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">$19.3K</text>
-              <text x="435" y="35" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$42K</text>
-              <text x="535" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">$67.8K</text>
+              <text x="135" y="238" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$289</text>
+              <text x="235" y="227" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$709</text>
+              <text x="335" y="205" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$1,610</text>
+              <text x="435" y="157" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$3,500</text>
+              <text x="535" y="104" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">$5,649</text>
 
               <!-- X-axis labels -->
               <text x="135" y="275" text-anchor="middle" fill="#6b7280" font-size="12">10th %</text>
@@ -225,21 +225,21 @@ const pageSchema = [articleSchema, faqSchema];
 
               <!-- Y-axis labels -->
               <text x="70" y="235" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
-              <text x="70" y="185" text-anchor="end" fill="#6b7280" font-size="12">$15K</text>
-              <text x="70" y="135" text-anchor="end" fill="#6b7280" font-size="12">$30K</text>
-              <text x="70" y="85" text-anchor="end" fill="#6b7280" font-size="12">$45K</text>
+              <text x="70" y="185" text-anchor="end" fill="#6b7280" font-size="12">$1.5K</text>
+              <text x="70" y="135" text-anchor="end" fill="#6b7280" font-size="12">$3K</text>
+              <text x="70" y="85" text-anchor="end" fill="#6b7280" font-size="12">$4.5K</text>
 
-              <!-- Bars -->
-              <rect x="110" y="149" width="90" height="81" fill="#ccc" rx="4"/>
-              <rect x="230" y="136" width="90" height="94" fill="#d4a373" rx="4"/>
-              <rect x="350" y="115" width="90" height="115" fill="#d4a373" rx="4"/>
-              <rect x="470" y="50" width="90" height="180" fill="#759b8f" rx="4"/>
+              <!-- Bars - scaled for monthly: $2,020, $2,141, $2,408, $3,303 -->
+              <rect x="110" y="162" width="90" height="68" fill="#ccc" rx="4"/>
+              <rect x="230" y="158" width="90" height="72" fill="#d4a373" rx="4"/>
+              <rect x="350" y="149" width="90" height="81" fill="#d4a373" rx="4"/>
+              <rect x="470" y="119" width="90" height="111" fill="#759b8f" rx="4"/>
 
               <!-- Value labels -->
-              <text x="155" y="144" text-anchor="middle" fill="#374151" font-size="12" font-weight="600">$24,234</text>
-              <text x="275" y="131" text-anchor="middle" fill="#374151" font-size="12" font-weight="600">$25,695</text>
-              <text x="395" y="110" text-anchor="middle" fill="#374151" font-size="12" font-weight="600">$28,894</text>
-              <text x="515" y="45" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">$39,641</text>
+              <text x="155" y="157" text-anchor="middle" fill="#374151" font-size="12" font-weight="600">$2,020</text>
+              <text x="275" y="153" text-anchor="middle" fill="#374151" font-size="12" font-weight="600">$2,141</text>
+              <text x="395" y="144" text-anchor="middle" fill="#374151" font-size="12" font-weight="600">$2,408</text>
+              <text x="515" y="114" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">$3,303</text>
 
               <!-- X-axis labels -->
               <text x="155" y="255" text-anchor="middle" fill="#6b7280" font-size="12">None</text>
@@ -256,9 +256,9 @@ const pageSchema = [articleSchema, faqSchema];
           <div class="insight-box">
             <h4>The Numbers</h4>
             <ul>
-              <li><strong>High dynamic pricing:</strong> $39,641/month average</li>
-              <li><strong>No dynamic pricing:</strong> $24,234/month average</li>
-              <li><strong>Difference:</strong> +$15,407/month (+63.6%)</li>
+              <li><strong>High dynamic pricing:</strong> $3,303/month average</li>
+              <li><strong>No dynamic pricing:</strong> $2,020/month average</li>
+              <li><strong>Difference:</strong> +$1,283/month (+63.6%)</li>
             </ul>
           </div>
 
@@ -286,25 +286,25 @@ const pageSchema = [articleSchema, faqSchema];
 
               <!-- Y-axis labels -->
               <text x="70" y="255" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
-              <text x="70" y="195" text-anchor="end" fill="#6b7280" font-size="12">$20K</text>
-              <text x="70" y="135" text-anchor="end" fill="#6b7280" font-size="12">$40K</text>
-              <text x="70" y="75" text-anchor="end" fill="#6b7280" font-size="12">$60K</text>
+              <text x="70" y="195" text-anchor="end" fill="#6b7280" font-size="12">$2K</text>
+              <text x="70" y="135" text-anchor="end" fill="#6b7280" font-size="12">$4K</text>
+              <text x="70" y="75" text-anchor="end" fill="#6b7280" font-size="12">$6K</text>
 
-              <!-- Bars -->
-              <rect x="95" y="226" width="65" height="24" fill="#ef4444" rx="4"/>
-              <rect x="175" y="203" width="65" height="47" fill="#f97316" rx="4"/>
-              <rect x="255" y="157" width="65" height="93" fill="#d4a373" rx="4"/>
-              <rect x="335" y="96" width="65" height="154" fill="#d4a373" rx="4"/>
-              <rect x="415" y="62" width="65" height="188" fill="#759b8f" rx="4"/>
-              <rect x="495" y="64" width="65" height="186" fill="#5a7d73" rx="4"/>
+              <!-- Bars - scaled for monthly: $675, $1,307, $2,583, $3,864, $4,733, $4,684 -->
+              <rect x="95" y="230" width="65" height="20" fill="#ef4444" rx="4"/>
+              <rect x="175" y="211" width="65" height="39" fill="#f97316" rx="4"/>
+              <rect x="255" y="173" width="65" height="77" fill="#d4a373" rx="4"/>
+              <rect x="335" y="134" width="65" height="116" fill="#d4a373" rx="4"/>
+              <rect x="415" y="108" width="65" height="142" fill="#759b8f" rx="4"/>
+              <rect x="495" y="110" width="65" height="140" fill="#5a7d73" rx="4"/>
 
               <!-- Value labels -->
-              <text x="127" y="221" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$8.1K</text>
-              <text x="207" y="198" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$15.7K</text>
-              <text x="287" y="152" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$31K</text>
-              <text x="367" y="91" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$46.3K</text>
-              <text x="447" y="57" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">$56.8K</text>
-              <text x="527" y="59" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">$56.2K</text>
+              <text x="127" y="225" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$675</text>
+              <text x="207" y="206" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$1,307</text>
+              <text x="287" y="168" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$2,583</text>
+              <text x="367" y="129" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">$3,864</text>
+              <text x="447" y="103" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">$4,733</text>
+              <text x="527" y="105" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">$4,684</text>
 
               <!-- X-axis labels -->
               <text x="127" y="275" text-anchor="middle" fill="#6b7280" font-size="11">0</text>
@@ -343,11 +343,11 @@ const pageSchema = [articleSchema, faqSchema];
           <div class="comparison-box">
             <div class="comparison-item">
               <span class="comparison-rating">4.7-4.89</span>
-              <span class="comparison-value">$40,512/month</span>
+              <span class="comparison-value">$3,376/month</span>
             </div>
             <div class="comparison-item">
               <span class="comparison-rating">4.9-5.0</span>
-              <span class="comparison-value">$28,466/month</span>
+              <span class="comparison-value">$2,372/month</span>
             </div>
           </div>
 
@@ -359,13 +359,13 @@ const pageSchema = [articleSchema, faqSchema];
           <div class="chart-container">
             <div class="chart-title">Guest Favorite Badge Impact on Revenue</div>
             <svg viewBox="0 0 500 220" class="bar-chart">
-              <!-- Bars -->
+              <!-- Bars - scaled for monthly: $3,668 vs $1,800 -->
               <rect x="100" y="60" width="120" height="130" fill="#759b8f" rx="6"/>
-              <rect x="280" y="130" width="120" height="60" fill="#d4a373" rx="6"/>
+              <rect x="280" y="126" width="120" height="64" fill="#d4a373" rx="6"/>
 
               <!-- Value labels -->
-              <text x="160" y="50" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$44,016</text>
-              <text x="340" y="120" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$21,604</text>
+              <text x="160" y="50" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$3,668</text>
+              <text x="340" y="116" text-anchor="middle" fill="#374151" font-size="14" font-weight="700">$1,800</text>
 
               <!-- X-axis labels -->
               <text x="160" y="210" text-anchor="middle" fill="#374151" font-size="13" font-weight="600">With Badge</text>
@@ -402,22 +402,22 @@ const pageSchema = [articleSchema, faqSchema];
 
               <!-- Y-axis labels -->
               <text x="70" y="235" text-anchor="end" fill="#6b7280" font-size="12">$0</text>
-              <text x="70" y="175" text-anchor="end" fill="#6b7280" font-size="12">$25K</text>
-              <text x="70" y="115" text-anchor="end" fill="#6b7280" font-size="12">$50K</text>
+              <text x="70" y="175" text-anchor="end" fill="#6b7280" font-size="12">$2.5K</text>
+              <text x="70" y="115" text-anchor="end" fill="#6b7280" font-size="12">$5K</text>
 
-              <!-- Bars -->
-              <rect x="95" y="63" width="80" height="167" fill="#759b8f" rx="4"/>
-              <rect x="195" y="49" width="80" height="181" fill="#5a7d73" rx="4"/>
-              <rect x="295" y="108" width="80" height="122" fill="#d4a373" rx="4"/>
-              <rect x="395" y="132" width="80" height="98" fill="#d4a373" rx="4"/>
-              <rect x="495" y="164" width="80" height="66" fill="#ef4444" rx="4"/>
+              <!-- Bars - scaled for monthly: $4,111, $3,864, $2,540, $1,649, $1,152 -->
+              <rect x="95" y="82" width="80" height="148" fill="#759b8f" rx="4"/>
+              <rect x="195" y="92" width="80" height="138" fill="#5a7d73" rx="4"/>
+              <rect x="295" y="139" width="80" height="91" fill="#d4a373" rx="4"/>
+              <rect x="395" y="171" width="80" height="59" fill="#d4a373" rx="4"/>
+              <rect x="495" y="189" width="80" height="41" fill="#ef4444" rx="4"/>
 
               <!-- Value labels -->
-              <text x="135" y="55" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$49.3K</text>
-              <text x="235" y="41" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$46.4K</text>
-              <text x="335" y="100" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$30.5K</text>
-              <text x="435" y="124" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$19.8K</text>
-              <text x="535" y="156" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$13.8K</text>
+              <text x="135" y="74" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$4,111</text>
+              <text x="235" y="84" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$3,864</text>
+              <text x="335" y="131" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$2,540</text>
+              <text x="435" y="163" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$1,649</text>
+              <text x="535" y="181" text-anchor="middle" fill="#374151" font-size="11" font-weight="600">$1,152</text>
 
               <!-- X-axis labels -->
               <text x="135" y="255" text-anchor="middle" fill="#6b7280" font-size="11">4-7 nights</text>
@@ -456,11 +456,11 @@ const pageSchema = [articleSchema, faqSchema];
 
           <div class="stats-box">
             <div class="stat-item">
-              <span class="stat-value">$29,757</span>
+              <span class="stat-value">$2,480</span>
               <span class="stat-label">2+ Bathrooms</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">$24,411</span>
+              <span class="stat-value">$2,034</span>
               <span class="stat-label">1 Bathroom</span>
             </div>
             <div class="stat-item highlight">
@@ -484,27 +484,27 @@ const pageSchema = [articleSchema, faqSchema];
               <tbody>
                 <tr class="highlight-row">
                   <td>5 guests</td>
-                  <td>$37,243</td>
+                  <td>$3,104</td>
                   <td>Sweet spot - families with kids</td>
                 </tr>
                 <tr>
                   <td>7+ guests</td>
-                  <td>$36,883</td>
+                  <td>$3,074</td>
                   <td>Groups willing to pay premium</td>
                 </tr>
                 <tr>
                   <td>6 guests</td>
-                  <td>$29,297</td>
+                  <td>$2,441</td>
                   <td>Solid performance</td>
                 </tr>
                 <tr>
                   <td>4 guests</td>
-                  <td>$25,749</td>
+                  <td>$2,146</td>
                   <td>Standard 2-bedroom setup</td>
                 </tr>
                 <tr>
                   <td>1-3 guests</td>
-                  <td>$19,791</td>
+                  <td>$1,649</td>
                   <td>Missing group bookings</td>
                 </tr>
               </tbody>
@@ -564,31 +564,31 @@ const pageSchema = [articleSchema, faqSchema];
               <tbody>
                 <tr>
                   <td>&lt;$150/night</td>
-                  <td>$9,889</td>
+                  <td>$824</td>
                   <td>65%</td>
                   <td>38</td>
                 </tr>
                 <tr>
                   <td>$150-249/night</td>
-                  <td>$20,587</td>
+                  <td>$1,716</td>
                   <td>62%</td>
                   <td>108</td>
                 </tr>
                 <tr>
                   <td>$250-349/night</td>
-                  <td>$29,556</td>
+                  <td>$2,463</td>
                   <td>60%</td>
                   <td>115</td>
                 </tr>
                 <tr class="highlight-row">
                   <td>$350-449/night</td>
-                  <td>$48,814</td>
+                  <td>$4,068</td>
                   <td>68%</td>
                   <td>40</td>
                 </tr>
                 <tr>
                   <td>$450+/night</td>
-                  <td>$53,915</td>
+                  <td>$4,493</td>
                   <td>51%</td>
                   <td>19</td>
                 </tr>
@@ -604,27 +604,27 @@ const pageSchema = [articleSchema, faqSchema];
           <div class="top-earners-box">
             <div class="top-earner">
               <span class="rank">#1</span>
-              <span class="revenue">$145,326/mo</span>
+              <span class="revenue">$12,111/mo</span>
               <div class="details">ADR: $515 | Occupancy: 81% | Rating: 4.7 | Reviews: 10</div>
             </div>
             <div class="top-earner">
               <span class="rank">#2</span>
-              <span class="revenue">$141,870/mo</span>
+              <span class="revenue">$11,823/mo</span>
               <div class="details">ADR: $739 | Occupancy: 88% | Rating: 4.96 | Reviews: 55</div>
             </div>
             <div class="top-earner">
               <span class="rank">#3</span>
-              <span class="revenue">$119,364/mo</span>
+              <span class="revenue">$9,947/mo</span>
               <div class="details">ADR: $423 | Occupancy: 85% | Rating: 4.89 | Reviews: 28</div>
             </div>
             <div class="top-earner">
               <span class="rank">#4</span>
-              <span class="revenue">$115,681/mo</span>
+              <span class="revenue">$9,640/mo</span>
               <div class="details">ADR: $387 | Occupancy: 89% | Rating: 5.0 | Reviews: 54</div>
             </div>
             <div class="top-earner">
               <span class="rank">#5</span>
-              <span class="revenue">$111,242/mo</span>
+              <span class="revenue">$9,270/mo</span>
               <div class="details">ADR: $373 | Occupancy: 83% | Rating: 4.93 | Reviews: 54</div>
             </div>
           </div>
