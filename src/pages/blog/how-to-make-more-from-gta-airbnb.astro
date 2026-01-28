@@ -31,8 +31,8 @@ const tocItems = [
   { id: 'faqs', text: 'FAQs' }
 ];
 
-const pageTitle = "Scarborough 5-Bedroom Airbnb Revenue Analysis 2026 | Data Study";
-const pageDescription = "We analyzed 296 5-bedroom Airbnbs in Scarborough, Pickering & Ajax. Pools add 96%, hot tubs 65%, pets +34%. See median $1,984/month data.";
+const pageTitle = "How to Make More from GTA Airbnb | 2026 Data Study";
+const pageDescription = "How to make more from your GTA Airbnb: we analyzed 296 listings. Pools add 96%, hot tubs 65%. See the data and boost your revenue.";
 
 // Schema.org structured data
 const articleSchema = {
@@ -58,7 +58,7 @@ const articleSchema = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.nurturestays.ca/blog/scarborough-5-bedroom-airbnb-revenue-analysis-2026"
+    "@id": "https://www.nurturestays.ca/blog/how-to-make-more-from-gta-airbnb"
   }
 };
 
@@ -83,7 +83,7 @@ const pageSchema = [articleSchema, faqSchema];
         <span>/</span>
         <span>Revenue Analysis</span>
       </nav>
-      <h1>Scarborough 5-Bedroom Airbnb Revenue Analysis 2026</h1>
+      <h1>How to Make More from GTA Airbnb (2026 Data Study)</h1>
       <div class="article-meta">
         <span class="meta-date">January 28, 2026</span>
         <span class="meta-separator">|</span>
@@ -278,6 +278,24 @@ const pageSchema = [articleSchema, faqSchema];
               <li>Groups pay premium rates for pet-friendly options</li>
               <li>Larger properties can better absorb any wear</li>
             </ul>
+          </div>
+
+          <div class="callout callout-compare">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 3h5v5"></path>
+                <path d="M8 3H3v5"></path>
+                <path d="M21 3l-7 7"></path>
+                <path d="M3 3l7 7"></path>
+                <path d="M16 21h5v-5"></path>
+                <path d="M8 21H3v-5"></path>
+                <path d="M21 21l-7-7"></path>
+                <path d="M3 21l7-7"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Compare with 2-bedrooms:</strong> In our <a href="/blog/how-to-make-more-from-toronto-airbnb">Toronto 2-bedroom analysis</a>, pets <em>decreased</em> revenue by 28%. The key difference? Smaller units attract solo travelers and couples who rarely travel with pets. Know your target guest when setting policies.
+            </div>
           </div>
 
           <h2 id="guest-capacity">Guest Capacity: Maximize It</h2>
@@ -501,6 +519,24 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <p>High-intensity dynamic pricing delivers a <strong>51% boost</strong> over static pricing. Tools like PriceLabs or Wheelhouse help capture premium rates during high-demand periods (holidays, summer, long weekends).</p>
+
+          <div class="callout callout-compare">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 3h5v5"></path>
+                <path d="M8 3H3v5"></path>
+                <path d="M21 3l-7 7"></path>
+                <path d="M3 3l7 7"></path>
+                <path d="M16 21h5v-5"></path>
+                <path d="M8 21H3v-5"></path>
+                <path d="M21 21l-7-7"></path>
+                <path d="M3 21l7-7"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Compare with 2-bedrooms:</strong> In <a href="/blog/how-to-make-more-from-toronto-airbnb">Toronto 2-bedroom units</a>, dynamic pricing delivers a 64% boost - even more impactful than for larger properties. Smaller units have more competition and benefit more from real-time price adjustments.
+            </div>
+          </div>
 
           <h3>Economic Category Impact</h3>
           <p>Positioning matters. Upscale properties dramatically outperform budget options.</p>
@@ -993,6 +1029,25 @@ const pageSchema = [articleSchema, faqSchema];
 
   .callout-content {
     line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .callout-content a:hover {
+    color: var(--color-primary);
+  }
+
+  .callout-compare {
+    background: #f0f9ff;
+    border-left-color: #0ea5e9;
+  }
+
+  .callout-compare .callout-icon {
+    color: #0369a1;
   }
 
   .table-container {

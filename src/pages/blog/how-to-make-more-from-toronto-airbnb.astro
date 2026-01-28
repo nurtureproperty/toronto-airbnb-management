@@ -13,8 +13,8 @@ const faqs = [
 ];
 
 const relatedPosts = [
+  { title: 'GTA 5-Bedroom Revenue Analysis 2026', href: '/blog/how-to-make-more-from-gta-airbnb', description: 'How larger properties perform differently - pets boost revenue by 34%' },
   { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Understand the 180-night limit and compliance requirements' },
-  { title: 'Toronto Partial-Unit Registration: No 180-Night Limit', href: '/blog/toronto-airbnb-partial-unit-registration-guide-2026', description: 'How to rent 365 nights/year legally' },
   { title: 'Toronto MAT Tax Guide 2026', href: '/blog/toronto-airbnb-mat-tax-guide-2026', description: 'Understanding the 8.5% Municipal Accommodation Tax' }
 ];
 
@@ -32,8 +32,8 @@ const tocItems = [
   { id: 'faqs', text: 'FAQs' }
 ];
 
-const pageTitle = "How to Make More from Your Airbnb (Backed by 2026 Data)";
-const pageDescription = "We analyzed 320 Toronto Airbnbs to find what actually drives revenue. Dynamic pricing adds 64%, Guest Favorite badge doubles income. See the data.";
+const pageTitle = "How to Make More from Toronto Airbnb | 2026 Data Study";
+const pageDescription = "How to make more from Toronto Airbnb: we analyzed 320 listings. Dynamic pricing adds 64%, Guest Favorite doubles income. See the data.";
 
 // Schema.org structured data
 const articleSchema = {
@@ -59,7 +59,7 @@ const articleSchema = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.nurturestays.ca/blog/toronto-2-bedroom-airbnb-revenue-analysis-2026"
+    "@id": "https://www.nurturestays.ca/blog/how-to-make-more-from-toronto-airbnb"
   }
 };
 
@@ -84,7 +84,7 @@ const pageSchema = [articleSchema, faqSchema];
         <span>/</span>
         <span>Revenue Analysis</span>
       </nav>
-      <h1>How to Make More from Your Airbnb (Backed by 2026 Data)</h1>
+      <h1>How to Make More from Toronto Airbnb (2026 Data Study)</h1>
       <div class="article-meta">
         <span class="meta-date">January 28, 2026</span>
         <span class="meta-separator">|</span>
@@ -560,7 +560,25 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <p>Why the gap? Several theories: pet-friendly listings may discount rates to attract bookings, hosts may face higher cleaning/maintenance costs that eat into margins, or pet-friendly properties tend to be in areas with lower overall demand. Whatever the reason, the data suggests being selective about pet policies can significantly impact your bottom line.</p>
+          <p>Why the gap? Several theories: pet-friendly listings may discount rates to attract bookings, hosts may face higher cleaning/maintenance costs that eat into margins, or pet-friendly properties tend to be in areas with lower overall demand.</p>
+
+          <div class="callout callout-compare">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 3h5v5"></path>
+                <path d="M8 3H3v5"></path>
+                <path d="M21 3l-7 7"></path>
+                <path d="M3 3l7 7"></path>
+                <path d="M16 21h5v-5"></path>
+                <path d="M8 21H3v-5"></path>
+                <path d="M21 21l-7-7"></path>
+                <path d="M3 21l7-7"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Interesting contrast:</strong> For <a href="/blog/how-to-make-more-from-gta-airbnb">5-bedroom properties in the GTA</a>, the opposite is true - pets <em>increase</em> revenue by 34%. Larger groups traveling with pets have fewer options and will pay a premium. Property size matters when setting pet policies.
+            </div>
+          </div>
 
           <h3>Cancellation Policy Impact</h3>
           <p>Your cancellation policy has a surprising correlation with revenue:</p>
@@ -1119,6 +1137,25 @@ const pageSchema = [articleSchema, faqSchema];
 
   .callout-content {
     line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .callout-content a:hover {
+    color: var(--color-primary);
+  }
+
+  .callout-compare {
+    background: #f0f9ff;
+    border-left-color: #0ea5e9;
+  }
+
+  .callout-compare .callout-icon {
+    color: #0369a1;
   }
 
   .table-container {
