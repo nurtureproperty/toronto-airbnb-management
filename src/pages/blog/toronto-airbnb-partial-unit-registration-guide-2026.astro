@@ -1,0 +1,1159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "What is partial-unit registration in Toronto?", a: "Partial-unit registration is a type of short-term rental license where you rent out part of your home (like a spare bedroom) while you remain living in the property. Unlike entire-unit registration which has a 180-night annual cap, partial-unit registration has no night limit whatsoever. You can legally rent 365 nights per year." },
+  { q: "Do I have to be home during every guest stay?", a: "Yes, that's the core requirement. For partial-unit rentals, either you or a member of your household must be present in the dwelling during the guest's stay. You don't need to be there 24/7, but you can't leave town while guests are there. If you can't be home, a spouse, partner, or adult child living with you can fulfill this requirement." },
+  { q: "Can I switch from entire-unit to partial-unit registration?", a: "You can, but it requires applying for a new registration. Toronto locks you into one type per registration period. So if you registered as entire-unit and realize partial-unit would work better, you'll need to go through the registration process again. Plan carefully before you commit." },
+  { q: "What counts as 'part of a dwelling unit' for partial-unit rentals?", a: "Any portion of your home where guests don't have exclusive access to the entire property. Renting a spare bedroom, a basement room, or even multiple rooms all qualify, as long as you're also living there. The key distinction is that guests share the dwelling with you rather than having it to themselves." },
+  { q: "Can I rent multiple rooms to different guests with partial-unit registration?", a: "Yes, absolutely. You can rent out several spare rooms simultaneously to different guests. As long as you remain on-site and guests are only occupying part of your home (not the entire dwelling), it qualifies as partial-unit. Many hosts in Toronto's Annex and Parkdale neighborhoods do exactly this." },
+  { q: "Is the 8.5% MAT tax required for partial-unit rentals?", a: "Yes, the Municipal Accommodation Tax applies to all short-term rentals under 28 days, regardless of whether you're registered as entire-unit or partial-unit. Airbnb and VRBO collect and remit this automatically, so you don't need to handle it manually." },
+  { q: "What happens if I advertise my partial-unit as an entire-unit rental?", a: "That's a bylaw violation. Toronto Municipal Code specifically states that operators with partial-unit registration cannot advertise or rent their property as an entire-unit rental. Violations can result in fines up to $100,000 and registration revocation." },
+  { q: "Do I still need to prove principal residence for partial-unit registration?", a: "Yes, the principal residence requirement applies to both entire-unit and partial-unit registrations. You must provide government-issued ID and additional documents proving the STR property is where you actually live. The city may request utility bills, tax returns, or other proof." },
+  { q: "Can I do partial-unit rentals in my condo?", a: "From the city's perspective, yes. But your condo corporation's rules take precedence. Many Toronto condos prohibit all short-term rentals regardless of type. Always check your condo's declaration, bylaws, and rules before registering. A condo ban overrides city approval." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to all Toronto STR rules including the 180-night limit' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence requirements across the GTA' }
+];
+
+const tocItems = [
+  { id: 'what-is-partial-unit', text: 'What Is Partial-Unit?' },
+  { id: 'no-night-limit', text: 'No 180-Night Limit' },
+  { id: 'requirements', text: 'Requirements' },
+  { id: 'vs-entire-unit', text: 'Partial vs Entire-Unit' },
+  { id: 'who-should-register', text: 'Who Should Register' },
+  { id: 'how-to-register', text: 'How to Register' },
+  { id: 'common-mistakes', text: 'Common Mistakes' },
+  { id: 'income-potential', text: 'Income Potential' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Toronto Airbnb Partial-Unit Registration Guide 2026";
+const pageDescription = "Rent your Toronto Airbnb 365 nights/year with partial-unit registration. No 180-night limit. Learn requirements, how to register, and maximize income legally.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-28",
+  "dateModified": "2026-01-28",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-airbnb-partial-unit-registration-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Partial-Unit Registration</span>
+      </nav>
+      <h1>Toronto Airbnb Partial-Unit Registration: No 180-Night Limit</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published January 28, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">7 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Everyone talks about Toronto's <strong>180-night limit</strong> for Airbnb hosts. But here's what most people miss: that cap only applies to <strong>entire-unit rentals</strong>. If you register as a <strong>partial-unit operator</strong>, there's no annual limit at all.</p>
+            <p class="lead">This isn't a loophole or grey area. It's explicitly written into Toronto Municipal Code Chapter 547. You can legally rent 365 nights per year if you're home during guest stays.</p>
+          </div>
+
+          <div class="highlight-box">
+            <div class="highlight-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="highlight-content">
+              <strong>The Key Takeaway:</strong> Partial-unit registration = no night limit. Entire-unit registration = 180 nights max. Same property, same city, completely different rules based on which registration type you choose.
+            </div>
+          </div>
+
+          <h2 id="what-is-partial-unit">What Is Partial-Unit Registration?</h2>
+          <p>Let's start with the official definition from Toronto's bylaw:</p>
+
+          <blockquote class="bylaw-quote">
+            "PARTIAL-UNIT RENTAL – A short-term rental in which the renter occupies part of a dwelling unit."
+            <cite>Toronto Municipal Code § 547-1.1 Definitions</cite>
+          </blockquote>
+
+          <p>In plain English: you're renting out a portion of your home (a spare bedroom, basement room, etc.) while you continue living there. The guest doesn't have the whole place to themselves. They're sharing the dwelling with you.</p>
+
+          <h3>Examples of Partial-Unit Rentals</h3>
+          <ul>
+            <li><strong>Spare bedroom rental</strong> in your Leslieville semi while you sleep down the hall</li>
+            <li><strong>Finished basement room</strong> with separate entrance while you live upstairs</li>
+            <li><strong>Multiple guest rooms</strong> rented to different travelers (common in larger Annex homes)</li>
+            <li><strong>Airbnb room</strong> in your Parkdale apartment while you're home</li>
+          </ul>
+
+          <p>The common thread? You're present. Guests occupy <em>part</em> of your dwelling, not the entire thing.</p>
+
+          <h2 id="no-night-limit">The 180-Night Exemption Explained</h2>
+          <p>Here's the specific bylaw section that makes this possible:</p>
+
+          <blockquote class="bylaw-quote">
+            "No operator who holds a registration to operate an entire-unit rental shall rent a property for more than 180 nights per calendar year, regardless of whether the property is rented as an entire-unit or partial-unit rental."
+            <cite>Toronto Municipal Code § 547-4.1.1.D</cite>
+          </blockquote>
+
+          <p>Notice the language carefully: the 180-night restriction applies specifically to operators who hold <strong>entire-unit registration</strong>. If you hold <strong>partial-unit registration</strong>, this section doesn't apply to you.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Entire-Unit Registration</div>
+              <div class="comparison-col highlight">Partial-Unit Registration</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">180 nights per year maximum</div>
+              <div class="comparison-col highlight"><strong>NO annual night limit</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Guest has exclusive use of dwelling</div>
+              <div class="comparison-col highlight">Guest occupies part of dwelling</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">You leave during guest stays</div>
+              <div class="comparison-col highlight">You remain in the property</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Higher nightly rates typically</div>
+              <div class="comparison-col highlight">365 nights of income potential</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Best for occasional hosting</div>
+              <div class="comparison-col highlight">Best for year-round hosting</div>
+            </div>
+          </div>
+
+          <h2 id="requirements">Requirements for Partial-Unit Registration</h2>
+          <p>To qualify for partial-unit registration, you must meet these requirements:</p>
+
+          <h3>1. Principal Residence</h3>
+          <p>The property must be your principal residence. That's where you actually live, not an investment property or second home.</p>
+
+          <blockquote class="bylaw-quote">
+            "PRINCIPAL RESIDENCE – The dwelling unit where an operator ordinarily resides. For clarity, an operator's principal residence shall not include more than one dwelling unit."
+            <cite>Toronto Municipal Code § 547-1.1 Definitions</cite>
+          </blockquote>
+
+          <p>You'll need to provide:</p>
+          <ul>
+            <li>Government-issued ID showing your address</li>
+            <li>Additional documents if requested (utility bills, tax returns, vehicle registration)</li>
+          </ul>
+
+          <h3>2. On-Site Presence</h3>
+          <p>This is the crucial requirement that distinguishes partial-unit from entire-unit. You (or a household member) must be present in the dwelling during guest stays.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Who counts as a "household member"?</strong> Your spouse, partner, children, parents, or anyone else who ordinarily resides with you at that address. If your adult child lives with you, they can be home while you're at work.
+            </div>
+          </div>
+
+          <h3>3. Registration Type Declaration</h3>
+          <p>When you apply, you must explicitly choose partial-unit registration:</p>
+
+          <blockquote class="bylaw-quote">
+            "On an application for a registration or its renewal, the applicant shall indicate if they intend to operate an entire-unit or partial-unit rental."
+            <cite>Toronto Municipal Code § 547-4.1.1.A</cite>
+          </blockquote>
+
+          <p>This isn't something you can change on a whim. Once registered as one type, you're locked in for that registration period.</p>
+
+          <h3>4. Consistent Operation</h3>
+          <p>If you hold partial-unit registration, you cannot advertise or rent as an entire-unit:</p>
+
+          <blockquote class="bylaw-quote">
+            "No operator who holds a registration to operate a partial-unit rental shall advertise or rent a property as an entire-unit rental."
+            <cite>Toronto Municipal Code § 547-4.1.1.C</cite>
+          </blockquote>
+
+          <p>This means no "whole apartment" listings if you're registered as partial-unit, even occasionally.</p>
+
+          <h2 id="vs-entire-unit">Partial-Unit vs Entire-Unit: Which to Choose?</h2>
+          <p>This decision has major implications for your hosting business. Here's how to think about it:</p>
+
+          <div class="decision-grid">
+            <div class="decision-card">
+              <h4>Choose Partial-Unit If:</h4>
+              <ul>
+                <li>You want to host year-round (no 180-night cap)</li>
+                <li>You're comfortable being home during guest stays</li>
+                <li>You have a spare room or basement that works for guests</li>
+                <li>You want consistent monthly income vs. seasonal peaks</li>
+                <li>You enjoy meeting travelers and don't mind shared spaces</li>
+              </ul>
+            </div>
+            <div class="decision-card">
+              <h4>Choose Entire-Unit If:</h4>
+              <ul>
+                <li>You travel frequently or can't be home during rentals</li>
+                <li>You want to command premium rates for private stays</li>
+                <li>180 nights of hosting is enough for your income goals</li>
+                <li>You prefer complete separation from guests</li>
+                <li>You can fill remaining nights with mid-term (28+ day) rentals</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <h4>Important: No Switching Mid-Term</h4>
+            <p>Toronto's bylaw states that your registration "shall be restricted to either entire-unit or partial-unit rentals for its entire term." Want to switch? You'll need to apply for a new registration. So choose carefully based on your realistic lifestyle, not what sounds good in theory.</p>
+          </div>
+
+          <h2 id="who-should-register">Who Should Consider Partial-Unit Registration?</h2>
+          <p>Based on our experience managing properties across Toronto, partial-unit works best for:</p>
+
+          <h3>Homeowners with Extra Space</h3>
+          <p>You've got a spare bedroom in your Riverdale semi that's been collecting dust since the kids moved out. Instead of it sitting empty, it generates income every night. You're home anyway.</p>
+
+          <h3>Work-From-Home Professionals</h3>
+          <p>If you're already working from home most days, the "be present" requirement is basically automatic. You're at your desk in the living room while guests come and go from their room.</p>
+
+          <h3>Retirees</h3>
+          <p>You've got time, you've got space, and you might enjoy the social aspect of meeting travelers. Many retirees in Toronto's Beaches and Bloor West Village neighborhoods run successful room rentals.</p>
+
+          <h3>People Who Want Predictable Income</h3>
+          <p>With entire-unit registration, you're racing to maximize 180 nights during peak season. With partial-unit, you can host steadily year-round. Less seasonal stress, more consistent cash flow.</p>
+
+          <h2 id="how-to-register">How to Register for Partial-Unit</h2>
+          <p>The registration process is the same as entire-unit, but you'll make different selections:</p>
+
+          <ol class="steps-list">
+            <li>
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <strong>Go to Toronto's STR Registration Portal</strong>
+                <p>Visit <a href="https://secure.toronto.ca/webapps/short-term-rental/registration/" target="_blank" rel="noopener">secure.toronto.ca/webapps/short-term-rental/registration</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <strong>Create an Account</strong>
+                <p>You'll need an email address and to verify your identity</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">3</span>
+              <div class="step-content">
+                <strong>Select "Partial-Unit Rental"</strong>
+                <p>When asked about your rental type, choose partial-unit. This is the critical step.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">4</span>
+              <div class="step-content">
+                <strong>Provide Principal Residence Proof</strong>
+                <p>Upload government ID showing your address. Have utility bills or tax returns ready if requested.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">5</span>
+              <div class="step-content">
+                <strong>Describe What You're Renting</strong>
+                <p>Specify which parts of your property will be used for short-term rental (e.g., "spare bedroom on second floor").</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">6</span>
+              <div class="step-content">
+                <strong>Pay the Registration Fee</strong>
+                <p>Around $50/year. Not bad for unlimited hosting potential.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">7</span>
+              <div class="step-content">
+                <strong>Display Your Registration Number</strong>
+                <p>Once approved, put your registration number on all listings. It's required.</p>
+              </div>
+            </li>
+          </ol>
+
+          <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+          <p>I've seen hosts mess up their partial-unit registration in these ways:</p>
+
+          <div class="mistake-list">
+            <div class="mistake-item">
+              <span class="mistake-icon">✗</span>
+              <div class="mistake-content">
+                <strong>Listing as "Entire Home" on Airbnb</strong>
+                <p>If you're registered as partial-unit, your Airbnb listing should be "Private room" or "Shared room," not "Entire place." The city cross-references listings against registrations.</p>
+              </div>
+            </div>
+            <div class="mistake-item">
+              <span class="mistake-icon">✗</span>
+              <div class="mistake-content">
+                <strong>Leaving Town During Bookings</strong>
+                <p>The "be present" requirement isn't optional. If you take a weekend trip while guests are there, you're operating as entire-unit without the proper registration.</p>
+              </div>
+            </div>
+            <div class="mistake-item">
+              <span class="mistake-icon">✗</span>
+              <div class="mistake-content">
+                <strong>Not Checking Condo Rules First</strong>
+                <p>City registration doesn't override your condo corporation's rules. Many Toronto condos ban all STRs. Check before you register, not after.</p>
+              </div>
+            </div>
+            <div class="mistake-item">
+              <span class="mistake-icon">✗</span>
+              <div class="mistake-content">
+                <strong>Assuming "Household Member" Means Anyone</strong>
+                <p>A household member must ordinarily reside with you at that address. Your friend who "pops by" doesn't count. It needs to be someone who actually lives there.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="income-potential">Income Potential with Partial-Unit</h2>
+          <p>Let's talk numbers. Here's what partial-unit hosting can look like in Toronto:</p>
+
+          <div class="income-example">
+            <h4>Example: Spare Room in Leslieville</h4>
+            <div class="income-grid">
+              <div class="income-item">
+                <span class="income-label">Average nightly rate</span>
+                <span class="income-value">$85</span>
+              </div>
+              <div class="income-item">
+                <span class="income-label">Occupancy (realistic)</span>
+                <span class="income-value">70%</span>
+              </div>
+              <div class="income-item">
+                <span class="income-label">Nights per year</span>
+                <span class="income-value">255</span>
+              </div>
+              <div class="income-item highlight">
+                <span class="income-label">Annual revenue</span>
+                <span class="income-value">$21,675</span>
+              </div>
+            </div>
+            <p class="income-note">That's from a single room. Hosts with 2-3 spare rooms can double or triple this figure. And remember: entire-unit hosts are capped at 180 nights regardless of demand.</p>
+          </div>
+
+          <h3>The Comparison That Matters</h3>
+          <p>With entire-unit registration at $200/night for 180 nights, you'd earn $36,000. Sounds better than $21,675, right?</p>
+          <p>But here's the thing: that entire-unit host can't earn anything from STR for the remaining 185 nights. Meanwhile, the partial-unit host keeps earning, and can also rent during high-demand periods like TIFF, Pride, and Caribana when rates spike.</p>
+
+          <div class="success-box">
+            <h4>Real Strategy: Multiple Rooms + Events</h4>
+            <ul>
+              <li><strong>2 spare rooms</strong> at $85/night each = $170/night capacity</li>
+              <li><strong>Event weekends</strong> (TIFF, Pride, etc.) command $150-200/room</li>
+              <li><strong>Year-round operation</strong> with no arbitrary cutoff</li>
+              <li><strong>Annual potential:</strong> $35,000-50,000+ depending on location and rooms</li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="resources-box">
+            <h4>Official City of Toronto Resources</h4>
+            <ul>
+              <li><a href="https://www.toronto.ca/community-people/housing-shelter/short-term-rentals/short-term-rental-operators-hosts/" target="_blank" rel="noopener">City of Toronto STR Operator Information</a></li>
+              <li><a href="https://secure.toronto.ca/webapps/short-term-rental/registration/" target="_blank" rel="noopener">STR Registration Portal</a></li>
+              <li><a href="https://www.toronto.ca/legdocs/municode/toronto-code-547.pdf" target="_blank" rel="noopener">Toronto Municipal Code Chapter 547 (Full Bylaw)</a></li>
+            </ul>
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Partial-Unit Rental?</h3>
+            <p>Nurture handles guest communication, cleaning coordination, and compliance tracking so you can earn more with less hassle. Our local team knows Toronto's bylaws inside and out.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Partial-Unit Registration?</h2>
+        <p>Our local experts can help you choose the right registration type and maximize your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .highlight-box {
+    display: flex;
+    gap: 1rem;
+    background: linear-gradient(135deg, #f0fff4 0%, #e6ffec 100%);
+    border: 2px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .highlight-icon {
+    flex-shrink: 0;
+    color: #38a169;
+  }
+
+  .highlight-content {
+    line-height: 1.6;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .decision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .decision-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .decision-card:first-child {
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .decision-card:last-child {
+    border-top: 4px solid var(--color-accent);
+  }
+
+  .decision-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .decision-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .decision-card li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .steps-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .steps-list li:last-child {
+    border-bottom: none;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .step-content strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .step-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+  }
+
+  .step-content a {
+    color: var(--color-primary);
+  }
+
+  .mistake-list {
+    margin: 2rem 0;
+  }
+
+  .mistake-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #fff5f5;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .mistake-icon {
+    width: 28px;
+    height: 28px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .mistake-content strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #c0392b;
+  }
+
+  .mistake-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .income-example {
+    background: var(--color-background-alt);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .income-example h4 {
+    margin-bottom: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .income-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .income-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .income-item.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .income-label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+
+  .income-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .income-note {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .success-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .success-box h4 {
+    color: #276749;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .success-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .success-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .decision-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .income-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .income-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
