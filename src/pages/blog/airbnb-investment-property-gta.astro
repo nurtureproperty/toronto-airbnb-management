@@ -10,12 +10,12 @@ const faqs = [
 ];
 
 const cityRules = [
-  { city: 'Toronto', rule: 'Principal residence required', limit: '180 nights/year', mat: '8.5%' },
-  { city: 'Mississauga', rule: 'Principal residence required', limit: '180 days/year', mat: 'Check with city' },
-  { city: 'Brampton', rule: 'Principal residence required', limit: '180 days/year', mat: '4%' },
-  { city: 'Vaughan', rule: 'Principal residence required', limit: 'License required', mat: '4%' },
-  { city: 'Hamilton', rule: 'Principal residence required', limit: 'License required', mat: 'Check with city' },
-  { city: 'Oakville', rule: 'Principal residence required', limit: '28 days max stay', mat: '4%' }
+  { city: 'Toronto', rule: 'Principal residence required', limit: '180 nights/year' },
+  { city: 'Mississauga', rule: 'Principal residence required', limit: '180 days/year' },
+  { city: 'Brampton', rule: 'Principal residence required', limit: '180 days/year' },
+  { city: 'Vaughan', rule: 'Principal residence required', limit: 'License required' },
+  { city: 'Hamilton', rule: 'Principal residence required', limit: 'License required' },
+  { city: 'Oakville', rule: 'Principal residence required', limit: 'License required' }
 ];
 
 const relatedPosts = [
@@ -158,7 +158,6 @@ const pageSchema = [articleSchema, faqSchema];
                   <th>City</th>
                   <th>Principal Residence</th>
                   <th>Limits</th>
-                  <th>MAT Tax</th>
                 </tr>
               </thead>
               <tbody>
@@ -167,7 +166,6 @@ const pageSchema = [articleSchema, faqSchema];
                     <td><strong>{city.city}</strong></td>
                     <td>{city.rule}</td>
                     <td>{city.limit}</td>
-                    <td>{city.mat}</td>
                   </tr>
                 ))}
               </tbody>
