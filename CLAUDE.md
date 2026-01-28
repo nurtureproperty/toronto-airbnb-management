@@ -86,6 +86,35 @@ Each blog guide should include:
 
 ---
 
+## Writing Guidelines
+
+### Punctuation Rules
+**Never use spaced hyphens ( - ) in paragraph content.** This is a common informal writing habit that looks unprofessional.
+
+Instead of hyphens, use:
+- **Commas** for clauses that add information: "your principal residence, where you normally live"
+- **Periods** to start a new sentence: "The appeal extends beyond leisure. Major employers draw business travelers."
+- **Colons** for lists or explanations: "Here's what you need: license, insurance, registration"
+- **"and" or "or"** to connect ideas: "how much you could earn and how to maximize nights"
+
+**Bad examples:**
+- "could earn on Airbnb - with no hassles" ❌
+- "principal residence - where you live" ❌
+- "get started - before regulations change" ❌
+
+**Good examples:**
+- "could earn on Airbnb, with no hassles" ✓
+- "principal residence, where you live" ✓
+- "get started before regulations change" ✓
+
+**Exceptions (hyphens are OK):**
+- Compound words: "short-term", "full-service", "year-round"
+- Headings with labels: "License Required: $237/Year"
+- Code comments and CSS
+- Page titles with separators: "Oakville Airbnb Management | GTA"
+
+---
+
 # Nurture - Airbnb Property Management
 
 ## Company Overview
