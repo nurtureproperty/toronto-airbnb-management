@@ -39,7 +39,8 @@ const faqs = [
   },
   {
     question: "What is the 180-night limit for North York Airbnb rentals?",
-    answer: "The 180-night limit restricts entire-home short-term rentals to 180 nights per calendar year. This applies when you rent out your entire property while you're away. If you rent individual rooms while remaining in the home (partial unit rental), there is no night limit. Stays of 28 days or longer (mid-term rentals) do not count toward the 180-night cap."
+    answer: "The 180-night limit restricts entire-home short-term rentals to 180 nights per calendar year. This applies when you rent out your entire property while you're away. If you rent individual rooms while remaining in the home (partial unit rental), there is no night limit. Stays of 28 days or longer (mid-term rentals) do not count toward the 180-night cap.",
+    link: { text: "Learn about partial-unit registration (no night limit)", href: "/blog/toronto-airbnb-partial-unit-registration-guide-2026" }
   },
   {
     question: "How much can I make on Airbnb in North York?",
@@ -229,8 +230,11 @@ const faqSchema = {
           <div class="faq-item">
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
-            {faq.link && (
+            {faq.link && typeof faq.link === 'string' && (
               <a href={faq.link} class="faq-link">Learn more about Toronto STR regulations</a>
+            )}
+            {faq.link && typeof faq.link === 'object' && (
+              <a href={faq.link.href} class="faq-link">{faq.link.text}</a>
             )}
           </div>
         ))}

@@ -39,7 +39,8 @@ const faqs = [
   },
   {
     question: "What is the 180-night limit for Airbnb in Scarborough?",
-    answer: "Toronto's 180-night limit applies to entire home rentals in Scarborough. You can rent your entire property for up to 180 nights per calendar year. However, if you rent individual rooms while remaining in the home (partial unit rental), there is no night limit. Mid-term rentals of 28+ days also don't count toward the 180-night cap."
+    answer: "Toronto's 180-night limit applies to entire home rentals in Scarborough. You can rent your entire property for up to 180 nights per calendar year. However, if you rent individual rooms while remaining in the home (partial unit rental), there is no night limit. Mid-term rentals of 28+ days also don't count toward the 180-night cap.",
+    link: { text: "Learn about partial-unit registration (no night limit)", href: "/blog/toronto-airbnb-partial-unit-registration-guide-2026" }
   },
   {
     question: "How much can I make on Airbnb in Scarborough?",
@@ -227,8 +228,11 @@ const faqSchema = {
           <div class="faq-item">
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
-            {faq.link && (
+            {faq.link && typeof faq.link === 'string' && (
               <a href={faq.link} class="faq-link">Learn more about Toronto STR regulations</a>
+            )}
+            {faq.link && typeof faq.link === 'object' && (
+              <a href={faq.link.href} class="faq-link">{faq.link.text}</a>
             )}
           </div>
         ))}
