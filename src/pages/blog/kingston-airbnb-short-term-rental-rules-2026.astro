@@ -1,0 +1,916 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Kingston?", a: "Yes! Unlike Toronto, Mississauga, and most GTA cities, Kingston does NOT require principal residence. You can STR an investment property. The only limit is 2 licenses per operator, so you could run up to 2 Airbnb properties in Kingston even if you don't live there." },
+  { q: "Is there a night limit for Airbnb in Kingston?", a: "No annual night limit. Kingston's bylaw defines STR as 30 days or less per booking, but there's no cap on how many nights per year you can rent. You could theoretically operate 365 nights a year, unlike Toronto's 180-night limit." },
+  { q: "How much is the Kingston STR license?", a: "License fees are set in Kingston's Fees and Charges Bylaw. Check the city website for current rates. The license needs to be renewed annually, and all fees are non-refundable even if your application is denied." },
+  { q: "What's the occupancy limit for Kingston Airbnb?", a: "Maximum 2 occupants per bedroom, and no more than 10 guests total per booking. If you're renting individual rooms while home, max 3 rooms with 4 guests total in aggregate. Children under 2 don't count toward the limit." },
+  { q: "Do I need to display my license number?", a: "Yes, three ways: post the physical license near your entry, include the license number in all marketing materials and listings, and provide the city with links to your listings. The city actively checks compliance." },
+  { q: "What records do I need to keep?", a: "Keep records for 3 years minimum: nights rented, prices charged, MAT collected, whether it was entire-unit or partial-unit. The city can request these records and you have 30 days to produce them." },
+  { q: "Does Kingston have a Municipal Accommodation Tax?", a: "Yes, Kingston has MAT under Bylaw 2018-95. You must collect and remit the tax. Unlike some cities where platforms handle this automatically, verify with the city whether Airbnb collects on your behalf or if you need to handle it yourself." },
+  { q: "Can I operate a Bed and Breakfast in Kingston?", a: "Yes, B&Bs are included under the STR licensing bylaw. You need to be owner-occupied (living in the property), and guest rooms can have private baths but cannot have cooking facilities. B&Bs cannot operate alongside a regular STR in the same unit." }
+];
+
+const relatedPosts = [
+  { title: 'How to Make More from GTA Airbnb', href: '/blog/how-to-make-more-from-gta-airbnb', description: 'Data study on what drives Airbnb revenue' },
+  { title: 'Ottawa Airbnb Short Term Rental Rules 2026', href: '/blog/ottawa-airbnb-short-term-rental-rules-2026', description: 'Nearby city with different regulations' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence rules' }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'Kingston Overview' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'occupancy-limits', text: 'Occupancy Limits' },
+  { id: 'mat-tax', text: 'Municipal Accommodation Tax' },
+  { id: 'compliance', text: 'Staying Compliant' },
+  { id: 'penalties', text: 'Penalties' },
+  { id: 'bed-and-breakfast', text: 'B&B Rules' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Kingston Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Kingston Airbnb rules: NO principal residence required, up to 2 STR licenses per person, no annual night limit. Complete 2026 licensing guide.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-29",
+  "dateModified": "2026-01-29",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/kingston-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Kingston Regulations</span>
+      </nav>
+      <h1>Kingston Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 29, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Kingston is one of the <strong>most investor-friendly cities in Ontario for Airbnb</strong>. Unlike Toronto, Mississauga, and most GTA municipalities, Kingston does NOT require your STR to be your principal residence. You can legally operate investment properties as short-term rentals.</p>
+            <p class="lead">Here's everything you need to know about Kingston's STR licensing bylaw (Bylaw 2021-10) and how to operate compliantly.</p>
+          </div>
+
+          <h2 id="overview">Kingston STR Overview</h2>
+          <p>Kingston's short-term rental licensing bylaw took effect June 1, 2021, with significant updates in 2022, 2023, and most recently September 2024. The city defines a short-term rental as:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short-term Rental means all or part of a Dwelling Unit used to provide sleeping accommodations for a period equal to or less than thirty (30) consecutive days in exchange for payment."
+            <cite>Kingston Bylaw 2021-10, Part 1 Definitions</cite>
+          </blockquote>
+
+          <p>Note that Kingston uses <strong>30 days</strong> as the threshold, compared to Toronto's 28 days. This is a minor difference but worth knowing if you're pricing extended stays.</p>
+
+          <div class="key-stats">
+            <div class="stat-item">
+              <span class="stat-value">30 days</span>
+              <span class="stat-label">STR threshold</span>
+            </div>
+            <div class="stat-item highlight">
+              <span class="stat-value">No limit</span>
+              <span class="stat-label">Annual nights</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">2 max</span>
+              <span class="stat-label">Licenses per person</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">10 max</span>
+              <span class="stat-label">Guests per booking</span>
+            </div>
+          </div>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is the big one. <strong>Kingston does not require your STR to be your principal residence.</strong> This makes it one of the few Ontario cities where you can legally Airbnb an investment property.</p>
+
+          <div class="success-box">
+            <h4>What This Means for Investors</h4>
+            <ul>
+              <li>You can STR a property you don't live in</li>
+              <li>You can hold up to <strong>2 STR licenses</strong> as an individual</li>
+              <li>Corporate officers and directors can each hold licenses too</li>
+              <li>No need to claim the property as your home</li>
+              <li>Ideal for out-of-town investors looking at the Kingston market</li>
+            </ul>
+          </div>
+
+          <p>Compare this to Toronto, Mississauga, Brampton, Ottawa, and most other Ontario cities where principal residence is mandatory. Kingston stands out as genuinely investor-friendly, similar to Sault Ste. Marie.</p>
+
+          <h3>The 2-License Limit</h3>
+          <p>There is one restriction: you can't hold more than 2 licenses.</p>
+
+          <blockquote class="bylaw-quote">
+            "An Operator shall not hold more than two (2) Licences and shall not operate or permit the operation of more than two (2) Short-term Rentals at any time, either individually as a natural person or as an officer or director of a corporation that holds a Licence."
+            <cite>Kingston Bylaw 2021-10, Section 5.2</cite>
+          </blockquote>
+
+          <p>If you had licenses before July 2022 (when this limit was introduced), you can keep them as long as you renew without lapse. But new operators are capped at 2 properties.</p>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>You must have a valid license before marketing or operating any STR in Kingston. Here's what you need:</p>
+
+          <h3>To Get Licensed</h3>
+          <ul>
+            <li><strong>Complete application</strong> in the form prescribed by the Director</li>
+            <li><strong>Pay the license fee</strong> (check Kingston's Fees and Charges Bylaw for current rates)</li>
+            <li><strong>Property compliance</strong> with zoning, building code, and fire code</li>
+            <li><strong>No outstanding debts</strong> to the city (fines, property taxes, MAT)</li>
+            <li><strong>No active orders</strong> from Building, Fire, Health Unit, or Environment Ministry</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Inspection may be required:</strong> The Director can require an inspection of your property before issuing or renewing a license. All issues must be fixed before you get approved.
+            </div>
+          </div>
+
+          <h3>License Display Requirements</h3>
+          <p>Once licensed, you must:</p>
+          <ol>
+            <li><strong>Post the physical license</strong> in a prominent place near the entry</li>
+            <li><strong>Include your license number</strong> in all listings and marketing materials</li>
+            <li><strong>Provide the city</strong> with links to your online listings</li>
+            <li><strong>Display emergency contact info</strong> for guests prominently in the rental</li>
+          </ol>
+
+          <h2 id="occupancy-limits">Occupancy Limits</h2>
+          <p>Kingston has clear occupancy rules to prevent party houses and overcrowding:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Rental Type</div>
+              <div class="comparison-col highlight">Occupancy Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Entire unit rental</div>
+              <div class="comparison-col highlight">Max 2 per bedroom, 10 total</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Room-by-room rental</div>
+              <div class="comparison-col highlight">Max 3 rooms, 4 guests total</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Children under 2</div>
+              <div class="comparison-col highlight">Don't count toward limit</div>
+            </div>
+          </div>
+
+          <blockquote class="bylaw-quote">
+            "No Operator shall permit more than two (2) occupants in each bedroom within a Short-term Rental...and no Operator shall permit more than ten (10) occupants rented under a single booking."
+            <cite>Kingston Bylaw 2021-10, Section 7.2</cite>
+          </blockquote>
+
+          <p>For room rentals specifically: if you're renting rooms individually (like a hostel model), you're capped at 3 rooms with a maximum of 4 guests in aggregate. This prevents operators from cramming guests into every available space.</p>
+
+          <h2 id="mat-tax">Municipal Accommodation Tax (MAT)</h2>
+          <p>Kingston has a Municipal Accommodation Tax that applies to short-term rentals. Under Bylaw 2018-95, operators must:</p>
+
+          <ul>
+            <li><strong>Collect MAT</strong> from guests on all bookings under 30 days</li>
+            <li><strong>Remit the tax</strong> to the city as required</li>
+            <li><strong>Keep records</strong> of all MAT collected for 3 years</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Verify Platform Collection</h4>
+            <p>Some platforms like Airbnb may collect and remit MAT automatically, but confirm this with the City of Kingston. If you take direct bookings or use platforms that don't collect automatically, you're responsible for collecting and remitting the tax yourself.</p>
+          </div>
+
+          <h2 id="compliance">Staying Compliant</h2>
+          <p>Kingston takes enforcement seriously. Here's how to stay on the right side of the bylaw:</p>
+
+          <h3>Record Keeping (3 Years)</h3>
+          <p>You must keep detailed records for at least 3 years after each transaction:</p>
+          <ul>
+            <li>Number of nights rented</li>
+            <li>Nightly and total price charged</li>
+            <li>Total MAT collected</li>
+            <li>Whether it was entire-unit or partial-unit</li>
+            <li>Any other information the Director requests</li>
+          </ul>
+
+          <p>The city can request these records, and you have <strong>30 days to produce them</strong>. Set up a system from day one. A spreadsheet works, or use your platform's transaction history.</p>
+
+          <h3>Notify the City of Changes</h3>
+          <p>If anything changes from your original application, you must notify the city within 14 days and provide updated documentation. This includes contact info, property details, or ownership changes.</p>
+
+          <h3>Parking Compliance</h3>
+          <p>Your STR must comply with parking requirements in Kingston's Zoning Bylaw and Parking Bylaw 2010-128. Make sure you have adequate parking for guests and include parking instructions in your listing.</p>
+
+          <h2 id="penalties">Penalties for Non-Compliance</h2>
+          <p>Kingston uses both administrative penalties and provincial offences for enforcement:</p>
+
+          <div class="penalty-box">
+            <h4>Penalty Structure</h4>
+            <ul>
+              <li><strong>Administrative penalties</strong> per the city's Administrative Penalty Process Bylaw</li>
+              <li><strong>Provincial offences</strong> with fines of <strong>$500 to $10,000 per day</strong></li>
+              <li><strong>Continuing offences</strong> mean each day of violation is a separate offence</li>
+              <li><strong>Director/officer liability</strong> for corporate operators</li>
+              <li><strong>Cost recovery</strong> for city enforcement actions added to your tax bill</li>
+            </ul>
+          </div>
+
+          <p>The city can also revoke or suspend your license, and unpaid fines can be added to your property tax roll. Don't risk it.</p>
+
+          <h2 id="bed-and-breakfast">Bed and Breakfast Rules</h2>
+          <p>B&Bs fall under the same licensing bylaw but have specific requirements:</p>
+
+          <blockquote class="bylaw-quote">
+            "Bed and Breakfast means an operator-occupied detached dwelling offering short-term lodging for compensation to the travelling and vacationing public, which guest rooms or suites may include a private bath, but do not include cooking facilities."
+            <cite>Kingston Bylaw 2021-10, Part 1 Definitions</cite>
+          </blockquote>
+
+          <h3>B&B Requirements</h3>
+          <ul>
+            <li><strong>Must be owner-occupied</strong> (you live there)</li>
+            <li><strong>Detached dwelling</strong> only</li>
+            <li><strong>No cooking facilities</strong> in guest rooms</li>
+            <li><strong>Private bath</strong> is allowed</li>
+            <li><strong>Cannot operate alongside</strong> a regular STR in the same unit</li>
+          </ul>
+
+          <p>If you're running a traditional B&B with breakfast service and you live on-site, this is your category. You still need the STR license.</p>
+
+          <h2 id="official-resources">Official City of Kingston Resources</h2>
+          <p>Always verify current requirements with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.cityofkingston.ca/business/licences-permits/short-term-rentals" target="_blank" rel="noopener">City of Kingston Short-Term Rentals Overview</a></li>
+              <li><a href="https://www.cityofkingston.ca/documents/10180/38629921/Short-term-Rental-Bylaw-Number-2021-10.pdf" target="_blank" rel="noopener">Bylaw 2021-10 (Full Text)</a></li>
+              <li><a href="https://www.cityofkingston.ca/business/licences-permits" target="_blank" rel="noopener">Licensing and Permits Portal</a></li>
+            </ul>
+          </div>
+
+          <p>Bylaws can change. The information here reflects Bylaw 2021-10 as amended through September 2024, but always check the city's website for the most current version.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Kingston Airbnb?</h3>
+            <p>Nurture handles licensing compliance, guest communication, and revenue optimization for Ontario hosts. Focus on your investment while we handle the operations.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Kingston STR Rules?</h2>
+        <p>Our team can help you navigate licensing and maximize your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .key-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .key-stats .stat-item {
+    background: var(--color-background-alt);
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .key-stats .stat-item.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .key-stats .stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .key-stats .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    opacity: 0.9;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .success-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .success-box h4 {
+    color: #276749;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .success-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .success-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .penalty-box {
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .penalty-box h4 {
+    color: #92400e;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .penalty-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .penalty-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .key-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .key-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>

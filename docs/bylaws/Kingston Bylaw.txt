@@ -1,0 +1,324 @@
+Short-term Rental Licensing Bylaw
+Bylaw #: 2021-10
+
+Description: A Bylaw to License and Regulate Short-term Rentals in the City of Kingston
+
+Date passed: January 12, 2024
+
+Last updated: September 3, 2024
+
+Disclaimer: Bylaws contained in this section have been prepared for research and reference purposes only. The original Short-term Rental Bylaw in pdf format is available from the Office of the City Clerk upon request.
+
+Introduction
+
+Whereas Section 10(2) of the Municipal Act, 2001, S.O. 2001, c. 25, as amended, provides that a municipality may pass Bylaws respecting: health, safety and well-being of persons; protection of persons and property, including consumer protection; and business licensing; and
+
+Whereas Section 151(1) of the Municipal Act, 2001, S.O. 2001, c. 25, as amended, provides that, without limiting Sections 9, 10 and 11 of the Act, a municipality may provide for a system of licences with respect to a business and may:
+
+prohibit the carrying on or engaging in the business without a licence;
+refuse to grant a licence, or revoke or suspend a licence;
+impose conditions as a requirement of obtaining, continuing to hold, or renewing a licence;
+impose special conditions on a business in a class that have not been imposed on all of the businesses in that class in order to obtain, continue to hold, or renew a licence;
+impose conditions, including special conditions, as a requirement of continuing to hold a licence at any time during the term of the licence;
+license, regulate or govern real and personal property used for the business and the persons carrying it on or engaged in it; and
+Whereas section 434.1(1) of the Municipal Act, 2001, S.O. 2001, c. 25 as amended from time to time, provides that a municipality may require a person, subject to such conditions as the municipality considers appropriate, to pay an administrative penalty if the municipality is satisfied that the person has failed to comply with a Bylaw of the municipality passed under that Act; and
+
+Whereas Section 429(1) of the Municipal Act, 2001, S.O. 2001, c. 25, as amended, provides that a municipality may establish a system of fines for offences under a of the municipality passed under the Act; and
+
+Whereas the Council of The Corporation of the City of Kingston considers it necessary and desirable to regulate Short-term Rentals;
+
+Therefore Be It Resolved That the Council of The Corporation of the City of Kingston enacts as follows:
+
+Part 1 – Definitions
+
+For the purposes of this Bylaw:
+
+Administrative Penalty means an administrative penalty administered pursuant to the Administrative Penalty Process Bylaw;
+
+Administrative Penalty Process Bylaw means Bylaw 2020-69 of the Corporation of the City of Kingston being A Bylaw to Establish a Process Administrative Penalties;
+
+Appeals Committee means a committee duly appointed by bylaw to conduct hearings under this Bylaw;
+
+Bed and Breakfast means an operator-occupied detached dwelling offering short-term lodging for compensation to the travelling and vacationing public, which guest rooms or suites may include a private bath, but do not include cooking facilities;
+
+Boarding, Lodging or Rooming House means a building,
+
+that has a building height not exceeding three (3) storeys and a building area not exceeding 600 square metres,
+in which lodging is provided for more than four (4) persons in return for remuneration or for the provision of services or for both, and
+in which the lodging rooms do not have both bathrooms and kitchen facilities for the exclusive use of individual occupants;
+Building Code Act means the Building Code Act, 1992, S.O. 1992, c.23;
+
+Building Code means Ontario Regulation 332/12 established under the Code Act;
+
+City means the geographic boundaries of Kingston, Ontario;
+
+City of Kingston mean The Corporation of the City of Kingston;
+
+Council and City Council mean the Council of the City of Kingston;
+
+Director means the Director of Licensing and Enforcement Services for the City of Kingston, or his or her designate, or, in the event of organizational changes, director of the appropriately titled department;
+
+Dwelling Unit means a suite operated as a housekeeping unit, used or intended to be used by one or more persons and usually containing cooking, eating, living, sleeping and sanitary facilities;
+
+Fees and Charges Bylaw means City of Kingston Bylaw Number 2005-10, A Bylaw to Establish Fees and Charges to be Collected by The Corporation of the City of Kingston;
+
+"Fire Protection and Prevention Act" means the Fire Protection and Prevention Act, 1997, S.O. 1997, c.4;
+
+Fire Code means Ontario Regulation 213/07 established under the Fire Protection and Prevention Act;
+
+Licence means a licence issued under this Bylaw;
+
+Licensing and Enforcement Division and Division means the Licensing and Enforcement Division, Growth & Development Services or, in the event of organizational changes, another unit designated by Council to carry out the Division's responsibilities for the administration and enforcement of this
+
+Market means to offer, promote, canvass, solicit, advertise, or facilitate a Short-term Rental accommodation, and includes placing, posting or erecting advertisements, either physically or online and Marketing has the corresponding meaning;
+
+Municipal Act means the Municipal Act, 2001, S.O. 2001, c. 25;
+
+Officer means any person who has been assigned the responsibility of administering and enforcing this Bylaw and includes a Provincial Offences Officer, a Municipal Law Enforcement Officer, and an Officer of the Kingston Police or other police force assisting the Kingston Police;
+
+Operator means any Person who operates or permits the operation of a Short-term Rental;
+
+Penalty Notice means a notice given pursuant to sections 2.2 and 2.4 of Bylaw 2020-69 of the Corporation of the City of Kingston being A Bylaw to Establish a Process for Administrative Penalties
+
+Person means an individual, a corporation, a partnership, a sole proprietorship or an association;
+
+Property Standards Bylaw means City of Kingston Bylaw Number 2005-100, enacted under Section 15.1 of the Building Code Act that prescribes minimum standards for the maintenance and occupancy of property within the Municipality;
+
+Short-term Rental means all or part of a Dwelling Unit used to provide sleeping accommodations for a period equal to or less than thirty (30) consecutive days in exchange for payment, and includes a Bed and Breakfast;
+
+Short-term Rental Brokerage means any Person who facilitates or brokers or Markets or causes to be Marketed or assists in any capacity in the booking process of a Short-term Rental reservation for others, whether directly or indirectly, including, without limitation, via the internet or other electronic platform, provided such Person collects, handles or receives a payment, fee, compensation or other financial benefit as a result of, or in connection with, the Short-term Rental;";
+
+Zoning Bylaw means a Bylaw enacted by the City of Kingston under Section 34 of the Planning Act, R.S.O. 1990, c. P.13.
+
+Part 2 – Administration
+
+2.1 The City of Kingston's Licensing and Enforcement Division is responsible for the administration of this Bylaw.
+
+2.2 Every application for a new Licence or a renewal of an existing Licence shall be submitted to the Division in the form as prescribed by the Director.
+
+2.3 Every application for a new Licence or a renewal of an existing Licence shall be accompanied by the full Licence fee, as set out in the Fees and Charges Bylaw.
+
+2.4 The Division shall review each complete application in accordance with Section 6 or Section 9 of this Bylaw, as applicable and shall grant or refuse to issue a Licence and shall notify the applicant of its decision in writing.
+
+2.5 A Person whose application for a new Licence or a renewal of an existing Licence has been refused, or a Person whose Licence has been suspended or revoked, may, within fifteen (15) days of being notified of the refusal, suspension or revocation, as the case may be, submit an application to appeal to the Appeals Committee for a review of the decision.
+
+2.6 An application to appeal shall be submitted in writing OR in the form prescribed by the Director to the Clerk's office, and shall be accompanied by the full appeal fee, as set out in the Fees and Charges Bylaw.
+
+2.7 On appeal, the Appeals Committee has the power to affirm the decision of the Division to refuse, suspend or revoke the Licence, or to direct the Division to issue, renew or reinstate the Licence.
+
+2.8 The Appeals Committee may, when reviewing a denied, suspended or revoked Licence, impose such terms or conditions on the Licence as the Appeals Committee considers appropriate.
+
+2.9 Decisions of the Appeals Committee are final.
+
+2.10 All Licence fees payable pursuant to this Bylaw are non-refundable.
+
+Part 3 – Interpretation
+
+3.1 This Bylaw shall not be interpreted as exempting any Person from the requirement to comply with any other City Bylaw or federal or provincial legislation. In the event of conflict between the provisions of this Bylaw and any other City of Kingston Bylaw, the provision that establishes the higher standard of health, safety and well-being of persons and protection of persons shall apply.
+
+3.2 Any reference herein to any Bylaw or Act of any government shall be construed as a reference thereto as amended or re-enacted from time to time or as a reference to any successor thereto then in force.
+
+Part 4 – Prohibitions
+
+4.1 No Person shall Market or permit the Marketing of a Short-term Rental without holding a valid Licence issued under the provisions of this Bylaw.
+
+4.2 No Person shall operate or permit to be operated a Short-term Rental without holding a valid Licence issued under the provisions of this Bylaw.
+
+4.3 No Person shall knowingly submit an application for a Licence that contains false, misleading or deceptive information.
+
+4.4 No Person shall carry on the business of a Short-term Rental Brokerage without holding a valid Licence issued under the provisions of this Bylaw.
+
+4.5 No Person shall Market a Short-term Rental with an unlicensed Short-term Rental Brokerage.
+
+Part 5 – Short-Term Rental Operator - Licensing Requirements
+
+5.1 This part applies to every Short-term Rental in the City of Kingston except that section 5.2 shall not prevent the renewal of a Licence to operate or permit the operation of more than two Short-term Rentals if:
+
+the Licence to operate or permit the operation of such Short-term Rentals was issued pursuant to a complete application submitted to the Division in the form prescribed by the Director prior to the passage of Bylaw Number 2022–109; and
+the Licence has not expired.
+5.2 An Operator shall not hold more than two (2) Licences and shall not operate or permit the operation of more than two (2) Short-term Rentals at any time, either individually as a natural person or as an officer or director of a corporation that holds a Licence.
+
+Part 6 – Short-Term Rental Operator - Licence Issuance
+
+6.1 The Director shall issue or renew a Licence under this Part to any Person who meets the requirements of this Bylaw, except where:
+
+the past conduct of the Person affords the Director reasonable grounds to believe that the Person has not or will not carry on the Short-term Rental business in accordance with applicable provisions of this Bylaw;
+the Director reasonably believes that the issuing of a Licence to a Person could be adverse to the public interest;
+the lot on and/or building in which the Short-term Rental is situated is subject to an order, or orders, made pursuant to (or by):
+the Property Standards Bylaw;
+the Building Code Act or any regulations made under it, including the Building Code;
+the Fire Protection and Prevention Act or any regulations made under it, including the Fire Code;
+South East Health Unit; or
+the Ministry of Environment, Conservation and Parks;
+the Short-term Rental, including the building in which it operates, or the lot on which the building is situated, is not in compliance with the applicable Zoning Bylaw; or
+the Short-term Rental and/or the Operator is not otherwise compliant with all applicable law, including the Building Code Act and any regulations made under it, including the Building Code, and the Fire Protection and Prevention Act and any regulations made under it, including the Fire Code; or;
+the Operator or the lot on which the Short-term Rental is situated is indebted to the City by way of fines, penalties, judgments and or outstanding (past due) property or municipal accommodation taxes.
+6.2 Where the Director is of the opinion that an inspection of the Dwelling Unit or part thereof that is proposed to be used as a Short-term Rental is required, such inspection shall be carried out in accordance with Section 12 of this Bylaw and no Licence shall be issued or renewed until all matters identified in the inspection have been remedied to the satisfaction of the Director.
+
+6.3 The Director may, when issuing or renewing a Licence, or at any time the Director deems appropriate, impose such terms or conditions on the Licence as the Director considers appropriate.
+
+6.4 An Operator shall notify the Director, in writing, within fourteen (14) days of any change to the information or documentation submitted with the Operator's application, and as soon as is practicable, provide such updated information or documentation as may be required by the Director.
+
+Part 7 – Short-Term Rental Operator - Regulations
+
+7.1 If a Short-term Rental is being rented by the room, no more than three (3) rooms shall be individually rented, to a maximum of four (4) occupants in the aggregate.
+
+7.2 No Operator shall permit more than two (2) occupants in each bedroom within a Short-term Rental, provided that children aged two (2) years old or younger shall not be included in this restriction, and no Operator shall permit more than ten (10) occupants rented under a single booking within a Short-term Rental.";
+
+7.3 A Short-term Rental and an Operator shall comply with the Building Code Act and any regulations made under it, including the Building Code, and the Fire Protection and Prevention Act and any regulations made under it, including the Fire Code.
+
+7.4 No Person shall permit a Short-term Rental in a Dwelling Unit in combination with a Bed and Breakfast accommodation.
+
+7.5 An Operator shall adhere to and require guests to comply with parking regulations contained in the Zoning Bylaw and the City's Parking Bylaw 2010-128, "A Bylaw to Regulate Parking."
+
+7.6 An Operator shall:
+
+provide to every guest of the Short-term Rental the emergency contact information of a person available during the guest's entire rental period, and ensure that such information is prominently displayed in the Short-term Rental at all times when the Short-term Rental is operated;
+post a copy of the Licence in a prominent place near the entry to the Short-term Rental at all times when the Short-term Rental is operated; and
+include the Operator's Licence number in a conspicuous place in any medium or material used to Market the Short-term Rental.
+provide the Division with a link to the medium or material used to Market the Short-term Rental.
+7.7 Every Operator shall keep a record of each concluded transaction related to the Operator's Short-term Rental business for at least three (3) years following the date of the transaction. A transaction is concluded on the last day of the rental period. The records retained shall include the following:
+
+The number of nights the Short-term Rental was rented;
+The nightly and total price charged for each rental;
+The total municipal accommodation tax charged and collected;
+Whether the rental was an entire-unit rental or partial-unit rental; and
+Any other information required by the Director.
+7.8 Every Operator shall provide the information referred to in Section 7.7 to the Director within thirty (30) days of being requested to do so by the Division.
+
+7.9 Every Operator shall collect and remit municipal accommodation tax in accordance with City of Kingston Bylaw Number 2018-95.
+
+Part 8 – Short-Term Rental Brokerage - Licensing Requirements
+
+8.1 A Licence issued under this Part is valid for a maximum period of three (3) years and will expire on March 31 of the applicable period. The Licence may be renewed every three (3) years prior to March 31 by paying the applicable Licence fee.
+
+8.2 A Licence issued under this Part shall expire if it is not renewed by the date required in Section 8.1 above.
+
+8.3 A Licence issued under this Part cannot be assigned or transferred from the Short-term Rental Brokerage to another Person.
+
+Part 9 – Short-Term Rental Brokerage - Licence Issuance
+
+9.1 The Director shall issue or renew a Licence under this Part to any Person who meets the requirements of this Bylaw, except where:
+
+the past conduct of the Person affords the Director reasonable grounds to believe that the Person has not or will not carry on the Short-term Rental Brokerage in accordance with applicable provisions of this Bylaw; or
+the Director reasonably believes that the issuing of a Licence to a Person could be adverse to the public interest.
+9.2 Any Person seeking to obtain a Licence under this Part shall provide:
+
+a completed application in the form prescribed by the Director including setting out such information and attaching such additional documentation as may be required by the Director including:
+the full name of the applicant,
+if the applicant is a corporation, the relevant duly certified incorporating documents and an updated certified copy of an annual return;
+if the applicant is a partnership, certified documents indicating the name of the partnership and the names and addresses of each partner; and,
+any other information required by the Director;
+proof that the applicant is eighteen (18) years of age or older;
+the address of a place of business in the Province of Ontario, which is not a post office box, to which the Director may send during business hours any notice or documentation or communication that may be required under this Bylaw and at which the applicant or the applicant's agent will accept receipt of such notice, documentation or communication;
+the name, telephone number and email address of a designated representative;
+the applicable fee as prescribed by the Fees and Charges Bylaw; and
+an up-to-date listing of every Short-term Rental being made available by the applicant within the jurisdictional boundaries of the City of Kingston, as at a date that is no later than seven (7) days from the date of the Licence application.
+9.3 If required by the City, an applicant under this Part shall execute, prior to obtaining a licence, an agreement with the City governing the collection, use, disclosure, and retention of information on Short-term Rentals, hosts, and guests, on terms satisfactory to the Director.
+
+9.4 The Director may, when issuing or renewing a Licence, or at any time the Director deems appropriate, impose such terms or conditions on the Licence as the Director considers appropriate.
+
+9.5 A Short-term Rental Brokerage shall notify the Director, in writing, within fourteen (14) days of any change to the information or documentation submitted with the Short-term Rental Brokerage's application, and as soon as is practicable, provide such updated information or documentation as may be required by the Director.
+
+Part 10 – Short-Term Rental Brokerage - Regulations
+
+10.1 Every Short-term Rental Brokerage shall:
+
+remit to the Director the records required pursuant to this Part every three (3) months following the date of Licence issuance;
+make available to the Director the records or information required pursuant to this Part for a specific municipal address within forty-eight (48) hours following a request to do so;
+have and maintain a system for receiving and responding to complaints from the public;
+convey any communications issued by the Director that relate to matters of municipal regulation to all hosts in a format and manner prescribed by the Director;
+keep a record of each concluded transaction in relation to a Short-term Rental listed or advertised on its platform within the geographic boundaries of the City of Kingston for three (3) years following the last day of the rental period. A transaction is concluded on the last day of the rental period. The records retained shall include the following:
+the name, address, licence number of the Short-term Rental Operator, and email contact information;
+the number of nights the Short-term Rental was rented;
+the nightly and total price charged for the Short-term Rental;
+the municipal accommodation tax charged on the transaction; and
+the total number of complaints received by the Short-term Rental Brokerage in respect of each Short-term Rental Operator; and any other information required by the Director
+10.2 Within forty-eight (48) hours after written request from the Director, every Short-term Rental Brokerage shall remove from its platform any Short-term Rental listings identified by the City for removal.
+
+10.3 No Short-term Rental Brokerage shall impose any term or condition or type of requirement on any Person, including a Short-term Rental Operator or guest using its platform or services, that prevents or hinders the ability of the City to enforce its bylaws.
+
+Part 11 – Exemptions
+
+11.1 This Bylaw does not apply to:
+
+a group home;
+b. hotel, motel, inn or resort as defined and regulated by the Ontario Building Code and Zoning Bylaws;
+a residence operated by a post-secondary institution;
+a charitable, non-profit philanthropic corporation organized as a shelter for the relief of the poor or for emergency;
+accommodation supplied by employers to their employees in Dwelling Units operated by the employer;
+a hospital referred to in the list of hospitals and their grades and classifications maintained by the Minister of Health and Long-Term Care under the Public Hospitals Act, R.S.O 1990, C. P.40, and a private hospital operated under the authority of a licence issued under the Private Hospitals Act, R.S.O. 1990, c. P.24;
+a home for special care operated under the authority of a licence issued under the Homes for Special Care Act, R.S.O. 1990, c.H.12;
+a long-term care home operated under the authority of a licence issued under the Long-Term Care Homes Act, 2007, S.O. 2007, c.8;
+a retirement home operated under the authority of a licence issued under the Retirement Homes Act, 2010, S.O. 2010, c.11; and
+a boarding, lodging or rooming house; or
+accommodations rented out to tenants in accordance with the Residential Tenancies Act, 2006, S.O. 2006, c. 17.
+Part 12 – Enforcement
+
+12.1 The provisions of this Bylaw may be enforced by an Officer, or other authorized employee or agent of the City.
+
+12.2 No Person shall obstruct or hinder or attempt to obstruct or hinder an Officer or other authorized employee or agent of the City in the exercise of a power or the performance of a duty under this Bylaw.
+
+12.3 Subject to Section 12.6 below, every Officer shall have the right to enter lands to conduct an inspection to determine whether the provisions of this Bylaw and any order(s) issued hereunder are being complied with in accordance with the provisions of Sections 435 and 436 of the Municipal Act.
+
+12.4 Where an Officer has reasonable grounds to believe that an offence under this Bylaw has been committed by a Person, the Officer may require the name, address, and proof of identity of that Person.
+
+12.5 Failure to provide proof of identification satisfactory to an Officer when requested to do so pursuant to Section 12.4 of this Bylaw shall constitute obstruction of an Officer under Section 12.2 of this Bylaw.
+
+12.6 No Person exercising a power of entry on behalf of the City shall enter or remain in any room or place actually being used as a Dwelling Unit unless:
+
+the consent of the occupier is obtained, the occupier first having been informed that the right of entry may be refused and, if refused, may only be made under the authority of an order issued under Section 438 of the Municipal Act, a warrant issued under Section 439 of the Municipal Act or a warrant under Section 386.3 of the Municipal Act; b. an order issued under Section 438 of the Municipal Act is obtained;
+a warrant issued under Section 439 of the Municipal Act is obtained;
+a warrant issued under Section 386.3 of the Municipal Act is obtained;
+the delay necessary to obtain an order under Section 438 of the Municipal Act, to obtain a warrant under Section 439 of the Municipal Act, or to obtain the consent of the occupier would result in an immediate danger to the health or safety of any Person; or
+the City has given notice of its intention to enter to the occupier of the land as required under Subsection 435(2) of the Municipal Act and the entry is authorized under Sections 79, 80 or 446 of the Municipal Act.
+12.7 A refusal of consent to enter or to remain in a room or place actually used as a Dwelling Unit does not constitute hindering or obstruction within the meaning of Section 12.2 of this By-Law unless the City is acting under an order under Section 438 of the Municipal Act or a warrant under Section 439 of the Municipal Act or in the circumstances described in clause 437 (d) or (e) of the Municipal Act.
+
+Part 13 – Orders
+
+13.1 If the Director and/or an Officer determines that a Person has contravened a provision of this Bylaw, the Director and/or an Officer may make an order requiring the Person who contravened the Bylaw or who caused or permitted the contravention, to discontinue the contravening activity and take any reasonable steps to correct the contravention.
+
+13.2 No person shall fail to comply with an order issued pursuant to Section 13.1 of this Bylaw.
+
+13.3 An order issued pursuant to Section 13.1 of this Bylaw shall set out:
+
+reasonable particulars of the contravention adequate to identify the contravention and the location of the land on which the contravention occurred; and
+the steps that must be taken to correct the contravention and the date by which there must be compliance with the order.
+13.4 If a Person fails to do a matter or thing as directed or required by this Bylaw, including failing to comply with an order issued under this Bylaw, the City may do the matter or thing at the Person's expense. The City may recover the costs of doing a matter or thing from the Person directed or required to do it by action or by adding the costs to the tax roll and collecting them in the same manner as municipal taxes.
+
+Part 14 - Offence and Penalty Provisions
+
+14.1 Every Person who contravenes any provision of this Bylaw shall, upon being given a Penalty Notice in accordance with the Administrative Penalty Process Bylaw, be liable to pay to the City and Administrative Penalty as set out in Schedule B of the Administrative Penalty Bylaw for each day on which the contravention occurs, and the Administrative Penalty Process Bylaw applies to each Administrative Penalty given pursuant to this Bylaw.
+
+14.2 Notwithstanding section 14.1 of this Bylaw, every Person who contravenes any provision of this Bylaw is guilty of an offence as provided for in the Provincial Offences Act, R.S.O. 1990, c. P.33, and all such offences are designated as continuing offences.
+
+14.3 Every officer or director of a corporation who knowingly concurs in the contravention of any provision of this Bylaw or the failure to comply with an order issued under this Bylaw is guilty of an offence as provided for in the Provincial Offences Act, R.S.O. 1990, c. P.33, and all such offences are designated as continuing offences.
+
+14.4 Upon conviction, every Person, and every officer or director of a corporation who contravenes any provision of this Bylaw is liable, for each day or part of a day that the offence continues, to a minimum fine of Five Hundred Dollars ($500) per day and a maximum fine of Ten Thousand Dollars ($10,000) per day.
+
+14.5 As provided for in Section 431 of the Municipal Act, if a Person has been convicted of an offence under this Bylaw, the Ontario Court of Justice or any Court of competent jurisdiction may, in addition to any penalty imposed on the Person convicted, issue an order:
+
+prohibiting the continuation or repetition of the offence by the Person convicted; and
+requiring the Person convicted to correct the contravention in the manner and within the period that the Court considers appropriate.
+14.6 If a Person is required to pay an Administrative Penalty under section 14.1 in respect of a contravention of this Bylaw, the Person shall not be charged with an offence in respect of the same contravention.
+
+14.7 In accordance with Section 398(2) of the Municipal Act, the treasurer of the City may add unpaid fees, charges and fines under this Bylaw to the tax roll and collect them in the same manner as property taxes.
+
+Part 15 - Validity
+
+15.1 If a Court of competent jurisdiction declares any provision, or any part of a provision, of this Bylaw to be invalid, or to be of no force and effect, it is the intention of Council in enacting this Bylaw that each and every provision of this Bylaw authorized by law, be applied and enforced in accordance with its terms to the extent possible according to law.
+
+Part 16 - Short Title of Bylaw
+
+16.1 This Bylaw may be referred to as the "Short-term Rental Licensing Bylaw".
+
+Part 17 - Commencement
+
+17.1 This Bylaw shall come into force and take effect on June 1, 2021.
+
+Amendments
+
+Bylaw Number	Date Passed
+2022-109	July 12, 2022
+2023-196	November 7, 2023
+2024-344	September 3, 2024

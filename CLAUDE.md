@@ -86,6 +86,56 @@ Each blog guide should include:
 
 ---
 
+## Blog Publishing Checklist
+
+**ALWAYS complete these steps when publishing a new blog article:**
+
+### 1. Add to Blog Index Page
+Add the new article to the `manualPosts` array in `src/pages/blog/index.astro`:
+- Add at the **TOP** of the array (newest articles first in code)
+- Use today's date so it appears as the most recent article
+- Format:
+```javascript
+{
+  slug: 'article-slug-here',
+  title: "Article Title Here",
+  excerpt: "150-160 character description here.",
+  date: '2026-XX-XX',  // Today's date
+  readTime: 'X min read',
+  tags: ['Guides'],  // or ['Tips'], ['News']
+  category: 'Guides'  // or 'Tips', 'News'
+},
+```
+
+### 2. Internal Linking (Interlinking)
+Add links TO the new article FROM relevant existing pages:
+- **City regulation guides**: Link from/to related city guides (e.g., Toronto ↔ Mississauga)
+- **MAT tax guides**: Cross-link between MAT articles
+- **Topic clusters**: Link related topics (e.g., "investment property" article links to city guides that mention principal residence)
+- **Service pages**: Add links from relevant service pages (`/airbnb-management-toronto`, etc.)
+
+### 3. Update Related Posts in Existing Articles
+Find 2-3 existing articles that are thematically related and update their `relatedPosts` array to include the new article:
+```javascript
+const relatedPosts = [
+  { title: "New Article Title", href: '/blog/new-article-slug', description: 'Brief description' },
+  // ... existing related posts
+];
+```
+
+### 4. Quick Reference: Article Locations
+- **Manual articles (.astro)**: `src/pages/blog/[slug].astro` - Full custom layout with TOC, FAQs
+- **Content collection (.md)**: `src/content/blog/[slug].md` - Simple markdown articles
+- **Blog index**: `src/pages/blog/index.astro` - Where `manualPosts` array lives
+
+### 5. Verify Before Committing
+- [ ] Article added to `manualPosts` array with correct date
+- [ ] New article has `relatedPosts` linking to existing content
+- [ ] 2-3 existing articles updated to link back to new article
+- [ ] Internal links added from relevant service/location pages if applicable
+
+---
+
 ## Writing Guidelines
 
 ### Punctuation Rules
