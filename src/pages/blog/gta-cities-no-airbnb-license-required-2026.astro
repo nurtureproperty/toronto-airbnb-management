@@ -1,0 +1,1152 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const unregulatedCities = [
+  {
+    city: 'Ajax',
+    region: 'Durham',
+    population: '126,000',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Waterfront, GO Transit, casino visitors',
+    avgRevenue: '$2,800-$3,800/month',
+    upcomingChanges: null,
+    link: '/ajax-airbnb-management'
+  },
+  {
+    city: 'Pickering',
+    region: 'Durham',
+    population: '99,000',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Casino resort, Rouge Park, GO Transit commuters',
+    avgRevenue: '$2,600-$3,600/month',
+    upcomingChanges: null,
+    link: '/pickering-airbnb-management'
+  },
+  {
+    city: 'Clarington',
+    region: 'Durham',
+    population: '107,000',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Bowmanville, rural escapes, nature tourism',
+    avgRevenue: '$2,400-$3,400/month',
+    upcomingChanges: null,
+    link: null
+  },
+  {
+    city: 'Brock',
+    region: 'Durham',
+    population: '12,500',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Lake Simcoe, cottage country, outdoor recreation',
+    avgRevenue: '$2,200-$3,200/month',
+    upcomingChanges: null,
+    link: null
+  },
+  {
+    city: 'Richmond Hill',
+    region: 'York',
+    population: '202,000',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Business travelers, families, wedding guests',
+    avgRevenue: '$2,800-$4,500/month',
+    upcomingChanges: 'City is exploring STR options. Regulations may come in 2026-2027.',
+    link: '/richmond-hill-airbnb-management'
+  },
+  {
+    city: 'King Township',
+    region: 'York',
+    population: '27,000',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Luxury estates, equestrian events, golf tourism',
+    avgRevenue: '$3,000-$5,000/month',
+    upcomingChanges: null,
+    link: null
+  },
+  {
+    city: 'Burlington',
+    region: 'Halton',
+    population: '186,000',
+    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
+    demand: 'Waterfront, Sound of Music Festival, medical visitors',
+    avgRevenue: '$3,000-$5,000/month',
+    upcomingChanges: null,
+    link: '/burlington-airbnb-management'
+  }
+];
+
+const watchList = [
+  {
+    city: 'Whitby',
+    region: 'Durham',
+    status: 'Developing new STR licensing framework',
+    timeline: 'Expected 2026',
+    currentStatus: 'Currently unregulated but actively developing bylaws'
+  },
+  {
+    city: 'Barrie',
+    region: 'Simcoe',
+    status: 'Exploring licensing, MAT, and registry options',
+    timeline: 'Under review',
+    currentStatus: '500+ STR listings, relies on existing noise/parking bylaws only'
+  },
+  {
+    city: 'Cambridge',
+    region: 'Waterloo',
+    status: 'Part of regional STR bylaw review',
+    timeline: 'Following Kitchener/Waterloo implementation',
+    currentStatus: 'Currently less regulated than Kitchener/Waterloo'
+  }
+];
+
+const faqs = [
+  { q: "Which GTA cities have no Airbnb license requirement?", a: "As of January 2026, Ajax, Pickering, Clarington, Brock, Richmond Hill, King Township, and Burlington have no specific STR licensing requirements. Investment properties are permitted in these areas." },
+  { q: "Can I Airbnb an investment property in Ajax or Pickering?", a: "Yes. Ajax and Pickering have no principal residence requirement, meaning you can operate short-term rentals on investment properties. There's no license fee, no MAT tax, and no night limits." },
+  { q: "Is Burlington really unregulated for Airbnb?", a: "Yes. Burlington does not currently have STR-specific bylaws. You can operate without a license, collect the full rental amount (no MAT), and use investment properties. Standard property standards and noise bylaws still apply." },
+  { q: "Will these cities add Airbnb regulations soon?", a: "Richmond Hill is actively exploring options and may introduce regulations in 2026-2027. Whitby is developing a licensing framework. Other cities like Ajax, Pickering, and Burlington have not announced plans to regulate." },
+  { q: "What's the difference between regulated and unregulated cities?", a: "Regulated cities like Toronto require licenses ($58/year), principal residence, MAT tax (8.5%), and 180-night limits. Unregulated cities have none of these requirements, making them more flexible for hosts and investors." },
+  { q: "Do I still need insurance in unregulated cities?", a: "Yes. Regardless of city regulations, you should have $2,000,000+ liability insurance that explicitly covers short-term rental activity. Standard homeowner's insurance typically doesn't cover STR guests." },
+  { q: "Are there any night limits in these unregulated cities?", a: "No. Unlike Toronto's 180-night limit, cities like Ajax, Burlington, and Richmond Hill have no caps on how many nights you can rent. You can operate year-round without restrictions." },
+  { q: "What about condo rules in unregulated cities?", a: "Even in unregulated cities, your condo corporation can prohibit short-term rentals. Always check your condo declaration and rules before listing, regardless of municipal regulations." }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'The Unregulated Advantage' },
+  { id: 'durham', text: 'Durham Region' },
+  { id: 'york', text: 'York Region' },
+  { id: 'halton', text: 'Halton Region' },
+  { id: 'comparison', text: 'Regulated vs Unregulated' },
+  { id: 'watch-list', text: 'Cities to Watch' },
+  { id: 'getting-started', text: 'Getting Started' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const relatedPosts = [
+  { title: "Can I Airbnb My Investment Property in the GTA?", href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence rules and investment property options' },
+  { title: "Kingston Airbnb Rules: Investment Properties Welcome", href: '/blog/kingston-airbnb-short-term-rental-rules-2026', description: 'Another Ontario city where investment STRs are permitted' },
+  { title: "Toronto Airbnb Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Compare with Toronto\'s strict licensing requirements' }
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GTA Cities with No Airbnb License Required 2026",
+  "description": "Complete guide to Greater Toronto Area cities without STR registration: Ajax, Pickering, Burlington, Richmond Hill, King Township. No license, no MAT, investment properties welcome.",
+  "datePublished": "2026-01-30",
+  "dateModified": "2026-01-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/gta-cities-no-airbnb-license-required-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+
+const pageTitle = "GTA Cities with No Airbnb License Required 2026";
+const pageDescription = "Ajax, Pickering, Burlington, Richmond Hill: GTA cities with no STR license, no MAT, no night limits. Investment properties welcome. Complete 2026 guide.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>GTA Cities with No Airbnb License Required</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 30, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">8 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">While Toronto, Mississauga, and Brampton have strict Airbnb licensing requirements, several GTA cities remain <strong>completely unregulated</strong> for short-term rentals. No license fees. No Municipal Accommodation Tax. No principal residence requirement. Here's where you can still host freely in 2026.</p>
+          </div>
+
+          <h2 id="overview">The Unregulated Advantage</h2>
+          <p>In regulated cities like Toronto, hosting on Airbnb means:</p>
+          <ul>
+            <li>$58/year license fee plus registration requirements</li>
+            <li>8.5% Municipal Accommodation Tax on every booking</li>
+            <li>180-night annual limit for entire-home rentals</li>
+            <li>Principal residence requirement (no investment properties)</li>
+            <li>Potential fines up to $100,000 for non-compliance</li>
+          </ul>
+
+          <p>In unregulated cities, you face <strong>none of these restrictions</strong>. You can rent investment properties, host year-round with no night limits, keep 100% of your rental income (no MAT), and operate without registering with the city.</p>
+
+          <div class="highlight-box">
+            <h4>Key Benefits of Unregulated Cities</h4>
+            <div class="benefit-grid">
+              <div class="benefit-item">
+                <span class="benefit-icon">✓</span>
+                <span>No license or registration fees</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">✓</span>
+                <span>No Municipal Accommodation Tax</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">✓</span>
+                <span>No night limits or caps</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">✓</span>
+                <span>Investment properties welcome</span>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="durham">Durham Region: The Eastern Opportunity</h2>
+          <p>Durham Region is the largest concentration of unregulated STR markets in the GTA. While Oshawa introduced licensing in 2024, the rest of the region remains open.</p>
+
+          <h3>Ajax</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">Ajax</div>
+              <div class="city-status status-green">No License Required</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 126,000 | <strong>Region:</strong> Durham</p>
+              <p><strong>Average Revenue:</strong> $2,800-$3,800/month</p>
+              <p><strong>Demand Drivers:</strong> Waterfront properties, GO Transit access, proximity to Pickering Casino</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>Ajax offers lakefront properties along Lake Ontario with easy GO Train access to downtown Toronto. The absence of regulations makes it attractive for investors looking to build a STR portfolio in the GTA.</p>
+            </div>
+          </div>
+
+          <h3>Pickering</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">Pickering</div>
+              <div class="city-status status-green">No License Required</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 99,000 | <strong>Region:</strong> Durham</p>
+              <p><strong>Average Revenue:</strong> $2,600-$3,600/month</p>
+              <p><strong>Demand Drivers:</strong> Pickering Casino Resort, Rouge National Urban Park, GO Transit</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>The Pickering Casino Resort draws visitors year-round, creating consistent demand for nearby accommodations. Rouge National Urban Park attracts nature tourists, and the GO station provides easy Toronto access.</p>
+            </div>
+          </div>
+
+          <h3>Clarington</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">Clarington (Bowmanville)</div>
+              <div class="city-status status-green">No License Required</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 107,000 | <strong>Region:</strong> Durham</p>
+              <p><strong>Average Revenue:</strong> $2,400-$3,400/month</p>
+              <p><strong>Demand Drivers:</strong> Rural escapes, nature tourism, quieter alternative to urban GTA</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>Clarington offers a more rural feel while still being within the GTA. Properties here appeal to guests seeking a quieter escape from the city, with lower competition than more urban markets.</p>
+            </div>
+          </div>
+
+          <h3>Brock</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">Brock Township</div>
+              <div class="city-status status-green">No License Required</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 12,500 | <strong>Region:</strong> Durham</p>
+              <p><strong>Average Revenue:</strong> $2,200-$3,200/month</p>
+              <p><strong>Demand Drivers:</strong> Lake Simcoe access, cottage country feel, outdoor recreation</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>Brock offers a cottage country experience at the northern edge of Durham Region. Lake Simcoe properties are particularly popular during summer months, with growing demand for year-round outdoor activities.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-content">
+              <strong>Watch: Whitby is Developing Regulations</strong><br>
+              Whitby, located between Ajax and Oshawa, is actively developing an STR licensing framework expected in 2026. If you're considering Whitby, act now while it remains unregulated.
+            </div>
+          </div>
+
+          <h2 id="york">York Region: Premium Markets Without Restrictions</h2>
+          <p>While Markham has effectively banned STRs and Aurora/Newmarket require licenses, two York Region municipalities remain open.</p>
+
+          <h3>Richmond Hill</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">Richmond Hill</div>
+              <div class="city-status status-yellow">No License (Under Review)</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 202,000 | <strong>Region:</strong> York</p>
+              <p><strong>Average Revenue:</strong> $2,800-$4,500/month</p>
+              <p><strong>Demand Drivers:</strong> Business travelers, visiting families, wedding guests, corporate relocations</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>Richmond Hill is the largest unregulated market in York Region. Premium neighborhoods like Oak Ridges and Bayview Hill command strong rates. However, the city is actively exploring STR options, so regulations may come in 2026-2027.</p>
+              <div class="upcoming-change">
+                <strong>Upcoming Change:</strong> City is exploring STR regulatory options. No timeline announced, but changes could come in 2026-2027.
+              </div>
+            </div>
+          </div>
+
+          <h3>King Township</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">King Township</div>
+              <div class="city-status status-green">No License Required</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 27,000 | <strong>Region:</strong> York</p>
+              <p><strong>Average Revenue:</strong> $3,000-$5,000/month</p>
+              <p><strong>Demand Drivers:</strong> Luxury estates, equestrian events, golf tourism, wedding venues</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>King Township is horse country with luxury estates and premium properties. The area attracts wealthy guests for weddings, golf weekends, and countryside retreats. Lower volume but higher rates make it attractive for the right property.</p>
+            </div>
+          </div>
+
+          <h2 id="halton">Halton Region: Waterfront Without Regulations</h2>
+          <p>While Oakville has strict regulations and Milton requires licensing, Burlington remains completely open.</p>
+
+          <h3>Burlington</h3>
+          <div class="city-card">
+            <div class="city-header">
+              <div class="city-name">Burlington</div>
+              <div class="city-status status-green">No License Required</div>
+            </div>
+            <div class="city-details">
+              <p><strong>Population:</strong> 186,000 | <strong>Region:</strong> Halton</p>
+              <p><strong>Average Revenue:</strong> $3,000-$5,000/month</p>
+              <p><strong>Demand Drivers:</strong> Waterfront tourism, Sound of Music Festival, Royal Botanical Gardens, medical visitors (Joseph Brant Hospital)</p>
+              <div class="city-highlights">
+                <span class="highlight-tag">No License</span>
+                <span class="highlight-tag">No MAT</span>
+                <span class="highlight-tag">No Night Limit</span>
+                <span class="highlight-tag">Investment OK</span>
+              </div>
+              <p>Burlington is arguably the most valuable unregulated market in the GTA. Waterfront properties near Spencer Smith Park command premium rates. The Sound of Music Festival, Ribfest, and year-round waterfront activities drive consistent demand. No STR regulations have been announced or proposed.</p>
+            </div>
+          </div>
+
+          <h2 id="comparison">Regulated vs Unregulated: The Numbers</h2>
+          <p>Here's how hosting in an unregulated city compares to Toronto:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight">Burlington/Ajax</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License Fee</div>
+              <div class="comparison-col">$58/year</div>
+              <div class="comparison-col highlight">$0</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT Tax</div>
+              <div class="comparison-col">8.5%</div>
+              <div class="comparison-col highlight">0%</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Night Limit</div>
+              <div class="comparison-col">180/year</div>
+              <div class="comparison-col highlight">None</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal Residence</div>
+              <div class="comparison-col">Required</div>
+              <div class="comparison-col highlight">Not Required</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment Properties</div>
+              <div class="comparison-col">Not Allowed</div>
+              <div class="comparison-col highlight">Allowed</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration</div>
+              <div class="comparison-col">Required</div>
+              <div class="comparison-col highlight">Not Required</div>
+            </div>
+          </div>
+
+          <div class="savings-example">
+            <h4>Example: Annual Savings in an Unregulated City</h4>
+            <p>For a property earning $40,000/year in gross bookings:</p>
+            <ul>
+              <li><strong>Toronto MAT (8.5%):</strong> $3,400/year lost to tax</li>
+              <li><strong>Burlington MAT (0%):</strong> $0 lost to tax</li>
+              <li><strong>Annual Savings:</strong> $3,400+ (plus no license fees, no compliance costs)</li>
+            </ul>
+          </div>
+
+          <h2 id="watch-list">Cities to Watch: Regulations Coming</h2>
+          <p>These cities are currently less regulated but are actively developing STR bylaws:</p>
+
+          <div class="watch-list">
+            {watchList.map(city => (
+              <div class="watch-item">
+                <div class="watch-header">
+                  <span class="watch-city">{city.city}</span>
+                  <span class="watch-region">{city.region}</span>
+                </div>
+                <p><strong>Status:</strong> {city.status}</p>
+                <p><strong>Timeline:</strong> {city.timeline}</p>
+                <p class="watch-current">{city.currentStatus}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 id="getting-started">Getting Started in an Unregulated City</h2>
+          <p>Even without municipal regulations, there are still requirements to operate legally:</p>
+
+          <div class="requirements-list">
+            <div class="requirement-item">
+              <h4>1. Insurance</h4>
+              <p>Get $2,000,000+ liability insurance that explicitly covers short-term rental activity. Standard homeowner's insurance doesn't cover STR guests. Airbnb's Host Protection Insurance is secondary coverage only.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>2. Condo Rules</h4>
+              <p>Even in unregulated cities, your condo corporation can prohibit STRs. Check your declaration, bylaws, and rules. Get written confirmation if possible.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>3. HST Registration</h4>
+              <p>If you earn $30,000+ annually from STRs, you must register for HST and collect 13% on bookings. This applies regardless of municipal regulations.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>4. Income Tax</h4>
+              <p>All rental income must be reported to the CRA. Keep records of income and expenses. The 2024 federal rule denies deductions for non-compliant STRs in regulated areas, but this doesn't apply to unregulated cities.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>5. Property Standards</h4>
+              <p>General property standards, noise bylaws, and parking regulations still apply. Maintain your property and be a good neighbor to avoid complaints.</p>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Ready to Start Hosting in an Unregulated Market?</h3>
+            <p>Nurture manages properties across the GTA, including all the unregulated markets covered here. We handle guest communication, pricing optimization, and operations while you collect passive income.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Your City?</h2>
+        <p>We can help you understand regulations and maximize your rental income across the GTA.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, #e8f5e9 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .benefit-icon {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .city-card {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .city-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .city-status {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .status-green {
+    background: #38a169;
+  }
+
+  .status-yellow {
+    background: #d69e2e;
+  }
+
+  .city-details {
+    padding: 1.5rem;
+  }
+
+  .city-details p {
+    margin-bottom: 0.75rem;
+  }
+
+  .city-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .highlight-tag {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .upcoming-change {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .comparison-row .comparison-col:first-child {
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .savings-example {
+    background: #e8f5e9;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .savings-example h4 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+
+  .watch-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .watch-item {
+    background: #fff3cd;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .watch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .watch-city {
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .watch-region {
+    background: rgba(0,0,0,0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  .watch-item p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .watch-current {
+    font-style: italic;
+    color: var(--color-text-light);
+  }
+
+  .requirements-list {
+    margin: 1.5rem 0;
+  }
+
+  .requirement-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .requirement-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-primary);
+  }
+
+  .requirement-item p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .benefit-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col,
+    .comparison-row .comparison-col {
+      text-align: left !important;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .comparison-header .comparison-col:first-child {
+      display: none;
+    }
+
+    .comparison-row .comparison-col:first-child {
+      font-weight: 700;
+      background: var(--color-background-alt);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .city-header {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>
