@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '🏙️', name: 'Downtown Brampton', description: 'City centre with Garden Square events, Rose Theatre, and GO Transit hub. Popular with business travelers and event attendees.', revenue: '$2,300-$3,100/month' },
-  { icon: '✈️', name: 'Airport Corporate Centre', description: 'Near Pearson Airport and major corporate offices. High demand from business travelers and flight crews.', revenue: '$2,600-$3,500/month' },
-  { icon: '🏡', name: 'Mount Pleasant', description: 'Family-friendly area with shopping and parks. Great for relocating families and longer-term guests.', revenue: '$2,200-$3,000/month' },
-  { icon: '🎓', name: 'Sheridan College Area', description: 'Near Davis Campus with student and academic visitor demand. Popular during orientation and graduation seasons.', revenue: '$2,000-$2,800/month' },
-  { icon: '🌳', name: 'Heart Lake', description: 'Near Conservation Area with nature tourism appeal. Attracts outdoor enthusiasts and weekend visitors.', revenue: '$2,100-$2,900/month' },
-  { icon: '🏢', name: 'Bramalea', description: 'Industrial and commercial hub with diverse employment. Consistent business traveler demand year-round.', revenue: '$2,200-$3,000/month' }
+  { icon: '🏛️', name: 'Richmond Hill Centre', description: 'Urban core near Yonge Street with condos and townhomes. Strong demand from business travelers and families visiting the area.', revenue: '$2,800-$3,800/month' },
+  { icon: '🌳', name: 'Oak Ridges', description: 'Scenic area near the Oak Ridges Moraine. Popular with nature lovers and families seeking a quieter retreat north of the city.', revenue: '$3,000-$4,200/month' },
+  { icon: '🏘️', name: 'Bayview Hill', description: 'Prestigious neighborhood with larger homes. Attracts relocating families, wedding guests, and extended family visits.', revenue: '$3,200-$4,500/month' },
+  { icon: '🛍️', name: 'Hillcrest Mall Area', description: 'Near major shopping and dining. Convenient location for visitors exploring York Region and the GTA.', revenue: '$2,600-$3,400/month' },
+  { icon: '🚇', name: 'Richmond Hill GO Area', description: 'Near transit hub with direct Toronto access. Popular with business travelers and commuters needing temporary housing.', revenue: '$2,500-$3,300/month' },
+  { icon: '🏫', name: 'Langstaff', description: 'Near future subway extension and development zone. Growing demand from construction workers and professionals.', revenue: '$2,400-$3,200/month' }
 ];
 
 const services = [
@@ -18,45 +18,43 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Bylaw Compliance & Licensing Support',
+  'Regulatory Compliance Monitoring',
   'Transparent Revenue Reporting'
 ];
 
 const faqs = [
   {
-    question: "Is Airbnb legal in Brampton?",
-    answer: "Yes, Airbnb is legal in Brampton but strictly regulated. Only principal residences qualify, and hosts are limited to renting a maximum of 3 bedrooms individually. Brampton charges a 4% Municipal Accommodation Tax (MAT) on all short term rental bookings.",
-    link: { text: "Read our complete Brampton STR rules guide", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
+    question: "Is Airbnb legal in Richmond Hill?",
+    answer: "Richmond Hill does not currently have specific short-term rental bylaws, making it one of the more flexible markets in York Region. However, hosts should still comply with zoning regulations, property standards, and any condo rules. The city is monitoring STR activity and may introduce regulations in the future."
   },
   {
-    question: "How much can I make on Airbnb in Brampton?",
-    answer: "Brampton Airbnb hosts typically earn $2,800 to $4,200+ per month depending on location and property type. Properties near the GO Transit stations and Sheridan College see strong demand from commuters and students seeking short term accommodation."
+    question: "How much can I make on Airbnb in Richmond Hill?",
+    answer: "Richmond Hill Airbnb hosts typically earn $2,800 to $4,500+ per month depending on property size and location. Larger homes in Oak Ridges and Bayview Hill command premium rates, while properties near the GO station see consistent business traveler demand."
   },
   {
-    question: "What is the Brampton STR bedroom limit?",
-    answer: "Brampton limits short term rentals to a maximum of 3 bedrooms rented individually at any time. This applies whether you're renting the entire home or individual rooms. The property must also be your principal residence.",
-    link: { text: "Learn more about Brampton rental requirements", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
+    question: "Do I need a license for Airbnb in Richmond Hill?",
+    answer: "Currently, Richmond Hill does not require a specific STR license. However, you should have a valid business license if operating commercially, maintain proper insurance, and comply with any condo corporation rules if applicable."
   },
   {
-    question: "What is the Brampton MAT tax?",
-    answer: "Brampton charges a 4% Municipal Accommodation Tax on all short term rental bookings. This is typically collected automatically by platforms like Airbnb and remitted to the City. Hosts must register with the City to operate legally."
+    question: "Is there a Municipal Accommodation Tax in Richmond Hill?",
+    answer: "Richmond Hill does not currently have a Municipal Accommodation Tax (MAT). This is an advantage compared to cities like Toronto (8.5% MAT) or Mississauga (4% MAT), allowing hosts to keep more of their rental income."
   },
   {
-    question: "What are the penalties for illegal Airbnb in Brampton?",
-    answer: "Operating without proper registration in Brampton can result in fines and enforcement action. The City monitors listing platforms and enforces its short term rental bylaw. We help all Brampton clients ensure full compliance before listing."
-  },
-  {
-    question: "How much does Airbnb management cost in Brampton?",
-    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts, helping Brampton property owners maximize their returns."
-  },
-  {
-    question: "Can I Airbnb my investment property in Brampton?",
-    answer: "No, Brampton requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (28+ days) which don't fall under STR regulations. This is a good option for properties near transit hubs.",
+    question: "Can I Airbnb my investment property in Richmond Hill?",
+    answer: "Yes, Richmond Hill's lack of specific STR regulations means investment properties can potentially be used for short-term rentals. However, always verify current zoning requirements and any condo restrictions before listing.",
     link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
   },
   {
-    question: "Is it worth hiring an Airbnb manager in Brampton?",
-    answer: "Yes, professional management typically increases profits by 30 to 100% through dynamic pricing, optimized listings, and superior guest communication. We handle everything from cleaning coordination to maintenance and respond to guests in under 9 minutes."
+    question: "How much does Airbnb management cost in Richmond Hill?",
+    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long-term contracts."
+  },
+  {
+    question: "What insurance do I need for Richmond Hill Airbnb?",
+    answer: "We recommend at least $2,000,000 in liability insurance that specifically covers short-term rental activity. Standard homeowner's insurance typically doesn't cover STR guests. We can recommend insurance providers who specialize in vacation rentals."
+  },
+  {
+    question: "Is it worth hiring an Airbnb manager in Richmond Hill?",
+    answer: "Yes, professional management typically increases profits by 30% to 100% through dynamic pricing, optimized listings, and superior guest communication. We handle everything from guest screening to cleaning coordination and respond to guests in under 9 minutes."
   }
 ];
 
@@ -74,20 +72,20 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Brampton Airbnb Management | Flower City Short-Term Rentals" description="Professional Airbnb property management in Brampton, Ontario. Airport area, Downtown, and Mount Pleasant. 10-15% commission. Full bylaw compliance with 180-night limit support.">
+<Layout title="Richmond Hill Airbnb Management | No License Required" description="Richmond Hill Airbnb management: no STR license, no MAT, no night limit. Oak Ridges, Bayview Hill areas. 10-15% commission, full-service.">
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Brampton Airbnb Management</span></h1>
-      <p class="hero-subtitle">Expert property management in the Flower City</p>
+      <h1><span class="highlight">Richmond Hill Airbnb Management</span></h1>
+      <p class="hero-subtitle">York Region's premier short-term rental market with flexible regulations</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$2,400+</div>
+          <div class="stat-number">$3,100+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">75%+</div>
-          <div class="stat-label">Avg Occupancy Rate</div>
+          <div class="stat-number">No STR</div>
+          <div class="stat-label">License Required</div>
         </div>
         <div class="stat">
           <div class="stat-number">10-15%</div>
@@ -95,15 +93,15 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Brampton Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Richmond Hill Property Can Earn</a>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Brampton Neighborhoods We Serve</h2>
-        <p>From downtown to the airport corridor</p>
+        <h2>Richmond Hill Neighborhoods We Serve</h2>
+        <p>From Oak Ridges to Yonge Street corridor</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -120,49 +118,49 @@ const faqSchema = {
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Brampton Short-Term Rental Bylaws</h2>
-        <p>Complete guide to By-law 165-2021 requirements</p>
+        <h2>Richmond Hill STR Regulations</h2>
+        <p>Currently one of the most flexible markets in the GTA</p>
       </div>
       <div class="bylaws-content">
         <div class="bylaws-intro">
-          <p>Brampton regulates short-term rentals under By-law 165-2021. The city requires licensing and has specific limits on nights and bedrooms. Here's everything you need to operate legally.</p>
+          <p>Richmond Hill does not currently have specific short-term rental bylaws, making it an attractive market for Airbnb hosts. However, general property standards and zoning regulations still apply.</p>
         </div>
         <div class="bylaws-grid">
           <div class="bylaw-card highlight-card">
-            <h3>180 Night Annual Limit</h3>
-            <p>Brampton caps short-term rentals at <strong>180 nights per calendar year</strong>. This is one of the most important rules to track. We provide night tracking as part of our management service to ensure you stay compliant.</p>
+            <h3>No Specific STR License Required</h3>
+            <p>Unlike Toronto, Mississauga, and many GTA cities, Richmond Hill does not currently require a specific short-term rental license. This means <strong>lower barriers to entry</strong> and <strong>no annual licensing fees</strong>. However, the city is monitoring the STR market and may introduce regulations in the future.</p>
           </div>
           <div class="bylaw-card">
-            <h3>License Required - $150/Year</h3>
-            <p>All STR operators must obtain a license from the City. The annual fee is $150, and licenses must be renewed by September 30 each year. Your license number must appear on all listings.</p>
+            <h3>No Principal Residence Rule</h3>
+            <p>Richmond Hill does not currently enforce a principal residence requirement for short-term rentals, potentially allowing investment properties to be used for Airbnb.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Only</h3>
-            <p>Short-term rentals must be your principal residence, where you normally live and receive mail. Investment properties cannot be used for STRs under 28 days.</p>
+            <h3>No Night Limit</h3>
+            <p>There is no annual cap on the number of nights you can rent your property, unlike Toronto's 180-night limit for entire home rentals.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Maximum 3 Bedrooms</h3>
-            <p>You can rent a maximum of 3 bedrooms individually within your STR. This limit applies regardless of your home's total bedroom count.</p>
+            <h3>No Municipal Accommodation Tax</h3>
+            <p>Richmond Hill does not currently charge a MAT, allowing hosts to keep more of their rental income compared to Toronto (8.5%) or Mississauga (4%).</p>
           </div>
           <div class="bylaw-card">
-            <h3>$2 Million Insurance</h3>
-            <p>Operators must maintain liability insurance of at least $2,000,000. Your insurance policy must specifically cover short-term rental activity.</p>
+            <h3>Zoning Compliance</h3>
+            <p>Your property must comply with Richmond Hill's zoning bylaws. Most residential zones permit home-based businesses, but verify your specific zoning designation.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Criminal Record Check</h3>
-            <p>License applications require a criminal record check. This must be submitted with your initial application and may be required for renewals.</p>
+            <h3>Condo Rules May Apply</h3>
+            <p>If your property is in a condominium, your condo corporation's rules take precedence. Many condos restrict or prohibit short-term rentals, so check your declaration and rules.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Occupancy Limits</h3>
-            <p>Guest occupancy is limited to 1 person per 14 square metres of habitable floor space. This determines your maximum guest count regardless of bedroom number.</p>
+            <h3>Property Standards</h3>
+            <p>All rental properties must meet Richmond Hill's property standards bylaws for maintenance, safety, and livability.</p>
           </div>
           <div class="bylaw-card">
-            <h3>4% Municipal Accommodation Tax</h3>
-            <p>Brampton charges a 4% MAT on all short-term rentals. This is typically collected and remitted automatically by platforms like Airbnb.</p>
+            <h3>Insurance Recommended</h3>
+            <p>We strongly recommend $2,000,000+ in liability insurance that explicitly covers short-term rental activity to protect your investment.</p>
           </div>
         </div>
         <div class="bylaws-cta">
-          <p>We track your nights, handle licensing, and ensure full compliance. <a href="/contact">Contact us</a> to get started.</p>
+          <p>Regulations can change. We monitor Richmond Hill's regulatory landscape and will help you stay compliant. <a href="/contact">Contact us</a> to get started.</p>
         </div>
       </div>
     </div>
@@ -171,26 +169,26 @@ const faqSchema = {
   <section class="section why-section">
     <div class="container">
       <div class="why-content">
-        <h2>The Brampton Advantage</h2>
-        <p>As one of Canada's fastest-growing cities, Brampton offers unique opportunities for short-term rental hosts. Its proximity to Pearson Airport creates consistent demand from business travelers, flight crews, and transit passengers.</p>
-        <p>With major employers like Amazon, Loblaw, and Rogers nearby, plus a thriving South Asian cultural scene attracting visitors for weddings and festivals, Brampton properties enjoy diverse demand throughout the year.</p>
+        <h2>The Richmond Hill Advantage</h2>
+        <p>Richmond Hill is one of Canada's fastest-growing and most diverse communities. With over 200,000 residents and a strategic location between Toronto and cottage country, it attracts visitors year-round.</p>
+        <p>The city's mix of urban amenities and natural beauty, including the Oak Ridges Moraine, makes it appealing to families, business travelers, and nature enthusiasts. Plus, the upcoming Yonge North Subway Extension will further boost property values and rental demand.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">650K+</div>
+          <div class="number">200K+</div>
           <div class="label">Population</div>
         </div>
         <div class="airport-stat">
-          <div class="number">15 min</div>
-          <div class="label">To Pearson Airport</div>
-        </div>
-        <div class="airport-stat">
-          <div class="number">8,400+</div>
-          <div class="label">Businesses</div>
+          <div class="number">$120K+</div>
+          <div class="label">Median Household Income</div>
         </div>
         <div class="airport-stat">
           <div class="number">45 min</div>
           <div class="label">GO Train to Toronto</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">No MAT</div>
+          <div class="label">Keep More Revenue</div>
         </div>
       </div>
     </div>
@@ -199,7 +197,7 @@ const faqSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Brampton Management</h2>
+        <h2>Full-Service Richmond Hill Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -217,7 +215,7 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
-        <p>Common questions about Airbnb management in Brampton</p>
+        <p>Common questions about Airbnb management in Richmond Hill</p>
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
@@ -239,19 +237,19 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Explore Our Other Service Areas</h2>
-        <p>We manage properties across Ontario</p>
+        <p>We manage properties across the GTA</p>
       </div>
       <div class="areas-grid">
-        <a href="/caledon-airbnb-management" class="area-link">
-          <span>Caledon</span>
+        <a href="/vaughan-airbnb-management" class="area-link">
+          <span>Vaughan</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/north-york-airbnb-management" class="area-link">
+          <span>North York</span>
           <span class="arrow">→</span>
         </a>
         <a href="/mississauga-airbnb-management" class="area-link">
           <span>Mississauga</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/vaughan-airbnb-management" class="area-link">
-          <span>Vaughan</span>
           <span class="arrow">→</span>
         </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
@@ -266,8 +264,8 @@ const faqSchema = {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Brampton Property?</h2>
-        <p>Get a free analysis showing how much your property could earn and how to maximize your 180 allowed nights.</p>
+        <h2>Own a Richmond Hill Property?</h2>
+        <p>Get a free analysis showing how much your Oak Ridges or Bayview Hill property could earn with Airbnb.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>

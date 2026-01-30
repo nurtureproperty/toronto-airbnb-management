@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '🏙️', name: 'Downtown Brampton', description: 'City centre with Garden Square events, Rose Theatre, and GO Transit hub. Popular with business travelers and event attendees.', revenue: '$2,300-$3,100/month' },
-  { icon: '✈️', name: 'Airport Corporate Centre', description: 'Near Pearson Airport and major corporate offices. High demand from business travelers and flight crews.', revenue: '$2,600-$3,500/month' },
-  { icon: '🏡', name: 'Mount Pleasant', description: 'Family-friendly area with shopping and parks. Great for relocating families and longer-term guests.', revenue: '$2,200-$3,000/month' },
-  { icon: '🎓', name: 'Sheridan College Area', description: 'Near Davis Campus with student and academic visitor demand. Popular during orientation and graduation seasons.', revenue: '$2,000-$2,800/month' },
-  { icon: '🌳', name: 'Heart Lake', description: 'Near Conservation Area with nature tourism appeal. Attracts outdoor enthusiasts and weekend visitors.', revenue: '$2,100-$2,900/month' },
-  { icon: '🏢', name: 'Bramalea', description: 'Industrial and commercial hub with diverse employment. Consistent business traveler demand year-round.', revenue: '$2,200-$3,000/month' }
+  { icon: '🏔️', name: 'Caledon Village', description: 'Charming rural village atmosphere near hiking trails. Popular with nature lovers and couples seeking a quiet escape from the city.', revenue: '$2,800-$3,800/month' },
+  { icon: '🐴', name: 'Palgrave', description: 'Equestrian country with large estates and rural charm. Attracts horse enthusiasts, wedding guests, and those seeking luxury rural retreats.', revenue: '$3,200-$4,500/month' },
+  { icon: '🏡', name: 'Bolton', description: 'Caledon\'s largest community with suburban amenities. Near shopping, dining, and easy highway access to Toronto.', revenue: '$2,600-$3,400/month' },
+  { icon: '🌲', name: 'Inglewood', description: 'Picturesque village in the Credit River Valley. Near the Forks of the Credit Provincial Park and scenic trails.', revenue: '$2,800-$3,600/month' },
+  { icon: '⛳', name: 'Mono Mills', description: 'Quiet northern area near golf courses and conservation lands. Ideal for golfers and outdoor enthusiasts.', revenue: '$2,400-$3,200/month' },
+  { icon: '🚗', name: 'Mayfield West', description: 'Growing community near Highway 410. Convenient for business travelers and families visiting Brampton or Mississauga.', revenue: '$2,500-$3,300/month' }
 ];
 
 const services = [
@@ -18,45 +18,46 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Bylaw Compliance & Licensing Support',
+  'License Application Assistance',
+  'Regulatory Compliance Monitoring',
   'Transparent Revenue Reporting'
 ];
 
 const faqs = [
   {
-    question: "Is Airbnb legal in Brampton?",
-    answer: "Yes, Airbnb is legal in Brampton but strictly regulated. Only principal residences qualify, and hosts are limited to renting a maximum of 3 bedrooms individually. Brampton charges a 4% Municipal Accommodation Tax (MAT) on all short term rental bookings.",
-    link: { text: "Read our complete Brampton STR rules guide", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
+    question: "Is Airbnb legal in Caledon?",
+    answer: "Yes, but Caledon is implementing comprehensive STR regulations in Spring 2026. The new licensing program (Class C3) requires a license, limits STRs to your principal residence, caps entire-home rentals at 180 nights/year, and limits total licenses to 300 town-wide.",
+    link: { text: "Read our complete Caledon STR rules guide", href: "/blog/caledon-airbnb-short-term-rental-rules-2026" }
   },
   {
-    question: "How much can I make on Airbnb in Brampton?",
-    answer: "Brampton Airbnb hosts typically earn $2,800 to $4,200+ per month depending on location and property type. Properties near the GO Transit stations and Sheridan College see strong demand from commuters and students seeking short term accommodation."
+    question: "How much can I make on Airbnb in Caledon?",
+    answer: "Caledon Airbnb hosts typically earn $2,800 to $4,500+ per month depending on property type and location. Rural estates and properties near hiking trails command premium rates, especially during fall colours and summer weekends."
   },
   {
-    question: "What is the Brampton STR bedroom limit?",
-    answer: "Brampton limits short term rentals to a maximum of 3 bedrooms rented individually at any time. This applies whether you're renting the entire home or individual rooms. The property must also be your principal residence.",
-    link: { text: "Learn more about Brampton rental requirements", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
+    question: "What is the Caledon STR license fee?",
+    answer: "The proposed license fee is $500 per year, with an introductory rate of $250 during the first 60 days after the program launches. There's also a fire inspection fee of approximately $233.55. We help with the entire application process.",
+    link: { text: "Learn more about Caledon licensing requirements", href: "/blog/caledon-airbnb-short-term-rental-rules-2026" }
   },
   {
-    question: "What is the Brampton MAT tax?",
-    answer: "Brampton charges a 4% Municipal Accommodation Tax on all short term rental bookings. This is typically collected automatically by platforms like Airbnb and remitted to the City. Hosts must register with the City to operate legally."
+    question: "Is there a limit on STR licenses in Caledon?",
+    answer: "Yes, Caledon is proposing a cap of 300 short-term rental licenses. This is one of the strictest limits in the GTA. Early registration is crucial to secure your license before the cap is reached."
   },
   {
-    question: "What are the penalties for illegal Airbnb in Brampton?",
-    answer: "Operating without proper registration in Brampton can result in fines and enforcement action. The City monitors listing platforms and enforces its short term rental bylaw. We help all Brampton clients ensure full compliance before listing."
-  },
-  {
-    question: "How much does Airbnb management cost in Brampton?",
-    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts, helping Brampton property owners maximize their returns."
-  },
-  {
-    question: "Can I Airbnb my investment property in Brampton?",
-    answer: "No, Brampton requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (28+ days) which don't fall under STR regulations. This is a good option for properties near transit hubs.",
+    question: "Can I Airbnb my investment property in Caledon?",
+    answer: "No, Caledon's proposed bylaw requires STRs to be your principal residence. Investment properties cannot be used for short-term rentals. However, mid-term rentals (28+ days) are not subject to STR regulations.",
     link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
   },
   {
-    question: "Is it worth hiring an Airbnb manager in Brampton?",
-    answer: "Yes, professional management typically increases profits by 30 to 100% through dynamic pricing, optimized listings, and superior guest communication. We handle everything from cleaning coordination to maintenance and respond to guests in under 9 minutes."
+    question: "How much does Airbnb management cost in Caledon?",
+    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long-term contracts."
+  },
+  {
+    question: "When do Caledon STR rules take effect?",
+    answer: "The STR licensing program is proposed to launch in Spring 2026. We recommend preparing now to be among the first to secure a license given the 300-license cap."
+  },
+  {
+    question: "Is it worth hiring an Airbnb manager in Caledon?",
+    answer: "Yes, professional management typically increases profits by 30% to 100% through dynamic pricing, optimized listings, and superior guest communication. We also handle license applications, compliance monitoring, and all guest interactions."
   }
 ];
 
@@ -74,20 +75,20 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Brampton Airbnb Management | Flower City Short-Term Rentals" description="Professional Airbnb property management in Brampton, Ontario. Airport area, Downtown, and Mount Pleasant. 10-15% commission. Full bylaw compliance with 180-night limit support.">
+<Layout title="Caledon Airbnb Management | Rural Retreats & Estates" description="Caledon Airbnb management: Bolton, Palgrave, Caledon Village. 300 license cap coming Spring 2026. 10-15% commission, license assistance.">
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Brampton Airbnb Management</span></h1>
-      <p class="hero-subtitle">Expert property management in the Flower City</p>
+      <h1><span class="highlight">Caledon Airbnb Management</span></h1>
+      <p class="hero-subtitle">Rural retreats and estate rentals in Peel Region's countryside</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$2,400+</div>
+          <div class="stat-number">$3,200+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">75%+</div>
-          <div class="stat-label">Avg Occupancy Rate</div>
+          <div class="stat-number">300</div>
+          <div class="stat-label">License Cap</div>
         </div>
         <div class="stat">
           <div class="stat-number">10-15%</div>
@@ -95,15 +96,15 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Brampton Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Caledon Property Can Earn</a>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Brampton Neighborhoods We Serve</h2>
-        <p>From downtown to the airport corridor</p>
+        <h2>Caledon Areas We Serve</h2>
+        <p>From Bolton to the Escarpment</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -120,49 +121,49 @@ const faqSchema = {
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Brampton Short-Term Rental Bylaws</h2>
-        <p>Complete guide to By-law 165-2021 requirements</p>
+        <h2>Caledon STR Regulations (Spring 2026)</h2>
+        <p>New licensing program launching soon</p>
       </div>
       <div class="bylaws-content">
         <div class="bylaws-intro">
-          <p>Brampton regulates short-term rentals under By-law 165-2021. The city requires licensing and has specific limits on nights and bedrooms. Here's everything you need to operate legally.</p>
+          <p>Caledon is implementing comprehensive short-term rental regulations under their Residential Rental Housing Licensing By-law. The STR licensing program (Class C3) is expected to launch in Spring 2026. Here's what you need to know.</p>
         </div>
         <div class="bylaws-grid">
           <div class="bylaw-card highlight-card">
-            <h3>180 Night Annual Limit</h3>
-            <p>Brampton caps short-term rentals at <strong>180 nights per calendar year</strong>. This is one of the most important rules to track. We provide night tracking as part of our management service to ensure you stay compliant.</p>
+            <h3>300 License Cap</h3>
+            <p>Caledon is proposing a <strong>cap of 300 short-term rental licenses</strong> town-wide. This is one of the strictest limits in the GTA. Once 300 licenses are issued, new applicants will need to wait until a license becomes available. <strong>Early registration is crucial</strong> to secure your spot.</p>
           </div>
           <div class="bylaw-card">
-            <h3>License Required - $150/Year</h3>
-            <p>All STR operators must obtain a license from the City. The annual fee is $150, and licenses must be renewed by September 30 each year. Your license number must appear on all listings.</p>
+            <h3>28-Day STR Definition</h3>
+            <p>Short-term rental is defined as rentals of 28 consecutive days or less. Rentals of 29+ days are considered mid-term/long-term and are not subject to STR regulations.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Only</h3>
-            <p>Short-term rentals must be your principal residence, where you normally live and receive mail. Investment properties cannot be used for STRs under 28 days.</p>
+            <h3>License Fee: $500/Year</h3>
+            <p>The proposed annual license fee is $500, with an introductory rate of $250 during the first 60 days. Fire inspection fees of ~$233.55 also apply.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Maximum 3 Bedrooms</h3>
-            <p>You can rent a maximum of 3 bedrooms individually within your STR. This limit applies regardless of your home's total bedroom count.</p>
+            <h3>Principal Residence Required</h3>
+            <p>Like Toronto, Mississauga, and Brampton, Caledon requires STRs to be your principal residence. Investment properties cannot be used for short-term rentals.</p>
           </div>
           <div class="bylaw-card">
-            <h3>$2 Million Insurance</h3>
-            <p>Operators must maintain liability insurance of at least $2,000,000. Your insurance policy must specifically cover short-term rental activity.</p>
+            <h3>180-Night Annual Limit</h3>
+            <p>Entire-home rentals are limited to 180 nights per calendar year. Room rentals while you're home may have different provisions.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Criminal Record Check</h3>
-            <p>License applications require a criminal record check. This must be submitted with your initial application and may be required for renewals.</p>
+            <h3>Fire Safety Inspection</h3>
+            <p>Properties must pass a fire safety inspection before licensing. Working smoke and CO alarms, fire extinguishers, and emergency procedures are required.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Occupancy Limits</h3>
-            <p>Guest occupancy is limited to 1 person per 14 square metres of habitable floor space. This determines your maximum guest count regardless of bedroom number.</p>
+            <h3>Host Compliance Monitoring</h3>
+            <p>Caledon has contracted Granicus Host Compliance to monitor Airbnb, VRBO, and other platforms for unlicensed listings. Enforcement will be active from launch.</p>
           </div>
           <div class="bylaw-card">
-            <h3>4% Municipal Accommodation Tax</h3>
-            <p>Brampton charges a 4% MAT on all short-term rentals. This is typically collected and remitted automatically by platforms like Airbnb.</p>
+            <h3>Demerit Point System</h3>
+            <p>Similar to other Peel Region cities, Caledon will use a demerit point system. Accumulating points from violations can lead to license suspension or revocation.</p>
           </div>
         </div>
         <div class="bylaws-cta">
-          <p>We track your nights, handle licensing, and ensure full compliance. <a href="/contact">Contact us</a> to get started.</p>
+          <p>The 300-license cap makes early preparation essential. <a href="/contact">Contact us</a> to prepare your license application before Spring 2026.</p>
         </div>
       </div>
     </div>
@@ -171,26 +172,26 @@ const faqSchema = {
   <section class="section why-section">
     <div class="container">
       <div class="why-content">
-        <h2>The Brampton Advantage</h2>
-        <p>As one of Canada's fastest-growing cities, Brampton offers unique opportunities for short-term rental hosts. Its proximity to Pearson Airport creates consistent demand from business travelers, flight crews, and transit passengers.</p>
-        <p>With major employers like Amazon, Loblaw, and Rogers nearby, plus a thriving South Asian cultural scene attracting visitors for weddings and festivals, Brampton properties enjoy diverse demand throughout the year.</p>
+        <h2>The Caledon Advantage</h2>
+        <p>Caledon offers a unique mix of rural tranquility and GTA accessibility. Just 45 minutes from downtown Toronto, it's home to the Niagara Escarpment, Forks of the Credit, and some of Ontario's most scenic hiking trails.</p>
+        <p>The town attracts visitors seeking escape from urban life, fall colour tours, equestrian events, and luxury rural retreats. Wedding guests visiting estate venues and golfers exploring local courses add consistent demand throughout the year.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">650K+</div>
+          <div class="number">75K+</div>
           <div class="label">Population</div>
         </div>
         <div class="airport-stat">
-          <div class="number">15 min</div>
-          <div class="label">To Pearson Airport</div>
-        </div>
-        <div class="airport-stat">
-          <div class="number">8,400+</div>
-          <div class="label">Businesses</div>
+          <div class="number">688 km²</div>
+          <div class="label">Largest GTA Municipality</div>
         </div>
         <div class="airport-stat">
           <div class="number">45 min</div>
-          <div class="label">GO Train to Toronto</div>
+          <div class="label">Drive to Toronto</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">300+</div>
+          <div class="label">km of Trails</div>
         </div>
       </div>
     </div>
@@ -199,7 +200,7 @@ const faqSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Brampton Management</h2>
+        <h2>Full-Service Caledon Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -217,7 +218,7 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
-        <p>Common questions about Airbnb management in Brampton</p>
+        <p>Common questions about Airbnb management in Caledon</p>
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
@@ -239,19 +240,19 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Explore Our Other Service Areas</h2>
-        <p>We manage properties across Ontario</p>
+        <p>We manage properties across the GTA</p>
       </div>
       <div class="areas-grid">
-        <a href="/caledon-airbnb-management" class="area-link">
-          <span>Caledon</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
+        <a href="/brampton-airbnb-management" class="area-link">
+          <span>Brampton</span>
           <span class="arrow">→</span>
         </a>
         <a href="/vaughan-airbnb-management" class="area-link">
           <span>Vaughan</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
           <span class="arrow">→</span>
         </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
@@ -266,8 +267,8 @@ const faqSchema = {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Brampton Property?</h2>
-        <p>Get a free analysis showing how much your property could earn and how to maximize your 180 allowed nights.</p>
+        <h2>Own a Caledon Property?</h2>
+        <p>Get a free analysis and secure your spot before the 300-license cap is reached.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>

@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '🏙️', name: 'Downtown Brampton', description: 'City centre with Garden Square events, Rose Theatre, and GO Transit hub. Popular with business travelers and event attendees.', revenue: '$2,300-$3,100/month' },
-  { icon: '✈️', name: 'Airport Corporate Centre', description: 'Near Pearson Airport and major corporate offices. High demand from business travelers and flight crews.', revenue: '$2,600-$3,500/month' },
-  { icon: '🏡', name: 'Mount Pleasant', description: 'Family-friendly area with shopping and parks. Great for relocating families and longer-term guests.', revenue: '$2,200-$3,000/month' },
-  { icon: '🎓', name: 'Sheridan College Area', description: 'Near Davis Campus with student and academic visitor demand. Popular during orientation and graduation seasons.', revenue: '$2,000-$2,800/month' },
-  { icon: '🌳', name: 'Heart Lake', description: 'Near Conservation Area with nature tourism appeal. Attracts outdoor enthusiasts and weekend visitors.', revenue: '$2,100-$2,900/month' },
-  { icon: '🏢', name: 'Bramalea', description: 'Industrial and commercial hub with diverse employment. Consistent business traveler demand year-round.', revenue: '$2,200-$3,000/month' }
+  { icon: '🏰', name: 'Downtown Kingston', description: 'Historic limestone district with restaurants, boutiques, and waterfront. Walking distance to Queen\'s University and major attractions.', revenue: '$3,200-$4,500/month' },
+  { icon: '🎓', name: 'Queen\'s University Area', description: 'Near Canada\'s premier university. Consistent demand from visiting parents, academics, conferences, and graduation events.', revenue: '$2,800-$3,800/month' },
+  { icon: '⛵', name: 'Waterfront/Portsmouth', description: 'Lake Ontario views and marina access. Popular with boaters, tourists, and those seeking lakeside retreats.', revenue: '$3,000-$4,200/month' },
+  { icon: '🏥', name: 'Kingston General Hospital Area', description: 'Near the regional medical center. Steady demand from patients\' families and traveling healthcare workers.', revenue: '$2,600-$3,400/month' },
+  { icon: '🌲', name: 'Thousand Islands Gateway', description: 'Near boat tours and island access. Premium rates during summer tourist season for this UNESCO-adjacent destination.', revenue: '$3,500-$5,000/month' },
+  { icon: '🏛️', name: 'Cataraqui/West End', description: 'Residential area near shopping centers and highway access. Ideal for families and longer stays.', revenue: '$2,400-$3,200/month' }
 ];
 
 const services = [
@@ -18,45 +18,45 @@ const services = [
   'Maintenance & Repairs',
   'Guest Screening & Verification',
   'Supply Restocking (No Markup)',
-  'Bylaw Compliance & Licensing Support',
+  'License Application Assistance',
+  'MAT Compliance & Reporting',
   'Transparent Revenue Reporting'
 ];
 
 const faqs = [
   {
-    question: "Is Airbnb legal in Brampton?",
-    answer: "Yes, Airbnb is legal in Brampton but strictly regulated. Only principal residences qualify, and hosts are limited to renting a maximum of 3 bedrooms individually. Brampton charges a 4% Municipal Accommodation Tax (MAT) on all short term rental bookings.",
-    link: { text: "Read our complete Brampton STR rules guide", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
+    question: "Can I Airbnb my investment property in Kingston?",
+    answer: "Yes! Unlike Toronto, Mississauga, and most GTA cities, Kingston does NOT require your STR to be your principal residence. You can legally operate investment properties as short-term rentals, with a limit of 2 licenses per operator.",
+    link: { text: "Read our complete Kingston STR rules guide", href: "/blog/kingston-airbnb-short-term-rental-rules-2026" }
   },
   {
-    question: "How much can I make on Airbnb in Brampton?",
-    answer: "Brampton Airbnb hosts typically earn $2,800 to $4,200+ per month depending on location and property type. Properties near the GO Transit stations and Sheridan College see strong demand from commuters and students seeking short term accommodation."
+    question: "How much can I make on Airbnb in Kingston?",
+    answer: "Kingston Airbnb hosts typically earn $3,000 to $5,000+ per month depending on location and season. Downtown properties and those near the Thousand Islands command premium rates, especially during summer tourism and Queen's University events."
   },
   {
-    question: "What is the Brampton STR bedroom limit?",
-    answer: "Brampton limits short term rentals to a maximum of 3 bedrooms rented individually at any time. This applies whether you're renting the entire home or individual rooms. The property must also be your principal residence.",
-    link: { text: "Learn more about Brampton rental requirements", href: "/blog/brampton-airbnb-short-term-rental-guide-2026" }
+    question: "Is there a night limit for Kingston Airbnb?",
+    answer: "No annual night limit. Kingston's bylaw defines STR as 30 days or less per booking, but there's no cap on how many nights per year you can rent. You could theoretically operate 365 nights a year, unlike Toronto's 180-night limit.",
+    link: { text: "See Kingston's STR regulations", href: "/blog/kingston-airbnb-short-term-rental-rules-2026" }
   },
   {
-    question: "What is the Brampton MAT tax?",
-    answer: "Brampton charges a 4% Municipal Accommodation Tax on all short term rental bookings. This is typically collected automatically by platforms like Airbnb and remitted to the City. Hosts must register with the City to operate legally."
+    question: "What is the Kingston STR license fee?",
+    answer: "License fees are set in Kingston's Fees and Charges Bylaw. The license needs annual renewal, and all fees are non-refundable. We handle the entire application process for our clients."
   },
   {
-    question: "What are the penalties for illegal Airbnb in Brampton?",
-    answer: "Operating without proper registration in Brampton can result in fines and enforcement action. The City monitors listing platforms and enforces its short term rental bylaw. We help all Brampton clients ensure full compliance before listing."
+    question: "Does Kingston have a Municipal Accommodation Tax?",
+    answer: "Yes, Kingston has MAT under Bylaw 2018-95. You must collect and remit the tax. We help ensure compliance and can handle MAT reporting as part of our management services."
   },
   {
-    question: "How much does Airbnb management cost in Brampton?",
-    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long term contracts, helping Brampton property owners maximize their returns."
+    question: "How many STR licenses can I have in Kingston?",
+    answer: "You can hold up to 2 STR licenses as an individual operator. Corporate officers and directors can each hold licenses too. This makes Kingston attractive for small portfolio investors."
   },
   {
-    question: "Can I Airbnb my investment property in Brampton?",
-    answer: "No, Brampton requires short term rentals to be your principal residence. However, investment properties can legally operate as mid-term rentals (28+ days) which don't fall under STR regulations. This is a good option for properties near transit hubs.",
-    link: { text: "See our guide to Airbnb investment properties in the GTA", href: "/blog/airbnb-investment-property-gta" }
+    question: "How much does Airbnb management cost in Kingston?",
+    answer: "Airbnb management companies typically charge 15% to 25% of rental revenue. At Nurture, we offer comprehensive management at 10% to 15% commission with no upfront costs or long-term contracts."
   },
   {
-    question: "Is it worth hiring an Airbnb manager in Brampton?",
-    answer: "Yes, professional management typically increases profits by 30 to 100% through dynamic pricing, optimized listings, and superior guest communication. We handle everything from cleaning coordination to maintenance and respond to guests in under 9 minutes."
+    question: "Is it worth hiring an Airbnb manager in Kingston?",
+    answer: "Yes, professional management typically increases profits by 30% to 100% through dynamic pricing, optimized listings, and superior guest communication. For out-of-town investors, management is essential since Kingston requires a local contact available 24/7."
   }
 ];
 
@@ -74,20 +74,20 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Brampton Airbnb Management | Flower City Short-Term Rentals" description="Professional Airbnb property management in Brampton, Ontario. Airport area, Downtown, and Mount Pleasant. 10-15% commission. Full bylaw compliance with 180-night limit support.">
+<Layout title="Kingston Airbnb Management | Investment Properties OK" description="Kingston Airbnb management: investment properties welcome, no principal residence rule, no night limit. Downtown and Thousand Islands. 10-15%.">
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Brampton Airbnb Management</span></h1>
-      <p class="hero-subtitle">Expert property management in the Flower City</p>
+      <h1><span class="highlight">Kingston Airbnb Management</span></h1>
+      <p class="hero-subtitle">Ontario's most investor-friendly STR market</p>
 
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">$2,400+</div>
+          <div class="stat-number">$3,500+</div>
           <div class="stat-label">Avg Monthly Revenue</div>
         </div>
         <div class="stat">
-          <div class="stat-number">75%+</div>
-          <div class="stat-label">Avg Occupancy Rate</div>
+          <div class="stat-number">No Limit</div>
+          <div class="stat-label">Annual Nights</div>
         </div>
         <div class="stat">
           <div class="stat-number">10-15%</div>
@@ -95,15 +95,25 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Brampton Property Can Earn</a>
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Kingston Property Can Earn</a>
+    </div>
+  </section>
+
+  <section class="section investor-highlight">
+    <div class="container">
+      <div class="investor-box">
+        <h2>Investment Properties Welcome</h2>
+        <p>Unlike Toronto, Mississauga, and most Ontario cities, <strong>Kingston does NOT require your STR to be your principal residence</strong>. This makes it one of the few Ontario markets where you can legally Airbnb an investment property. You can hold up to 2 STR licenses per operator.</p>
+        <a href="/blog/kingston-airbnb-short-term-rental-rules-2026" class="btn btn-secondary">Read Kingston's Full STR Rules</a>
+      </div>
     </div>
   </section>
 
   <section class="section neighborhoods">
     <div class="container">
       <div class="section-header">
-        <h2>Brampton Neighborhoods We Serve</h2>
-        <p>From downtown to the airport corridor</p>
+        <h2>Kingston Areas We Serve</h2>
+        <p>From downtown limestone to the Thousand Islands</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -120,49 +130,49 @@ const faqSchema = {
   <section class="section bylaws-section">
     <div class="container">
       <div class="section-header">
-        <h2>Brampton Short-Term Rental Bylaws</h2>
-        <p>Complete guide to By-law 165-2021 requirements</p>
+        <h2>Kingston STR Regulations</h2>
+        <p>Investor-friendly rules under Bylaw 2021-10</p>
       </div>
       <div class="bylaws-content">
         <div class="bylaws-intro">
-          <p>Brampton regulates short-term rentals under By-law 165-2021. The city requires licensing and has specific limits on nights and bedrooms. Here's everything you need to operate legally.</p>
+          <p>Kingston's STR licensing bylaw is one of the most investor-friendly in Ontario. No principal residence requirement, no annual night limit, and up to 2 licenses per operator make it an attractive market for Airbnb investors.</p>
         </div>
         <div class="bylaws-grid">
           <div class="bylaw-card highlight-card">
-            <h3>180 Night Annual Limit</h3>
-            <p>Brampton caps short-term rentals at <strong>180 nights per calendar year</strong>. This is one of the most important rules to track. We provide night tracking as part of our management service to ensure you stay compliant.</p>
+            <h3>No Principal Residence Requirement</h3>
+            <p>This is Kingston's biggest advantage. <strong>You can STR a property you don't live in.</strong> Investment properties, second homes, and dedicated vacation rentals are all permitted. Compare this to Toronto, Mississauga, Brampton, and most GTA cities where principal residence is mandatory.</p>
           </div>
           <div class="bylaw-card">
-            <h3>License Required - $150/Year</h3>
-            <p>All STR operators must obtain a license from the City. The annual fee is $150, and licenses must be renewed by September 30 each year. Your license number must appear on all listings.</p>
+            <h3>30-Day STR Definition</h3>
+            <p>Kingston defines short-term rentals as stays of 30 consecutive days or less, slightly longer than Toronto's 28-day threshold. Good for pricing extended-stay options.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Principal Residence Only</h3>
-            <p>Short-term rentals must be your principal residence, where you normally live and receive mail. Investment properties cannot be used for STRs under 28 days.</p>
+            <h3>No Annual Night Limit</h3>
+            <p>There's no cap on how many nights per year you can rent. Operate 365 days if demand supports it, unlike Toronto's 180-night restriction.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Maximum 3 Bedrooms</h3>
-            <p>You can rent a maximum of 3 bedrooms individually within your STR. This limit applies regardless of your home's total bedroom count.</p>
+            <h3>2 Licenses Per Operator</h3>
+            <p>You can hold up to 2 STR licenses as an individual. Corporate officers and directors can each hold licenses too, allowing for small portfolio investment.</p>
           </div>
           <div class="bylaw-card">
-            <h3>$2 Million Insurance</h3>
-            <p>Operators must maintain liability insurance of at least $2,000,000. Your insurance policy must specifically cover short-term rental activity.</p>
-          </div>
-          <div class="bylaw-card">
-            <h3>Criminal Record Check</h3>
-            <p>License applications require a criminal record check. This must be submitted with your initial application and may be required for renewals.</p>
+            <h3>License Required</h3>
+            <p>All STR operators must obtain a license from the City before marketing or operating. License fees apply and must be renewed annually.</p>
           </div>
           <div class="bylaw-card">
             <h3>Occupancy Limits</h3>
-            <p>Guest occupancy is limited to 1 person per 14 square metres of habitable floor space. This determines your maximum guest count regardless of bedroom number.</p>
+            <p>Maximum 2 occupants per bedroom, up to 10 guests total per booking. Room-by-room rentals limited to 3 rooms, 4 guests aggregate.</p>
           </div>
           <div class="bylaw-card">
-            <h3>4% Municipal Accommodation Tax</h3>
-            <p>Brampton charges a 4% MAT on all short-term rentals. This is typically collected and remitted automatically by platforms like Airbnb.</p>
+            <h3>Municipal Accommodation Tax</h3>
+            <p>Kingston has MAT under Bylaw 2018-95. You must collect and remit the tax. Verify with the city whether Airbnb collects automatically or if you handle it directly.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Local Contact Required</h3>
+            <p>You must designate a local contact who can respond within 1 hour. This is where property management becomes essential for out-of-town investors.</p>
           </div>
         </div>
         <div class="bylaws-cta">
-          <p>We track your nights, handle licensing, and ensure full compliance. <a href="/contact">Contact us</a> to get started.</p>
+          <p>We handle licensing, compliance, and act as your local contact. <a href="/contact">Contact us</a> to learn more.</p>
         </div>
       </div>
     </div>
@@ -171,26 +181,26 @@ const faqSchema = {
   <section class="section why-section">
     <div class="container">
       <div class="why-content">
-        <h2>The Brampton Advantage</h2>
-        <p>As one of Canada's fastest-growing cities, Brampton offers unique opportunities for short-term rental hosts. Its proximity to Pearson Airport creates consistent demand from business travelers, flight crews, and transit passengers.</p>
-        <p>With major employers like Amazon, Loblaw, and Rogers nearby, plus a thriving South Asian cultural scene attracting visitors for weddings and festivals, Brampton properties enjoy diverse demand throughout the year.</p>
+        <h2>The Kingston Advantage</h2>
+        <p>Kingston is Ontario's first capital, a UNESCO World Heritage Site-adjacent city, and home to Queen's University and Royal Military College. Its historic downtown, limestone architecture, and waterfront location make it a year-round tourist destination.</p>
+        <p>The Thousand Islands gateway brings summer tourists, while Queen's University drives fall parents' weekends, convocation, and academic conferences. Fort Henry, museums, and the active arts scene maintain steady visitor flow throughout the year.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">650K+</div>
+          <div class="number">135K+</div>
           <div class="label">Population</div>
         </div>
         <div class="airport-stat">
-          <div class="number">15 min</div>
-          <div class="label">To Pearson Airport</div>
+          <div class="number">30K+</div>
+          <div class="label">Queen's Students</div>
         </div>
         <div class="airport-stat">
-          <div class="number">8,400+</div>
-          <div class="label">Businesses</div>
+          <div class="number">2.5 hrs</div>
+          <div class="label">Drive from Toronto</div>
         </div>
         <div class="airport-stat">
-          <div class="number">45 min</div>
-          <div class="label">GO Train to Toronto</div>
+          <div class="number">1000+</div>
+          <div class="label">Islands to Explore</div>
         </div>
       </div>
     </div>
@@ -199,7 +209,7 @@ const faqSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Full-Service Brampton Management</h2>
+        <h2>Full-Service Kingston Management</h2>
         <p>Everything included at 10-15%</p>
       </div>
       <div class="services-grid">
@@ -217,7 +227,7 @@ const faqSchema = {
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
-        <p>Common questions about Airbnb management in Brampton</p>
+        <p>Common questions about Airbnb management in Kingston</p>
       </div>
       <div class="faq-grid">
         {faqs.map((faq) => (
@@ -242,20 +252,20 @@ const faqSchema = {
         <p>We manage properties across Ontario</p>
       </div>
       <div class="areas-grid">
-        <a href="/caledon-airbnb-management" class="area-link">
-          <span>Caledon</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/mississauga-airbnb-management" class="area-link">
-          <span>Mississauga</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/vaughan-airbnb-management" class="area-link">
-          <span>Vaughan</span>
-          <span class="arrow">→</span>
-        </a>
         <a href="/downtown-toronto-airbnb-management" class="area-link">
           <span>Downtown Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/ottawa-airbnb-management" class="area-link">
+          <span>Ottawa</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/niagara-falls-airbnb-management" class="area-link">
+          <span>Niagara Falls</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
           <span class="arrow">→</span>
         </a>
       </div>
@@ -266,8 +276,8 @@ const faqSchema = {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Own a Brampton Property?</h2>
-        <p>Get a free analysis showing how much your property could earn and how to maximize your 180 allowed nights.</p>
+        <h2>Own a Kingston Property?</h2>
+        <p>Get a free analysis showing how much your downtown or Thousand Islands property could earn with Airbnb.</p>
         <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
@@ -309,6 +319,43 @@ const faqSchema = {
   .stat { text-align: center; }
   .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--color-primary); }
   .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .investor-highlight {
+    background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+    padding: 3rem 0;
+  }
+
+  .investor-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid #38a169;
+    box-shadow: var(--shadow-md);
+  }
+
+  .investor-box h2 {
+    color: #276749;
+    margin-bottom: 1rem;
+  }
+
+  .investor-box p {
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .investor-box .btn-secondary {
+    background: #38a169;
+    color: white;
+  }
+
+  .investor-box .btn-secondary:hover {
+    background: #276749;
+  }
 
   .neighborhoods-grid {
     display: grid;
@@ -362,8 +409,12 @@ const faqSchema = {
   }
 
   .bylaw-card.highlight-card {
-    border: 2px solid var(--color-primary);
+    border: 2px solid #38a169;
     grid-column: span 2;
+  }
+
+  .bylaw-card.highlight-card h3 {
+    color: #276749;
   }
 
   .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
