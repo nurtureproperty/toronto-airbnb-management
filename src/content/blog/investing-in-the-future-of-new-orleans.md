@@ -4,7 +4,7 @@ description: "Airbnb announces $150,000 in community investments for New Orleans
 pubDate: "2026-01-29"
 author: "Nurture Airbnb Property Management"
 category: "News"
-tags: ["News", "Community"]
+tags: ["News"]
 sourceUrl: "https://news.airbnb.com/investing-in-the-future-of-new-orleans/"
 sourceTitle: "Investing in the future of New Orleans"
 draft: false
