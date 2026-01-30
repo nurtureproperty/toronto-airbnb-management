@@ -1,27 +1,12 @@
 ---
 const currentPath = Astro.url.pathname;
 
-const managementServices = [
+const services = [
   { href: '/services/short-term-rental-management-toronto', label: 'Short-Term Rental' },
   { href: '/services/mid-term-rental-management', label: 'Mid-Term Rental' },
   { href: '/services/airbnb-co-host-toronto', label: 'Airbnb Co-Hosting' },
   { href: '/services/full-airbnb-management', label: 'Full Property Management' },
 ];
-
-const marketingServices = [
-  { href: '/services/airbnb-dynamic-pricing', label: 'Dynamic Pricing' },
-  { href: '/services/airbnb-listing-optimization', label: 'Listing Optimization' },
-];
-
-const operationsServices = [
-  { href: '/services/airbnb-cleaning', label: 'Cleaning Services' },
-  { href: '/services/airbnb-turnover-management', label: 'Turnover Management' },
-  { href: '/services/airbnb-key-exchange', label: 'Key Exchange' },
-  { href: '/services/airbnb-property-maintenance', label: 'Property Maintenance' },
-  { href: '/services/airbnb-photography', label: 'Photography' },
-];
-
-const allServices = [...managementServices, ...marketingServices, ...operationsServices];
 ---
 
 <header class="header">
@@ -49,49 +34,16 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
               <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="dropdown-menu">
-            <div class="dropdown-columns">
-              <div class="dropdown-column">
-                <div class="dropdown-category">
-                  <span class="category-header">Management</span>
-                  <ul class="category-links">
-                    {managementServices.map(item => (
-                      <li>
-                        <a href={item.href} class:list={['dropdown-link', { active: currentPath === item.href }]}>
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div class="dropdown-category">
-                  <span class="category-header">Marketing</span>
-                  <ul class="category-links">
-                    {marketingServices.map(item => (
-                      <li>
-                        <a href={item.href} class:list={['dropdown-link', { active: currentPath === item.href }]}>
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div class="dropdown-column">
-                <div class="dropdown-category">
-                  <span class="category-header">Operations</span>
-                  <ul class="category-links">
-                    {operationsServices.map(item => (
-                      <li>
-                        <a href={item.href} class:list={['dropdown-link', { active: currentPath === item.href }]}>
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div class="dropdown-menu dropdown-menu-simple">
+            <ul class="category-links">
+              {services.map(item => (
+                <li>
+                  <a href={item.href} class:list={['dropdown-link', { active: currentPath === item.href }]}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <div class="dropdown-footer">
               <a href="/services" class="view-all-link">View All Services &rarr;</a>
             </div>
@@ -144,20 +96,7 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
           </button>
           <div class="mobile-dropdown-menu">
             <div class="mobile-category">
-              <span class="mobile-category-header">Management</span>
-              {managementServices.map(item => (
-                <a href={item.href}>{item.label}</a>
-              ))}
-            </div>
-            <div class="mobile-category">
-              <span class="mobile-category-header">Marketing</span>
-              {marketingServices.map(item => (
-                <a href={item.href}>{item.label}</a>
-              ))}
-            </div>
-            <div class="mobile-category">
-              <span class="mobile-category-header">Operations</span>
-              {operationsServices.map(item => (
+              {services.map(item => (
                 <a href={item.href}>{item.label}</a>
               ))}
             </div>
@@ -375,16 +314,16 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     transform: rotate(180deg);
   }
 
-  /* Two-column dropdown menu */
+  /* Dropdown menu */
   .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -100px;
-    width: 420px;
+    left: 0;
+    width: 240px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-    padding: 1.25rem;
+    padding: 1rem;
     margin: 0.5rem 0 0;
     opacity: 0;
     visibility: hidden;
@@ -396,33 +335,6 @@ const allServices = [...managementServices, ...marketingServices, ...operationsS
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-  }
-
-  .dropdown-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .dropdown-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .dropdown-category {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .category-header {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #888;
-    margin-bottom: 0.5rem;
-    padding-left: 0.5rem;
   }
 
   .category-links {
