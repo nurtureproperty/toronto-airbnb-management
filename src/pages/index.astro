@@ -445,7 +445,7 @@ const latestPosts = allPosts
         }
 
         .section-header {
-            text-align: center;
+            text-align: center !important;
             margin-bottom: 4rem;
             width: 100%;
         }
@@ -454,17 +454,28 @@ const latestPosts = allPosts
             font-size: 3rem;
             margin-bottom: 1rem;
             color: var(--charcoal);
-            text-align: center;
+            text-align: center !important;
         }
 
         .section-header .serif-subtitle {
             font-size: 1.5rem;
             color: var(--primary-dark);
-            text-align: center;
+            text-align: center !important;
         }
 
         .section-header p {
-            text-align: center;
+            text-align: center !important;
+        }
+
+        /* Ensure all section h2s are centered */
+        .why-choose h2,
+        .how-it-works h2,
+        .services h2,
+        .pricing-comparison h2,
+        .faq h2,
+        .service-areas h2,
+        .blog-section h2 {
+            text-align: center !important;
         }
 
         .benefits-grid {
