@@ -445,7 +445,11 @@ const latestPosts = allPosts
         }
 
         .section-header {
-            text-align: center !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             margin-bottom: 4rem;
             width: 100%;
         }
@@ -454,28 +458,20 @@ const latestPosts = allPosts
             font-size: 3rem;
             margin-bottom: 1rem;
             color: var(--charcoal);
-            text-align: center !important;
+            text-align: center;
+            width: 100%;
         }
 
         .section-header .serif-subtitle {
             font-size: 1.5rem;
             color: var(--primary-dark);
-            text-align: center !important;
+            text-align: center;
+            width: 100%;
         }
 
         .section-header p {
-            text-align: center !important;
-        }
-
-        /* Ensure all section h2s are centered */
-        .why-choose h2,
-        .how-it-works h2,
-        .services h2,
-        .pricing-comparison h2,
-        .faq h2,
-        .service-areas h2,
-        .blog-section h2 {
-            text-align: center !important;
+            text-align: center;
+            width: 100%;
         }
 
         .benefits-grid {
@@ -727,18 +723,25 @@ const latestPosts = allPosts
         }
 
         .pricing-comparison .section-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             margin-bottom: 3rem;
+            width: 100%;
         }
 
         .pricing-comparison .section-header h2 {
             text-align: center;
+            width: 100%;
         }
 
         .pricing-comparison .section-header p {
             color: var(--color-text-light, #64748b);
             font-size: 1.1rem;
             text-align: center;
+            width: 100%;
         }
 
         .feature-comparison {
