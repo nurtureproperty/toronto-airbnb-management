@@ -38,6 +38,8 @@
 | Burlington | Not Regulated | No | No | None | No |
 | Milton | Regulated | Yes | Yes | TBD | Check |
 | Halton Hills | NOT PERMITTED | N/A | N/A | N/A | N/A |
+| **PEEL REGION** |
+| Caledon | Regulated (2026) | Yes | Yes ($500) | 180/year + 300 cap | TBD |
 | **OTHER MAJOR CITIES** |
 | Ottawa | Regulated | Yes | Yes ($112/2yr) | None | 4% |
 | London | Regulated | Yes | Yes ($196/yr) | None | 4% |
@@ -236,6 +238,36 @@
 ### Halton Hills
 - **Status:** NOT PERMITTED
 - **Notes:** Short-term rentals not allowed
+
+---
+
+## PEEL REGION
+
+> **Note:** Toronto, Mississauga, and Brampton have separate detailed bylaw files.
+
+### Caledon
+- **Status:** REGULATED (effective Spring 2026)
+- **Definition:** Rentals of 28 consecutive days or less
+- **Principal Residence:** Required (owner's primary residence)
+- **Night Limit:** 180 nights per calendar year
+- **License Cap:** 300 STR licenses maximum town-wide
+- **License Fee:** $500/year ($250 introductory rate for first 60 days)
+- **Fire Inspection:** ~$233.55 base fee + per-occupancy charges
+- **Enforcement:**
+  - Demerit point system
+  - Administrative monetary penalties
+  - License suspension/revocation
+  - Granicus Host Compliance monitoring of Airbnb, VRBO, Booking.com
+- **Implementation:**
+  - Phase 1 (Fall 2025): Multi-tenant units, Additional Residential Units
+  - Phase 2 (Spring 2026): Short-term rental licensing
+- **Key Notes:**
+  - Part of $14M Housing Accelerator Fund deliverable
+  - Population grew 31% since 2016, expected 48.6% more by 2031
+  - Only 585 purpose-built rentals in town
+  - 2 dedicated enforcement officers being hired
+- **Source:** Staff Report 2025-0144, General Committee Meeting September 9, 2025
+- **Website:** https://www.caledon.ca
 
 ---
 

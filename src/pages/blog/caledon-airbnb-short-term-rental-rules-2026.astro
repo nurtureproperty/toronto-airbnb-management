@@ -1,0 +1,920 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Caledon?", a: "No. Like Toronto, Mississauga, and Brampton, Caledon's proposed bylaw only allows STRs at your principal residence. Investment properties cannot be used for short-term rentals under 28 days. However, mid-term rentals (28+ days) are not subject to these restrictions." },
+  { q: "Is there a night limit for Airbnb in Caledon?", a: "Yes, the proposed bylaw limits entire-unit STRs to 180 nights per calendar year. This is the same cap used in Toronto, Mississauga, and Brampton. After hitting 180 nights, you cannot operate until January 1st of the following year, unless you switch to mid-term rentals." },
+  { q: "How much is the Caledon STR license?", a: "The proposed fee is $500 per year, with an introductory rate of $250 during the first 60 days after the program launches in Spring 2026. There's also a fire inspection fee of approximately $233.55 plus additional per-tenant charges." },
+  { q: "Is there a cap on STR licenses in Caledon?", a: "Yes. Caledon is proposing a cap of 300 short-term rental licenses at any given time. This is one of the strictest limits in the GTA. If 300 licenses are already issued, new applicants will need to wait until a license becomes available." },
+  { q: "When do Caledon STR rules take effect?", a: "The STR licensing program (Class C3) is proposed to launch in Spring 2026. Phase 1, covering long-term rentals like multi-tenant units and additional residential units, begins Fall 2025." },
+  { q: "Will Caledon track unlicensed Airbnb listings?", a: "Yes. The town has contracted Granicus Host Compliance to monitor platforms like Airbnb, VRBO, and Booking.com. They will identify unlicensed listings, collect owner contact information, and track compliance in real-time." },
+  { q: "What happens if I operate without a license in Caledon?", a: "The bylaw includes administrative monetary penalties, a demerit point system, and the ability to suspend or revoke licenses. Enforcement will be handled by two new dedicated Municipal Law Enforcement Officers." },
+  { q: "Can tenants operate an STR in Caledon?", a: "The bylaw requires the property to be your principal residence. If you're a tenant and the property is your principal residence, you would need to check with the municipality for specific eligibility requirements and likely need landlord approval." }
+];
+
+const relatedPosts = [
+  { title: 'Brampton Airbnb Short Term Rental Guide 2026', href: '/blog/brampton-airbnb-short-term-rental-guide-2026', description: 'STR rules for Caledon\'s neighbor to the south' },
+  { title: 'How to Make More from GTA Airbnb', href: '/blog/how-to-make-more-from-gta-airbnb', description: 'Data study: what drives Airbnb revenue in larger GTA properties' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR rules including the 180-night limit' }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'Overview' },
+  { id: 'what-is-str', text: 'What Counts as Short-Term Rental?' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'night-limit', text: '180-Night Annual Limit' },
+  { id: 'license-cap', text: '300 License Cap' },
+  { id: 'license-requirements', text: 'License Requirements & Fees' },
+  { id: 'enforcement', text: 'Enforcement & Penalties' },
+  { id: 'implementation', text: 'Implementation Timeline' },
+  { id: 'mid-term-strategy', text: 'Mid-Term Rental Alternative' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Caledon Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Caledon Airbnb rules: principal residence required, 180-night limit, 300 STR cap, $500 license. Complete 2026 guide to the proposed bylaw.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-01-30",
+  "dateModified": "2026-01-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/caledon-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Caledon Regulations</span>
+      </nav>
+      <h1>Caledon Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Updated January 30, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Caledon is about to become one of the more strictly regulated short-term rental markets in the GTA. The Town's proposed Residential Rental Licence By-law introduces a 300 STR cap, principal residence requirements, and a 180-night annual limit. If you're thinking about Airbnb in Caledon, you need to understand these rules before the program launches in Spring 2026.</p>
+            <p class="lead">This guide breaks down everything from the proposed bylaw: who can host, licensing fees, the strict 300 license cap, enforcement mechanisms, and what the rules mean for property owners in Bolton, Caledon East, and the surrounding areas.</p>
+          </div>
+
+          <div class="warning-box">
+            <h4>Proposed Bylaw Notice</h4>
+            <p>This article is based on Staff Report 2025-0144 presented to Caledon's General Committee on September 9, 2025. The STR licensing program (Class C3) is proposed to launch in <strong>Spring 2026</strong>. Final rules may change before implementation. Always verify with the Town of Caledon directly.</p>
+          </div>
+
+          <h2 id="overview">Overview: What's Coming to Caledon</h2>
+          <p>Caledon has been relatively unregulated for short-term rentals. That's about to change. The Town is introducing a comprehensive Residential Rental Licence By-law that covers all forms of residential rentals, from basement apartments to Airbnb listings.</p>
+
+          <p>For STR hosts, here's the short version:</p>
+
+          <div class="highlight-box">
+            <h4>Key Rules at a Glance</h4>
+            <ul>
+              <li><strong>Principal residence only:</strong> Must be your primary home</li>
+              <li><strong>180 nights/year:</strong> Annual cap on entire-unit rentals</li>
+              <li><strong>300 STR cap:</strong> Town-wide limit on total licenses</li>
+              <li><strong>$500 license fee:</strong> ($250 introductory rate)</li>
+              <li><strong>28 days or less:</strong> Defines short-term rental</li>
+              <li><strong>Spring 2026 launch:</strong> STR licensing begins</li>
+            </ul>
+          </div>
+
+          <p>Why is Caledon doing this? The Town has seen significant growth. Population jumped 31% between 2016 and 2025 (from 66,502 to 90,600), with another 48.6% increase expected by 2031. The rental market has shifted dramatically toward informal arrangements, and the Town wants oversight. Plus, this bylaw is an explicit deliverable of Caledon's $14 million Housing Accelerator Fund agreement with the federal government.</p>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Under the proposed bylaw, Caledon defines a short-term rental (Class C3) as:</p>
+
+          <blockquote class="bylaw-quote">
+            "Rented for 28 consecutive days or less"
+            <cite>Staff Report 2025-0144, Class C3 Definition</cite>
+          </blockquote>
+
+          <p>So a weekend getaway for a family visiting the Caledon countryside? Short-term rental. A 3-week stay for someone exploring the area? Still short-term. But hit 28 days or more? That's a different category entirely, and different rules apply.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Same Threshold as Brampton:</strong> Both Caledon and Brampton (just to the south) use 28 days as the STR threshold. Toronto uses the same. This makes compliance easier if you're considering properties in multiple Peel Region municipalities.
+            </div>
+          </div>
+
+          <h2 id="principal-residence">The Principal Residence Rule</h2>
+          <p>This is the biggest restriction. You can only operate a short-term rental in your principal residence, meaning the home where you actually live. From the staff report:</p>
+
+          <blockquote class="bylaw-quote">
+            "Owners primary residence"
+            <cite>Staff Report 2025-0144, Class C3 Requirements</cite>
+          </blockquote>
+
+          <p>What this means in practice:</p>
+          <ul>
+            <li>It must be your <strong>actual home</strong> where you sleep, get mail, and pay taxes</li>
+            <li>You can only have <strong>one principal residence</strong></li>
+            <li>Investment properties <strong>cannot</strong> be used for STRs under 28 days</li>
+            <li>Vacation homes or secondary properties <strong>do not qualify</strong></li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Investment Property Owners</h4>
+            <p>Got a rural property in Caledon's countryside that you don't live in? Can't STR it under the proposed rules. But here's the workaround: <a href="#mid-term-strategy">mid-term rentals</a> (28+ days) are not subject to these STR restrictions. That's the path forward for investment properties.</p>
+          </div>
+
+          <h2 id="night-limit">180-Night Annual Limit</h2>
+          <p>If you rent your entire home while you're away, you're limited to 180 nights per calendar year:</p>
+
+          <blockquote class="bylaw-quote">
+            "Rented for 180 nights per year or less"
+            <cite>Staff Report 2025-0144, Class C3 Requirements</cite>
+          </blockquote>
+
+          <div class="highlight-box">
+            <h4>180 Nights Per Year Maximum</h4>
+            <p>This matches Toronto, Mississauga, and Brampton. The count resets January 1st. If you're running a busy listing, you'll hit this cap around July or August.</p>
+          </div>
+
+          <p>The practical strategy: use your 180 nights during peak demand periods (summer, holidays, special events), then transition to mid-term rentals for the remainder of the year. Mid-term stays don't count against your annual limit.</p>
+
+          <h2 id="license-cap">The 300 License Cap: Caledon's Strictest Rule</h2>
+          <p>This is where Caledon differs from most GTA municipalities. The bylaw proposes a hard cap on the total number of STR licenses:</p>
+
+          <blockquote class="bylaw-quote">
+            "Establish a cap on short-term rentals to 300 at any given time."
+            <cite>Staff Report 2025-0144, Report Highlights</cite>
+          </blockquote>
+
+          <p>Why this matters:</p>
+          <ul>
+            <li><strong>Limited supply:</strong> Only 300 STR licenses will be available town-wide</li>
+            <li><strong>First-come advantage:</strong> Early applicants secure their spot</li>
+            <li><strong>Waitlist likely:</strong> If demand exceeds 300, new applicants wait for a license to become available</li>
+            <li><strong>Scarcity premium:</strong> Licensed STRs may command better rates with less competition</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Apply Early:</strong> When the program launches in Spring 2026, the introductory rate ($250 vs $500) combined with the 300 license cap means early applicants get both a discount and guaranteed access. Don't wait.
+            </div>
+          </div>
+
+          <h2 id="license-requirements">License Requirements & Fees</h2>
+          <p>Here's what you'll need to operate legally once the STR program launches.</p>
+
+          <h3>License Fees</h3>
+          <div class="fee-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fee Type</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Standard License Fee</td>
+                  <td>$500</td>
+                </tr>
+                <tr>
+                  <td>Introductory Fee (First 60 Days)</td>
+                  <td>$250</td>
+                </tr>
+                <tr>
+                  <td>Fire Inspection Base Fee</td>
+                  <td>$233.55</td>
+                </tr>
+                <tr>
+                  <td>Per Tenant/Occupancy (up to 10,000 sq ft)</td>
+                  <td>$127.17</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The fire inspection fee applies when the Fire Department conducts compliance inspections. The base fee plus per-occupancy charges can add up, so budget accordingly.</p>
+
+          <h3>Application Requirements</h3>
+          <p>Based on the general licensing framework in the bylaw, expect to provide:</p>
+          <ol>
+            <li><strong>Completed application form</strong></li>
+            <li><strong>Site and floor plans</strong> of the property</li>
+            <li><strong>Proof of insurance</strong> documentation</li>
+            <li><strong>Property maintenance plan</strong></li>
+            <li><strong>Declaration</strong> confirming principal residence status</li>
+            <li><strong>Criminal record screening</strong> (specific requirements TBD)</li>
+            <li><strong>Emergency contact information</strong> and safety plan</li>
+          </ol>
+
+          <p>The bylaw emphasizes compliance with building, fire, and property maintenance standards. Properties must meet all applicable codes before licensing.</p>
+
+          <h2 id="enforcement">Enforcement & Penalties</h2>
+          <p>Caledon is building robust enforcement mechanisms into the bylaw. This isn't a system where violations go unnoticed.</p>
+
+          <h3>Host Compliance Monitoring</h3>
+          <p>The Town has contracted Granicus Host Compliance to actively monitor short-term rental platforms:</p>
+
+          <blockquote class="bylaw-quote">
+            "Through their Address Identification and Compliance Monitoring platforms, Granicus will provide ongoing monitoring of major platforms such as Airbnb, VRBO, and Booking.com, including deduplication of listings, collection of owner contact information, and real-time compliance tracking."
+            <cite>Staff Report 2025-0144</cite>
+          </blockquote>
+
+          <p>What this means: the Town will know about unlicensed listings. They'll be able to identify which properties are operating without proper authorization and track compliance in real-time. Operating under the radar won't be viable.</p>
+
+          <h3>Enforcement Tools</h3>
+          <p>The bylaw includes multiple enforcement mechanisms:</p>
+          <ul>
+            <li><strong>Administrative Monetary Penalties (AMPs):</strong> Fines for violations</li>
+            <li><strong>Demerit Point System:</strong> Accumulate points for infractions</li>
+            <li><strong>License Suspension:</strong> Temporary loss of operating privileges</li>
+            <li><strong>License Revocation:</strong> Permanent loss of license</li>
+          </ul>
+
+          <p>The demerit system means repeated minor violations can lead to serious consequences. Even if individual penalties are small, the accumulation can cost you your license.</p>
+
+          <h3>Dedicated Enforcement Staff</h3>
+          <p>Caledon is hiring two new full-time Municipal Law Enforcement Officers specifically for rental licensing enforcement. This isn't a part-time effort. The Town is investing in dedicated resources to ensure compliance.</p>
+
+          <h2 id="implementation">Implementation Timeline</h2>
+          <p>The rental licensing program is rolling out in phases:</p>
+
+          <div class="timeline-box">
+            <h4>Phase 1: Fall 2025</h4>
+            <ul>
+              <li><strong>Class C1:</strong> Multi-Tenant Units (rooming houses, shared accommodations)</li>
+              <li><strong>Class C2:</strong> Additional Residential Units (basement apartments, coach houses)</li>
+            </ul>
+            <p>These long-term rental categories launch first to meet Housing Accelerator Fund requirements.</p>
+          </div>
+
+          <div class="timeline-box featured">
+            <h4>Phase 2: Spring 2026</h4>
+            <ul>
+              <li><strong>Class C3:</strong> Short-Term Rental Accommodations</li>
+            </ul>
+            <p>STR licensing begins, including the 300 license cap, principal residence requirement, and 180-night limit.</p>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Program Review:</strong> The Town will report back to Council by end of 2026 on implementation status and may recommend adjustments based on how the program is working.
+            </div>
+          </div>
+
+          <h2 id="mid-term-strategy">Mid-Term Rentals: The Alternative Strategy</h2>
+          <p>Here's the pathway for investment properties and hosts who want to exceed the 180-night limit. Since Caledon's STR rules only apply to rentals of 28 days or less, <strong>mid-term rentals are not subject to these restrictions</strong>.</p>
+
+          <h3>What Changes at 28 Days?</h3>
+          <p>When your rental reaches 28 consecutive days or more:</p>
+          <ul>
+            <li><strong>No STR license needed</strong> (though other licensing may apply)</li>
+            <li><strong>No principal residence requirement</strong> (investment properties work)</li>
+            <li><strong>No 180-night cap</strong> (rent year-round)</li>
+            <li><strong>No 300 license cap</strong> (unlimited mid-term rentals)</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Why Mid-Term Works Well in Caledon</h4>
+            <p>Caledon's location creates natural mid-term demand:</p>
+            <ul>
+              <li><strong>Construction crews:</strong> Major development projects throughout Peel Region need temporary housing for workers</li>
+              <li><strong>Toronto commuters:</strong> Professionals seeking quieter alternatives to city living while maintaining GTA access</li>
+              <li><strong>New residents:</strong> Families moving to the area who need landing spots while searching for permanent homes</li>
+              <li><strong>Corporate relocations:</strong> Business professionals on 1-3 month assignments</li>
+              <li><strong>Film and TV production:</strong> The GTA's production industry brings crews who need extended stays</li>
+            </ul>
+          </div>
+
+          <p>With only 585 purpose-built rentals in Caledon and a rapidly growing population, demand for quality furnished rentals outpaces supply. Mid-term rentals fill this gap while avoiding the STR regulatory framework entirely.</p>
+
+          <h2 id="official-resources">Official Resources</h2>
+          <p>Always verify regulations directly with the Town of Caledon. Rules may change between this writing and implementation.</p>
+
+          <div class="resources-box">
+            <h4>Town of Caledon Links</h4>
+            <ul>
+              <li><a href="https://www.caledon.ca" target="_blank" rel="noopener">Town of Caledon Official Website</a></li>
+              <li><a href="https://www.caledon.ca/en/government/agendas-and-minutes.aspx" target="_blank" rel="noopener">Council Agendas and Minutes</a> (for bylaw updates)</li>
+              <li><a href="https://www.caledon.ca/en/business-and-development/business-licences-and-permits.aspx" target="_blank" rel="noopener">Business Licenses and Permits</a></li>
+            </ul>
+            <p class="resources-contact"><strong>Municipal Law Enforcement:</strong> Contact through the Town's main line for licensing inquiries.</p>
+          </div>
+
+          <p>The proposed bylaw was presented in Staff Report 2025-0144 at the September 9, 2025 General Committee Meeting. Check Council meeting records for the final approved version and any amendments.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Planning to Host in Caledon?</h3>
+            <p>The 300 license cap means early movers have the advantage. We help property owners in Caledon, Bolton, and Caledon East navigate compliance, optimize listings, and maximize revenue. Whether you're going for an STR license or pivoting to mid-term rentals, we handle everything while you collect rent.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Caledon STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance and maximize your rental income in the GTA.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .article-section {
+    padding-top: 3rem;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    position: relative;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sticky h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .toc-link {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover {
+    color: var(--color-primary);
+  }
+
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .article-content {
+    max-width: 720px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .article-intro .lead {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+    scroll-margin-top: 100px;
+  }
+
+  .article-content h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .article-content ul, .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: #f0f7f5;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    font-size: 0.95rem;
+  }
+
+  .highlight-box {
+    background: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .highlight-box h4 {
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .highlight-box ul {
+    margin-bottom: 0;
+  }
+
+  .warning-box {
+    background: #fef3cd;
+    border-left: 4px solid #d4a373;
+    border-radius: 0 8px 8px 0;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .warning-box h4 {
+    color: #856404;
+    margin-bottom: 0.75rem;
+  }
+
+  .warning-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, #f0f7f5 0%, #e8f4f1 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .strategy-box h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box ul {
+    margin-bottom: 0;
+  }
+
+  .timeline-box {
+    background: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .timeline-box.featured {
+    background: linear-gradient(135deg, #f0f7f5 0%, #e8f4f1 100%);
+    border: 2px solid var(--color-primary);
+  }
+
+  .timeline-box h4 {
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+  }
+
+  .timeline-box ul {
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-box p:last-child {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .fee-table {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .fee-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .fee-table th, .fee-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .fee-table th {
+    background: var(--color-dark);
+    color: white;
+  }
+
+  .fee-table tr:nth-child(even) {
+    background: var(--color-background-alt);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+  }
+
+  .resources-box ul {
+    margin-bottom: 1rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+  }
+
+  .resources-contact {
+    margin-bottom: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    color: var(--color-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-item p {
+    margin-bottom: 0;
+    color: var(--color-text);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    text-align: center;
+    color: white;
+  }
+
+  .article-cta h3 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .article-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-cta .btn {
+    background: white;
+    color: var(--color-primary-dark);
+  }
+
+  .article-cta .btn:hover {
+    background: var(--color-background-alt);
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .related-card h4 {
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .related-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: var(--color-primary-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content > p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-note {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .article-cta {
+      padding: 1.5rem;
+    }
+
+    .fee-table th, .fee-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

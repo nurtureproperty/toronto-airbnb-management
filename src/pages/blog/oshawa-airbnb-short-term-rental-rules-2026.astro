@@ -1,0 +1,1015 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Oshawa?", a: "No. Oshawa requires your STR to be your principal residence. Investment properties cannot be used for short-term rentals under 28 days. If you own a non-principal residence property, consider mid-term rentals (30+ days) which are exempt from STR regulations." },
+  { q: "How many nights can I rent my Oshawa Airbnb?", a: "Maximum 180 days per calendar year, with each booking limited to 28 consecutive days or less. This is the same limit as Toronto. Track your nights carefully as the city requires records." },
+  { q: "How much is the Oshawa STR license?", a: "$150 total: $100 license fee plus $50 application fee. You'll also need to pass a property inspection before the license is issued. Licenses need to be renewed annually." },
+  { q: "What insurance do I need for Oshawa Airbnb?", a: "Minimum $2,000,000 liability coverage per occurrence. The policy must explicitly identify STR use. You must provide 15 days written notice to the city if your insurance is cancelled." },
+  { q: "Can I rent individual rooms in Oshawa?", a: "Yes, but with restrictions. Maximum 2 rooms can be rented, with a maximum of 2 occupants per room. You cannot operate both whole-home rentals and room rentals in the same dwelling unit simultaneously." },
+  { q: "Do I need a local contact for my Oshawa STR?", a: "Yes. You must designate a Local Contact available 24/7 who can respond to issues within one hour by phone or email. This can be you, a property manager, or a trusted contact." },
+  { q: "What is the Oshawa MAT tax rate?", a: "5% Municipal Accommodation Tax on all bookings under 30 days. This took effect October 1, 2024. STR operators must remit MAT quarterly and keep records for 7 years." },
+  { q: "What records do I need to keep for Oshawa STR?", a: "Keep records for 6 years minimum: rental dates, number of nights, whether whole-home or room rental, and confirmation that renters received the Visitor's Code. MAT records must be kept for 7 years." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Compare regulations with nearby Toronto' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding principal residence rules' },
+  { title: 'How to Make More from GTA Airbnb', href: '/blog/how-to-make-more-from-gta-airbnb', description: 'Data study on what drives Airbnb revenue' }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'Oshawa Overview' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'night-limits', text: 'Night Limits' },
+  { id: 'room-rentals', text: 'Room Rental Rules' },
+  { id: 'safety-requirements', text: 'Safety Requirements' },
+  { id: 'mat-tax', text: 'Municipal Accommodation Tax' },
+  { id: 'compliance', text: 'Staying Compliant' },
+  { id: 'penalties', text: 'Penalties' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Oshawa Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Oshawa Airbnb rules: principal residence required, 180 nights/year, $150 license, 5% MAT. Complete 2026 licensing guide for Durham Region hosts.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2025-01-30",
+  "dateModified": "2025-01-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/oshawa-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Oshawa Regulations</span>
+      </nav>
+      <h1>Oshawa Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">January 30, 2025</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead"><strong>Oshawa is one of the few Durham Region cities with comprehensive STR regulations.</strong> If you're looking to Airbnb your home in Oshawa, you'll need to understand the licensing requirements, principal residence rules, and the 180-night annual limit.</p>
+            <p class="lead">Here's everything you need to know about Oshawa's STR licensing bylaw and how to operate compliantly in 2026.</p>
+          </div>
+
+          <h2 id="overview">Oshawa STR Overview</h2>
+          <p>Oshawa's short-term rental regulations are governed by Schedule "Q" of the Licensing By-law 122-2024. The city defines a short-term rental as:</p>
+
+          <blockquote class="bylaw-quote">
+            "All or part of a dwelling unit that is used to provide temporary accommodation" through a rental company platform, requiring operator licensure.
+            <cite>City of Oshawa Licensing By-law 122-2024, Schedule Q</cite>
+          </blockquote>
+
+          <p>Oshawa uses <strong>28 days</strong> as the threshold, consistent with most GTA municipalities. Any rental under 28 consecutive days is considered a short-term rental and requires licensing.</p>
+
+          <div class="key-stats">
+            <div class="stat-item">
+              <span class="stat-value">28 days</span>
+              <span class="stat-label">STR threshold</span>
+            </div>
+            <div class="stat-item highlight">
+              <span class="stat-value">180/year</span>
+              <span class="stat-label">Night limit</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">$150</span>
+              <span class="stat-label">License fee</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">5%</span>
+              <span class="stat-label">MAT rate</span>
+            </div>
+          </div>
+
+          <h2 id="principal-residence">Principal Residence Requirement</h2>
+          <p>This is the key restriction. <strong>Oshawa requires your STR to be your principal residence.</strong> You cannot operate a short-term rental from an investment property, second home, or any property where you don't actually live.</p>
+
+          <div class="warning-box">
+            <h4>Investment Properties Not Allowed</h4>
+            <p>Unlike investor-friendly cities like Kingston or Sault Ste. Marie, Oshawa follows the same principal residence model as Toronto, Mississauga, and most GTA municipalities. If you own investment property in Oshawa, consider mid-term rentals (30+ days) which are exempt from STR rules.</p>
+          </div>
+
+          <h3>What Counts as Principal Residence?</h3>
+          <p>Your principal residence is where you normally live, receive mail, file taxes from, and consider your permanent home. The city can verify this through:</p>
+          <ul>
+            <li>Property tax records</li>
+            <li>Driver's license address</li>
+            <li>Utility bills</li>
+            <li>Tax filings</li>
+            <li>Other government documentation</li>
+          </ul>
+
+          <p>You cannot simply claim a property is your principal residence. The city has the authority to investigate and can revoke your license if they determine you've misrepresented residency.</p>
+
+          <h2 id="license-requirements">License Requirements</h2>
+          <p>You must obtain a valid STR license before advertising or operating any short-term rental in Oshawa. Here's what you need:</p>
+
+          <h3>License Fees</h3>
+          <div class="fee-breakdown">
+            <div class="fee-item">
+              <span class="fee-label">Application fee</span>
+              <span class="fee-amount">$50</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-label">License fee</span>
+              <span class="fee-amount">$100</span>
+            </div>
+            <div class="fee-item total">
+              <span class="fee-label">Total</span>
+              <span class="fee-amount">$150</span>
+            </div>
+          </div>
+
+          <h3>Application Requirements</h3>
+          <ul>
+            <li><strong>Floor plan</strong> showing exits, windows, rooms, and common areas (hand-drawn is acceptable)</li>
+            <li><strong>Proof of insurance</strong> with minimum $2,000,000 liability coverage that explicitly identifies STR use</li>
+            <li><strong>Local contact information</strong> for someone available 24/7 who can respond within one hour</li>
+            <li><strong>Declaration</strong> attesting compliance with zoning, safety requirements, and property owner consent</li>
+            <li><strong>Condo board approval</strong> if applicable (must confirm STR use is permitted)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Inspection required:</strong> All STR properties must pass an inspection by City Licensing Inspectors before your license is approved. This is scheduled during the application process.
+            </div>
+          </div>
+
+          <h3>Insurance Requirements</h3>
+          <p>Your insurance policy must meet specific criteria:</p>
+          <ul>
+            <li>Minimum <strong>$2,000,000 liability coverage</strong> per occurrence</li>
+            <li>Policy must <strong>explicitly identify STR use</strong></li>
+            <li>You must provide <strong>15 days written notice</strong> to the city if insurance is cancelled</li>
+            <li>Standard homeowner's insurance typically doesn't cover STR activity</li>
+          </ul>
+
+          <h2 id="night-limits">Night Limits</h2>
+          <p>Oshawa imposes two restrictions on how you can rent:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Restriction</div>
+              <div class="comparison-col highlight">Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Per booking</div>
+              <div class="comparison-col highlight">28 consecutive days max</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Per year</div>
+              <div class="comparison-col highlight">180 days total</div>
+            </div>
+          </div>
+
+          <p>The 180-night annual limit matches Toronto's regulations. Once you hit 180 nights in a calendar year, you cannot accept additional short-term bookings until the next year.</p>
+
+          <div class="success-box">
+            <h4>Tracking Your Nights</h4>
+            <p>Keep accurate records of every booking. Most platforms provide annual summaries, but maintain your own spreadsheet as backup. The city can request these records at any time.</p>
+          </div>
+
+          <h2 id="room-rentals">Room Rental Rules</h2>
+          <p>If you want to rent individual rooms while remaining in your home, Oshawa has specific restrictions:</p>
+
+          <ul>
+            <li><strong>Maximum 2 rooms</strong> can be rented at a time</li>
+            <li><strong>Maximum 2 occupants per room</strong></li>
+            <li><strong>Cannot operate both</strong> whole-home and room rentals simultaneously</li>
+            <li>No other rental use permitted in the same dwelling unit</li>
+          </ul>
+
+          <p>Room rentals still count toward your 180-night annual limit. Each night a room is rented is one night of your allocation.</p>
+
+          <h2 id="safety-requirements">Safety Requirements</h2>
+          <p>Your STR must meet specific safety standards:</p>
+
+          <h3>Mandatory Safety Equipment</h3>
+          <ul>
+            <li><strong>Working smoke alarms</strong> on each level of the dwelling</li>
+            <li><strong>Carbon monoxide detectors</strong> on all sleeping levels</li>
+            <li><strong>Posted emergency instructions</strong> clearly visible to guests</li>
+            <li><strong>Visitor's Code</strong> provided to all renters before or at check-in</li>
+          </ul>
+
+          <h3>Visitor's Code</h3>
+          <p>You must provide every guest with a Visitor's Code that outlines:</p>
+          <ul>
+            <li>Property rules and expectations</li>
+            <li>Emergency contact information</li>
+            <li>Relevant city bylaws (noise, parking, garbage)</li>
+            <li>Check-out procedures</li>
+          </ul>
+
+          <p>Keep confirmation that each renter received the Visitor's Code for your records.</p>
+
+          <h2 id="mat-tax">Municipal Accommodation Tax (MAT)</h2>
+          <p>Oshawa implemented a 5% Municipal Accommodation Tax effective October 1, 2024. This applies to all transient accommodations including short-term rentals.</p>
+
+          <div class="key-stats" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="stat-item highlight">
+              <span class="stat-value">5%</span>
+              <span class="stat-label">MAT rate</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">Quarterly</span>
+              <span class="stat-label">Remittance schedule</span>
+            </div>
+          </div>
+
+          <h3>MAT Requirements</h3>
+          <ul>
+            <li><strong>Collect 5%</strong> of the purchase price from guests</li>
+            <li><strong>Remit quarterly</strong> to the City Treasurer</li>
+            <li><strong>Display as separate line item</strong> on receipts/invoices as "Municipal Accommodation Tax"</li>
+            <li><strong>Keep records for 7 years</strong></li>
+          </ul>
+
+          <blockquote class="bylaw-quote">
+            "A Provider identified as a bed and breakfast or short-term rental shall remit the amount of the M.A.T. collected for the previous three months and submit the quarterly statements on or before the last day every calendar quarter end."
+            <cite>City of Oshawa By-law 93-2020, Section 9.2</cite>
+          </blockquote>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Verify platform collection:</strong> Some platforms like Airbnb may collect and remit MAT automatically. Confirm with both the platform and the City of Oshawa whether you need to handle MAT yourself.
+            </div>
+          </div>
+
+          <h2 id="compliance">Staying Compliant</h2>
+          <p>Oshawa takes enforcement seriously. Here's how to stay on the right side of the bylaw:</p>
+
+          <h3>Record Keeping (6 Years)</h3>
+          <p>You must keep detailed records for at least 6 years:</p>
+          <ul>
+            <li>Rental dates and number of nights</li>
+            <li>Whether whole-home or room rental</li>
+            <li>Confirmation renters received Visitor's Code</li>
+            <li>MAT collected (keep 7 years for MAT records)</li>
+          </ul>
+
+          <h3>Advertising Requirements</h3>
+          <ul>
+            <li><strong>Display your valid license number</strong> on all listings and advertisements</li>
+            <li>Cannot advertise an STR without a valid license</li>
+            <li>Keep listings accurate and up-to-date</li>
+          </ul>
+
+          <h3>Local Contact</h3>
+          <p>Your designated Local Contact must:</p>
+          <ul>
+            <li>Be available <strong>24/7</strong></li>
+            <li>Respond within <strong>one hour</strong> by phone or email</li>
+            <li>Be able to attend the property if needed</li>
+            <li>Have authority to resolve issues</li>
+          </ul>
+
+          <h2 id="penalties">Penalties for Non-Compliance</h2>
+          <p>Oshawa enforces STR regulations with escalating penalties:</p>
+
+          <div class="penalty-box">
+            <h4>Penalty Structure</h4>
+            <ul>
+              <li><strong>Operating without license:</strong> Up to $500</li>
+              <li><strong>Other bylaw violations:</strong> Up to $250</li>
+              <li><strong>Provincial Offences Act:</strong> $500 to $100,000</li>
+              <li><strong>MAT non-compliance:</strong> 1.25% penalty on first day of default, plus 1.25% monthly interest</li>
+              <li><strong>Unpaid amounts:</strong> Can be added to your property tax bill</li>
+            </ul>
+          </div>
+
+          <p>The city can also revoke or suspend your license for non-compliance. Corporate officers and directors can be held personally liable for violations.</p>
+
+          <h2 id="official-resources">Official City of Oshawa Resources</h2>
+          <p>Always verify current requirements with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.oshawa.ca/business-development/housing-permits-and-licences/short-term-rentals/" target="_blank" rel="noopener">City of Oshawa STR Licensing</a></li>
+              <li><a href="https://www.oshawa.ca/en/home-property/resources/Documents/STR-Application.pdf" target="_blank" rel="noopener">STR License Application (PDF)</a></li>
+              <li><a href="https://www.oshawa.ca/en/business-development/housing-permits-and-licences.aspx" target="_blank" rel="noopener">Housing Permits and Licences</a></li>
+            </ul>
+            <h4>Contact</h4>
+            <ul>
+              <li><strong>Service Oshawa:</strong> 905-436-3311</li>
+              <li><strong>Toll Free:</strong> 1-800-667-4292</li>
+              <li><strong>Email:</strong> service@oshawa.ca</li>
+              <li><strong>Address:</strong> 50 Centre St. S., Oshawa, ON L1H 3Z7</li>
+            </ul>
+          </div>
+
+          <p>Bylaws can change. The information here reflects Licensing By-law 122-2024 and MAT By-law 93-2020 as amended through 2024, but always check the city's website for the most current version.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Oshawa Airbnb?</h3>
+            <p>Nurture handles licensing compliance, guest communication, and revenue optimization for Durham Region hosts. Focus on your life while we handle the operations.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Oshawa STR Rules?</h2>
+        <p>Our team can help you navigate licensing and maximize your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .key-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .key-stats .stat-item {
+    background: var(--color-background-alt);
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .key-stats .stat-item.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .key-stats .stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .key-stats .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    opacity: 0.9;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .success-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .success-box h4 {
+    color: #276749;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .success-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .penalty-box {
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .penalty-box h4 {
+    color: #92400e;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .penalty-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .penalty-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .fee-breakdown {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .fee-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .fee-item:last-child {
+    border-bottom: none;
+  }
+
+  .fee-item.total {
+    border-top: 2px solid var(--color-primary);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    font-weight: 700;
+  }
+
+  .fee-amount {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .fee-item.total .fee-amount {
+    font-size: 1.25rem;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box h4:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box li {
+    margin-bottom: 0.5rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .key-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .key-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
