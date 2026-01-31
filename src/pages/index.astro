@@ -1187,8 +1187,13 @@ const latestPosts = allPosts
             }
 
             .primary-button {
-                padding: 0.875rem 1.75rem;
-                font-size: 0.95rem;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                box-shadow: 0 4px 15px rgba(117, 155, 143, 0.4);
+            }
+
+            .primary-button::after {
+                display: none;
             }
 
             .secondary-button {
