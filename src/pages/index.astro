@@ -308,44 +308,27 @@ const latestPosts = allPosts
             transform: translateY(-2px);
         }
 
-        .hero-image {
+        .hero-video {
             position: relative;
             animation: fadeInRight 1s ease-out 0.4s both;
         }
 
-        .hero-image img {
+        .video-wrapper {
+            position: relative;
             width: 100%;
-            height: auto;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        .trust-badge {
+        .video-wrapper iframe {
             position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-            background: white;
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-out 1.2s both;
-        }
-
-        .trust-badge .stars {
-            color: var(--accent);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .trust-badge .rating {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--charcoal);
-        }
-
-        .trust-badge .label {
-            font-size: 0.875rem;
-            color: #666;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Case Study Section */
@@ -1439,12 +1422,15 @@ const latestPosts = allPosts
                     <a href="/contact" class="primary-button">Free Rental Estimate</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Luxury Toronto Airbnb" width="800" height="533" loading="lazy" decoding="async">
-                <div class="trust-badge">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <div class="rating">4.9/5</div>
-                    <div class="label">Airbnb Rating</div>
+            <div class="hero-video">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/ckYcLpEIXg0?rel=0"
+                        title="Nurture Airbnb Management"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
