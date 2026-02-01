@@ -17,6 +17,7 @@ const latestPosts = allPosts
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>Nurture - Premium Airbnb Management in the GTA | Earn 30-100% More</title>
     <meta name="description" content="Expert Airbnb management in the Greater Toronto Area. 4.9★ rating, less than 9-minute response time, 10-15% fees. Turn your property into passive income.">
 
@@ -38,6 +39,40 @@ const latestPosts = allPosts
     <meta name="twitter:title" content="Nurture - Premium Airbnb Management in the GTA" />
     <meta name="twitter:description" content="Expert Airbnb management in the Greater Toronto Area. 4.9★ rating, less than 9-minute response time, 10-15% fees." />
     <meta name="twitter:image" content="https://www.nurturestays.ca/images/logo.webp" />
+
+    <!-- WebPage Schema -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.nurturestays.ca/#webpage",
+      "url": "https://www.nurturestays.ca",
+      "name": "Nurture - Premium Airbnb Management in the GTA",
+      "description": "Expert Airbnb management in the Greater Toronto Area. 4.9★ rating, less than 9-minute response time, 10-15% fees. Turn your property into passive income.",
+      "isPartOf": { "@id": "https://www.nurturestays.ca/#website" },
+      "about": { "@id": "https://www.nurturestays.ca/#business" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.nurturestays.ca/images/logo.webp"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-content h1", ".hero-subtitle", ".hero-description"]
+      }
+    }
+    </script>
+
+    <!-- Website Schema -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.nurturestays.ca/#website",
+      "url": "https://www.nurturestays.ca",
+      "name": "Nurture Airbnb Property Management",
+      "publisher": { "@id": "https://www.nurturestays.ca/#business" }
+    }
+    </script>
 
     <!-- LocalBusiness Schema for Google Business Profile -->
     <script type="application/ld+json" is:inline>
@@ -118,10 +153,12 @@ const latestPosts = allPosts
     <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
     <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" media="(min-width: 769px)">
 
-    <!-- DNS prefetch -->
+    <!-- DNS prefetch & preconnect -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
 
     <!-- Fonts - deferred loading for mobile performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -332,6 +369,47 @@ const latestPosts = allPosts
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        /* Lite YouTube Facade - loads iframe only on click */
+        .lite-youtube {
+            cursor: pointer;
+            background-color: #000;
+        }
+
+        .lite-youtube img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lite-youtube .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            z-index: 1;
+        }
+
+        .lite-youtube:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .lite-youtube.activated {
+            cursor: default;
+        }
+
+        .lite-youtube.activated img,
+        .lite-youtube.activated .play-button {
+            display: none;
         }
 
         .hero-video .hero-buttons {
@@ -1232,6 +1310,19 @@ const latestPosts = allPosts
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Performance: Skip rendering off-screen content */
+        .why-choose,
+        .how-it-works,
+        .services,
+        .pricing-comparison,
+        .faq,
+        .service-areas,
+        .blog-section,
+        .cta-section {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 500px;
+        }
     </style>
 
     <!-- Schema.org structured data -->
@@ -1446,14 +1537,17 @@ const latestPosts = allPosts
                 </div>
                 </div>
             <div class="hero-video">
-                <div class="video-wrapper">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/OFACd6a2ctA?rel=0&modestbranding=1"
-                        title="Nurture Airbnb Management"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                <div class="video-wrapper lite-youtube" data-videoid="OFACd6a2ctA">
+                    <picture>
+                        <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/maxresdefault.webp">
+                        <img src="https://i.ytimg.com/vi/OFACd6a2ctA/maxresdefault.jpg" alt="Nurture Airbnb Management video" loading="eager" fetchpriority="high">
+                    </picture>
+                    <button type="button" class="play-button" aria-label="Play video">
+                        <svg viewBox="0 0 68 48" width="68" height="48">
+                            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                        </svg>
+                    </button>
                 </div>
                 <div class="hero-buttons">
                     <a href="/contact" class="primary-button">Free Rental Estimate</a>
@@ -1839,5 +1933,22 @@ const latestPosts = allPosts
     </section>
 
     <Footer />
+
+    <!-- Lite YouTube - Load iframe only on click for better performance -->
+    <script is:inline>
+    document.querySelectorAll('.lite-youtube').forEach(el => {
+        el.addEventListener('click', function() {
+            if (this.classList.contains('activated')) return;
+            const videoId = this.dataset.videoid;
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            iframe.title = 'Nurture Airbnb Management';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            this.appendChild(iframe);
+            this.classList.add('activated');
+        });
+    });
+    </script>
 </body>
 </html>
