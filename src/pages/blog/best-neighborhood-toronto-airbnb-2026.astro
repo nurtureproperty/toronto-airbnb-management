@@ -1,0 +1,1313 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const neighborhoods = [
+  {
+    rank: 1,
+    name: 'King West & Entertainment District',
+    avgRevenue: '$3,500-$6,000/month',
+    topPerformerRevenue: '$9,000-$12,000/month',
+    strFriendlyBuildings: 20,
+    demandScore: 10,
+    strengths: ['Highest tourist demand', 'Business travelers', 'Nightlife & restaurants', 'Sports events (Scotiabank Arena)', 'Theatre district'],
+    guestTypes: ['Tourists', 'Business travelers', 'Event attendees', 'Bachelor/ette parties'],
+    bestFor: 'Maximum revenue potential with consistent year-round demand',
+    sampleBuildings: ['1 King St W', '321 King St W', '375 King St W', '533 Richmond St W', '800 King St W'],
+    considerations: 'Higher purchase prices, more competition, noise bylaws important'
+  },
+  {
+    rank: 2,
+    name: 'CityPlace & Fort York',
+    avgRevenue: '$2,800-$4,500/month',
+    topPerformerRevenue: '$6,000-$8,000/month',
+    strFriendlyBuildings: 18,
+    demandScore: 9,
+    strengths: ['High concentration of STR-friendly buildings', 'CN Tower views', 'Walking distance to downtown', 'Modern amenities', 'Good transit'],
+    guestTypes: ['Tourists', 'Business travelers', 'Families visiting'],
+    bestFor: 'Reliable occupancy with many proven STR buildings to choose from',
+    sampleBuildings: ['3 Navy Wharf Crt', '38 Dan Leckie Way', '209 Fort York Blvd', '215 Fort York Blvd', '96 Fort York Blvd'],
+    considerations: 'Dense area, parking can be limited, some buildings have STR restrictions'
+  },
+  {
+    rank: 3,
+    name: 'Yorkville & Bay Corridor',
+    avgRevenue: '$4,000-$6,500/month',
+    topPerformerRevenue: '$8,000-$10,000/month',
+    strFriendlyBuildings: 17,
+    demandScore: 8,
+    strengths: ['Premium rates', 'Luxury clientele', 'Shopping district', 'High-end restaurants', 'Bloor-Yorkville festivals'],
+    guestTypes: ['Luxury travelers', 'Shopping tourists', 'Business executives', 'Medical tourism'],
+    bestFor: 'Premium nightly rates with affluent guests',
+    sampleBuildings: ['11 Yorkville Ave', '155 Yorkville Ave', '77 Avenue Rd', '955 Bay St', '1121 Bay St'],
+    considerations: 'Higher purchase prices, guests expect luxury amenities and service'
+  },
+  {
+    rank: 4,
+    name: 'Harbourfront & Queens Quay',
+    avgRevenue: '$3,200-$5,000/month',
+    topPerformerRevenue: '$7,000-$9,000/month',
+    strFriendlyBuildings: 12,
+    demandScore: 8,
+    strengths: ['Waterfront premium', 'Lake views', 'Harbourfront Centre events', 'Island ferry access', 'Summer festivals'],
+    guestTypes: ['Tourists', 'Families', 'Summer visitors', 'Event attendees'],
+    bestFor: 'Strong summer demand with waterfront appeal',
+    sampleBuildings: ['88 Harbour St', '208 Queens Quay W', '250 Queens Quay W', '550 Queens Quay W', '650 Queens Quay W'],
+    considerations: 'Seasonal variation (summer peaks), construction in some areas'
+  },
+  {
+    rank: 5,
+    name: 'Liberty Village',
+    avgRevenue: '$2,600-$4,000/month',
+    topPerformerRevenue: '$5,500-$7,000/month',
+    strFriendlyBuildings: 10,
+    demandScore: 7,
+    strengths: ['Young professional vibe', 'Tech company proximity', 'Trendy restaurants/cafes', 'Exhibition Place events', 'Lower competition than downtown core'],
+    guestTypes: ['Young professionals', 'Tech workers', 'CNE visitors', 'Trade show attendees'],
+    bestFor: 'Consistent demand from working professionals with less competition',
+    sampleBuildings: ['5 Hanna Ave', '49 East Liberty St', '50 East Liberty St', '150 East Liberty St', '69 Lynn Williams St'],
+    considerations: 'Transit less convenient than downtown, parking important'
+  },
+  {
+    rank: 6,
+    name: 'Distillery & Leslieville',
+    avgRevenue: '$2,400-$3,800/month',
+    topPerformerRevenue: '$5,000-$6,500/month',
+    strFriendlyBuildings: 15,
+    demandScore: 7,
+    strengths: ['Distillery District tourism', 'Christmas Market', 'Artsy vibe', 'Emerging foodie scene', 'Lower prices than core'],
+    guestTypes: ['Tourists', 'Foodies', 'Arts lovers', 'Young couples'],
+    bestFor: 'Growing market with strong character appeal and lower entry costs',
+    sampleBuildings: ['60 Princess St', '170 Sumach St', '333 Adelaide St E', '245 Carlaw Ave', '25 Baseball Pl'],
+    considerations: 'Less transit access, emerging market still building reputation'
+  },
+  {
+    rank: 7,
+    name: 'North York & Willowdale',
+    avgRevenue: '$2,200-$3,500/month',
+    topPerformerRevenue: '$4,500-$6,000/month',
+    strFriendlyBuildings: 19,
+    demandScore: 6,
+    strengths: ['Family-friendly', 'Larger units available', 'Good subway access', 'Hospital visitors', 'Business parks'],
+    guestTypes: ['Families visiting', 'Medical visitors', 'Business travelers', 'University visitors'],
+    bestFor: 'Family market with larger units and lower purchase prices',
+    sampleBuildings: ['5 Sheppard Ave E', '88 Sheppard Ave E', '4955 Yonge St', '5180 Yonge St', '500 Doris Ave'],
+    considerations: 'Lower nightly rates, need to target family/business travel specifically'
+  },
+  {
+    rank: 8,
+    name: 'Humber Bay & Etobicoke',
+    avgRevenue: '$2,400-$4,000/month',
+    topPerformerRevenue: '$5,000-$7,000/month',
+    strFriendlyBuildings: 26,
+    demandScore: 6,
+    strengths: ['Waterfront properties', 'Airport proximity', 'More affordable entry', 'Many STR-friendly buildings', 'Less competition'],
+    guestTypes: ['Airport travelers', 'Business travelers', 'Families', 'Budget-conscious tourists'],
+    bestFor: 'Airport market and waterfront appeal at lower price points',
+    sampleBuildings: ['10 Park Lawn Rd', '90 Park Lawn Rd', '30 Shore Breeze Dr', '155 Legion Rd N', '2119 Lake Shore Blvd W'],
+    considerations: 'Further from downtown attractions, transit dependent'
+  },
+  {
+    rank: 9,
+    name: 'Scarborough',
+    avgRevenue: '$1,800-$3,000/month',
+    topPerformerRevenue: '$4,000-$5,500/month',
+    strFriendlyBuildings: 10,
+    demandScore: 5,
+    strengths: ['Lowest entry cost', 'Toronto Zoo proximity', 'Scarborough Bluffs', 'University of Toronto Scarborough', 'Less competition'],
+    guestTypes: ['Zoo visitors', 'Budget travelers', 'University visitors', 'Bluffs tourists'],
+    bestFor: 'Affordable entry point with growing tourism attractions',
+    sampleBuildings: ['125 Village Green Sq', '190 Borough Dr', '2015 Sheppard Ave E', '5131 Sheppard Ave E'],
+    considerations: 'Lower rates, longer travel to downtown, need strong listing optimization'
+  }
+];
+
+const faqs = [
+  { q: "What is the best neighborhood in Toronto for Airbnb?", a: "King West and the Entertainment District is the #1 neighborhood for Airbnb in Toronto. It has the highest demand from tourists and business travelers, the most STR-friendly condo buildings (20+), and top performers earn $9,000-$12,000/month. Proximity to Scotiabank Arena, theatres, and restaurants drives year-round bookings." },
+  { q: "Which Toronto neighborhoods have the most Airbnb-friendly condos?", a: "Based on City of Toronto STR registration data, Humber Bay/Etobicoke leads with 26 STR-friendly buildings, followed by King West (20), North York (19), CityPlace/Fort York (18), Yorkville/Bay (17), and East End (15). Having many proven STR buildings reduces the risk of condo board issues." },
+  { q: "Is Yorkville good for Airbnb in Toronto?", a: "Yes, Yorkville commands the highest nightly rates in Toronto due to its luxury appeal. Average revenue is $4,000-$6,500/month with top performers reaching $8,000-$10,000/month. However, guests expect premium amenities and service, and purchase prices are among the highest in the city." },
+  { q: "Can I Airbnb in North York or Scarborough?", a: "Yes. Both North York (19 STR-friendly buildings) and Scarborough (10 buildings) have active short term rental markets. Rates are lower than downtown ($2,200-$3,500/month in North York, $1,800-$3,000/month in Scarborough), but entry costs are also lower. Target families, medical visitors, and zoo tourists." },
+  { q: "Which Toronto neighborhood has the highest Airbnb revenue?", a: "Downtown neighborhoods consistently outperform. King West averages $3,500-$6,000/month with top performers at $9,000-$12,000/month. Yorkville has the highest rates per night but smaller sample size. CityPlace and Harbourfront also perform strongly at $2,800-$5,000/month average." },
+  { q: "How do I find out if a Toronto condo allows Airbnb?", a: "We maintain a complete list of 400+ Toronto condos with registered STR units. Check our guide to Toronto condos that allow Airbnb. Having existing STR registrations in a building is a strong indicator that the condo corporation permits short term rentals." },
+  { q: "Is Liberty Village good for Airbnb?", a: "Liberty Village is a solid mid-tier option with 10 STR-friendly buildings and $2,600-$4,000/month average revenue. It attracts young professionals, tech workers, and CNE/Exhibition Place visitors. Less competition than the downtown core with consistent demand." },
+  { q: "Should I buy near the airport for Airbnb?", a: "Humber Bay and Etobicoke near the airport have 26 STR-friendly buildings with lower purchase prices and less competition. Average revenue is $2,400-$4,000/month. Good for airport layovers and business travelers, but further from main tourist attractions." }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'Overview: Toronto Neighborhoods Ranked' },
+  { id: 'ranking', text: 'The Rankings (1-9)' },
+  { id: 'king-west', text: '#1 King West & Entertainment' },
+  { id: 'cityplace', text: '#2 CityPlace & Fort York' },
+  { id: 'yorkville', text: '#3 Yorkville & Bay Corridor' },
+  { id: 'harbourfront', text: '#4 Harbourfront & Queens Quay' },
+  { id: 'liberty', text: '#5 Liberty Village' },
+  { id: 'east-end', text: '#6 Distillery & Leslieville' },
+  { id: 'north-york', text: '#7 North York' },
+  { id: 'etobicoke', text: '#8 Humber Bay & Etobicoke' },
+  { id: 'scarborough', text: '#9 Scarborough' },
+  { id: 'condo-list', text: 'Finding STR-Friendly Condos' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const relatedPosts = [
+  { title: "How Much Can I Make on Airbnb in Toronto?", href: '/blog/how-much-can-i-make-airbnb-toronto-2026', description: 'Data analysis: average $2,337/month, top 25% earn $5,414+' },
+  { title: "Toronto Condos That Allow Airbnb", href: '/blog/toronto-condos-that-allow-airbnb-short-term-rental', description: 'Complete list of 400+ STR-friendly condo buildings' },
+  { title: "Toronto Airbnb Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: '180-night limit, registration, and compliance guide' }
+];
+
+const pageTitle = "Best Neighborhoods in Toronto for Airbnb 2026 | Ranked";
+const pageDescription = "Best Toronto neighborhoods for Airbnb ranked: King West #1 ($6K/mo), Yorkville premium rates, CityPlace volume. 400+ STR-friendly condos mapped by area.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Best Neighborhoods in Toronto for Airbnb in 2026",
+  "description": pageDescription,
+  "datePublished": "2026-02-01",
+  "dateModified": "2026-02-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/best-neighborhood-toronto-airbnb-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Best Neighborhoods in Toronto for Airbnb</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 1, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Where you buy matters more than what you buy. We analyzed <strong>320 Toronto Airbnb listings</strong> and cross-referenced with the <strong>400+ condo buildings</strong> that have registered STR units to rank Toronto's neighborhoods for short term rental potential.</p>
+          </div>
+
+          <div class="key-takeaway">
+            <h4>Key Takeaway</h4>
+            <p><strong>King West and the Entertainment District</strong> is the #1 neighborhood for Airbnb in Toronto. It combines the highest demand, most STR-friendly buildings, and top earners reaching $9,000-$12,000/month. But it's not the right choice for everyone.</p>
+          </div>
+
+          <h2 id="overview">Overview: How We Ranked Toronto Neighborhoods</h2>
+          <p>We evaluated each neighborhood on:</p>
+          <ul>
+            <li><strong>Revenue potential:</strong> What are listings actually earning?</li>
+            <li><strong>STR-friendly buildings:</strong> How many condos have proven STR registrations?</li>
+            <li><strong>Demand consistency:</strong> Is demand year-round or seasonal?</li>
+            <li><strong>Guest types:</strong> Who books in this area?</li>
+            <li><strong>Entry cost:</strong> What does it cost to buy here?</li>
+          </ul>
+
+          <p>Data sources: City of Toronto STR registry, AirDNA market data, and our own portfolio performance across 50+ managed properties.</p>
+
+          <h2 id="ranking">Toronto Neighborhoods for Airbnb: Ranked</h2>
+
+          <div class="ranking-table">
+            <div class="ranking-header">
+              <span class="col-rank">Rank</span>
+              <span class="col-name">Neighborhood</span>
+              <span class="col-revenue">Avg Revenue</span>
+              <span class="col-buildings">STR Buildings</span>
+            </div>
+            {neighborhoods.map(hood => (
+              <div class={`ranking-row rank-${hood.rank}`}>
+                <span class="col-rank">#{hood.rank}</span>
+                <span class="col-name">{hood.name}</span>
+                <span class="col-revenue">{hood.avgRevenue}</span>
+                <span class="col-buildings">{hood.strFriendlyBuildings}+</span>
+              </div>
+            ))}
+          </div>
+
+          <h2 id="king-west">#1 King West & Entertainment District</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#1</div>
+              <div class="neighborhood-title">
+                <h3>King West & Entertainment District</h3>
+                <p class="neighborhood-tagline">Highest demand, highest revenue potential</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$3,500-$6,000/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$9,000-$12,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">20+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #1:</strong> King West is Toronto's entertainment hub. Scotiabank Arena (Raptors, Leafs, concerts), TIFF, Roy Thomson Hall, and the theatre district drive year-round demand. Business travelers book during the week, tourists and event-goers fill weekends.</p>
+
+            <p><strong>Who books here:</strong> Tourists, business travelers, concert/sports attendees, bachelor/ette parties, theatre-goers.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>1 King St W</li>
+                <li>321 King St W</li>
+                <li>375 King St W</li>
+                <li>533 Richmond St W</li>
+                <li>800 King St W</li>
+              </ul>
+              <p class="building-note">See the <a href="/blog/toronto-condos-that-allow-airbnb-short-term-rental">complete list of 400+ STR-friendly Toronto condos</a>.</p>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Higher purchase prices ($600K+ for 2BR). More competition from other hosts. Noise bylaws are strictly enforced. Success requires professional management and optimization.</p>
+            </div>
+          </div>
+
+          <h2 id="cityplace">#2 CityPlace & Fort York</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#2</div>
+              <div class="neighborhood-title">
+                <h3>CityPlace & Fort York</h3>
+                <p class="neighborhood-tagline">High volume of proven STR buildings</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,800-$4,500/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$6,000-$8,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">18+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #2:</strong> CityPlace has the highest concentration of STR-friendly buildings in Toronto. CN Tower views are a major selling point. Walking distance to downtown attractions with modern amenities. Lower risk of condo board issues since STRs are well-established here.</p>
+
+            <p><strong>Who books here:</strong> Tourists seeking CN Tower views, business travelers, families visiting Toronto.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>3 Navy Wharf Crt</li>
+                <li>38 Dan Leckie Way</li>
+                <li>209 Fort York Blvd</li>
+                <li>215 Fort York Blvd</li>
+                <li>96 Fort York Blvd</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Dense neighborhood with many competing listings. Parking often not included. Some buildings have stricter STR rules than others. Check specific building bylaws.</p>
+            </div>
+          </div>
+
+          <h2 id="yorkville">#3 Yorkville & Bay Corridor</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#3</div>
+              <div class="neighborhood-title">
+                <h3>Yorkville & Bay Corridor</h3>
+                <p class="neighborhood-tagline">Premium rates, luxury clientele</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$4,000-$6,500/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$8,000-$10,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">17+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #3:</strong> Yorkville commands Toronto's highest nightly rates. The luxury shopping district (Holt Renfrew, high-end boutiques), world-class restaurants, and proximity to the ROM and AGO attract affluent guests willing to pay premium prices.</p>
+
+            <p><strong>Who books here:</strong> Luxury travelers, shopping tourists, business executives, medical tourism (near hospitals).</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>11 Yorkville Ave</li>
+                <li>155 Yorkville Ave</li>
+                <li>77 Avenue Rd</li>
+                <li>955 Bay St</li>
+                <li>1121 Bay St</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Highest purchase prices in Toronto ($800K+ for 2BR). Guests expect luxury amenities, premium furnishings, and concierge-level service. Not for budget-conscious investors.</p>
+            </div>
+          </div>
+
+          <h2 id="harbourfront">#4 Harbourfront & Queens Quay</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#4</div>
+              <div class="neighborhood-title">
+                <h3>Harbourfront & Queens Quay</h3>
+                <p class="neighborhood-tagline">Waterfront premium, strong summer demand</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$3,200-$5,000/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$7,000-$9,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">12+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #4:</strong> Lake Ontario views command a premium. Harbourfront Centre events, Toronto Island ferry access, and waterfront trails make this area highly desirable for tourists. Summer months see peak demand.</p>
+
+            <p><strong>Who books here:</strong> Summer tourists, families, event attendees, couples seeking waterfront experience.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>88 Harbour St</li>
+                <li>208 Queens Quay W</li>
+                <li>250 Queens Quay W</li>
+                <li>550 Queens Quay W</li>
+                <li>650 Queens Quay W</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Seasonal demand variation (summer peaks, winter dips). Some areas have ongoing construction. Need strong winter marketing strategy to maintain occupancy.</p>
+            </div>
+          </div>
+
+          <h2 id="liberty">#5 Liberty Village</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#5</div>
+              <div class="neighborhood-title">
+                <h3>Liberty Village</h3>
+                <p class="neighborhood-tagline">Young professional market, less competition</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,600-$4,000/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$5,500-$7,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">10+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #5:</strong> Liberty Village attracts young professionals and tech workers. Exhibition Place brings CNE visitors, trade shows, and events. Less competition than the downtown core with consistent weekday demand from business travelers.</p>
+
+            <p><strong>Who books here:</strong> Young professionals, tech workers on assignment, CNE visitors, trade show attendees.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>5 Hanna Ave</li>
+                <li>49 East Liberty St</li>
+                <li>50 East Liberty St</li>
+                <li>150 East Liberty St</li>
+                <li>69 Lynn Williams St</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Transit less convenient than downtown (streetcar dependent). Parking becomes more important. CNE period (Aug-Sept) creates demand spike.</p>
+            </div>
+          </div>
+
+          <h2 id="east-end">#6 Distillery & Leslieville</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#6</div>
+              <div class="neighborhood-title">
+                <h3>Distillery District & Leslieville</h3>
+                <p class="neighborhood-tagline">Character appeal, lower entry cost</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,400-$3,800/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$5,000-$6,500/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">15+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #6:</strong> The Distillery District is a major tourist draw, especially during the Toronto Christmas Market (November-December). Leslieville's foodie scene and artsy vibe appeal to experience-seeking travelers. Lower purchase prices than the core.</p>
+
+            <p><strong>Who books here:</strong> Tourists, foodies, arts lovers, Christmas Market visitors, young couples.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>60 Princess St</li>
+                <li>170 Sumach St</li>
+                <li>333 Adelaide St E</li>
+                <li>245 Carlaw Ave</li>
+                <li>25 Baseball Pl</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Less transit access (streetcar). Still building reputation as STR destination. Christmas Market period creates major demand spike.</p>
+            </div>
+          </div>
+
+          <h2 id="north-york">#7 North York & Willowdale</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#7</div>
+              <div class="neighborhood-title">
+                <h3>North York & Willowdale</h3>
+                <p class="neighborhood-tagline">Family market, larger units</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,200-$3,500/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$4,500-$6,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">19+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #7:</strong> North York offers larger units at lower prices, appealing to families. Good subway access (Yonge line). Hospital proximity (Sunnybrook, North York General) drives medical visitor demand. Business parks bring corporate travelers.</p>
+
+            <p><strong>Who books here:</strong> Families visiting Toronto, medical visitors, business travelers, university visitors.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>5 Sheppard Ave E</li>
+                <li>88 Sheppard Ave E</li>
+                <li>4955 Yonge St</li>
+                <li>5180 Yonge St</li>
+                <li>500 Doris Ave</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Lower nightly rates require volume strategy. Need to target family/medical/business travel specifically. Further from main tourist attractions.</p>
+            </div>
+          </div>
+
+          <h2 id="etobicoke">#8 Humber Bay & Etobicoke</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#8</div>
+              <div class="neighborhood-title">
+                <h3>Humber Bay & Etobicoke</h3>
+                <p class="neighborhood-tagline">Airport proximity, most STR buildings</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,400-$4,000/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$5,000-$7,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">26+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #8:</strong> Humber Bay has the most STR-friendly buildings in Toronto (26+). Waterfront properties with lake views. Proximity to Pearson Airport drives business travel demand. Lower purchase prices and less competition than downtown.</p>
+
+            <p><strong>Who books here:</strong> Airport travelers, business travelers, families, budget-conscious tourists, waterfront seekers.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>10 Park Lawn Rd</li>
+                <li>90 Park Lawn Rd</li>
+                <li>30 Shore Breeze Dr</li>
+                <li>155 Legion Rd N</li>
+                <li>2119 Lake Shore Blvd W</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Further from downtown attractions (30+ min transit). Target airport/business travel specifically. Waterfront units command premium over inland.</p>
+            </div>
+          </div>
+
+          <h2 id="scarborough">#9 Scarborough</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#9</div>
+              <div class="neighborhood-title">
+                <h3>Scarborough</h3>
+                <p class="neighborhood-tagline">Affordable entry, emerging market</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$1,800-$3,000/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$4,000-$5,500/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">10+</span>
+              </div>
+            </div>
+
+            <p><strong>Why #9:</strong> Scarborough offers the lowest entry costs in Toronto. Toronto Zoo drives family travel. Scarborough Bluffs attract nature tourists. University of Toronto Scarborough brings student families and visiting academics. Less competition allows well-optimized listings to stand out.</p>
+
+            <p><strong>Who books here:</strong> Zoo visitors, budget travelers, university visitors, Bluffs tourists, value-seekers.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>125 Village Green Sq</li>
+                <li>190 Borough Dr</li>
+                <li>2015 Sheppard Ave E</li>
+                <li>5131 Sheppard Ave E</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Lowest rates in Toronto require excellent optimization. Long travel time to downtown. Success depends on targeting specific niches (zoo, university, Bluffs) effectively.</p>
+            </div>
+          </div>
+
+          <h2 id="condo-list">Finding STR-Friendly Condos in Your Target Neighborhood</h2>
+          <p>Before buying a condo for Airbnb, verify that the building permits short term rentals. We maintain a <strong>complete list of 400+ Toronto condos with registered STR units</strong>.</p>
+
+          <div class="cta-box">
+            <h4>Toronto Condos That Allow Airbnb</h4>
+            <p>Our comprehensive guide lists every condo building in Toronto with at least one registered short term rental unit, organized by neighborhood.</p>
+            <a href="/blog/toronto-condos-that-allow-airbnb-short-term-rental" class="btn btn-primary">View Complete Condo List →</a>
+          </div>
+
+          <p>Having existing STR registrations in a building is a strong indicator that:</p>
+          <ul>
+            <li>The condo corporation permits short term rentals</li>
+            <li>Other owners have successfully navigated the approval process</li>
+            <li>The building management is familiar with STR operations</li>
+          </ul>
+
+          <p>Always verify specific building bylaws before purchasing. Some buildings on the list may have updated their policies.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Choosing a Neighborhood?</h3>
+            <p>Nurture manages properties across all Toronto neighborhoods. We can help you analyze specific buildings, estimate revenue potential, and maximize your returns.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Property Analysis</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Start Your Toronto Airbnb?</h2>
+        <p>Get a free revenue estimate for any Toronto neighborhood.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .key-takeaway {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .key-takeaway h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+  }
+
+  .key-takeaway p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .article-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .article-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  /* Ranking Table */
+  .ranking-table {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+
+  .ranking-header {
+    display: grid;
+    grid-template-columns: 60px 1fr 140px 100px;
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .ranking-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 140px 100px;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+  }
+
+  .ranking-row:last-child {
+    border-bottom: none;
+  }
+
+  .rank-1, .rank-2, .rank-3 {
+    background: #e8f5e9;
+  }
+
+  .rank-4, .rank-5, .rank-6 {
+    background: #fff3e0;
+  }
+
+  .rank-7, .rank-8, .rank-9 {
+    background: #f5f5f5;
+  }
+
+  .col-rank {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .col-name {
+    font-weight: 600;
+  }
+
+  .col-revenue {
+    font-size: 0.9rem;
+  }
+
+  .col-buildings {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Neighborhood Detail */
+  .neighborhood-detail {
+    background: var(--color-background-alt);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1.5rem 0 3rem;
+  }
+
+  .neighborhood-header-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rank-badge {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .neighborhood-title {
+    flex: 1;
+  }
+
+  .neighborhood-tagline {
+    margin: 0.25rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .stat-box.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    opacity: 0.8;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .neighborhood-detail p {
+    margin-bottom: 1rem;
+  }
+
+  .building-list {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+
+  .building-list h4 {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .building-list ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.25rem;
+  }
+
+  .building-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .building-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .considerations {
+    background: #fff3e0;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid #ff9800;
+  }
+
+  .considerations h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #e65100;
+  }
+
+  .considerations p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  /* CTA Box */
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, #e8f5e9 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .cta-box h4 {
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-box p {
+    margin-bottom: 1.25rem;
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin: 2rem 0;
+  }
+
+  .faq-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h4 {
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  /* Article CTA */
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Related & CTA Sections */
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .related-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-section .btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .ranking-header,
+    .ranking-row {
+      grid-template-columns: 50px 1fr 100px;
+    }
+
+    .col-buildings {
+      display: none;
+    }
+
+    .stats-row {
+      grid-template-columns: 1fr;
+    }
+
+    .building-list ul {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
