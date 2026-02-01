@@ -153,6 +153,9 @@ const latestPosts = allPosts
     <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
     <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" media="(min-width: 769px)">
 
+    <!-- Preload LCP image (YouTube thumbnail) -->
+    <link rel="preload" href="https://i.ytimg.com/vi_webp/OFACd6a2ctA/maxresdefault.webp" as="image" type="image/webp" fetchpriority="high">
+
     <!-- DNS prefetch & preconnect -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
