@@ -248,7 +248,7 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>Entry cost:</strong> What does it cost to buy here?</li>
           </ul>
 
-          <p>Data sources: City of Toronto STR registry, AirDNA market data, and our own portfolio performance across 50+ managed properties.</p>
+          <p>Data sources: City of Toronto STR registry, Pricelabs market data, and our own portfolio performance.</p>
 
           <h2 id="ranking">Toronto Neighborhoods for Airbnb: Ranked</h2>
 
@@ -1270,6 +1270,13 @@ const pageSchema = [articleSchema, faqSchema];
   .cta-section .btn-large {
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-section .btn-large:hover {
+    background: var(--color-cream);
+    transform: translateY(-2px);
   }
 
   .cta-note {
