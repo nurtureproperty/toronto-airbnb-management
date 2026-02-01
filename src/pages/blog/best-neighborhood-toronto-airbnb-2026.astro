@@ -82,54 +82,54 @@ const neighborhoods = [
   },
   {
     rank: 7,
-    name: 'North York & Willowdale',
-    avgRevenue: '$2,200-$3,500/month',
-    topPerformerRevenue: '$4,500-$6,000/month',
-    strFriendlyBuildings: 19,
-    demandScore: 6,
-    strengths: ['Family-friendly', 'Larger units available', 'Good subway access', 'Hospital visitors', 'Business parks'],
-    guestTypes: ['Families visiting', 'Medical visitors', 'Business travelers', 'University visitors'],
-    bestFor: 'Family market with larger units and lower purchase prices',
-    sampleBuildings: ['5 Sheppard Ave E', '88 Sheppard Ave E', '4955 Yonge St', '5180 Yonge St', '500 Doris Ave'],
-    considerations: 'Lower nightly rates, need to target family/business travel specifically'
+    name: 'Financial District & Front Street',
+    avgRevenue: '$2,800-$4,500/month',
+    topPerformerRevenue: '$6,000-$8,000/month',
+    strFriendlyBuildings: 8,
+    demandScore: 7,
+    strengths: ['Business traveler hub', 'Union Station access', 'Walking to Scotiabank Arena', 'Convention center proximity', 'Corporate relocations'],
+    guestTypes: ['Business travelers', 'Convention attendees', 'Corporate visitors', 'Tourists'],
+    bestFor: 'Weekday business travel with weekend tourist overflow',
+    sampleBuildings: ['300 Front St W', '352 Front St W', '361 Front St W', '381 Front St W', '397 Front St W'],
+    considerations: 'Weekday-heavy demand, can be quieter on weekends'
   },
   {
     rank: 8,
-    name: 'Humber Bay & Etobicoke',
-    avgRevenue: '$2,400-$4,000/month',
-    topPerformerRevenue: '$5,000-$7,000/month',
-    strFriendlyBuildings: 26,
+    name: 'Queen West & Ossington',
+    avgRevenue: '$2,400-$3,800/month',
+    topPerformerRevenue: '$5,000-$6,500/month',
+    strFriendlyBuildings: 7,
     demandScore: 6,
-    strengths: ['Waterfront properties', 'Airport proximity', 'More affordable entry', 'Many STR-friendly buildings', 'Less competition'],
-    guestTypes: ['Airport travelers', 'Business travelers', 'Families', 'Budget-conscious tourists'],
-    bestFor: 'Airport market and waterfront appeal at lower price points',
-    sampleBuildings: ['10 Park Lawn Rd', '90 Park Lawn Rd', '30 Shore Breeze Dr', '155 Legion Rd N', '2119 Lake Shore Blvd W'],
-    considerations: 'Further from downtown attractions, transit dependent'
+    strengths: ['Trendy arts scene', 'Best restaurants/bars', 'Trinity Bellwoods Park', 'Boutique shopping', 'Instagram-worthy appeal'],
+    guestTypes: ['Young travelers', 'Foodies', 'Arts lovers', 'Bachelor/ette parties'],
+    bestFor: 'Guests seeking authentic Toronto neighborhood experience',
+    sampleBuildings: ['1205 Queen St W', '1478 Queen St W', '1239 Dundas St W', '2154 Dundas St W', '2360 Dundas St W'],
+    considerations: 'Less transit access than downtown core, parking can be challenging'
   },
   {
     rank: 9,
-    name: 'Scarborough',
-    avgRevenue: '$1,800-$3,000/month',
-    topPerformerRevenue: '$4,000-$5,500/month',
-    strFriendlyBuildings: 10,
-    demandScore: 5,
-    strengths: ['Lowest entry cost', 'Toronto Zoo proximity', 'Scarborough Bluffs', 'University of Toronto Scarborough', 'Less competition'],
-    guestTypes: ['Zoo visitors', 'Budget travelers', 'University visitors', 'Bluffs tourists'],
-    bestFor: 'Affordable entry point with growing tourism attractions',
-    sampleBuildings: ['125 Village Green Sq', '190 Borough Dr', '2015 Sheppard Ave E', '5131 Sheppard Ave E'],
-    considerations: 'Lower rates, longer travel to downtown, need strong listing optimization'
+    name: 'Yonge-Eglinton Midtown',
+    avgRevenue: '$2,200-$3,500/month',
+    topPerformerRevenue: '$4,500-$6,000/month',
+    strFriendlyBuildings: 4,
+    demandScore: 6,
+    strengths: ['Midtown business hub', 'Urban village feel', 'Great restaurants', 'Subway access', 'Quieter than downtown'],
+    guestTypes: ['Business travelers', 'Professionals relocating', 'Families visiting', 'Long-stay guests'],
+    bestFor: 'Mid-term rentals and business travelers seeking residential feel',
+    sampleBuildings: ['101 Erskine Ave', '2181 Yonge St', '2191 Yonge St', '2221 Yonge St'],
+    considerations: 'Lower tourist demand, better for longer stays and business travel'
   }
 ];
 
 const faqs = [
   { q: "What is the best neighborhood in Toronto for Airbnb?", a: "King West and the Entertainment District is the #1 neighborhood for Airbnb in Toronto. It has the highest demand from tourists and business travelers, the most STR-friendly condo buildings (20+), and top performers earn $9,000-$12,000/month. Proximity to Scotiabank Arena, theatres, and restaurants drives year-round bookings." },
-  { q: "Which Toronto neighborhoods have the most Airbnb-friendly condos?", a: "Based on City of Toronto STR registration data, Humber Bay/Etobicoke leads with 26 STR-friendly buildings, followed by King West (20), North York (19), CityPlace/Fort York (18), Yorkville/Bay (17), and East End (15). Having many proven STR buildings reduces the risk of condo board issues." },
+  { q: "Which Toronto neighborhoods have the most Airbnb-friendly condos?", a: "Based on City of Toronto STR registration data, King West leads with 20 STR-friendly buildings, followed by CityPlace/Fort York (18), Yorkville/Bay (17), East End (15), Harbourfront (12), and Liberty Village (10). Having many proven STR buildings reduces the risk of condo board issues." },
   { q: "Is Yorkville good for Airbnb in Toronto?", a: "Yes, Yorkville commands the highest nightly rates in Toronto due to its luxury appeal. Average revenue is $4,000-$6,500/month with top performers reaching $8,000-$10,000/month. However, guests expect premium amenities and service, and purchase prices are among the highest in the city." },
-  { q: "Can I Airbnb in North York or Scarborough?", a: "Yes. Both North York (19 STR-friendly buildings) and Scarborough (10 buildings) have active short term rental markets. Rates are lower than downtown ($2,200-$3,500/month in North York, $1,800-$3,000/month in Scarborough), but entry costs are also lower. Target families, medical visitors, and zoo tourists." },
+  { q: "Is Queen West good for Airbnb in Toronto?", a: "Yes. Queen West and Ossington have 7 STR-friendly buildings and average $2,400-$3,800/month. The neighborhood attracts younger travelers seeking trendy restaurants, bars, and the arts scene. Top performers can reach $5,000-$6,500/month by targeting the Instagram-worthy aesthetic guests expect." },
   { q: "Which Toronto neighborhood has the highest Airbnb revenue?", a: "Downtown neighborhoods consistently outperform. King West averages $3,500-$6,000/month with top performers at $9,000-$12,000/month. Yorkville has the highest rates per night but smaller sample size. CityPlace and Harbourfront also perform strongly at $2,800-$5,000/month average." },
   { q: "How do I find out if a Toronto condo allows Airbnb?", a: "We maintain a complete list of 400+ Toronto condos with registered STR units. Check our guide to Toronto condos that allow Airbnb. Having existing STR registrations in a building is a strong indicator that the condo corporation permits short term rentals." },
   { q: "Is Liberty Village good for Airbnb?", a: "Liberty Village is a solid mid-tier option with 10 STR-friendly buildings and $2,600-$4,000/month average revenue. It attracts young professionals, tech workers, and CNE/Exhibition Place visitors. Less competition than the downtown core with consistent demand." },
-  { q: "Should I buy near the airport for Airbnb?", a: "Humber Bay and Etobicoke near the airport have 26 STR-friendly buildings with lower purchase prices and less competition. Average revenue is $2,400-$4,000/month. Good for airport layovers and business travelers, but further from main tourist attractions." }
+  { q: "Is the Financial District good for Airbnb?", a: "Yes. The Financial District and Front Street area has 8 STR-friendly buildings with strong weekday demand from business travelers. Average revenue is $2,800-$4,500/month with top performers reaching $6,000-$8,000/month. Union Station access and convention center proximity drive consistent corporate bookings." }
 ];
 
 const tocItems = [
@@ -141,9 +141,9 @@ const tocItems = [
   { id: 'harbourfront', text: '#4 Harbourfront & Queens Quay' },
   { id: 'liberty', text: '#5 Liberty Village' },
   { id: 'east-end', text: '#6 Distillery & Leslieville' },
-  { id: 'north-york', text: '#7 North York' },
-  { id: 'etobicoke', text: '#8 Humber Bay & Etobicoke' },
-  { id: 'scarborough', text: '#9 Scarborough' },
+  { id: 'financial', text: '#7 Financial District' },
+  { id: 'queen-west', text: '#8 Queen West & Ossington' },
+  { id: 'midtown', text: '#9 Yonge-Eglinton Midtown' },
   { id: 'condo-list', text: 'Finding STR-Friendly Condos' },
   { id: 'faqs', text: 'FAQs' }
 ];
@@ -546,13 +546,105 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h2 id="north-york">#7 North York & Willowdale</h2>
+          <h2 id="financial">#7 Financial District & Front Street</h2>
           <div class="neighborhood-detail">
             <div class="neighborhood-header-card">
               <div class="rank-badge">#7</div>
               <div class="neighborhood-title">
-                <h3>North York & Willowdale</h3>
-                <p class="neighborhood-tagline">Family market, larger units</p>
+                <h3>Financial District & Front Street</h3>
+                <p class="neighborhood-tagline">Business traveler hub, Union Station access</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,800-$4,500/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$6,000-$8,000/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">8</span>
+              </div>
+            </div>
+
+            <p><strong>Why #7:</strong> The Financial District is Toronto's business heart. Union Station access brings travelers from across the GTA. Walking distance to Scotiabank Arena and the convention center. Corporate relocations and conference attendees drive weekday demand.</p>
+
+            <p><strong>Who books here:</strong> Business travelers, convention attendees, corporate visitors, tourists.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>300 Front St W</li>
+                <li>352 Front St W</li>
+                <li>361 Front St W</li>
+                <li>381 Front St W</li>
+                <li>397 Front St W</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Weekday-heavy demand pattern. Weekends can be quieter unless events are happening. Works best with dynamic pricing to capture business travel premiums.</p>
+            </div>
+          </div>
+
+          <h2 id="queen-west">#8 Queen West & Ossington</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#8</div>
+              <div class="neighborhood-title">
+                <h3>Queen West & Ossington</h3>
+                <p class="neighborhood-tagline">Trendy arts scene, foodie destination</p>
+              </div>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">Average Revenue</span>
+                <span class="stat-value">$2,400-$3,800/mo</span>
+              </div>
+              <div class="stat-box highlight">
+                <span class="stat-label">Top Performers</span>
+                <span class="stat-value">$5,000-$6,500/mo</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">STR Buildings</span>
+                <span class="stat-value">7</span>
+              </div>
+            </div>
+
+            <p><strong>Why #8:</strong> Queen West is consistently ranked among the world's coolest neighborhoods. Best restaurants, bars, and galleries in the city. Trinity Bellwoods Park is an iconic Toronto landmark. Guests seeking an authentic, local Toronto experience gravitate here.</p>
+
+            <p><strong>Who books here:</strong> Young travelers, foodies, arts lovers, bachelor/bachelorette parties, Instagram-focused guests.</p>
+
+            <div class="building-list">
+              <h4>Sample STR-Friendly Buildings</h4>
+              <ul>
+                <li>1205 Queen St W</li>
+                <li>1478 Queen St W</li>
+                <li>1239 Dundas St W</li>
+                <li>2154 Dundas St W</li>
+                <li>2360 Dundas St W</li>
+              </ul>
+            </div>
+
+            <div class="considerations">
+              <h4>Considerations</h4>
+              <p>Less subway access (streetcar dependent). Parking can be challenging. Guests expect stylish, well-designed spaces that match the neighborhood aesthetic.</p>
+            </div>
+          </div>
+
+          <h2 id="midtown">#9 Yonge-Eglinton Midtown</h2>
+          <div class="neighborhood-detail">
+            <div class="neighborhood-header-card">
+              <div class="rank-badge">#9</div>
+              <div class="neighborhood-title">
+                <h3>Yonge-Eglinton Midtown</h3>
+                <p class="neighborhood-tagline">Urban village, mid-term rental potential</p>
               </div>
             </div>
 
@@ -567,119 +659,27 @@ const pageSchema = [articleSchema, faqSchema];
               </div>
               <div class="stat-box">
                 <span class="stat-label">STR Buildings</span>
-                <span class="stat-value">19+</span>
+                <span class="stat-value">4</span>
               </div>
             </div>
 
-            <p><strong>Why #7:</strong> North York offers larger units at lower prices, appealing to families. Good subway access (Yonge line). Hospital proximity (Sunnybrook, North York General) drives medical visitor demand. Business parks bring corporate travelers.</p>
+            <p><strong>Why #9:</strong> Yonge-Eglinton is Toronto's "second downtown" with excellent restaurants, shopping, and subway access. The residential feel appeals to professionals relocating and longer-stay guests. Once the Eglinton Crosstown LRT opens, transit connectivity will improve significantly.</p>
 
-            <p><strong>Who books here:</strong> Families visiting Toronto, medical visitors, business travelers, university visitors.</p>
+            <p><strong>Who books here:</strong> Business travelers, professionals relocating, families visiting, long-stay guests.</p>
 
             <div class="building-list">
               <h4>Sample STR-Friendly Buildings</h4>
               <ul>
-                <li>5 Sheppard Ave E</li>
-                <li>88 Sheppard Ave E</li>
-                <li>4955 Yonge St</li>
-                <li>5180 Yonge St</li>
-                <li>500 Doris Ave</li>
+                <li>101 Erskine Ave</li>
+                <li>2181 Yonge St</li>
+                <li>2191 Yonge St</li>
+                <li>2221 Yonge St</li>
               </ul>
             </div>
 
             <div class="considerations">
               <h4>Considerations</h4>
-              <p>Lower nightly rates require volume strategy. Need to target family/medical/business travel specifically. Further from main tourist attractions.</p>
-            </div>
-          </div>
-
-          <h2 id="etobicoke">#8 Humber Bay & Etobicoke</h2>
-          <div class="neighborhood-detail">
-            <div class="neighborhood-header-card">
-              <div class="rank-badge">#8</div>
-              <div class="neighborhood-title">
-                <h3>Humber Bay & Etobicoke</h3>
-                <p class="neighborhood-tagline">Airport proximity, most STR buildings</p>
-              </div>
-            </div>
-
-            <div class="stats-row">
-              <div class="stat-box">
-                <span class="stat-label">Average Revenue</span>
-                <span class="stat-value">$2,400-$4,000/mo</span>
-              </div>
-              <div class="stat-box highlight">
-                <span class="stat-label">Top Performers</span>
-                <span class="stat-value">$5,000-$7,000/mo</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-label">STR Buildings</span>
-                <span class="stat-value">26+</span>
-              </div>
-            </div>
-
-            <p><strong>Why #8:</strong> Humber Bay has the most STR-friendly buildings in Toronto (26+). Waterfront properties with lake views. Proximity to Pearson Airport drives business travel demand. Lower purchase prices and less competition than downtown.</p>
-
-            <p><strong>Who books here:</strong> Airport travelers, business travelers, families, budget-conscious tourists, waterfront seekers.</p>
-
-            <div class="building-list">
-              <h4>Sample STR-Friendly Buildings</h4>
-              <ul>
-                <li>10 Park Lawn Rd</li>
-                <li>90 Park Lawn Rd</li>
-                <li>30 Shore Breeze Dr</li>
-                <li>155 Legion Rd N</li>
-                <li>2119 Lake Shore Blvd W</li>
-              </ul>
-            </div>
-
-            <div class="considerations">
-              <h4>Considerations</h4>
-              <p>Further from downtown attractions (30+ min transit). Target airport/business travel specifically. Waterfront units command premium over inland.</p>
-            </div>
-          </div>
-
-          <h2 id="scarborough">#9 Scarborough</h2>
-          <div class="neighborhood-detail">
-            <div class="neighborhood-header-card">
-              <div class="rank-badge">#9</div>
-              <div class="neighborhood-title">
-                <h3>Scarborough</h3>
-                <p class="neighborhood-tagline">Affordable entry, emerging market</p>
-              </div>
-            </div>
-
-            <div class="stats-row">
-              <div class="stat-box">
-                <span class="stat-label">Average Revenue</span>
-                <span class="stat-value">$1,800-$3,000/mo</span>
-              </div>
-              <div class="stat-box highlight">
-                <span class="stat-label">Top Performers</span>
-                <span class="stat-value">$4,000-$5,500/mo</span>
-              </div>
-              <div class="stat-box">
-                <span class="stat-label">STR Buildings</span>
-                <span class="stat-value">10+</span>
-              </div>
-            </div>
-
-            <p><strong>Why #9:</strong> Scarborough offers the lowest entry costs in Toronto. Toronto Zoo drives family travel. Scarborough Bluffs attract nature tourists. University of Toronto Scarborough brings student families and visiting academics. Less competition allows well-optimized listings to stand out.</p>
-
-            <p><strong>Who books here:</strong> Zoo visitors, budget travelers, university visitors, Bluffs tourists, value-seekers.</p>
-
-            <div class="building-list">
-              <h4>Sample STR-Friendly Buildings</h4>
-              <ul>
-                <li>125 Village Green Sq</li>
-                <li>190 Borough Dr</li>
-                <li>2015 Sheppard Ave E</li>
-                <li>5131 Sheppard Ave E</li>
-              </ul>
-            </div>
-
-            <div class="considerations">
-              <h4>Considerations</h4>
-              <p>Lowest rates in Toronto require excellent optimization. Long travel time to downtown. Success depends on targeting specific niches (zoo, university, Bluffs) effectively.</p>
+              <p>Lower tourist demand than downtown. Better suited for mid-term rentals and business travel. Consider hybrid strategy mixing short and mid-term bookings.</p>
             </div>
           </div>
 
