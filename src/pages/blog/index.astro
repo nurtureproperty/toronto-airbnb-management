@@ -365,49 +365,34 @@ const blogSchema = {
         ))}
       </div>
 
-      <div class="content-with-sidebar">
-        <div class="main-content">
-          <h2 class="section-label">All Articles</h2>
-          <div class="blog-grid" id="blog-grid">
-            {posts.map(post => {
-              const shortExcerpt = post.excerpt.length > 100 ? post.excerpt.substring(0, 100).trim() + '...' : post.excerpt;
-              return (
-              <article class="blog-card" data-title={post.title.toLowerCase()} data-tags={post.tags.join(' ').toLowerCase()}>
-                <div class="blog-card-content">
-                  <div class="blog-meta">
-                    <span class="category-badge">{post.category}</span>
-                    <span class="blog-separator">·</span>
-                    <span class="blog-read-time">{post.readTime}</span>
-                  </div>
-                  <h2 class="blog-title">
-                    <a href={`/blog/${post.slug}`}>{post.title}</a>
-                  </h2>
-                  <p class="blog-excerpt">{shortExcerpt}</p>
-                  <div class="blog-tags">
-                    {post.tags.map(tag => (
-                      <span class="tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            )})}
-          </div>
+      <h2 class="section-label">All Articles</h2>
+      <div class="blog-grid" id="blog-grid">
+        {posts.map(post => {
+          const shortExcerpt = post.excerpt.length > 100 ? post.excerpt.substring(0, 100).trim() + '...' : post.excerpt;
+          return (
+          <article class="blog-card" data-title={post.title.toLowerCase()} data-tags={post.tags.join(' ').toLowerCase()}>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="category-badge">{post.category}</span>
+                <span class="blog-separator">·</span>
+                <span class="blog-read-time">{post.readTime}</span>
+              </div>
+              <h2 class="blog-title">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p class="blog-excerpt">{shortExcerpt}</p>
+              <div class="blog-tags">
+                {post.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        )})}
+      </div>
 
-          <div id="no-results" class="no-results" style="display: none;">
-            <p>No articles found matching your search.</p>
-          </div>
-        </div>
-
-        <aside class="sidebar">
-          <div class="sidebar-sticky">
-            <h4 class="sidebar-title">Browse Articles</h4>
-            <nav class="article-list">
-              {posts.map(post => (
-                <a href={`/blog/${post.slug}`} class="article-link">{post.title}</a>
-              ))}
-            </nav>
-          </div>
-        </aside>
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>No articles found matching your search.</p>
       </div>
     </div>
   </section>
@@ -621,68 +606,10 @@ const blogSchema = {
     box-shadow: 0 0 0 3px var(--color-primary-light);
   }
 
-  /* Content with Sidebar Layout */
-  .content-with-sidebar {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .main-content {
-    min-width: 0;
-  }
-
-  .sidebar {
-    position: relative;
-  }
-
-  .sidebar-sticky {
-    position: sticky;
-    top: 100px;
-    background: white;
-    border-radius: 12px;
-    padding: 1.25rem;
-    box-shadow: var(--shadow-sm);
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-  }
-
-  .sidebar-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--color-text-muted);
-    margin-bottom: 1rem;
-  }
-
-  .article-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .article-link {
-    display: block;
-    padding: 0.5rem 0 0.5rem 0.75rem;
-    color: var(--color-text-light);
-    text-decoration: none;
-    font-size: 0.85rem;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-    transition: all 0.15s ease;
-  }
-
-  .article-link:hover {
-    color: var(--color-primary);
-    border-left-color: var(--color-primary);
-    padding-left: 1rem;
-  }
-
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 2rem;
   }
 
   .blog-card {
@@ -710,7 +637,7 @@ const blogSchema = {
   }
 
   .blog-card-content {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .blog-meta {
@@ -718,8 +645,8 @@ const blogSchema = {
     align-items: center;
     gap: 0.5rem;
     color: var(--color-text-muted);
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
   }
 
   .blog-separator {
@@ -727,9 +654,9 @@ const blogSchema = {
   }
 
   .blog-title {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.35;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
   }
 
   .blog-title a {
@@ -744,23 +671,23 @@ const blogSchema = {
 
   .blog-excerpt {
     color: var(--color-text-light);
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
 
   .blog-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.5rem;
   }
 
   .tag {
     background: var(--color-background-alt);
     color: var(--color-text-muted);
-    padding: 0.2rem 0.5rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 500;
   }
 
@@ -803,33 +730,7 @@ const blogSchema = {
     opacity: 0.9;
   }
 
-  @media (max-width: 1200px) {
-    .content-with-sidebar {
-      grid-template-columns: 1fr 250px;
-    }
-
-    .blog-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .sidebar-sticky {
-      padding: 1rem;
-    }
-
-    .article-link {
-      font-size: 0.8rem;
-    }
-  }
-
   @media (max-width: 968px) {
-    .content-with-sidebar {
-      grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-      display: none;
-    }
-
     .featured-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -844,7 +745,6 @@ const blogSchema = {
 
     .blog-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
     }
   }
 
