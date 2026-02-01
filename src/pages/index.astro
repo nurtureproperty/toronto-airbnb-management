@@ -1940,18 +1940,21 @@ const latestPosts = allPosts
     <!-- Lite YouTube - Load iframe only on click for better performance -->
     <script is:inline>
     document.querySelectorAll('.lite-youtube').forEach(el => {
-        el.addEventListener('click', function() {
-            if (this.classList.contains('activated')) return;
-            const videoId = this.dataset.videoid;
+        function activateVideo(e) {
+            e.preventDefault();
+            if (el.classList.contains('activated')) return;
+            const videoId = el.dataset.videoid;
             const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
             iframe.title = 'Nurture Airbnb Management';
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
             iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
-            this.appendChild(iframe);
-            this.classList.add('activated');
-        });
+            el.appendChild(iframe);
+            el.classList.add('activated');
+        }
+        el.addEventListener('click', activateVideo);
+        el.addEventListener('touchend', activateVideo, {passive: false});
     });
     </script>
 </body>
