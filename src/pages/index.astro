@@ -380,6 +380,12 @@ const latestPosts = allPosts
             background-color: #000;
         }
 
+        .lite-youtube img,
+        .lite-youtube picture,
+        .lite-youtube .play-button {
+            pointer-events: none;
+        }
+
         .lite-youtube img {
             position: absolute;
             top: 0;
@@ -396,7 +402,6 @@ const latestPosts = allPosts
             transform: translate(-50%, -50%);
             border: none;
             background: transparent;
-            cursor: pointer;
             transition: transform 0.2s ease, filter 0.2s ease;
             z-index: 1;
         }
