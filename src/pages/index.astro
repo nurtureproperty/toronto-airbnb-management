@@ -380,7 +380,12 @@ const latestPosts = allPosts
             background-color: #000;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
             user-select: none;
+        }
+
+        .lite-youtube * {
+            pointer-events: none;
         }
 
         .lite-youtube img,
@@ -1626,7 +1631,7 @@ const latestPosts = allPosts
                         <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/maxresdefault.webp">
                         <img src="https://i.ytimg.com/vi/OFACd6a2ctA/maxresdefault.jpg" alt="Nurture Airbnb Management video" loading="eager" fetchpriority="high">
                     </picture>
-                    <button type="button" class="play-button" aria-label="Play video">
+                    <button type="button" class="play-button" aria-label="Play video" tabindex="-1">
                         <svg viewBox="0 0 68 48" width="68" height="48">
                             <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                             <path d="M 45,24 27,14 27,34" fill="#fff"></path>
@@ -2060,39 +2065,32 @@ const latestPosts = allPosts
     <!-- Lite YouTube - Load iframe only on click for better performance -->
     <script is:inline>
     document.querySelectorAll('.lite-youtube').forEach(el => {
-        let touched = false;
+        let activated = false;
 
-        function activateVideo(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (el.classList.contains('activated')) return;
+        function activateVideo() {
+            if (activated) return;
+            activated = true;
+            el.classList.add('activated');
             const videoId = el.dataset.videoid;
             const iframe = document.createElement('iframe');
             iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
             iframe.title = 'Nurture Airbnb Management';
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
-            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;pointer-events:auto;';
             el.appendChild(iframe);
-            el.classList.add('activated');
         }
 
-        el.addEventListener('touchstart', function(e) {
-            touched = true;
-        }, {passive: true});
-
-        el.addEventListener('touchend', function(e) {
-            if (touched) {
-                touched = false;
-                activateVideo(e);
-            }
-        }, {passive: false});
-
-        el.addEventListener('click', function(e) {
-            if (!touched) {
-                activateVideo(e);
+        // Handle touch - activate immediately on first touch
+        el.addEventListener('pointerdown', function(e) {
+            if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+                e.preventDefault();
+                activateVideo();
             }
         });
+
+        // Handle mouse click
+        el.addEventListener('click', activateVideo);
     });
     </script>
 </body>
