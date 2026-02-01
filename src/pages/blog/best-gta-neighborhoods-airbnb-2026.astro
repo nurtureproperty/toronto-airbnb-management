@@ -1,0 +1,1480 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const neighborhoods = [
+  {
+    name: 'Burlington',
+    region: 'Halton',
+    license: 'None',
+    mat: '0%',
+    nightLimit: 'None',
+    investmentOK: true,
+    principalResidence: false,
+    avgRevenue: '$3,000-$5,000/month',
+    demandDrivers: ['Waterfront tourism', 'Sound of Music Festival', 'Royal Botanical Gardens', 'Medical visitors'],
+    pros: ['No regulations at all', 'Strong waterfront demand', 'High-income area', 'Year-round events'],
+    cons: ['Higher property prices', 'Competition growing'],
+    link: '/burlington-airbnb-management',
+    regulationLink: null,
+    status: 'unregulated'
+  },
+  {
+    name: 'Ajax',
+    region: 'Durham',
+    license: 'None',
+    mat: '0%',
+    nightLimit: 'None',
+    investmentOK: true,
+    principalResidence: false,
+    avgRevenue: '$2,800-$3,800/month',
+    demandDrivers: ['Lake Ontario waterfront', 'GO Transit access', 'Pickering Casino visitors'],
+    pros: ['Investment properties allowed', 'No compliance costs', 'Growing demand'],
+    cons: ['Less brand recognition than Toronto', 'Suburban market'],
+    link: '/ajax-airbnb-management',
+    regulationLink: null,
+    status: 'unregulated'
+  },
+  {
+    name: 'Pickering',
+    region: 'Durham',
+    license: 'None',
+    mat: '0%',
+    nightLimit: 'None',
+    investmentOK: true,
+    principalResidence: false,
+    avgRevenue: '$2,600-$3,600/month',
+    demandDrivers: ['Pickering Casino Resort', 'Rouge National Urban Park', 'GO Transit commuters'],
+    pros: ['Casino drives year-round demand', 'Nature tourism', 'Investment friendly'],
+    cons: ['Eastern GTA location', 'Newer market'],
+    link: '/pickering-airbnb-management',
+    regulationLink: null,
+    status: 'unregulated'
+  },
+  {
+    name: 'Richmond Hill',
+    region: 'York',
+    license: 'None',
+    mat: '0%',
+    nightLimit: 'None',
+    investmentOK: true,
+    principalResidence: false,
+    avgRevenue: '$2,800-$4,500/month',
+    demandDrivers: ['Business travelers', 'Visiting families', 'Wedding guests', 'Corporate relocations'],
+    pros: ['Premium neighborhoods', 'Strong family market', 'Large homes'],
+    cons: ['Regulations may come 2026-2027', 'City actively reviewing STR options'],
+    link: '/richmond-hill-airbnb-management',
+    regulationLink: null,
+    status: 'watch'
+  },
+  {
+    name: 'Downtown Toronto',
+    region: 'Toronto',
+    license: '$58/year',
+    mat: '8.5%',
+    nightLimit: '180 nights (entire home)',
+    investmentOK: false,
+    principalResidence: true,
+    avgRevenue: '$3,500-$6,000/month',
+    demandDrivers: ['Business travelers', 'Tourism', 'Events', 'Entertainment district'],
+    pros: ['Highest demand in GTA', 'Premium rates', 'Year-round bookings', 'Partial-unit has no limit'],
+    cons: ['180-night cap', 'Principal residence required', '8.5% MAT'],
+    link: '/downtown-toronto-airbnb-management',
+    regulationLink: '/blog/toronto-airbnb-short-term-rental-regulations-2026',
+    status: 'regulated'
+  },
+  {
+    name: 'North York',
+    region: 'Toronto',
+    license: '$58/year',
+    mat: '8.5%',
+    nightLimit: '180 nights (entire home)',
+    investmentOK: false,
+    principalResidence: true,
+    avgRevenue: '$2,800-$4,200/month',
+    demandDrivers: ['Business travelers', 'Families visiting', 'Hospital visitors', 'University events'],
+    pros: ['Strong business travel demand', 'Family-friendly', 'Lower prices than downtown'],
+    cons: ['Same Toronto regulations apply', 'Principal residence required'],
+    link: '/north-york-airbnb-management',
+    regulationLink: '/blog/toronto-airbnb-short-term-rental-regulations-2026',
+    status: 'regulated'
+  },
+  {
+    name: 'Scarborough',
+    region: 'Toronto',
+    license: '$58/year',
+    mat: '8.5%',
+    nightLimit: '180 nights (entire home)',
+    investmentOK: false,
+    principalResidence: true,
+    avgRevenue: '$2,400-$3,600/month',
+    demandDrivers: ['Zoo visitors', 'Bluffs tourism', 'University of Toronto Scarborough', 'Centennial College'],
+    pros: ['Lower competition', 'Affordable entry point', 'Nature attractions'],
+    cons: ['Toronto regulations apply', 'Lower rates than downtown'],
+    link: '/scarborough-airbnb-management',
+    regulationLink: '/blog/toronto-airbnb-short-term-rental-regulations-2026',
+    status: 'regulated'
+  },
+  {
+    name: 'Mississauga',
+    region: 'Peel',
+    license: '$283/year',
+    mat: '4%',
+    nightLimit: '180 days',
+    investmentOK: false,
+    principalResidence: true,
+    avgRevenue: '$2,800-$4,000/month',
+    demandDrivers: ['Airport proximity', 'Business travelers', 'Square One shopping'],
+    pros: ['Strong airport demand', 'Corporate travel', 'Growing city'],
+    cons: ['Principal residence required', 'Higher license fee'],
+    link: '/mississauga-airbnb-management',
+    regulationLink: '/blog/mississauga-airbnb-short-term-rental-rules-2026',
+    status: 'regulated'
+  },
+  {
+    name: 'Oakville',
+    region: 'Halton',
+    license: '$237/year',
+    mat: '4%',
+    nightLimit: 'None',
+    investmentOK: false,
+    principalResidence: true,
+    avgRevenue: '$3,200-$5,000/month',
+    demandDrivers: ['Waterfront', 'Weddings', 'Corporate events', 'Wealthy visitors'],
+    pros: ['Premium market', 'High-income guests', 'No night limit'],
+    cons: ['Principal residence required', 'License required'],
+    link: '/oakville-airbnb-management',
+    regulationLink: '/blog/oakville-airbnb-short-term-rental-rules-2026',
+    status: 'regulated'
+  },
+  {
+    name: 'Hamilton',
+    region: 'Hamilton',
+    license: '$200-$1,000',
+    mat: 'None',
+    nightLimit: 'None',
+    investmentOK: false,
+    principalResidence: true,
+    avgRevenue: '$2,200-$3,500/month',
+    demandDrivers: ['Waterfalls', 'McMaster University', 'Healthcare workers', 'Events'],
+    pros: ['No night limit', 'No MAT', 'Growing tourism'],
+    cons: ['Principal residence required', '$2M insurance required'],
+    link: '/hamilton-airbnb-management',
+    regulationLink: '/blog/hamilton-airbnb-short-term-rental-guide-2026',
+    status: 'regulated'
+  }
+];
+
+const comparisonTable = [
+  { city: 'Burlington', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Best for Investors' },
+  { city: 'Ajax', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Best for Investors' },
+  { city: 'Pickering', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Best for Investors' },
+  { city: 'Richmond Hill', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Act Now (Under Review)' },
+  { city: 'Toronto', license: '$58/yr', mat: '8.5%', nightLimit: '180/year', investment: '✗', status: 'Principal Residence Only' },
+  { city: 'Mississauga', license: '$283/yr', mat: '4%', nightLimit: '180 days', investment: '✗', status: 'Principal Residence Only' },
+  { city: 'Brampton', license: '$150/yr', mat: '4%', nightLimit: '180 days', investment: '✗', status: 'Principal Residence Only' },
+  { city: 'Oakville', license: '$237/yr', mat: '4%', nightLimit: 'None', investment: '✗', status: 'Principal Residence Only' },
+  { city: 'Hamilton', license: '$200-$1K', mat: '0%', nightLimit: 'None', investment: '✗', status: 'Principal Residence Only' },
+  { city: 'Vaughan', license: 'Required', mat: '4%', nightLimit: 'Check', investment: '✗', status: 'Principal Residence Only' }
+];
+
+const faqs = [
+  { q: "What is the best GTA city for Airbnb investment properties?", a: "Burlington, Ajax, and Pickering are the best GTA cities for Airbnb investment properties. These cities have no STR regulations, meaning no license required, no MAT tax, no night limits, and investment properties are permitted. Burlington offers the highest earning potential at $3,000-$5,000/month." },
+  { q: "Can I still Airbnb profitably in Toronto with the regulations?", a: "Yes. Even with the 180-night limit, most Toronto hosts earn 30-100% more than long-term rentals. A 1-bedroom in King West typically pulls $3,500-4,500/month short-term versus $2,400 long-term. You can also register for partial-unit rentals (no night limit) or do mid-term rentals (28+ days) which bypass the rules entirely." },
+  { q: "Which GTA neighborhoods have the highest Airbnb demand?", a: "Downtown Toronto has the highest demand due to business travel, tourism, and events. However, Burlington's waterfront, Pickering's casino area, and areas near Pearson Airport (Mississauga) also see strong, consistent demand." },
+  { q: "Is Airbnb allowed on investment properties anywhere in the GTA?", a: "Yes. Burlington, Ajax, Pickering, Clarington, Brock, Richmond Hill, and King Township all allow short-term rentals on investment properties. There's no principal residence requirement in these cities." },
+  { q: "What's the difference between regulated and unregulated GTA cities?", a: "Regulated cities like Toronto require a license, principal residence status, and charge MAT tax (4-8.5%). Unregulated cities like Burlington have none of these requirements. You can operate year-round on investment properties with no extra costs." },
+  { q: "Should I buy in an unregulated city before regulations come?", a: "If you're considering Richmond Hill or Whitby, acting sooner is wise since both are actively developing STR bylaws. Burlington, Ajax, and Pickering have not announced plans to regulate, making them safer long-term options." },
+  { q: "How do I choose between Toronto neighborhoods for Airbnb?", a: "Downtown Toronto offers highest rates but most competition. North York is great for business travelers and families. Scarborough has lower entry costs and less competition. Etobicoke is popular for airport proximity. All Toronto areas have the same regulations." },
+  { q: "What about condos? Can I Airbnb in any GTA condo?", a: "Even in unregulated cities, your condo corporation can prohibit short-term rentals. Always check your condo declaration and rules before buying or listing. Some Toronto condos explicitly allow STRs while others have complete bans." }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'GTA Market Overview' },
+  { id: 'comparison', text: 'Regulations Comparison Table' },
+  { id: 'unregulated', text: 'Best Unregulated Cities' },
+  { id: 'toronto', text: 'Toronto: Still Worth It' },
+  { id: 'regulated', text: 'Other Regulated Markets' },
+  { id: 'choosing', text: 'How to Choose' },
+  { id: 'getting-started', text: 'Getting Started' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const relatedPosts = [
+  { title: "GTA Cities with No Airbnb License Required", href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Complete guide to unregulated markets: Ajax, Burlington, Pickering, and more' },
+  { title: "Toronto Airbnb Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Everything you need to know about Toronto\'s STR rules' },
+  { title: "Can I Airbnb My Investment Property in the GTA?", href: '/blog/airbnb-investment-property-gta', description: 'Principal residence rules and investment property options explained' }
+];
+
+const pageTitle = "Best GTA Neighborhoods for Airbnb 2026 | Where to Host";
+const pageDescription = "Compare GTA neighborhoods for Airbnb: regulations, earning potential, and which cities allow investment properties. Burlington, Ajax, Toronto, and more.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Best Greater Toronto Area Neighborhoods for Airbnb in 2026",
+  "description": pageDescription,
+  "datePublished": "2026-02-01",
+  "dateModified": "2026-02-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/best-gta-neighborhoods-airbnb-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Best GTA Neighborhoods for Airbnb in 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 1, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">12 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Not all GTA neighborhoods are created equal for Airbnb hosting. Some cities have <strong>zero regulations</strong> and welcome investment properties. Others require principal residence, charge taxes, and cap your nights. Here's where to host in 2026, based on regulations, earning potential, and demand.</p>
+          </div>
+
+          <div class="disclaimer-box">
+            <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute legal advice. Municipal regulations change frequently. Always verify current requirements directly with your local municipality, consult with a legal professional, and check your condo corporation rules before listing a property.
+          </div>
+
+          <h2 id="overview">GTA Market Overview: Two Different Worlds</h2>
+          <p>The Greater Toronto Area is split into two types of markets for Airbnb hosts:</p>
+
+          <div class="two-column-comparison">
+            <div class="comparison-box unregulated-box">
+              <h4>Unregulated Cities</h4>
+              <ul>
+                <li>No license required</li>
+                <li>No MAT tax</li>
+                <li>No night limits</li>
+                <li>Investment properties allowed</li>
+              </ul>
+              <p class="box-examples"><strong>Examples:</strong> Burlington, Ajax, Pickering, Richmond Hill</p>
+            </div>
+            <div class="comparison-box regulated-box">
+              <h4>Regulated Cities</h4>
+              <ul>
+                <li>License + registration required</li>
+                <li>4-8.5% MAT tax</li>
+                <li>Often 180-night limits</li>
+                <li>Principal residence only</li>
+              </ul>
+              <p class="box-examples"><strong>Examples:</strong> Toronto, Mississauga, Brampton, Oakville</p>
+            </div>
+          </div>
+
+          <p>Your choice depends on your situation. Own an investment property? You need an unregulated city. Live in your home and want to host? Regulated cities like Toronto still offer excellent returns.</p>
+
+          <h2 id="comparison">GTA Airbnb Regulations: Complete Comparison</h2>
+          <p>This table shows exactly what you're dealing with in each GTA market. Green rows are best for investors. For detailed city-by-city breakdowns, see our <a href="/blog/gta-cities-no-airbnb-license-required-2026">complete guide to unregulated GTA cities</a>.</p>
+
+          <div class="comparison-table-wrapper">
+            <table class="regulation-table">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>License</th>
+                  <th>MAT Tax</th>
+                  <th>Night Limit</th>
+                  <th>Investment OK?</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonTable.map(row => (
+                  <tr class={row.investment === '✓' ? 'row-unregulated' : 'row-regulated'}>
+                    <td class="city-cell">{row.city}</td>
+                    <td>{row.license}</td>
+                    <td>{row.mat}</td>
+                    <td>{row.nightLimit}</td>
+                    <td class={row.investment === '✓' ? 'yes-cell' : 'no-cell'}>{row.investment}</td>
+                    <td class="status-cell">{row.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="unregulated">Best Unregulated Cities: Investment Properties Welcome</h2>
+          <p>These cities have <strong>no STR regulations whatsoever</strong>. You can operate investment properties, host year-round, and keep 100% of your revenue (no MAT tax).</p>
+
+          <h3>1. Burlington: The Premium Unregulated Market</h3>
+          <div class="neighborhood-card">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Burlington</div>
+              <div class="neighborhood-status status-green">No Regulations</div>
+            </div>
+            <div class="neighborhood-details">
+              <div class="neighborhood-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Avg. Revenue</span>
+                  <span class="stat-value">$3,000-$5,000/mo</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">License</span>
+                  <span class="stat-value">None</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">MAT Tax</span>
+                  <span class="stat-value">0%</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Night Limit</span>
+                  <span class="stat-value">None</span>
+                </div>
+              </div>
+              <p><strong>Why Burlington:</strong> Waterfront properties near Spencer Smith Park command premium rates. The Sound of Music Festival, Ribfest, and Royal Botanical Gardens drive consistent demand. High-income area means quality guests.</p>
+              <p><strong>Best for:</strong> Waterfront properties, luxury listings, families, festival visitors</p>
+              <div class="neighborhood-tags">
+                <span class="tag tag-green">Investment OK</span>
+                <span class="tag tag-green">No License</span>
+                <span class="tag tag-green">No MAT</span>
+                <span class="tag tag-green">Year-Round</span>
+              </div>
+              <a href="/burlington-airbnb-management" class="neighborhood-link">Burlington Airbnb Management →</a>
+            </div>
+          </div>
+
+          <h3>2. Ajax: Eastern GTA's Hidden Gem</h3>
+          <div class="neighborhood-card">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Ajax</div>
+              <div class="neighborhood-status status-green">No Regulations</div>
+            </div>
+            <div class="neighborhood-details">
+              <div class="neighborhood-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Avg. Revenue</span>
+                  <span class="stat-value">$2,800-$3,800/mo</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">License</span>
+                  <span class="stat-value">None</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">MAT Tax</span>
+                  <span class="stat-value">0%</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Night Limit</span>
+                  <span class="stat-value">None</span>
+                </div>
+              </div>
+              <p><strong>Why Ajax:</strong> Lake Ontario waterfront properties with easy GO Train access to downtown Toronto. Proximity to Pickering Casino drives weekend demand. Lower property prices than Burlington with similar regulatory freedom.</p>
+              <p><strong>Best for:</strong> Waterfront escapes, casino visitors, budget-conscious investors</p>
+              <div class="neighborhood-tags">
+                <span class="tag tag-green">Investment OK</span>
+                <span class="tag tag-green">No License</span>
+                <span class="tag tag-green">No MAT</span>
+                <span class="tag tag-green">Year-Round</span>
+              </div>
+              <a href="/ajax-airbnb-management" class="neighborhood-link">Ajax Airbnb Management →</a>
+            </div>
+          </div>
+
+          <h3>3. Pickering: Casino-Driven Demand</h3>
+          <div class="neighborhood-card">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Pickering</div>
+              <div class="neighborhood-status status-green">No Regulations</div>
+            </div>
+            <div class="neighborhood-details">
+              <div class="neighborhood-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Avg. Revenue</span>
+                  <span class="stat-value">$2,600-$3,600/mo</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">License</span>
+                  <span class="stat-value">None</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">MAT Tax</span>
+                  <span class="stat-value">0%</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Night Limit</span>
+                  <span class="stat-value">None</span>
+                </div>
+              </div>
+              <p><strong>Why Pickering:</strong> The Pickering Casino Resort is a year-round demand driver. Rouge National Urban Park attracts nature tourists. GO Transit provides easy Toronto access for guests who want the city experience without downtown prices.</p>
+              <p><strong>Best for:</strong> Casino visitors, nature tourists, GO Transit commuters</p>
+              <div class="neighborhood-tags">
+                <span class="tag tag-green">Investment OK</span>
+                <span class="tag tag-green">No License</span>
+                <span class="tag tag-green">No MAT</span>
+                <span class="tag tag-green">Year-Round</span>
+              </div>
+              <a href="/pickering-airbnb-management" class="neighborhood-link">Pickering Airbnb Management →</a>
+            </div>
+          </div>
+
+          <h3>4. Richmond Hill: Act Before Regulations Come</h3>
+          <div class="neighborhood-card">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Richmond Hill</div>
+              <div class="neighborhood-status status-yellow">Under Review</div>
+            </div>
+            <div class="neighborhood-details">
+              <div class="neighborhood-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Avg. Revenue</span>
+                  <span class="stat-value">$2,800-$4,500/mo</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">License</span>
+                  <span class="stat-value">None (currently)</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">MAT Tax</span>
+                  <span class="stat-value">0% (currently)</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Night Limit</span>
+                  <span class="stat-value">None (currently)</span>
+                </div>
+              </div>
+              <p><strong>Why Richmond Hill:</strong> The largest unregulated market in York Region with premium neighborhoods like Oak Ridges and Bayview Hill. Strong demand from business travelers, visiting families, and wedding guests.</p>
+              <p><strong>Warning:</strong> The city is actively exploring STR regulatory options. Regulations may come in 2026-2027. If you're considering this market, act soon.</p>
+              <div class="neighborhood-tags">
+                <span class="tag tag-green">Investment OK</span>
+                <span class="tag tag-yellow">Regulations Coming</span>
+                <span class="tag tag-green">Premium Market</span>
+              </div>
+              <a href="/richmond-hill-airbnb-management" class="neighborhood-link">Richmond Hill Airbnb Management →</a>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <div class="callout-icon">💡</div>
+            <div class="callout-content">
+              <strong>More Unregulated Options</strong><br>
+              Clarington, Brock Township, and King Township are also unregulated. See our <a href="/blog/gta-cities-no-airbnb-license-required-2026">complete guide to GTA cities with no Airbnb license required</a> for the full list.
+            </div>
+          </div>
+
+          <h2 id="toronto">Toronto: Still Worth It (With the Right Strategy)</h2>
+          <p>Don't write off Toronto just because of regulations. It's still the highest-demand market in the GTA, and there are legal ways to maximize your hosting.</p>
+
+          <div class="highlight-box">
+            <h4>Toronto Airbnb Quick Facts</h4>
+            <ul>
+              <li><strong>License:</strong> $58/year (register at <a href="https://www.toronto.ca/str" target="_blank" rel="noopener">toronto.ca/str</a>)</li>
+              <li><strong>MAT Tax:</strong> 8.5% (Airbnb collects automatically)</li>
+              <li><strong>Night Limit:</strong> 180 nights/year for entire-home rentals</li>
+              <li><strong>Principal Residence:</strong> Required (must be your primary home)</li>
+              <li><strong>Fines:</strong> Up to $100,000 for non-compliance</li>
+            </ul>
+            <p>Full details: <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto Airbnb Regulations 2026</a></p>
+          </div>
+
+          <h3>Strategy 1: Partial-Unit Registration (No Night Limit)</h3>
+          <p>If you rent rooms in your home while you're present, you can register as a <strong>partial-unit operator</strong>. This has <strong>no 180-night limit</strong>, meaning you can host 365 days a year.</p>
+          <p>This works well for:</p>
+          <ul>
+            <li>Basement apartments with separate entrances</li>
+            <li>Spare bedrooms in your home</li>
+            <li>Laneway houses or garden suites</li>
+          </ul>
+          <p>Learn more: <a href="/blog/toronto-airbnb-partial-unit-registration-guide-2026">Toronto Partial-Unit Registration Guide</a></p>
+
+          <h3>Strategy 2: Mid-Term Rentals (28+ Days)</h3>
+          <p>Rentals of 28 consecutive days or longer are <strong>not classified as short-term rentals</strong> under Toronto's bylaw. This means:</p>
+          <ul>
+            <li>No STR registration required</li>
+            <li>No 180-night cap</li>
+            <li>No principal residence requirement</li>
+            <li>Investment properties can use this strategy</li>
+          </ul>
+          <p>We manage several investment condos near the Financial District using mid-term rentals. Corporate relocations, medical professionals, and project-based workers pay premium rates for furnished monthly rentals.</p>
+
+          <h3>Strategy 3: Hybrid Approach</h3>
+          <p>Many hosts combine strategies: 180 nights of short-term Airbnb bookings (highest rates), then fill the remaining months with mid-term rentals. This maximizes annual revenue while staying fully compliant.</p>
+
+          <h3>Best Toronto Neighborhoods</h3>
+          <div class="toronto-neighborhoods">
+            <div class="toronto-hood">
+              <h4>Downtown / Entertainment District</h4>
+              <p><strong>Revenue:</strong> $3,500-$6,000/month</p>
+              <p>Highest demand, highest rates. Business travelers, tourists, event-goers. Walking distance to CN Tower, Rogers Centre, theatres.</p>
+              <a href="/downtown-toronto-airbnb-management">Downtown Toronto Management →</a>
+            </div>
+            <div class="toronto-hood">
+              <h4>North York</h4>
+              <p><strong>Revenue:</strong> $2,800-$4,200/month</p>
+              <p>Business travelers, families, hospital visitors. More space for the money, good transit connections.</p>
+              <a href="/north-york-airbnb-management">North York Management →</a>
+            </div>
+            <div class="toronto-hood">
+              <h4>Scarborough</h4>
+              <p><strong>Revenue:</strong> $2,400-$3,600/month</p>
+              <p>Lower competition, affordable entry. Toronto Zoo, Scarborough Bluffs, University of Toronto Scarborough.</p>
+              <a href="/scarborough-airbnb-management">Scarborough Management →</a>
+            </div>
+            <div class="toronto-hood">
+              <h4>Etobicoke</h4>
+              <p><strong>Revenue:</strong> $2,600-$4,000/month</p>
+              <p>Airport proximity, Humber College, waterfront properties. Popular with business travelers needing Pearson access.</p>
+              <a href="/etobicoke-airbnb-management">Etobicoke Management →</a>
+            </div>
+          </div>
+
+          <h2 id="regulated">Other Regulated Markets Worth Considering</h2>
+          <p>These cities require licensing but can still be profitable if it's your principal residence.</p>
+
+          <h3>Mississauga: Airport Hub</h3>
+          <div class="neighborhood-card compact">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Mississauga</div>
+              <div class="neighborhood-status status-blue">Regulated</div>
+            </div>
+            <div class="neighborhood-details">
+              <p><strong>Revenue:</strong> $2,800-$4,000/month | <strong>License:</strong> $283/year | <strong>MAT:</strong> 4% | <strong>Limit:</strong> 180 days</p>
+              <p>Pearson Airport proximity drives consistent demand from business travelers and layovers. Square One shopping attracts visitors. Strong corporate travel market.</p>
+              <p>Details: <a href="/blog/mississauga-airbnb-short-term-rental-rules-2026">Mississauga STR Rules 2026</a></p>
+            </div>
+          </div>
+
+          <h3>Oakville: Premium Without Night Limits</h3>
+          <div class="neighborhood-card compact">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Oakville</div>
+              <div class="neighborhood-status status-blue">Regulated</div>
+            </div>
+            <div class="neighborhood-details">
+              <p><strong>Revenue:</strong> $3,200-$5,000/month | <strong>License:</strong> $237/year | <strong>MAT:</strong> 4% | <strong>Limit:</strong> None</p>
+              <p>Premium waterfront market with high-income guests. Unlike Toronto, Oakville has <strong>no night limit</strong>, so you can host year-round. Principal residence still required.</p>
+              <p>Details: <a href="/blog/oakville-airbnb-short-term-rental-rules-2026">Oakville STR Rules 2026</a></p>
+            </div>
+          </div>
+
+          <h3>Hamilton: Growing Tourism Market</h3>
+          <div class="neighborhood-card compact">
+            <div class="neighborhood-header">
+              <div class="neighborhood-name">Hamilton</div>
+              <div class="neighborhood-status status-blue">Regulated</div>
+            </div>
+            <div class="neighborhood-details">
+              <p><strong>Revenue:</strong> $2,200-$3,500/month | <strong>License:</strong> $200-$1,000 | <strong>MAT:</strong> None | <strong>Limit:</strong> None</p>
+              <p>Waterfall capital of the world with 100+ waterfalls. McMaster University drives consistent demand. No MAT tax and no night limits, but $2M insurance required.</p>
+              <p>Details: <a href="/blog/hamilton-airbnb-short-term-rental-guide-2026">Hamilton STR Rules 2026</a></p>
+            </div>
+          </div>
+
+          <h2 id="choosing">How to Choose Your Market</h2>
+          <p>Use this decision tree to find your best fit:</p>
+
+          <div class="decision-tree">
+            <div class="decision-step">
+              <h4>Question 1: Is this an investment property or your home?</h4>
+              <div class="decision-options">
+                <div class="decision-option">
+                  <strong>Investment Property →</strong> You need an unregulated city: Burlington, Ajax, Pickering, Richmond Hill, or do mid-term rentals (28+ days) anywhere.
+                </div>
+                <div class="decision-option">
+                  <strong>Your Primary Home →</strong> All GTA cities are options. Continue to Question 2.
+                </div>
+              </div>
+            </div>
+            <div class="decision-step">
+              <h4>Question 2: Do you want to host more than 180 nights/year?</h4>
+              <div class="decision-options">
+                <div class="decision-option">
+                  <strong>Yes, 365 days →</strong> Choose an unregulated city, or use Toronto's partial-unit registration, or focus on mid-term rentals.
+                </div>
+                <div class="decision-option">
+                  <strong>No, 180 is fine →</strong> Toronto, Mississauga, and Brampton all work well with the 180-night limit.
+                </div>
+              </div>
+            </div>
+            <div class="decision-step">
+              <h4>Question 3: What's your priority?</h4>
+              <div class="decision-options">
+                <div class="decision-option">
+                  <strong>Maximum revenue →</strong> Downtown Toronto (highest rates, highest demand)
+                </div>
+                <div class="decision-option">
+                  <strong>Lowest hassle →</strong> Unregulated cities (no compliance requirements)
+                </div>
+                <div class="decision-option">
+                  <strong>Best ROI →</strong> Burlington or Ajax (no taxes + strong demand)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="getting-started">Getting Started: Next Steps</h2>
+          <p>Regardless of which market you choose:</p>
+
+          <div class="requirements-list">
+            <div class="requirement-item">
+              <h4>1. Check Condo Rules</h4>
+              <p>Even in unregulated cities, your condo corporation can prohibit STRs. Review your declaration, bylaws, and rules. Get written confirmation before listing.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>2. Get Proper Insurance</h4>
+              <p>Standard homeowner's insurance doesn't cover short-term rental guests. Get $2,000,000+ liability coverage that explicitly covers STR activity.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>3. Register for HST (if applicable)</h4>
+              <p>If you earn $30,000+ annually from STRs, you must register for HST and collect 13% on bookings.</p>
+            </div>
+            <div class="requirement-item">
+              <h4>4. Get Licensed (in regulated cities)</h4>
+              <p>In Toronto, Mississauga, Brampton, Oakville, and other regulated cities, apply for your STR license before listing.</p>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Choosing or Managing Your Airbnb?</h3>
+            <p>Nurture manages properties across the GTA. We handle guest communication, dynamic pricing, cleaning coordination, and compliance. You collect passive income.</p>
+            <div class="cta-buttons">
+              <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+              <a href="tel:647-957-8956" class="btn btn-secondary">Call: 647-957-8956</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Your Area?</h2>
+        <p>Get a free rental estimate and learn which market is best for your property.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .disclaimer-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-left: 4px solid #6c757d;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #495057;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .disclaimer-box strong {
+    color: #343a40;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .article-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .article-content a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* Two Column Comparison */
+  .two-column-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .comparison-box {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .comparison-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .comparison-box ul {
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .comparison-box li {
+    margin-bottom: 0.5rem;
+  }
+
+  .box-examples {
+    font-size: 0.9rem;
+    margin-bottom: 0 !important;
+  }
+
+  .unregulated-box {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border: 1px solid #a5d6a7;
+  }
+
+  .regulated-box {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 1px solid #ffcc80;
+  }
+
+  /* Regulation Comparison Table */
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .regulation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .regulation-table th,
+  .regulation-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .regulation-table th {
+    background: var(--color-text);
+    color: white;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .regulation-table th:first-child {
+    border-radius: 8px 0 0 0;
+  }
+
+  .regulation-table th:last-child {
+    border-radius: 0 8px 0 0;
+  }
+
+  .row-unregulated {
+    background: #e8f5e9;
+  }
+
+  .row-regulated {
+    background: #fff;
+  }
+
+  .row-unregulated:hover,
+  .row-regulated:hover {
+    background: #f5f5f5;
+  }
+
+  .row-unregulated:hover {
+    background: #c8e6c9;
+  }
+
+  .city-cell {
+    font-weight: 600;
+  }
+
+  .yes-cell {
+    color: #2e7d32;
+    font-weight: 600;
+  }
+
+  .no-cell {
+    color: #c62828;
+  }
+
+  .status-cell {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* Neighborhood Cards */
+  .neighborhood-card {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .neighborhood-card.compact {
+    margin: 1rem 0;
+  }
+
+  .neighborhood-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .neighborhood-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .neighborhood-status {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .status-green {
+    background: #38a169;
+  }
+
+  .status-yellow {
+    background: #d69e2e;
+  }
+
+  .status-blue {
+    background: #3182ce;
+  }
+
+  .neighborhood-details {
+    padding: 1.5rem;
+  }
+
+  .neighborhood-details p {
+    margin-bottom: 0.75rem;
+  }
+
+  .neighborhood-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+  }
+
+  .neighborhood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .tag-green {
+    background: #38a169;
+    color: white;
+  }
+
+  .tag-yellow {
+    background: #d69e2e;
+    color: white;
+  }
+
+  .neighborhood-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Highlight Box */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, #e8f5e9 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .highlight-box ul {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Toronto Neighborhoods Grid */
+  .toronto-neighborhoods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .toronto-hood {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .toronto-hood h4 {
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .toronto-hood p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .toronto-hood a {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  /* Callout */
+  .callout {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .callout-info {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+  }
+
+  .callout-icon {
+    font-size: 1.5rem;
+  }
+
+  .callout-content {
+    flex: 1;
+  }
+
+  .callout-content a {
+    color: #1565c0;
+  }
+
+  /* Decision Tree */
+  .decision-tree {
+    margin: 2rem 0;
+  }
+
+  .decision-step {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .decision-step h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .decision-options {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .decision-option {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+
+  /* Requirements List */
+  .requirements-list {
+    margin: 2rem 0;
+  }
+
+  .requirement-item {
+    background: var(--color-background-alt);
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .requirement-item h4 {
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-primary);
+  }
+
+  .requirement-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+
+  /* FAQ List */
+  .faq-list {
+    margin: 2rem 0;
+  }
+
+  .faq-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h4 {
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-text);
+  }
+
+  .faq-item p {
+    margin-bottom: 0;
+    color: var(--color-text-light);
+  }
+
+  /* Article CTA */
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .article-cta h3 {
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .article-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Related Section */
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .related-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-section .btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .two-column-comparison {
+      grid-template-columns: 1fr;
+    }
+
+    .neighborhood-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .toronto-neighborhoods {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .neighborhood-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
