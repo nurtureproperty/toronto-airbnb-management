@@ -1948,6 +1948,7 @@ const latestPosts = allPosts
             iframe.title = 'Nurture Airbnb Management';
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
+            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
             this.appendChild(iframe);
             this.classList.add('activated');
         });
