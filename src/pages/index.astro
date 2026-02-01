@@ -378,6 +378,9 @@ const latestPosts = allPosts
         .lite-youtube {
             cursor: pointer;
             background-color: #000;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
 
         .lite-youtube img,
@@ -2057,8 +2060,11 @@ const latestPosts = allPosts
     <!-- Lite YouTube - Load iframe only on click for better performance -->
     <script is:inline>
     document.querySelectorAll('.lite-youtube').forEach(el => {
+        let touched = false;
+
         function activateVideo(e) {
             e.preventDefault();
+            e.stopPropagation();
             if (el.classList.contains('activated')) return;
             const videoId = el.dataset.videoid;
             const iframe = document.createElement('iframe');
@@ -2070,8 +2076,23 @@ const latestPosts = allPosts
             el.appendChild(iframe);
             el.classList.add('activated');
         }
-        el.addEventListener('click', activateVideo);
-        el.addEventListener('touchend', activateVideo, {passive: false});
+
+        el.addEventListener('touchstart', function(e) {
+            touched = true;
+        }, {passive: true});
+
+        el.addEventListener('touchend', function(e) {
+            if (touched) {
+                touched = false;
+                activateVideo(e);
+            }
+        }, {passive: false});
+
+        el.addEventListener('click', function(e) {
+            if (!touched) {
+                activateVideo(e);
+            }
+        });
     });
     </script>
 </body>
