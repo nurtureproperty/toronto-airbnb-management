@@ -1125,6 +1125,74 @@ const latestPosts = allPosts
             text-decoration: underline;
         }
 
+        /* Instagram Section */
+        .instagram-section {
+            padding: 5rem 2rem;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .instagram-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .instagram-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .instagram-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .instagram-subtitle a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .instagram-subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .instagram-grid iframe {
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .instagram-post {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 968px) {
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .instagram-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-section h2 {
+                font-size: 1.75rem;
+            }
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 6rem 2rem;
@@ -1845,6 +1913,45 @@ const latestPosts = allPosts
                 <a href="/contact" class="primary-button">Get Your Free Assessment</a>
             </div>
         </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="instagram-section">
+        <div class="instagram-container">
+            <h2>Follow Us on Instagram</h2>
+            <p class="instagram-subtitle">
+                <a href="https://www.instagram.com/nurtureproperties/" target="_blank" rel="noopener">@nurtureproperties</a>
+            </p>
+            <div class="instagram-grid">
+                <!-- Instagram Post 1 -->
+                <!-- To add a post: Go to Instagram > Click post > Click ... > Embed > Copy embed code > Paste below -->
+                <div class="instagram-post">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_1/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        <div style="padding:16px; text-align:center;">
+                            <a href="https://www.instagram.com/nurtureproperties/" target="_blank" style="color:#3897f0;">View post on Instagram</a>
+                        </div>
+                    </blockquote>
+                </div>
+                <!-- Instagram Post 2 -->
+                <div class="instagram-post">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_2/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        <div style="padding:16px; text-align:center;">
+                            <a href="https://www.instagram.com/nurtureproperties/" target="_blank" style="color:#3897f0;">View post on Instagram</a>
+                        </div>
+                    </blockquote>
+                </div>
+                <!-- Instagram Post 3 -->
+                <div class="instagram-post">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_3/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        <div style="padding:16px; text-align:center;">
+                            <a href="https://www.instagram.com/nurtureproperties/" target="_blank" style="color:#3897f0;">View post on Instagram</a>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <!-- Instagram embed script -->
+        <script is:inline async src="//www.instagram.com/embed.js"></script>
     </section>
 
     <!-- FAQ -->
