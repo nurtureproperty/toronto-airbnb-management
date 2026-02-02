@@ -291,14 +291,16 @@ def get_video_details(video_id: str, api_key: Optional[str] = None) -> Optional[
 def get_video_transcript(video_id: str) -> Optional[str]:
     """Fetch video transcript using youtube-transcript-api or fallback methods."""
 
-    # Try youtube-transcript-api if installed
+    # Try youtube-transcript-api if installed (v1.x API)
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
 
-        transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+        # Create API instance and fetch transcript (v1.x API)
+        ytt_api = YouTubeTranscriptApi()
+        transcript = ytt_api.fetch(video_id)
 
         # Combine transcript segments
-        full_transcript = " ".join([entry["text"] for entry in transcript_list])
+        full_transcript = " ".join([snippet.text for snippet in transcript.snippets])
 
         # Limit length
         if len(full_transcript) > 15000:
