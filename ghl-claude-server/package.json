@@ -1,0 +1,18 @@
+{
+  "name": "ghl-claude-server",
+  "version": "1.0.0",
+  "description": "Webhook server for GHL + Claude automated personalized responses",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@anthropic-ai/sdk": "^0.24.0",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
