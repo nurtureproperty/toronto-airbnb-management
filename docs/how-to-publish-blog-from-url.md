@@ -187,8 +187,9 @@ After each post is created, you'll receive an email at info@nurtre.io with:
 The automated script (`blog-generator.py`) runs via GitHub Actions with strict Ontario-focused filtering.
 
 ### Weekly Limit
-- Publishes **maximum 2 posts per week**
-- Ensures only high-quality, relevant content for Ontario Airbnb audience
+- Publishes **up to 4 posts per week** if enough relevant content exists
+- Only publishes articles meeting strict Ontario STR criteria (quality over quantity)
+- If fewer relevant articles are found, fewer posts are published
 - Limit resets every Monday
 
 ### Strict Relevance Filtering
@@ -197,6 +198,11 @@ Articles must meet BOTH criteria to be published:
 2. **STR/Airbnb Topic**: Must be about short-term rentals, Airbnb, regulations, hosting, etc.
 
 Articles that only mention "Airbnb" without Ontario context are **rejected**.
+
+### Priority Order
+1. **Fresh news first** - New relevant articles are published before backlogged content
+2. **Breaking news priority** - If new Ontario STR news comes out, it jumps to the front
+3. **Backlog second** - Older relevant articles are only published if weekly limit allows
 
 ### Backlog System
 - Relevant articles exceeding weekly limit are saved to backlog

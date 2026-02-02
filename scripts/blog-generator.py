@@ -6,15 +6,15 @@ This script scans RSS feeds for relevant short-term rental news and generates
 blog posts using the Claude API. Posts are auto-published and email notifications
 are sent to the configured address.
 
-WEEKLY LIMIT: Publishes at most 2 posts per week (configurable via MAX_POSTS_PER_WEEK).
+WEEKLY LIMIT: Publishes up to 4 posts per week IF there's enough relevant Ontario STR content.
               Only publishes articles that are SPECIFICALLY about Ontario/GTA short-term rentals.
-              General Airbnb industry news is excluded to maintain audience relevance.
+              If fewer relevant articles are found, fewer posts are published (quality over quantity).
 
-BACKLOG SYSTEM:
-- High-priority articles that exceed the daily limit are saved to article_backlog.json
-- Backlog articles are processed first (oldest first) on the next run
-- Maximum 10 articles kept in backlog
-- Only high-priority articles are backlogged (medium priority are skipped)
+PRIORITY SYSTEM:
+- Fresh news is prioritized over backlogged articles (breaking news goes first)
+- Articles must mention BOTH an Ontario location AND an STR/Airbnb topic
+- Backlogged articles are processed after all new relevant articles
+- Maximum 5 articles kept in backlog for slow news weeks
 
 Usage:
     python scripts/blog-generator.py
@@ -57,7 +57,7 @@ POSTS_DIR = PROJECT_ROOT / "src" / "content" / "blog"
 PROCESSED_FILE = SCRIPT_DIR / "processed_articles.json"
 BACKLOG_FILE = SCRIPT_DIR / "article_backlog.json"
 SITE_URL = "https://www.nurturestays.ca"
-MAX_POSTS_PER_WEEK = 2  # Maximum posts to publish each week
+MAX_POSTS_PER_WEEK = 4  # Maximum posts per week (only publishes if content meets strict filters)
 POSTS_THIS_WEEK_FILE = SCRIPT_DIR / "posts_this_week.json"
 
 # RSS Feeds to monitor
@@ -736,12 +736,13 @@ def main():
     # Filter out already processed articles
     new_articles = [a for a in articles if a["hash"] not in processed_hashes]
 
-    # Combine backlog with new articles (backlog first, then new)
+    # Separate new articles from backlog
     backlog_hashes = {a["hash"] for a in backlog}
     new_not_in_backlog = [a for a in new_articles if a["hash"] not in backlog_hashes]
 
-    # Articles to consider: backlog first (oldest), then new
-    articles_to_process = backlog + new_not_in_backlog
+    # PRIORITY: Fresh news first, then backlog
+    # This ensures breaking Ontario STR news gets published immediately
+    articles_to_process = new_not_in_backlog + backlog
 
     print(f"\n" + "-" * 40)
     print(f"Found {len(articles)} Ontario STR articles in feeds")
