@@ -184,26 +184,35 @@ After each post is created, you'll receive an email at info@nurtre.io with:
 
 ## Automated Blog Generator (RSS)
 
-The automated script (`blog-generator.py`) runs via GitHub Actions and has these limits:
+The automated script (`blog-generator.py`) runs via GitHub Actions with strict Ontario-focused filtering.
 
-### Daily Limit
-- Publishes **maximum 2 posts per day**
-- Prevents content flooding and maintains quality
+### Weekly Limit
+- Publishes **maximum 2 posts per week**
+- Ensures only high-quality, relevant content for Ontario Airbnb audience
+- Limit resets every Monday
+
+### Strict Relevance Filtering
+Articles must meet BOTH criteria to be published:
+1. **Ontario/GTA Location**: Must mention Toronto, Mississauga, Brampton, Hamilton, Ottawa, Muskoka, or other Ontario cities
+2. **STR/Airbnb Topic**: Must be about short-term rentals, Airbnb, regulations, hosting, etc.
+
+Articles that only mention "Airbnb" without Ontario context are **rejected**.
 
 ### Backlog System
-When the script finds more than 2 good articles:
-1. Publishes the top 2 (high-priority first)
-2. Saves remaining high-priority articles to a backlog
-3. Backlogged articles are published on subsequent days
-4. Maximum 10 articles kept in backlog
-5. Only high-priority articles are backlogged (medium priority skipped)
+- Relevant articles exceeding weekly limit are saved to backlog
+- Maximum 5 articles kept in backlog
+- Backlogged articles are processed in future weeks
 
-### Priority Levels
-- **High priority**: Articles mentioning Toronto, Ontario, GTA, specific regulations
-- **Medium priority**: General Airbnb/STR industry news
+### Excluded Articles
+The script automatically excludes:
+- General industry news without Ontario focus
+- US/international market news (New York, California, Europe, etc.)
+- Negative STR sentiment (crackdowns, bans, housing crisis blame)
+- Corporate/financial news (stock prices, earnings reports)
+- "Nightmare" or "horror story" pieces
 
-### Backlog File
-The backlog is stored in `scripts/article_backlog.json` and persists between runs.
+### Weekly Tracker
+The weekly count is stored in `scripts/posts_this_week.json` and resets each Monday.
 
 ---
 

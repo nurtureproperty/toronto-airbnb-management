@@ -6,9 +6,9 @@ This script scans RSS feeds for relevant short-term rental news and generates
 blog posts using the Claude API. Posts are auto-published and email notifications
 are sent to the configured address.
 
-DAILY LIMIT: Publishes at most 1 post per day (configurable via MAX_POSTS_PER_DAY).
-             Additional high-priority articles are saved to a backlog and published
-             on subsequent days.
+WEEKLY LIMIT: Publishes at most 2 posts per week (configurable via MAX_POSTS_PER_WEEK).
+              Only publishes articles that are SPECIFICALLY about Ontario/GTA short-term rentals.
+              General Airbnb industry news is excluded to maintain audience relevance.
 
 BACKLOG SYSTEM:
 - High-priority articles that exceed the daily limit are saved to article_backlog.json
@@ -57,7 +57,8 @@ POSTS_DIR = PROJECT_ROOT / "src" / "content" / "blog"
 PROCESSED_FILE = SCRIPT_DIR / "processed_articles.json"
 BACKLOG_FILE = SCRIPT_DIR / "article_backlog.json"
 SITE_URL = "https://www.nurturestays.ca"
-MAX_POSTS_PER_DAY = 1  # Maximum posts to publish each day
+MAX_POSTS_PER_WEEK = 2  # Maximum posts to publish each week
+POSTS_THIS_WEEK_FILE = SCRIPT_DIR / "posts_this_week.json"
 
 # RSS Feeds to monitor
 RSS_FEEDS = [
@@ -95,20 +96,27 @@ RSS_FEEDS = [
 ]
 
 # Keywords for relevance filtering (case-insensitive)
+# STRICT FILTERING: Articles must contain BOTH a location keyword AND a topic keyword
 RELEVANCE_KEYWORDS = {
-    "high_priority": [
-        "toronto", "ontario", "gta", "greater toronto", "mississauga", "brampton",
-        "vaughan", "markham", "richmond hill", "oakville", "hamilton", "burlington",
-        "airbnb regulation", "str regulation", "short term rental regulation",
-        "short-term rental regulation", "airbnb bylaw", "str bylaw", "180 day",
-        "180 night", "principal residence", "municipal accommodation tax",
+    # Location keywords - article MUST mention Ontario/GTA locations
+    "required_locations": [
+        "toronto", "ontario", "gta", "greater toronto area",
+        "mississauga", "brampton", "vaughan", "markham", "richmond hill",
+        "oakville", "hamilton", "burlington", "ajax", "pickering", "whitby",
+        "oshawa", "scarborough", "etobicoke", "north york", "caledon",
+        "kitchener", "waterloo", "guelph", "cambridge", "london ontario",
+        "ottawa", "kingston", "barrie", "niagara", "st. catharines",
+        "st catharines", "muskoka", "huntsville", "collingwood", "blue mountains",
     ],
-    "medium_priority": [
-        "airbnb", "vrbo", "short term rental", "short-term rental", "str",
-        "vacation rental", "mid term rental", "mid-term rental", "furnished rental",
-        "canada rental", "canadian rental", "ontario housing", "rental income",
-        "property management", "host", "listing", "booking", "guest",
+    # Topic keywords - article must also be about STR/Airbnb topics
+    "required_topics": [
+        "airbnb", "short term rental", "short-term rental", "str ",
+        "vrbo", "vacation rental", "mid term rental", "mid-term rental",
+        "furnished rental", "rental regulation", "rental bylaw", "rental license",
+        "rental licensing", "host", "listing", "mat tax", "accommodation tax",
+        "principal residence", "180 day", "180 night",
     ],
+    # Exclude negative/irrelevant content
     "exclude": [
         # Financial/corporate news not relevant to hosts
         "stock price", "ipo", "quarterly earnings", "revenue report",
@@ -127,6 +135,10 @@ RELEVANCE_KEYWORDS = {
         "protest airbnb", "airbnb protest", "community opposition",
         "failed to", "failure", "nightmare", "horror story",
         "scam", "fraud", "dangerous", "unsafe",
+        # Generic industry news (not Ontario-specific)
+        "new york", "california", "florida", "texas", "los angeles",
+        "san francisco", "miami", "europe", "uk ", "london uk", "australia",
+        "global report", "worldwide", "international",
     ]
 }
 
@@ -378,6 +390,51 @@ def add_to_backlog(articles: list[dict]) -> None:
     save_backlog(backlog)
 
 
+def get_week_number() -> str:
+    """Get current ISO week number as string (YYYY-WW format)."""
+    now = datetime.now()
+    return f"{now.year}-W{now.isocalendar()[1]:02d}"
+
+
+def load_weekly_count() -> dict:
+    """Load the weekly post count tracker."""
+    if POSTS_THIS_WEEK_FILE.exists():
+        with open(POSTS_THIS_WEEK_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"week": None, "count": 0}
+
+
+def save_weekly_count(data: dict) -> None:
+    """Save the weekly post count."""
+    with open(POSTS_THIS_WEEK_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+
+def get_posts_remaining_this_week() -> int:
+    """Get how many posts can still be published this week."""
+    current_week = get_week_number()
+    weekly_data = load_weekly_count()
+
+    # Reset count if it's a new week
+    if weekly_data.get("week") != current_week:
+        return MAX_POSTS_PER_WEEK
+
+    return max(0, MAX_POSTS_PER_WEEK - weekly_data.get("count", 0))
+
+
+def increment_weekly_count(num_posts: int = 1) -> None:
+    """Increment the weekly post counter."""
+    current_week = get_week_number()
+    weekly_data = load_weekly_count()
+
+    # Reset if new week
+    if weekly_data.get("week") != current_week:
+        weekly_data = {"week": current_week, "count": 0}
+
+    weekly_data["count"] = weekly_data.get("count", 0) + num_posts
+    save_weekly_count(weekly_data)
+
+
 def get_article_hash(url: str) -> str:
     """Generate a unique hash for an article URL."""
     return hashlib.md5(url.encode()).hexdigest()
@@ -385,8 +442,9 @@ def get_article_hash(url: str) -> str:
 
 def is_relevant(title: str, summary: str = "") -> tuple[bool, str]:
     """
-    Check if an article is relevant based on keywords.
-    Returns (is_relevant, priority_level).
+    Check if an article is relevant based on STRICT keyword matching.
+    Articles must contain BOTH a location keyword AND a topic keyword.
+    Returns (is_relevant, reason).
     """
     text = f"{title} {summary}".lower()
 
@@ -395,17 +453,34 @@ def is_relevant(title: str, summary: str = "") -> tuple[bool, str]:
         if keyword in text:
             return False, "excluded"
 
-    # Check high priority keywords
-    for keyword in RELEVANCE_KEYWORDS["high_priority"]:
+    # STRICT CHECK: Must have BOTH location AND topic
+    has_location = False
+    matched_location = None
+    for keyword in RELEVANCE_KEYWORDS["required_locations"]:
         if keyword in text:
-            return True, "high"
+            has_location = True
+            matched_location = keyword
+            break
 
-    # Check medium priority keywords
-    for keyword in RELEVANCE_KEYWORDS["medium_priority"]:
+    has_topic = False
+    matched_topic = None
+    for keyword in RELEVANCE_KEYWORDS["required_topics"]:
         if keyword in text:
-            return True, "medium"
+            has_topic = True
+            matched_topic = keyword
+            break
 
-    return False, "none"
+    # Only accept articles that have BOTH location AND topic
+    if has_location and has_topic:
+        return True, f"ontario_str ({matched_location} + {matched_topic})"
+
+    # Reject articles missing either requirement
+    if has_topic and not has_location:
+        return False, "no_ontario_location"
+    if has_location and not has_topic:
+        return False, "no_str_topic"
+
+    return False, "no_match"
 
 
 def fetch_article_content(url: str) -> Optional[str]:
@@ -488,7 +563,7 @@ def fetch_rss_feeds() -> list[dict]:
                 if not link:
                     continue
 
-                relevant, priority = is_relevant(title, summary)
+                relevant, reason = is_relevant(title, summary)
 
                 if relevant:
                     articles.append({
@@ -497,10 +572,14 @@ def fetch_rss_feeds() -> list[dict]:
                         "url": link,
                         "published": published,
                         "source": feed_config["name"],
-                        "priority": priority,
+                        "priority": reason,  # Stores match reason like "ontario_str (toronto + airbnb)"
                         "hash": get_article_hash(link),
                     })
-                    print(f"  + Found relevant: {title[:60]}...")
+                    print(f"  + MATCH: {title[:50]}... [{reason}]")
+                elif reason == "no_ontario_location":
+                    print(f"  - Skip (no Ontario): {title[:50]}...")
+                elif reason == "excluded":
+                    print(f"  - Skip (excluded): {title[:50]}...")
 
         except Exception as e:
             print(f"  Error fetching feed: {e}")
@@ -611,10 +690,18 @@ def save_post(content: str, article: dict) -> Optional[tuple[Path, str]]:
 def main():
     """Main function to run the blog generator."""
     print("=" * 60)
-    print("Nurture Blog Post Generator")
+    print("Nurture Blog Post Generator (Ontario STR Focus)")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"Daily limit: {MAX_POSTS_PER_DAY} posts")
+    print(f"Week: {get_week_number()}")
+    posts_remaining = get_posts_remaining_this_week()
+    print(f"Weekly limit: {MAX_POSTS_PER_WEEK} posts | Remaining this week: {posts_remaining}")
     print("=" * 60)
+
+    # Check weekly limit before doing anything
+    if posts_remaining <= 0:
+        print("\nWeekly post limit reached. No new posts will be published.")
+        print("The limit resets at the start of each new week (Monday).")
+        return
 
     # Check for API key
     api_key = os.getenv("ANTHROPIC_API_KEY")
@@ -640,7 +727,8 @@ def main():
 
     # Fetch RSS feeds
     print("\n" + "-" * 40)
-    print("Scanning RSS feeds for relevant articles...")
+    print("Scanning RSS feeds for Ontario STR articles...")
+    print("(Requires BOTH Ontario location + STR topic keywords)")
     print("-" * 40)
 
     articles = fetch_rss_feeds()
@@ -648,45 +736,43 @@ def main():
     # Filter out already processed articles
     new_articles = [a for a in articles if a["hash"] not in processed_hashes]
 
-    # Combine backlog with new articles (backlog first, then new by priority)
+    # Combine backlog with new articles (backlog first, then new)
     backlog_hashes = {a["hash"] for a in backlog}
     new_not_in_backlog = [a for a in new_articles if a["hash"] not in backlog_hashes]
 
-    # Sort new articles by priority
-    new_not_in_backlog.sort(key=lambda x: 0 if x["priority"] == "high" else 1)
-
-    # Articles to consider: backlog first (oldest), then new high-priority
+    # Articles to consider: backlog first (oldest), then new
     articles_to_process = backlog + new_not_in_backlog
 
     print(f"\n" + "-" * 40)
-    print(f"Found {len(articles)} relevant articles in feeds")
+    print(f"Found {len(articles)} Ontario STR articles in feeds")
     print(f"New articles (not processed): {len(new_articles)}")
     print(f"From backlog: {len(backlog)}")
     print(f"Total to consider: {len(articles_to_process)}")
-    print(f"Will publish up to: {MAX_POSTS_PER_DAY}")
+    print(f"Will publish up to: {posts_remaining} (weekly limit)")
     print("-" * 40)
 
     if not articles_to_process:
-        print("\nNo articles to process. Exiting.")
+        print("\nNo Ontario STR articles found. Exiting.")
+        print("(Articles must mention Ontario/GTA location AND STR/Airbnb topic)")
         save_processed_articles(processed_data)
         return
 
-    # Process articles up to daily limit
+    # Process articles up to weekly limit
     posts_created = []
     articles_published_hashes = []
 
     for i, article in enumerate(articles_to_process, 1):
-        # Stop if we've hit the daily limit
-        if len(posts_created) >= MAX_POSTS_PER_DAY:
+        # Stop if we've hit the weekly limit
+        if len(posts_created) >= posts_remaining:
             print(f"\n{'=' * 60}")
-            print(f"Daily limit of {MAX_POSTS_PER_DAY} posts reached.")
+            print(f"Weekly limit reached ({MAX_POSTS_PER_WEEK} posts/week).")
             break
 
         print(f"\n{'=' * 60}")
-        print(f"Processing article {i}/{len(articles_to_process)} (published: {len(posts_created)}/{MAX_POSTS_PER_DAY})")
+        print(f"Processing article {i}/{len(articles_to_process)} (published: {len(posts_created)}/{posts_remaining} remaining)")
         print(f"Title: {article['title'][:70]}...")
         print(f"Source: {article['source']}")
-        print(f"Priority: {article['priority']}")
+        print(f"Match: {article.get('priority', 'ontario_str')}")
         print(f"URL: {article['url']}")
 
         # Generate blog post
@@ -717,30 +803,34 @@ def main():
             processed_data["processed"].append(article["hash"])
             articles_published_hashes.append(article["hash"])
 
-    # Handle remaining articles (add high-priority ones to backlog)
+    # Handle remaining articles (add to backlog for next week)
     remaining_articles = [
         a for a in articles_to_process
         if a["hash"] not in articles_published_hashes
         and a["hash"] not in processed_hashes
     ]
 
-    # Keep only high-priority articles in backlog, limit to 10
-    high_priority_remaining = [a for a in remaining_articles if a["priority"] == "high"][:10]
+    # Keep remaining Ontario STR articles in backlog, limit to 5
+    remaining_for_backlog = remaining_articles[:5]
 
-    if high_priority_remaining:
+    if remaining_for_backlog:
         print(f"\n" + "-" * 40)
-        print(f"Adding {len(high_priority_remaining)} high-priority articles to backlog for tomorrow")
+        print(f"Adding {len(remaining_for_backlog)} articles to backlog for later")
         print("-" * 40)
-        for article in high_priority_remaining:
+        for article in remaining_for_backlog:
             print(f"  + {article['title'][:60]}...")
 
-    # Update backlog: remove published, add new high-priority
+    # Update backlog: remove published, add new
     updated_backlog = [a for a in backlog if a["hash"] not in articles_published_hashes]
-    for article in high_priority_remaining:
+    for article in remaining_for_backlog:
         if article["hash"] not in {a["hash"] for a in updated_backlog}:
             updated_backlog.append(article)
 
-    save_backlog(updated_backlog[:10])  # Keep max 10 in backlog
+    save_backlog(updated_backlog[:5])  # Keep max 5 in backlog
+
+    # Update weekly counter
+    if posts_created:
+        increment_weekly_count(len(posts_created))
 
     # Save processed articles list
     save_processed_articles(processed_data)
@@ -749,10 +839,12 @@ def main():
     print("\n" + "=" * 60)
     print("SUMMARY")
     print("=" * 60)
-    print(f"Articles scanned from feeds: {len(articles)}")
+    print(f"Ontario STR articles found: {len(articles)}")
     print(f"Articles considered (incl. backlog): {len(articles_to_process)}")
-    print(f"Posts published today: {len(posts_created)} (limit: {MAX_POSTS_PER_DAY})")
-    print(f"Articles in backlog for tomorrow: {len(updated_backlog)}")
+    new_remaining = get_posts_remaining_this_week()
+    print(f"Posts published this run: {len(posts_created)}")
+    print(f"Weekly limit: {MAX_POSTS_PER_WEEK} | Remaining this week: {new_remaining}")
+    print(f"Articles in backlog: {len(updated_backlog)}")
 
     if posts_created:
         print("\nNewly published posts:")
