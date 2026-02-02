@@ -228,10 +228,62 @@ The weekly count is stored in `scripts/posts_this_week.json` and resets each Mon
 |--------|---------|
 | Navigate to project | `cd C:\Users\jef_p\toronto-airbnb-management` |
 | Create post from URL | `python scripts/create-blog-from-url.py "URL"` |
-| Run automated generator | `python scripts/blog-generator.py` |
+| Run RSS blog generator | `python scripts/blog-generator.py` |
+| Run YouTube blog generator | `python scripts/youtube-blog-generator.py` |
 | Commit changes | `git add . && git commit -m "Add blog post"` |
 | Push to publish | `git push` |
 
 ---
 
-*Last updated: January 2026*
+## YouTube Video to Blog (Automated)
+
+The YouTube blog generator automatically creates blog posts from your long-form YouTube videos.
+
+### How It Works
+
+1. **Daily scan** - GitHub Actions checks your YouTube channel (@nurtureproperties) daily at 10am EST
+2. **Filters Shorts** - Videos under 60 seconds are skipped automatically
+3. **Fetches transcript** - Pulls YouTube auto-captions for content generation
+4. **Creates blog post** - AI generates a summary with embedded video
+5. **Auto-publishes** - Commits to master and deploys automatically
+6. **Email notification** - You receive an email when new posts are created
+
+### What's Included in Blog Posts
+
+- Embedded YouTube video player at top
+- AI-generated summary of key points
+- Actionable takeaways for readers
+- SEO-optimized title and description
+- Links to relevant service pages
+
+### Manual Run
+
+To manually trigger the YouTube blog generator:
+
+1. Go to GitHub → Actions → "YouTube to Blog Generator"
+2. Click "Run workflow"
+3. Wait for completion and check your email
+
+### Running Locally
+
+```powershell
+cd C:\Users\jef_p\toronto-airbnb-management
+pip install youtube-transcript-api  # First time only
+python scripts/youtube-blog-generator.py
+```
+
+### Configuration
+
+The script monitors: `@nurtureproperties`
+
+To change the channel, edit `YOUTUBE_CHANNEL_HANDLE` in `scripts/youtube-blog-generator.py`
+
+### GitHub Secrets Required
+
+- `ANTHROPIC_API_KEY` - For AI content generation
+- `YOUTUBE_API_KEY` - (Optional) For better video details/transcripts
+- Email settings (same as RSS blog generator)
+
+---
+
+*Last updated: February 2026*

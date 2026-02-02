@@ -19,6 +19,31 @@ const { Content } = await post.render();
 const pageTitle = post.data.title;
 const pageDescription = post.data.description;
 
+// Get related posts (same category or overlapping tags)
+const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
+const relatedPosts = allPosts
+  .filter((p) => p.slug !== post.slug) // Exclude current post
+  .map((p) => {
+    // Score based on category match and tag overlap
+    let score = 0;
+    if (p.data.category === post.data.category) score += 3;
+    const tagOverlap = p.data.tags.filter((tag: string) => post.data.tags.includes(tag)).length;
+    score += tagOverlap;
+    return { post: p, score };
+  })
+  .filter(({ score }) => score > 0) // Only posts with some relevance
+  .sort((a, b) => {
+    // Sort by score, then by date
+    if (b.score !== a.score) return b.score - a.score;
+    return new Date(b.post.data.pubDate).getTime() - new Date(a.post.data.pubDate).getTime();
+  })
+  .slice(0, 3)
+  .map(({ post }) => post);
+
+// Calculate reading time from word count (average 200 words per minute)
+const words = post.body.trim().split(/\s+/).length;
+const readTime = `${Math.ceil(words / 200)} min read`;
+
 // Schema.org structured data
 const articleSchema = {
   "@context": "https://schema.org",
@@ -60,6 +85,8 @@ const articleSchema = {
       <div class="article-meta">
         <span class="meta-date">{new Date(post.data.pubDate).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
         <span class="meta-separator">·</span>
+        <span class="meta-read-time">{readTime}</span>
+        <span class="meta-separator">·</span>
         <span class="meta-author">{post.data.author}</span>
       </div>
     </div>
@@ -67,6 +94,17 @@ const articleSchema = {
 
   <section class="section article-section">
     <div class="container">
+      {post.data.youtubeId && (
+        <div class="video-embed">
+          <iframe
+            src={`https://www.youtube.com/embed/${post.data.youtubeId}`}
+            title={post.data.title}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      )}
       <article class="article-content">
         <Content />
 
@@ -84,6 +122,26 @@ const articleSchema = {
       </div>
     </div>
   </section>
+
+  {relatedPosts.length > 0 && (
+    <section class="related-posts">
+      <div class="container">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+          {relatedPosts.map((relatedPost) => (
+            <a href={`/blog/${relatedPost.slug}`} class="related-card">
+              <span class="related-category">{relatedPost.data.category}</span>
+              <h3>{relatedPost.data.title}</h3>
+              <p>{relatedPost.data.description}</p>
+              <span class="related-date">
+                {new Date(relatedPost.data.pubDate).toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="cta-section">
     <div class="container">
@@ -140,6 +198,21 @@ const articleSchema = {
 
   .article-section {
     background: white;
+  }
+
+  .video-embed {
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .video-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .article-content {
@@ -368,6 +441,91 @@ const articleSchema = {
 
     .cta-content h2 {
       font-size: 2rem;
+    }
+  }
+
+  /* Related Posts Section */
+  .related-posts {
+    background: var(--color-background-alt);
+    padding: 4rem 0;
+  }
+
+  .related-posts h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    color: var(--color-text);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .related-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .related-date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .related-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+
+    .related-posts h2 {
+      font-size: 1.75rem;
     }
   }
 </style>
