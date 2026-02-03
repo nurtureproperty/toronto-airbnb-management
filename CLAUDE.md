@@ -45,6 +45,8 @@ Each page defines its own scoped styles within `<style>` tags. Data arrays (pack
 
 Changes pushed to `master` branch auto-deploy to production (GitHub → hosting provider).
 
+**ALWAYS deploy after making changes.** After any website change (new article, edit, fix, etc.), immediately commit and push to master. Do not wait for the user to ask for deployment.
+
 ---
 
 ## SEO Guidelines: The 3 Kings
