@@ -25,6 +25,8 @@ Here's what Burlington hosts now need to do:
 
 The interesting part? Burlington isn't trying to kill the short-term rental market. They're trying to regulate it properly.
 
+> **📋 Full Burlington STR Guide:** For complete details on Burlington's By-law 01-2025, including the demerit point system, 183-night limit, and license application requirements, see our [Burlington Airbnb Short Term Rental Rules 2026](/blog/burlington-airbnb-short-term-rental-rules-2026) guide.
+
 ## Why Toronto Hosts Should Care
 
 Look, Burlington isn't Toronto. But it's part of the Greater Toronto Hamilton Area, and these municipalities talk to each other. When one city finds a licensing system that works, others often copy it.
