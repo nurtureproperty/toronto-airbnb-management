@@ -83,7 +83,7 @@ const faqs = [
         {faqs.map(faq => (
           <div class="faq-card">
             <h4>{faq.q}</h4>
-            <p>{faq.a}</p>
+            <p set:html={faq.a}></p>
           </div>
         ))}
       </div>
