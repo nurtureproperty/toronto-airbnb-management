@@ -62,16 +62,6 @@ const unregulatedCities = [
     upcomingChanges: null,
     link: null
   },
-  {
-    city: 'Burlington',
-    region: 'Halton',
-    population: '186,000',
-    highlights: ['No license required', 'No MAT tax', 'No night limits', 'Investment properties OK'],
-    demand: 'Waterfront, Sound of Music Festival, medical visitors',
-    avgRevenue: '$3,000-$5,000/month',
-    upcomingChanges: null,
-    link: '/burlington-airbnb-management'
-  }
 ];
 
 const watchList = [
@@ -98,14 +88,24 @@ const watchList = [
   }
 ];
 
+const recentlyRegulated = [
+  {
+    city: 'Burlington',
+    region: 'Halton',
+    effectiveDate: 'May 1, 2025',
+    keyRules: 'Principal residence required, 183-night limit, demerit point system, $2M insurance',
+    link: '/blog/burlington-airbnb-short-term-rental-rules-2026'
+  }
+];
+
 const faqs = [
-  { q: "Which GTA cities have no Airbnb license requirement?", a: "As of January 2026, Ajax, Pickering, Clarington, Brock, Richmond Hill, King Township, and Burlington have no specific STR licensing requirements. Investment properties are permitted in these areas." },
+  { q: "Which GTA cities have no Airbnb license requirement?", a: "As of February 2026, Ajax, Pickering, Clarington, Brock, Richmond Hill, and King Township have no specific STR licensing requirements. Investment properties are permitted in these areas. Note: Burlington introduced regulations effective May 1, 2025." },
   { q: "Can I Airbnb an investment property in Ajax or Pickering?", a: "Yes. Ajax and Pickering have no principal residence requirement, meaning you can operate short-term rentals on investment properties. There's no license fee, no MAT tax, and no night limits." },
-  { q: "Is Burlington really unregulated for Airbnb?", a: "Yes. Burlington does not currently have STR-specific bylaws. You can operate without a license, collect the full rental amount (no MAT), and use investment properties. Standard property standards and noise bylaws still apply." },
-  { q: "Will these cities add Airbnb regulations soon?", a: "Richmond Hill is actively exploring options and may introduce regulations in 2026-2027. Whitby is developing a licensing framework. Other cities like Ajax, Pickering, and Burlington have not announced plans to regulate." },
+  { q: "What happened to Burlington's unregulated status?", a: "Burlington introduced comprehensive STR regulations (By-law 01-2025) effective May 1, 2025. It now requires principal residence, licensing, $2M insurance, and has a 183-night annual limit with a demerit point system. See our Burlington STR guide for full details." },
+  { q: "Will these cities add Airbnb regulations soon?", a: "Richmond Hill is actively exploring options and may introduce regulations in 2026-2027. Whitby is developing a licensing framework. Ajax and Pickering have not announced plans to regulate. Burlington already introduced regulations in May 2025." },
   { q: "What's the difference between regulated and unregulated cities?", a: "Regulated cities like Toronto require licenses ($58/year), principal residence, MAT tax (8.5%), and 180-night limits. Unregulated cities have none of these requirements, making them more flexible for hosts and investors." },
   { q: "Do I still need insurance in unregulated cities?", a: "Yes. Regardless of city regulations, you should have $2,000,000+ liability insurance that explicitly covers short-term rental activity. Standard homeowner's insurance typically doesn't cover STR guests." },
-  { q: "Are there any night limits in these unregulated cities?", a: "No. Unlike Toronto's 180-night limit, cities like Ajax, Burlington, and Richmond Hill have no caps on how many nights you can rent. You can operate year-round without restrictions." },
+  { q: "Are there any night limits in these unregulated cities?", a: "No. Unlike Toronto's 180-night limit, cities like Ajax, Pickering, and Richmond Hill have no caps on how many nights you can rent. You can operate year-round without restrictions." },
   { q: "What about condo rules in unregulated cities?", a: "Even in unregulated cities, your condo corporation can prohibit short-term rentals. Always check your condo declaration and rules before listing, regardless of municipal regulations." }
 ];
 
@@ -113,7 +113,7 @@ const tocItems = [
   { id: 'overview', text: 'The Unregulated Advantage' },
   { id: 'durham', text: 'Durham Region' },
   { id: 'york', text: 'York Region' },
-  { id: 'halton', text: 'Halton Region' },
+  { id: 'recently-regulated', text: 'Recently Regulated' },
   { id: 'comparison', text: 'Regulated vs Unregulated' },
   { id: 'watch-list', text: 'Cities to Watch' },
   { id: 'getting-started', text: 'Getting Started' },
@@ -130,9 +130,9 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "GTA Cities with No Airbnb License Required 2026",
-  "description": "Complete guide to Greater Toronto Area cities without STR registration: Ajax, Pickering, Burlington, Richmond Hill, King Township. No license, no MAT, investment properties welcome.",
+  "description": "Complete guide to Greater Toronto Area cities without STR registration: Ajax, Pickering, Richmond Hill, King Township. No license, no MAT, investment properties welcome.",
   "datePublished": "2026-01-30",
-  "dateModified": "2026-01-30",
+  "dateModified": "2026-02-03",
   "author": {
     "@type": "Organization",
     "name": "Nurture Airbnb Property Management",
@@ -166,7 +166,7 @@ const faqSchema = {
 const pageSchema = [articleSchema, faqSchema];
 
 const pageTitle = "GTA Cities with No Airbnb License Required 2026";
-const pageDescription = "Ajax, Pickering, Burlington, Richmond Hill: GTA cities with no STR license, no MAT, no night limits. Investment properties welcome. Complete 2026 guide.";
+const pageDescription = "Ajax, Pickering, Richmond Hill, King Township: GTA cities with no STR license, no MAT, no night limits. Investment properties welcome.";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -380,28 +380,19 @@ const pageDescription = "Ajax, Pickering, Burlington, Richmond Hill: GTA cities 
             </div>
           </div>
 
-          <h2 id="halton">Halton Region: Waterfront Without Regulations</h2>
-          <p>While Oakville has strict regulations and Milton requires licensing, Burlington remains completely open.</p>
+          <h2 id="recently-regulated">Recently Regulated: Burlington (May 2025)</h2>
+          <p>Burlington was previously one of the most valuable unregulated markets in the GTA. As of May 1, 2025, that changed with the introduction of By-law 01-2025.</p>
 
-          <h3>Burlington</h3>
-          <div class="city-card">
-            <div class="city-header">
-              <div class="city-name">Burlington</div>
-              <div class="city-status status-green">No License Required</div>
-            </div>
-            <div class="city-details">
-              <p><strong>Population:</strong> 186,000 | <strong>Region:</strong> Halton</p>
-              <p><strong>Average Revenue:</strong> $3,000-$5,000/month</p>
-              <p><strong>Demand Drivers:</strong> Waterfront tourism, Sound of Music Festival, Royal Botanical Gardens, medical visitors (Joseph Brant Hospital)</p>
-              <div class="city-highlights">
-                <span class="highlight-tag">No License</span>
-                <span class="highlight-tag">No MAT</span>
-                <span class="highlight-tag">No Night Limit</span>
-                <span class="highlight-tag">Investment OK</span>
-              </div>
-              <p>Burlington is arguably the most valuable unregulated market in the GTA. Waterfront properties near Spencer Smith Park command premium rates. The Sound of Music Festival, Ribfest, and year-round waterfront activities drive consistent demand. No STR regulations have been announced or proposed.</p>
+          <div class="callout callout-warning">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-content">
+              <strong>Burlington is Now Regulated</strong><br>
+              If you were operating in Burlington without a license, you now need to get compliant. Burlington requires principal residence, licensing, $2M insurance, and has a 183-night annual limit with a demerit point system similar to Oakville's.<br><br>
+              <a href="/blog/burlington-airbnb-short-term-rental-rules-2026" style="color: inherit; text-decoration: underline; font-weight: bold;">Read our complete Burlington STR guide →</a>
             </div>
           </div>
+
+          <p>With Burlington now regulated, <strong>Halton Region has no remaining unregulated cities</strong> for STRs. Oakville has strict regulations, Milton requires licensing, and Halton Hills prohibits STRs entirely.</p>
 
           <h2 id="comparison">Regulated vs Unregulated: The Numbers</h2>
           <p>Here's how hosting in an unregulated city compares to Toronto:</p>
@@ -410,7 +401,7 @@ const pageDescription = "Ajax, Pickering, Burlington, Richmond Hill: GTA cities 
             <div class="comparison-header">
               <div class="comparison-col">Requirement</div>
               <div class="comparison-col">Toronto</div>
-              <div class="comparison-col highlight">Burlington/Ajax</div>
+              <div class="comparison-col highlight">Ajax/Pickering</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">License Fee</div>

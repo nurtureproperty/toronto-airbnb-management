@@ -1,6 +1,6 @@
 # Ontario Short-Term Rental Bylaws Summary
 
-*Last Updated: January 2026*
+*Last Updated: February 2026*
 *For Nurture Airbnb Property Management Knowledge Base*
 
 > **Note:** STR regulations change frequently. Always verify current rules with each municipality before advising clients. This document excludes Toronto, Mississauga, Brampton, Vaughan, Oakville, and Hamilton (separate detailed files available).
@@ -13,7 +13,7 @@
 |-------------|--------|---------------------|------------------|-------------|-----|
 | **DURHAM REGION** |
 | Whitby | Developing | TBD | TBD | TBD | TBD |
-| Oshawa | Regulated | Yes | Yes | 180/year | Check |
+| Oshawa | Regulated | Yes | Yes ($150) | 180/year | 5% |
 | Ajax | Not Regulated | No | No | None | No |
 | Pickering | Not Regulated | No | No | None | No |
 | Clarington | Not Regulated | No | No | None | No |
@@ -35,7 +35,7 @@
 | Niagara-on-the-Lake | Regulated | Check | Yes | Check | Check |
 | Fort Erie | Regulated | Check | Yes | Check | Check |
 | **HALTON REGION** |
-| Burlington | Not Regulated | No | No | None | No |
+| Burlington | Regulated (2025) | Yes | Yes | 183/year | Check |
 | Milton | Regulated | Yes | Yes | TBD | Check |
 | Halton Hills | NOT PERMITTED | N/A | N/A | N/A | N/A |
 | **PEEL REGION** |
@@ -69,17 +69,25 @@
 - **Contact:** https://connectwhitby.ca (search "short-term rentals")
 
 ### Oshawa
-- **Status:** REGULATED
+- **Status:** REGULATED (Licensing By-law 122-2024, Schedule Q)
 - **Definition:** Rentals of 28 consecutive days or less
 - **Principal Residence:** Required
 - **Night Limit:** 180 days/year maximum
-- **License:** Required
-- **Fines:** Up to $25,000 (individuals), $50,000 (corporations)
+- **License Fee:** $150 ($100 license + $50 application)
+- **MAT:** 5% (effective October 1, 2024, quarterly remittance)
+- **Insurance:** $2,000,000 liability required, must explicitly cover STR use
+- **Room Rentals:** Max 2 rooms, max 2 occupants per room
+- **Local Contact:** Required, must respond within 1 hour 24/7
+- **Fines:** Up to $500 (no license), up to $250 (other violations), POA: $500-$100,000
 - **Requirements:**
+  - Property inspection required before license approval
   - Visitor's Code must be provided to guests
-  - Records kept for 6 years
+  - Records kept for 6 years (7 years for MAT records)
+  - Smoke alarms and CO detectors required
+  - License number must be displayed on all listings
   - Zoning compliance required
-- **Website:** https://www.oshawa.ca (search "short-term rental")
+  - Condo board approval if applicable
+- **Website:** https://www.oshawa.ca/business-development/housing-permits-and-licences/short-term-rentals/
 
 ### Ajax
 - **Status:** NOT REGULATED
@@ -225,9 +233,33 @@
 ## HALTON REGION
 
 ### Burlington
-- **Status:** NOT REGULATED
-- **Notes:** Permitted without specific STR bylaws
+- **Status:** REGULATED (By-law 01-2025, effective May 1, 2025)
+- **Definition:** Rentals of 28 consecutive days or less, max 183 days/year
+- **Principal Residence:** Required
+- **Night Limit:** 183 days per calendar year
+- **License:** Required (annual, expires 1 year from issuance)
+- **Insurance:** $2,000,000 liability required, must notify City of cancellation
+- **Local Contact:** Required if not in Burlington, 1-hour response 24/7
+- **Max Occupancy:** 2 adults per legal bedroom
+- **Criminal Reference Check:** Required (less than 30 days old)
+- **HVAC Inspection:** Required
+- **ESA Electrical Inspection:** Required for initial applications (within 6 months)
+- **Floor Plan:** Required with room dimensions in square metres
+- **Parking Management Plan:** Required
+- **Property Maintenance Plan:** Required
+- **Renter's Code:** Required (approved by Licensing Administrator)
+- **Demerit System:**
+  - 7+ points = license suspension (up to 6 months)
+  - 15+ points = license revocation
+  - Points remain for 2 years
+- **Common Violations (with fine):**
+  - Fire Code violation: 7 points
+  - Operating without license: 5 points
+  - Building Code violation: 7 points
+  - Noise bylaw infraction: 5 points
+  - Local contact unavailable: 5 points
 - **Website:** https://www.burlington.ca
+- **Blog Guide:** https://www.nurturestays.ca/blog/burlington-airbnb-short-term-rental-rules-2026
 
 ### Milton
 - **Status:** REGULATED

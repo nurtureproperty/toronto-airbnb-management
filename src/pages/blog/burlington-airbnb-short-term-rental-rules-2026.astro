@@ -2,47 +2,48 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I Airbnb my investment property in Oakville?", a: "No. Oakville requires the property to be your principal residence. This means you must actually live there and have it listed as your primary address on your income tax return. Investment properties, second homes, and cottages don't qualify. Mid-term rentals (29+ days) are an alternative for investment properties since they fall outside the STR definition." },
-  { q: "What happens if I get too many demerit points?", a: "At 7 points, your license can be suspended for up to 6 months. At 15 points, it can be revoked entirely. Points stick to your property for 2 years from the date assessed. Common infractions that add up fast: noise violations (5 points), operating without a license (5 points), fire code violations (7 points). One bad weekend party could put you over the threshold." },
-  { q: "How much does an Oakville STR license cost?", a: "The annual license fee is approximately $237 according to Oakville's fee schedule, though this can change. The license expires every October 31st regardless of when you apply, so timing your application matters. You'll also need to budget for required inspections (HVAC, electrical) and your $2M insurance policy." },
-  { q: "Do I need to be available 24/7 to respond to issues?", a: "Yes, essentially. Oakville requires a Local Contact who can physically attend the property within one hour of being contacted by phone or email, at any time. If you live outside Halton Region, you must designate someone local. Many hosts use property managers to satisfy this requirement." },
-  { q: "What's the maximum number of guests I can have?", a: "It depends on your floor space. With 3 adult guests, you need at least 14 square metres for the lodging unit. With 4+ adults, you need 7 square metres per person. You're also limited to a maximum of 3 lodging units total. This effectively caps larger homes at around 6-8 guests depending on room sizes." },
-  { q: "Is there a night limit in Oakville like Toronto's 180-night cap?", a: "No, Oakville doesn't have an annual night limit. As long as you maintain your license in good standing and the property remains your principal residence, you can rent as many nights as you want. This is actually a significant advantage over Toronto's rules." },
-  { q: "What documents do I need for the license application?", a: "Quite a bit: proof of ownership or landlord consent, floor plan with room dimensions, parking management plan, property maintenance plan, Renter's Code, $2M insurance certificate naming the Town, criminal reference check (less than 30 days old), HVAC inspection certificate, and for first-time applicants, an ESA electrical inspection from the past 6 months." },
-  { q: "Can I operate an STR in my condo?", a: "Even if you get licensed by the Town, your condo corporation can prohibit short-term rentals in their declaration or rules. Many Oakville condos have restrictions. Check your condo documents before investing time in the license application. The Town's approval doesn't override private condo rules." },
-  { q: "What's the Renter's Code requirement?", a: "You must create a document (approved by the Town) that explains guest responsibilities, noise expectations, parking rules, and relevant bylaws. Every guest must sign acknowledging they received it, and you keep those signed copies for at least one year. It's part of Oakville's approach to holding guests accountable for their behavior." }
+  { q: "Can I Airbnb my investment property in Burlington?", a: "No. Burlington requires the property to be your principal residence. You must actually live there and have it listed as your primary address on your income tax return. Investment properties, second homes, and cottages don't qualify. Mid-term rentals (29+ days) are an alternative for investment properties since they fall outside the STR definition." },
+  { q: "What is the night limit in Burlington?", a: "Burlington allows a maximum of 183 nights per year for short-term rentals. This is slightly more generous than Toronto's 180-night limit. Remember, each stay must also be 28 consecutive days or less to count as an STR." },
+  { q: "How much does a Burlington STR license cost?", a: "The license fee is set by Burlington's Rates and Fees By-law 61-2021. Contact the City's licensing department for current rates. The license is valid for one year from the date of issuance, not a fixed calendar date like some other municipalities." },
+  { q: "What happens if I get too many demerit points?", a: "At 7 points, your license can be suspended for up to 6 months. At 15 points, it can be revoked entirely. Points remain on your record for 2 years from the date assessed. One fire code violation with a fine is 7 points alone, enough for immediate suspension." },
+  { q: "Do I need to be available 24/7 to respond to issues?", a: "Yes. Burlington requires a Local Contact who can physically attend the property within one hour of being contacted by phone or email, at any time. If you don't live in Burlington, you must designate someone local. Many hosts use property managers to satisfy this requirement." },
+  { q: "What's the maximum occupancy for my STR?", a: "Burlington limits occupancy to 2 adults per legal bedroom. This is based on bedrooms that meet Building Code and Fire Code requirements. You can't simply add extra mattresses or convert non-bedroom spaces to increase capacity." },
+  { q: "What documents do I need for the license application?", a: "Quite a lot: proof of ownership or landlord consent, floor plan with room dimensions in square metres, parking management plan, property maintenance plan, Renter's Code, $2M insurance certificate, criminal reference check (less than 30 days old), HVAC inspection certificate, ESA electrical inspection (initial applications only, within past 6 months), and a sworn declaration of compliance." },
+  { q: "Can I operate an STR in my condo?", a: "Even if you get licensed by the City, your condo corporation can prohibit short-term rentals in their declaration or rules. Many Burlington condos have restrictions. Check your condo documents before investing time in the license application. The City's approval doesn't override private condo rules." },
+  { q: "What's the Renter's Code requirement?", a: "You must create a document (approved by the Licensing Administrator) that explains guest responsibilities, behavioural expectations, noise rules, parking rules, and relevant bylaws. Every guest must receive it, and you keep confirmation of receipt for at least one year." },
+  { q: "When did Burlington's STR regulations take effect?", a: "Burlington's Short-Term Accommodation By-law 01-2025 came into force on May 1, 2025. Before this, Burlington was one of the few GTA cities without STR-specific regulations. Now it has comprehensive licensing similar to Oakville and other regulated cities." }
 ];
 
 const relatedPosts = [
-  { title: 'Burlington Airbnb Short Term Rental Rules 2026', href: '/blog/burlington-airbnb-short-term-rental-rules-2026', description: 'Burlington\'s new regulations with similar demerit system' },
-  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR regulations including the 180-night limit' },
-  { title: 'Hamilton Airbnb Short Term Rental Guide 2026', href: '/blog/hamilton-airbnb-short-term-rental-guide-2026', description: 'Hamilton STR rules for nearby hosts' }
+  { title: 'Oakville Airbnb Short Term Rental Rules 2026', href: '/blog/oakville-airbnb-short-term-rental-rules-2026', description: 'Similar demerit system in neighbouring Halton Region' },
+  { title: 'Hamilton Airbnb Short Term Rental Guide 2026', href: '/blog/hamilton-airbnb-short-term-rental-guide-2026', description: 'Hamilton STR rules for nearby hosts' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Compare with Toronto\'s 180-night limit and 8.5% MAT' }
 ];
 
 const tocItems = [
   { id: 'what-is-str', text: 'What Counts as an STR' },
   { id: 'principal-residence', text: 'Principal Residence Rule' },
-  { id: 'demerit-system', text: 'The Demerit Point System' },
+  { id: 'night-limit', text: 'The 183-Night Limit' },
+  { id: 'demerit-system', text: 'Demerit Point System' },
   { id: 'license-requirements', text: 'License Requirements' },
   { id: 'local-contact', text: 'Local Contact Rule' },
   { id: 'insurance', text: 'Insurance Requirements' },
   { id: 'penalties', text: 'Fines & Penalties' },
-  { id: 'mat-tax', text: 'The 4% MAT Tax' },
   { id: 'compliance-tips', text: 'Staying Compliant' },
   { id: 'official-bylaws', text: 'Official Resources' },
   { id: 'faqs', text: 'FAQs' }
 ];
 
-const pageTitle = "Oakville Airbnb Short Term Rental Rules 2026";
-const pageDescription = "Oakville Airbnb rules explained: demerit points, $237 license, 4% MAT, principal residence required. Everything hosts need to get licensed and stay compliant.";
+const pageTitle = "Burlington Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Burlington Airbnb rules: 183-night limit, principal residence required, demerit points, $2M insurance. Complete 2026 guide to By-law 01-2025.";
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": pageTitle,
   "description": pageDescription,
-  "datePublished": "2026-01-28",
-  "dateModified": "2026-01-28",
+  "datePublished": "2026-02-03",
+  "dateModified": "2026-02-03",
   "author": {
     "@type": "Organization",
     "name": "Nurture Airbnb Property Management",
@@ -59,7 +60,7 @@ const articleSchema = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.nurturestays.ca/blog/oakville-airbnb-short-term-rental-rules-2026"
+    "@id": "https://www.nurturestays.ca/blog/burlington-airbnb-short-term-rental-rules-2026"
   }
 };
 
@@ -82,11 +83,11 @@ const pageSchema = [articleSchema, faqSchema];
       <nav class="breadcrumb">
         <a href="/blog">Blog</a>
         <span>/</span>
-        <span>Oakville Regulations</span>
+        <span>Burlington Regulations</span>
       </nav>
-      <h1>Oakville Airbnb Short Term Rental Rules 2026</h1>
+      <h1>Burlington Airbnb Short Term Rental Rules 2026</h1>
       <div class="article-meta">
-        <span class="meta-date">Published January 28, 2026</span>
+        <span class="meta-date">Published February 3, 2026</span>
         <span class="meta-separator">·</span>
         <span class="meta-read-time">10 min read</span>
       </div>
@@ -109,19 +110,25 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">Oakville takes short-term rentals seriously. While many GTA cities focus on night limits and registration fees, Oakville built something more sophisticated: a <strong>demerit point system</strong> that can suspend or revoke your license based on violations. Think of it like a driver's license for your Airbnb.</p>
-            <p class="lead">The good news? Unlike Toronto, there's <strong>no annual night cap</strong>. You can rent year-round as long as you stay compliant. The bad news? Oakville's requirements are some of the most detailed in Ontario. Let's break down what you actually need to know.</p>
+            <p class="lead">Burlington was one of the last GTA cities without short-term rental regulations. That changed on <strong>May 1, 2025</strong>, when By-law 01-2025 took effect. If you've been operating an Airbnb in Burlington without a license, you now need to get compliant.</p>
+            <p class="lead">The new rules are comprehensive. Burlington adopted a <strong>demerit point system</strong> similar to Oakville's, requires <strong>principal residence status</strong>, and caps rentals at <strong>183 nights per year</strong>. Here's everything you need to know.</p>
           </div>
 
           <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
-          <p>Oakville's By-law 2018-045 defines a short-term accommodation pretty specifically:</p>
+          <p>Burlington's By-law 01-2025 defines short-term accommodation precisely:</p>
 
           <blockquote class="bylaw-quote">
-            "Short-Term Accommodation or STA means the provision of a dwelling unit which is used for the temporary lodging of the travelling public for a rental period not greater than 28 consecutive days or less in exchange for payment."
-            <cite>Oakville By-law 2018-045 § 1.0 Definitions</cite>
+            "Short-term accommodation or STA means the provision of a dwelling unit which is used for the temporary lodging of the travelling public for a rental period of not greater than 28 consecutive days to a maximum of 183 days per year in exchange for payment."
+            <cite>Burlington By-law 01-2025 § 1.1 Definitions</cite>
           </blockquote>
 
-          <p>So any rental of <strong>28 days or less</strong> falls under these rules. Book a guest for 29+ days, and you're in mid-term rental territory, which doesn't require STR licensing. This is an important distinction because mid-term rentals also don't require principal residence status.</p>
+          <p>Two key numbers to remember:</p>
+          <ul>
+            <li><strong>28 days maximum per stay</strong>: Any single booking must be 28 consecutive days or less</li>
+            <li><strong>183 days maximum per year</strong>: Your total rental nights can't exceed 183 in a calendar year</li>
+          </ul>
+
+          <p>If you book a guest for 29+ days, it's considered a mid-term rental and falls outside STR regulations. This is an important distinction because mid-term rentals don't require principal residence status.</p>
 
           <div class="callout">
             <div class="callout-icon">
@@ -132,32 +139,64 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>Key difference from Toronto:</strong> Oakville has no annual night limit. You can rent all 365 nights if you want, as long as you maintain your license and it's your principal residence. Toronto caps entire-unit rentals at 180 nights per year.
+              <strong>Comparison with nearby cities:</strong> Burlington's 183-night limit is slightly more generous than Toronto (180 nights) and Mississauga (180 days). However, <a href="/blog/oakville-airbnb-short-term-rental-rules-2026">Oakville has no annual night limit</a> at all for licensed STRs.
             </div>
           </div>
 
           <h2 id="principal-residence">The Principal Residence Requirement</h2>
-          <p>This is where most investment property dreams go to die. Oakville requires STRs to be operated from your principal residence:</p>
+          <p>This is the rule that affects investment property owners most. Burlington requires STRs to be operated from your principal residence:</p>
 
           <blockquote class="bylaw-quote">
-            "Principal Residence means a property that is owned or rented alone or jointly with another person, where the person(s) is ordinarily a resident and has designated the property as their principal residence on their income tax filing and in other government records."
-            <cite>Oakville By-law 2018-045 § 1.0 Definitions</cite>
+            "Principal residence means a property that is owned or rented alone or jointly with another person, where the person(s) is ordinarily a resident and has designated the property as their principal residence on their income tax filing and in other government records."
+            <cite>Burlington By-law 01-2025 § 1.1 Definitions</cite>
           </blockquote>
 
-          <p>This isn't just about ownership. You need to actually live there and have the paper trail to prove it:</p>
+          <p>This isn't just about ownership. You need to actually live there and have the documentation to prove it:</p>
           <ul>
             <li><strong>Income tax return</strong> listing it as your principal residence</li>
             <li><strong>Government records</strong> (driver's license, health card) showing this address</li>
-            <li><strong>Actual residency</strong> - you must "ordinarily reside" there</li>
+            <li><strong>Actual residency</strong>: You must "ordinarily reside" there</li>
           </ul>
 
           <div class="warning-box">
             <h4>Investment Property Owners</h4>
-            <p>You cannot operate a short-term rental on a property that isn't your principal residence. Period. For investment properties in Oakville, your best option is mid-term rentals (29+ consecutive days), which fall outside STR regulations and don't require this principal residence status.</p>
+            <p>You cannot operate a short-term rental on a property that isn't your principal residence. Period. For investment properties in Burlington, your best option is mid-term rentals (29+ consecutive days), which fall outside STR regulations and don't require principal residence status.</p>
           </div>
 
+          <h2 id="night-limit">The 183-Night Annual Limit</h2>
+          <p>Unlike Oakville (which has no night limit) or Hamilton (also no limit), Burlington caps your STR at <strong>183 nights per calendar year</strong>. This is built into the definition of what constitutes an STR in Burlington.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Annual Night Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Burlington</div>
+              <div class="comparison-col highlight"><strong>183 nights</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight">180 nights (entire unit)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Mississauga</div>
+              <div class="comparison-col highlight">180 days</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oakville</div>
+              <div class="comparison-col highlight">No limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Hamilton</div>
+              <div class="comparison-col highlight">No limit</div>
+            </div>
+          </div>
+
+          <p>The 183-night limit means you can operate for roughly half the year. For many hosts, this is sufficient for peak season rental income while maintaining the property for personal use.</p>
+
           <h2 id="demerit-system">The Demerit Point System</h2>
-          <p>This is Oakville's secret weapon for enforcement. Every violation adds points to your license, and accumulate too many and you're out of business.</p>
+          <p>Burlington adopted a demerit point system similar to Oakville's. Every violation adds points to your license, and accumulate too many and you lose your ability to operate.</p>
 
           <div class="comparison-table">
             <div class="comparison-header">
@@ -179,12 +218,7 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <h3>How Points Are Assessed</h3>
-          <p>Points aren't automatic - they're triggered by confirmed violations:</p>
-
-          <blockquote class="bylaw-quote">
-            "The number of demerit points...will be assessed against a Short-Term Accommodation in respect of the matter noted in Column 1 upon the following event respecting a contravention: the confirmation of an administrative penalty; the confirmation of an order..."
-            <cite>Oakville By-law 2018-045 Schedule 3 § 2</cite>
-          </blockquote>
+          <p>Points aren't automatic. They're triggered when violations are confirmed through orders, fines, or administrative penalties. A confirmed order results in fewer points than a provincial offence notice or administrative penalty.</p>
 
           <h3>Common Violations and Their Points</h3>
           <div class="points-table">
@@ -208,12 +242,7 @@ const pageSchema = [articleSchema, faqSchema];
                   <td class="highlight">5 points</td>
                 </tr>
                 <tr>
-                  <td>Noise bylaw infraction</td>
-                  <td>2 points</td>
-                  <td class="highlight">5 points</td>
-                </tr>
-                <tr>
-                  <td>Building Code (no permit)</td>
+                  <td>Building Code violation</td>
                   <td>3 points</td>
                   <td class="highlight">7 points</td>
                 </tr>
@@ -228,17 +257,37 @@ const pageSchema = [articleSchema, faqSchema];
                   <td class="highlight">5 points</td>
                 </tr>
                 <tr>
+                  <td>Noise bylaw infraction</td>
+                  <td>2 points</td>
+                  <td class="highlight">5 points</td>
+                </tr>
+                <tr>
+                  <td>Property standards violation</td>
+                  <td>2 points</td>
+                  <td class="highlight">4 points</td>
+                </tr>
+                <tr>
                   <td>Parking plan violation</td>
                   <td>1 point</td>
                   <td>3 points</td>
                 </tr>
                 <tr>
-                  <td>Property standards violation</td>
-                  <td>2 points</td>
-                  <td>4 points</td>
+                  <td>Property maintenance plan violation</td>
+                  <td>1 point</td>
+                  <td>3 points</td>
                 </tr>
                 <tr>
                   <td>Not posting license</td>
+                  <td>1 point</td>
+                  <td>3 points</td>
+                </tr>
+                <tr>
+                  <td>Not providing updated info</td>
+                  <td>1 point</td>
+                  <td>3 points</td>
+                </tr>
+                <tr>
+                  <td>Lot maintenance infraction</td>
                   <td>1 point</td>
                   <td>3 points</td>
                 </tr>
@@ -248,52 +297,55 @@ const pageSchema = [articleSchema, faqSchema];
 
           <div class="strategy-box">
             <h4>How Fast Points Add Up</h4>
-            <p>Here's a real scenario: Your guest throws a loud party on a Saturday night. Neighbours call bylaw.</p>
+            <p>Here's a scenario: Your guest throws a loud party. Neighbours call bylaw.</p>
             <ol>
               <li><strong>Noise violation with fine:</strong> 5 points</li>
               <li><strong>Parking violations (cars on lawn):</strong> 3 points</li>
             </ol>
-            <p>That's <strong>8 points from one incident</strong> - enough for license suspension. And those points stick around for 2 years. This is why guest vetting and house rules matter so much in Oakville.</p>
+            <p>That's <strong>8 points from one incident</strong>, enough for license suspension. Those points stay for 2 years. This is why guest vetting and clear house rules are critical in Burlington.</p>
           </div>
 
           <h2 id="license-requirements">License Application Requirements</h2>
-          <p>Oakville's application is one of the most thorough in Ontario. Here's everything you need:</p>
+          <p>Burlington's application requirements are thorough. Here's the complete checklist from Schedule 1 of the bylaw:</p>
 
           <h3>Documentation Checklist</h3>
           <ul>
-            <li><strong>Proof of ownership</strong> (transfer/deed) or landlord consent if renting</li>
-            <li><strong>Floor plan</strong> showing all rooms with dimensions in square metres, and which rooms are lodging units</li>
-            <li><strong>Parking Management Plan</strong> compliant with zoning bylaw, showing all parking space locations and dimensions</li>
-            <li><strong>Property Maintenance Plan</strong> covering compliance with property standards, garbage/recycling locations, snow storage, and responsible party</li>
-            <li><strong>Renter's Code</strong> (Town-approved document for guests)</li>
-            <li><strong>Criminal Reference Check</strong> - must be less than 30 days old at application time</li>
+            <li><strong>Completed application form</strong> with owner/applicant contact details</li>
+            <li><strong>Applicable licensing fee</strong> (per Rates and Fees By-law 61-2021)</li>
+            <li><strong>Proof of age</strong>: Must be at least 18 years old</li>
+            <li><strong>Proof of ownership</strong> (transfer/deed) or written landlord consent if renting</li>
+            <li><strong>Floor plan</strong> showing all rooms with dimensions in square metres, identifying lodging units</li>
+            <li><strong>Parking Management Plan</strong> compliant with zoning bylaw, showing parking space locations and dimensions</li>
+            <li><strong>Property Maintenance Plan</strong> covering garbage/recycling locations, snow storage, and responsible party</li>
+            <li><strong>Renter's Code</strong> (approved by Licensing Administrator)</li>
+            <li><strong>Criminal Reference Check</strong>: Must be less than 30 days old at application time</li>
             <li><strong>HVAC inspection certificate</strong> from certified technician</li>
-            <li><strong>ESA electrical inspection</strong> (for initial applications, within past 6 months)</li>
-            <li><strong>Insurance certificate</strong> ($2M liability, naming Town of Oakville)</li>
-            <li><strong>Sworn declaration</strong> confirming compliance with Building Code, Fire Code, Electrical Safety Code, and that you're the principal resident</li>
+            <li><strong>ESA electrical inspection</strong> (initial applications only, within past 6 months)</li>
+            <li><strong>Insurance certificate</strong> ($2M liability, must notify City of cancellation)</li>
+            <li><strong>Sworn declaration</strong> confirming compliance with Building Code, Fire Code, Electrical Safety Code, and principal residence status</li>
           </ul>
 
           <blockquote class="bylaw-quote">
-            "A completed application for a licence or for renewal of a licence shall be submitted to the Licensing Commissioner accompanied by the requirements prescribed in Schedule 1, and any other information that the Licensing Commissioner may from time to time request."
-            <cite>Oakville By-law 2018-045 § 3.1</cite>
+            "A completed application for a licence or for renewal of a licence shall be submitted to the Licensing Administrator accompanied by the requirements prescribed in Schedule 1, and any other information that the Licensing Administrator may from time to time request."
+            <cite>Burlington By-law 01-2025 § 5.1</cite>
           </blockquote>
 
           <h3>License Term</h3>
-          <p>All Oakville STR licenses expire on <strong>October 31st annually</strong>, regardless of when you applied. So if you get licensed in September, you'll be renewing just two months later. Plan accordingly.</p>
+          <p>Burlington licenses expire <strong>one year from the date of issuance</strong>. Unlike Oakville (which uses a fixed October 31st expiry), your renewal date depends on when you originally applied.</p>
 
           <h2 id="local-contact">The Local Contact Requirement</h2>
-          <p>If you don't live in Halton Region, you must designate a Local Contact. Even if you do live locally, having backup is smart.</p>
+          <p>If you don't live in Burlington, you must designate a Local Contact. Even if you do live locally, having backup is wise.</p>
 
           <blockquote class="bylaw-quote">
-            "Local Contact means an agent or representative of an Owner who does not reside in the Regional Municipality of Halton, who is responsible for managing or addressing issues in relation to the Owner's Short-Term Accommodation."
-            <cite>Oakville By-law 2018-045 § 1.0 Definitions</cite>
+            "Local contact means an agent or representative of an Owner who does not reside in the City of Burlington is responsible for managing or addressing issues in relation to the Owner's Short-Term Accommodation."
+            <cite>Burlington By-law 01-2025 § 1.1 Definitions</cite>
           </blockquote>
 
           <p>The key requirement:</p>
 
           <blockquote class="bylaw-quote">
             "Ensure that there is a Local Contact available to attend to the STA at all times within a period of no greater than one hour from the time of contact by way of telephone or e-mail."
-            <cite>Oakville By-law 2018-045 Schedule 2 § 2(g)</cite>
+            <cite>Burlington By-law 01-2025 Schedule 2 § 2(g)</cite>
           </blockquote>
 
           <div class="callout">
@@ -305,93 +357,62 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>1-hour response time, 24/7:</strong> This isn't just during business hours. If bylaw calls at 2am about a noise complaint, someone needs to be there within an hour. Non-availability of your responsible person is worth 3-5 demerit points.
+              <strong>1-hour response time, 24/7:</strong> This isn't just during business hours. If bylaw calls at 2am about a noise complaint, someone needs to be there within an hour. Non-availability is worth 3-5 demerit points.
             </div>
           </div>
 
           <h2 id="insurance">Insurance Requirements</h2>
-          <p>Oakville requires substantial coverage:</p>
+          <p>Burlington requires substantial coverage:</p>
 
           <blockquote class="bylaw-quote">
             "Proof of insurance which includes a liability limit of no less than two million dollars ($2,000,000.00) per occurrence for property damage and bodily injury, and identifies that a STA is being operated on the property."
-            <cite>Oakville By-law 2018-045 Schedule 1 § 2(j)</cite>
+            <cite>Burlington By-law 01-2025 Schedule 1 § 1(j)</cite>
           </blockquote>
 
           <p>Key requirements:</p>
           <ul>
             <li><strong>$2,000,000 minimum</strong> liability per occurrence</li>
-            <li><strong>Must identify</strong> that an STA is being operated</li>
-            <li><strong>Town notification:</strong> Policy must give Oakville 10 days' written notice of cancellation or material changes</li>
-            <li><strong>Standard homeowner's insurance won't cut it</strong> - you need STR-specific coverage</li>
+            <li><strong>Must identify</strong> that an STA is being operated on the property</li>
+            <li><strong>City notification:</strong> Policy must give Burlington 10 days' written notice of cancellation or material changes</li>
+            <li><strong>Standard homeowner's insurance won't cut it</strong>: You need STR-specific coverage</li>
           </ul>
 
           <h2 id="penalties">Fines and Penalties</h2>
-          <p>Oakville uses a tiered administrative penalty system:</p>
+          <p>Burlington uses administrative monetary penalties (AMPs) in addition to the demerit point system. The specific penalty amounts are set in the Administrative Monetary Penalties By-law 40-2016.</p>
 
-          <div class="comparison-table">
-            <div class="comparison-header">
-              <div class="comparison-col">Violation</div>
-              <div class="comparison-col highlight">Administrative Penalty</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">First offense</div>
-              <div class="comparison-col highlight"><strong>$300</strong></div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">Second offense (within 24 months)</div>
-              <div class="comparison-col highlight"><strong>$400</strong></div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">Third+ offense (within 24 months)</div>
-              <div class="comparison-col highlight"><strong>$500</strong></div>
-            </div>
-          </div>
-
-          <p>But administrative penalties are just the start. For serious violations prosecuted under the Provincial Offences Act:</p>
+          <p>For serious violations prosecuted under the Provincial Offences Act, fines can be significant. The bylaw also allows unpaid administrative penalties to be added to your property tax bill after 60 days.</p>
 
           <blockquote class="bylaw-quote">
-            "Every person who contravenes any of the provisions of this by-law...is guilty of an offence and on conviction liable to a fine not exceeding $25,000 for a first offence and $50,000 for any subsequent offence. Where a corporation is convicted...the maximum penalty is $50,000 for a first offence and $100,000 for any subsequent offence."
-            <cite>Oakville By-law 2018-045 § 13</cite>
+            "Where an administrative penalty and administrative fee(s)...are not paid within sixty days after the date that they become due and payable, the treasurer of the City may add the administrative penalty and administrative fee(s) to the tax roll for any property for which all of the owners are responsible."
+            <cite>Burlington By-law 01-2025 § 11.3</cite>
           </blockquote>
 
-          <h2 id="mat-tax">The 4% Municipal Accommodation Tax</h2>
-          <p>Oakville charges a <strong>4% MAT</strong> on short-term accommodations. This is lower than Toronto's 8.5% but still adds up.</p>
-
-          <ul>
-            <li><strong>Applies to stays under 28 days</strong></li>
-            <li><strong>Airbnb collects automatically</strong> in most cases</li>
-            <li><strong>Mid-term rentals (29+ days)</strong> are exempt</li>
-          </ul>
-
-          <p>For a $250/night stay, guests pay an extra $10/night in MAT. Factor this into your pricing strategy, as it affects what guests ultimately pay.</p>
-
-          <h2 id="compliance-tips">Staying Compliant in Oakville</h2>
-          <p>Given the demerit point system, compliance isn't optional. Here's how to protect your license:</p>
+          <h2 id="compliance-tips">Staying Compliant in Burlington</h2>
+          <p>Given the demerit point system, compliance is essential. Here's how to protect your license:</p>
 
           <ul class="tips-list">
-            <li><span class="tip-icon">1</span> <strong>Vet guests thoroughly.</strong> One party can cost you 8+ points and a suspension. Check reviews, ask about trip purpose, and trust your instincts. Declining a sketchy booking is better than losing your license.</li>
-            <li><span class="tip-icon">2</span> <strong>Make your Renter's Code crystal clear.</strong> Include specific quiet hours, parking rules, maximum occupancy, and consequences. Have guests sign it before check-in and keep copies for at least a year.</li>
-            <li><span class="tip-icon">3</span> <strong>Maintain 1-hour response capability 24/7.</strong> Either live nearby, have a reliable co-host, or work with a property manager. Missing a bylaw call costs points.</li>
-            <li><span class="tip-icon">4</span> <strong>Keep your paperwork current.</strong> License expires October 31st every year. Insurance certificates need to stay valid. HVAC inspections should be up to date.</li>
-            <li><span class="tip-icon">5</span> <strong>Document everything.</strong> Guest records (date, length of stay, home address, Renter's Code confirmation) must be available for inspection for one year.</li>
-            <li><span class="tip-icon">6</span> <strong>Post your license visibly.</strong> It needs to be displayed "permanently in a prominent place" in the STA. Not posting it is 1-3 points.</li>
-            <li><span class="tip-icon">7</span> <strong>Know your parking and property plans.</strong> You submitted these with your application. Violations of either are demerit points.</li>
-            <li><span class="tip-icon">8</span> <strong>Check condo rules first.</strong> Even with a Town license, your condo corporation can ban STRs. Their rules override municipal permission.</li>
+            <li><span class="tip-icon">1</span> <strong>Vet guests thoroughly.</strong> One party can cost you 8+ points and a suspension. Check reviews, ask about trip purpose, and trust your instincts. Declining a questionable booking is better than losing your license.</li>
+            <li><span class="tip-icon">2</span> <strong>Make your Renter's Code clear.</strong> Include specific quiet hours, parking rules, maximum occupancy, and consequences. Have guests acknowledge receipt before check-in and keep records for at least a year.</li>
+            <li><span class="tip-icon">3</span> <strong>Maintain 1-hour response capability 24/7.</strong> Either live nearby, have a reliable co-host, or work with a property manager. Missing a bylaw call costs demerit points.</li>
+            <li><span class="tip-icon">4</span> <strong>Track your nights carefully.</strong> With a 183-night annual limit, you need to know exactly how many nights you've rented. Don't accidentally exceed the cap.</li>
+            <li><span class="tip-icon">5</span> <strong>Keep your paperwork current.</strong> License expires one year from issuance. Insurance certificates need to stay valid. HVAC inspections should be up to date.</li>
+            <li><span class="tip-icon">6</span> <strong>Post your license visibly.</strong> It needs to be displayed "permanently in a prominent place" in the STA. Not posting it is 1-3 demerit points.</li>
+            <li><span class="tip-icon">7</span> <strong>Follow your parking and maintenance plans.</strong> You submitted these with your application. Violations of either earn demerit points.</li>
+            <li><span class="tip-icon">8</span> <strong>Check condo rules first.</strong> Even with a City license, your condo corporation can ban STRs. Their rules override municipal permission.</li>
           </ul>
 
-          <h2 id="official-bylaws">Official Town of Oakville Resources</h2>
+          <h2 id="official-bylaws">Official City of Burlington Resources</h2>
           <p>Always verify current rules with official sources:</p>
 
           <div class="resources-box">
             <h4>Official Links</h4>
             <ul>
-              <li><a href="https://www.oakville.ca/business-development/business-licensing/short-term-accommodation-licensing/" target="_blank" rel="noopener">Town of Oakville - Short-Term Accommodation Licensing</a></li>
-              <li><a href="https://www.oakville.ca/getmedia/87ffa9bf-0bc4-4ef4-b832-64f3aff56aab/2018-045-sta-licensing-by-law.pdf" target="_blank" rel="noopener">By-law 2018-045 (Full PDF)</a></li>
-              <li><a href="https://www.oakville.ca/business-development/business-licensing/short-term-accommodation-licensing/apply-for-a-licence/" target="_blank" rel="noopener">License Application Portal</a></li>
+              <li><a href="https://www.burlington.ca" target="_blank" rel="noopener">City of Burlington Official Website</a></li>
+              <li><a href="https://www.burlington.ca/en/services-for-you/business-licences.asp" target="_blank" rel="noopener">Burlington Business Licensing</a></li>
             </ul>
           </div>
 
-          <h2 id="faqs">Common Questions From Oakville Hosts</h2>
+          <h2 id="faqs">Common Questions From Burlington Hosts</h2>
           <div class="faq-list">
             {faqs.map(faq => (
               <div class="faq-item">
@@ -402,8 +423,8 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <div class="article-cta">
-            <h3>Need Help With Oakville STR Compliance?</h3>
-            <p>Nurture handles licensing, guest vetting, 24/7 response, and compliance tracking so you never have to worry about demerit points. Our local team knows Oakville's bylaws inside and out.</p>
+            <h3>Need Help With Burlington STR Compliance?</h3>
+            <p>Nurture handles licensing, guest vetting, 24/7 response, and compliance tracking so you never have to worry about demerit points. Our local team knows Burlington's new bylaws inside and out.</p>
             <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
           </div>
         </article>
@@ -429,7 +450,7 @@ const pageSchema = [articleSchema, faqSchema];
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Questions About Oakville STR Rules?</h2>
+        <h2>Questions About Burlington STR Rules?</h2>
         <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
         <p class="cta-note">Free consultation · No obligation</p>
@@ -647,6 +668,11 @@ const pageSchema = [articleSchema, faqSchema];
 
   .callout-content {
     line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
   }
 
   .comparison-table {
@@ -881,9 +907,9 @@ const pageSchema = [articleSchema, faqSchema];
 
   .related-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
   }
 

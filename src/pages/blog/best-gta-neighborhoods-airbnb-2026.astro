@@ -5,18 +5,18 @@ const neighborhoods = [
   {
     name: 'Burlington',
     region: 'Halton',
-    license: 'None',
-    mat: '0%',
-    nightLimit: 'None',
-    investmentOK: true,
-    principalResidence: false,
+    license: 'Required',
+    mat: 'Check',
+    nightLimit: '183/year',
+    investmentOK: false,
+    principalResidence: true,
     avgRevenue: '$3,000-$5,000/month',
     demandDrivers: ['Waterfront tourism', 'Sound of Music Festival', 'Royal Botanical Gardens', 'Medical visitors'],
-    pros: ['No regulations at all', 'Strong waterfront demand', 'High-income area', 'Year-round events'],
-    cons: ['Higher property prices', 'Competition growing'],
+    pros: ['Strong waterfront demand', 'High-income area', 'Year-round events', 'No night limit on partial rentals'],
+    cons: ['Principal residence required', 'Demerit point system', '183-night annual limit'],
     link: '/burlington-airbnb-management',
-    regulationLink: null,
-    status: 'unregulated'
+    regulationLink: '/blog/burlington-airbnb-short-term-rental-rules-2026',
+    status: 'regulated'
   },
   {
     name: 'Ajax',
@@ -165,7 +165,7 @@ const neighborhoods = [
 ];
 
 const comparisonTable = [
-  { city: 'Burlington', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Best for Investors' },
+  { city: 'Burlington', license: 'Required', mat: 'Check', nightLimit: '183/year', investment: '✗', status: 'Newly Regulated (May 2025)' },
   { city: 'Ajax', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Best for Investors' },
   { city: 'Pickering', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Best for Investors' },
   { city: 'Richmond Hill', license: 'None', mat: '0%', nightLimit: 'None', investment: '✓', status: 'Act Now (Under Review)' },
@@ -178,12 +178,12 @@ const comparisonTable = [
 ];
 
 const faqs = [
-  { q: "What is the best GTA city for Airbnb investment properties?", a: "Burlington, Ajax, and Pickering are the best GTA cities for Airbnb investment properties. These cities have no STR regulations, meaning no license required, no MAT tax, no night limits, and investment properties are permitted. Burlington offers the highest earning potential at $3,000-$5,000/month." },
+  { q: "What is the best GTA city for Airbnb investment properties?", a: "Ajax, Pickering, Richmond Hill, and King Township are the best GTA cities for Airbnb investment properties. These cities have no STR regulations, meaning no license required, no MAT tax, no night limits, and investment properties are permitted. Note: Burlington introduced regulations in May 2025 requiring principal residence." },
   { q: "Can I still Airbnb profitably in Toronto with the regulations?", a: "Yes. Even with the 180-night limit, most Toronto hosts earn 30-100% more than long-term rentals. A 1-bedroom in King West typically pulls $3,500-4,500/month short-term versus $2,400 long-term. You can also register for partial-unit rentals (no night limit) or do mid-term rentals (28+ days) which bypass the rules entirely." },
-  { q: "Which GTA neighborhoods have the highest Airbnb demand?", a: "Downtown Toronto has the highest demand due to business travel, tourism, and events. However, Burlington's waterfront, Pickering's casino area, and areas near Pearson Airport (Mississauga) also see strong, consistent demand." },
-  { q: "Is Airbnb allowed on investment properties anywhere in the GTA?", a: "Yes. Burlington, Ajax, Pickering, Clarington, Brock, Richmond Hill, and King Township all allow short-term rentals on investment properties. There's no principal residence requirement in these cities." },
-  { q: "What's the difference between regulated and unregulated GTA cities?", a: "Regulated cities like Toronto require a license, principal residence status, and charge MAT tax (4-8.5%). Unregulated cities like Burlington have none of these requirements. You can operate year-round on investment properties with no extra costs." },
-  { q: "Should I buy in an unregulated city before regulations come?", a: "If you're considering Richmond Hill or Whitby, acting sooner is wise since both are actively developing STR bylaws. Burlington, Ajax, and Pickering have not announced plans to regulate, making them safer long-term options." },
+  { q: "Which GTA neighborhoods have the highest Airbnb demand?", a: "Downtown Toronto has the highest demand due to business travel, tourism, and events. Pickering's casino area, Burlington's waterfront, and areas near Pearson Airport (Mississauga) also see strong, consistent demand. Note: Burlington now requires principal residence." },
+  { q: "Is Airbnb allowed on investment properties anywhere in the GTA?", a: "Yes. Ajax, Pickering, Clarington, Brock, Richmond Hill, and King Township all allow short-term rentals on investment properties. There's no principal residence requirement in these cities. Note: Burlington introduced principal residence requirements in May 2025." },
+  { q: "What's the difference between regulated and unregulated GTA cities?", a: "Regulated cities like Toronto require a license, principal residence status, and charge MAT tax (4-8.5%). Unregulated cities like Ajax and Pickering have none of these requirements. You can operate year-round on investment properties with no extra costs." },
+  { q: "Should I buy in an unregulated city before regulations come?", a: "If you're considering Richmond Hill or Whitby, acting sooner is wise since both are actively developing STR bylaws. Burlington already introduced regulations in May 2025, so Ajax and Pickering are currently the safest options for investors." },
   { q: "How do I choose between Toronto neighborhoods for Airbnb?", a: "Downtown Toronto offers highest rates but most competition. North York is great for business travelers and families. Scarborough has lower entry costs and less competition. Etobicoke is popular for airport proximity. All Toronto areas have the same regulations." },
   { q: "What about condos? Can I Airbnb in any GTA condo?", a: "Even in unregulated cities, your condo corporation can prohibit short-term rentals. Always check your condo declaration and rules before buying or listing. Some Toronto condos explicitly allow STRs while others have complete bans." }
 ];
@@ -300,7 +300,7 @@ const pageSchema = [articleSchema, faqSchema];
                 <li>No night limits</li>
                 <li>Investment properties allowed</li>
               </ul>
-              <p class="box-examples"><strong>Examples:</strong> Burlington, Ajax, Pickering, Richmond Hill</p>
+              <p class="box-examples"><strong>Examples:</strong> Ajax, Pickering, Richmond Hill, King Township</p>
             </div>
             <div class="comparison-box regulated-box">
               <h4>Regulated Cities</h4>
@@ -349,44 +349,16 @@ const pageSchema = [articleSchema, faqSchema];
           <h2 id="unregulated">Best Unregulated Cities: Investment Properties Welcome</h2>
           <p>These cities have <strong>no STR regulations whatsoever</strong>. You can operate investment properties, host year-round, and keep 100% of your revenue (no MAT tax).</p>
 
-          <h3>1. Burlington: The Premium Unregulated Market</h3>
-          <div class="neighborhood-card">
-            <div class="neighborhood-header">
-              <div class="neighborhood-name">Burlington</div>
-              <div class="neighborhood-status status-green">No Regulations</div>
-            </div>
-            <div class="neighborhood-details">
-              <div class="neighborhood-stats">
-                <div class="stat-item">
-                  <span class="stat-label">Avg. Revenue</span>
-                  <span class="stat-value">$3,000-$5,000/mo</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">License</span>
-                  <span class="stat-value">None</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">MAT Tax</span>
-                  <span class="stat-value">0%</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">Night Limit</span>
-                  <span class="stat-value">None</span>
-                </div>
-              </div>
-              <p><strong>Why Burlington:</strong> Waterfront properties near Spencer Smith Park command premium rates. The Sound of Music Festival, Ribfest, and Royal Botanical Gardens drive consistent demand. High-income area means quality guests.</p>
-              <p><strong>Best for:</strong> Waterfront properties, luxury listings, families, festival visitors</p>
-              <div class="neighborhood-tags">
-                <span class="tag tag-green">Investment OK</span>
-                <span class="tag tag-green">No License</span>
-                <span class="tag tag-green">No MAT</span>
-                <span class="tag tag-green">Year-Round</span>
-              </div>
-              <a href="/burlington-airbnb-management" class="neighborhood-link">Burlington Airbnb Management →</a>
+          <div class="callout callout-warning" style="margin-bottom: 2rem;">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-content">
+              <strong>Update: Burlington is Now Regulated (May 2025)</strong><br>
+              Burlington introduced By-law 01-2025 effective May 1, 2025. It now requires principal residence, licensing, $2M insurance, and has a 183-night annual limit with a demerit point system. Investment properties are no longer permitted for STRs.<br><br>
+              <a href="/blog/burlington-airbnb-short-term-rental-rules-2026" style="color: inherit; text-decoration: underline; font-weight: bold;">Read our complete Burlington STR guide →</a>
             </div>
           </div>
 
-          <h3>2. Ajax: Eastern GTA's Hidden Gem</h3>
+          <h3>1. Ajax: Eastern GTA's Top Investment Market</h3>
           <div class="neighborhood-card">
             <div class="neighborhood-header">
               <div class="neighborhood-name">Ajax</div>
@@ -411,7 +383,7 @@ const pageSchema = [articleSchema, faqSchema];
                   <span class="stat-value">None</span>
                 </div>
               </div>
-              <p><strong>Why Ajax:</strong> Lake Ontario waterfront properties with easy GO Train access to downtown Toronto. Proximity to Pickering Casino drives weekend demand. Lower property prices than Burlington with similar regulatory freedom.</p>
+              <p><strong>Why Ajax:</strong> Lake Ontario waterfront properties with easy GO Train access to downtown Toronto. Proximity to Pickering Casino drives weekend demand. Lower property prices than many GTA markets with full regulatory freedom.</p>
               <p><strong>Best for:</strong> Waterfront escapes, casino visitors, budget-conscious investors</p>
               <div class="neighborhood-tags">
                 <span class="tag tag-green">Investment OK</span>
@@ -423,7 +395,7 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h3>3. Pickering: Casino-Driven Demand</h3>
+          <h3>2. Pickering: Casino-Driven Demand</h3>
           <div class="neighborhood-card">
             <div class="neighborhood-header">
               <div class="neighborhood-name">Pickering</div>
@@ -460,7 +432,7 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h3>4. Richmond Hill: Act Before Regulations Come</h3>
+          <h3>3. Richmond Hill: Act Before Regulations Come</h3>
           <div class="neighborhood-card">
             <div class="neighborhood-header">
               <div class="neighborhood-name">Richmond Hill</div>
