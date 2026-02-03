@@ -17,6 +17,12 @@ const latestPosts = allPosts
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Preconnects FIRST for early connection establishment -->
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>Nurture - Premium Airbnb Management in the GTA | Earn 30-100% More</title>
     <meta name="description" content="Expert Airbnb management in the Greater Toronto Area. 4.9★ rating, less than 9-minute response time, 10-15% fees. Turn your property into passive income.">
@@ -153,20 +159,14 @@ const latestPosts = allPosts
     <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
     <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" media="(min-width: 769px)">
 
-    <!-- Preload LCP image (YouTube thumbnail - using sddefault for appropriate size) -->
-    <link rel="preload" href="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp" as="image" type="image/webp" fetchpriority="high">
+    <!-- Preload LCP image (YouTube thumbnail - responsive for mobile/desktop) -->
+    <link rel="preload" href="https://i.ytimg.com/vi_webp/OFACd6a2ctA/mqdefault.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" href="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
 
-    <!-- DNS prefetch & preconnect -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://i.ytimg.com">
-    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <!-- DNS prefetch for resources loaded later -->
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
-    <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
 
     <!-- Fonts - deferred loading with reduced weights for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
 
@@ -1663,7 +1663,9 @@ const latestPosts = allPosts
             <div class="hero-video">
                 <div class="video-wrapper lite-youtube" data-videoid="OFACd6a2ctA">
                     <picture>
-                        <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp">
+                        <source type="image/webp" media="(max-width: 768px)" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/mqdefault.webp">
+                        <source type="image/webp" media="(min-width: 769px)" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp">
+                        <source media="(max-width: 768px)" srcset="https://i.ytimg.com/vi/OFACd6a2ctA/mqdefault.jpg">
                         <img src="https://i.ytimg.com/vi/OFACd6a2ctA/sddefault.jpg" alt="Nurture Airbnb Management video" loading="eager" fetchpriority="high">
                     </picture>
                     <button type="button" class="play-button" aria-label="Play video" tabindex="-1">
