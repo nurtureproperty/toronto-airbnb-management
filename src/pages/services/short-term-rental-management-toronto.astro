@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 
 const services = [
-  { title: 'STR Registration', description: 'We help you register with the City of Toronto, collect Municipal Accommodation Tax, and navigate all STR bylaws.' },
+  { title: 'MAT Reporting Data', description: 'We provide the booking data you need for Municipal Accommodation Tax reporting on platforms that require manual remittance.' },
   { title: 'Dynamic Pricing', description: 'Manual and AI-optimized pricing adjusts daily for events, seasonality, and demand. Maximize revenue without lifting a finger.', link: '/services/airbnb-dynamic-pricing' },
   { title: 'Guest Communication', description: 'We handle all inquiries, bookings, check-in instructions, and guest questions. Less than 9-minute average response time.' },
   { title: 'Professional Cleaning', description: 'Vetted cleaning teams ensure 5-star cleanliness after every guest. Quality inspections included.', link: '/services/airbnb-cleaning' },
@@ -15,16 +15,16 @@ const services = [
 
 const steps = [
   { number: '1', title: 'Free Consultation', description: 'We analyze your property and show you exactly how much you could earn with short-term rental.' },
-  { number: '2', title: 'We Set Everything Up', description: 'Professional photos, optimized listing, pricing strategy, and STR registration handled.' },
+  { number: '2', title: 'We Set Everything Up', description: 'Professional photos, optimized listing, and pricing strategy handled.' },
   { number: '3', title: 'We Manage Everything', description: 'Guests, cleaning, maintenance, pricing, registration. We handle it all while you relax.' },
   { number: '4', title: 'You Collect Rent', description: 'Money deposited to your account. Clear reports. True passive income.' }
 ];
 
 const faqs = [
-  { q: "Do I need to register my STR in Toronto?", a: "Yes. Toronto requires all short-term rentals to be registered. You can only STR your principal residence (where you live). We help you navigate the registration process." },
+  { q: "Do I need to register my STR in Toronto?", a: "Yes. Toronto requires all short-term rentals to be registered. You can only STR your principal residence (where you live). You are responsible for obtaining your own STR registration." },
   { q: "What's the 180-night limit?", a: "If you rent your entire home while away, you're limited to 180 nights per year. However, if you stay in the home during guest stays (like renting a room), there's no limit." },
   { q: "How much more can I make vs long-term rental?", a: "Most Toronto hosts see 30-100% more revenue compared to long-term tenants, even after management fees. Plus you keep the flexibility to use your property." },
-  { q: "What if my condo doesn't allow STR?", a: "Many condos have their own rules beyond city bylaws. We can help you check your building's rules and explore alternatives like mid-term rentals (30+ days) which often have different rules." },
+  { q: "What if my condo doesn't allow STR?", a: "Many condos have their own rules beyond city bylaws. Mid-term rentals (30+ days) often have different rules and may be an alternative worth exploring." },
   { q: "Do I need to sign a long contract?", a: "No. We work on a simple 30-day notice agreement. You can cancel anytime. We keep clients through great service, not contracts." }
 ];
 
@@ -42,7 +42,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Short-Term Rental Management Toronto",
-  "description": "Expert short-term rental management in Toronto with STR registration assistance, guest management, and compliance support. 10-15% commission.",
+  "description": "Expert short-term rental management in Toronto with professional guest management, dynamic pricing, and cleaning coordination. 10-15% commission.",
   "url": "https://www.nurturestays.ca/services/short-term-rental-management-toronto",
   "provider": {
     "@type": "LocalBusiness",
@@ -66,11 +66,11 @@ const faqSchema = {
 const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Short Term Rental Management GTA | STR Experts" description="Expert short term rental management across the Greater Toronto Area. We handle STR registration, guest management, and cleaning. 10-15% fees. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill & more." schema={pageSchema}>
+<Layout title="Short Term Rental Management GTA | STR Experts" description="Expert short term rental management across the Greater Toronto Area. Professional guest management, dynamic pricing, and cleaning coordination. 10-15% fees. Serving Toronto, Mississauga, Brampton, Vaughan, Markham, Richmond Hill & more." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Short-Term Rental Management</h1>
-      <p class="hero-subtitle">Navigate STR regulations with confidence. We help with registration, guest management, and everything in between so you can earn more with less stress.</p>
+      <p class="hero-subtitle">Maximize your short-term rental income. We handle guest management, pricing, cleaning, and everything in between so you can earn more with less stress.</p>
     </div>
   </section>
 
@@ -96,9 +96,9 @@ const pageSchema = [serviceSchema, faqSchema];
   <section class="section intro-section">
     <div class="container">
       <div class="intro-content">
-        <p class="intro-text">Short-term rentals can earn 30-100% more than long-term tenants, but Toronto's regulations make it complex. We handle everything from STR registration to guest management so you maximize revenue. Our commission is only on your host payout. We never take a cut of cleaning fees or Airbnb's service charges.</p>
+        <p class="intro-text">Short-term rentals can earn 30-100% more than long-term tenants. We handle guest management, dynamic pricing, cleaning, and maintenance so you maximize revenue. Our commission is only on your host payout. We never take a cut of cleaning fees or Airbnb's service charges.</p>
         <ul class="feature-list">
-          <li><span class="check">✓</span> STR registration support</li>
+          <li><span class="check">✓</span> MAT reporting data for manual platforms</li>
           <li><span class="check">✓</span> Guest communication with less than 9-minute response</li>
           <li><span class="check">✓</span> Manual and AI-optimized dynamic pricing</li>
           <li><span class="check">✓</span> Professional cleaning after every guest</li>
@@ -173,7 +173,7 @@ const pageSchema = [serviceSchema, faqSchema];
             <li><span class="icon-check">✓</span> Guest screening every booking</li>
             <li><span class="icon-check">✓</span> No long-term commitments</li>
             <li><span class="icon-check">✓</span> Professional cleaning included</li>
-            <li><span class="icon-check">✓</span> STR registration support</li>
+            <li><span class="icon-check">✓</span> MAT reporting data provided</li>
             <li><span class="icon-check">✓</span> True passive income</li>
           </ul>
         </div>
@@ -305,11 +305,6 @@ const pageSchema = [serviceSchema, faqSchema];
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
-          <div class="feature-label">Short term rental licensing support</div>
-          <div class="feature-check empty">—</div>
-          <div class="feature-check">✓</div>
-        </div>
-        <div class="feature-row">
           <div class="feature-label">Furnishing consulting</div>
           <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
@@ -356,7 +351,7 @@ const pageSchema = [serviceSchema, faqSchema];
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Start Your STR Journey?</h2>
-        <p>Get a free property analysis. We'll show you exactly what your property could earn and help with STR registration.</p>
+        <p>Get a free property analysis. We'll show you exactly what your property could earn.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
         <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
       </div>
