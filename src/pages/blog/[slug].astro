@@ -96,13 +96,11 @@ const articleSchema = {
     <div class="container">
       {post.data.youtubeId && (
         <div class="video-embed">
-          <iframe
-            src={`https://www.youtube.com/embed/${post.data.youtubeId}`}
-            title={post.data.title}
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <lite-youtube videoid={post.data.youtubeId} playlabel={`Play: ${post.data.title}`}>
+            <button type="button" class="lty-playbtn" aria-label="Play video">
+              <span class="lyt-visually-hidden">Play Video</span>
+            </button>
+          </lite-youtube>
         </div>
       )}
       <article class="article-content">
@@ -203,7 +201,6 @@ const articleSchema = {
   .video-embed {
     max-width: 750px;
     margin: 0 auto 2.5rem;
-    aspect-ratio: 16 / 9;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -213,6 +210,75 @@ const articleSchema = {
     width: 100%;
     height: 100%;
     border: none;
+  }
+
+  /* Lite YouTube Embed - lazy-loaded video facade */
+  lite-youtube {
+    background-color: #000;
+    position: relative;
+    display: block;
+    contain: content;
+    background-position: center center;
+    background-size: cover;
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  lite-youtube::before {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.67) 0%, transparent 60%);
+    width: 100%;
+    padding: 0.75em 1em;
+    font-size: 1.1em;
+    color: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  lite-youtube .lty-playbtn {
+    width: 68px;
+    height: 48px;
+    position: absolute;
+    cursor: pointer;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23f00"/><path d="M45 24 27 14v20" fill="%23fff"/></svg>');
+    filter: grayscale(100%);
+    transition: filter 0.1s cubic-bezier(0, 0, 0.2, 1);
+    border: none;
+  }
+
+  lite-youtube:hover .lty-playbtn,
+  lite-youtube .lty-playbtn:focus {
+    filter: none;
+  }
+
+  lite-youtube.lyt-activated {
+    cursor: unset;
+  }
+
+  lite-youtube.lyt-activated::before,
+  lite-youtube.lyt-activated .lty-playbtn {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .lyt-visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 
   .article-content {
@@ -529,3 +595,49 @@ const articleSchema = {
     }
   }
 </style>
+
+<script>
+  // Lite YouTube Embed - loads iframe only on click
+  class LiteYTEmbed extends HTMLElement {
+    connectedCallback() {
+      const videoId = this.getAttribute('videoid');
+      const playLabel = this.getAttribute('playlabel') || 'Play';
+
+      // Use maxresdefault with fallback to hqdefault
+      this.style.backgroundImage = `url(https://i.ytimg.com/vi/${videoId}/hqdefault.jpg)`;
+
+      // Try to load higher quality thumbnail
+      const img = new Image();
+      img.onload = () => {
+        if (img.naturalWidth > 120) {
+          this.style.backgroundImage = `url(https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg)`;
+        }
+      };
+      img.src = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+      this.setAttribute('data-title', playLabel);
+
+      this.addEventListener('click', () => this.activateIframe());
+    }
+
+    activateIframe() {
+      const videoId = this.getAttribute('videoid');
+      const iframe = document.createElement('iframe');
+      iframe.width = '100%';
+      iframe.height = '100%';
+      iframe.title = this.getAttribute('playlabel') || 'YouTube video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+      this.classList.add('lyt-activated');
+      this.innerHTML = '';
+      this.appendChild(iframe);
+    }
+  }
+
+  // Define the custom element
+  if (!customElements.get('lite-youtube')) {
+    customElements.define('lite-youtube', LiteYTEmbed);
+  }
+</script>
