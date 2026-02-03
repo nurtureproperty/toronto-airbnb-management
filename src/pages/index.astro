@@ -163,11 +163,11 @@ const latestPosts = allPosts
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
 
-    <!-- Fonts - deferred loading for mobile performance -->
+    <!-- Fonts - deferred loading with reduced weights for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
 
     <!-- Critical CSS - Inlined for fast initial render (includes header/footer styles) -->
     <style set:html={criticalCSS}></style>
@@ -1192,6 +1192,44 @@ const latestPosts = allPosts
             border: none;
         }
 
+        /* Lite YouTube Feed Facade */
+        .lite-youtube-feed {
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lite-youtube-feed img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lite-youtube-feed .play-button-feed {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            z-index: 1;
+        }
+
+        .lite-youtube-feed:hover .play-button-feed {
+            transform: translate(-50%, -50%) scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .lite-youtube-feed.activated img,
+        .lite-youtube-feed.activated .play-button-feed {
+            display: none;
+        }
+
         @media (max-width: 968px) {
             .youtube-grid {
                 grid-template-columns: 1fr;
@@ -1937,32 +1975,41 @@ const latestPosts = allPosts
                 <a href="https://www.youtube.com/@nurtureproperties" target="_blank" rel="noopener">Follow us for more Airbnb Tips</a>
             </p>
             <div class="youtube-grid">
-                <div class="youtube-video">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/6PJwSojOyjI?rel=0"
-                        title="Nurture Properties Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
+                <div class="youtube-video lite-youtube-feed" data-videoid="6PJwSojOyjI">
+                    <picture>
+                        <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/6PJwSojOyjI/mqdefault.webp">
+                        <img src="https://i.ytimg.com/vi/6PJwSojOyjI/mqdefault.jpg" alt="Nurture Properties Video" loading="lazy">
+                    </picture>
+                    <button type="button" class="play-button-feed" aria-label="Play video">
+                        <svg viewBox="0 0 68 48" width="68" height="48">
+                            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                        </svg>
+                    </button>
                 </div>
-                <div class="youtube-video">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/Nmy2GVDYCXs?rel=0"
-                        title="Nurture Properties Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
+                <div class="youtube-video lite-youtube-feed" data-videoid="Nmy2GVDYCXs">
+                    <picture>
+                        <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/Nmy2GVDYCXs/mqdefault.webp">
+                        <img src="https://i.ytimg.com/vi/Nmy2GVDYCXs/mqdefault.jpg" alt="Nurture Properties Video" loading="lazy">
+                    </picture>
+                    <button type="button" class="play-button-feed" aria-label="Play video">
+                        <svg viewBox="0 0 68 48" width="68" height="48">
+                            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                        </svg>
+                    </button>
                 </div>
-                <div class="youtube-video">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/OFACd6a2ctA?rel=0"
-                        title="Nurture Properties Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
+                <div class="youtube-video lite-youtube-feed" data-videoid="OFACd6a2ctA">
+                    <picture>
+                        <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/mqdefault.webp">
+                        <img src="https://i.ytimg.com/vi/OFACd6a2ctA/mqdefault.jpg" alt="Nurture Properties Video" loading="lazy">
+                    </picture>
+                    <button type="button" class="play-button-feed" aria-label="Play video">
+                        <svg viewBox="0 0 68 48" width="68" height="48">
+                            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2065,6 +2112,7 @@ const latestPosts = allPosts
 
     <!-- Lite YouTube - Load iframe only on click for better performance -->
     <script is:inline>
+    // Hero video facade
     document.querySelectorAll('.lite-youtube').forEach(el => {
         let activated = false;
 
@@ -2082,15 +2130,39 @@ const latestPosts = allPosts
             el.appendChild(iframe);
         }
 
-        // Handle touch - activate immediately on first touch
         el.addEventListener('pointerdown', function(e) {
             if (e.pointerType === 'touch' || e.pointerType === 'pen') {
                 e.preventDefault();
                 activateVideo();
             }
         });
+        el.addEventListener('click', activateVideo);
+    });
 
-        // Handle mouse click
+    // YouTube feed video facades
+    document.querySelectorAll('.lite-youtube-feed').forEach(el => {
+        let activated = false;
+
+        function activateVideo() {
+            if (activated) return;
+            activated = true;
+            el.classList.add('activated');
+            const videoId = el.dataset.videoid;
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            iframe.title = 'Nurture Properties Video';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+            el.appendChild(iframe);
+        }
+
+        el.addEventListener('pointerdown', function(e) {
+            if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+                e.preventDefault();
+                activateVideo();
+            }
+        });
         el.addEventListener('click', activateVideo);
     });
     </script>
