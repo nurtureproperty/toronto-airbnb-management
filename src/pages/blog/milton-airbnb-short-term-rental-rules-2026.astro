@@ -1,0 +1,950 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Milton?", a: "No. Milton requires the property to be your principal residence. You must actually live there and provide government-issued ID proving residency. Investment properties, second homes, and cottages don't qualify. Mid-term rentals (29+ days) are an alternative since they fall outside the STR definition." },
+  { q: "What is the night limit in Milton?", a: "Milton allows a maximum of 180 nights per calendar year for short-term rentals. This matches Toronto and Mississauga's limits. Each stay must also be 28 consecutive days or less to count as an STR." },
+  { q: "How much does a Milton STR license cost?", a: "The license fee is set by Milton's User Fees By-law. Contact the Town's licensing department for current rates. The license is valid for one year from issuance and must be renewed before expiry." },
+  { q: "What insurance do I need for Milton STR?", a: "You need $2,000,000 commercial general liability insurance per occurrence. The policy must cover bodily injury, personal injury, death, and property damage. The Town of Milton must be listed as an additional insured. Standard homeowner's insurance won't suffice." },
+  { q: "Do I need a fire inspection?", a: "Yes. You need a compliance letter from Milton Fire issued within 60 days of your application. No license will be issued until the Fire Chief confirms your property meets Fire Code requirements." },
+  { q: "What's the maximum occupancy for my STR?", a: "Milton limits occupancy to 2 persons per bedroom plus an additional 2 persons total. So a 3-bedroom STR could have maximum 8 guests (3 bedrooms x 2 = 6, plus 2 additional)." },
+  { q: "Can I host events or parties in my STR?", a: "No. Milton's bylaw explicitly prohibits using any short-term rental for parties, weddings, receptions, events, gatherings, or any similar activity. This is a license condition, and violations could lead to suspension or revocation." },
+  { q: "Can I operate an STR in my condo?", a: "Even if you get licensed by the Town, your condo corporation can prohibit short-term rentals. You must provide proof that STRs are permitted in your condominium as part of your license application. Check your condo documents first." },
+  { q: "What happens if my license is suspended?", a: "If your license is suspended for more than 120 days, it's automatically revoked without further notice. While suspended, you cannot operate or advertise your STR. You won't receive a refund of any fees paid." },
+  { q: "When did Milton's STR regulations take effect?", a: "Milton's Short Term Rental By-law 062-2022 came into force on July 15, 2022. Milton was among the earlier GTA municipalities to implement comprehensive STR licensing requirements." }
+];
+
+const relatedPosts = [
+  { title: 'Burlington Airbnb Short Term Rental Rules 2026', href: '/blog/burlington-airbnb-short-term-rental-rules-2026', description: 'Similar Halton Region rules with demerit point system' },
+  { title: 'Oakville Airbnb Short Term Rental Rules 2026', href: '/blog/oakville-airbnb-short-term-rental-rules-2026', description: 'Neighbouring Halton municipality with different night limits' },
+  { title: 'Mississauga Airbnb Short Term Rental Rules 2026', href: '/blog/mississauga-airbnb-short-term-rental-rules-2026', description: 'Nearby Peel Region STR regulations' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'principal-residence', text: 'Principal Residence Rule' },
+  { id: 'night-limit', text: 'The 180-Night Limit' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'fire-inspection', text: 'Fire Inspection' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'occupancy-rules', text: 'Occupancy & Guest Rules' },
+  { id: 'operational-rules', text: 'Operational Requirements' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-bylaws', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Milton Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Milton Airbnb rules: 180-night limit, principal residence, $2M insurance, fire inspection. Complete By-law 062-2022 compliance guide for hosts.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-04",
+  "dateModified": "2026-02-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/milton-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Milton Regulations</span>
+      </nav>
+      <h1>Milton Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 4, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Milton was one of the first Halton Region municipalities to regulate short-term rentals. <strong>By-law 062-2022</strong> took effect on <strong>July 15, 2022</strong>, establishing comprehensive licensing requirements for Airbnb hosts in this fast-growing town west of Toronto.</p>
+            <p class="lead">The rules are strict: <strong>principal residence only</strong>, a <strong>180-night annual limit</strong>, mandatory <strong>fire inspections</strong>, and <strong>$2 million insurance</strong>. Here's your complete guide to staying compliant.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Milton's By-law 062-2022 defines short-term rental precisely:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short Term Rental means the rental of a dwelling unit or part thereof offering short term lodging for compensation for 28 days or less that does not provide meals or other commercial services."
+            <cite>Milton By-law 062-2022 § 3.1 Definitions</cite>
+          </blockquote>
+
+          <p>Two key numbers to remember:</p>
+          <ul>
+            <li><strong>28 days maximum per stay</strong>: Any single booking must be 28 consecutive days or less</li>
+            <li><strong>180 days maximum per year</strong>: Your total rental nights can't exceed 180 in a calendar year</li>
+          </ul>
+
+          <p>If you book a guest for 29+ days, it's considered a mid-term rental and falls outside STR regulations. This is an important distinction because mid-term rentals don't require principal residence status or STR licensing.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>What's NOT an STR:</strong> Bed and breakfasts, hotels, and motels (as defined in Milton's Zoning By-law) are excluded. Rentals to tenants covered by the Residential Tenancies Act are also not considered STRs.
+            </div>
+          </div>
+
+          <h2 id="principal-residence">The Principal Residence Requirement</h2>
+          <p>This is the rule that affects investment property owners most. Milton requires STRs to be operated from your principal residence:</p>
+
+          <blockquote class="bylaw-quote">
+            "Principal Residence means a dwelling unit owned or rented by an individual person, either alone or jointly with others, where the individual person is ordinarily resident of the dwelling unit."
+            <cite>Milton By-law 062-2022 § 3.1 Definitions</cite>
+          </blockquote>
+
+          <p>When applying for a license, you must provide:</p>
+          <ul>
+            <li><strong>Government-issued ID</strong> showing the STR address</li>
+            <li><strong>Signed declaration</strong> confirming principal residence status</li>
+            <li><strong>Proof of ownership</strong> or landlord authorization if you're a tenant</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Investment Property Owners</h4>
+            <p>You cannot operate a short-term rental on a property that isn't your principal residence. Milton issues only one license per person because you can only have one principal residence. For investment properties, mid-term rentals (29+ consecutive days) are your best alternative.</p>
+          </div>
+
+          <h2 id="night-limit">The 180-Night Annual Limit</h2>
+          <p>Milton caps your STR at <strong>180 nights per calendar year</strong>. This matches the limits in Toronto, Mississauga, and Brampton.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Annual Night Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Milton</strong></div>
+              <div class="comparison-col highlight"><strong>180 nights</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight">180 nights (entire unit)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Burlington</div>
+              <div class="comparison-col highlight">183 nights</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oakville</div>
+              <div class="comparison-col highlight">No limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Hamilton</div>
+              <div class="comparison-col highlight">No limit</div>
+            </div>
+          </div>
+
+          <p>The 180-night limit means you can operate for roughly half the year. For many hosts, this is sufficient for peak season rental income while maintaining the property for personal use.</p>
+
+          <h2 id="license-requirements">License Application Requirements</h2>
+          <p>Milton's application requirements are comprehensive. Here's what you need to submit:</p>
+
+          <h3>Documentation Checklist</h3>
+          <ul>
+            <li><strong>Completed application form</strong></li>
+            <li><strong>Application fee</strong> (per Milton's User Fees By-law)</li>
+            <li><strong>Full legal name, phone, email</strong> and STR address</li>
+            <li><strong>Government-issued ID</strong> and signed declaration of principal residence</li>
+            <li><strong>Criminal Record Check</strong>: Must be issued within 60 days of application (from Halton Regional Police or your local police service)</li>
+            <li><strong>Zoning compliance proof</strong>: Confirmation STR is permitted under Milton's Zoning By-law</li>
+            <li><strong>Parking plan</strong>: Showing available spaces meet zoning requirements</li>
+            <li><strong>Fire compliance letter</strong>: From Milton Fire, issued within 60 days of application</li>
+            <li><strong>Insurance certificate</strong>: $2M liability, Town listed as additional insured</li>
+            <li><strong>Indemnity agreement</strong>: In favor of the Town</li>
+            <li><strong>Floor plan</strong>: Showing each room, room type, number of beds, and emergency exits</li>
+            <li><strong>Rental Code of Conduct</strong>: Document you'll provide to guests</li>
+            <li><strong>Consent for inspections</strong>: Allowing Officers to enter for compliance checks</li>
+            <li><strong>Proof of current accounts</strong>: No outstanding municipal taxes, water, hydro, or fines</li>
+            <li><strong>Condo approval</strong> (if applicable): Proof STRs are permitted in your condominium</li>
+            <li><strong>Landlord authorization</strong> (if tenant): Written permission to operate an STR</li>
+          </ul>
+
+          <blockquote class="bylaw-quote">
+            "The Licensing Officer shall issue only one Licence per person, as persons are permitted only one principal residence pursuant to this By-law."
+            <cite>Milton By-law 062-2022 § 6.5</cite>
+          </blockquote>
+
+          <h3>Who Can Apply?</h3>
+          <p>Milton has specific requirements about who can hold an STR license:</p>
+          <ul>
+            <li><strong>Must be 18 years or older</strong></li>
+            <li><strong>Must be a natural person</strong>: Corporations, partnerships, and other business entities cannot hold STR licenses</li>
+            <li><strong>Clean criminal record</strong>: Certain criminal convictions (listed in Schedule A of the bylaw) can disqualify you</li>
+          </ul>
+
+          <h3>License Term</h3>
+          <p>Milton licenses expire <strong>one year from the date of issuance</strong>. You must renew before expiry or stop operating your STR.</p>
+
+          <h2 id="fire-inspection">Fire Inspection Requirement</h2>
+          <p>Unlike some municipalities that accept self-certifications, Milton requires an actual fire inspection:</p>
+
+          <blockquote class="bylaw-quote">
+            "Notwithstanding Section 6.2, no Licence shall be issued or renewed until the short term rental to be licensed has been inspected by the Fire Chief and meets all requirements of the Fire Code and the Town of Milton Fire Department."
+            <cite>Milton By-law 062-2022 § 6.3</cite>
+          </blockquote>
+
+          <p>You'll need a <strong>compliance letter from Milton Fire</strong> dated within 60 days of your application. Expect the inspection to verify:</p>
+          <ul>
+            <li>Working smoke alarms on every floor</li>
+            <li>Carbon monoxide detectors where required</li>
+            <li>Fire extinguisher accessibility</li>
+            <li>Clear emergency exits</li>
+            <li>Proper egress from bedrooms</li>
+          </ul>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Milton requires substantial coverage:</p>
+
+          <blockquote class="bylaw-quote">
+            "An insurance certificate demonstrating commercial general liability business insurance for the operations of the short term rental against claims filed against the Applicant with respect to bodily injury, including personal injury and death, and property damage with a per occurrence limit of at least $2,000,000. The Town must be included as an additional insured under this policy."
+            <cite>Milton By-law 062-2022 § 5.1(i)</cite>
+          </blockquote>
+
+          <p>Key requirements:</p>
+          <ul>
+            <li><strong>$2,000,000 minimum</strong> liability per occurrence</li>
+            <li><strong>Must cover</strong> bodily injury, personal injury, death, and property damage</li>
+            <li><strong>Town of Milton</strong> must be listed as additional insured</li>
+            <li><strong>Standard homeowner's insurance won't work</strong>: You need commercial STR-specific coverage</li>
+          </ul>
+
+          <h2 id="occupancy-rules">Occupancy and Guest Rules</h2>
+          <p>Milton has clear limits on how many guests you can accommodate:</p>
+
+          <blockquote class="bylaw-quote">
+            "The Licensee shall ensure that the maximum number of occupants within a short term rental shall not exceed a total number based upon two (2) persons per bedroom plus an additional two (2) persons."
+            <cite>Milton By-law 062-2022 § 10.5</cite>
+          </blockquote>
+
+          <div class="strategy-box">
+            <h4>Calculating Your Maximum Occupancy</h4>
+            <ul>
+              <li><strong>1 bedroom:</strong> 2 + 2 = 4 guests maximum</li>
+              <li><strong>2 bedrooms:</strong> 4 + 2 = 6 guests maximum</li>
+              <li><strong>3 bedrooms:</strong> 6 + 2 = 8 guests maximum</li>
+              <li><strong>4 bedrooms:</strong> 8 + 2 = 10 guests maximum</li>
+            </ul>
+          </div>
+
+          <h3>Strict Prohibitions</h3>
+          <p>Milton's bylaw explicitly bans certain activities:</p>
+          <ul>
+            <li><strong>No parties, weddings, or events:</strong> Your STR cannot be used for any gatherings beyond normal accommodation</li>
+            <li><strong>No outdoor amplified sound:</strong> No speakers, DJ equipment, or amplified music outside</li>
+            <li><strong>No temporary structures:</strong> Guests cannot sleep in tents, yurts, trailers, or anywhere not shown on your approved floor plan</li>
+            <li><strong>No exterior signs:</strong> You cannot display any signage about your STR visible to the public</li>
+            <li><strong>No double-booking:</strong> You can't accommodate unrelated groups in the same dwelling at the same time</li>
+          </ul>
+
+          <h2 id="operational-rules">Operational Requirements</h2>
+          <p>Once licensed, you must follow these ongoing requirements:</p>
+
+          <h3>What You Must Provide to Every Guest</h3>
+          <ul>
+            <li>Copy of your current license</li>
+            <li>Emergency contact name, phone, and email</li>
+            <li>Copy of Milton's Noise By-law</li>
+            <li>Copy of Milton's Community Standards By-law</li>
+            <li>Parking instructions for your property</li>
+            <li>Approved floor plan showing rooms and emergency exits</li>
+            <li>Copy of your Rental Code of Conduct</li>
+            <li>Evacuation plan posted by all entrances and exits</li>
+          </ul>
+
+          <h3>Record Keeping</h3>
+          <p>You must maintain records of every rental for <strong>at least 3 years</strong>, including:</p>
+          <ul>
+            <li>Full legal name of every guest and their length of stay</li>
+            <li>Number of nights rented per calendar year</li>
+            <li>Nightly and total price charged</li>
+            <li>Whether it was an entire-unit or partial-unit rental</li>
+          </ul>
+
+          <p>The Town can request these records at any time, and you must provide them within 30 days.</p>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Milton takes violations seriously. Under the Provincial Offences Act and Municipal Act:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Violation Type</div>
+              <div class="comparison-col highlight">Fine Range</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Standard violation</div>
+              <div class="comparison-col highlight">$500 - $100,000</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Continuing offence (per day)</div>
+              <div class="comparison-col highlight">$500 - $10,000/day</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Multiple offences (per offence)</div>
+              <div class="comparison-col highlight">$500 - $10,000 each</div>
+            </div>
+          </div>
+
+          <p>Beyond fines, the Licensing Officer can:</p>
+          <ul>
+            <li><strong>Refuse</strong> to issue or renew your license</li>
+            <li><strong>Suspend</strong> your license (suspension over 120 days = automatic revocation)</li>
+            <li><strong>Revoke</strong> your license entirely</li>
+            <li><strong>Add conditions</strong> to your existing license</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Immediate Suspension</h4>
+            <p>If the Licensing Officer believes your STR poses an immediate danger to health or safety, they can suspend your license for up to 14 days without a hearing. You'll get the reasons and a chance to respond, but there's no advance notice requirement.</p>
+          </div>
+
+          <h2 id="compliance-tips">Staying Compliant in Milton</h2>
+          <p>Here's how to protect your license and avoid penalties:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Vet guests thoroughly.</strong> One party can result in fines and license suspension. Check reviews, ask about trip purpose, and trust your instincts. Declining a questionable booking is better than losing your license.</li>
+            <li><span class="tip-icon">2</span> <strong>Make your Rental Code of Conduct clear.</strong> Include specific quiet hours, parking rules, maximum occupancy, and the "no parties" policy. Have guests acknowledge receipt before check-in.</li>
+            <li><span class="tip-icon">3</span> <strong>Track your nights carefully.</strong> With a 180-night annual limit, you need to know exactly how many nights you've rented. Don't accidentally exceed the cap.</li>
+            <li><span class="tip-icon">4</span> <strong>Keep your paperwork current.</strong> License expires one year from issuance. Fire compliance, insurance, and criminal record checks all have expiry dates.</li>
+            <li><span class="tip-icon">5</span> <strong>Provide all required documents to guests.</strong> The bylaw specifies exactly what guests must receive. Missing items could be grounds for license issues.</li>
+            <li><span class="tip-icon">6</span> <strong>Maintain 3 years of records.</strong> Guest names, stays, prices, and rental types. The Town can request these at any time.</li>
+            <li><span class="tip-icon">7</span> <strong>Allow inspections.</strong> You signed consent for Officers to enter your dwelling at reasonable times. Refusing entry could result in license suspension.</li>
+            <li><span class="tip-icon">8</span> <strong>Check condo rules first.</strong> Even with a Town license, your condo corporation can ban STRs. Their rules override municipal permission.</li>
+          </ul>
+
+          <h2 id="official-bylaws">Official Town of Milton Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.milton.ca" target="_blank" rel="noopener">Town of Milton Official Website</a></li>
+              <li><a href="https://www.milton.ca/en/living-in-milton/short-term-rentals.aspx" target="_blank" rel="noopener">Milton Short-Term Rentals Page</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Milton Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Milton STR Compliance?</h3>
+            <p>Nurture handles licensing paperwork, guest vetting, fire inspection coordination, and ongoing compliance so you can focus on earning. Our local team knows Milton's bylaws inside and out.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Milton STR Rules?</h2>
+        <p>Our local experts can help you navigate compliance while maximizing your rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ul {
+    margin-bottom: 0;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>

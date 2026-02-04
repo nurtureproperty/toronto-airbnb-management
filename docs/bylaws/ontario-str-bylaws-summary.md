@@ -36,7 +36,7 @@
 | Fort Erie | Regulated | Check | Yes | Check | Check |
 | **HALTON REGION** |
 | Burlington | Regulated (2025) | Yes | Yes | 183/year | Check |
-| Milton | Regulated | Yes | Yes | TBD | Check |
+| Milton | Regulated (2022) | Yes | Yes | 180/year | No |
 | Halton Hills | NOT PERMITTED | N/A | N/A | N/A | N/A |
 | **PEEL REGION** |
 | Caledon | Regulated (2026) | Yes | Yes ($500) | 180/year + 300 cap | TBD |
@@ -262,10 +262,25 @@
 - **Blog Guide:** https://www.nurturestays.ca/blog/burlington-airbnb-short-term-rental-rules-2026
 
 ### Milton
-- **Status:** REGULATED
+- **Status:** REGULATED (By-law 062-2022, effective July 15, 2022)
+- **Definition:** Rentals of 28 consecutive days or less
 - **Principal Residence:** Required
-- **License:** Required
-- **Website:** https://www.milton.ca
+- **Night Limit:** 180 days/year maximum
+- **License:** Required (annual, one license per person)
+- **Insurance:** $2,000,000 liability required, Town as additional insured
+- **Fire Inspection:** Required (compliance letter within 60 days of application)
+- **Criminal Record Check:** Required (within 60 days of application)
+- **Max Occupancy:** 2 persons per bedroom + 2 additional
+- **Fines:** $500-$100,000
+- **Key Restrictions:**
+  - No parties, weddings, or events
+  - No outdoor amplified sound
+  - No tents, yurts, or temporary structures
+  - No exterior signage
+  - Corporations cannot hold licenses (natural persons only)
+- **Records:** Keep 3 years of transaction records
+- **Website:** https://www.milton.ca/en/living-in-milton/short-term-rentals.aspx
+- **Blog Guide:** https://www.nurturestays.ca/blog/milton-airbnb-short-term-rental-rules-2026
 
 ### Halton Hills
 - **Status:** NOT PERMITTED
