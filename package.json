@@ -6,13 +6,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "remotion:studio": "remotion studio remotion/index.tsx",
+    "remotion:render": "remotion render remotion/index.tsx SocialPromo out/social-promo.mp4",
+    "remotion:preview": "remotion preview remotion/index.tsx"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@astrojs/sitemap": "^3.7.0",
+    "@remotion/bundler": "^4.0.417",
+    "@remotion/cli": "^4.0.417",
     "astro": "^5.16.8",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "remotion": "^4.0.417"
   },
   "devDependencies": {
     "xlsx": "^0.18.5"
