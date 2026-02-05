@@ -1,0 +1,992 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb an investment property in Calgary?", a: "Yes. Unlike most GTA cities, Calgary allows both primary and non-primary residence short-term rentals. You can operate an Airbnb on an investment property as long as you get the appropriate Non-Primary Residence STR license. However, if Calgary's rental vacancy rate drops below 2.5%, the City may pause new non-primary license applications." },
+  { q: "What is the maximum stay length in Calgary?", a: "Calgary defines short-term rentals as stays up to 180 consecutive days. This was expanded in April 2025 to capture the medium-term rental market. If a guest stays longer than 180 days, it's considered a long-term rental with different rules." },
+  { q: "How much does a Calgary STR license cost?", a: "License fees vary. Contact the City of Calgary Licensing department for current rates. Platform companies like Airbnb and VRBO must pay $3,000/year for their own license. Individual host license fees are separate and lower." },
+  { q: "Do I need condo board approval?", a: "As of April 1, 2025, the City no longer requires you to submit condo board consent with your license application. However, you must still comply with your condo's bylaws. If your condo prohibits STRs, you cannot operate one regardless of having a City license." },
+  { q: "What insurance do I need?", a: "You need $2 million liability insurance from a registered Alberta insurer. The policy must explicitly indicate coverage for home sharing or short-term rentals. Standard homeowner's insurance won't suffice. The license holder must be the policy holder." },
+  { q: "What's the maximum occupancy?", a: "Calgary limits occupancy to 2 guests per room, not counting children under 12. You also cannot have overlapping bookings where different guests stay in separate rooms at the same time under separate reservations." },
+  { q: "Do I need to display my license number?", a: "Yes. Your business license number must appear in all advertising for your short-term rental. Failing to include it can result in a $1,000 fine." },
+  { q: "What are the fire safety requirements?", a: "You must submit a fire safety plan with your application including an evacuation plan, floor plan showing egress, bedroom locations, smoke alarms, CO detectors, fire extinguishers, and exits. Rooms without egress windows cannot be rented. The Calgary Fire Department may conduct annual inspections." },
+  { q: "What records do I need to keep?", a: "You must keep guest records in English (electronic form acceptable) including each guest's full name, email address, and duration of stay. These records must be provided to a License Inspector upon demand." },
+  { q: "What happens if the vacancy rate drops?", a: "If Calgary's Purpose-Built Rental vacancy rate (per CMHC) falls below 2.5%, the City will pause new Non-Primary Residence license applications. Existing licenses can still renew, and Primary Residence applications remain unaffected. Currently, the vacancy rate is 4.8%, so no moratorium is in effect." }
+];
+
+const relatedPosts = [
+  { title: 'GTA Cities with No Airbnb License Required 2026', href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Ajax, Pickering, Richmond Hill: GTA cities with minimal STR regulations' },
+  { title: 'Airbnb Investment Property GTA: What Are Your Options?', href: '/blog/airbnb-investment-property-gta', description: 'Options for investment property owners in the GTA' },
+  { title: 'Toronto Airbnb Short Term Rental Rules 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Compare Calgary rules with Toronto regulations' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'primary-vs-non-primary', text: 'Primary vs Non-Primary' },
+  { id: 'license-requirements', text: 'License Requirements' },
+  { id: 'vacancy-moratorium', text: 'Vacancy Rate Moratorium' },
+  { id: 'fire-safety', text: 'Fire Safety Requirements' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'operating-rules', text: 'Operating Rules' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'condo-rules', text: 'Condo Considerations' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-bylaws', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Calgary Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Calgary Airbnb rules: investment properties allowed, 180-day definition, $2M insurance, fire safety plan. Complete 2026 Business Licence Bylaw guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-05",
+  "dateModified": "2026-02-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/calgary-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Calgary Regulations</span>
+      </nav>
+      <h1>Calgary Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 5, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">12 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Calgary stands out among major Canadian cities for one key reason: <strong>investment properties are allowed</strong>. Unlike Toronto, Mississauga, and most GTA cities that restrict Airbnb to your principal residence, Calgary permits both primary and non-primary residence short-term rentals.</p>
+            <p class="lead">In December 2024, Calgary City Council approved significant amendments to the Business Licence Bylaw. These changes took effect <strong>April 1, 2025</strong>, expanding the STR definition to 180 days and adding new license categories. Here's the complete guide.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Calgary's April 2025 amendments expanded the definition significantly:</p>
+
+          <blockquote class="bylaw-quote">
+            "Short Term Rental means the business of providing temporary accommodation for compensation, in a dwelling unit or portion of a dwelling unit, for periods of up to 180 consecutive days, by advertising or otherwise listing with a Short Term Rental Company."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(1)</cite>
+          </blockquote>
+
+          <p>Key points to understand:</p>
+          <ul>
+            <li><strong>180 consecutive days maximum</strong>: Any single stay can be up to 180 days</li>
+            <li><strong>Listed through platforms</strong>: Must be advertised via Airbnb, VRBO, or similar platforms</li>
+            <li><strong>Compensation required</strong>: Free stays to friends aren't regulated</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why 180 days?</strong> The April 2025 changes extended the definition from shorter periods to capture the "medium-term rental market." This ensures safety standards apply to rentals that previously fell into a regulatory gap.
+            </div>
+          </div>
+
+          <h2 id="primary-vs-non-primary">Primary vs Non-Primary Residence</h2>
+          <p>This is where Calgary differs dramatically from Ontario cities. Calgary has two distinct license categories:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">License Type</div>
+              <div class="comparison-col highlight">Who Can Apply</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Primary Residence STR</strong></div>
+              <div class="comparison-col highlight">Your main home where you live and conduct daily affairs</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Non-Primary Residence STR</strong></div>
+              <div class="comparison-col highlight">Investment properties, second homes, vacation properties</div>
+            </div>
+          </div>
+
+          <blockquote class="bylaw-quote">
+            "'Primary Residence' means the usual dwelling unit, including any suite thereof, where an individual lives, makes their home and conducts their daily affairs."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(3.1)(a)</cite>
+          </blockquote>
+
+          <div class="strategy-box">
+            <h4>Why This Matters for Investors</h4>
+            <p>In <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a>, <a href="/blog/mississauga-airbnb-short-term-rental-rules-2026">Mississauga</a>, <a href="/blog/brampton-airbnb-short-term-rental-guide-2026">Brampton</a>, and most GTA cities, you can only STR your principal residence. Investment properties are not allowed.</p>
+            <p>Calgary allows investment property STRs, making it one of the more flexible major Canadian markets for Airbnb investors.</p>
+          </div>
+
+          <h2 id="license-requirements">License Application Requirements</h2>
+          <p>Calgary requires a business license for all short-term rentals. Here's what you need:</p>
+
+          <h3>Documentation Checklist</h3>
+          <ul>
+            <li><strong>Fire Safety Plan</strong> including:
+              <ul>
+                <li>Evacuation plan</li>
+                <li>Floor plan showing egress from rental rooms</li>
+                <li>All rooms offered for sleeping (bedrooms, living rooms with sofa beds)</li>
+                <li>Location of smoke alarms, CO detectors, fire extinguishers</li>
+                <li>Fire exit locations</li>
+                <li>Room and floor dimensions</li>
+              </ul>
+            </li>
+            <li><strong>Proof of ownership</strong> or owner consent (validated through title search)</li>
+            <li><strong>$2M liability insurance</strong> from a registered Alberta insurer</li>
+            <li><strong>Primary Residence proof</strong> (if applying for Primary Residence license)</li>
+          </ul>
+
+          <div class="callout callout-tip">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Floor plan tip:</strong> The Director may request revisions if your floor plan isn't sufficiently legible or clearly labeled. Take time to create a clear, professional floor plan upfront.
+            </div>
+          </div>
+
+          <h2 id="vacancy-moratorium">The Vacancy Rate Moratorium</h2>
+          <p>Calgary introduced a mechanism to protect housing supply:</p>
+
+          <blockquote class="bylaw-quote">
+            "No Non-Primary Residence Short Term Rental licence shall be issued if the Purpose-Built Rental Market vacancy rate in Calgary, as shown in the annual Canada Mortgage and Housing Corporation Rental Market Report, is less than 2.5%."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(3.2)</cite>
+          </blockquote>
+
+          <div class="warning-box">
+            <h4>Current Status: No Moratorium in Effect</h4>
+            <p>As of the latest CMHC report, Calgary's Purpose-Built Rental vacancy rate is <strong>4.8%</strong>, well above the 2.5% threshold. New Non-Primary Residence applications are currently being accepted. However, if the vacancy rate drops below 2.5% in future reports, the City will pause new non-primary license applications.</p>
+          </div>
+
+          <p>Important exceptions to the moratorium:</p>
+          <ul>
+            <li><strong>Existing licensees can renew</strong>: If you already hold a license for a property, you can continue renewing even during a moratorium</li>
+            <li><strong>Primary Residence unaffected</strong>: The moratorium only applies to new Non-Primary Residence applications</li>
+          </ul>
+
+          <h2 id="fire-safety">Fire Safety Requirements</h2>
+          <p>Calgary takes fire safety seriously. Key requirements:</p>
+
+          <h3>Egress Windows</h3>
+          <blockquote class="bylaw-quote">
+            "A Short Term Rental licensee must not: (a) offer to provide temporary accommodation; or (b) permit a guest to sleep; in a room that does not have one or more windows which provide egress to the exterior of the dwelling unit."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(4)</cite>
+          </blockquote>
+
+          <p>Exception: Multi-storied buildings like apartment buildings and apartment-style condos have existing fire safety standards and don't require egress windows in the same way. They're regulated under Fire Codes and Standards.</p>
+
+          <h3>Annual Fire Inspections</h3>
+          <p>The Calgary Fire Department may conduct annual fire inspections to ensure compliance with life safety requirements. This isn't guaranteed for every property, but you should be prepared.</p>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Calgary mandates substantial coverage:</p>
+
+          <ul>
+            <li><strong>$2,000,000 minimum</strong> liability coverage</li>
+            <li><strong>Must indicate STR use</strong>: Policy must explicitly state coverage for home sharing or short-term rentals</li>
+            <li><strong>Alberta-registered insurer</strong>: Must be issued by a registered insurer in Alberta</li>
+            <li><strong>License holder = policy holder</strong>: If you're a property management company, you need your own liability insurance</li>
+          </ul>
+
+          <p>Standard homeowner's insurance typically excludes STR activity. You'll need specialized coverage or an endorsement.</p>
+
+          <h2 id="operating-rules">Operating Rules</h2>
+          <p>Once licensed, Calgary hosts must follow these operational requirements:</p>
+
+          <h3>Maximum Occupancy</h3>
+          <blockquote class="bylaw-quote">
+            "A Short Term Rental licensee must not allow more than two guests, not including minors under the age of 12, per room."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(5)</cite>
+          </blockquote>
+
+          <h3>No Overlapping Bookings</h3>
+          <blockquote class="bylaw-quote">
+            "A Short Term Rental licensee must not allow overlapping bookings, whereby 2 or more unrelated or unassociated persons are accommodated in the dwelling unit at the same time."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(6)</cite>
+          </blockquote>
+
+          <p>This means you can rent multiple rooms to one booking party, but you cannot rent separate rooms to separate guest groups under different reservations simultaneously.</p>
+
+          <h3>Advertising Requirements</h3>
+          <p>Your business license number must appear in all advertisements for your STR. This applies to Airbnb listings, VRBO listings, your own website, and any other marketing.</p>
+
+          <h3>Emergency Contact</h3>
+          <p>You must post in a conspicuous location inside the rental:</p>
+          <ul>
+            <li>Name of emergency contact</li>
+            <li>Phone number (available 24/7 during rental periods)</li>
+            <li>Email address</li>
+            <li>The floor plan submitted with your application</li>
+          </ul>
+
+          <h3>Guest Records</h3>
+          <p>You must maintain records in English (electronic form is acceptable) including:</p>
+          <ul>
+            <li>Full name of each paid guest</li>
+            <li>Email address</li>
+            <li>Duration of stay</li>
+          </ul>
+          <p>These records must be provided to a License Inspector upon demand.</p>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Calgary can impose <strong>$1,000 fines</strong> for each of the following offenses upon conviction:</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Offense</th>
+                  <th>Bylaw Section</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Offer a room without an egress window</td>
+                  <td>58.1(4)(a)</td>
+                </tr>
+                <tr>
+                  <td>Permit guests to sleep in a room without egress window</td>
+                  <td>58.1(4)(b)</td>
+                </tr>
+                <tr>
+                  <td>Allow more than 2 adults per room</td>
+                  <td>58.1(5)</td>
+                </tr>
+                <tr>
+                  <td>Overlapping bookings</td>
+                  <td>58.1(6)</td>
+                </tr>
+                <tr>
+                  <td>Fail to include license number on advertisement</td>
+                  <td>58.1(7)</td>
+                </tr>
+                <tr>
+                  <td>Fail to post emergency contact information</td>
+                  <td>58.1(8)</td>
+                </tr>
+                <tr>
+                  <td>Fail to keep guest records</td>
+                  <td>58.1(9)</td>
+                </tr>
+                <tr>
+                  <td>Fail to provide records on demand</td>
+                  <td>58.1(10)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>License Denial or Revocation</h3>
+          <blockquote class="bylaw-quote">
+            "The Director may refuse to issue a Short Term Rental licence, or may revoke or refuse to renew such a licence, where the applicant or licensee has operated the property... in a manner that causes or permits a nuisance or is reasonably likely to disturb the peace of any other individual."
+            <cite>Calgary Business Licence Bylaw 32M98 § 58.1(11)</cite>
+          </blockquote>
+
+          <p>A "nuisance" is defined as any action or behaviour contrary to Calgary's Community Standards Bylaw 5M2004.</p>
+
+          <h2 id="condo-rules">Condo Considerations</h2>
+          <p>Important change as of April 1, 2025:</p>
+
+          <div class="strategy-box">
+            <h4>Condo Board Consent No Longer Required by City</h4>
+            <p>The City of Calgary no longer requires you to submit condo board consent with your license application. However, you <strong>must still comply with your condo's bylaws</strong>.</p>
+            <p>If your condo corporation prohibits short-term rentals, you cannot operate one. The City's license doesn't override private condo rules. Check your condo documents before applying.</p>
+          </div>
+
+          <h2 id="compliance-tips">Staying Compliant in Calgary</h2>
+          <p>Here's how to maintain your license and avoid fines:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Create a professional floor plan.</strong> The Director can reject unclear or poorly labeled plans. Include all required elements: egress routes, smoke alarms, CO detectors, fire extinguishers, exits, and room dimensions.</li>
+            <li><span class="tip-icon">2</span> <strong>Get proper insurance upfront.</strong> Don't assume your homeowner's policy covers STR activity. Get explicit STR coverage from an Alberta-registered insurer with $2M liability.</li>
+            <li><span class="tip-icon">3</span> <strong>Display your license number everywhere.</strong> Every listing, every platform, every ad. Missing this is an easy $1,000 fine.</li>
+            <li><span class="tip-icon">4</span> <strong>Post emergency contact info visibly.</strong> Include your floor plan on display in the unit. Guests and inspectors should be able to find it easily.</li>
+            <li><span class="tip-icon">5</span> <strong>Keep meticulous guest records.</strong> Name, email, dates. Store electronically. Have them ready for inspector requests.</li>
+            <li><span class="tip-icon">6</span> <strong>Never overbook.</strong> One booking party at a time. No renting separate rooms to separate guests under different reservations.</li>
+            <li><span class="tip-icon">7</span> <strong>Check condo rules first.</strong> Even without City-required consent, your condo can still ban STRs.</li>
+            <li><span class="tip-icon">8</span> <strong>Monitor the vacancy rate.</strong> If CMHC reports Calgary's vacancy rate drops below 2.5%, new Non-Primary Residence licenses will be paused.</li>
+          </ul>
+
+          <h2 id="official-bylaws">Official City of Calgary Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.calgary.ca/business-economy/if/permits-and-licences/short-term-rentals.html" target="_blank" rel="noopener">City of Calgary Short-Term Rentals</a></li>
+              <li><a href="https://www.calgary.ca/content/dam/www/cps/is/documents/business-licensing/business-licence-bylaw-32m98.pdf" target="_blank" rel="noopener">Business Licence Bylaw 32M98 (PDF)</a></li>
+              <li><a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/rental-market-reports-major-centres" target="_blank" rel="noopener">CMHC Rental Market Reports</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Calgary Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Considering Airbnb in the GTA?</h3>
+            <p>While Calgary allows investment properties, GTA rules vary by city. Nurture helps GTA homeowners navigate regulations, maximize revenue, and stay compliant. Get a free rental estimate to see what your property could earn.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About STR Regulations?</h2>
+        <p>Our local experts help GTA homeowners navigate compliance while maximizing rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box p {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .strategy-box a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .points-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .points-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .points-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .points-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .points-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .points-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
