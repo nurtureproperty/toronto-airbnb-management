@@ -130,11 +130,19 @@ const relatedPosts = [
 - **Content collection (.md)**: `src/content/blog/[slug].md` - Simple markdown articles
 - **Blog index**: `src/pages/blog/index.astro` - Where `manualPosts` array lives
 
-### 5. Verify Before Committing
+### 5. Verify External Links
+**IMPORTANT**: External links to government/municipal websites break frequently due to site restructures.
+- [ ] Use WebSearch to find current official URLs before adding external links
+- [ ] Test external links with curl to verify they return 200
+- [ ] Prefer linking to main category pages (e.g., `/for-business/licences/`) rather than deep document paths that change
+- [ ] Never guess URLs based on patterns from other cities - always verify each municipality's actual URL structure
+
+### 6. Verify Before Committing
 - [ ] Article added to `manualPosts` array with correct date
 - [ ] New article has `relatedPosts` linking to existing content
 - [ ] 2-3 existing articles updated to link back to new article
 - [ ] Internal links added from relevant service/location pages if applicable
+- [ ] External links verified with curl or WebFetch
 
 ---
 
