@@ -425,6 +425,147 @@ const latestPosts = allPosts
             justify-content: center;
         }
 
+        /* Credentials Section */
+        .credentials {
+            padding: 2.5rem 2rem;
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .credentials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .credential-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .credential-badge:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .badge-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #FF5A5F 0%, #FF385C 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3);
+        }
+
+        .badge-icon svg {
+            color: white;
+            stroke: white;
+        }
+
+        .badge-icon.guest-favorite {
+            background: linear-gradient(135deg, #FFB400 0%, #FF8C00 100%);
+            box-shadow: 0 4px 12px rgba(255, 180, 0, 0.3);
+        }
+
+        .badge-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .badge-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .badge-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+        }
+
+        .credential-stat {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .credential-number {
+            display: block;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+        }
+
+        .credential-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .credentials {
+                padding: 2rem 1.5rem;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .credential-badge {
+                padding: 0.875rem;
+            }
+
+            .badge-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .badge-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .badge-title {
+                font-size: 0.95rem;
+            }
+
+            .badge-desc {
+                font-size: 0.75rem;
+            }
+
+            .credential-stat {
+                padding: 0.75rem;
+            }
+
+            .credential-number {
+                font-size: 1.75rem;
+            }
+        }
+
         /* Case Study Section */
         .case-study {
             padding: 4rem 2rem;
@@ -1677,6 +1818,44 @@ const latestPosts = allPosts
                 </div>
                 <div class="hero-buttons">
                     <a href="/contact" class="primary-button">Free Rental Estimate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Credentials -->
+    <section class="credentials">
+        <div class="credentials-container">
+            <div class="credentials-grid">
+                <div class="credential-badge">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-content">
+                        <span class="badge-title">Airbnb Superhost</span>
+                        <span class="badge-desc">Awarded to the top 10% of hosts for exceptional hospitality</span>
+                    </div>
+                </div>
+                <div class="credential-badge">
+                    <div class="badge-icon guest-favorite">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-content">
+                        <span class="badge-title">Guest Favorite</span>
+                        <span class="badge-desc">Top 5% of homes on Airbnb based on ratings and reviews</span>
+                    </div>
+                </div>
+                <div class="credential-stat">
+                    <span class="credential-number">4.9</span>
+                    <span class="credential-label">Average Guest Rating</span>
+                </div>
+                <div class="credential-stat">
+                    <span class="credential-number">&lt;9 min</span>
+                    <span class="credential-label">Response Time</span>
                 </div>
             </div>
         </div>
