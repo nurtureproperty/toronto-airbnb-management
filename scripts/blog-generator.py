@@ -36,10 +36,11 @@ import re
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Tuple
 from urllib.parse import urlparse, quote
+from dateutil import parser as dateparser
 
 import anthropic
 import feedparser
@@ -258,6 +259,26 @@ draft: false
 [Your blog post content here with proper markdown formatting. Use ## for h2, ### for h3. Include links as [text](/path)]
 """
 
+# Additional prompt for reframing older news (14 days - 1 year old)
+REFRAME_PROMPT_ADDITION = """
+IMPORTANT - THIS IS OLDER NEWS:
+The source article is {days_old} days old (from {original_date}). You MUST reframe this as HISTORICAL context, not breaking news.
+
+REFRAMING REQUIREMENTS:
+1. Use PAST TENSE throughout - this already happened
+2. Open with context like "Earlier this year..." or "Back in [month]..." or "In a decision from [date]..."
+3. Focus on ONGOING IMPLICATIONS - what does this mean for hosts TODAY?
+4. Include the actual date when the event occurred
+5. Position as "looking back" or "what we learned" rather than "breaking news"
+6. Title should NOT sound like breaking news - use formats like:
+   - "How [City]'s [Month] STR Decision Affects Hosts Today"
+   - "Looking Back: [City]'s Airbnb Ruling and What It Means Now"
+   - "[City] STR Rules One Year Later: What Hosts Need to Know"
+7. The value is in analysis and ongoing relevance, not novelty
+
+DO NOT write this as if it just happened. Readers will be confused if you present old news as new.
+"""
+
 
 def send_email_notification(posts: list[dict]) -> bool:
     """Send email notification about newly published blog posts."""
@@ -440,6 +461,59 @@ def get_article_hash(url: str) -> str:
     return hashlib.md5(url.encode()).hexdigest()
 
 
+def parse_article_date(date_string: str) -> Optional[datetime]:
+    """
+    Parse various date formats from RSS feeds.
+    Returns a timezone-aware datetime or None if parsing fails.
+    """
+    if not date_string or date_string == "Unknown":
+        return None
+
+    try:
+        # Use dateutil parser which handles most formats
+        parsed = dateparser.parse(date_string)
+        if parsed:
+            # Make timezone-aware if not already
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed
+    except Exception as e:
+        print(f"  Warning: Could not parse date '{date_string}': {e}")
+
+    return None
+
+
+def classify_article_freshness(date_string: str) -> Tuple[str, int]:
+    """
+    Classify article freshness based on publication date.
+
+    Returns:
+        Tuple of (classification, days_old)
+        - "fresh": 0-14 days old, publish normally
+        - "recent": 14 days - 1 year old, reframe as historical
+        - "stale": over 1 year old, skip entirely
+        - "unknown": could not parse date, treat as fresh
+    """
+    parsed_date = parse_article_date(date_string)
+
+    if not parsed_date:
+        return "unknown", 0
+
+    now = datetime.now(timezone.utc)
+    age = now - parsed_date
+    days_old = age.days
+
+    if days_old < 0:
+        # Future date (possibly timezone issue), treat as fresh
+        return "fresh", 0
+    elif days_old <= 14:
+        return "fresh", days_old
+    elif days_old <= 365:
+        return "recent", days_old
+    else:
+        return "stale", days_old
+
+
 def is_relevant(title: str, summary: str = "") -> tuple[bool, str]:
     """
     Check if an article is relevant based on STRICT keyword matching.
@@ -587,8 +661,15 @@ def fetch_rss_feeds() -> list[dict]:
     return articles
 
 
-def generate_blog_post(article: dict, client: anthropic.Anthropic) -> Optional[str]:
-    """Generate a blog post using Claude API."""
+def generate_blog_post(article: dict, client: anthropic.Anthropic, freshness: str = "fresh", days_old: int = 0) -> Optional[str]:
+    """Generate a blog post using Claude API.
+
+    Args:
+        article: Article data dict
+        client: Anthropic client
+        freshness: "fresh", "recent", or "unknown"
+        days_old: How many days old the article is
+    """
     print(f"\n  Fetching full article content...")
     content = fetch_article_content(article["url"])
 
@@ -627,6 +708,16 @@ def generate_blog_post(article: dict, client: anthropic.Anthropic) -> Optional[s
         today_date=today,
         tags_list=", ".join(tags),
     )
+
+    # Add reframing instructions for older news
+    if freshness == "recent" and days_old > 14:
+        original_date = article.get("published", "Unknown")
+        reframe_addition = REFRAME_PROMPT_ADDITION.format(
+            days_old=days_old,
+            original_date=original_date
+        )
+        prompt = prompt + "\n" + reframe_addition
+        print(f"  Note: Reframing as historical news ({days_old} days old)")
 
     try:
         print(f"  Generating blog post with Claude...")
@@ -776,8 +867,19 @@ def main():
         print(f"Match: {article.get('priority', 'ontario_str')}")
         print(f"URL: {article['url']}")
 
-        # Generate blog post
-        blog_content = generate_blog_post(article, client)
+        # Check article freshness
+        freshness, days_old = classify_article_freshness(article.get("published", ""))
+        print(f"Freshness: {freshness} ({days_old} days old)")
+
+        # Skip stale articles (over 1 year old)
+        if freshness == "stale":
+            print(f"  SKIPPED: Article is over 1 year old ({days_old} days)")
+            # Mark as processed so we don't keep checking it
+            processed_data["processed"].append(article["hash"])
+            continue
+
+        # Generate blog post (with reframing for recent/older articles)
+        blog_content = generate_blog_post(article, client, freshness, days_old)
 
         if blog_content:
             # Save post
