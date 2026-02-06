@@ -291,24 +291,10 @@ const latestPosts = allPosts
             align-items: center;
         }
 
-        .badge-icon-small {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            color: white;
-            margin-bottom: 0.25rem;
-        }
-
-        .badge-icon-small.superhost {
-            background: linear-gradient(135deg, #FF5A5F 0%, #FF385C 100%);
-        }
-
-        .badge-icon-small.guest-fav {
-            background: linear-gradient(135deg, #FFB400 0%, #FF8C00 100%);
+        .badge-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
         }
 
         .hero-buttons {
@@ -1408,10 +1394,8 @@ const latestPosts = allPosts
                 font-size: 0.7rem;
             }
 
-            .badge-icon-small {
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
+            .badge-img {
+                height: 36px;
             }
 
             .hero-video {
@@ -1679,12 +1663,10 @@ const latestPosts = allPosts
                 </p>
                 <div class="hero-stats">
                     <div class="stat badge-stat">
-                        <span class="badge-icon-small superhost">★</span>
-                        <span class="stat-label">Superhost</span>
+                        <img src="/images/airbnb superhost badge.png" alt="Airbnb Superhost" class="badge-img" loading="eager">
                     </div>
                     <div class="stat badge-stat">
-                        <span class="badge-icon-small guest-fav">♥</span>
-                        <span class="stat-label">Guest Favorite</span>
+                        <img src="/images/guest favorite badge.png" alt="Airbnb Guest Favorite" class="badge-img" loading="eager">
                     </div>
                     <div class="stat">
                         <span class="stat-number">4.9★</span>
