@@ -522,11 +522,12 @@ import criticalCSS from '../../styles/critical.css?raw';
         /* ─── CASE STUDY ─── */
         .lp-case {
             padding: 5.5rem 2rem;
-            background: var(--lp-warm-white);
+            background: var(--lp-charcoal);
+            color: #f6f6f6;
         }
 
         .lp-case-inner {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
         }
 
@@ -536,110 +537,101 @@ import criticalCSS from '../../styles/critical.css?raw';
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--lp-green-dark);
+            color: var(--lp-green);
             margin-bottom: 0.5rem;
         }
 
         .lp-case h2 {
             text-align: center;
             font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            color: var(--lp-charcoal);
+            color: white;
             margin-bottom: 0.5rem;
         }
 
         .lp-case-subtitle {
             text-align: center;
-            color: var(--lp-text-light);
-            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 3rem;
             font-size: 1.05rem;
         }
 
         .lp-case-grid {
             display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 1.5rem;
-            align-items: stretch;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
         }
 
-        .lp-case-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            border: 1px solid var(--lp-border);
+        .lp-case-column {
+            padding: 0;
         }
 
-        .lp-case-card.before {
-            border-top: 3px solid var(--lp-red);
-        }
-
-        .lp-case-card.after {
-            border-top: 3px solid var(--lp-green-positive);
-        }
-
-        .lp-case-card-label {
+        .lp-case-column-label {
+            font-family: 'Poppins', sans-serif;
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--lp-text-light);
-            margin-bottom: 1.25rem;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.45);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            margin-bottom: 0;
         }
 
         .lp-case-line {
             display: flex;
             justify-content: space-between;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid #f0ede8;
-            font-size: 0.9rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
         }
 
-        .lp-case-line:last-child {
+        .lp-case-line-label {
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .lp-case-line-value {
+            font-weight: 400;
+            color: #f6f6f6;
+        }
+
+        .lp-case-line.total {
             border-bottom: none;
-            padding-top: 0.85rem;
+            padding-top: 1rem;
+        }
+
+        .lp-case-line.total .lp-case-line-label {
             font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .lp-negative { color: var(--lp-red); }
-        .lp-positive { color: var(--lp-green-positive); }
-
-        .lp-case-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lp-case-arrow-circle {
-            width: 48px;
-            height: 48px;
-            background: var(--lp-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: white;
-            font-size: 1.5rem;
         }
+
+        .lp-case-line.total .lp-case-line-value {
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .lp-negative { color: #f87171; }
+        .lp-positive { color: #4ade80; }
 
         .lp-case-result {
             text-align: center;
-            margin-top: 2rem;
-            padding: 1.25rem;
-            background: rgba(117, 155, 143, 0.06);
-            border-radius: 8px;
-            border: 1px solid rgba(117, 155, 143, 0.12);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
         }
 
         .lp-case-result-number {
             font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--lp-green-dark);
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.35rem;
         }
 
         .lp-case-result-text {
             font-size: 0.95rem;
-            color: var(--lp-text-light);
+            color: rgba(255,255,255,0.6);
         }
 
         /* ─── HOW IT WORKS ─── */
@@ -1202,11 +1194,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
             .lp-case-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .lp-case-arrow {
-                transform: rotate(90deg);
+                gap: 2.5rem;
             }
 
             .lp-how-steps {
@@ -1304,7 +1292,7 @@ import criticalCSS from '../../styles/critical.css?raw';
                 font-size: 0.8rem;
             }
 
-            .lp-case-card { padding: 1.5rem; }
+            .lp-case-line { font-size: 0.88rem; }
         }
 
         /* Performance */
@@ -1394,7 +1382,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         <div class="lp-stats-bar">
             <div class="lp-stats-inner">
                 <div class="lp-stat-item">
-                    <img src="/images/airbnb-superhost-badge.png" alt="Airbnb Superhost" width="40" height="40" loading="eager">
+                    <img src="/images/airbnb-superhost-badge.webp" alt="Airbnb Superhost" width="40" height="40" loading="eager">
                     <div class="lp-stat-text">
                         <div class="lp-stat-number">Superhost</div>
                         <div class="lp-stat-label">Status</div>
@@ -1488,52 +1476,48 @@ import criticalCSS from '../../styles/critical.css?raw';
         <!-- ═══ CASE STUDY ═══ -->
         <section class="lp-case">
             <div class="lp-case-inner">
-                <div class="lp-case-label reveal">Real Results</div>
+                <div class="lp-case-label reveal">Real Client Results</div>
                 <h2 class="reveal">From Losing $926/Month to Earning $847/Month</h2>
                 <p class="lp-case-subtitle reveal">1-Bedroom Condo in the GTA</p>
 
                 <div class="lp-case-grid reveal">
-                    <div class="lp-case-card before">
-                        <div class="lp-case-card-label">Before Nurture</div>
+                    <div class="lp-case-column">
+                        <div class="lp-case-column-label">Before Nurture (Long-Term Rental)</div>
                         <div class="lp-case-line">
-                            <span>Long-term Rent</span>
-                            <span>$2,200</span>
+                            <span class="lp-case-line-label">Long-term Rent</span>
+                            <span class="lp-case-line-value">$2,200</span>
                         </div>
                         <div class="lp-case-line">
-                            <span>Mortgage</span>
-                            <span class="lp-negative">-$2,400</span>
+                            <span class="lp-case-line-label">Mortgage</span>
+                            <span class="lp-case-line-value lp-negative">-$2,400</span>
                         </div>
                         <div class="lp-case-line">
-                            <span>Maintenance & Tax</span>
-                            <span class="lp-negative">-$726</span>
+                            <span class="lp-case-line-label">Maintenance & Tax</span>
+                            <span class="lp-case-line-value lp-negative">-$726</span>
                         </div>
-                        <div class="lp-case-line">
-                            <span>Monthly Cashflow</span>
-                            <span class="lp-negative">-$926</span>
+                        <div class="lp-case-line total">
+                            <span class="lp-case-line-label">Monthly Cashflow</span>
+                            <span class="lp-case-line-value lp-negative">-$926</span>
                         </div>
                     </div>
 
-                    <div class="lp-case-arrow">
-                        <div class="lp-case-arrow-circle">→</div>
-                    </div>
-
-                    <div class="lp-case-card after">
-                        <div class="lp-case-card-label">After Nurture</div>
+                    <div class="lp-case-column">
+                        <div class="lp-case-column-label">After Nurture (Airbnb Management)</div>
                         <div class="lp-case-line">
-                            <span>Airbnb Revenue (after fees)</span>
-                            <span class="lp-positive">$4,123</span>
+                            <span class="lp-case-line-label">Airbnb Revenue (after fees)</span>
+                            <span class="lp-case-line-value lp-positive">$4,123</span>
                         </div>
                         <div class="lp-case-line">
-                            <span>Mortgage, Maint, Tax</span>
-                            <span class="lp-negative">-$3,126</span>
+                            <span class="lp-case-line-label">Mortgage, Maint, Tax</span>
+                            <span class="lp-case-line-value lp-negative">-$3,126</span>
                         </div>
                         <div class="lp-case-line">
-                            <span>Internet & Utilities</span>
-                            <span class="lp-negative">-$150</span>
+                            <span class="lp-case-line-label">Internet & Utilities</span>
+                            <span class="lp-case-line-value lp-negative">-$150</span>
                         </div>
-                        <div class="lp-case-line">
-                            <span>Monthly Cashflow</span>
-                            <span class="lp-positive">+$847</span>
+                        <div class="lp-case-line total">
+                            <span class="lp-case-line-label">Monthly Cashflow</span>
+                            <span class="lp-case-line-value lp-positive">+$847</span>
                         </div>
                     </div>
                 </div>
