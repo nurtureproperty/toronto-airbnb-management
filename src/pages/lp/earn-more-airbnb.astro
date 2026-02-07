@@ -434,21 +434,12 @@ import criticalCSS from '../../styles/critical.css?raw';
             border: none;
         }
 
-        /* ─── PLATFORM TRUST STRIP ─── */
+        /* ─── PLATFORM TRUST STRIP (scrolling) ─── */
         .lp-platforms {
-            padding: 2rem 2rem;
+            padding: 1.5rem 0;
             background: var(--lp-cream);
             border-top: 1px solid var(--lp-border);
-        }
-
-        .lp-platforms-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
+            overflow: hidden;
         }
 
         .lp-platforms-label {
@@ -457,40 +448,58 @@ import criticalCSS from '../../styles/critical.css?raw';
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--lp-text-light);
-            white-space: nowrap;
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
-        .lp-platform-logos {
+        .lp-scroll-track {
+            display: flex;
+            width: max-content;
+            animation: scrollLogos 20s linear infinite;
+        }
+
+        .lp-scroll-set {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 4rem;
+            padding: 0 2rem;
         }
 
-        .lp-platform-logo {
-            opacity: 0.45;
+        .lp-platform-logo img {
+            height: 32px;
+            width: auto;
+            opacity: 0.5;
             transition: opacity 0.3s;
+            filter: grayscale(100%);
         }
 
-        .lp-platform-logo:hover {
-            opacity: 0.7;
+        .lp-platform-logo img:hover {
+            opacity: 0.8;
+            filter: grayscale(0%);
+        }
+
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         @media (max-width: 768px) {
             .lp-platforms {
-                padding: 1.5rem 1.25rem;
+                padding: 1rem 0;
             }
 
-            .lp-platforms-inner {
-                gap: 1.5rem;
+            .lp-platforms-label {
+                font-size: 0.7rem;
+                margin-bottom: 0.75rem;
             }
 
-            .lp-platform-logos {
-                gap: 1.5rem;
+            .lp-scroll-set {
+                gap: 3rem;
+                padding: 0 1.5rem;
             }
 
-            .lp-platform-logo svg {
-                height: 20px;
-                width: auto;
+            .lp-platform-logo img {
+                height: 24px;
             }
         }
 
@@ -1575,21 +1584,19 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         <!-- ═══ PLATFORM TRUST STRIP ═══ -->
         <section class="lp-platforms">
-            <div class="lp-platforms-inner">
-                <span class="lp-platforms-label">Your property, listed across</span>
-                <div class="lp-platform-logos">
-                    <!-- Google -->
-                    <div class="lp-platform-logo">
-                        <svg height="24" viewBox="0 0 660 164" fill="currentColor"><text x="0" y="130" font-family="Arial Black, Arial" font-weight="900" font-size="140" fill="#484848">Google</text></svg>
-                    </div>
-                    <!-- VRBO -->
-                    <div class="lp-platform-logo">
-                        <svg height="24" viewBox="0 0 584 164" fill="currentColor"><text x="0" y="130" font-family="Arial Black, Arial" font-weight="900" font-size="140" fill="#484848">VRBO</text></svg>
-                    </div>
-                    <!-- Booking.com -->
-                    <div class="lp-platform-logo">
-                        <svg height="24" viewBox="0 0 1200 164" fill="currentColor"><text x="0" y="130" font-family="Arial Black, Arial" font-weight="900" font-size="130" fill="#484848">Booking.com</text></svg>
-                    </div>
+            <p class="lp-platforms-label">Your property, listed across</p>
+            <div class="lp-scroll-track">
+                <div class="lp-scroll-set">
+                    <div class="lp-platform-logo"><img src="/images/airbnb logo.png" alt="Airbnb" loading="lazy"></div>
+                    <div class="lp-platform-logo"><img src="/images/booking.com logo.png" alt="Booking.com" loading="lazy"></div>
+                    <div class="lp-platform-logo"><img src="/images/vrbo logo.png" alt="VRBO" loading="lazy"></div>
+                    <div class="lp-platform-logo"><img src="/images/google logo.png" alt="Google" loading="lazy"></div>
+                </div>
+                <div class="lp-scroll-set" aria-hidden="true">
+                    <div class="lp-platform-logo"><img src="/images/airbnb logo.png" alt="" loading="lazy"></div>
+                    <div class="lp-platform-logo"><img src="/images/booking.com logo.png" alt="" loading="lazy"></div>
+                    <div class="lp-platform-logo"><img src="/images/vrbo logo.png" alt="" loading="lazy"></div>
+                    <div class="lp-platform-logo"><img src="/images/google logo.png" alt="" loading="lazy"></div>
                 </div>
             </div>
         </section>
