@@ -108,6 +108,19 @@ const pageSchema = [articleSchema, faqSchema];
             <p class="lead">This guide breaks down exactly what GTA hosts owe, what you can deduct, and how to stay compliant in 2026.</p>
           </div>
 
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Disclaimer:</strong> This article is for general informational purposes only and does not constitute tax, legal, or financial advice. Tax rules are complex and your situation may differ. <strong>Always consult a qualified accountant or tax professional</strong> before making decisions about your Airbnb tax obligations. Nurture is a property management company, not an accounting firm.
+            </div>
+          </div>
+
           <h2 id="three-taxes">Three Taxes Every Airbnb Host Needs to Know</h2>
           <p>Airbnb income in Canada is subject to up to three layers of tax. Each has different rules, different thresholds, and different filing requirements. Here's the overview before we dive into each one.</p>
 
@@ -519,13 +532,20 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <div class="resources-box">
-            <h4>Official Resources</h4>
+            <h4>Our Sources</h4>
+            <p class="sources-note">The information in this guide is compiled from official Canadian government and municipal sources. We recommend verifying details directly with the CRA or your municipality, as rules can change.</p>
             <ul>
-              <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/rental-income.html" target="_blank" rel="noopener">CRA: Rental Income Guide</a></li>
-              <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/when-register-charge.html" target="_blank" rel="noopener">CRA: When to Register for HST</a></li>
-              <li><a href="https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-accommodation-tax/" target="_blank" rel="noopener">City of Toronto: Municipal Accommodation Tax</a></li>
-              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4036.html" target="_blank" rel="noopener">CRA: T4036 Rental Income Guide</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/rental-income.html" target="_blank" rel="noopener">CRA: Rental Income Guide</a> (income tax classification, Form T776, deductible expenses)</li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/when-register-charge.html" target="_blank" rel="noopener">CRA: When to Register for GST/HST</a> ($30,000 threshold, ITCs, filing requirements)</li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4036.html" target="_blank" rel="noopener">CRA: T4036 Rental Income Guide</a> (CCA classes, pro-rating rules, record keeping)</li>
+              <li><a href="https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-accommodation-tax/" target="_blank" rel="noopener">City of Toronto: Municipal Accommodation Tax</a> (Toronto MAT rates and filing)</li>
+              <li><a href="https://laws-lois.justice.gc.ca/eng/acts/i-3.3/" target="_blank" rel="noopener">Income Tax Act (Canada)</a> (2024 non-compliant STR deduction denial, Section 67.7)</li>
             </ul>
+            <p class="sources-note">MAT rates for other municipalities are sourced from each city's official bylaw documents and licensing pages. Last verified: February 2026.</p>
+          </div>
+
+          <div class="disclaimer-box">
+            <p><strong>Talk to a professional.</strong> Every host's tax situation is different. Factors like your total income, property ownership structure, province of residence, and whether you operate as a sole proprietor or corporation all affect your obligations. A qualified accountant familiar with rental income in Ontario can help you maximize deductions, file correctly, and avoid costly mistakes. The accounting fee itself is tax-deductible.</p>
           </div>
 
           <div class="article-cta">
@@ -971,20 +991,43 @@ const pageSchema = [articleSchema, faqSchema];
   }
 
   .resources-box h4 {
+    margin-bottom: 0.75rem;
+  }
+
+  .sources-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
     margin-bottom: 1rem;
+    line-height: 1.6;
   }
 
   .resources-box ul {
-    margin: 0;
+    margin: 0 0 1rem;
     padding-left: 1.25rem;
   }
 
   .resources-box li {
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
   }
 
   .resources-box a {
     color: var(--color-primary);
+  }
+
+  .disclaimer-box {
+    background: #f9f5ef;
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .disclaimer-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
   }
 
   .article-cta {
