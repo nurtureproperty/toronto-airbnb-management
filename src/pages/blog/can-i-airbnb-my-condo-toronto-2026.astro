@@ -1,0 +1,921 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can my condo board fine me for doing Airbnb?", a: "Yes. If your condo's declaration or rules prohibit short-term rentals and you operate one anyway, the board can issue fines, send cease-and-desist letters, and even take you to court for a compliance order. Fines vary by corporation but can range from $500 to $5,000 or more per violation. Some boards treat each rental night as a separate breach, which adds up fast." },
+  { q: "Do I need to tell my condo board about Airbnb?", a: "You should always check your declaration and rules first. Many condo corporations require owners to notify the board before renting, regardless of the rental type. Even if your building doesn't explicitly ban short-term rentals, failing to notify the board when required can result in fines. Transparency also protects you if a neighbor complains." },
+  { q: "What's the difference between condo rules and city bylaws?", a: "City bylaws are municipal laws that apply to all properties in Toronto. They set requirements like registration, the 180-night cap, and MAT collection. Condo rules are private governance documents created by your condo corporation. Both must be satisfied. Even if the city allows your STR, your condo board can still prohibit it. Think of it as two separate permission gates." },
+  { q: "Can I Airbnb my condo if I don't live there?", a: "Under Toronto's bylaws, short-term rentals (under 28 days) must be operated from your principal residence. If your condo is an investment property and you live somewhere else, you cannot legally register it for short-term rentals. Mid-term rentals of 28+ days are an alternative since they are exempt from the principal residence requirement." },
+  { q: "How much does condo Airbnb insurance cost?", a: "A standalone short-term rental insurance policy with $2 million liability typically costs between $1,200 and $3,000 per year, depending on your condo's value and location. Airbnb's AirCover provides up to $3 million in host liability coverage at no extra cost, but it has exclusions and should not replace a dedicated policy. Your condo's master insurance policy does not cover your STR activity." },
+  { q: "Can my condo change the rules to ban Airbnb?", a: "Yes. A condo board can amend the rules to restrict or ban short-term rentals, and rule changes typically require only a board vote. Declaration amendments require a higher threshold, usually a two-thirds vote of all owners. If your condo currently allows STRs, there is no guarantee it will continue to do so. Stay engaged with board meetings to monitor any proposed changes." }
+];
+
+const relatedPosts = [
+  { title: "Toronto Airbnb Rules 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Full registration process and 180-night cap explained' },
+  { title: "Airbnb vs Long-Term Rental Toronto", href: '/blog/airbnb-vs-long-term-rental-toronto-2026', description: 'Real income comparison for Toronto condos' },
+  { title: "Can I Airbnb My Investment Property?", href: '/blog/airbnb-investment-property-gta', description: 'Principal residence rules across the GTA' }
+];
+
+const tocItems = [
+  { id: 'short-answer', text: 'The Short Answer' },
+  { id: 'condo-board-rules', text: 'Condo Board Rules' },
+  { id: 'toronto-city-requirements', text: 'Toronto City Requirements' },
+  { id: 'step-by-step', text: 'Step-by-Step Compliance' },
+  { id: 'insurance-requirements', text: 'Insurance Requirements' },
+  { id: 'condo-says-no', text: 'What If My Condo Says No?' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Can I Airbnb My Condo in Toronto? 2026 Guide";
+const pageDescription = "Can you Airbnb your Toronto condo? Check condo board rules, city registration, 180-night cap, and insurance. Step-by-step compliance checklist inside.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-07",
+  "dateModified": "2026-02-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/can-i-airbnb-my-condo-toronto-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Condo Airbnb Guide</span>
+      </nav>
+      <h1>Can I Airbnb My Condo in Toronto?</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 7, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">It's one of the most common questions we get from Toronto condo owners: <strong>"Can I actually Airbnb my condo?"</strong> The answer isn't a simple yes or no. You need to clear two separate hurdles: your condo corporation's rules and the City of Toronto's short-term rental regulations. Miss either one and you're asking for trouble.</p>
+            <p class="lead">This guide walks you through both, step by step, so you know exactly where you stand before you list a single night.</p>
+          </div>
+
+          <h2 id="short-answer">The Short Answer</h2>
+          <p>You can Airbnb your Toronto condo <strong>if and only if</strong> two conditions are met:</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>1. Your Condo Allows It</h4>
+              <p>Your condo corporation's declaration, bylaws, and rules must not prohibit short-term rentals. Many Toronto condos restrict or ban rentals under 28 or 30 days.</p>
+            </div>
+            <div class="info-card">
+              <h4>2. You Meet City Requirements</h4>
+              <p>The condo must be your principal residence. You must register with the city, follow the 180-night cap for entire-unit rentals, and collect the 8.5% MAT.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Both gates must be open.</strong> Even if the City of Toronto says you're eligible, your condo board can still say no. And even if your condo board is fine with it, you still need to comply with all municipal requirements. These are two separate layers of permission.
+            </div>
+          </div>
+
+          <h2 id="condo-board-rules">Condo Board Rules: The First Hurdle</h2>
+          <p>Before you even think about registering with the city, you need to check your condo corporation's governing documents. This is where most condo Airbnb plans either get the green light or hit a wall.</p>
+
+          <h3>Where to Look</h3>
+          <p>There are three documents that can restrict your ability to short-term rent:</p>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <span class="step-number">1</span>
+              <h4>The Declaration</h4>
+              <p>This is the foundational legal document for your condo corporation. It can contain outright bans on short-term rentals or minimum lease terms (often 6 or 12 months). Declaration amendments require a two-thirds vote of all unit owners, so these restrictions are harder to change.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">2</span>
+              <h4>The Rules</h4>
+              <p>Condo rules are set by the board and are easier to amend than the declaration. Many boards have added STR restrictions in recent years. Rules typically cover things like minimum rental periods, guest registration, noise, and move-in/move-out procedures.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">3</span>
+              <h4>Board Resolutions</h4>
+              <p>Check recent board meeting minutes for any motions or resolutions about short-term rentals. Some boards have passed specific policies that aren't yet reflected in the official rules document. Your property manager can provide these.</p>
+            </div>
+          </div>
+
+          <h3>Common Condo Restrictions</h3>
+          <p>Here's what we typically see across Toronto condo corporations:</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Restriction Type</th>
+                  <th>How Common</th>
+                  <th>What It Means</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Minimum lease of 12 months</strong></td>
+                  <td>Very common</td>
+                  <td>Effectively bans all short-term and mid-term rentals</td>
+                </tr>
+                <tr>
+                  <td><strong>Minimum lease of 6 months</strong></td>
+                  <td>Common</td>
+                  <td>Blocks STR but allows some mid-term</td>
+                </tr>
+                <tr>
+                  <td><strong>Minimum lease of 28-30 days</strong></td>
+                  <td>Moderate</td>
+                  <td>Blocks STR but allows mid-term rentals</td>
+                </tr>
+                <tr>
+                  <td><strong>No rental restrictions</strong></td>
+                  <td>Less common</td>
+                  <td>STR allowed (subject to city rules)</td>
+                </tr>
+                <tr>
+                  <td><strong>Board approval required</strong></td>
+                  <td>Moderate</td>
+                  <td>Case-by-case, often with conditions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Penalties for Breaking Condo Rules</h3>
+          <p>Operating an Airbnb in violation of your condo's rules is risky. Boards have real enforcement power:</p>
+          <ul>
+            <li><strong>Fines</strong> ranging from $500 to $5,000 per violation, with some boards treating each rental night as a separate breach</li>
+            <li><strong>Cease-and-desist letters</strong> from the condo's lawyers, with legal costs often charged back to the offending owner</li>
+            <li><strong>Court applications</strong> for a compliance order under the Condominium Act</li>
+            <li><strong>Liens against your unit</strong> for unpaid fines and legal costs</li>
+            <li><strong>Loss of common element privileges</strong> such as guest parking or amenity access</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Don't Assume Silence Means Permission</h4>
+            <p>If your condo documents don't explicitly mention short-term rentals, that doesn't necessarily mean they're allowed. Some boards interpret existing "nuisance" clauses or guest policies to cover STR activity. Always confirm in writing with your condo's property manager or board before listing.</p>
+          </div>
+
+          <h2 id="toronto-city-requirements">Toronto City Requirements</h2>
+          <p>Assuming your condo board gives the green light, you still need to comply with the <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">City of Toronto's short-term rental regulations</a> under Municipal Code Chapter 547. Here are the key requirements:</p>
+
+          <h3>Principal Residence</h3>
+          <p>Your condo must be your <strong>principal residence</strong>, meaning the place where you ordinarily live. The city verifies this through your driver's license, tax returns, and utility bills. You can only register one property as your principal residence. If this condo is an investment property, short-term rentals under 28 days are not an option.</p>
+
+          <h3>Registration</h3>
+          <p>You must register with the City of Toronto as a short-term rental operator. The registration fee is approximately $50 per year, and you'll receive a registration number that must be displayed on every listing. Registration is done through the city's online portal.</p>
+
+          <h3>180-Night Cap</h3>
+          <p>If you register for <strong>entire-unit rentals</strong> (guests have the whole condo while you're away), you are limited to <strong>180 nights per calendar year</strong>. This counts across all platforms combined. If you register for <strong>partial-unit rentals</strong> (renting a room while you remain in the unit), there is no night cap.</p>
+
+          <h3>8.5% Municipal Accommodation Tax</h3>
+          <p>Toronto's <a href="/blog/toronto-airbnb-mat-tax-guide-2026">MAT is 8.5%</a>, one of the highest in Ontario. The good news is that Airbnb and VRBO collect and remit this automatically, so you don't have to manage it yourself. MAT only applies to stays under 28 days.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Quick reference for condo owners:</strong>
+              <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                <li>Registration fee: ~$50/year</li>
+                <li>180 nights/year (entire-unit) or unlimited (partial-unit)</li>
+                <li>8.5% MAT collected automatically by Airbnb/VRBO</li>
+                <li>Must be your principal residence</li>
+                <li>Registration number on all listings</li>
+                <li>Records kept for 3 years minimum</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 id="step-by-step">Step-by-Step Compliance Checklist</h2>
+          <p>Follow these steps in order. Skipping ahead to listing before confirming condo permission is one of the most expensive mistakes we see Toronto condo hosts make.</p>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <span class="step-number">1</span>
+              <h4>Review Your Condo Declaration and Rules</h4>
+              <p>Request the latest declaration, rules, and any recent board resolutions from your condo's property management company. Look specifically for minimum lease terms, rental restrictions, or STR policies. If you purchased recently, these were included in your status certificate.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">2</span>
+              <h4>Contact Your Condo Board or Property Manager</h4>
+              <p>Get written confirmation that short-term rentals are permitted. Verbal assurances aren't enough. Ask specifically about rentals under 28 days and whether board approval is required. Keep a copy of the response for your records.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">3</span>
+              <h4>Register with the City of Toronto</h4>
+              <p>Apply through the city's <a href="https://secure.toronto.ca/webapps/short-term-rental/registration/" target="_blank" rel="noopener">STR registration portal</a>. You'll need proof of principal residence (driver's license, tax return), your contact information, and your preferred registration type (entire-unit or partial-unit).</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">4</span>
+              <h4>Get Proper Insurance</h4>
+              <p>Obtain a short-term rental insurance policy with at least $2 million in liability coverage. Notify your existing condo insurance provider about your STR activity. Standard condo unit insurance typically excludes commercial hosting activities.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">5</span>
+              <h4>Set Up Your Listing</h4>
+              <p>Create your Airbnb listing with your city registration number displayed. Ensure your listing accurately describes the space and complies with your condo's guest policies (noise rules, amenity access, parking, check-in procedures). Consider professional photography to maximize bookings.</p>
+            </div>
+          </div>
+
+          <h2 id="insurance-requirements">Insurance Requirements</h2>
+          <p>Insurance is one of the most overlooked aspects of condo Airbnb hosting. There are three distinct layers of coverage you need to understand.</p>
+
+          <div class="info-grid" style="grid-template-columns: 1fr; margin: 2rem 0;">
+            <div class="info-card">
+              <h4>Your Condo Corporation's Master Policy</h4>
+              <p>This covers the building's common elements (hallways, lobby, structure). It does <strong>not</strong> cover anything inside your unit, and it definitely does not cover your short-term rental activity. If a guest causes damage to common areas, the condo may pursue you directly.</p>
+            </div>
+            <div class="info-card">
+              <h4>Your Unit Owner's Insurance</h4>
+              <p>Standard condo unit owner policies cover your personal belongings and improvements. However, most policies exclude commercial activities, and short-term renting is generally classified as commercial use. You need to either add an STR endorsement or get a separate policy. Failing to disclose STR activity could void your entire policy.</p>
+            </div>
+            <div class="info-card">
+              <h4>Short-Term Rental Insurance</h4>
+              <p>This is the dedicated policy you need. It provides <strong>$2 million or more in liability coverage</strong> specifically for hosting activity. Companies like Duuo, APOLLO, and Front offer STR-specific policies in Ontario. Annual premiums typically range from $1,200 to $3,000 depending on your unit value and location.</p>
+            </div>
+          </div>
+
+          <h3>What About Airbnb's AirCover?</h3>
+          <p>Airbnb's AirCover for Hosts provides up to $3 million in host liability insurance and $3 million in host damage protection. It's included at no additional cost. However, it has notable gaps:</p>
+          <ul>
+            <li>It does not cover damage to common elements (your condo corporation will come after you)</li>
+            <li>It has exclusions for certain property types and damage categories</li>
+            <li>Claims can be slow to process and are at Airbnb's discretion</li>
+            <li>It does not replace your condo unit owner's insurance obligation</li>
+          </ul>
+          <p><strong>Our recommendation:</strong> treat AirCover as a backup, not your primary coverage. A dedicated STR insurance policy protects you regardless of which platform you book through, and it provides certainty that AirCover cannot.</p>
+
+          <h2 id="condo-says-no">What If My Condo Says No?</h2>
+          <p>If your condo board prohibits short-term rentals, you're not out of options. Several alternative strategies can still generate strong rental income from your condo.</p>
+
+          <h3>Mid-Term Rentals (30+ Days)</h3>
+          <p>This is the most popular alternative for condo owners whose buildings block short-term stays. Rentals of 28 days or longer are <strong>exempt from Toronto's STR regulations entirely</strong>. No registration, no 180-night cap, no MAT, and no principal residence requirement. Many condo boards that ban short-term rentals still permit 30-day minimum leases.</p>
+          <p>The demand is strong: corporate relocations, traveling healthcare professionals, students, and families between homes are all looking for furnished monthly rentals in Toronto. A well-furnished one-bedroom condo near the Financial District can command $3,000 to $4,500 per month on a mid-term basis.</p>
+
+          <h3>Long-Term Rental</h3>
+          <p>The traditional 12-month lease provides stable, predictable income with minimal management overhead. While the monthly rate is lower than short-term or mid-term alternatives, the consistency and simplicity make it the right choice for some owners. Average long-term rent for a Toronto one-bedroom condo is approximately $2,035 per month.</p>
+
+          <h3>Partial-Unit Rental</h3>
+          <p>If your condo permits rentals where you remain in the unit, consider renting a spare bedroom while you live there. This qualifies as a partial-unit rental under Toronto's rules, which means <strong>no night limit</strong>. Some condo boards are more receptive to this arrangement since you're on-site to manage guests and address any issues.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Not sure which strategy fits your condo?</strong> Every building is different, and the best approach depends on your condo's specific rules, your financial goals, and whether you live in the unit. <a href="/contact">Get a free consultation</a> and we'll help you figure out the highest-earning compliant strategy for your situation.
+            </div>
+          </div>
+
+          <h3>Comparing Your Options</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Strategy</th>
+                  <th>Typical Monthly Income</th>
+                  <th>Condo Board Approval</th>
+                  <th>City Registration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Short-term (Airbnb)</strong></td>
+                  <td>$3,500-$5,500</td>
+                  <td>Required, often denied</td>
+                  <td>Yes + 180-night cap</td>
+                </tr>
+                <tr>
+                  <td><strong>Mid-term (30+ days)</strong></td>
+                  <td>$3,000-$4,500</td>
+                  <td>Usually permitted</td>
+                  <td>Not required</td>
+                </tr>
+                <tr>
+                  <td><strong>Partial-unit (room)</strong></td>
+                  <td>$1,500-$2,500</td>
+                  <td>Varies</td>
+                  <td>Yes, no night cap</td>
+                </tr>
+                <tr>
+                  <td><strong>Long-term lease</strong></td>
+                  <td>$2,000-$2,500</td>
+                  <td>Usually permitted</td>
+                  <td>Not required</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">Income estimates based on a typical 1-bedroom condo in downtown Toronto. Actual results depend on location, furnishing quality, and management approach.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Airbnb Your Toronto Condo?</h3>
+            <p>Nurture helps Toronto condo owners navigate board rules, city compliance, and listing optimization. We manage everything from registration to guest communication at 10-15% commission, with no long-term contracts.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own a Condo in Toronto?</h2>
+        <p>Let us handle the compliance, guests, and optimization while you collect rent.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content ul {
+    padding-left: 1.25rem;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .step-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .step-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .step-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

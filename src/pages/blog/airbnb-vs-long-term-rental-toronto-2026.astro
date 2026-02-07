@@ -1,0 +1,947 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How much more can I earn on Airbnb vs long-term in Toronto?", a: "On average, a well-managed 1-bedroom condo in Toronto earns approximately $3,520/month on Airbnb at 70% occupancy, compared to roughly $2,035/month in long-term rent. That's around 73% more gross revenue. After management fees and additional costs, most hosts still see 30-100% higher net income." },
+  { q: "Is Airbnb more work than long-term renting?", a: "Self-managing an Airbnb is significantly more work: guest communication, turnovers, cleaning, pricing, and restocking. However, with a professional management company like Nurture handling everything at 10-15% commission, Airbnb becomes just as hands-off as long-term renting while earning considerably more." },
+  { q: "What about the 180-night limit in Toronto?", a: "Toronto caps entire-home short-term rentals at 180 nights per year. However, partial-unit registrations (renting a room while you live there) have no night cap. Many hosts also fill the remaining 185 nights with mid-term bookings (30+ days), which are exempt from the STR limit." },
+  { q: "Can I switch from long-term to Airbnb mid-lease?", a: "No. You must wait until the current lease expires or the tenant gives proper notice. Ontario's Residential Tenancies Act protects tenants, and you cannot evict a tenant solely to start short-term renting. Once the lease ends naturally, you can transition." },
+  { q: "What are the tax differences between Airbnb and long-term?", a: "Both rental types require reporting income to the CRA. Airbnb hosts can deduct more expenses (cleaning, supplies, management fees, furnishing) and must collect 8.5% MAT in Toronto. If you earn over $30,000/year, HST registration is required. Long-term rentals have fewer deductions but simpler tax reporting." },
+  { q: "What if my condo doesn't allow Airbnb?", a: "If your condo corporation prohibits short-term rentals, you have two options: mid-term rentals (30+ days) which many condo boards allow, or traditional long-term leasing. Check your declaration and rules, and contact your property manager to confirm the policy before listing." }
+];
+
+const relatedPosts = [
+  { title: "Can I Airbnb My Condo in Toronto?", href: '/blog/can-i-airbnb-my-condo-toronto-2026', description: 'Condo board rules, city compliance, and insurance requirements for Toronto condo hosts' },
+  { title: "How Much Can I Make on Airbnb in Toronto?", href: '/blog/how-much-can-i-make-airbnb-toronto-2026', description: 'Revenue data by neighborhood and property type' },
+  { title: "Toronto Airbnb Rules 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: '180-night limit, registration, and MAT tax explained' }
+];
+
+const tocItems = [
+  { id: 'real-numbers', text: 'The Real Numbers' },
+  { id: 'case-study', text: 'Case Study: -$926 to +$847' },
+  { id: 'beyond-income', text: 'Beyond the Income' },
+  { id: '180-night-limit', text: 'The 180-Night Limit Factor' },
+  { id: 'when-long-term-wins', text: 'When Long-Term Wins' },
+  { id: 'mid-term', text: 'Mid-Term: Best of Both Worlds' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb vs Long-Term Rental in Toronto 2026: Real Income Comparison",
+  "description": "Airbnb earns 30-100% more than long-term rentals in Toronto. Real data comparing income, costs, vacancy, and tenant risk. See which strategy wins.",
+  "datePublished": "2026-02-07",
+  "dateModified": "2026-02-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-vs-long-term-rental-toronto-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title="Airbnb vs Long Term Rental Toronto 2026" description="Airbnb earns 30-100% more than long-term rentals in Toronto. Real data comparing income, costs, vacancy, and tenant risk. See which strategy wins." schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb vs Long-Term Rental in Toronto 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 7, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">8 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Should you list your Toronto property on Airbnb or stick with a long-term tenant? It's the most common question GTA homeowners ask us. The short answer: <strong>Airbnb earns 30-100% more in most cases</strong>. But the right choice depends on your property, your goals, and your tolerance for involvement. Here's the real data.</p>
+          </div>
+
+          <h2 id="real-numbers">The Real Numbers: Airbnb vs Long-Term</h2>
+          <p>Let's start with what actually matters: money. The table below compares average monthly figures for a typical 1-bedroom condo in Toronto.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Factor</th>
+                  <th>Long-Term Rental</th>
+                  <th>Airbnb (Managed)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Gross Monthly Revenue</strong></td>
+                  <td>~$2,035</td>
+                  <td>~$3,520</td>
+                </tr>
+                <tr>
+                  <td><strong>Management Fees</strong></td>
+                  <td>$0 (self-managed)</td>
+                  <td>10-15% ($352-$528)</td>
+                </tr>
+                <tr>
+                  <td><strong>Cleaning Costs</strong></td>
+                  <td>$0</td>
+                  <td>Passed to guests</td>
+                </tr>
+                <tr>
+                  <td><strong>Furnishing Required</strong></td>
+                  <td>No</td>
+                  <td>Yes (one-time cost)</td>
+                </tr>
+                <tr>
+                  <td><strong>Utilities Included</strong></td>
+                  <td>Sometimes</td>
+                  <td>Yes (~$150/month)</td>
+                </tr>
+                <tr>
+                  <td><strong>Vacancy Rate</strong></td>
+                  <td>~3-5% (30-60 day gaps)</td>
+                  <td>~30% (built into pricing)</td>
+                </tr>
+                <tr>
+                  <td><strong>Net Monthly Income</strong></td>
+                  <td>~$1,900-$2,035</td>
+                  <td>~$2,800-$3,170</td>
+                </tr>
+                <tr>
+                  <td><strong>Income Advantage</strong></td>
+                  <td>Baseline</td>
+                  <td><strong>+47% to +65%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Sources: Average Toronto 1-bedroom rent from Zumper/Rentals.ca (2026). Airbnb revenue estimates from AirDNA data at 70% average occupancy. Actual results vary by neighborhood, season, and listing quality.</p>
+
+          <p>The gap widens with larger properties. A 2-bedroom condo averaging $2,500/month long-term can generate $4,800 or more on Airbnb. A 3-bedroom home? The difference can exceed $2,000/month.</p>
+
+          <h2 id="case-study">Case Study: From -$926 to +$847 Per Month</h2>
+          <p>Numbers on paper are one thing. Here's what happened with an actual Nurture client: a 1-bedroom condo in the GTA.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Real Client Result: 1-Bedroom GTA Condo</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Switched from long-term tenant to Airbnb with Nurture management. Result: <strong>87% increase in net cashflow in the first month.</strong></p>
+            </div>
+          </div>
+
+          <h3>Before: Long-Term Rental</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Monthly Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rent Collected</td>
+                  <td>+$2,200</td>
+                </tr>
+                <tr>
+                  <td>Mortgage Payment</td>
+                  <td>-$2,400</td>
+                </tr>
+                <tr>
+                  <td>Maintenance + Property Tax</td>
+                  <td>-$726</td>
+                </tr>
+                <tr>
+                  <td><strong>Monthly Cashflow</strong></td>
+                  <td><strong style="color: #e74c3c;">-$926</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>This owner was losing nearly $1,000 per month. The long-term rent simply could not cover the carrying costs. It's a situation many Toronto condo owners know all too well, especially those who purchased in 2021 or 2022 at peak prices.</p>
+
+          <h3>After: Airbnb with Nurture</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Monthly Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Airbnb Revenue (after platform + management fees)</td>
+                  <td>+$4,123</td>
+                </tr>
+                <tr>
+                  <td>Mortgage Payment</td>
+                  <td>-$2,400</td>
+                </tr>
+                <tr>
+                  <td>Maintenance + Property Tax</td>
+                  <td>-$726</td>
+                </tr>
+                <tr>
+                  <td>Internet + Utilities</td>
+                  <td>-$150</td>
+                </tr>
+                <tr>
+                  <td><strong>Monthly Cashflow</strong></td>
+                  <td><strong style="color: #27ae60;">+$847</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The swing was <strong>$1,773 per month</strong>. From bleeding money to generating positive cashflow. The property went from a financial liability to a performing asset, all within the first month of listing.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key Detail:</strong> This client received their first Airbnb booking within one week of listing. With long-term rentals, the average vacancy between tenants in Toronto is 30 to 60 days, meaning you lose one to two months of rent every time a tenant leaves.
+            </div>
+          </div>
+
+          <h2 id="beyond-income">Beyond the Income: Other Factors to Consider</h2>
+          <p>Money is the biggest factor, but it's not the only one. Here's how Airbnb and long-term rentals compare on the things owners often overlook.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Flexibility</h4>
+              <p>Airbnb lets you block dates for personal use, adjust pricing seasonally, or switch strategies anytime. Long-term leases lock you in for 12+ months, and Ontario's tenant-friendly laws make it difficult to regain possession.</p>
+            </div>
+            <div class="info-card">
+              <h4>Wear and Tear</h4>
+              <p>Short-term guests are generally lighter on properties than long-term tenants. Professional cleanings between every stay catch issues early. Long-term tenants may cause gradual damage that goes unnoticed for months.</p>
+            </div>
+            <div class="info-card">
+              <h4>Tenant/LTB Risk</h4>
+              <p>Ontario's Landlord and Tenant Board (LTB) process can take 6 to 12 months to resolve disputes. Non-paying tenants can remain in your property for months during proceedings. Airbnb guests check out on their departure date, every time.</p>
+            </div>
+          </div>
+
+          <div class="info-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 0;">
+            <div class="info-card">
+              <h4>Maintenance Visibility</h4>
+              <p>Regular turnovers mean your property is inspected and cleaned every few days. Issues like leaks, appliance problems, or pest concerns get caught immediately rather than after a full lease term.</p>
+            </div>
+            <div class="info-card">
+              <h4>Income Stability</h4>
+              <p>Long-term rentals offer predictable monthly income. Airbnb revenue fluctuates with seasons, events, and occupancy. January and February are typically slower months, while summer and fall are peak season.</p>
+            </div>
+            <div class="info-card">
+              <h4>Time Investment</h4>
+              <p>Self-managing Airbnb is a part-time job. But with professional management at 10-15%, the time investment becomes comparable to long-term renting. Nurture handles everything from guest communication to cleaning.</p>
+            </div>
+          </div>
+
+          <h2 id="180-night-limit">The 180-Night Limit Factor</h2>
+          <p>Toronto's <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">short-term rental regulations</a> cap entire-home rentals at 180 nights per calendar year. This is the most common objection we hear from owners considering the switch. But here's what many people miss.</p>
+
+          <h3>180 Nights Is Still Profitable</h3>
+          <p>Even at 180 nights, Airbnb revenue typically exceeds what you'd earn from 365 days of long-term rent. At an average nightly rate of $150 for a 1-bedroom (conservative for Toronto), 180 nights generates $27,000 per year, or $2,250 per month. That already surpasses the average long-term rent of $2,035.</p>
+
+          <p>And those are just the short-term nights. You can fill the remaining 185 days with mid-term bookings (30+ days), which are exempt from the 180-night cap. Many Nurture clients earn $3,000 to $4,500 per month by blending both strategies.</p>
+
+          <h3>Partial-Unit Registration: No Night Cap</h3>
+          <p>Toronto offers a <a href="/blog/toronto-airbnb-partial-unit-registration-guide-2026">partial-unit registration</a> for hosts who rent out a room or portion of their home while they remain on-site. Partial-unit registrations have no night limit, meaning you can operate 365 days a year. If you live in a multi-bedroom home, this can be a powerful option.</p>
+
+          <h3>Don't Forget the MAT</h3>
+          <p>All short-term rentals in Toronto are subject to an <a href="/blog/toronto-airbnb-mat-tax-guide-2026">8.5% Municipal Accommodation Tax (MAT)</a>. Airbnb collects and remits this automatically, so it doesn't require extra work from hosts. It's worth factoring into your revenue projections, though platforms like Airbnb typically add it on top of the nightly rate rather than deducting from your payout.</p>
+
+          <h2 id="when-long-term-wins">When Long-Term Renting Actually Wins</h2>
+          <p>We're an Airbnb management company, but we believe in honesty. There are situations where long-term renting is the better choice.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Investment Properties Without Principal Residence</h4>
+              <p>If the property is not your principal residence, <a href="/blog/airbnb-investment-property-gta">most GTA cities require it to be</a> for short-term rental licensing. Long-term renting or mid-term rentals may be your only compliant options.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Condo Boards That Prohibit STRs</h4>
+              <p>Many Toronto condos explicitly ban short-term rentals in their declaration or rules. Even if the city permits it, your condo corporation's rules take priority. Violating them can result in fines or legal action.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Owners Who Prefer Stability</h4>
+              <p>If you value a predictable, fixed monthly deposit over maximizing income, long-term renting delivers that. There's no seasonal fluctuation, no gap between bookings, and no need to monitor performance.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Fully Hands-Off Owners</h4>
+              <p>While professional management makes Airbnb nearly hands-off, long-term renting is still the lowest-effort option. Once you place a tenant, there's minimal involvement until the lease renews or an issue arises.</p>
+            </div>
+          </div>
+
+          <h2 id="mid-term">Mid-Term Rentals: The Best of Both Worlds</h2>
+          <p>If short-term renting isn't an option (or if you want to complement your Airbnb strategy), <a href="/services/mid-term-rental-management">mid-term rentals</a> offer a compelling middle ground.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>What Are Mid-Term Rentals?</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Furnished rentals of 30+ days. They're exempt from most STR regulations in the GTA, don't count toward Toronto's 180-night cap, and earn 20-50% more than traditional long-term leases.</p>
+            </div>
+          </div>
+
+          <p>Mid-term rentals attract high-quality tenants: corporate employees on temporary assignments, healthcare professionals on contracts, families relocating to the GTA, and professionals between homes during renovations. These guests typically treat properties well and pay a premium for furnished, flexible accommodation.</p>
+
+          <h3>How the Three Strategies Compare</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Factor</th>
+                  <th>Long-Term</th>
+                  <th>Mid-Term</th>
+                  <th>Short-Term (Airbnb)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Monthly Revenue</strong></td>
+                  <td>Baseline</td>
+                  <td>+20-50%</td>
+                  <td>+30-100%</td>
+                </tr>
+                <tr>
+                  <td><strong>STR License Needed</strong></td>
+                  <td>No</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Principal Residence</strong></td>
+                  <td>Not required</td>
+                  <td>Not required</td>
+                  <td>Required</td>
+                </tr>
+                <tr>
+                  <td><strong>Night Limit</strong></td>
+                  <td>None</td>
+                  <td>None</td>
+                  <td>180 nights/year</td>
+                </tr>
+                <tr>
+                  <td><strong>Furnishing Required</strong></td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Tenant Turnover</strong></td>
+                  <td>Annual</td>
+                  <td>Every 1-6 months</td>
+                  <td>Every 1-7 days</td>
+                </tr>
+                <tr>
+                  <td><strong>Owner Flexibility</strong></td>
+                  <td>Low</td>
+                  <td>Medium</td>
+                  <td>High</td>
+                </tr>
+                <tr>
+                  <td><strong>Management Effort</strong></td>
+                  <td>Low</td>
+                  <td>Medium</td>
+                  <td>High (low with manager)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Many Nurture clients use a blended strategy: Airbnb for the high-demand months (May through October), then mid-term bookings for the slower winter months. This maximizes annual revenue while maintaining near-full occupancy year-round.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Ready to See What Your Property Could Earn?</h3>
+            <p>Nurture helps Toronto homeowners earn 30-100% more through expert <a href="/services/full-airbnb-management" style="color: var(--color-primary-dark); text-decoration: underline;">Airbnb management</a>. Get a free estimate with real data for your specific property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Stop Losing Money on Long-Term Rent</h2>
+        <p>Find out exactly how much more your property could earn on Airbnb. Free estimate, no obligation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · First booking within 1 week</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content ul {
+    padding-left: 1.25rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
