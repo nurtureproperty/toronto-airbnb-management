@@ -127,12 +127,6 @@ Disallow: /
 # ============================================
 # Known Bad/Aggressive Bots - Block
 # ============================================
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: MJ12bot
-Crawl-delay: 10
-
 User-agent: dotbot
 Disallow: /
 
@@ -176,6 +170,10 @@ Allow: /north-york-airbnb-management
 Allow: /mississauga-airbnb-management
 Allow: /scarborough-airbnb-management
 Allow: /etobicoke-airbnb-management
+Allow: /brampton-airbnb-management
+Allow: /vaughan-airbnb-management
+Allow: /oakville-airbnb-management
+Allow: /hamilton-airbnb-management
 Allow: /niagara-falls-airbnb-management
 Allow: /kitchener-airbnb-management
 Allow: /waterloo-airbnb-management
