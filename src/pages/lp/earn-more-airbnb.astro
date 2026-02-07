@@ -433,6 +433,66 @@ import criticalCSS from '../../styles/critical.css?raw';
             border: none;
         }
 
+        /* ─── PLATFORM TRUST STRIP ─── */
+        .lp-platforms {
+            padding: 2rem 2rem;
+            background: var(--lp-cream);
+            border-top: 1px solid var(--lp-border);
+        }
+
+        .lp-platforms-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lp-platforms-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lp-text-light);
+            white-space: nowrap;
+        }
+
+        .lp-platform-logos {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .lp-platform-logo {
+            opacity: 0.45;
+            transition: opacity 0.3s;
+        }
+
+        .lp-platform-logo:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .lp-platforms {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .lp-platforms-inner {
+                gap: 1.5rem;
+            }
+
+            .lp-platform-logos {
+                gap: 1.5rem;
+            }
+
+            .lp-platform-logo svg {
+                height: 20px;
+                width: auto;
+            }
+        }
+
         /* ─── PAIN POINTS ─── */
         .lp-pain {
             padding: 5.5rem 2rem;
@@ -988,15 +1048,18 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .lp-lead-inner {
-            max-width: 720px;
+            max-width: 900px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
         .lp-lead-inner h2 {
             font-size: clamp(1.5rem, 3vw, 2rem);
             color: var(--lp-charcoal);
             margin-bottom: 1.5rem;
-            text-align: center;
         }
 
         .lp-lead-content p {
@@ -1012,6 +1075,43 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-lead-content strong {
             color: var(--lp-charcoal);
+        }
+
+        .lp-lead-pullquote {
+            position: relative;
+            padding: 2.5rem;
+            background: var(--lp-cream);
+            border-radius: 12px;
+            border-left: 4px solid var(--lp-green);
+        }
+
+        .lp-lead-pullquote blockquote {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--lp-charcoal);
+            font-style: italic;
+        }
+
+        .lp-lead-pullquote .lp-pullquote-attr {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--lp-text-light);
+            font-style: normal;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        @media (max-width: 968px) {
+            .lp-lead-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .lp-lead-pullquote {
+                border-left: none;
+                border-top: 4px solid var(--lp-green);
+            }
         }
 
         /* ─── SECTION LABEL ─── */
@@ -1472,6 +1572,27 @@ import criticalCSS from '../../styles/critical.css?raw';
             </div>
         </section>
 
+        <!-- ═══ PLATFORM TRUST STRIP ═══ -->
+        <section class="lp-platforms">
+            <div class="lp-platforms-inner">
+                <span class="lp-platforms-label">Your property, listed across</span>
+                <div class="lp-platform-logos">
+                    <!-- Airbnb -->
+                    <div class="lp-platform-logo">
+                        <svg height="28" viewBox="0 0 2500 778" fill="currentColor"><path d="M1246 405c0-75-56-131-128-131-73 0-128 57-128 131 0 75 55 131 128 131 72 0 128-56 128-131zm-329 0c0-117 86-200 201-200s201 83 201 200-86 200-201 200-201-83-201-200zm515 195V209h72v56c30-42 74-65 133-65 103 0 162 70 162 175v225h-73V387c0-73-38-119-104-119-68 0-117 49-117 126v206h-73zm-969 0V209h72v56c30-42 75-65 133-65 103 0 163 70 163 175v225h-73V387c0-73-39-119-105-119-67 0-116 49-116 126v206h-74zM457 405c0-75-56-131-128-131-73 0-128 57-128 131 0 75 55 131 128 131 72 0 128-56 128-131zm-329 0c0-117 86-200 201-200s201 83 201 200-86 200-201 200-201-83-201-200zm1478 0c0-75-56-131-128-131s-128 57-128 131c0 75 55 131 128 131s128-56 128-131zm-329 0c0-117 86-200 201-200s201 83 201 200-86 200-201 200-201-83-201-200zm519-196h73v191c0 73 39 118 105 118 67 0 117-49 117-125V209h73v391h-72v-56c-30 42-75 65-133 65-104 0-163-70-163-175V209z" fill="#484848"/><path d="M165 600c-33 0-57-13-73-33l1-1v29H22V6h73v232c17-21 41-34 72-34 67 0 118 56 118 131v1c0 77-51 131-120 131v133zm2500-1h-73V387c0-73-39-119-105-119-67 0-117 49-117 126v206h-73V209h72v56c30-42 75-65 133-65 104 0 163 70 163 175v219z" fill="#484848"/></svg>
+                    </div>
+                    <!-- VRBO -->
+                    <div class="lp-platform-logo">
+                        <svg height="24" viewBox="0 0 584 164" fill="currentColor"><text x="0" y="130" font-family="Arial Black, Arial" font-weight="900" font-size="140" fill="#484848">VRBO</text></svg>
+                    </div>
+                    <!-- Booking.com -->
+                    <div class="lp-platform-logo">
+                        <svg height="24" viewBox="0 0 1200 164" fill="currentColor"><text x="0" y="130" font-family="Arial Black, Arial" font-weight="900" font-size="130" fill="#484848">Booking.com</text></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══ PAIN POINTS ═══ -->
         <section class="lp-pain">
             <div class="lp-section-inner">
@@ -1515,11 +1636,14 @@ import criticalCSS from '../../styles/critical.css?raw';
         <!-- ═══ LEAD PANEL (Empathy/Story) ═══ -->
         <section class="lp-lead-panel">
             <div class="lp-lead-inner reveal">
-                <h2>We Get It. This Wasn't Supposed to Be a Full-Time Job.</h2>
                 <div class="lp-lead-content">
-                    <p>You bought an investment property to build wealth, not to spend your evenings answering guest messages about parking spots and Wi-Fi passwords.</p>
-                    <p>Maybe you've been doing it yourself and you're burnt out. Maybe you tried another management company and felt like just another unit in their portfolio. Maybe you're sitting on a property right now, wondering if it's even worth the hassle.</p>
-                    <p>We started Nurture because we saw GTA homeowners leaving thousands on the table every month, or worse, losing money on properties that should have been profitable. We built our company around one idea: <strong>what if a property manager actually treated your property like their own?</strong></p>
+                    <h2>We Get It. This Wasn't Supposed to Be a Full-Time Job.</h2>
+                    <p>You bought a property to build wealth, not to spend your evenings answering guest messages about parking spots and Wi-Fi passwords.</p>
+                    <p>We started Nurture because we saw GTA homeowners leaving thousands on the table every month. Whether you're burnt out from self-managing, disappointed by another company, or sitting on a property wondering if it's worth the hassle, we built this for you.</p>
+                </div>
+                <div class="lp-lead-pullquote">
+                    <blockquote>"What if a property manager actually treated your property like their own?"</blockquote>
+                    <p class="lp-pullquote-attr">The idea behind Nurture</p>
                 </div>
             </div>
         </section>
