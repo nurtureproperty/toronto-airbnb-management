@@ -1,0 +1,1660 @@
+---
+// Nurture - Facebook Ad Landing Page
+// Standalone page with minimal navigation for maximum conversion
+import criticalCSS from '../../styles/critical.css?raw';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>Earn More From Your Property | Nurture Airbnb Management</title>
+    <meta name="description" content="GTA homeowners earn 30-100% more with professional Airbnb management. 10-15% fees, 9-min response time, no contracts. Get your free estimate today.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.nurturestays.ca/lp/earn-more-airbnb" />
+    <meta property="og:title" content="Your Property Could Be Earning You 30-100% More" />
+    <meta property="og:description" content="Professional Airbnb management in the GTA. We handle everything so you collect rent stress-free. 10-15% fees, no contracts." />
+    <meta property="og:image" content="https://www.nurturestays.ca/images/logo.webp" />
+
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+    <link rel="dns-prefetch" href="https://api.nurtre.io">
+
+    <!-- Preload LCP image -->
+    <link rel="preload" href="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp" as="image" type="image/webp" fetchpriority="high">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Critical CSS inlined -->
+    <style set:html={criticalCSS}></style>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much are your Airbnb management fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our fees range from 10-15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. Competitors typically charge 18-25%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I make more with Airbnb vs long-term rental?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We have never had a client make less with short and mid-term rental compared to long-term rental. Most see 30-100% increases in monthly revenue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to get listed on Airbnb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The entire process takes less than a week on average. Professional photos, listing creation, and onboarding. The average client sees their first booking within 1 week of going live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to sign a long contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Cancel with 30 days notice. No long-term contracts, no penalties."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who owns the Airbnb listing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You do. If you ever leave, the listing, reviews, and history are yours. We never hold listings hostage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there startup costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "None. We only get paid on commission. We make money when you make money. No upfront costs."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* ═══════════════════════════════════════
+           LANDING PAGE — NURTURE
+           Aesthetic: Warm editorial, organic luxury
+           ═══════════════════════════════════════ */
+
+        :root {
+            --lp-green: #759b8f;
+            --lp-green-dark: #5a7d73;
+            --lp-green-deeper: #4a6b61;
+            --lp-cream: #F8F6F1;
+            --lp-warm-white: #FFFDF9;
+            --lp-charcoal: #2A2A2A;
+            --lp-text: #3a3a3a;
+            --lp-text-light: #6b6b6b;
+            --lp-accent: #d4a373;
+            --lp-red: #dc2626;
+            --lp-green-positive: #16a34a;
+            --lp-border: #e8e4dc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--lp-text);
+            background: var(--lp-warm-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        /* ─── STICKY HEADER ─── */
+        .lp-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 253, 249, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--lp-border);
+            padding: 0.75rem 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .lp-header.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .lp-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .lp-logo {
+            height: 38px;
+            width: auto;
+        }
+
+        .lp-header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .lp-header-phone {
+            color: var(--lp-charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .lp-header-phone:hover {
+            color: var(--lp-green-dark);
+        }
+
+        .lp-header-cta {
+            background: var(--lp-green);
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .lp-header-cta:hover {
+            background: var(--lp-green-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ─── HERO ─── */
+        .lp-hero {
+            margin-top: 65px;
+            padding: 4rem 2rem 3rem;
+            background: var(--lp-warm-white);
+            position: relative;
+        }
+
+        /* Subtle organic texture */
+        .lp-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(117,155,143,0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(212,163,115,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .lp-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lp-hero-content {
+            max-width: 560px;
+        }
+
+        .lp-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(117, 155, 143, 0.1);
+            color: var(--lp-green-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .lp-hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--lp-green);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+
+        .lp-hero h1 {
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            color: var(--lp-charcoal);
+            margin-bottom: 1.25rem;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .lp-hero h1 .highlight {
+            color: var(--lp-green-dark);
+            position: relative;
+        }
+
+        .lp-hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: rgba(117, 155, 143, 0.2);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .lp-hero-sub {
+            font-size: 1.15rem;
+            color: var(--lp-text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .lp-hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .lp-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--lp-green);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(117,155,143,0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .lp-btn-primary:hover {
+            background: var(--lp-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(117,155,143,0.35);
+        }
+
+        .lp-btn-primary svg {
+            transition: transform 0.2s ease;
+        }
+
+        .lp-btn-primary:hover svg {
+            transform: translateX(3px);
+        }
+
+        .lp-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--lp-charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.9rem 1.25rem;
+            border-radius: 8px;
+            border: 2px solid var(--lp-border);
+            transition: all 0.2s ease;
+        }
+
+        .lp-btn-secondary:hover {
+            border-color: var(--lp-green);
+            color: var(--lp-green-dark);
+        }
+
+        .lp-trust-row {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        .lp-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lp-trust-item img {
+            height: 48px;
+            width: auto;
+        }
+
+        .lp-trust-stat {
+            text-align: left;
+        }
+
+        .lp-trust-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--lp-green-dark);
+            line-height: 1;
+        }
+
+        .lp-trust-label {
+            font-size: 0.75rem;
+            color: var(--lp-text-light);
+        }
+
+        /* Hero Video */
+        .lp-hero-video {
+            animation: fadeInRight 0.8s ease-out 0.3s both;
+        }
+
+        .lp-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            background: #000;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lp-video-wrapper * { pointer-events: none; }
+
+        .lp-video-wrapper img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .lp-video-wrapper .play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .lp-video-wrapper:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .lp-video-wrapper.activated img,
+        .lp-video-wrapper.activated .play-btn { display: none; }
+
+        .lp-video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* ─── PAIN POINTS ─── */
+        .lp-pain {
+            padding: 5rem 2rem;
+            background: var(--lp-cream);
+            position: relative;
+        }
+
+        .lp-pain::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--lp-border), transparent);
+        }
+
+        .lp-section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .lp-section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .lp-section-header h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            color: var(--lp-charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .lp-section-header p {
+            font-size: 1.1rem;
+            color: var(--lp-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .lp-pain-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .lp-pain-card {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--lp-border);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: all 0.25s ease;
+        }
+
+        .lp-pain-card:hover {
+            border-color: var(--lp-green);
+            box-shadow: 0 4px 16px rgba(117,155,143,0.08);
+            transform: translateY(-2px);
+        }
+
+        .lp-pain-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: rgba(220, 38, 38, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .lp-pain-card h3 {
+            font-size: 1.05rem;
+            color: var(--lp-charcoal);
+            margin-bottom: 0.35rem;
+        }
+
+        .lp-pain-card p {
+            font-size: 0.9rem;
+            color: var(--lp-text-light);
+            line-height: 1.55;
+        }
+
+        /* ─── THE FLIP / SOLUTION ─── */
+        .lp-flip {
+            padding: 4.5rem 2rem;
+            background: linear-gradient(135deg, var(--lp-green-dark) 0%, var(--lp-green) 50%, #8fb5a8 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lp-flip::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2l2 3-2 3z'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .lp-flip-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lp-flip h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .lp-flip p {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .lp-flip .lp-btn-primary {
+            background: white;
+            color: var(--lp-green-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .lp-flip .lp-btn-primary:hover {
+            background: var(--lp-cream);
+            transform: translateY(-2px);
+        }
+
+        /* ─── CASE STUDY ─── */
+        .lp-case {
+            padding: 5rem 2rem;
+            background: var(--lp-warm-white);
+        }
+
+        .lp-case-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lp-case-label {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--lp-green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .lp-case h2 {
+            text-align: center;
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            color: var(--lp-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .lp-case-subtitle {
+            text-align: center;
+            color: var(--lp-text-light);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .lp-case-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .lp-case-card {
+            background: white;
+            border-radius: 14px;
+            padding: 2rem;
+            border: 1px solid var(--lp-border);
+        }
+
+        .lp-case-card.before {
+            border-top: 3px solid var(--lp-red);
+        }
+
+        .lp-case-card.after {
+            border-top: 3px solid var(--lp-green-positive);
+        }
+
+        .lp-case-card-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lp-text-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .lp-case-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #f0ede8;
+            font-size: 0.9rem;
+        }
+
+        .lp-case-line:last-child {
+            border-bottom: none;
+            padding-top: 0.85rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .lp-negative { color: var(--lp-red); }
+        .lp-positive { color: var(--lp-green-positive); }
+
+        .lp-case-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lp-case-arrow-circle {
+            width: 52px;
+            height: 52px;
+            background: var(--lp-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(117,155,143,0.3);
+        }
+
+        .lp-case-result {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.25rem;
+            background: rgba(117, 155, 143, 0.08);
+            border-radius: 10px;
+            border: 1px solid rgba(117, 155, 143, 0.15);
+        }
+
+        .lp-case-result-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--lp-green-dark);
+        }
+
+        .lp-case-result-text {
+            font-size: 0.95rem;
+            color: var(--lp-text-light);
+        }
+
+        /* ─── HOW IT WORKS ─── */
+        .lp-how {
+            padding: 5rem 2rem;
+            background: var(--lp-cream);
+        }
+
+        .lp-how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .lp-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+
+        .lp-step-num {
+            width: 56px;
+            height: 56px;
+            background: var(--lp-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 6px 20px rgba(117,155,143,0.25);
+        }
+
+        .lp-step h3 {
+            font-size: 1.15rem;
+            color: var(--lp-charcoal);
+            margin-bottom: 0.6rem;
+        }
+
+        .lp-step p {
+            font-size: 0.92rem;
+            color: var(--lp-text-light);
+            line-height: 1.6;
+        }
+
+        /* Step connectors */
+        .lp-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            right: -1rem;
+            width: 2rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--lp-green), rgba(117,155,143,0.2));
+        }
+
+        /* ─── COMPARISON ─── */
+        .lp-compare {
+            padding: 5rem 2rem;
+            background: var(--lp-warm-white);
+        }
+
+        .lp-compare-table {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            border: 1px solid var(--lp-border);
+        }
+
+        .lp-compare-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: var(--lp-charcoal);
+            color: white;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .lp-compare-header > div {
+            padding: 1rem 1.25rem;
+        }
+
+        .lp-compare-header .nurture-col {
+            background: var(--lp-green);
+            text-align: center;
+        }
+
+        .lp-compare-header .others-col {
+            text-align: center;
+        }
+
+        .lp-compare-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-bottom: 1px solid #f0ede8;
+            background: white;
+        }
+
+        .lp-compare-row:nth-child(even) {
+            background: #fdfcfa;
+        }
+
+        .lp-compare-row:last-child {
+            border-bottom: none;
+        }
+
+        .lp-compare-row > div {
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .lp-compare-feature {
+            font-weight: 500;
+            color: var(--lp-charcoal);
+            font-size: 0.9rem;
+        }
+
+        .lp-compare-nurture {
+            justify-content: center;
+            font-weight: 600;
+            color: var(--lp-green-dark);
+            font-size: 0.9rem;
+        }
+
+        .lp-compare-others {
+            justify-content: center;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .lp-compare-others.bad { color: var(--lp-red); }
+
+        /* ─── SERVICES INCLUDED ─── */
+        .lp-services {
+            padding: 5rem 2rem;
+            background: var(--lp-cream);
+        }
+
+        .lp-services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .lp-service-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--lp-border);
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--lp-charcoal);
+            transition: border-color 0.2s ease;
+        }
+
+        .lp-service-item:hover {
+            border-color: var(--lp-green);
+        }
+
+        .lp-service-check {
+            color: var(--lp-green);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            filter: none;
+        }
+
+        /* ─── FAQ ─── */
+        .lp-faq {
+            padding: 5rem 2rem;
+            background: var(--lp-warm-white);
+        }
+
+        .lp-faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .lp-faq-item {
+            border-bottom: 1px solid var(--lp-border);
+        }
+
+        .lp-faq-question {
+            width: 100%;
+            padding: 1.25rem 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--lp-charcoal);
+            transition: color 0.2s ease;
+        }
+
+        .lp-faq-question:hover {
+            color: var(--lp-green-dark);
+        }
+
+        .lp-faq-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(117,155,143,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--lp-green-dark);
+            font-size: 1.1rem;
+        }
+
+        .lp-faq-item.open .lp-faq-icon {
+            transform: rotate(45deg);
+            background: var(--lp-green);
+            color: white;
+        }
+
+        .lp-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .lp-faq-item.open .lp-faq-answer {
+            max-height: 200px;
+        }
+
+        .lp-faq-answer p {
+            padding-bottom: 1.25rem;
+            font-size: 0.95rem;
+            color: var(--lp-text-light);
+            line-height: 1.65;
+        }
+
+        /* ─── FINAL CTA / FORM ─── */
+        .lp-final-cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--lp-green-deeper) 0%, var(--lp-green-dark) 50%, var(--lp-green) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lp-final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .lp-final-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lp-final-text h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .lp-final-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .lp-final-benefits {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .lp-final-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            opacity: 0.92;
+        }
+
+        .lp-final-benefits li::before {
+            content: '✓';
+            font-weight: 700;
+            color: var(--lp-accent);
+        }
+
+        .lp-form-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .lp-form-card iframe {
+            width: 100%;
+            min-height: 550px;
+            border: none;
+            overflow: hidden;
+        }
+
+        /* ─── MINIMAL FOOTER ─── */
+        .lp-footer {
+            padding: 2rem;
+            background: var(--lp-charcoal);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .lp-footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .lp-footer a:hover {
+            color: white;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(25px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Scroll-triggered animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 968px) {
+            .lp-hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .lp-hero-content {
+                max-width: 100%;
+            }
+
+            .lp-hero-cta-group {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .lp-trust-row {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .lp-pain-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lp-case-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .lp-case-arrow {
+                transform: rotate(90deg);
+            }
+
+            .lp-how-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .lp-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .lp-compare-table {
+                font-size: 0.85rem;
+            }
+
+            .lp-compare-header > div,
+            .lp-compare-row > div {
+                padding: 0.7rem 0.75rem;
+            }
+
+            .lp-services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .lp-final-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .lp-final-benefits {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .lp-hero { padding: 3rem 1.25rem 2rem; }
+            .lp-pain,
+            .lp-case,
+            .lp-how,
+            .lp-compare,
+            .lp-services,
+            .lp-faq,
+            .lp-final-cta { padding: 3.5rem 1.25rem; }
+
+            .lp-header { padding: 0.6rem 1rem; }
+            .lp-header-phone { display: none; }
+
+            .lp-hero-cta-group {
+                flex-direction: column;
+            }
+
+            .lp-btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .lp-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .lp-services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lp-compare-header,
+            .lp-compare-row {
+                grid-template-columns: 1.4fr 1fr 1fr;
+            }
+
+            .lp-compare-feature,
+            .lp-compare-nurture,
+            .lp-compare-others {
+                font-size: 0.8rem;
+            }
+
+            .lp-case-card { padding: 1.5rem; }
+        }
+
+        /* Performance */
+        .lp-pain,
+        .lp-case,
+        .lp-how,
+        .lp-compare,
+        .lp-services,
+        .lp-faq {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 500px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ═══ HEADER ═══ -->
+    <header class="lp-header" id="lp-header">
+        <div class="lp-header-inner">
+            <a href="/">
+                <picture>
+                    <source media="(max-width: 576px)" srcset="/images/logo-mobile.webp" type="image/webp">
+                    <img src="/images/logo.webp" alt="Nurture" class="lp-logo" width="160" height="38">
+                </picture>
+            </a>
+            <div class="lp-header-right">
+                <a href="tel:647-957-8956" class="lp-header-phone">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    (647) 957-8956
+                </a>
+                <a href="#get-estimate" class="lp-header-cta">Get Free Estimate</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ═══ HERO ═══ -->
+        <section class="lp-hero">
+            <div class="lp-hero-inner">
+                <div class="lp-hero-content">
+                    <div class="lp-hero-badge">Serving the Greater Toronto Area</div>
+                    <h1>Your Property Could Be Earning <span class="highlight">30-100% More</span></h1>
+                    <p class="lp-hero-sub">We handle guest communication, cleaning, pricing, and maintenance. You collect rent stress-free. No long contracts, no hidden fees.</p>
+
+                    <div class="lp-hero-cta-group">
+                        <a href="#get-estimate" class="lp-btn-primary">
+                            Get Your Free Estimate
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="tel:647-957-8956" class="lp-btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            (647) 957-8956
+                        </a>
+                    </div>
+
+                    <div class="lp-trust-row">
+                        <div class="lp-trust-item">
+                            <img src="/images/airbnb-superhost-badge.png" alt="Airbnb Superhost" width="48" height="48" loading="eager">
+                        </div>
+                        <div class="lp-trust-item">
+                            <img src="/images/guest-favorite-badge.png" alt="Guest Favorite" width="48" height="48" loading="eager">
+                        </div>
+                        <div class="lp-trust-item">
+                            <div class="lp-trust-stat">
+                                <div class="lp-trust-number">4.9★</div>
+                                <div class="lp-trust-label">Avg Rating</div>
+                            </div>
+                        </div>
+                        <div class="lp-trust-item">
+                            <div class="lp-trust-stat">
+                                <div class="lp-trust-number">&lt;9 min</div>
+                                <div class="lp-trust-label">Response Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lp-hero-video">
+                    <div class="lp-video-wrapper" data-videoid="OFACd6a2ctA">
+                        <picture>
+                            <source type="image/webp" media="(max-width: 768px)" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/mqdefault.webp">
+                            <source type="image/webp" media="(min-width: 769px)" srcset="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp">
+                            <source media="(max-width: 768px)" srcset="https://i.ytimg.com/vi/OFACd6a2ctA/mqdefault.jpg">
+                            <img src="https://i.ytimg.com/vi/OFACd6a2ctA/sddefault.jpg" alt="See how Nurture manages your Airbnb property" loading="eager" fetchpriority="high" width="640" height="480">
+                        </picture>
+                        <button type="button" class="play-btn" aria-label="Play video" tabindex="-1">
+                            <svg viewBox="0 0 68 48" width="68" height="48">
+                                <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PAIN POINTS ═══ -->
+        <section class="lp-pain">
+            <div class="lp-section-inner">
+                <div class="lp-section-header reveal">
+                    <h2>Sound Familiar?</h2>
+                    <p>Managing an Airbnb yourself is a second job nobody signed up for</p>
+                </div>
+                <div class="lp-pain-grid">
+                    <div class="lp-pain-card reveal">
+                        <div class="lp-pain-icon">📱</div>
+                        <div>
+                            <h3>Late-night guest messages</h3>
+                            <p>The lockbox isn't working. The WiFi is down. The hot water is gone. And it's always at 11pm.</p>
+                        </div>
+                    </div>
+                    <div class="lp-pain-card reveal">
+                        <div class="lp-pain-icon">💸</div>
+                        <div>
+                            <h3>Leaving money on the table</h3>
+                            <p>You set a nightly rate and hope for the best. Meanwhile, comparable properties are charging 40% more on weekends.</p>
+                        </div>
+                    </div>
+                    <div class="lp-pain-card reveal">
+                        <div class="lp-pain-icon">🧹</div>
+                        <div>
+                            <h3>Cleaning chaos between bookings</h3>
+                            <p>Coordinating cleaners with a 3-hour window between checkout and check-in. One cancellation and the whole day collapses.</p>
+                        </div>
+                    </div>
+                    <div class="lp-pain-card reveal">
+                        <div class="lp-pain-icon">⭐</div>
+                        <div>
+                            <h3>Bad reviews from slow responses</h3>
+                            <p>One 4-star review tanks your listing. And it came from a guest who waited 6 hours for a simple answer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ THE FLIP ═══ -->
+        <section class="lp-flip">
+            <div class="lp-flip-inner reveal">
+                <h2>What if you could earn more and do less?</h2>
+                <p>Nurture handles everything: guest communication, dynamic pricing, professional cleaning, maintenance, and more. You get the income without the inbox. No startup costs, no long contracts, and you always own your listing.</p>
+                <a href="#get-estimate" class="lp-btn-primary">
+                    See What Your Property Could Earn
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ═══ CASE STUDY ═══ -->
+        <section class="lp-case">
+            <div class="lp-case-inner">
+                <div class="lp-case-label reveal">Real Results</div>
+                <h2 class="reveal">From Losing $926/Month to Earning $847/Month</h2>
+                <p class="lp-case-subtitle reveal">1-Bedroom Condo in the GTA</p>
+
+                <div class="lp-case-grid reveal">
+                    <div class="lp-case-card before">
+                        <div class="lp-case-card-label">Before Nurture</div>
+                        <div class="lp-case-line">
+                            <span>Long-term Rent</span>
+                            <span>$2,200</span>
+                        </div>
+                        <div class="lp-case-line">
+                            <span>Mortgage</span>
+                            <span class="lp-negative">-$2,400</span>
+                        </div>
+                        <div class="lp-case-line">
+                            <span>Maintenance & Tax</span>
+                            <span class="lp-negative">-$726</span>
+                        </div>
+                        <div class="lp-case-line">
+                            <span>Monthly Cashflow</span>
+                            <span class="lp-negative">-$926</span>
+                        </div>
+                    </div>
+
+                    <div class="lp-case-arrow">
+                        <div class="lp-case-arrow-circle">→</div>
+                    </div>
+
+                    <div class="lp-case-card after">
+                        <div class="lp-case-card-label">After Nurture</div>
+                        <div class="lp-case-line">
+                            <span>Airbnb Revenue (after fees)</span>
+                            <span class="lp-positive">$4,123</span>
+                        </div>
+                        <div class="lp-case-line">
+                            <span>Mortgage, Maint, Tax</span>
+                            <span class="lp-negative">-$3,126</span>
+                        </div>
+                        <div class="lp-case-line">
+                            <span>Internet & Utilities</span>
+                            <span class="lp-negative">-$150</span>
+                        </div>
+                        <div class="lp-case-line">
+                            <span>Monthly Cashflow</span>
+                            <span class="lp-positive">+$847</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lp-case-result reveal">
+                    <div class="lp-case-result-number">87% Increase</div>
+                    <div class="lp-case-result-text">in monthly cashflow after switching to Nurture</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ HOW IT WORKS ═══ -->
+        <section class="lp-how">
+            <div class="lp-section-inner">
+                <div class="lp-section-header reveal">
+                    <h2>Three Steps. That's It.</h2>
+                    <p>From consultation to first booking in under a week</p>
+                </div>
+                <div class="lp-how-steps">
+                    <div class="lp-step reveal">
+                        <div class="lp-step-num">1</div>
+                        <h3>Book a Free Consultation</h3>
+                        <p>We'll show you what comparable properties are earning and walk you through how it works. No pressure, no obligation.</p>
+                    </div>
+                    <div class="lp-step reveal">
+                        <div class="lp-step-num">2</div>
+                        <h3>We Set Up Everything</h3>
+                        <p>Professional photos, optimized listing, dynamic pricing, multi-platform distribution. All handled by us.</p>
+                    </div>
+                    <div class="lp-step reveal">
+                        <div class="lp-step-num">3</div>
+                        <h3>You Earn Passive Income</h3>
+                        <p>First booking within 1 week on average. We handle guests, cleaning, and maintenance. You collect rent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ COMPARISON ═══ -->
+        <section class="lp-compare">
+            <div class="lp-section-inner">
+                <div class="lp-section-header reveal">
+                    <h2>Nurture vs. Other Property Managers</h2>
+                </div>
+                <div class="lp-compare-table reveal">
+                    <div class="lp-compare-header">
+                        <div></div>
+                        <div class="nurture-col">Nurture</div>
+                        <div class="others-col">Others</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Management Fees</div>
+                        <div class="lp-compare-nurture">10-15%</div>
+                        <div class="lp-compare-others bad">18-25%</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Response Time</div>
+                        <div class="lp-compare-nurture">&lt;9 minutes</div>
+                        <div class="lp-compare-others bad">Hours or days</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Contracts</div>
+                        <div class="lp-compare-nurture">30-day cancel</div>
+                        <div class="lp-compare-others bad">Long lock-in</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Listing Ownership</div>
+                        <div class="lp-compare-nurture">You own it</div>
+                        <div class="lp-compare-others bad">Held hostage</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Support</div>
+                        <div class="lp-compare-nurture">Direct contact</div>
+                        <div class="lp-compare-others bad">Group chats</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Startup Costs</div>
+                        <div class="lp-compare-nurture">$0</div>
+                        <div class="lp-compare-others bad">Upfront fees</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Supply Restocking</div>
+                        <div class="lp-compare-nurture">No markup</div>
+                        <div class="lp-compare-others bad">Extra charges</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WHAT'S INCLUDED ═══ -->
+        <section class="lp-services">
+            <div class="lp-section-inner">
+                <div class="lp-section-header reveal">
+                    <h2>Everything Handled For You</h2>
+                    <p>All included in your management plan</p>
+                </div>
+                <div class="lp-services-grid reveal">
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Dynamic Pricing Optimization</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Professional Listing Creation</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Multi-Platform Distribution</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Guest Communication 24/7</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Guest Screening & Vetting</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Review Management</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Cleaning Coordination</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Linen & Supply Restocking</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Smart Lock Management</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Property Maintenance</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Professional Photography</div>
+                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Monthly Performance Reports</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ FAQ ═══ -->
+        <section class="lp-faq">
+            <div class="lp-section-inner">
+                <div class="lp-section-header reveal">
+                    <h2>Common Questions</h2>
+                </div>
+                <div class="lp-faq-grid">
+                    <div class="lp-faq-item">
+                        <button class="lp-faq-question" type="button" aria-expanded="false">
+                            How much are your management fees?
+                            <span class="lp-faq-icon">+</span>
+                        </button>
+                        <div class="lp-faq-answer">
+                            <p>10-15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. Competitors typically charge 18-25%.</p>
+                        </div>
+                    </div>
+                    <div class="lp-faq-item">
+                        <button class="lp-faq-question" type="button" aria-expanded="false">
+                            Will I actually make more with Airbnb?
+                            <span class="lp-faq-icon">+</span>
+                        </button>
+                        <div class="lp-faq-answer">
+                            <p>We have never had a client make less with short and mid-term rental compared to long-term rental. Most see 30-100% increases in monthly revenue.</p>
+                        </div>
+                    </div>
+                    <div class="lp-faq-item">
+                        <button class="lp-faq-question" type="button" aria-expanded="false">
+                            How long does it take to get listed?
+                            <span class="lp-faq-icon">+</span>
+                        </button>
+                        <div class="lp-faq-answer">
+                            <p>Less than a week. Professional photos, listing creation, and onboarding are all handled by us. The average client sees their first booking within 1 week of going live.</p>
+                        </div>
+                    </div>
+                    <div class="lp-faq-item">
+                        <button class="lp-faq-question" type="button" aria-expanded="false">
+                            Do I have to sign a long contract?
+                            <span class="lp-faq-icon">+</span>
+                        </button>
+                        <div class="lp-faq-answer">
+                            <p>No. Cancel with 30 days notice. No long-term contracts, no penalties. We keep clients by delivering results, not by locking them in.</p>
+                        </div>
+                    </div>
+                    <div class="lp-faq-item">
+                        <button class="lp-faq-question" type="button" aria-expanded="false">
+                            Who owns the listing?
+                            <span class="lp-faq-icon">+</span>
+                        </button>
+                        <div class="lp-faq-answer">
+                            <p>You do. Always. If you ever decide to leave, your listing, reviews, and booking history are yours. We never hold listings hostage.</p>
+                        </div>
+                    </div>
+                    <div class="lp-faq-item">
+                        <button class="lp-faq-question" type="button" aria-expanded="false">
+                            Are there any startup costs?
+                            <span class="lp-faq-icon">+</span>
+                        </button>
+                        <div class="lp-faq-answer">
+                            <p>None. We only get paid on commission. We make money when you make money. No upfront costs, no hidden fees.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ FINAL CTA + FORM ═══ -->
+        <section class="lp-final-cta" id="get-estimate">
+            <div class="lp-final-inner">
+                <div class="lp-final-text">
+                    <h2>Ready to Earn More From Your Property?</h2>
+                    <p>Book your free consultation and we'll show you exactly how much your property could earn with professional Airbnb management.</p>
+                    <ul class="lp-final-benefits">
+                        <li>Free property evaluation</li>
+                        <li>Custom revenue projection</li>
+                        <li>No obligation whatsoever</li>
+                        <li>First booking within 1 week</li>
+                    </ul>
+                </div>
+                <div class="lp-form-card">
+                    <iframe
+                        src="https://api.nurtre.io/widget/booking/VGvuhzjQT58ZPGHt0LUV"
+                        style="width:100%;min-height:550px;border:none;overflow:hidden"
+                        scrolling="no"
+                        id="lp-booking-form"
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="lp-footer">
+        <p>&copy; 2026 Nurture Airbnb Property Management &nbsp;|&nbsp; <a href="tel:647-957-8956">(647) 957-8956</a> &nbsp;|&nbsp; <a href="/">nurturestays.ca</a></p>
+    </footer>
+
+    <!-- Form embed script -->
+    <script src="https://api.nurtre.io/js/form_embed.js"></script>
+
+    <!-- Landing page interactions -->
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('lp-header');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            header.classList.toggle('scrolled', currentScroll > 20);
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // Lite YouTube facade
+        document.querySelectorAll('.lp-video-wrapper').forEach(el => {
+            el.addEventListener('click', function() {
+                if (this.classList.contains('activated')) return;
+                this.classList.add('activated');
+                const videoId = this.dataset.videoid;
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+                iframe.allow = 'autoplay; encrypted-media';
+                iframe.allowFullscreen = true;
+                this.appendChild(iframe);
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // FAQ accordion
+        document.querySelectorAll('.lp-faq-question').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.lp-faq-item');
+                const wasOpen = item.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.lp-faq-item').forEach(i => i.classList.remove('open'));
+                document.querySelectorAll('.lp-faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+                // Toggle clicked
+                if (!wasOpen) {
+                    item.classList.add('open');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
