@@ -226,156 +226,175 @@ import criticalCSS from '../../styles/critical.css?raw';
         /* ─── HERO ─── */
         .lp-hero {
             margin-top: 65px;
-            padding: 5rem 2rem 4rem;
-            background: var(--lp-warm-white);
+            padding: 6rem 2rem;
+            background: white;
+            position: relative;
+            overflow: hidden;
         }
 
         .lp-hero-inner {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            column-gap: 4rem;
+            row-gap: 0.5rem;
             align-items: center;
+            position: relative;
         }
 
-        .lp-hero-content {
-            max-width: 520px;
-        }
-
-        .lp-hero-eyebrow {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--lp-green-dark);
-            margin-bottom: 1.25rem;
-        }
-
-        .lp-hero h1 {
-            font-size: clamp(2.25rem, 4vw, 3rem);
-            color: var(--lp-charcoal);
+        .lp-hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            line-height: 1.12;
-        }
-
-        .lp-hero h1 .highlight {
-            color: var(--lp-green-dark);
-        }
-
-        .lp-hero-sub {
-            font-size: 1.1rem;
-            color: var(--lp-text-light);
-            line-height: 1.75;
-            margin-bottom: 2.25rem;
-        }
-
-        .lp-hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .lp-btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: var(--lp-green);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: background 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .lp-btn-primary:hover {
-            background: var(--lp-green-dark);
-        }
-
-        .lp-btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             color: var(--lp-charcoal);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.9rem 1.25rem;
-            border-radius: 6px;
-            border: 1px solid var(--lp-border);
-            transition: border-color 0.2s ease, color 0.2s ease;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .lp-btn-secondary:hover {
-            border-color: var(--lp-green);
+        .lp-hero-content .highlight {
             color: var(--lp-green-dark);
         }
 
-        /* ─── STATS BAR ─── */
-        .lp-stats-bar {
-            border-top: 1px solid var(--lp-border);
-            border-bottom: 1px solid var(--lp-border);
-            padding: 1.5rem 2rem;
-            background: var(--lp-warm-white);
+        .lp-hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--lp-green-dark);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .lp-stats-inner {
-            max-width: 1100px;
-            margin: 0 auto;
+        .lp-hero-description {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .lp-hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 0;
+            gap: 3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+            align-items: flex-end;
+            grid-column: 1;
+            grid-row: 2;
         }
 
-        .lp-stat-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0 2.5rem;
-            border-right: 1px solid var(--lp-border);
-        }
-
-        .lp-stat-item:last-child {
-            border-right: none;
-        }
-
-        .lp-stat-item img {
-            height: 40px;
-            width: auto;
-        }
-
-        .lp-stat-text {
+        .lp-stat {
             text-align: left;
+        }
+
+        .lp-stat:not(.badge-stat) {
+            margin-bottom: 13px;
         }
 
         .lp-stat-number {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--lp-charcoal);
-            line-height: 1.2;
+            color: var(--lp-green-dark);
+            display: block;
         }
 
         .lp-stat-label {
-            font-size: 0.75rem;
-            color: var(--lp-text-light);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .badge-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lp-badge-img {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .lp-badge-guest-fav {
+            margin-bottom: -10px;
+        }
+
+        .lp-hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .lp-btn-primary {
+            background: var(--lp-green);
+            color: white;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 25px rgba(117, 155, 143, 0.4);
+            cursor: pointer;
+        }
+
+        .lp-btn-primary::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+
+        .lp-btn-primary:hover {
+            background: var(--lp-green-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(117, 155, 143, 0.5);
+        }
+
+        .lp-btn-primary:hover::after {
+            transform: translateX(4px);
+        }
+
+        .lp-btn-secondary {
+            background: transparent;
+            color: var(--lp-charcoal);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            border: 2px solid var(--lp-charcoal);
+            display: inline-block;
+        }
+
+        .lp-btn-secondary:hover {
+            background: var(--lp-charcoal);
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Hero Video */
-        .lp-hero-video { }
+        .lp-hero-video {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.4s both;
+            grid-column: 2;
+            grid-row: 1 / 3;
+        }
 
         .lp-video-wrapper {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid var(--lp-border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             background: #000;
             cursor: pointer;
             touch-action: manipulation;
@@ -513,10 +532,12 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-flip .lp-btn-primary {
             background: white;
             color: var(--lp-charcoal);
+            box-shadow: none;
         }
 
         .lp-flip .lp-btn-primary:hover {
             background: var(--lp-cream);
+            box-shadow: none;
         }
 
         /* ─── CASE STUDY ─── */
@@ -1149,6 +1170,16 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         /* ─── ANIMATIONS ─── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
         /* Scroll-triggered animations */
         .reveal {
             opacity: 0;
@@ -1165,27 +1196,26 @@ import criticalCSS from '../../styles/critical.css?raw';
         @media (max-width: 968px) {
             .lp-hero-inner {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
                 text-align: center;
             }
 
-            .lp-hero-content {
-                max-width: 100%;
+            .lp-hero-content h1 {
+                font-size: 3rem;
             }
 
-            .lp-hero-cta-group {
+            .lp-hero-stats {
                 justify-content: center;
-                flex-wrap: wrap;
+                grid-column: auto;
+                grid-row: auto;
             }
 
-            .lp-stats-inner {
-                flex-wrap: wrap;
-                gap: 1rem;
+            .lp-hero-buttons {
+                justify-content: center;
             }
 
-            .lp-stat-item {
-                padding: 0.5rem 1.5rem;
-                border-right: none;
+            .lp-hero-video {
+                grid-column: auto;
+                grid-row: auto;
             }
 
             .lp-pain-grid {
@@ -1240,8 +1270,78 @@ import criticalCSS from '../../styles/critical.css?raw';
             }
         }
 
+        @media (max-width: 768px) {
+            .lp-hero {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .lp-hero-content h1 {
+                font-size: 1.75rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .lp-hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .lp-hero-description {
+                display: none;
+            }
+
+            .lp-hero-stats {
+                flex-direction: row;
+                gap: 1rem;
+                margin-bottom: 0;
+                margin-top: -0.5rem;
+            }
+
+            .lp-hero-video {
+                margin-top: -0.5rem;
+            }
+
+            .lp-stat:not(.badge-stat) {
+                margin-top: 50px;
+            }
+
+            .lp-stat-number {
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+                line-height: 1;
+            }
+
+            .lp-stat-label {
+                font-size: 0.7rem;
+            }
+
+            .badge-stat {
+                transform: translateY(-39px);
+            }
+
+            .lp-badge-img {
+                height: 78px;
+            }
+
+            .lp-hero-buttons {
+                margin-top: 0.75rem;
+                margin-bottom: 0;
+            }
+
+            .lp-btn-primary {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                box-shadow: 0 4px 15px rgba(117, 155, 143, 0.4);
+                text-align: center;
+                justify-content: center;
+            }
+
+            .lp-btn-primary::after {
+                display: none;
+            }
+        }
+
         @media (max-width: 576px) {
-            .lp-hero { padding: 3rem 1.25rem 2.5rem; }
+            .lp-hero { padding: 3rem 1.25rem 2rem; }
             .lp-pain,
             .lp-lead-panel,
             .lp-case,
@@ -1257,22 +1357,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             .lp-header { padding: 0.6rem 1rem; }
             .lp-header-phone { display: none; }
 
-            .lp-stats-bar { padding: 1rem 1.25rem; }
-
-            .lp-stat-item {
-                padding: 0.4rem 1rem;
-            }
-
-            .lp-hero-cta-group {
-                flex-direction: column;
-            }
-
             .lp-btn-primary {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .lp-btn-secondary {
                 width: 100%;
                 justify-content: center;
             }
@@ -1343,22 +1428,12 @@ import criticalCSS from '../../styles/critical.css?raw';
         <section class="lp-hero">
             <div class="lp-hero-inner">
                 <div class="lp-hero-content">
-                    <p class="lp-hero-eyebrow">GTA Property Owners & Airbnb Hosts</p>
-                    <h1>Your Property Could Be Earning <span class="highlight">30-100% More</span></h1>
-                    <p class="lp-hero-sub">We handle guest communication, cleaning, pricing, and maintenance. You collect rent stress-free. No long contracts, no hidden fees.</p>
-
-                    <div class="lp-hero-cta-group">
-                        <a href="#get-estimate" class="lp-btn-primary">
-                            Get Your Free Revenue Projection
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                        <a href="tel:647-957-8956" class="lp-btn-secondary">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            (647) 957-8956
-                        </a>
-                    </div>
+                    <h1>Earn <span class="highlight">30-100% More</span> by Switching to Airbnb</h1>
+                    <p class="lp-hero-subtitle">Premium Airbnb management in the Greater Toronto Area</p>
+                    <p class="lp-hero-description">
+                        We handle guest communication, cleaning, pricing, and maintenance. You collect rent stress-free. No long contracts, no hidden fees.
+                    </p>
                 </div>
-
                 <div class="lp-hero-video">
                     <div class="lp-video-wrapper" data-videoid="OFACd6a2ctA">
                         <picture>
@@ -1374,40 +1449,28 @@ import criticalCSS from '../../styles/critical.css?raw';
                             </svg>
                         </button>
                     </div>
+                    <div class="lp-hero-buttons">
+                        <a href="#get-estimate" class="lp-btn-primary">Free Revenue Projection</a>
+                    </div>
+                </div>
+                <div class="lp-hero-stats">
+                    <div class="lp-stat badge-stat">
+                        <img src="/images/airbnb-superhost-badge.webp" alt="Airbnb Superhost" class="lp-badge-img" loading="eager">
+                    </div>
+                    <div class="lp-stat badge-stat">
+                        <img src="/images/guest-favorite-badge.webp" alt="Airbnb Guest Favorite" class="lp-badge-img lp-badge-guest-fav" loading="eager">
+                    </div>
+                    <div class="lp-stat">
+                        <span class="lp-stat-number">9min</span>
+                        <span class="lp-stat-label">Response Time</span>
+                    </div>
+                    <div class="lp-stat">
+                        <span class="lp-stat-number">10-15%</span>
+                        <span class="lp-stat-label">Management Fee</span>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- ═══ STATS BAR ═══ -->
-        <div class="lp-stats-bar">
-            <div class="lp-stats-inner">
-                <div class="lp-stat-item">
-                    <img src="/images/airbnb-superhost-badge.webp" alt="Airbnb Superhost" width="40" height="40" loading="eager">
-                    <div class="lp-stat-text">
-                        <div class="lp-stat-number">Superhost</div>
-                        <div class="lp-stat-label">Status</div>
-                    </div>
-                </div>
-                <div class="lp-stat-item">
-                    <div class="lp-stat-text">
-                        <div class="lp-stat-number">4.9 / 5</div>
-                        <div class="lp-stat-label">Avg Guest Rating</div>
-                    </div>
-                </div>
-                <div class="lp-stat-item">
-                    <div class="lp-stat-text">
-                        <div class="lp-stat-number">&lt;9 min</div>
-                        <div class="lp-stat-label">Response Time</div>
-                    </div>
-                </div>
-                <div class="lp-stat-item">
-                    <div class="lp-stat-text">
-                        <div class="lp-stat-number">10-15%</div>
-                        <div class="lp-stat-label">Management Fee</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- ═══ PAIN POINTS ═══ -->
         <section class="lp-pain">
@@ -1466,10 +1529,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             <div class="lp-flip-inner reveal">
                 <h2>What if you could earn more and do less?</h2>
                 <p>Nurture handles everything: guest communication, dynamic pricing, professional cleaning, maintenance, and more. You get the income without the inbox. No startup costs, no long contracts, and you always own your listing.</p>
-                <a href="#get-estimate" class="lp-btn-primary">
-                    See What Your Property Could Earn
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
+                <a href="#get-estimate" class="lp-btn-primary">See What Your Property Could Earn</a>
             </div>
         </section>
 
@@ -1685,10 +1745,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             <div class="lp-urgency-inner reveal">
                 <h3>Every month you wait is revenue you'll never get back.</h3>
                 <p>GTA property owners who switch to Airbnb with Nurture see an average of 30-100% more income. That's not a future promise: most clients are fully booked within their first month.</p>
-                <a href="#get-estimate" class="lp-btn-primary">
-                    Get Your Free Revenue Projection Now
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
+                <a href="#get-estimate" class="lp-btn-primary">Get Your Free Revenue Projection Now</a>
             </div>
         </section>
 
