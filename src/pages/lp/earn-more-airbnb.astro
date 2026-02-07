@@ -216,113 +216,65 @@ import criticalCSS from '../../styles/critical.css?raw';
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.2s ease;
+            transition: background 0.2s ease;
         }
 
         .lp-header-cta:hover {
             background: var(--lp-green-dark);
-            transform: translateY(-1px);
         }
 
         /* ─── HERO ─── */
         .lp-hero {
             margin-top: 65px;
-            padding: 4rem 2rem 3rem;
+            padding: 5rem 2rem 4rem;
             background: var(--lp-warm-white);
-            position: relative;
-        }
-
-        /* Subtle organic texture */
-        .lp-hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 20% 50%, rgba(117,155,143,0.06) 0%, transparent 60%),
-                        radial-gradient(ellipse at 80% 20%, rgba(212,163,115,0.04) 0%, transparent 50%);
-            pointer-events: none;
         }
 
         .lp-hero-inner {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            gap: 4rem;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
         .lp-hero-content {
-            max-width: 560px;
+            max-width: 520px;
         }
 
-        .lp-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(117, 155, 143, 0.1);
-            color: var(--lp-green-dark);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
+        .lp-hero-eyebrow {
+            font-size: 0.8rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--lp-green-dark);
             margin-bottom: 1.25rem;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .lp-hero-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--lp-green);
-            border-radius: 50%;
-            animation: pulse-dot 2s ease infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.3); }
         }
 
         .lp-hero h1 {
-            font-size: clamp(2rem, 4vw, 3.25rem);
+            font-size: clamp(2.25rem, 4vw, 3rem);
             color: var(--lp-charcoal);
-            margin-bottom: 1.25rem;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
+            margin-bottom: 1.5rem;
+            line-height: 1.12;
         }
 
         .lp-hero h1 .highlight {
             color: var(--lp-green-dark);
-            position: relative;
-        }
-
-        .lp-hero h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: rgba(117, 155, 143, 0.2);
-            border-radius: 4px;
-            z-index: -1;
         }
 
         .lp-hero-sub {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--lp-text-light);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
+            line-height: 1.75;
+            margin-bottom: 2.25rem;
         }
 
         .lp-hero-cta-group {
             display: flex;
             gap: 1rem;
             align-items: center;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.6s ease-out 0.3s both;
+            margin-bottom: 2.5rem;
         }
 
         .lp-btn-primary {
@@ -332,28 +284,17 @@ import criticalCSS from '../../styles/critical.css?raw';
             background: var(--lp-green);
             color: white;
             padding: 1rem 2rem;
-            border-radius: 8px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.05rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 16px rgba(117,155,143,0.3);
+            transition: background 0.2s ease;
             border: none;
             cursor: pointer;
         }
 
         .lp-btn-primary:hover {
             background: var(--lp-green-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(117,155,143,0.35);
-        }
-
-        .lp-btn-primary svg {
-            transition: transform 0.2s ease;
-        }
-
-        .lp-btn-primary:hover svg {
-            transform: translateX(3px);
         }
 
         .lp-btn-secondary {
@@ -365,9 +306,9 @@ import criticalCSS from '../../styles/critical.css?raw';
             font-weight: 600;
             font-size: 0.95rem;
             padding: 0.9rem 1.25rem;
-            border-radius: 8px;
-            border: 2px solid var(--lp-border);
-            transition: all 0.2s ease;
+            border-radius: 6px;
+            border: 1px solid var(--lp-border);
+            transition: border-color 0.2s ease, color 0.2s ease;
         }
 
         .lp-btn-secondary:hover {
@@ -375,53 +316,66 @@ import criticalCSS from '../../styles/critical.css?raw';
             color: var(--lp-green-dark);
         }
 
-        .lp-trust-row {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            animation: fadeInUp 0.6s ease-out 0.4s both;
+        /* ─── STATS BAR ─── */
+        .lp-stats-bar {
+            border-top: 1px solid var(--lp-border);
+            border-bottom: 1px solid var(--lp-border);
+            padding: 1.5rem 2rem;
+            background: var(--lp-warm-white);
         }
 
-        .lp-trust-item {
+        .lp-stats-inner {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 0;
         }
 
-        .lp-trust-item img {
-            height: 48px;
+        .lp-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 2.5rem;
+            border-right: 1px solid var(--lp-border);
+        }
+
+        .lp-stat-item:last-child {
+            border-right: none;
+        }
+
+        .lp-stat-item img {
+            height: 40px;
             width: auto;
         }
 
-        .lp-trust-stat {
+        .lp-stat-text {
             text-align: left;
         }
 
-        .lp-trust-number {
+        .lp-stat-number {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--lp-green-dark);
-            line-height: 1;
+            color: var(--lp-charcoal);
+            line-height: 1.2;
         }
 
-        .lp-trust-label {
+        .lp-stat-label {
             font-size: 0.75rem;
             color: var(--lp-text-light);
         }
 
         /* Hero Video */
-        .lp-hero-video {
-            animation: fadeInRight 0.8s ease-out 0.3s both;
-        }
+        .lp-hero-video { }
 
         .lp-video-wrapper {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
-            border-radius: 16px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--lp-border);
             background: #000;
             cursor: pointer;
             touch-action: manipulation;
@@ -462,17 +416,8 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         /* ─── PAIN POINTS ─── */
         .lp-pain {
-            padding: 5rem 2rem;
+            padding: 5.5rem 2rem;
             background: var(--lp-cream);
-            position: relative;
-        }
-
-        .lp-pain::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--lp-border), transparent);
         }
 
         .lp-section-inner {
@@ -507,30 +452,25 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-pain-card {
             background: white;
             padding: 1.75rem;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid var(--lp-border);
             display: flex;
             gap: 1rem;
             align-items: flex-start;
-            transition: all 0.25s ease;
-        }
-
-        .lp-pain-card:hover {
-            border-color: var(--lp-green);
-            box-shadow: 0 4px 16px rgba(117,155,143,0.08);
-            transform: translateY(-2px);
         }
 
         .lp-pain-icon {
             flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            background: rgba(220, 38, 38, 0.08);
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            background: rgba(220, 38, 38, 0.06);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--lp-red);
+            font-weight: 700;
         }
 
         .lp-pain-card h3 {
@@ -547,27 +487,15 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         /* ─── THE FLIP / SOLUTION ─── */
         .lp-flip {
-            padding: 4.5rem 2rem;
-            background: linear-gradient(135deg, var(--lp-green-dark) 0%, var(--lp-green) 50%, #8fb5a8 100%);
+            padding: 5rem 2rem;
+            background: var(--lp-charcoal);
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lp-flip::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2l2 3-2 3z'/%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
         }
 
         .lp-flip-inner {
-            max-width: 700px;
+            max-width: 680px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .lp-flip h2 {
@@ -584,18 +512,16 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-flip .lp-btn-primary {
             background: white;
-            color: var(--lp-green-dark);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            color: var(--lp-charcoal);
         }
 
         .lp-flip .lp-btn-primary:hover {
             background: var(--lp-cream);
-            transform: translateY(-2px);
         }
 
         /* ─── CASE STUDY ─── */
         .lp-case {
-            padding: 5rem 2rem;
+            padding: 5.5rem 2rem;
             background: var(--lp-warm-white);
         }
 
@@ -637,7 +563,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-case-card {
             background: white;
-            border-radius: 14px;
+            border-radius: 8px;
             padding: 2rem;
             border: 1px solid var(--lp-border);
         }
@@ -684,8 +610,8 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .lp-case-arrow-circle {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             background: var(--lp-green);
             border-radius: 50%;
             display: flex;
@@ -693,16 +619,15 @@ import criticalCSS from '../../styles/critical.css?raw';
             justify-content: center;
             color: white;
             font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(117,155,143,0.3);
         }
 
         .lp-case-result {
             text-align: center;
             margin-top: 2rem;
             padding: 1.25rem;
-            background: rgba(117, 155, 143, 0.08);
-            border-radius: 10px;
-            border: 1px solid rgba(117, 155, 143, 0.15);
+            background: rgba(117, 155, 143, 0.06);
+            border-radius: 8px;
+            border: 1px solid rgba(117, 155, 143, 0.12);
         }
 
         .lp-case-result-number {
@@ -719,7 +644,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         /* ─── HOW IT WORKS ─── */
         .lp-how {
-            padding: 5rem 2rem;
+            padding: 5.5rem 2rem;
             background: var(--lp-cream);
         }
 
@@ -737,23 +662,22 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .lp-step-num {
-            width: 56px;
-            height: 56px;
-            background: var(--lp-green);
+            width: 48px;
+            height: 48px;
+            background: var(--lp-charcoal);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
             margin: 0 auto 1.25rem;
-            box-shadow: 0 6px 20px rgba(117,155,143,0.25);
         }
 
         .lp-step h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--lp-charcoal);
             margin-bottom: 0.6rem;
         }
@@ -761,18 +685,18 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-step p {
             font-size: 0.92rem;
             color: var(--lp-text-light);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         /* Step connectors */
         .lp-step:not(:last-child)::after {
             content: '';
             position: absolute;
-            top: 28px;
+            top: 24px;
             right: -1rem;
             width: 2rem;
-            height: 2px;
-            background: linear-gradient(90deg, var(--lp-green), rgba(117,155,143,0.2));
+            height: 1px;
+            background: var(--lp-border);
         }
 
         /* ─── COMPARISON ─── */
@@ -784,9 +708,8 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-compare-table {
             max-width: 800px;
             margin: 0 auto;
-            border-radius: 14px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
             border: 1px solid var(--lp-border);
         }
 
@@ -872,16 +795,11 @@ import criticalCSS from '../../styles/critical.css?raw';
             gap: 0.75rem;
             padding: 1rem 1.25rem;
             background: white;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid var(--lp-border);
             font-size: 0.92rem;
             font-weight: 500;
             color: var(--lp-charcoal);
-            transition: border-color 0.2s ease;
-        }
-
-        .lp-service-item:hover {
-            border-color: var(--lp-green);
         }
 
         .lp-service-check {
@@ -970,19 +888,9 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         /* ─── FINAL CTA / FORM ─── */
         .lp-final-cta {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, var(--lp-green-deeper) 0%, var(--lp-green-dark) 50%, var(--lp-green) 100%);
+            padding: 5.5rem 2rem;
+            background: var(--lp-charcoal);
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lp-final-cta::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
         }
 
         .lp-final-inner {
@@ -992,8 +900,6 @@ import criticalCSS from '../../styles/critical.css?raw';
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: start;
-            position: relative;
-            z-index: 1;
         }
 
         .lp-final-text h2 {
@@ -1031,9 +937,8 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-form-card {
             background: white;
-            border-radius: 14px;
+            border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
@@ -1062,30 +967,11 @@ import criticalCSS from '../../styles/critical.css?raw';
             color: white;
         }
 
-        /* ─── EYEBROW ─── */
-        .lp-eyebrow {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--lp-green-dark);
-            margin-bottom: 0.75rem;
-            animation: fadeInUp 0.6s ease-out 0.05s both;
-        }
-
         /* ─── LEAD PANEL ─── */
         .lp-lead-panel {
-            padding: 4.5rem 2rem;
+            padding: 5rem 2rem;
             background: var(--lp-warm-white);
-            position: relative;
-        }
-
-        .lp-lead-panel::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--lp-border), transparent);
+            border-top: 1px solid var(--lp-border);
         }
 
         .lp-lead-inner {
@@ -1115,12 +1001,12 @@ import criticalCSS from '../../styles/critical.css?raw';
             color: var(--lp-charcoal);
         }
 
-        /* ─── PROPRIETARY SYSTEM LABEL ─── */
-        .lp-system-label {
+        /* ─── SECTION LABEL ─── */
+        .lp-section-label {
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             color: var(--lp-green-dark);
             margin-bottom: 0.5rem;
         }
@@ -1140,21 +1026,19 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-persona-card {
             background: white;
             border: 1px solid var(--lp-border);
-            border-radius: 14px;
+            border-radius: 8px;
             padding: 2rem 1.5rem;
             text-align: center;
-            transition: all 0.25s ease;
         }
 
-        .lp-persona-card:hover {
-            border-color: var(--lp-green);
-            box-shadow: 0 8px 24px rgba(117,155,143,0.1);
-            transform: translateY(-3px);
-        }
-
-        .lp-persona-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .lp-persona-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lp-green-dark);
+            margin-bottom: 0.75rem;
         }
 
         .lp-persona-card h3 {
@@ -1171,7 +1055,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         /* ─── GUARANTEE ─── */
         .lp-guarantee {
-            padding: 5rem 2rem;
+            padding: 5.5rem 2rem;
             background: var(--lp-cream);
         }
 
@@ -1179,11 +1063,6 @@ import criticalCSS from '../../styles/critical.css?raw';
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
-        }
-
-        .lp-guarantee-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
         }
 
         .lp-guarantee-inner h2 {
@@ -1201,10 +1080,10 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-guarantee-item {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 1.75rem;
             border: 1px solid var(--lp-border);
-            border-top: 3px solid var(--lp-green);
+            border-top: 2px solid var(--lp-green);
         }
 
         .lp-guarantee-item h4 {
@@ -1249,7 +1128,6 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-urgency .lp-btn-primary {
             background: var(--lp-green);
-            box-shadow: 0 4px 20px rgba(117,155,143,0.4);
         }
 
         .lp-urgency .lp-btn-primary:hover {
@@ -1279,16 +1157,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         /* ─── ANIMATIONS ─── */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(25px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
         /* Scroll-triggered animations */
         .reveal {
             opacity: 0;
@@ -1318,9 +1186,14 @@ import criticalCSS from '../../styles/critical.css?raw';
                 flex-wrap: wrap;
             }
 
-            .lp-trust-row {
-                justify-content: center;
+            .lp-stats-inner {
                 flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .lp-stat-item {
+                padding: 0.5rem 1.5rem;
+                border-right: none;
             }
 
             .lp-pain-grid {
@@ -1380,7 +1253,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         @media (max-width: 576px) {
-            .lp-hero { padding: 3rem 1.25rem 2rem; }
+            .lp-hero { padding: 3rem 1.25rem 2.5rem; }
             .lp-pain,
             .lp-lead-panel,
             .lp-case,
@@ -1395,6 +1268,12 @@ import criticalCSS from '../../styles/critical.css?raw';
 
             .lp-header { padding: 0.6rem 1rem; }
             .lp-header-phone { display: none; }
+
+            .lp-stats-bar { padding: 1rem 1.25rem; }
+
+            .lp-stat-item {
+                padding: 0.4rem 1rem;
+            }
 
             .lp-hero-cta-group {
                 flex-direction: column;
@@ -1429,7 +1308,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         /* Performance */
-        .lp-pain,
         .lp-lead-panel,
         .lp-case,
         .lp-how,
@@ -1477,8 +1355,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         <section class="lp-hero">
             <div class="lp-hero-inner">
                 <div class="lp-hero-content">
-                    <div class="lp-hero-badge">Serving the Greater Toronto Area</div>
-                    <p class="lp-eyebrow">ATTENTION GTA PROPERTY OWNERS & AIRBNB HOSTS</p>
+                    <p class="lp-hero-eyebrow">GTA Property Owners & Airbnb Hosts</p>
                     <h1>Your Property Could Be Earning <span class="highlight">30-100% More</span></h1>
                     <p class="lp-hero-sub">We handle guest communication, cleaning, pricing, and maintenance. You collect rent stress-free. No long contracts, no hidden fees.</p>
 
@@ -1491,27 +1368,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             (647) 957-8956
                         </a>
-                    </div>
-
-                    <div class="lp-trust-row">
-                        <div class="lp-trust-item">
-                            <img src="/images/airbnb-superhost-badge.png" alt="Airbnb Superhost" width="48" height="48" loading="eager">
-                        </div>
-                        <div class="lp-trust-item">
-                            <img src="/images/guest-favorite-badge.png" alt="Guest Favorite" width="48" height="48" loading="eager">
-                        </div>
-                        <div class="lp-trust-item">
-                            <div class="lp-trust-stat">
-                                <div class="lp-trust-number">4.9★</div>
-                                <div class="lp-trust-label">Avg Rating</div>
-                            </div>
-                        </div>
-                        <div class="lp-trust-item">
-                            <div class="lp-trust-stat">
-                                <div class="lp-trust-number">&lt;9 min</div>
-                                <div class="lp-trust-label">Response Time</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -1534,6 +1390,37 @@ import criticalCSS from '../../styles/critical.css?raw';
             </div>
         </section>
 
+        <!-- ═══ STATS BAR ═══ -->
+        <div class="lp-stats-bar">
+            <div class="lp-stats-inner">
+                <div class="lp-stat-item">
+                    <img src="/images/airbnb-superhost-badge.png" alt="Airbnb Superhost" width="40" height="40" loading="eager">
+                    <div class="lp-stat-text">
+                        <div class="lp-stat-number">Superhost</div>
+                        <div class="lp-stat-label">Status</div>
+                    </div>
+                </div>
+                <div class="lp-stat-item">
+                    <div class="lp-stat-text">
+                        <div class="lp-stat-number">4.9 / 5</div>
+                        <div class="lp-stat-label">Avg Guest Rating</div>
+                    </div>
+                </div>
+                <div class="lp-stat-item">
+                    <div class="lp-stat-text">
+                        <div class="lp-stat-number">&lt;9 min</div>
+                        <div class="lp-stat-label">Response Time</div>
+                    </div>
+                </div>
+                <div class="lp-stat-item">
+                    <div class="lp-stat-text">
+                        <div class="lp-stat-number">10-15%</div>
+                        <div class="lp-stat-label">Management Fee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ═══ PAIN POINTS ═══ -->
         <section class="lp-pain">
             <div class="lp-section-inner">
@@ -1543,28 +1430,28 @@ import criticalCSS from '../../styles/critical.css?raw';
                 </div>
                 <div class="lp-pain-grid">
                     <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">📱</div>
+                        <div class="lp-pain-icon">01</div>
                         <div>
                             <h3>Late-night guest messages</h3>
                             <p>The lockbox isn't working. The WiFi is down. The hot water is gone. And it's always at 11pm.</p>
                         </div>
                     </div>
                     <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">💸</div>
+                        <div class="lp-pain-icon">02</div>
                         <div>
                             <h3>Leaving money on the table</h3>
                             <p>You set a nightly rate and hope for the best. Meanwhile, comparable properties are charging 40% more on weekends.</p>
                         </div>
                     </div>
                     <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">🧹</div>
+                        <div class="lp-pain-icon">03</div>
                         <div>
                             <h3>Cleaning chaos between bookings</h3>
                             <p>Coordinating cleaners with a 3-hour window between checkout and check-in. One cancellation and the whole day collapses.</p>
                         </div>
                     </div>
                     <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">⭐</div>
+                        <div class="lp-pain-icon">04</div>
                         <div>
                             <h3>Bad reviews from slow responses</h3>
                             <p>One 4-star review tanks your listing. And it came from a guest who waited 6 hours for a simple answer.</p>
@@ -1662,7 +1549,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         <section class="lp-how">
             <div class="lp-section-inner">
                 <div class="lp-section-header reveal">
-                    <p class="lp-system-label">The Nurture Launch System</p>
+                    <p class="lp-section-label">The Nurture Launch System</p>
                     <h2>Three Steps. That's It.</h2>
                     <p>From consultation to first booking in under a week</p>
                 </div>
@@ -1770,17 +1657,17 @@ import criticalCSS from '../../styles/critical.css?raw';
                 </div>
                 <div class="lp-whoisfor-grid reveal">
                     <div class="lp-persona-card">
-                        <div class="lp-persona-icon">🏠</div>
+                        <div class="lp-persona-label">Property Owner</div>
                         <h3>The Busy Homeowner</h3>
                         <p>You have a property sitting underused (or collecting low rent), but you don't have time to manage Airbnb yourself. You want the income without the 2am messages.</p>
                     </div>
                     <div class="lp-persona-card">
-                        <div class="lp-persona-icon">😤</div>
+                        <div class="lp-persona-label">Current Host</div>
                         <h3>The Frustrated Self-Manager</h3>
                         <p>You've been running your own Airbnb for months (or years) and you're exhausted. The cleaning coordination, guest issues, and pricing headaches have taken the joy out of hosting.</p>
                     </div>
                     <div class="lp-persona-card">
-                        <div class="lp-persona-icon">🔄</div>
+                        <div class="lp-persona-label">Switching PMs</div>
                         <h3>The Disappointed Switcher</h3>
                         <p>You tried another property manager and were let down: high fees, slow responses, listing held hostage, or just poor results. You want a company that actually delivers.</p>
                     </div>
@@ -1791,7 +1678,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         <!-- ═══ GUARANTEE ═══ -->
         <section class="lp-guarantee">
             <div class="lp-guarantee-inner reveal">
-                <div class="lp-guarantee-icon">🛡️</div>
                 <h2>Our Promise to You</h2>
                 <div class="lp-guarantee-grid">
                     <div class="lp-guarantee-item">
