@@ -1,0 +1,281 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: 'What makes Nurture unique?', a: 'We charge 10-15% vs the industry standard of 18-25%. We respond in under 9 minutes (not hours or days). No long contracts, you own your listing, and you get direct contact with your manager instead of group chats. We\'re locally owned in the GTA, have no hidden fees, and never mark up supplies. <a href="/pricing-toronto-airbnb-management">See our pricing</a>.' },
+  { q: 'How much are your management fees?', a: 'Our fees range from 10% to 15% depending on whether you want partial or full service. This is significantly lower than competitors who charge 18-25%. <a href="/pricing-toronto-airbnb-management">View full pricing details</a>.' },
+  { q: 'Are there any startup costs?', a: 'No. We only get paid on commission. We make money when you make money. No setup fees, no monthly minimums.' },
+  { q: 'How much can my property earn?', a: 'Most clients see 30-100% more revenue compared to long-term rentals. Based on our analysis of 320 Toronto Airbnb listings (not properties we manage), the average 2-bedroom earns $2,337/month, while top performers earn $7,054+/month. Results vary widely based on location, optimization, and management quality, which is why professional management makes such a difference. <a href="/blog/how-much-can-i-make-airbnb-toronto-2026">See the full earnings breakdown</a>.' },
+  { q: 'How much time does running an Airbnb take?', a: 'With our full management service, your time commitment is minimal. Your main task is getting the property furnished and guest-ready. Once that\'s done, we handle everything: guest messages, cleaning coordination, maintenance, and pricing. You collect passive income while we do the work.' },
+  { q: 'Do I need insurance for short-term rentals?', a: 'Most GTA municipalities require $2 million liability insurance that explicitly covers short-term rental activity. Standard homeowner\'s insurance usually doesn\'t cover STR use. We can connect you with a discount brokerage in Ontario that specializes in short-term rental insurance.' },
+  { q: 'How long does it take to get my property listed?', a: 'The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.' },
+  { q: 'Do I need professional photos?', a: 'Yes, professional photos are one of the highest-ROI investments you can make. Listings with professional photography get significantly more views, more bookings, and can command higher nightly rates. The cost of a photo shoot pays for itself many times over. Our service includes professional photography.' },
+  { q: 'Does my property qualify for short-term rental?', a: 'Each municipality has its own rules, and each building may have additional restrictions. Some GTA cities require registration while others have no licensing requirements at all. Many cities do NOT have rules around mid-term rentals (30+ days). <a href="/blog/gta-cities-no-airbnb-license-required-2026">See which GTA cities don\'t require a license</a> or explore the <a href="/blog/best-gta-neighborhoods-airbnb-2026">best GTA neighborhoods for Airbnb</a>.' },
+  { q: 'Who handles the Municipal Accommodation Tax (MAT)?', a: 'Airbnb automatically collects and remits MAT (typically 4-8.5% depending on your municipality). However, other platforms like Booking.com and VRBO require manual quarterly reporting. We provide you with the booking data needed for your quarterly reports. <a href="/blog/toronto-airbnb-mat-tax-guide-2026">Read our complete MAT guide</a>.' },
+  { q: 'How do I restock my Airbnb?', a: 'We take care of restocking at cost with no markup. We replenish toilet paper, paper towels, soaps, shampoo, coffee, tea, and basic snacks after each guest as part of your turnover service.' },
+  { q: 'Do I need a short-term rental license?', a: 'It depends on your city. Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville all require registration. Some cities like Ajax, Richmond Hill, and Pickering currently have no licensing requirements. You are responsible for obtaining any required licenses. <a href="/blog/gta-cities-no-airbnb-license-required-2026">See which GTA cities don\'t require a license</a>.' },
+  { q: 'How much does it cost to furnish my Airbnb?', a: 'Costs vary based on property size and style. A basic 1-bedroom setup typically costs $2,000-$8,000, while a 2-3 bedroom can run $3,000-$15,000. Pro tip: Don\'t overspend on furnishings. Guests care far more about communication, cleanliness, and overall experience than luxury furniture. Our Professional plan includes furnishing consulting to help you get the best ROI.' },
+  { q: 'What if my condo doesn\'t allow short-term rentals?', a: 'Mid-term rentals (30+ days) are exempt from most STR restrictions and condo rules in the GTA. This is often the best path for investment properties or buildings with STR restrictions. We manage both short and mid-term rentals. <a href="/services/mid-term-rental-management">Learn about mid-term management</a>.' },
+  { q: 'What happens if there is property damage?', a: 'We document the property with photos after every clean to protect you. Airbnb offers AirCover with up to $3M in damage protection. Our Professional plan includes insurance claim assistance to help you navigate any damage claims.' },
+  { q: 'How do you screen guests?', a: 'We verify every guest before accepting bookings. We check for verified IDs, positive review history, and clear purpose of stay. Our screening keeps out parties and problematic guests. No parties, no problems, no headaches for you.' },
+  { q: 'Can I Airbnb my property if it\'s not my primary residence?', a: 'Most GTA cities (Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville) require STRs to be your principal residence. For investment properties, mid-term rentals (30+ days) are typically exempt from these rules and are a clear legal path. <a href="/blog/airbnb-investment-property-gta">Read our investment property guide</a>.' },
+  { q: 'What cities do you operate in?', a: 'We operate across Southern Ontario including the Greater Toronto Area, Hamilton, Niagara, and surrounding cities. We also serve Calgary, Alberta. <a href="/locations">See all locations</a>.' },
+  { q: 'Do I have to sign a lengthy contract?', a: 'No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts.' },
+  { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.' }
+];
+---
+
+<Layout title="Booking Confirmed - Consultation Scheduled" description="Thank you for booking a consultation with Nurture Airbnb Property Management. We'll be in touch shortly with your meeting details.">
+  <section class="thank-you-section">
+    <div class="container">
+      <div class="thank-you-card">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <h1>Thanks for booking!</h1>
+        <p class="subtitle">We're emailing and texting you the meeting details now</p>
+
+        <div class="next-steps">
+          <h2>Important Steps To Take</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div>
+                <strong>Add the appointment to your calendar</strong>
+                <p>Check your spam in case we ended up there</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div>
+                <strong>If applicable, check with your condo board to make sure your property allows for short or mid term rental</strong>
+                <p>Some condo buildings have restrictions on rentals. If you're not sure, check your condo rules or message us and we'll help you figure it out.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <div>
+                <strong>Confirm all decision makers can make it</strong>
+                <p>Include anyone you need to make a decision (spouse, business partner, etc.). You can forward the invitation to them or just let us know and we'll forward it for you.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <p>Questions? Reach us at:</p>
+          <a href="tel:+16479578956" class="phone-link">647-957-8956</a>
+        </div>
+
+        <a href="/" class="btn btn-primary">Return to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p set:html={faq.a}></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thank-you-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+  }
+
+  .thank-you-card {
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .success-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+  }
+
+  .thank-you-card h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+  }
+
+  .next-steps {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .next-steps h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .step strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+
+  .step p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+
+  .contact-info p {
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .phone-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .phone-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .faq-section {
+    background: white;
+    padding: 4rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .faq-card h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .faq-card a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .faq-card a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .thank-you-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .thank-you-card h1 {
+      font-size: 1.75rem;
+    }
+
+    .next-steps {
+      padding: 1.5rem;
+    }
+  }
+</style>
