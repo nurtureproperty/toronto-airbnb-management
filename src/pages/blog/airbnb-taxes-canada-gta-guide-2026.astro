@@ -1,0 +1,1130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I have to pay taxes on Airbnb income in Canada?", a: "Yes. All Airbnb income must be reported to the CRA on your annual tax return. If you provide basic hosting (furnishing, cleaning, amenities), it's typically reported as rental income on Form T776. If you provide substantial additional services (meals, tours, concierge), it may be classified as business income. Either way, you can deduct eligible expenses against that income." },
+  { q: "When do I need to register for HST?", a: "You must register for an HST number once your total taxable supplies (gross Airbnb revenue plus any other taxable business income) exceed $30,000 over four consecutive calendar quarters or in a single quarter. Once registered, you charge 13% HST on your nightly rate and remit it to the CRA, but you can also claim Input Tax Credits on your business expenses." },
+  { q: "Does Airbnb collect MAT automatically in Toronto?", a: "Yes. Airbnb has a Voluntary Collection Agreement with the City of Toronto and automatically adds the 8.5% MAT to guest bookings, collects it at checkout, and remits it directly to the city. However, hosts are still legally required to file quarterly MAT reports. If you take direct bookings outside of Airbnb, you must collect and remit the MAT yourself." },
+  { q: "Can I deduct my mortgage from Airbnb income?", a: "You can deduct the interest portion of your mortgage payment, but not the principal. The deductible amount is pro-rated based on the percentage of your home used for short-term rental and the number of days it was rented. For example, if you rent one bedroom in a three-bedroom home for 180 days, you can deduct roughly one-sixth of your annual mortgage interest." },
+  { q: "What happens if I don't report my Airbnb income?", a: "The CRA receives payment data directly from Airbnb Canada, so unreported income is likely to be flagged. Penalties for non-disclosure include interest on unpaid taxes, a late-filing penalty of 5% plus 1% per month (up to 12 months), and potential gross negligence penalties of up to 50% of the understated tax. Voluntary disclosure before the CRA contacts you can reduce penalties." },
+  { q: "Do I need a separate business account for Airbnb?", a: "It's not legally required, but strongly recommended. A dedicated bank account for your Airbnb revenue and expenses simplifies record keeping, makes tax preparation faster, and provides a clean paper trail if the CRA ever audits your rental activity. Most accountants will advise you to set one up from day one." }
+];
+
+const relatedPosts = [
+  { title: "Toronto Airbnb MAT Tax Guide", href: '/blog/toronto-airbnb-mat-tax-guide-2026', description: 'Deep dive into Toronto\'s 8.5% accommodation tax' },
+  { title: "Airbnb vs Long-Term Rental Toronto", href: '/blog/airbnb-vs-long-term-rental-toronto-2026', description: 'Tax differences between rental strategies' },
+  { title: "Toronto Airbnb Rules 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Registration and compliance to protect deductions' }
+];
+
+const tocItems = [
+  { id: 'three-taxes', text: 'Three Taxes You Need to Know' },
+  { id: 'income-tax', text: 'Income Tax on Airbnb Revenue' },
+  { id: 'hst', text: 'HST: The $30,000 Threshold' },
+  { id: 'mat', text: 'Municipal Accommodation Tax (MAT)' },
+  { id: 'deductible-expenses', text: 'Deductible Expenses' },
+  { id: 'non-compliant', text: 'Non-Compliant Deduction Denial' },
+  { id: 'record-keeping', text: 'Record Keeping' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Taxes Canada 2026: GTA Host Tax Guide";
+const pageDescription = "Airbnb taxes in Canada: income tax, HST registration at $30K, Toronto 8.5% MAT, deductible expenses. Complete 2026 GTA host tax guide.";
+
+// Schema.org structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Taxes Canada: What GTA Hosts Owe in 2026",
+  "description": pageDescription,
+  "datePublished": "2026-02-07",
+  "dateModified": "2026-02-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-taxes-canada-gta-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Taxes Canada: What GTA Hosts Owe in 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 7, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">11 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">If you're earning rental income from Airbnb in Canada, you need to understand three distinct taxes: federal/provincial income tax, HST, and the Municipal Accommodation Tax (MAT). Missing any one of them can lead to penalties, interest, or even denied expense deductions.</p>
+            <p class="lead">This guide breaks down exactly what GTA hosts owe, what you can deduct, and how to stay compliant in 2026.</p>
+          </div>
+
+          <h2 id="three-taxes">Three Taxes Every Airbnb Host Needs to Know</h2>
+          <p>Airbnb income in Canada is subject to up to three layers of tax. Each has different rules, different thresholds, and different filing requirements. Here's the overview before we dive into each one.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>1. Income Tax (CRA)</h4>
+              <p>All Airbnb earnings must be reported on your annual tax return. You'll pay your marginal tax rate on net rental income after deductions.</p>
+            </div>
+            <div class="info-card">
+              <h4>2. HST (13% in Ontario)</h4>
+              <p>Once your gross revenue crosses $30,000 in four consecutive quarters, you must register, charge 13% HST, and remit it to the CRA.</p>
+            </div>
+            <div class="info-card">
+              <h4>3. MAT (Municipal Tax)</h4>
+              <p>Most GTA cities charge 4% to 8.5% on short-term stays under 28 days. Airbnb auto-collects in most municipalities.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Key Point:</strong> The CRA receives payment data directly from Airbnb Canada. Even if you don't receive a tax slip, the CRA knows how much you earned. Report everything.
+            </div>
+          </div>
+
+          <h2 id="income-tax">Income Tax on Airbnb Revenue</h2>
+          <p>Every dollar you earn from Airbnb is taxable income in Canada. The way you report it depends on the level of service you provide to guests.</p>
+
+          <h3>Rental Income (Most Common)</h3>
+          <p>If you're providing basic short-term accommodation (a furnished space with standard amenities), your Airbnb income is classified as <strong>rental income</strong>. You report it on <strong>Form T776 (Statement of Real Estate Rentals)</strong> as part of your personal tax return.</p>
+
+          <p>This is how the vast majority of GTA hosts file. You list your gross rental income, subtract eligible expenses, and pay tax on the net amount at your marginal rate.</p>
+
+          <h3>Business Income (Less Common)</h3>
+          <p>If you provide substantial additional services beyond basic accommodation, such as daily meals, guided tours, concierge services, or organized activities, the CRA may classify your Airbnb operation as a <strong>business</strong> rather than a rental. In that case, you report it as self-employment income and may owe CPP contributions on top of income tax.</p>
+
+          <p>For most hosts using a property manager like <a href="/services/full-airbnb-management">Nurture</a>, the income is straightforwardly rental income. Cleaning, key exchange, and guest communication do not push your activity into business territory.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Pro Tip:</strong> Keep a separate bank account for your Airbnb income and expenses. It makes tracking much easier and gives you a clean paper trail at tax time. Your accountant will thank you.
+            </div>
+          </div>
+
+          <h3>How Much Tax Will You Pay?</h3>
+          <p>You pay your marginal tax rate on net Airbnb income (gross revenue minus deductions). In Ontario, combined federal and provincial rates range from about 20% to 53% depending on your total income. The key to lowering your tax bill is maximizing legitimate deductions, which we cover in the <a href="#deductible-expenses">deductible expenses section</a> below.</p>
+
+          <h2 id="hst">HST: The $30,000 Threshold</h2>
+          <p>The Harmonized Sales Tax (HST) is where many hosts get caught off guard. In Ontario, HST is <strong>13%</strong>, and whether you need to charge it depends on your total revenue.</p>
+
+          <h3>When You Must Register</h3>
+          <p>You are required to register for an HST number with the CRA once your <strong>total taxable supplies exceed $30,000 over four consecutive calendar quarters</strong> (or in a single quarter). "Taxable supplies" includes your gross Airbnb revenue before any deductions.</p>
+
+          <div class="rate-box">
+            <div class="rate-item">
+              <span class="rate-label">HST Rate (Ontario)</span>
+              <span class="rate-value">13%</span>
+            </div>
+            <div class="rate-item">
+              <span class="rate-label">Registration Threshold</span>
+              <span class="rate-value">$30,000</span>
+            </div>
+            <div class="rate-item">
+              <span class="rate-label">Filing Frequency</span>
+              <span class="rate-value">Annual or Quarterly</span>
+            </div>
+          </div>
+
+          <p>For context, if your Airbnb grosses $2,500 per month, you will hit the $30,000 threshold in your first year. Most active GTA hosts cross this line quickly.</p>
+
+          <h3>What Happens After You Register</h3>
+          <p>Once registered, you must:</p>
+          <ul>
+            <li><strong>Charge 13% HST</strong> on your nightly rate and cleaning fees (Airbnb can add this automatically to your listings)</li>
+            <li><strong>Remit the HST</strong> to the CRA on your filing schedule (annually or quarterly)</li>
+            <li><strong>Claim Input Tax Credits (ITCs)</strong> on HST you paid on business expenses (cleaning supplies, furniture, management fees, etc.)</li>
+          </ul>
+
+          <p>ITCs are a significant benefit. You get back the HST you paid on eligible expenses, which can substantially offset the amount you owe. Many hosts find that after ITCs, the net HST remittance is quite manageable.</p>
+
+          <h3>Voluntary Registration</h3>
+          <p>Even if you're under $30,000, you can voluntarily register for HST. Why would you? Because it lets you claim ITCs immediately. If you're furnishing a new listing and spending $10,000 on furniture, appliances, and supplies, you could recover $1,300 in HST through ITCs. For hosts with significant startup costs, voluntary registration often makes financial sense.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Important:</strong> Stays of 30 consecutive days or longer are exempt from HST. If you take mid-term bookings (30+ days), you do not charge HST on those stays. This only applies to continuous stays of one month or more.
+            </div>
+          </div>
+
+          <h2 id="mat">Municipal Accommodation Tax (MAT)</h2>
+          <p>On top of income tax and HST, most GTA municipalities charge a <strong>Municipal Accommodation Tax</strong> on short-term stays. MAT is paid by your guests, not you, but as the host, you're responsible for ensuring it's collected and remitted.</p>
+
+          <p>The good news: Airbnb has Voluntary Collection Agreements with most Ontario municipalities and handles MAT automatically for platform bookings. For a deep dive into Toronto's MAT specifically, see our <a href="/blog/toronto-airbnb-mat-tax-guide-2026">Toronto MAT Tax Guide</a>.</p>
+
+          <h3>MAT Rates Across the GTA</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>MAT Rate</th>
+                  <th>Collection Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Toronto</strong></td>
+                  <td>8.5%</td>
+                  <td>Airbnb auto-collects</td>
+                </tr>
+                <tr>
+                  <td><strong>Brampton</strong></td>
+                  <td>4%</td>
+                  <td>Airbnb auto-collects</td>
+                </tr>
+                <tr>
+                  <td><strong>Vaughan</strong></td>
+                  <td>4%</td>
+                  <td>Airbnb auto-collects</td>
+                </tr>
+                <tr>
+                  <td><strong>Oakville</strong></td>
+                  <td>4%</td>
+                  <td>Airbnb auto-collects</td>
+                </tr>
+                <tr>
+                  <td><strong>Hamilton</strong></td>
+                  <td>4%</td>
+                  <td>Varies by platform</td>
+                </tr>
+                <tr>
+                  <td><strong>Mississauga</strong></td>
+                  <td>4%</td>
+                  <td>Airbnb auto-collects</td>
+                </tr>
+                <tr>
+                  <td><strong>Oshawa</strong></td>
+                  <td>5%</td>
+                  <td>Host remits quarterly</td>
+                </tr>
+                <tr>
+                  <td><strong>Ottawa</strong></td>
+                  <td>4%</td>
+                  <td>Airbnb auto-collects</td>
+                </tr>
+                <tr>
+                  <td><strong>Niagara Falls</strong></td>
+                  <td>$2/night</td>
+                  <td>Host remits</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Note: Toronto's 8.5% rate is a temporary increase (June 2025 to July 2026) tied to FIFA World Cup 2026 infrastructure. The rate was previously 6% and may return to that level after July 2026.</p>
+
+          <h3>Key MAT Rules</h3>
+          <ul>
+            <li><strong>MAT only applies to stays under 28 consecutive days.</strong> Mid-term bookings of 28+ days are exempt in every municipality.</li>
+            <li><strong>MAT is charged on the room rate only,</strong> not on cleaning fees or other itemized charges.</li>
+            <li><strong>Even when Airbnb collects MAT,</strong> most cities still require you to file quarterly reports. Toronto, for example, requires quarterly filing even if all your bookings went through Airbnb.</li>
+            <li><strong>For direct bookings</strong> (your own website, repeat guests), you must collect and remit MAT yourself.</li>
+          </ul>
+
+          <h2 id="deductible-expenses">Deductible Expenses: Lowering Your Tax Bill</h2>
+          <p>This is where smart hosting pays off. The CRA allows you to deduct reasonable expenses incurred to earn your Airbnb income. The more you track, the less you owe. Here's what qualifies.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Expense</th>
+                  <th>Deductible?</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Management fees</strong></td>
+                  <td>Yes</td>
+                  <td>10-15% of revenue</td>
+                </tr>
+                <tr>
+                  <td><strong>Cleaning costs</strong></td>
+                  <td>Yes</td>
+                  <td>Per-turnover costs</td>
+                </tr>
+                <tr>
+                  <td><strong>Supplies and amenities</strong></td>
+                  <td>Yes</td>
+                  <td>Coffee, toiletries, linens</td>
+                </tr>
+                <tr>
+                  <td><strong>Furniture (CCA)</strong></td>
+                  <td>Yes</td>
+                  <td>Capital cost allowance over time</td>
+                </tr>
+                <tr>
+                  <td><strong>Insurance</strong></td>
+                  <td>Yes</td>
+                  <td>STR-specific policy</td>
+                </tr>
+                <tr>
+                  <td><strong>Utilities</strong></td>
+                  <td>Partial</td>
+                  <td>Pro-rated if personal use</td>
+                </tr>
+                <tr>
+                  <td><strong>Mortgage interest</strong></td>
+                  <td>Partial</td>
+                  <td>Interest only, not principal</td>
+                </tr>
+                <tr>
+                  <td><strong>Property tax</strong></td>
+                  <td>Partial</td>
+                  <td>Pro-rated by rental use</td>
+                </tr>
+                <tr>
+                  <td><strong>Platform service fees</strong></td>
+                  <td>Yes</td>
+                  <td>Airbnb's 3% host fee</td>
+                </tr>
+                <tr>
+                  <td><strong>Professional photography</strong></td>
+                  <td>Yes</td>
+                  <td>Listing photos</td>
+                </tr>
+                <tr>
+                  <td><strong>Repairs and maintenance</strong></td>
+                  <td>Yes</td>
+                  <td>Must be current expense</td>
+                </tr>
+                <tr>
+                  <td><strong>Accounting fees</strong></td>
+                  <td>Yes</td>
+                  <td>Tax preparation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Understanding "Partial" Deductions</h3>
+          <p>Expenses like utilities, mortgage interest, and property tax must be <strong>pro-rated</strong> based on how much of your home is used for Airbnb and for how many days. The CRA expects a reasonable calculation. For example:</p>
+
+          <div class="example-calculation">
+            <h4>Example: Pro-Rating Mortgage Interest</h4>
+            <table class="calc-table">
+              <tr>
+                <td>Annual Mortgage Interest</td>
+                <td>$18,000</td>
+              </tr>
+              <tr>
+                <td>Rental Portion of Home</td>
+                <td>33% (1 of 3 bedrooms)</td>
+              </tr>
+              <tr>
+                <td>Days Rented</td>
+                <td>180 of 365 (49%)</td>
+              </tr>
+              <tr>
+                <td>Calculation</td>
+                <td>$18,000 x 33% x 49%</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Deductible Amount</strong></td>
+                <td><strong>$2,910</strong></td>
+              </tr>
+            </table>
+            <p class="calc-note">The same formula applies to property tax, home insurance, and utility costs. Keep detailed records of rental days and square footage used.</p>
+          </div>
+
+          <h3>Capital Cost Allowance (CCA) on Furniture</h3>
+          <p>Large purchases like furniture, appliances, and electronics cannot be deducted all at once. Instead, you claim <strong>Capital Cost Allowance (CCA)</strong>, which spreads the deduction over several years. Most furniture falls under CCA Class 8 (20% declining balance per year). In the first year, you can only claim half the normal rate (the "half-year rule").</p>
+
+          <p>For example, if you spend $5,000 furnishing your Airbnb, you would deduct $500 in the first year, $900 in the second year, and so on. It's not as satisfying as an immediate write-off, but it provides ongoing tax relief.</p>
+
+          <h3>What You Cannot Deduct</h3>
+          <ul>
+            <li><strong>Mortgage principal payments</strong> (only interest is deductible)</li>
+            <li><strong>Personal use expenses</strong> (only the rental-use portion qualifies)</li>
+            <li><strong>Capital improvements</strong> as current expenses (renovations must be depreciated via CCA)</li>
+            <li><strong>Fines or penalties</strong> from non-compliance with city bylaws</li>
+          </ul>
+
+          <h2 id="non-compliant">2024 Federal Rule: Non-Compliant Deduction Denial</h2>
+          <p>Starting with the 2024 tax year, the federal government introduced a rule that directly impacts hosts who operate without proper licensing. If your <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">short-term rental is not compliant</a> with provincial or municipal regulations, <strong>the CRA will deny all expense deductions against that rental income</strong>.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>This is significant.</strong> If you're operating an unlicensed Airbnb in a city that requires a license (Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville, and others), the CRA can deny every deduction: management fees, cleaning, supplies, mortgage interest, everything. You'd pay income tax on your gross revenue with zero offsets.
+            </div>
+          </div>
+
+          <p>This rule was designed to discourage non-compliant short-term rentals. The practical impact is enormous. A host earning $40,000 in gross revenue with $25,000 in expenses would normally pay tax on $15,000. Without deductions, they pay tax on the full $40,000. At a 40% marginal rate, that's an extra $10,000 in taxes.</p>
+
+          <h3>How to Protect Yourself</h3>
+          <ul>
+            <li><strong>Register your STR</strong> with your municipality and keep your license current</li>
+            <li><strong>Comply with all local bylaws,</strong> including the <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">principal residence requirement</a> and night limits</li>
+            <li><strong>Keep your registration number</strong> on all Airbnb listings</li>
+            <li><strong>Retain proof of compliance</strong> (license certificates, registration confirmations) with your tax records</li>
+          </ul>
+
+          <p>If you're unsure whether your <a href="/blog/airbnb-investment-property-gta">investment property qualifies</a> for short-term rental licensing in your municipality, check before listing. The tax consequences of non-compliance are now far more severe than a municipal fine alone.</p>
+
+          <h2 id="record-keeping">Record Keeping: What to Track and For How Long</h2>
+          <p>Good records are your best defense at tax time and in the event of a CRA audit. Here's what you need to track and how long to keep everything.</p>
+
+          <h3>What to Track</h3>
+          <div class="steps-list">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <h4>All Booking Revenue</h4>
+                <p>Keep records of every booking: dates, nightly rate, cleaning fees, guest name, and platform used. Download your annual Airbnb earnings summary each January.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <h4>Every Expense Receipt</h4>
+                <p>Save receipts for cleaning supplies, furniture purchases, repairs, insurance premiums, and every other deductible expense. Digital copies are acceptable.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <div class="step-content">
+                <h4>Rental Days Log</h4>
+                <p>Maintain a calendar or log showing which days your property was rented, which days it was available, and which days it was used personally. This is critical for pro-rating partial deductions.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">4</span>
+              <div class="step-content">
+                <h4>HST Collected and ITCs Claimed</h4>
+                <p>If you're registered for HST, track every dollar of HST charged to guests and every ITC claimed on expenses. Your HST return requires these figures.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">5</span>
+              <div class="step-content">
+                <h4>MAT Reports and Remittances</h4>
+                <p>Keep copies of all quarterly MAT filings and any payments made for direct bookings. Toronto and other municipalities may request proof of compliance.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">6</span>
+              <div class="step-content">
+                <h4>Compliance Documentation</h4>
+                <p>Retain your STR registration certificate, license number, insurance policy, and any correspondence with your municipality. These protect your expense deductions under the 2024 federal rule.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>How Long to Keep Records</h3>
+          <p>The CRA requires you to keep all supporting documents for <strong>six years</strong> from the end of the tax year they relate to. For example, records from your 2026 tax return must be kept until at least the end of 2032. For MAT records in some municipalities (like Oshawa), the requirement is seven years.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Recommended Tools:</strong> Use accounting software like QuickBooks Self-Employed or Wave (free) to track income and expenses automatically. Pair it with a receipt scanner app like Dext or just a dedicated folder in Google Drive. The less manual work at tax time, the better.
+            </div>
+          </div>
+
+          <h3>Working with an Accountant</h3>
+          <p>If your Airbnb generates more than $20,000 per year, consider hiring an accountant who specializes in rental income. They'll ensure you're claiming every eligible deduction, filing HST correctly, and structuring your records for audit protection. The accounting fee itself is tax-deductible.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="resources-box">
+            <h4>Official Resources</h4>
+            <ul>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/rental-income.html" target="_blank" rel="noopener">CRA: Rental Income Guide</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/when-register-charge.html" target="_blank" rel="noopener">CRA: When to Register for HST</a></li>
+              <li><a href="https://www.toronto.ca/services-payments/property-taxes-utilities/municipal-accommodation-tax/" target="_blank" rel="noopener">City of Toronto: Municipal Accommodation Tax</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4036.html" target="_blank" rel="noopener">CRA: T4036 Rental Income Guide</a></li>
+            </ul>
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Airbnb Taxes?</h3>
+            <p>Nurture handles <a href="/services/full-airbnb-management" style="color: var(--color-primary-dark); text-decoration: underline;">full Airbnb management</a> at 10-15% commission, including detailed monthly revenue reports that make tax filing straightforward. We keep the records so you don't have to.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb Taxes?</h2>
+        <p>Our local team helps GTA hosts stay compliant and maximize deductions. Get expert guidance for your property.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .rate-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .rate-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .rate-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .rate-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .example-calculation {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .example-calculation h4 {
+    margin-bottom: 1rem;
+  }
+
+  .calc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .calc-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .calc-table td:last-child {
+    text-align: right;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .calc-table .total-row td {
+    border-bottom: none;
+    padding-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .calc-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .steps-list {
+    margin: 2rem 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box li {
+    margin-bottom: 0.5rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rate-box {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

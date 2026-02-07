@@ -1,0 +1,1019 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Does my homeowner's insurance cover Airbnb?", a: "Almost certainly not. Standard homeowner's policies exclude commercial activity, and renting your home to short-term guests qualifies as commercial use. If you file a claim and your insurer discovers you were operating an Airbnb, they can deny the claim entirely and may cancel your policy. You need either a short-term rental endorsement added to your existing policy or a separate STR insurance policy." },
+  { q: "Is AirCover enough insurance for Ontario hosts?", a: "No. AirCover provides some protection, but it has significant gaps: it doesn't cover wear and tear, cash or securities, pets, shared or common areas, or items you didn't disclose. More importantly, most Ontario municipalities require you to hold your own $2,000,000 liability policy that explicitly names STR activity. AirCover doesn't satisfy that licensing requirement." },
+  { q: "How much does Airbnb insurance cost in Ontario?", a: "Costs vary by coverage type. Per-night providers like Duuo charge $3 to $8 per booked night, so you only pay when hosting. Annual policies from providers like APOLLO range from $600 to $1,200 per year. Adding an STR endorsement to an existing policy through Square One costs roughly $200 to $500 per year. Traditional broker policies offering comprehensive coverage run $1,000 to $2,500 annually." },
+  { q: "Do I need insurance for mid-term rentals (30+ days)?", a: "Mid-term rentals (30+ days) fall outside most STR bylaw definitions, so the municipal insurance requirements for short-term rental licensing typically don't apply. However, your standard homeowner's policy still may not cover rental activity. You should inform your insurer about any rental use, whether short-term or mid-term, to avoid having a claim denied." },
+  { q: "What happens if a guest gets injured at my property?", a: "You could face a personal injury lawsuit. If a guest slips on ice, trips on a loose step, or suffers any injury on your property, you may be held liable. Without proper liability insurance covering STR activity, you would be personally responsible for legal fees, medical costs, and any court-ordered damages. This is why Ontario municipalities require $2,000,000 minimum liability coverage." },
+  { q: "Can my insurance company cancel me for hosting on Airbnb?", a: "Yes. If your insurer discovers you're operating a short-term rental without disclosing it, they can cancel your policy or refuse to renew it. Some insurers are more STR-friendly than others. The best approach is to be upfront with your insurance provider. Either get an STR endorsement from your current insurer, switch to a provider that supports short-term rentals, or add a separate STR policy." }
+];
+
+const relatedPosts = [
+  { title: "Toronto Airbnb Rules 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Registration requirements including insurance' },
+  { title: "Can I Airbnb My Condo in Toronto?", href: '/blog/can-i-airbnb-my-condo-toronto-2026', description: 'Condo board rules and compliance checklist' },
+  { title: "Hamilton Airbnb Rules 2026", href: '/blog/hamilton-airbnb-short-term-rental-guide-2026', description: '$2M insurance and licensing requirements' }
+];
+
+const tocItems = [
+  { id: 'why-standard-fails', text: 'Why Standard Insurance Fails' },
+  { id: 'aircover', text: 'AirCover: What It Covers' },
+  { id: 'city-requirements', text: 'City Requirements Across Ontario' },
+  { id: 'types-of-coverage', text: 'Types of Coverage You Need' },
+  { id: 'best-options', text: 'Best Insurance Options' },
+  { id: 'how-to-comply', text: 'How to Get Compliant' },
+  { id: 'condo-insurance', text: 'Condo-Specific Insurance' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Insurance Ontario 2026: Host Coverage Guide";
+const pageDescription = "Airbnb insurance in Ontario: $2M liability required, AirCover gaps, best providers compared. Protect your property and comply with city bylaws.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-07",
+  "dateModified": "2026-02-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-insurance-ontario-host-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Airbnb Insurance Ontario</span>
+      </nav>
+      <h1>Airbnb Insurance Ontario: What Hosts Actually Need</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 7, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Insurance is the part of Airbnb hosting that nobody wants to think about until something goes wrong. A guest slips on your front steps. A pipe bursts while you're away. A visitor's child pulls a TV off the wall. Without the right coverage, any of these scenarios could cost you tens of thousands of dollars.</p>
+            <p class="lead">Making matters more complicated, most Ontario municipalities now require <strong>$2,000,000 in liability insurance</strong> that explicitly covers short-term rental activity. Your standard homeowner's policy almost certainly does not meet this requirement. Here's exactly what you need, what it costs, and how to get compliant.</p>
+          </div>
+
+          <h2 id="why-standard-fails">Why Standard Homeowner's Insurance Fails</h2>
+          <p>The single biggest mistake new Airbnb hosts make is assuming their existing homeowner's or tenant's policy covers short-term rental guests. It doesn't.</p>
+
+          <p>Standard homeowner's policies are designed for personal use of your property. The moment you start accepting paying guests, you're engaging in commercial activity. Most policies contain explicit exclusions for:</p>
+
+          <ul>
+            <li><strong>Commercial use of your property</strong>, which includes renting to short-term guests</li>
+            <li><strong>Liability from business activities</strong> conducted at the insured residence</li>
+            <li><strong>Property damage caused by paying guests</strong> (as opposed to invited visitors)</li>
+            <li><strong>Loss of rental income</strong> from a covered peril</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>The Real Risk</h4>
+            <p>If you file a claim and your insurer discovers you were running an Airbnb without disclosure, they can deny the claim <strong>and</strong> cancel your entire policy retroactively. That means no coverage for anything, not just the Airbnb-related incident. Some insurers have also pursued fraud charges against policyholders who concealed rental activity.</p>
+          </div>
+
+          <p>Even if your policy doesn't explicitly exclude short-term rentals, the burden of proof falls on you. Insurance companies routinely check Airbnb and VRBO listings during the claims process. If they find your property listed, you'll need to prove your policy covers that activity.</p>
+
+          <h2 id="aircover">AirCover: What It Does and Doesn't Cover</h2>
+          <p>Airbnb offers AirCover for Hosts, which includes Host Damage Protection (up to $3 million CAD) and Host Liability Insurance (up to $1 million USD). Many hosts assume this is sufficient. It's a good supplement, but it has critical gaps.</p>
+
+          <h3>What AirCover Covers</h3>
+          <ul>
+            <li><strong>Guest damage to your property</strong> (furniture, fixtures, belongings)</li>
+            <li><strong>Deep cleaning costs</strong> beyond normal wear</li>
+            <li><strong>Income loss</strong> if you need to cancel future bookings due to damage</li>
+            <li><strong>Pet damage</strong> from guests who bring approved pets</li>
+            <li><strong>Liability claims</strong> from guest injuries (up to $1M USD)</li>
+          </ul>
+
+          <h3>What AirCover Does NOT Cover</h3>
+          <ul>
+            <li><strong>Normal wear and tear</strong> from guest use</li>
+            <li><strong>Cash, securities, or collectibles</strong></li>
+            <li><strong>Shared or common areas</strong> (hallways, lobbies, parking lots)</li>
+            <li><strong>Items not disclosed in your listing</strong></li>
+            <li><strong>Damage from natural disasters</strong> or pre-existing conditions</li>
+            <li><strong>Vehicles, boats, or watercraft</strong></li>
+            <li><strong>Identity theft or cyber incidents</strong></li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The licensing problem:</strong> AirCover does not satisfy the insurance requirements for STR licensing in Ontario municipalities. Cities like <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a>, <a href="/blog/hamilton-airbnb-short-term-rental-guide-2026">Hamilton</a>, and <a href="/blog/oakville-airbnb-short-term-rental-rules-2026">Oakville</a> require you to hold your own $2,000,000 liability policy. AirCover cannot be submitted as proof of insurance for license applications.
+            </div>
+          </div>
+
+          <p>AirCover also has a reputation for slow claims processing. Hosts frequently report waiting weeks or months for resolution, and payouts that fall short of actual replacement costs. Treat AirCover as a backup layer, not your primary protection.</p>
+
+          <h2 id="city-requirements">City Insurance Requirements Across Ontario</h2>
+          <p>Almost every Ontario municipality that regulates short-term rentals requires hosts to carry liability insurance. The standard minimum across the GTA is $2,000,000 per occurrence. Here's a breakdown of requirements by city.</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Min Liability</th>
+                  <th>Additional Requirements</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a></td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>Must explicitly cover STR activity</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/hamilton-airbnb-short-term-rental-guide-2026">Hamilton</a></td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>Required for license application</td>
+                </tr>
+                <tr>
+                  <td>Niagara Falls</td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>VRU license requirement</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/oakville-airbnb-short-term-rental-rules-2026">Oakville</a></td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>Annual license renewal</td>
+                </tr>
+                <tr>
+                  <td>Mississauga</td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>License application requirement</td>
+                </tr>
+                <tr>
+                  <td>Burlington</td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>Must notify city of policy cancellation</td>
+                </tr>
+                <tr>
+                  <td>Milton</td>
+                  <td class="highlight">$2,000,000</td>
+                  <td>City named as additional insured</td>
+                </tr>
+                <tr>
+                  <td>Ottawa</td>
+                  <td class="highlight">Required</td>
+                  <td>Amount set by permit conditions</td>
+                </tr>
+                <tr>
+                  <td>London</td>
+                  <td class="highlight">Required</td>
+                  <td>Certificate needed unless using Airbnb</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Notice a pattern: $2,000,000 is the standard across the GTA. Some cities also require the municipality to be named as an additional insured on your policy, and several require written notification if your policy is cancelled or materially changed.</p>
+
+          <div class="callout callout-tip">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Unregulated cities:</strong> Even if your municipality doesn't currently require STR insurance (like Ajax, Pickering, or Richmond Hill), carrying $2M liability coverage is still strongly recommended. Regulations can change quickly, and you're exposed to the same liability risks regardless of local bylaws.
+            </div>
+          </div>
+
+          <h2 id="types-of-coverage">Types of Coverage You Need</h2>
+          <p>A complete Airbnb insurance setup in Ontario should include four layers of protection. Not every host needs all four, but understanding what each covers will help you make the right decision for your situation.</p>
+
+          <h3>1. General Liability ($2,000,000 minimum)</h3>
+          <p>This is the non-negotiable foundation. Liability insurance covers you if a guest or third party is injured on your property or if their belongings are damaged. It also covers your legal defence costs.</p>
+          <ul>
+            <li>Guest slips on ice and breaks a wrist</li>
+            <li>Visitor's child is injured by faulty railing</li>
+            <li>Guest's laptop is damaged by a leak</li>
+            <li>Neighbour's property damaged by your guest</li>
+          </ul>
+
+          <h3>2. Property Damage Coverage</h3>
+          <p>This protects your physical property and contents from damage caused by guests or covered perils. It goes beyond what AirCover offers because it typically includes:</p>
+          <ul>
+            <li>Intentional and accidental guest damage</li>
+            <li>Theft by guests or their visitors</li>
+            <li>Vandalism</li>
+            <li>Damage to appliances, furniture, and fixtures</li>
+          </ul>
+
+          <h3>3. Loss of Income Protection</h3>
+          <p>If your property becomes uninhabitable due to a covered event (fire, flood, major damage), loss of income coverage reimburses you for the rental revenue you would have earned during repairs. This is especially valuable for hosts who depend on Airbnb income to cover mortgage payments.</p>
+
+          <h3>4. Specialty Coverage</h3>
+          <p>Depending on your situation, you may also want:</p>
+          <ul>
+            <li><strong>Bed bug coverage:</strong> Treatment and lost bookings from infestations</li>
+            <li><strong>Liquor liability:</strong> If you provide alcohol or allow events</li>
+            <li><strong>Umbrella coverage:</strong> Additional liability beyond your base policy limit</li>
+            <li><strong>Equipment breakdown:</strong> Covers HVAC, appliances, and smart home systems</li>
+          </ul>
+
+          <h2 id="best-options">Best Insurance Options for Ontario Hosts</h2>
+          <p>The Ontario market has several providers that specialize in short-term rental insurance. Here's how they compare.</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Provider</th>
+                  <th>Type</th>
+                  <th>Approx Cost</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Duuo</strong></td>
+                  <td>Per-night</td>
+                  <td class="highlight">$3-8/night</td>
+                  <td>Part-time hosts, seasonal rentals</td>
+                </tr>
+                <tr>
+                  <td><strong>APOLLO</strong></td>
+                  <td>Annual</td>
+                  <td class="highlight">$600-1,200/yr</td>
+                  <td>Full-time hosts wanting bundled coverage</td>
+                </tr>
+                <tr>
+                  <td><strong>Square One</strong></td>
+                  <td>Endorsement</td>
+                  <td class="highlight">$200-500/yr add-on</td>
+                  <td>Hosts who want to keep their existing insurer</td>
+                </tr>
+                <tr>
+                  <td><strong>Traditional Broker</strong></td>
+                  <td>Annual</td>
+                  <td class="highlight">$1,000-2,500/yr</td>
+                  <td>High-value properties, multiple listings</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Duuo (by Co-operators)</h3>
+          <p>Duuo is a Canadian insurtech backed by The Co-operators. Their per-night model is ideal for part-time hosts because you only pay for nights when you actually have guests booked. Coverage includes $2M liability, property damage, and loss of income. You can activate and deactivate coverage through their app. The downside is that per-night costs add up quickly if you're hosting full-time. At $5 per night and 200 booked nights, you're looking at $1,000 annually.</p>
+
+          <h3>APOLLO</h3>
+          <p>APOLLO offers annual short-term rental insurance policies that bundle liability, property damage, and loss of income. Their online application takes about 10 minutes, and you can get proof of insurance immediately. Pricing depends on your property value, location, and hosting frequency. APOLLO policies are accepted by most Ontario municipalities for licensing purposes.</p>
+
+          <h3>Square One</h3>
+          <p>Square One is a modern home insurer that offers an STR endorsement you can add to your existing homeowner's policy. This is the most cost-effective option if you're already a Square One customer or willing to switch your home insurance. The endorsement typically costs $200 to $500 per year on top of your base premium. It adds coverage for short-term rental activity without requiring a separate policy.</p>
+
+          <h3>Traditional Insurance Brokers</h3>
+          <p>For high-value properties, multiple listings, or complex situations (heritage homes, waterfront properties, commercial zoning), a traditional insurance broker can craft a comprehensive policy. Brokers have access to specialty markets and can often find coverage for situations that online providers decline. The cost is higher, but the coverage is typically the most thorough option available.</p>
+
+          <div class="strategy-box">
+            <h4>Which Option Is Right for You?</h4>
+            <p>Consider these factors when choosing:</p>
+            <ol>
+              <li><strong>Hosting frequency:</strong> Part-time hosts (under 100 nights/year) save money with per-night pricing from Duuo. Full-time hosts are better off with annual policies.</li>
+              <li><strong>Property value:</strong> Higher-value properties benefit from a broker who can customize coverage limits.</li>
+              <li><strong>Existing insurance:</strong> If you like your current insurer, check if they offer an STR endorsement before switching.</li>
+              <li><strong>Municipal requirements:</strong> Verify that the provider's policy format is accepted by your city for licensing purposes.</li>
+            </ol>
+          </div>
+
+          <h2 id="how-to-comply">How to Get Compliant: Step by Step</h2>
+          <p>Getting your insurance in order doesn't have to be complicated. Follow these steps to make sure you're covered and compliant with your municipality's requirements.</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Contact your current insurer first.</strong> Call your homeowner's insurance company and ask two questions: does your policy cover short-term rental activity, and can they add an STR endorsement? Many hosts are surprised to learn their insurer offers this option. If they don't, or if they say they'll cancel your policy, move to step two.</li>
+            <li><span class="tip-icon">2</span> <strong>Get quotes from STR-specific providers.</strong> Request quotes from Duuo, APOLLO, and Square One. Compare the coverage limits, exclusions, deductibles, and whether the policy meets your city's licensing requirements. Pay attention to whether the policy explicitly names short-term rental activity.</li>
+            <li><span class="tip-icon">3</span> <strong>Verify municipal requirements.</strong> Before purchasing, confirm with your city's licensing department what exactly they need. Some cities want the municipality named as an additional insured. Others require notification if your policy is cancelled. Get the specifics in writing so your broker or provider can meet them.</li>
+            <li><span class="tip-icon">4</span> <strong>Purchase coverage and get your certificate.</strong> Once you've selected a provider, purchase the policy and request a Certificate of Insurance. This is the document you'll submit with your STR license application. Make sure it shows the $2,000,000 liability limit and references short-term rental or vacation rental activity.</li>
+            <li><span class="tip-icon">5</span> <strong>Submit to your municipality.</strong> Include the insurance certificate with your STR license application. If you're already licensed, send it to your city's licensing department as an update. Keep a copy for your records and set a calendar reminder for renewal.</li>
+            <li><span class="tip-icon">6</span> <strong>Review annually.</strong> Insurance needs change. If you've renovated, added a hot tub, increased your listing capacity, or changed your hosting frequency, update your coverage. Annual reviews ensure you're not underinsured or overpaying.</li>
+          </ul>
+
+          <h2 id="condo-insurance">Condo-Specific Insurance Considerations</h2>
+          <p>If you're running an Airbnb in a condo, your insurance situation has an additional layer of complexity. Understanding the gap between your condo corporation's master policy and your personal coverage is essential.</p>
+
+          <h3>Master Policy vs. Unit Owner Coverage</h3>
+          <p>Your condo corporation carries a master insurance policy that covers the building's structure, common areas, and shared systems. This policy does <strong>not</strong> cover your unit's contents, improvements, or liability from your activities inside the unit. That's your responsibility.</p>
+
+          <p>As an Airbnb host in a condo, you need coverage for:</p>
+          <ul>
+            <li><strong>Unit contents and improvements:</strong> Your furniture, appliances, flooring, fixtures, and any upgrades you've made</li>
+            <li><strong>Personal liability:</strong> Guest injuries inside your unit</li>
+            <li><strong>Loss assessment:</strong> If the condo corporation's master policy has a deductible that gets passed to you after a claim</li>
+            <li><strong>STR-specific liability:</strong> Coverage that explicitly names short-term rental use</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Condo Board Approval Comes First</h4>
+            <p>Before investing in STR insurance for your condo, verify that your condo corporation's declaration and rules actually permit short-term rentals. Many Toronto condos have restrictions or outright bans on rentals under 30 days. Even if the city grants you an STR license, your condo board's rules take precedence. Read our guide on <a href="/blog/can-i-airbnb-my-condo-toronto-2026">Airbnb in Toronto condos</a> for the full checklist.</p>
+          </div>
+
+          <h3>The Loss Assessment Gap</h3>
+          <p>Here's a scenario many condo hosts overlook. A fire starts in your unit while an Airbnb guest is staying. The condo corporation's master policy covers the building repair, but the policy has a $50,000 deductible. The condo board passes that deductible to you as a loss assessment. Without loss assessment coverage on your personal policy, you're paying $50,000 out of pocket.</p>
+
+          <p>Most standard condo insurance policies include some loss assessment coverage, but the limits are often too low. When you add STR activity to the equation, make sure your loss assessment coverage is adequate for your building's deductible.</p>
+
+          <h3>Directors' and Officers' Liability</h3>
+          <p>If a guest's actions cause damage to common areas or injury to other residents, the condo corporation may pursue you personally. Your STR liability policy should cover claims from the condo corporation itself, not just from guests. Confirm this with your insurer before purchasing.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Working with a property manager:</strong> A professional <a href="/services/full-airbnb-management">Airbnb management company</a> can help you navigate insurance requirements, coordinate with your condo board, and ensure you maintain compliance year-round. At Nurture, we guide our clients through the entire insurance and licensing process.
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Airbnb Insurance and Compliance?</h3>
+            <p>Nurture helps Ontario hosts navigate insurance requirements, municipal licensing, and everything else that comes with running a successful Airbnb. Our 10-15% management fee covers <a href="/services/full-airbnb-management">full-service property management</a> so you can earn more while staying fully compliant.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb Insurance in Ontario?</h2>
+        <p>Our local experts can help you find the right coverage and get licensed in your city.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .warning-box a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ol {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .points-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .points-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .points-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .points-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .points-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .points-table td.highlight {
+    background: rgba(117, 155, 143, 0.1);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .points-table a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .points-table a:hover {
+    text-decoration: underline;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .points-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
