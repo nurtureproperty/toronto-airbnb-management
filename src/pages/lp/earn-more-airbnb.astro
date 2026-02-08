@@ -454,40 +454,31 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-scroll-track {
             display: flex;
-            animation: scrollLogos 16s linear infinite;
+            animation: scrollLogos 20s linear infinite;
         }
 
         .lp-scroll-set {
             display: flex;
             align-items: center;
-            min-width: 100vw;
             flex-shrink: 0;
-            padding: 0.5rem 0;
-            justify-content: space-evenly;
+            gap: 4rem;
+            padding-right: 4rem;
         }
 
         .lp-platform-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-shrink: 0;
-            width: 25%;
         }
 
         .lp-platform-logo img {
-            height: 60px;
+            height: 50px;
             width: auto;
-            opacity: 0.75;
-            transition: opacity 0.3s;
-        }
-
-        .lp-platform-logo img:hover {
-            opacity: 1;
+            opacity: 0.7;
+            display: block;
         }
 
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-100vw); }
+            100% { transform: translateX(-50%); }
         }
 
         @media (max-width: 768px) {
@@ -500,7 +491,12 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-bottom: 0.75rem;
             }
 
-            .lp-platform-logo img { height: 38px; }
+            .lp-scroll-set {
+                gap: 2.5rem;
+                padding-right: 2.5rem;
+            }
+
+            .lp-platform-logo img { height: 32px; }
         }
 
         /* ─── BOLD BANNER ─── */
@@ -558,6 +554,22 @@ import criticalCSS from '../../styles/critical.css?raw';
             .lp-bold-banner {
                 padding: 2rem 1.5rem;
             }
+        }
+
+        /* ─── CONDO IMAGE ─── */
+        .lp-condo-image {
+            background: white;
+            text-align: center;
+            padding: 2rem 2rem 0;
+            line-height: 0;
+        }
+
+        .lp-condo-image img {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            border-radius: 12px;
         }
 
         /* ─── PAIN POINTS ─── */
@@ -670,8 +682,8 @@ import criticalCSS from '../../styles/critical.css?raw';
         /* ─── CASE STUDY ─── */
         .lp-case {
             padding: 5.5rem 2rem;
-            background: var(--lp-charcoal);
-            color: #f6f6f6;
+            background: white;
+            color: var(--lp-charcoal);
         }
 
         .lp-case-inner {
@@ -692,13 +704,13 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-case h2 {
             text-align: center;
             font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            color: white;
+            color: var(--lp-charcoal);
             margin-bottom: 0.5rem;
         }
 
         .lp-case-subtitle {
             text-align: center;
-            color: rgba(255,255,255,0.6);
+            color: #888;
             margin-bottom: 3rem;
             font-size: 1.05rem;
         }
@@ -719,9 +731,9 @@ import criticalCSS from '../../styles/critical.css?raw';
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.45);
+            color: #999;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid #e5e5e5;
             margin-bottom: 0;
         }
 
@@ -729,18 +741,18 @@ import criticalCSS from '../../styles/critical.css?raw';
             display: flex;
             justify-content: space-between;
             padding: 0.85rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid #eee;
             font-size: 0.95rem;
         }
 
         .lp-case-line-label {
             font-weight: 500;
-            color: rgba(255,255,255,0.8);
+            color: #555;
         }
 
         .lp-case-line-value {
             font-weight: 400;
-            color: #f6f6f6;
+            color: var(--lp-charcoal);
         }
 
         .lp-case-line.total {
@@ -750,7 +762,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-case-line.total .lp-case-line-label {
             font-weight: 700;
-            color: white;
+            color: var(--lp-charcoal);
         }
 
         .lp-case-line.total .lp-case-line-value {
@@ -765,21 +777,21 @@ import criticalCSS from '../../styles/critical.css?raw';
             text-align: center;
             margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.15);
+            border-top: 1px solid #e5e5e5;
         }
 
         .lp-case-result-number {
             font-family: 'Poppins', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: white;
+            color: var(--lp-green-dark);
             line-height: 1;
             margin-bottom: 0.35rem;
         }
 
         .lp-case-result-text {
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.6);
+            color: #888;
         }
 
         /* ─── HOW IT WORKS ─── */
@@ -1601,6 +1613,11 @@ import criticalCSS from '../../styles/critical.css?raw';
                 <a href="#get-estimate" class="lp-btn-primary">See What Your Property Could Earn</a>
             </div>
         </section>
+
+        <!-- ═══ CONDO IMAGE ═══ -->
+        <div class="lp-condo-image">
+            <img src="/images/downtown condo image.png" alt="Downtown Toronto condo managed by Nurture" loading="lazy" width="1200">
+        </div>
 
         <!-- ═══ CASE STUDY ═══ -->
         <section class="lp-case">
