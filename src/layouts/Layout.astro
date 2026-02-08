@@ -167,11 +167,11 @@ const allSchemas = schema
     <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
     <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" media="(min-width: 769px)">
 
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://api.nurtre.io">
-    <link rel="dns-prefetch" href="https://stcdn.leadconnectorhq.com">
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://api.nurtre.io" crossorigin>
+    <link rel="preconnect" href="https://backend.leadconnectorhq.com" crossorigin>
+    <link rel="preconnect" href="https://stcdn.leadconnectorhq.com" crossorigin>
+    <link rel="preconnect" href="https://storage.googleapis.com" crossorigin>
 
     <!-- Fonts - Optimized loading with reduced weights for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
