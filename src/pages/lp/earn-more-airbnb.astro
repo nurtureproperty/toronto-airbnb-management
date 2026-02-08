@@ -929,36 +929,94 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-compare-others.bad { color: var(--lp-red); }
 
-        /* ─── SERVICES INCLUDED ─── */
-        .lp-services {
+        /* ─── PRICING TABLE ─── */
+        .lp-pricing {
             padding: 5rem 2rem;
             background: var(--lp-cream);
         }
 
-        .lp-services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+        .lp-feature-comparison {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .lp-service-item {
+        .lp-feature-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: var(--lp-charcoal);
+            color: white;
+        }
+
+        .lp-feature-header .lp-feature-label {
+            padding: 1.5rem;
+        }
+
+        .lp-plan-header {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .lp-plan-header.featured {
+            background: var(--lp-green);
+        }
+
+        .lp-plan-name {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .lp-plan-rate {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .lp-feature-category {
+            background: var(--lp-cream);
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lp-feature-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-bottom: 1px solid var(--lp-border);
+        }
+
+        .lp-feature-row:last-child {
+            border-bottom: none;
+        }
+
+        .lp-feature-row .lp-feature-label {
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.25rem;
-            background: white;
-            border-radius: 6px;
-            border: 1px solid var(--lp-border);
-            font-size: 0.92rem;
-            font-weight: 500;
-            color: var(--lp-charcoal);
         }
 
-        .lp-service-check {
+        .lp-feature-check {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.25rem;
             color: var(--lp-green);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            filter: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lp-feature-check.empty {
+            color: #ccc;
+            font-weight: 400;
         }
 
         /* ─── FAQ ─── */
@@ -1349,8 +1407,8 @@ import criticalCSS from '../../styles/critical.css?raw';
                 padding: 0.7rem 0.75rem;
             }
 
-            .lp-services-grid {
-                grid-template-columns: 1fr 1fr;
+            .lp-feature-header, .lp-feature-row {
+                grid-template-columns: 1.5fr 1fr 1fr;
             }
 
             .lp-final-inner {
@@ -1451,7 +1509,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             .lp-case,
             .lp-how,
             .lp-compare,
-            .lp-services,
+            .lp-pricing,
             .lp-whoisfor,
             .lp-guarantee,
             .lp-urgency,
@@ -1466,8 +1524,23 @@ import criticalCSS from '../../styles/critical.css?raw';
                 justify-content: center;
             }
 
-            .lp-services-grid {
-                grid-template-columns: 1fr;
+            .lp-feature-row .lp-feature-label {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+            .lp-feature-check {
+                padding: 0.75rem 0.5rem;
+                font-size: 1rem;
+            }
+            .lp-plan-name {
+                font-size: 0.9rem;
+            }
+            .lp-plan-rate {
+                font-size: 1.25rem;
+            }
+            .lp-feature-category {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
             }
 
             .lp-compare-header,
@@ -1488,7 +1561,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-case,
         .lp-how,
         .lp-compare,
-        .lp-services,
+        .lp-pricing,
         .lp-whoisfor,
         .lp-guarantee,
         .lp-urgency,
@@ -1754,26 +1827,88 @@ import criticalCSS from '../../styles/critical.css?raw';
             </div>
         </section>
 
-        <!-- ═══ WHAT'S INCLUDED ═══ -->
-        <section class="lp-services">
+        <!-- ═══ PRICING ═══ -->
+        <section class="lp-pricing">
             <div class="lp-section-inner">
                 <div class="lp-section-header reveal">
-                    <h2>Everything Handled For You</h2>
-                    <p>All included in your management plan</p>
+                    <h2>Simple, Transparent Pricing</h2>
+                    <p>No hidden fees. You only pay when you earn.</p>
                 </div>
-                <div class="lp-services-grid reveal">
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Prices adjust daily so you never leave money on the table</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Your listing stands out with professional photos and copy</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Bookings come from Airbnb, VRBO, and Booking.com</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Guests get responses in under 9 minutes, day or night</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Every guest is screened before they step foot in your property</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Your reviews stay high so your ranking stays strong</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Cleaners are booked and managed between every stay</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Linens and supplies are restocked at cost, no markup</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Smart locks mean no more key handoffs or lockbox headaches</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Maintenance issues get handled before they become problems</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Professional photography makes your listing impossible to scroll past</div>
-                    <div class="lp-service-item"><span class="lp-service-check">✓</span> Monthly reports show exactly where your money is going</div>
+                <div class="lp-feature-comparison reveal">
+                    <div class="lp-feature-header">
+                        <div class="lp-feature-label"></div>
+                        <div class="lp-plan-header">
+                            <span class="lp-plan-name">Starter</span>
+                            <span class="lp-plan-rate">12%</span>
+                        </div>
+                        <div class="lp-plan-header featured">
+                            <span class="lp-plan-name">Professional</span>
+                            <span class="lp-plan-rate">15%</span>
+                        </div>
+                    </div>
+
+                    <div class="lp-feature-category">Listing & Marketing</div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Professional listing creation</div>
+                        <div class="lp-feature-check">✓</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Multi-platform distribution</div>
+                        <div class="lp-feature-check">✓</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Dynamic pricing optimization</div>
+                        <div class="lp-feature-check">✓</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+
+                    <div class="lp-feature-category">Guest Management</div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Guest communication</div>
+                        <div class="lp-feature-check">✓</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Guest vetting & screening</div>
+                        <div class="lp-feature-check">✓</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Review management</div>
+                        <div class="lp-feature-check">✓</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+
+                    <div class="lp-feature-category">Property Operations</div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Professional cleaning coordination</div>
+                        <div class="lp-feature-check empty">—</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Linen & supply restocking</div>
+                        <div class="lp-feature-check empty">—</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Smart lock management</div>
+                        <div class="lp-feature-check empty">—</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+
+                    <div class="lp-feature-category">Support & Reporting</div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Dedicated account manager</div>
+                        <div class="lp-feature-check empty">—</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
+                    <div class="lp-feature-row">
+                        <div class="lp-feature-label">Insurance claim assistance</div>
+                        <div class="lp-feature-check empty">—</div>
+                        <div class="lp-feature-check">✓</div>
+                    </div>
                 </div>
             </div>
         </section>
