@@ -877,12 +877,13 @@ import criticalCSS from '../../styles/critical.css?raw';
             background: var(--lp-warm-white);
         }
 
-        .lp-compare-table {
+        .lp-compare-chart {
             max-width: 800px;
             margin: 0 auto;
-            border-radius: 8px;
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid var(--lp-border);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .lp-compare-header {
@@ -891,63 +892,72 @@ import criticalCSS from '../../styles/critical.css?raw';
             background: var(--lp-charcoal);
             color: white;
             font-weight: 600;
-            font-family: 'Poppins', sans-serif;
         }
 
-        .lp-compare-header > div {
-            padding: 1rem 1.25rem;
+        .lp-compare-header .lp-compare-feature {
+            padding: 1.25rem 1.5rem;
         }
 
-        .lp-compare-header .nurture-col {
+        .lp-compare-header .lp-compare-nurture {
             background: var(--lp-green);
+            padding: 1.25rem 1rem;
             text-align: center;
+            font-size: 1.1rem;
         }
 
-        .lp-compare-header .others-col {
+        .lp-compare-header .lp-compare-others {
+            padding: 1.25rem 1rem;
             text-align: center;
+            font-size: 1.1rem;
         }
 
         .lp-compare-row {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            border-bottom: 1px solid #f0ede8;
-            background: white;
-        }
-
-        .lp-compare-row:nth-child(even) {
-            background: #fdfcfa;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .lp-compare-row:last-child {
             border-bottom: none;
         }
 
-        .lp-compare-row > div {
-            padding: 0.85rem 1.25rem;
+        .lp-compare-row:nth-child(odd) {
+            background: rgba(117, 155, 143, 0.03);
+        }
+
+        .lp-compare-row .lp-compare-feature {
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--lp-charcoal);
             display: flex;
             align-items: center;
         }
 
-        .lp-compare-feature {
-            font-weight: 500;
-            color: var(--lp-charcoal);
-            font-size: 0.9rem;
-        }
-
-        .lp-compare-nurture {
+        .lp-compare-row .lp-compare-nurture {
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
             justify-content: center;
             font-weight: 600;
+        }
+
+        .lp-compare-row .lp-compare-nurture.highlight {
             color: var(--lp-green-dark);
-            font-size: 0.9rem;
         }
 
-        .lp-compare-others {
+        .lp-compare-row .lp-compare-others {
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            color: #999;
-            font-size: 0.85rem;
+            color: #888;
         }
 
-        .lp-compare-others.bad { color: var(--lp-red); }
+        .lp-compare-row .lp-compare-others.negative {
+            color: #dc2626;
+        }
 
         /* ─── PRICING TABLE ─── */
         .lp-pricing {
@@ -1372,13 +1382,26 @@ import criticalCSS from '../../styles/critical.css?raw';
                 display: none;
             }
 
-            .lp-compare-table {
+            .lp-compare-header,
+            .lp-compare-row {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+
+            .lp-compare-row .lp-compare-feature {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .lp-compare-row .lp-compare-nurture,
+            .lp-compare-row .lp-compare-others {
+                padding: 0.75rem 0.5rem;
                 font-size: 0.85rem;
             }
 
-            .lp-compare-header > div,
-            .lp-compare-row > div {
-                padding: 0.7rem 0.75rem;
+            .lp-compare-header .lp-compare-nurture,
+            .lp-compare-header .lp-compare-others {
+                padding: 1rem 0.5rem;
+                font-size: 0.95rem;
             }
 
             .lp-feature-header, .lp-feature-row {
@@ -1516,10 +1539,15 @@ import criticalCSS from '../../styles/critical.css?raw';
                 grid-template-columns: 1.4fr 1fr 1fr;
             }
 
-            .lp-compare-feature,
-            .lp-compare-nurture,
-            .lp-compare-others {
+            .lp-compare-row .lp-compare-feature {
                 font-size: 0.8rem;
+                padding: 0.75rem 0.75rem;
+            }
+
+            .lp-compare-row .lp-compare-nurture,
+            .lp-compare-row .lp-compare-others {
+                font-size: 0.75rem;
+                padding: 0.75rem 0.25rem;
             }
 
             .lp-case-line { font-size: 0.88rem; }
@@ -1753,48 +1781,54 @@ import criticalCSS from '../../styles/critical.css?raw';
         <section class="lp-compare">
             <div class="lp-section-inner">
                 <div class="lp-section-header reveal">
-                    <h2>Nurture vs. Other Property Managers</h2>
+                    <h2>Why Choose Nurture?</h2>
+                    <p>See how we compare to other property managers</p>
                 </div>
-                <div class="lp-compare-table reveal">
+                <div class="lp-compare-chart reveal">
                     <div class="lp-compare-header">
-                        <div></div>
-                        <div class="nurture-col">Nurture</div>
-                        <div class="others-col">Others</div>
+                        <div class="lp-compare-feature"></div>
+                        <div class="lp-compare-nurture">Nurture</div>
+                        <div class="lp-compare-others">Others</div>
                     </div>
                     <div class="lp-compare-row">
                         <div class="lp-compare-feature">Management Fees</div>
-                        <div class="lp-compare-nurture">12-15%</div>
-                        <div class="lp-compare-others bad">18-25%</div>
+                        <div class="lp-compare-nurture highlight">12-15%</div>
+                        <div class="lp-compare-others negative">18-25%</div>
                     </div>
                     <div class="lp-compare-row">
-                        <div class="lp-compare-feature">Response Time</div>
-                        <div class="lp-compare-nurture">&lt;9 minutes</div>
-                        <div class="lp-compare-others bad">Hours or days</div>
+                        <div class="lp-compare-feature">Average Response Time</div>
+                        <div class="lp-compare-nurture highlight">&lt;9 minutes</div>
+                        <div class="lp-compare-others negative">Hours or days</div>
                     </div>
                     <div class="lp-compare-row">
-                        <div class="lp-compare-feature">Contracts</div>
-                        <div class="lp-compare-nurture">30-day cancel</div>
-                        <div class="lp-compare-others bad">Long lock-in</div>
+                        <div class="lp-compare-feature">Contract Terms</div>
+                        <div class="lp-compare-nurture highlight">No long contracts</div>
+                        <div class="lp-compare-others negative">Long-term lock-in</div>
                     </div>
                     <div class="lp-compare-row">
                         <div class="lp-compare-feature">Listing Ownership</div>
-                        <div class="lp-compare-nurture">You own it</div>
-                        <div class="lp-compare-others bad">Held hostage</div>
+                        <div class="lp-compare-nurture highlight">You own your listing</div>
+                        <div class="lp-compare-others negative">Keeps your listing hostage</div>
                     </div>
                     <div class="lp-compare-row">
-                        <div class="lp-compare-feature">Support</div>
-                        <div class="lp-compare-nurture">Direct contact</div>
-                        <div class="lp-compare-others bad">Group chats</div>
+                        <div class="lp-compare-feature">Support Access</div>
+                        <div class="lp-compare-nurture highlight">Direct owner contact</div>
+                        <div class="lp-compare-others negative">Group chats &amp; low-level staff</div>
                     </div>
                     <div class="lp-compare-row">
-                        <div class="lp-compare-feature">Startup Costs</div>
-                        <div class="lp-compare-nurture">$0</div>
-                        <div class="lp-compare-others bad">Upfront fees</div>
+                        <div class="lp-compare-feature">Operations</div>
+                        <div class="lp-compare-nurture highlight">Locally owned in GTA</div>
+                        <div class="lp-compare-others negative">Not local experts</div>
+                    </div>
+                    <div class="lp-compare-row">
+                        <div class="lp-compare-feature">Revenue Reporting</div>
+                        <div class="lp-compare-nurture highlight">Simple &amp; transparent</div>
+                        <div class="lp-compare-others negative">Hidden fees &amp; sneaky charges</div>
                     </div>
                     <div class="lp-compare-row">
                         <div class="lp-compare-feature">Supply Restocking</div>
-                        <div class="lp-compare-nurture">No markup</div>
-                        <div class="lp-compare-others bad">Extra charges</div>
+                        <div class="lp-compare-nurture highlight">No markup</div>
+                        <div class="lp-compare-others negative">Extra charges</div>
                     </div>
                 </div>
             </div>
