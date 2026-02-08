@@ -667,15 +667,29 @@ import criticalCSS from '../../styles/critical.css?raw';
             line-height: 1.7;
         }
 
-        .lp-flip .lp-btn-primary {
-            background: white;
-            color: var(--lp-charcoal);
-            box-shadow: none;
+        .lp-flip-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 2rem;
+            max-width: 520px;
+            text-align: left;
         }
 
-        .lp-flip .lp-btn-primary:hover {
-            background: var(--lp-cream);
-            box-shadow: none;
+        .lp-flip-benefits li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1.05rem;
+            opacity: 0.92;
+            line-height: 1.5;
+        }
+
+        .lp-flip-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--lp-green);
+            font-weight: 700;
         }
 
         /* ─── CASE STUDY ─── */
@@ -1627,8 +1641,14 @@ import criticalCSS from '../../styles/critical.css?raw';
         <!-- ═══ THE FLIP ═══ -->
         <section class="lp-flip">
             <div class="lp-flip-inner reveal">
-                <h2>What if you could earn more and do less?</h2>
-                <p>Nurture handles everything: guest communication, dynamic pricing, professional cleaning, maintenance, and more. You get the income without the inbox. No startup costs, no long contracts, and you always own your listing.</p>
+                <h2>Earn more without more work. See how much you could earn.</h2>
+                <p>What's holding you back? If you're like most, it might be the uncertainty around how much you'll make, city bylaws, or startup costs. That's why we're offering you a free rental estimate and consultation where you'll get:</p>
+                <ul class="lp-flip-benefits">
+                    <li>A custom revenue projection for your specific property and area</li>
+                    <li>A breakdown of expenses so you see real profit, not just revenue</li>
+                    <li>An honest assessment of whether Airbnb makes sense for your situation</li>
+                    <li>Zero obligation. Zero pressure. Just numbers.</li>
+                </ul>
                 <a href="#get-estimate" class="lp-btn-primary">See What Your Property Could Earn</a>
             </div>
         </section>
