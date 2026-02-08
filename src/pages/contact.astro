@@ -1,16 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const faqs = [
-  { q: 'What makes Nurture unique?', a: 'We charge 12-15% vs the industry standard of 18-25%. We respond in under 9 minutes (not hours or days). No long contracts, you own your listing, and you get direct contact with your manager instead of group chats. We\'re locally owned in the GTA, have no hidden fees, and never mark up supplies. <a href="/pricing-toronto-airbnb-management">See our pricing</a>.' },
-  { q: 'How much are your management fees?', a: 'Our fees range from 12% to 15% depending on whether you want partial or full service. This is significantly lower than competitors who charge 18-25%. <a href="/pricing-toronto-airbnb-management">View full pricing details</a>.' },
-  { q: 'Are there any startup costs?', a: 'No. We only get paid on commission. We make money when you make money. No setup fees, no monthly minimums.' },
-  { q: 'How much can my property earn?', a: 'Most clients see 30-100% more revenue compared to long-term rentals. Based on our analysis of 320 Toronto Airbnb listings (not properties we manage), the average 2-bedroom earns $2,337/month, while top performers earn $7,054+/month. Results vary widely based on location, optimization, and management quality, which is why professional management makes such a difference. <a href="/blog/how-much-can-i-make-airbnb-toronto-2026">See the full earnings breakdown</a>.' },
-  { q: 'How long does it take to get my property listed?', a: 'The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.' },
-  { q: 'Does my property qualify for short-term rental?', a: 'Each municipality has its own rules, and each building may have additional restrictions. Some GTA cities require registration while others have no licensing requirements at all. Many cities do NOT have rules around mid-term rentals (30+ days). <a href="/blog/gta-cities-no-airbnb-license-required-2026">See which GTA cities don\'t require a license</a> or explore the <a href="/blog/best-gta-neighborhoods-airbnb-2026">best GTA neighborhoods for Airbnb</a>.' },
-  { q: 'Do I have to sign a lengthy contract?', a: 'No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts.' },
-  { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.' },
-];
 ---
 
 <Layout
@@ -34,9 +23,11 @@ const faqs = [
         <!-- Left Column: Value Props -->
         <div class="contact-info-col">
           <div class="trust-badges">
-            <div class="trust-badge">
-              <span class="trust-number">4.9<span class="trust-star">&#9733;</span></span>
-              <span class="trust-label">Airbnb Rating</span>
+            <div class="trust-badge badge-stat">
+              <img src="/images/airbnb-superhost-badge.webp" alt="Airbnb Superhost" class="badge-img" loading="eager">
+            </div>
+            <div class="trust-badge badge-stat">
+              <img src="/images/guest-favorite-badge.webp" alt="Airbnb Guest Favorite" class="badge-img" loading="eager">
             </div>
             <div class="trust-badge">
               <span class="trust-number">9min</span>
@@ -82,15 +73,6 @@ const faqs = [
                   <p>Call or text anytime</p>
                 </div>
               </a>
-              <a href="mailto:hello@nurturestays.ca" class="contact-method">
-                <div class="contact-method-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <div>
-                  <strong>hello@nurturestays.ca</strong>
-                  <p>We reply within hours</p>
-                </div>
-              </a>
             </div>
           </div>
         </div>
@@ -114,22 +96,6 @@ const faqs = [
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="section contact-faq">
-    <div class="container">
-      <div class="section-header">
-        <h2>Frequently Asked Questions</h2>
-      </div>
-      <div class="faq-grid">
-        {faqs.map(faq => (
-          <div class="faq-card">
-            <h4>{faq.q}</h4>
-            <p set:html={faq.a}></p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <script is:inline src="https://api.nurtre.io/js/form_embed.js" type="text/javascript"></script>
@@ -198,8 +164,9 @@ const faqs = [
   /* Trust Badges */
   .trust-badges {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    align-items: center;
   }
 
   .trust-badge {
@@ -210,6 +177,19 @@ const faqs = [
     border: 1px solid var(--color-border);
   }
 
+  .trust-badge.badge-stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .badge-img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+  }
+
   .trust-number {
     display: block;
     font-family: 'Poppins', sans-serif;
@@ -217,11 +197,6 @@ const faqs = [
     font-weight: 700;
     color: var(--color-primary-dark);
     line-height: 1.2;
-  }
-
-  .trust-star {
-    color: #f5a623;
-    font-size: 1.1rem;
   }
 
   .trust-label {
@@ -351,48 +326,6 @@ const faqs = [
     min-height: 550px;
   }
 
-  /* FAQ Section */
-  .contact-faq {
-    background: var(--color-background-alt);
-  }
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .faq-card {
-    padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-  }
-
-  .faq-card h4 {
-    margin: 0 0 0.75rem;
-    font-size: 1.05rem;
-  }
-
-  .faq-card p {
-    color: var(--color-text-light);
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .faq-card :global(a) {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .faq-card :global(a:hover) {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
-  }
-
   /* Responsive */
   @media (max-width: 968px) {
     .contact-grid {
@@ -423,7 +356,7 @@ const faqs = [
     }
 
     .trust-badges {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.75rem;
     }
 
@@ -435,8 +368,8 @@ const faqs = [
       padding: 1rem 0.5rem;
     }
 
-    .faq-grid {
-      grid-template-columns: 1fr;
+    .badge-img {
+      height: 55px;
     }
   }
 
@@ -446,6 +379,7 @@ const faqs = [
     }
 
     .trust-badges {
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
     }
 
@@ -459,6 +393,10 @@ const faqs = [
 
     .trust-badge {
       padding: 0.875rem 0.25rem;
+    }
+
+    .badge-img {
+      height: 45px;
     }
   }
 </style>
