@@ -441,7 +441,9 @@ import criticalCSS from '../../styles/critical.css?raw';
         /* ─── PLATFORM TRUST STRIP (scrolling) ─── */
         .lp-platforms {
             padding: 1.5rem 0;
-            background: var(--lp-cream);
+            background: linear-gradient(180deg, rgba(117, 155, 143, 0.08) 0%, rgba(117, 155, 143, 0.04) 100%);
+            border-top: 1px solid rgba(117, 155, 143, 0.15);
+            border-bottom: 1px solid rgba(117, 155, 143, 0.15);
             overflow: hidden;
         }
 
@@ -450,7 +452,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--lp-text-light);
+            color: var(--lp-green-dark);
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -476,7 +478,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-platform-logo img {
             height: 50px;
             width: 250px;
-            opacity: 0.7;
+            opacity: 0.8;
             display: block;
         }
 
@@ -524,7 +526,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         /* ─── BOLD BANNER ─── */
         .lp-bold-banner {
-            padding: 1.5rem 2rem 3rem;
+            padding: 0.75rem 2rem 3rem;
             background: white;
             text-align: center;
         }
