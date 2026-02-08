@@ -163,31 +163,27 @@ import Layout from '../layouts/Layout.astro';
 
   /* Trust Badges */
   .trust-badges {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    align-items: center;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
   }
 
   .trust-badge {
     text-align: center;
-    padding: 1.25rem 0.75rem;
-    background: none;
-    border-radius: 12px;
-    border: none;
+  }
+
+  .trust-badge:not(.badge-stat) {
+    margin-bottom: 13px;
   }
 
   .trust-badge.badge-stat {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0.75rem;
-    background: none;
-    border: none;
   }
 
   .badge-img {
-    height: 70px;
+    height: 90px;
     width: auto;
     object-fit: contain;
   }
@@ -358,47 +354,37 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .trust-badges {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .trust-badge:not(.badge-stat) {
+      margin-top: 50px;
+      margin-bottom: 0;
+    }
+
+    .trust-badge.badge-stat {
+      transform: translateY(-39px);
     }
 
     .trust-number {
-      font-size: 1.25rem;
-    }
-
-    .trust-badge {
-      padding: 1rem 0.5rem;
-    }
-
-    .badge-img {
-      height: 55px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .contact-hero h1 {
-      font-size: 1.5rem;
-    }
-
-    .trust-badges {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-    }
-
-    .trust-number {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      line-height: 1;
     }
 
     .trust-label {
       font-size: 0.7rem;
     }
 
-    .trust-badge {
-      padding: 0.875rem 0.25rem;
-    }
-
     .badge-img {
-      height: 45px;
+      height: 78px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-hero h1 {
+      font-size: 1.5rem;
     }
   }
 </style>
