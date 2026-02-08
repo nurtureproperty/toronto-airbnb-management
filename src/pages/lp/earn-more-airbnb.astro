@@ -1168,12 +1168,12 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .lp-final-inner {
-            max-width: 1100px;
+            max-width: 700px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
         }
 
         .lp-final-text h2 {
@@ -1185,7 +1185,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             font-size: 1.1rem;
             opacity: 0.9;
             line-height: 1.7;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .lp-final-benefits {
@@ -1440,11 +1440,6 @@ import criticalCSS from '../../styles/critical.css?raw';
 
             .lp-feature-header, .lp-feature-row {
                 grid-template-columns: 1.5fr 1fr 1fr;
-            }
-
-            .lp-final-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
             }
 
             .lp-final-benefits {
@@ -2064,7 +2059,8 @@ import criticalCSS from '../../styles/critical.css?raw';
             <div class="lp-final-inner">
                 <div class="lp-final-text">
                     <h2>Get Your Free Rental Estimate</h2>
-                    <p>Book a 15-minute call and we'll walk you through exactly how much your property could earn on Airbnb, managed by Nurture.</p>
+                </div>
+                <div class="lp-final-text">
                     <p class="lp-final-offer-label">Here's what you get:</p>
                     <ul class="lp-final-benefits">
                         <li>A custom revenue projection for your specific property and area</li>
@@ -2072,9 +2068,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                         <li>An honest assessment of whether Airbnb makes sense for your situation</li>
                         <li>Zero obligation. Zero pressure. Just numbers.</li>
                     </ul>
-                    <div class="lp-final-reminder">
-                        <p>Remember: 10-15% fees, no startup costs, no long contracts, and you always own your listing.</p>
-                    </div>
                 </div>
                 <div class="lp-form-card">
                     <iframe
