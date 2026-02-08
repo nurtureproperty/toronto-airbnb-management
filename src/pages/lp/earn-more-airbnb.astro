@@ -460,10 +460,18 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-scroll-set {
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            gap: 3rem;
             min-width: 100vw;
             flex-shrink: 0;
             padding: 0.5rem 0;
+            justify-content: center;
+        }
+
+        .lp-platform-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .lp-platform-logo img {
@@ -492,6 +500,10 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-bottom: 0.75rem;
             }
 
+            .lp-scroll-set {
+                gap: 2rem;
+            }
+
             .lp-platform-logo img {
                 height: 40px;
             }
@@ -517,11 +529,38 @@ import criticalCSS from '../../styles/critical.css?raw';
             font-weight: 600;
         }
 
+        .lp-bold-banner h2 + h2 {
+            margin-top: 0.25rem;
+        }
+
         .lp-bold-banner .banner-help {
             font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-            color: var(--lp-green);
+            color: var(--lp-charcoal);
             font-weight: 700;
             font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            position: relative;
+            margin-top: 0.75rem;
+            background: white;
+            padding: 0.3rem 1.25rem;
+            border-radius: 6px;
+        }
+
+        .banner-underline {
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            color: var(--lp-green);
+        }
+
+        .banner-story {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            max-width: 750px;
+            margin: 1.75rem auto 0;
         }
 
         @media (max-width: 768px) {
@@ -1555,46 +1594,13 @@ import criticalCSS from '../../styles/critical.css?raw';
         <!-- ═══ BOLD BANNER ═══ -->
         <section class="lp-bold-banner">
             <div class="lp-bold-banner-inner">
-                <h2>Rent not covering expenses? Not willing to sell at a loss?</h2>
-                <span class="banner-help">We can help.</span>
+                <h2>Rent not covering expenses?</h2>
+                <h2>Don't want to sell in a bad market?</h2>
+                <span class="banner-help">We can help!<svg class="banner-underline" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 8 Q50 2, 100 6 Q150 10, 198 4" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span>
+                <p class="banner-story">We've been there ourselves. Losing money on our property every month, hoping the market would pick back up. We heard about Airbnb but were confused by the complicated rules. Eventually we decided to trust a well-known company to help us rent out our property on Airbnb. It was a disaster. We fired them, did it ourselves, and voila: our place became cashflow positive in a month. We mastered marketing, pricing, and providing consistently good experiences, and now we're doing it for others and seeing 30-100% increases in revenue consistently.</p>
             </div>
         </section>
 
-        <!-- ═══ PAIN POINTS ═══ -->
-        <section class="lp-pain">
-            <div class="lp-section-inner">
-                <div class="lp-pain-grid">
-                    <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">01</div>
-                        <div>
-                            <h3>Late-night guest messages</h3>
-                            <p>The lockbox isn't working. The WiFi is down. The hot water is gone. And it's always at 11pm.</p>
-                        </div>
-                    </div>
-                    <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">02</div>
-                        <div>
-                            <h3>Leaving money on the table</h3>
-                            <p>You set a nightly rate and hope for the best. Meanwhile, comparable properties are charging 40% more on weekends.</p>
-                        </div>
-                    </div>
-                    <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">03</div>
-                        <div>
-                            <h3>Cleaning chaos between bookings</h3>
-                            <p>Coordinating cleaners with a 3-hour window between checkout and check-in. One cancellation and the whole day collapses.</p>
-                        </div>
-                    </div>
-                    <div class="lp-pain-card reveal">
-                        <div class="lp-pain-icon">04</div>
-                        <div>
-                            <h3>Bad reviews from slow responses</h3>
-                            <p>One 4-star review tanks your listing. And it came from a guest who waited 6 hours for a simple answer.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- ═══ THE FLIP ═══ -->
         <section class="lp-flip">
