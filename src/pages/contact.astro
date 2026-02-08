@@ -22,23 +22,6 @@ import Layout from '../layouts/Layout.astro';
       <div class="contact-grid">
         <!-- Left Column: Value Props -->
         <div class="contact-info-col">
-          <div class="trust-badges">
-            <div class="trust-badge badge-stat">
-              <img src="/images/airbnb-superhost-badge.webp" alt="Airbnb Superhost" class="badge-img" loading="eager">
-            </div>
-            <div class="trust-badge badge-stat">
-              <img src="/images/guest-favorite-badge.webp" alt="Airbnb Guest Favorite" class="badge-img" loading="eager">
-            </div>
-            <div class="trust-badge">
-              <span class="trust-number">9min</span>
-              <span class="trust-label">Response Time</span>
-            </div>
-            <div class="trust-badge">
-              <span class="trust-number">12-15%</span>
-              <span class="trust-label">Management Fee</span>
-            </div>
-          </div>
-
           <div class="what-you-get">
             <h3>What you'll get on the call</h3>
             <ul>
@@ -73,6 +56,23 @@ import Layout from '../layouts/Layout.astro';
                   <p>Call or text anytime</p>
                 </div>
               </a>
+            </div>
+          </div>
+
+          <div class="trust-badges">
+            <div class="trust-badge badge-stat">
+              <img src="/images/airbnb-superhost-badge.webp" alt="Airbnb Superhost" class="badge-img" loading="eager">
+            </div>
+            <div class="trust-badge badge-stat">
+              <img src="/images/guest-favorite-badge.webp" alt="Airbnb Guest Favorite" class="badge-img" loading="eager">
+            </div>
+            <div class="trust-badge">
+              <span class="trust-number">9min</span>
+              <span class="trust-label">Response Time</span>
+            </div>
+            <div class="trust-badge">
+              <span class="trust-number">12-15%</span>
+              <span class="trust-label">Management Fee</span>
             </div>
           </div>
         </div>
@@ -182,6 +182,8 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     justify-content: center;
     padding: 0.75rem;
+    background: none;
+    border: none;
   }
 
   .badge-img {
