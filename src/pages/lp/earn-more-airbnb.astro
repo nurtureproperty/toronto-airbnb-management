@@ -475,6 +475,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .lp-platform-logo img {
+            height: 60px;
             width: auto;
             opacity: 0.75;
             transition: opacity 0.3s;
@@ -483,12 +484,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-platform-logo img:hover {
             opacity: 1;
         }
-
-        /* Compensate for different internal whitespace in logo image files */
-        .lp-scroll-set .lp-platform-logo:nth-child(1) img { height: 60px; }  /* Airbnb - moderate padding */
-        .lp-scroll-set .lp-platform-logo:nth-child(2) img { height: 48px; }  /* Booking - very tight crop, naturally wide */
-        .lp-scroll-set .lp-platform-logo:nth-child(3) img { height: 76px; }  /* VRBO - most internal whitespace */
-        .lp-scroll-set .lp-platform-logo:nth-child(4) img { height: 68px; }  /* Google - moderate padding */
 
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
@@ -505,10 +500,7 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-bottom: 0.75rem;
             }
 
-            .lp-scroll-set .lp-platform-logo:nth-child(1) img { height: 38px; }
-            .lp-scroll-set .lp-platform-logo:nth-child(2) img { height: 30px; }
-            .lp-scroll-set .lp-platform-logo:nth-child(3) img { height: 48px; }
-            .lp-scroll-set .lp-platform-logo:nth-child(4) img { height: 42px; }
+            .lp-platform-logo img { height: 38px; }
         }
 
         /* ─── BOLD BANNER ─── */
@@ -1573,7 +1565,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         <!-- ═══ PLATFORM TRUST STRIP ═══ -->
         <section class="lp-platforms">
-            <p class="lp-platforms-label">Your property, listed across</p>
+            <p class="lp-platforms-label">Get Your Property in Front of Millions</p>
             <div class="lp-scroll-track">
                 <div class="lp-scroll-set">
                     <div class="lp-platform-logo"><img src="/images/airbnb-logo.png" alt="Airbnb" loading="lazy"></div>
