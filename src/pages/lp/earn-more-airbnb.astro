@@ -475,7 +475,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .lp-platform-logo img {
-            height: 64px;
             width: auto;
             opacity: 0.75;
             transition: opacity 0.3s;
@@ -484,6 +483,12 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-platform-logo img:hover {
             opacity: 1;
         }
+
+        /* Compensate for different internal whitespace in logo image files */
+        .lp-scroll-set .lp-platform-logo:nth-child(1) img { height: 60px; }  /* Airbnb - moderate padding */
+        .lp-scroll-set .lp-platform-logo:nth-child(2) img { height: 48px; }  /* Booking - very tight crop, naturally wide */
+        .lp-scroll-set .lp-platform-logo:nth-child(3) img { height: 76px; }  /* VRBO - most internal whitespace */
+        .lp-scroll-set .lp-platform-logo:nth-child(4) img { height: 68px; }  /* Google - moderate padding */
 
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
@@ -500,9 +505,10 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-bottom: 0.75rem;
             }
 
-            .lp-platform-logo img {
-                height: 40px;
-            }
+            .lp-scroll-set .lp-platform-logo:nth-child(1) img { height: 38px; }
+            .lp-scroll-set .lp-platform-logo:nth-child(2) img { height: 30px; }
+            .lp-scroll-set .lp-platform-logo:nth-child(3) img { height: 48px; }
+            .lp-scroll-set .lp-platform-logo:nth-child(4) img { height: 42px; }
         }
 
         /* ─── BOLD BANNER ─── */
