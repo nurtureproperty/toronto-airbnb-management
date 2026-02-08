@@ -416,6 +416,10 @@ import criticalCSS from '../../styles/critical.css?raw';
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
             transition: transform 0.2s ease, filter 0.2s ease;
         }
 
@@ -1667,25 +1671,25 @@ import criticalCSS from '../../styles/critical.css?raw';
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- ═══ PLATFORM TRUST STRIP ═══ -->
-        <section class="lp-platforms">
-            <p class="lp-platforms-label">Get Your Property in Front of Millions</p>
-            <div class="lp-scroll-track">
-                <div class="lp-scroll-set">
-                    <div class="lp-platform-logo"><img src="/images/airbnb-logo.png" alt="Airbnb" loading="lazy"></div>
-                    <div class="lp-platform-logo"><img src="/images/booking-logo.png" alt="Booking.com" loading="lazy"></div>
-                    <div class="lp-platform-logo"><img src="/images/vrbo-logo.png" alt="VRBO" loading="lazy"></div>
-                    <div class="lp-platform-logo"><img src="/images/google-logo.png" alt="Google" loading="lazy"></div>
+            <!-- ═══ PLATFORM TRUST STRIP ═══ -->
+            <section class="lp-platforms">
+                <p class="lp-platforms-label">Get Your Property in Front of Millions</p>
+                <div class="lp-scroll-track">
+                    <div class="lp-scroll-set">
+                        <div class="lp-platform-logo"><img src="/images/airbnb-logo.png" alt="Airbnb" loading="lazy"></div>
+                        <div class="lp-platform-logo"><img src="/images/booking-logo.png" alt="Booking.com" loading="lazy"></div>
+                        <div class="lp-platform-logo"><img src="/images/vrbo-logo.png" alt="VRBO" loading="lazy"></div>
+                        <div class="lp-platform-logo"><img src="/images/google-logo.png" alt="Google" loading="lazy"></div>
+                    </div>
+                    <div class="lp-scroll-set" aria-hidden="true">
+                        <div class="lp-platform-logo"><img src="/images/airbnb-logo.png" alt="" loading="lazy"></div>
+                        <div class="lp-platform-logo"><img src="/images/booking-logo.png" alt="" loading="lazy"></div>
+                        <div class="lp-platform-logo"><img src="/images/vrbo-logo.png" alt="" loading="lazy"></div>
+                        <div class="lp-platform-logo"><img src="/images/google-logo.png" alt="" loading="lazy"></div>
+                    </div>
                 </div>
-                <div class="lp-scroll-set" aria-hidden="true">
-                    <div class="lp-platform-logo"><img src="/images/airbnb-logo.png" alt="" loading="lazy"></div>
-                    <div class="lp-platform-logo"><img src="/images/booking-logo.png" alt="" loading="lazy"></div>
-                    <div class="lp-platform-logo"><img src="/images/vrbo-logo.png" alt="" loading="lazy"></div>
-                    <div class="lp-platform-logo"><img src="/images/google-logo.png" alt="" loading="lazy"></div>
-                </div>
-            </div>
+            </section>
         </section>
 
         <!-- ═══ BOLD BANNER ═══ -->
@@ -1702,7 +1706,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         <!-- ═══ THE FLIP ═══ -->
         <section class="lp-flip">
             <div class="lp-flip-inner reveal">
-                <h2>Earn more without more work. See how much you could earn.</h2>
+                <h2>See how much you could earn.</h2>
                 <p>What's holding you back? If you're like most, it might be the uncertainty around how much you'll make, city bylaws, or startup costs. That's why we're offering you a free rental estimate and consultation where you'll get:</p>
                 <ul class="lp-flip-benefits">
                     <li>A custom revenue projection for your specific property and area</li>
@@ -2083,6 +2087,7 @@ import criticalCSS from '../../styles/critical.css?raw';
     <!-- ═══ FOOTER ═══ -->
     <footer class="lp-footer">
         <p>&copy; 2026 Nurture Airbnb Property Management &nbsp;|&nbsp; <a href="tel:647-957-8956">(647) 957-8956</a> &nbsp;|&nbsp; <a href="/">nurturestays.ca</a></p>
+        <p style="margin-top: 0.5rem;"><a href="/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms">Terms & Conditions</a></p>
     </footer>
 
     <!-- Form embed script -->
