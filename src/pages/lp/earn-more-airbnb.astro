@@ -34,13 +34,13 @@ import criticalCSS from '../../styles/critical.css?raw';
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>Earn More From Your Property | Nurture Airbnb Management</title>
-    <meta name="description" content="GTA homeowners earn 30-100% more with professional Airbnb management. 10-15% fees, 9-min response time, no contracts. Get your free estimate today.">
+    <meta name="description" content="GTA homeowners earn 30-100% more with professional Airbnb management. 12-15% fees, 9-min response time, no contracts. Get your free estimate today.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.nurturestays.ca/lp/earn-more-airbnb" />
     <meta property="og:title" content="Your Property Could Be Earning You 30-100% More" />
-    <meta property="og:description" content="Professional Airbnb management in the GTA. We handle everything so you collect rent stress-free. 10-15% fees, no contracts." />
+    <meta property="og:description" content="Professional Airbnb management in the GTA. We handle everything so you collect rent stress-free. 12-15% fees, no contracts." />
     <meta property="og:image" content="https://www.nurturestays.ca/images/logo.webp" />
 
     <!-- Preconnects -->
@@ -70,7 +70,7 @@ import criticalCSS from '../../styles/critical.css?raw';
           "name": "How much are your Airbnb management fees?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our fees range from 10-15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. Competitors typically charge 18-25%."
+            "text": "Our fees range from 12-15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. Competitors typically charge 18-25%."
           }
         },
         {
@@ -494,6 +494,39 @@ import criticalCSS from '../../styles/critical.css?raw';
 
             .lp-platform-logo img {
                 height: 40px;
+            }
+        }
+
+        /* ─── BOLD BANNER ─── */
+        .lp-bold-banner {
+            padding: 3rem 2rem;
+            background: var(--lp-charcoal);
+            text-align: center;
+        }
+
+        .lp-bold-banner-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lp-bold-banner h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            color: white;
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .lp-bold-banner .banner-help {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            color: var(--lp-green);
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .lp-bold-banner {
+                padding: 2rem 1.5rem;
             }
         }
 
@@ -1493,7 +1526,7 @@ import criticalCSS from '../../styles/critical.css?raw';
                         <span class="lp-stat-label">Response Time</span>
                     </div>
                     <div class="lp-stat">
-                        <span class="lp-stat-number">10-15%</span>
+                        <span class="lp-stat-number">12-15%</span>
                         <span class="lp-stat-label">Management Fee</span>
                     </div>
                 </div>
@@ -1519,13 +1552,17 @@ import criticalCSS from '../../styles/critical.css?raw';
             </div>
         </section>
 
+        <!-- ═══ BOLD BANNER ═══ -->
+        <section class="lp-bold-banner">
+            <div class="lp-bold-banner-inner">
+                <h2>Rent not covering expenses? Not willing to sell at a loss?</h2>
+                <span class="banner-help">We can help.</span>
+            </div>
+        </section>
+
         <!-- ═══ PAIN POINTS ═══ -->
         <section class="lp-pain">
             <div class="lp-section-inner">
-                <div class="lp-section-header reveal">
-                    <h2>Sound Familiar?</h2>
-                    <p>Managing an Airbnb yourself is a second job nobody signed up for</p>
-                </div>
                 <div class="lp-pain-grid">
                     <div class="lp-pain-card reveal">
                         <div class="lp-pain-icon">01</div>
@@ -1666,7 +1703,7 @@ import criticalCSS from '../../styles/critical.css?raw';
                     </div>
                     <div class="lp-compare-row">
                         <div class="lp-compare-feature">Management Fees</div>
-                        <div class="lp-compare-nurture">10-15%</div>
+                        <div class="lp-compare-nurture">12-15%</div>
                         <div class="lp-compare-others bad">18-25%</div>
                     </div>
                     <div class="lp-compare-row">
@@ -1797,7 +1834,7 @@ import criticalCSS from '../../styles/critical.css?raw';
                             <span class="lp-faq-icon">+</span>
                         </button>
                         <div class="lp-faq-answer">
-                            <p>10-15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. Competitors typically charge 18-25%.</p>
+                            <p>12-15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. Competitors typically charge 18-25%.</p>
                         </div>
                     </div>
                     <div class="lp-faq-item">
@@ -1863,7 +1900,7 @@ import criticalCSS from '../../styles/critical.css?raw';
                         <li>Zero obligation. Zero pressure. Just numbers.</li>
                     </ul>
                     <div class="lp-final-reminder">
-                        <p>Remember: 10-15% fees, no startup costs, no long contracts, and you always own your listing.</p>
+                        <p>Remember: 12-15% fees, no startup costs, no long contracts, and you always own your listing.</p>
                     </div>
                 </div>
                 <div class="lp-form-card">

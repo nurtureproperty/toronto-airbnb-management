@@ -4,7 +4,7 @@ When writing any content (blog posts, page copy, descriptions, marketing text), 
 
 ## Avoid Unnecessary Dashes
 - Never use em dashes (—) or double hyphens (--)
-- Avoid en dashes except for number ranges (e.g., "10-15%")
+- Avoid en dashes except for number ranges (e.g., "12-15%")
 - Instead of dashes for parenthetical thoughts, use commas, periods, or parentheses
 - Bad: "We handle everything — from cleaning to guest communication — so you can relax"
 - Good: "We handle everything from cleaning to guest communication, so you can relax"

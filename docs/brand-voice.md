@@ -32,7 +32,7 @@
 ## Competitor Comparison (use sparingly, factually)
 | Us | Competitors |
 |----|-------------|
-| 10-15% fees | 18-25% fees |
+| 12-15% fees | 18-25% fees |
 | <9 min response | Hours or days |
 | No long contracts | Lock-in periods |
 | You own listing | Listing hostage |

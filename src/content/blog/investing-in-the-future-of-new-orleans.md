@@ -63,6 +63,6 @@ Look, at the end of the day, successful STR hosting isn't just about optimizing 
 
 ## Ready to Grow Your Ontario Rental?
 
-Whether you're managing one property or considering expanding your portfolio, navigating local regulations and community relationships takes time and expertise. At Nurture, we handle the day-to-day management so you can focus on the bigger picture. Our team knows Ontario's STR landscape inside and out, and we charge just 10-15% compared to competitors' 18-25%.
+Whether you're managing one property or considering expanding your portfolio, navigating local regulations and community relationships takes time and expertise. At Nurture, we handle the day-to-day management so you can focus on the bigger picture. Our team knows Ontario's STR landscape inside and out, and we charge just 12-15% compared to competitors' 18-25%.
 
 Want to learn more about our [short-term rental management services](/services/short-term-rental-management-toronto)? Give us a call at (647) 957-8956 or [get in touch](/contact) - no long contracts, and you keep ownership of your listing.
