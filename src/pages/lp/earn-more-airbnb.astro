@@ -460,11 +460,10 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-scroll-set {
             display: flex;
             align-items: center;
-            gap: 3rem;
             min-width: 100vw;
             flex-shrink: 0;
             padding: 0.5rem 0;
-            justify-content: center;
+            justify-content: space-evenly;
         }
 
         .lp-platform-logo {
@@ -472,6 +471,7 @@ import criticalCSS from '../../styles/critical.css?raw';
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            width: 25%;
         }
 
         .lp-platform-logo img {
@@ -500,10 +500,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-bottom: 0.75rem;
             }
 
-            .lp-scroll-set {
-                gap: 2rem;
-            }
-
             .lp-platform-logo img {
                 height: 40px;
             }
@@ -512,7 +508,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         /* ─── BOLD BANNER ─── */
         .lp-bold-banner {
             padding: 3rem 2rem;
-            background: var(--lp-charcoal);
+            background: white;
             text-align: center;
         }
 
@@ -523,7 +519,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-bold-banner h2 {
             font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-            color: white;
+            color: var(--lp-charcoal);
             line-height: 1.35;
             margin-bottom: 0.5rem;
             font-weight: 600;
@@ -535,15 +531,12 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-bold-banner .banner-help {
             font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-            color: var(--lp-charcoal);
+            color: var(--lp-green-dark);
             font-weight: 700;
             font-family: 'Poppins', sans-serif;
             display: inline-block;
             position: relative;
             margin-top: 0.75rem;
-            background: white;
-            padding: 0.3rem 1.25rem;
-            border-radius: 6px;
         }
 
         .banner-underline {
@@ -556,7 +549,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         .banner-story {
-            color: rgba(255, 255, 255, 0.8);
+            color: #555;
             font-size: 1.05rem;
             line-height: 1.75;
             max-width: 750px;
