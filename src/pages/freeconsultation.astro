@@ -10,25 +10,27 @@ import criticalCSS from '../styles/critical.css?raw';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics (GA4) -->
+    <!-- GA4 + Clarity: define queue immediately, defer script downloads until after page load -->
     <script is:inline>
-      var s=document.createElement('script');
-      s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-BMX9QBWVGD';
-      document.head.appendChild(s);
       window.dataLayer=window.dataLayer||[];
       function gtag(){dataLayer.push(arguments);}
       gtag('js',new Date());
       gtag('config','G-BMX9QBWVGD');
       gtag('config','AW-17780166798');
-    </script>
-
-    <!-- Microsoft Clarity -->
-    <script is:inline>
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "vdthpiof4z");
+      window.addEventListener('load',function(){
+        setTimeout(function(){
+          var s=document.createElement('script');
+          s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-BMX9QBWVGD';
+          document.head.appendChild(s);
+        },100);
+        setTimeout(function(){
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window,document,"clarity","script","vdthpiof4z");
+        },200);
+      });
     </script>
 
     <meta name="robots" content="noindex, nofollow">
@@ -49,6 +51,8 @@ import criticalCSS from '../styles/critical.css?raw';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="dns-prefetch" href="https://api.nurtre.io">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://scripts.clarity.ms">
 
     <!-- Preload LCP image -->
     <link rel="preload" href="https://i.ytimg.com/vi_webp/OFACd6a2ctA/sddefault.webp" as="image" type="image/webp" fetchpriority="high">
