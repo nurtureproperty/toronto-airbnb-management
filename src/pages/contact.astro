@@ -65,7 +65,14 @@ import Layout from '../layouts/Layout.astro';
 
 </Layout>
 
-<script is:inline src="https://api.nurtre.io/js/form_embed.js" type="text/javascript"></script>
+<script is:inline>
+  // Defer form_embed.js to reduce main thread blocking during initial load
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://api.nurtre.io/js/form_embed.js';
+    document.body.appendChild(s);
+  });
+</script>
 
 <style>
   /* Hero */
@@ -186,7 +193,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .form-card iframe {
-    min-height: 550px;
+    min-height: 750px;
   }
 
   /* Responsive */

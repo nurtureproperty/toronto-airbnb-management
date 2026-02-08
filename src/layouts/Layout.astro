@@ -101,25 +101,29 @@ const allSchemas = schema
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Analytics (GA4) -->
+    <!-- Google Analytics (GA4) - Deferred to not block initial render -->
     <script is:inline>
-      var s=document.createElement('script');
-      s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-BMX9QBWVGD';
-      document.head.appendChild(s);
       window.dataLayer=window.dataLayer||[];
       function gtag(){dataLayer.push(arguments);}
       gtag('js',new Date());
       gtag('config','G-BMX9QBWVGD');
       gtag('config','AW-17780166798');
+      setTimeout(function(){
+        var s=document.createElement('script');
+        s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-BMX9QBWVGD';
+        document.head.appendChild(s);
+      },0);
     </script>
 
-    <!-- Microsoft Clarity -->
+    <!-- Microsoft Clarity - Deferred to reduce main thread blocking -->
     <script is:inline>
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "vdthpiof4z");
+      setTimeout(function(){
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vdthpiof4z");
+      },3000);
     </script>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -166,6 +170,8 @@ const allSchemas = schema
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://api.nurtre.io">
+    <link rel="dns-prefetch" href="https://stcdn.leadconnectorhq.com">
 
     <!-- Fonts - Optimized loading with reduced weights for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
