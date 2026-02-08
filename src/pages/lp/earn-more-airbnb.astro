@@ -454,21 +454,22 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         .lp-scroll-track {
             display: flex;
-            width: max-content;
-            animation: scrollLogos 20s linear infinite;
+            animation: scrollLogos 16s linear infinite;
         }
 
         .lp-scroll-set {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            padding: 0 2rem;
+            justify-content: space-around;
+            min-width: 100vw;
+            flex-shrink: 0;
+            padding: 0.5rem 0;
         }
 
         .lp-platform-logo img {
-            height: 32px;
+            height: 64px;
             width: auto;
-            opacity: 0.7;
+            opacity: 0.75;
             transition: opacity 0.3s;
         }
 
@@ -478,7 +479,7 @@ import criticalCSS from '../../styles/critical.css?raw';
 
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-100vw); }
         }
 
         @media (max-width: 768px) {
@@ -491,13 +492,8 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-bottom: 0.75rem;
             }
 
-            .lp-scroll-set {
-                gap: 3rem;
-                padding: 0 1.5rem;
-            }
-
             .lp-platform-logo img {
-                height: 24px;
+                height: 40px;
             }
         }
 
