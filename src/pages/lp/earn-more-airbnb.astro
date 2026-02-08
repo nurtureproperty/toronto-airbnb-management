@@ -1229,52 +1229,6 @@ import criticalCSS from '../../styles/critical.css?raw';
             line-height: 1.6;
         }
 
-        /* ─── GUARANTEE ─── */
-        .lp-guarantee {
-            padding: 5.5rem 2rem;
-            background: var(--lp-cream);
-        }
-
-        .lp-guarantee-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .lp-guarantee-inner h2 {
-            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-            color: var(--lp-charcoal);
-            margin-bottom: 2rem;
-        }
-
-        .lp-guarantee-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            text-align: left;
-        }
-
-        .lp-guarantee-item {
-            background: white;
-            border-radius: 8px;
-            padding: 1.75rem;
-            border: 1px solid var(--lp-border);
-            border-top: 2px solid var(--lp-green);
-        }
-
-        .lp-guarantee-item h4 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            color: var(--lp-charcoal);
-            margin-bottom: 0.5rem;
-        }
-
-        .lp-guarantee-item p {
-            font-size: 0.9rem;
-            color: var(--lp-text-light);
-            line-height: 1.6;
-        }
-
         /* ─── URGENCY PANEL ─── */
         .lp-urgency {
             padding: 3.5rem 2rem;
@@ -1426,11 +1380,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin: 0 auto;
             }
 
-            .lp-guarantee-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1511,7 +1460,6 @@ import criticalCSS from '../../styles/critical.css?raw';
             .lp-compare,
             .lp-pricing,
             .lp-whoisfor,
-            .lp-guarantee,
             .lp-urgency,
             .lp-faq,
             .lp-final-cta { padding: 3.5rem 1.25rem; }
@@ -1563,7 +1511,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-compare,
         .lp-pricing,
         .lp-whoisfor,
-        .lp-guarantee,
         .lp-urgency,
         .lp-faq {
             content-visibility: auto;
@@ -1943,27 +1890,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                         <div class="lp-persona-label">Switching PMs</div>
                         <h3>The Disappointed Switcher</h3>
                         <p>You tried another property manager and were let down: high fees, slow responses, listing held hostage, or just poor results. You want a company that actually delivers.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ GUARANTEE ═══ -->
-        <section class="lp-guarantee">
-            <div class="lp-guarantee-inner reveal">
-                <h2>Our Promise to You</h2>
-                <div class="lp-guarantee-grid">
-                    <div class="lp-guarantee-item">
-                        <h4>First Booking Within 1 Week</h4>
-                        <p>If we don't get your first booking within 7 days of going live, we'll waive our commission on your first month.</p>
-                    </div>
-                    <div class="lp-guarantee-item">
-                        <h4>Cancel Anytime, No Penalties</h4>
-                        <p>30 days notice. That's it. No lock-in contracts, no breakup fees. We keep you because we deliver, not because you're trapped.</p>
-                    </div>
-                    <div class="lp-guarantee-item">
-                        <h4>Your Listing. Always Yours.</h4>
-                        <p>You own your listing, reviews, and guest history. If you leave, everything goes with you. We never hold your business hostage.</p>
                     </div>
                 </div>
             </div>
