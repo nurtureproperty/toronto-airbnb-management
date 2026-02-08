@@ -1044,80 +1044,6 @@ import criticalCSS from '../../styles/critical.css?raw';
             color: white;
         }
 
-        /* ─── LEAD PANEL ─── */
-        .lp-lead-panel {
-            padding: 5rem 2rem;
-            background: var(--lp-warm-white);
-            border-top: 1px solid var(--lp-border);
-        }
-
-        .lp-lead-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .lp-lead-inner h2 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--lp-charcoal);
-            margin-bottom: 1.5rem;
-        }
-
-        .lp-lead-content p {
-            font-size: 1.05rem;
-            color: var(--lp-text);
-            line-height: 1.8;
-            margin-bottom: 1.25rem;
-        }
-
-        .lp-lead-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .lp-lead-content strong {
-            color: var(--lp-charcoal);
-        }
-
-        .lp-lead-pullquote {
-            position: relative;
-            padding: 2.5rem;
-            background: var(--lp-cream);
-            border-radius: 12px;
-            border-left: 4px solid var(--lp-green);
-        }
-
-        .lp-lead-pullquote blockquote {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 600;
-            line-height: 1.4;
-            color: var(--lp-charcoal);
-            font-style: italic;
-        }
-
-        .lp-lead-pullquote .lp-pullquote-attr {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--lp-text-light);
-            font-style: normal;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        @media (max-width: 968px) {
-            .lp-lead-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .lp-lead-pullquote {
-                border-left: none;
-                border-top: 4px solid var(--lp-green);
-            }
-        }
-
         /* ─── SECTION LABEL ─── */
         .lp-section-label {
             font-size: 0.8rem;
@@ -1447,7 +1373,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         @media (max-width: 576px) {
             .lp-hero { padding: 3rem 1.25rem 2rem; }
             .lp-pain,
-            .lp-lead-panel,
             .lp-case,
             .lp-how,
             .lp-compare,
@@ -1485,7 +1410,6 @@ import criticalCSS from '../../styles/critical.css?raw';
         }
 
         /* Performance */
-        .lp-lead-panel,
         .lp-case,
         .lp-how,
         .lp-compare,
@@ -1631,21 +1555,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                             <p>One 4-star review tanks your listing. And it came from a guest who waited 6 hours for a simple answer.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ LEAD PANEL (Empathy/Story) ═══ -->
-        <section class="lp-lead-panel">
-            <div class="lp-lead-inner reveal">
-                <div class="lp-lead-content">
-                    <h2>We Get It. This Wasn't Supposed to Be a Full-Time Job.</h2>
-                    <p>You bought a property to build wealth, not to spend your evenings answering guest messages about parking spots and Wi-Fi passwords.</p>
-                    <p>We started Nurture because we saw GTA homeowners leaving thousands on the table every month. Whether you're burnt out from self-managing, disappointed by another company, or sitting on a property wondering if it's worth the hassle, we built this for you.</p>
-                </div>
-                <div class="lp-lead-pullquote">
-                    <blockquote>"What if a property manager actually treated your property like their own?"</blockquote>
-                    <p class="lp-pullquote-attr">The idea behind Nurture</p>
                 </div>
             </div>
         </section>
