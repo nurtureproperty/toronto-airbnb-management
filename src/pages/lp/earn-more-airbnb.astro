@@ -493,7 +493,8 @@ import criticalCSS from '../../styles/critical.css?raw';
             }
 
             .lp-scroll-track {
-                animation-duration: 12s;
+                animation-duration: 8s;
+                animation-name: scrollLogosMobile;
             }
 
             .lp-scroll-set {
@@ -507,7 +508,15 @@ import criticalCSS from '../../styles/critical.css?raw';
                 margin-right: 2.5rem;
             }
 
-            .lp-platform-logo img { height: 32px; }
+            .lp-platform-logo img {
+                height: 32px;
+                width: 160px;
+            }
+
+            @keyframes scrollLogosMobile {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-4 * (160px + 2.5rem))); }
+            }
         }
 
         /* ─── BOLD BANNER ─── */
@@ -1920,33 +1929,6 @@ import criticalCSS from '../../styles/critical.css?raw';
                         <div class="lp-feature-label">Insurance claim assistance</div>
                         <div class="lp-feature-check empty">—</div>
                         <div class="lp-feature-check">✓</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ WHO THIS IS FOR ═══ -->
-        <section class="lp-whoisfor">
-            <div class="lp-section-inner">
-                <div class="lp-section-header reveal">
-                    <h2>Is This Right For You?</h2>
-                    <p>Nurture works best for owners who want results without the daily grind</p>
-                </div>
-                <div class="lp-whoisfor-grid reveal">
-                    <div class="lp-persona-card">
-                        <div class="lp-persona-label">Property Owner</div>
-                        <h3>The Uncertain Homeowner</h3>
-                        <p>You have a property but not sure how to operate a short term rental. You want the income without the 2 am guest messages.</p>
-                    </div>
-                    <div class="lp-persona-card">
-                        <div class="lp-persona-label">Current Host</div>
-                        <h3>The Frustrated Self-Manager</h3>
-                        <p>You've been running your own Airbnb for months (or years) and you're exhausted. The cleaning coordination, guest issues, and pricing headaches have taken the joy out of hosting.</p>
-                    </div>
-                    <div class="lp-persona-card">
-                        <div class="lp-persona-label">Switching PMs</div>
-                        <h3>The Poorly Managed</h3>
-                        <p>You tried another property manager and were let down: high fees, slow responses, listing held hostage, or just poor results. You want a company that actually delivers.</p>
                     </div>
                 </div>
             </div>
