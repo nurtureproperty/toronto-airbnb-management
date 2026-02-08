@@ -455,6 +455,7 @@ import criticalCSS from '../../styles/critical.css?raw';
         .lp-scroll-track {
             display: flex;
             animation: scrollLogos 18s linear infinite;
+            will-change: transform;
         }
 
         .lp-scroll-set {
@@ -498,8 +499,12 @@ import criticalCSS from '../../styles/critical.css?raw';
             .lp-scroll-set {
                 justify-content: flex-start;
                 min-width: 0;
-                gap: 2rem;
-                padding-right: 2rem;
+                gap: 0;
+                padding: 0;
+            }
+
+            .lp-platform-logo {
+                margin-right: 2.5rem;
             }
 
             .lp-platform-logo img { height: 32px; }
