@@ -27,8 +27,8 @@ import Layout from '../layouts/Layout.astro';
             <p>Pick a time that works for you</p>
           </div>
           <iframe
-            src="https://api.nurtre.io/widget/booking/VGvuhzjQT58ZPGHt0LUV"
-            style="width:100%;border:none;overflow:hidden"
+            data-src="https://api.nurtre.io/widget/booking/VGvuhzjQT58ZPGHt0LUV"
+            style="width:100%;border:none;overflow:hidden;min-height:1500px"
             scrolling="no"
             id="VGvuhzjQT58ZPGHt0LUV_1770588175398"
           ></iframe>
@@ -66,15 +66,27 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script is:inline>
-  // Defer form_embed.js to reduce main thread blocking during initial load
-  window.addEventListener('load', function() {
-    var s = document.createElement('script');
-    s.src = 'https://api.nurtre.io/js/form_embed.js';
-    document.body.appendChild(s);
-  });
+  // Lazy-load booking iframe when it scrolls into view
+  var formLoaded = false;
+  function loadContactForm() {
+    if (formLoaded) return;
+    formLoaded = true;
+    var iframe = document.querySelector('.form-card iframe');
+    if (iframe && iframe.dataset.src) {
+      iframe.src = iframe.dataset.src;
+      var s = document.createElement('script');
+      s.src = 'https://api.nurtre.io/js/form_embed.js';
+      document.body.appendChild(s);
+    }
+  }
+  var fo = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) { loadContactForm(); fo.disconnect(); }
+  }, { rootMargin: '400px' });
+  var fc = document.querySelector('.form-card');
+  if (fc) fo.observe(fc);
 </script>
 
-<style>
+<style is:inline>
   /* Hero */
   .contact-hero {
     background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
