@@ -101,6 +101,11 @@ const allSchemas = schema
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Preconnect early for booking widget origins (no crossorigin - loaded as scripts) -->
+    <link rel="preconnect" href="https://api.nurtre.io">
+    <link rel="preconnect" href="https://backend.leadconnectorhq.com">
+    <link rel="preconnect" href="https://stcdn.leadconnectorhq.com">
+
     <!-- Google Analytics (GA4) - Deferred to not block initial render -->
     <script is:inline>
       window.dataLayer=window.dataLayer||[];
@@ -166,12 +171,6 @@ const allSchemas = schema
     <!-- Preload critical assets for LCP - responsive for mobile -->
     <link rel="preload" href="/images/logo-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
     <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" media="(min-width: 769px)">
-
-    <!-- Preconnect for external resources -->
-    <link rel="preconnect" href="https://api.nurtre.io" crossorigin>
-    <link rel="preconnect" href="https://backend.leadconnectorhq.com" crossorigin>
-    <link rel="preconnect" href="https://stcdn.leadconnectorhq.com" crossorigin>
-    <link rel="preconnect" href="https://storage.googleapis.com" crossorigin>
 
     <!-- Fonts - Optimized loading with reduced weights for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
