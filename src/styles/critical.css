@@ -1,5 +1,24 @@
 /* Critical CSS - Above-fold styles for fast initial render */
 
+/* Font metric overrides - fallback fonts sized to match web fonts, preventing CLS on swap */
+@font-face {
+  font-family: 'Poppins Fallback';
+  src: local('Roboto'), local('Arial'), local('Helvetica');
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 0%;
+  size-adjust: 112%;
+}
+
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Roboto'), local('Arial'), local('Helvetica');
+  ascent-override: 100%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
+}
+
 :root {
   --color-primary: #759b8f;
   --color-primary-dark: #5a7d73;
@@ -20,7 +39,7 @@
 * { margin: 0; }
 
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-background);
@@ -41,7 +60,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', -apple-system, sans-serif;
+  font-family: 'Poppins', 'Poppins Fallback', -apple-system, sans-serif;
   line-height: 1.2;
   font-weight: 600;
 }
