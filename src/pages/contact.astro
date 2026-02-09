@@ -53,8 +53,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <iframe
             data-src="https://api.nurtre.io/widget/booking/VGvuhzjQT58ZPGHt0LUV"
-            style="width:100%;border:none;overflow:hidden;height:1500px"
-            scrolling="no"
+            style="width:100%;border:none;overflow:auto"
             id="VGvuhzjQT58ZPGHt0LUV_1770588175398"
           ></iframe>
         </div>
@@ -183,7 +182,6 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border: 1px solid var(--color-border);
-    contain: layout;
   }
 
   .form-card-header {
@@ -203,7 +201,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .form-card iframe {
-    min-height: 1500px;
+    height: 1000px !important;
   }
 
   /* Responsive */
