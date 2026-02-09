@@ -105,6 +105,9 @@ const allSchemas = schema
     <link rel="preconnect" href="https://api.nurtre.io">
     <link rel="preconnect" href="https://backend.leadconnectorhq.com">
     <link rel="preconnect" href="https://stcdn.leadconnectorhq.com">
+    <!-- DNS prefetch for third-party origins loaded by booking widget -->
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://www.gstatic.com">
 
     <!-- GA4 + Clarity: define queue immediately, defer script downloads until after page load -->
     <script is:inline>
@@ -173,8 +176,8 @@ const allSchemas = schema
     <!-- Fonts - Optimized loading with reduced weights for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Poppins:wght@400;600&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Poppins:wght@400;600&display=optional" rel="stylesheet"></noscript>
 
     <!-- Schema.org structured data -->
     {allSchemas.map(s => (

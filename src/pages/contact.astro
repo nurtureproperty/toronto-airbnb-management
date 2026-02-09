@@ -16,26 +16,10 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Main Content: Two Column -->
+  <!-- Main Content -->
   <section class="contact-main">
     <div class="container">
-      <!-- Booking Form -->
-      <div class="contact-form-col">
-        <div class="form-card">
-          <div class="form-card-header">
-            <h2>Book Your Free Consultation</h2>
-            <p>Pick a time that works for you</p>
-          </div>
-          <iframe
-            data-src="https://api.nurtre.io/widget/booking/VGvuhzjQT58ZPGHt0LUV"
-            style="width:100%;border:none;overflow:hidden;min-height:1500px"
-            scrolling="no"
-            id="VGvuhzjQT58ZPGHt0LUV_1770588175398"
-          ></iframe>
-        </div>
-      </div>
-
-      <!-- Value Props -->
+      <!-- Value Props - Above form to prevent CLS from iframe resizing -->
       <div class="contact-info-col">
         <div class="what-you-get">
           <h3>What you'll get on the call</h3>
@@ -58,7 +42,22 @@ import Layout from '../layouts/Layout.astro';
             </li>
           </ul>
         </div>
+      </div>
 
+      <!-- Booking Form -->
+      <div class="contact-form-col">
+        <div class="form-card">
+          <div class="form-card-header">
+            <h2>Book Your Free Consultation</h2>
+            <p>Pick a time that works for you</p>
+          </div>
+          <iframe
+            data-src="https://api.nurtre.io/widget/booking/VGvuhzjQT58ZPGHt0LUV"
+            style="width:100%;border:none;overflow:hidden;height:1500px"
+            scrolling="no"
+            id="VGvuhzjQT58ZPGHt0LUV_1770588175398"
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -80,8 +79,8 @@ import Layout from '../layouts/Layout.astro';
     }
   }
   var fo = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) { loadContactForm(); fo.disconnect(); }
-  }, { rootMargin: '400px' });
+    if (entries[0].isIntersecting) { fo.disconnect(); setTimeout(loadContactForm, 200); }
+  }, { rootMargin: '200px' });
   var fc = document.querySelector('.form-card');
   if (fc) fo.observe(fc);
 </script>
@@ -138,12 +137,10 @@ import Layout from '../layouts/Layout.astro';
     margin: 0 auto;
   }
 
-  /* Info Column */
+  /* Info Column - Above form */
   .contact-info-col {
-    display: flex;
-    gap: 3rem;
     max-width: 600px;
-    margin: 2.5rem auto 0;
+    margin: 0 auto 2rem;
   }
 
   /* What You Get */
@@ -186,6 +183,7 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border: 1px solid var(--color-border);
+    contain: layout;
   }
 
   .form-card-header {
@@ -205,7 +203,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .form-card iframe {
-    min-height: 1500px;
+    height: 1500px;
   }
 
   /* Responsive */
@@ -219,8 +217,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .contact-info-col {
-      flex-direction: column;
-      gap: 2rem;
+      margin-bottom: 1.5rem;
     }
   }
 
