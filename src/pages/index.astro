@@ -244,14 +244,19 @@ const latestPosts = allPosts
             line-height: 1.15;
         }
 
+        /* Override critical.css main padding - hero handles its own spacing */
+        main {
+            padding-top: 0 !important;
+        }
+
         /* ═══════════════════════════════════════
            LP SECTIONS
            ═══════════════════════════════════════ */
 
         /* ─── HERO ─── */
         .lp-hero {
-            margin-top: 0;
-            padding: 1rem 2rem 0;
+            margin-top: 72px;
+            padding: 0 2rem;
             background: white;
             position: relative;
             overflow: hidden;
@@ -1306,8 +1311,8 @@ const latestPosts = allPosts
 
         @media (max-width: 768px) {
             .lp-hero {
-                padding: 0.5rem 1.5rem 0.5rem;
-                margin-top: 0;
+                padding: 0 1.5rem;
+                margin-top: 78px;
             }
 
             .lp-hero-content h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
@@ -1375,7 +1380,7 @@ const latestPosts = allPosts
         }
 
         @media (max-width: 576px) {
-            .lp-hero { padding: 0.5rem 1.25rem 0.5rem; }
+            .lp-hero { padding: 0 1.25rem; margin-top: 72px; }
 
             .lp-case,
             .lp-how,

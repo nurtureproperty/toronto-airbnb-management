@@ -229,10 +229,15 @@ import criticalCSS from '../styles/critical.css?raw';
             background: var(--lp-green-dark);
         }
 
+        /* Override critical.css main padding - hero handles its own spacing */
+        main {
+            padding-top: 0 !important;
+        }
+
         /* ─── HERO ─── */
         .lp-hero {
-            margin-top: 0;
-            padding: 1rem 2rem 0;
+            margin-top: 56px;
+            padding: 0 2rem;
             background: white;
             position: relative;
             overflow: hidden;
@@ -1462,8 +1467,8 @@ import criticalCSS from '../styles/critical.css?raw';
 
         @media (max-width: 768px) {
             .lp-hero {
-                padding: 0.5rem 1.5rem 0.5rem;
-                margin-top: 0;
+                padding: 0 1.5rem;
+                margin-top: 64px;
             }
 
             .lp-hero-content h1 {
@@ -1533,7 +1538,7 @@ import criticalCSS from '../styles/critical.css?raw';
         }
 
         @media (max-width: 576px) {
-            .lp-hero { padding: 0.5rem 1.25rem 0.5rem; }
+            .lp-hero { padding: 0 1.25rem; margin-top: 58px; }
             .lp-pain,
             .lp-case,
             .lp-how,
