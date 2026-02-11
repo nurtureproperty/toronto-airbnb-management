@@ -8,8 +8,9 @@ const faqs = [
   { q: "What taxes apply to Edmonton Airbnb income?", a: "The main tax is the 4% Alberta Tourism Levy on all stays under 28 consecutive days. As of October 2024, Airbnb collects and remits this automatically. You also owe 5% GST (no PST in Alberta) if earning over $30,000/year. All rental income must be reported to the CRA." },
   { q: "Do I need insurance for my Edmonton Airbnb?", a: "Edmonton does not mandate a specific minimum liability amount like Ontario cities require ($2M). However, standard homeowner's insurance typically does not cover short-term rental activity. The City strongly recommends contacting your insurer to ensure adequate STR coverage." },
   { q: "What is the Operational Plan for Guest Management?", a: "It's a mandatory document submitted with your licence application. It details your guest check-in/check-out procedures, house rules, noise and parking compliance measures, emergency contacts, and advertising methods. The City must approve it before your licence is issued." },
-  { q: "How many guests can I have?", a: "If you live on-site, the limit is 2 sleeping units with a maximum of 2 persons per unit (4 guests total). Exceeding this requires a Major Home-Based Business Development Permit. If you rent the entire dwelling and don't live on-site, capacity is determined by fire code and building code compliance." },
-  { q: "Do I need a development permit?", a: "Only in specific situations: if you rent 4 or more sleeping units separately in one building, if you're a host living on-site renting more than 2 sleeping units, or if you're operating from a secondary suite or backyard housing unit that needs construction permits." },
+  { q: "How many rooms can I rent if I live in the home?", a: "Without any extra permits, you can rent up to 2 sleeping units with a maximum of 2 persons per unit (4 guests total). To rent 3 or more rooms, you need a Major Home-Based Business Development Permit. At 4+ rooms rented separately, you also need a Building Permit. The development permit costs approximately $260 and takes around 13-20 business days to process." },
+  { q: "What is the Major Home-Based Business Development Permit?", a: "It's a development permit required for hosts living on-site who want to rent more than 2 sleeping units. It costs approximately $260 (one-time fee, separate from the $94/year business licence), takes around 13-20 business days, and is subject to conditions like no exterior signage, no excess traffic, and compliance with the approved Operational Plan. Neighbours within 60 metres may be notified and can appeal the decision within 21 days." },
+  { q: "Can I rent my basement and upstairs as separate Airbnb listings?", a: "Yes, if the basement is a legally permitted secondary suite with its own Development and Building Permits. Each unit needs its own STR business licence ($94/year each) and its own Operational Plan. If the basement is not a legal suite, you cannot list it separately. Unpermitted suites won't pass an Alberta Health Services inspection." },
   { q: "What are the noise rules?", a: "Edmonton's Community Standards Bylaw prohibits residential noise from 10 PM to 7 AM, seven days a week. Violations carry a $250 fine. Hosts are responsible for ensuring guests comply with these rules." },
   { q: "What happens if I operate without a licence?", a: "Operating without a valid business licence can result in a $2,000 fine per violation. In 2019, Edmonton issued 149 tickets to unlicensed short-term rental operators. The City actively monitors platforms for unlicensed listings." }
 ];
@@ -26,6 +27,7 @@ const tocItems = [
   { id: 'licence-requirements', text: 'Licence Requirements' },
   { id: 'operational-plan', text: 'Operational Plan' },
   { id: 'permits', text: 'Permits & Zoning' },
+  { id: 'major-permit', text: 'Major Home-Based Business Permit' },
   { id: 'taxes', text: 'Taxes & Levies' },
   { id: 'occupancy-rules', text: 'Occupancy & Operating Rules' },
   { id: 'fire-safety', text: 'Fire Safety' },
@@ -276,7 +278,83 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>Physical modifications:</strong> Any changes to the floor plan (new bedrooms, finished basements) require permits</li>
           </ul>
 
-          <p>Edmonton's Zoning Bylaw (Charter Bylaw 20001, effective January 1, 2024) does not explicitly prohibit short-term rentals in specific zones, but zoning compliance is required for any development permits.</p>
+          <p>Edmonton's Zoning Bylaw (Charter Bylaw 20001, effective January 1, 2024) does not explicitly prohibit short-term rentals in specific zones. Home-Based Business is listed as a Permitted Use in the RS (Small Scale Residential) zone, making it broadly available across residential areas.</p>
+
+          <h2 id="major-permit">The Major Home-Based Business Permit</h2>
+          <p>This is the permit you need if you live in the home and want to rent <strong>more than 2 sleeping units</strong>. For a host in a 5-bedroom house, for example, the default limit is 2 rooms without this permit.</p>
+
+          <h3>When Do You Need It?</h3>
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Scenario</th>
+                  <th>What You Need</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Live on-site, rent 1-2 rooms</td>
+                  <td>Business licence only ($94/year)</td>
+                </tr>
+                <tr>
+                  <td>Live on-site, rent 3 rooms</td>
+                  <td>Business licence + Major Home-Based Business Development Permit</td>
+                </tr>
+                <tr>
+                  <td>Live on-site, rent 4+ rooms</td>
+                  <td>Business licence + Development Permit + Building Permit</td>
+                </tr>
+                <tr>
+                  <td>Don't live on-site, rent entire dwelling</td>
+                  <td>Business licence only ($94/year)</td>
+                </tr>
+                <tr>
+                  <td>Secondary suite as separate listing</td>
+                  <td>Separate business licence per unit + suite must have its own Development &amp; Building Permits</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Application Process</h3>
+          <ul>
+            <li><strong>Apply online</strong> at <a href="https://selfserve.edmonton.ca/businesslicence" target="_blank" rel="noopener">selfserve.edmonton.ca</a> (select "Home-Based Business" licence type)</li>
+            <li><strong>Fee:</strong> Approximately $260 (one-time, separate from the $94/year business licence)</li>
+            <li><strong>Processing time:</strong> Target is 20 business days, current average is 13 days</li>
+            <li><strong>Submit your Operational Plan</strong> at the same time as the permit application</li>
+            <li>Contact: <strong>developmentpermits@edmonton.ca</strong></li>
+          </ul>
+
+          <h3>Conditions Once Approved</h3>
+          <p>The permit comes with restrictions to keep the property residential in character:</p>
+          <ul>
+            <li><strong>No exterior signage</strong> other than a small identification plaque (max 20cm x 30.5cm)</li>
+            <li><strong>No excess traffic or parking</strong> beyond what's typical for the neighbourhood</li>
+            <li><strong>Maximum 2 non-resident employees</strong> or business partners on-site at any time</li>
+            <li><strong>No outdoor business activity</strong> or storage of commercial equipment</li>
+            <li>The home must <strong>maintain its residential appearance</strong> (matching colours, materials, architectural style)</li>
+            <li><strong>No cooking facilities</strong> inside sleeping units (if operating as a Bed and Breakfast)</li>
+          </ul>
+
+          <h3>Neighbour Notification and Appeals</h3>
+          <p>This is the part that can add time to the process:</p>
+          <ul>
+            <li><strong>All property owners within 60 metres</strong> of your property are notified by mail after the permit decision</li>
+            <li>The local <strong>Community League president</strong> is also notified</li>
+            <li>Neighbours have <strong>21 days to appeal</strong> the decision to the Subdivision and Development Appeal Board (SDAB)</li>
+            <li>If appealed, the process takes longer while the SDAB reviews the case</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Can the Permit Be Denied?</h4>
+            <p>Yes. The Development Planner can deny the permit or add extra conditions if the STR operation would be <strong>more appropriately located in a commercial zone</strong>, would create a nuisance, or would generate traffic and parking beyond what's typical for the neighbourhood. Keeping a clean operational track record helps your case.</p>
+          </div>
+
+          <div class="strategy-box">
+            <h4>Practical Tip: Is the Permit Worth It?</h4>
+            <p>For most hosts renting 1-2 rooms, the standard $94/year business licence is sufficient. The Major Home-Based Business permit only makes sense if you have a larger home (4+ bedrooms) and want to maximize room rentals. Keep in mind that neighbours are notified and can object, so your relationship with neighbours matters. If you don't live on-site and rent the entire dwelling instead, this permit isn't needed at all.</p>
+          </div>
 
           <h2 id="taxes">Taxes and Levies</h2>
           <p>Edmonton hosts face fewer taxes than most Ontario cities. There is no separate municipal accommodation tax (MAT).</p>
