@@ -65,6 +65,12 @@ const faqs = [
           </div>
         </div>
 
+        <div class="referral-banner">
+          <h2>Know another property owner?</h2>
+          <p>Refer them to Nurture and earn <strong>$500</strong> when they get their first booking.</p>
+          <a href="/referral" class="btn btn-primary">Learn About Our Referral Program</a>
+        </div>
+
         <div class="contact-info">
           <p>Questions? Reach us at:</p>
           <a href="tel:+16479578956" class="phone-link">647-957-8956</a>
@@ -257,6 +263,38 @@ const faqs = [
   .faq-card a:hover {
     color: var(--color-primary-dark);
     text-decoration: underline;
+  }
+
+  .referral-banner {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    color: white;
+    text-align: center;
+  }
+
+  .referral-banner h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+
+  .referral-banner p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+  }
+
+  .referral-banner .btn {
+    background: white;
+    color: var(--color-primary-dark);
+    font-size: 0.9rem;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .referral-banner .btn:hover {
+    background: var(--color-background-alt);
   }
 
   @media (max-width: 768px) {

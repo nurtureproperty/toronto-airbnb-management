@@ -1169,6 +1169,47 @@ const latestPosts = allPosts
         .blog-view-all a { color: var(--primary-dark); text-decoration: none; font-weight: 600; }
         .blog-view-all a:hover { text-decoration: underline; }
 
+        /* ─── Referral Strip ─── */
+        .referral-strip {
+            background: var(--cream);
+            padding: 1.5rem 2rem;
+        }
+        .referral-strip-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .referral-strip-text {
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+        .referral-strip-text strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        .referral-strip-text span {
+            color: #666;
+        }
+        .referral-strip-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        .referral-strip-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
         /* ─── CTA Section ─── */
         .cta-section {
             padding: 6rem 2rem;
@@ -1363,6 +1404,7 @@ const latestPosts = allPosts
 
             .lp-bold-banner { padding: 2rem 1.5rem; }
 
+            .referral-strip-inner { flex-direction: column; text-align: center; }
             .section-header h2 { font-size: 2rem; }
             .cta-section h2 { font-size: 2rem; }
             .youtube-feed h2 { font-size: 1.75rem; }
@@ -2111,6 +2153,17 @@ const latestPosts = allPosts
                     <div class="faq-question">Who owns the listing on Airbnb?</div>
                     <div class="faq-answer">You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ═══ REFERRAL ═══ -->
+        <section class="referral-strip">
+            <div class="referral-strip-inner">
+                <div class="referral-strip-text">
+                    <strong>Know another property owner?</strong>
+                    <span>Refer them to Nurture and earn $500 when they get their first booking.</span>
+                </div>
+                <a href="/referral" class="referral-strip-btn">Learn More</a>
             </div>
         </section>
 
