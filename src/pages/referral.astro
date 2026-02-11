@@ -105,61 +105,24 @@ const faqSchema = JSON.stringify({
         <p class="section-subtitle">We'll reach out within 24 hours and give them a free rental estimate.</p>
       </div>
       <div class="form-wrapper">
-        <form id="referral-form" action="https://formsubmit.co/info@nurtre.io" method="POST">
-          <input type="hidden" name="_subject" value="New Referral Submission">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://www.nurturestays.ca/referral?submitted=true">
-          <input type="text" name="_honey" style="display:none">
-
-          <h3>Your Information</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="your-name">Your Name</label>
-              <input type="text" id="your-name" name="your_name" required placeholder="Your full name">
-            </div>
-            <div class="form-group">
-              <label for="your-email">Your Email</label>
-              <input type="email" id="your-email" name="your_email" required placeholder="you@example.com">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="your-phone">Your Phone (optional)</label>
-            <input type="tel" id="your-phone" name="your_phone" placeholder="647-000-0000">
-          </div>
-
-          <h3>Referral's Information</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="ref-name">Their Name</label>
-              <input type="text" id="ref-name" name="referral_name" required placeholder="Their full name">
-            </div>
-            <div class="form-group">
-              <label for="ref-email">Their Email or Phone</label>
-              <input type="text" id="ref-email" name="referral_contact" required placeholder="Email or phone number">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="ref-location">Property Location (optional)</label>
-            <input type="text" id="ref-location" name="referral_location" placeholder="e.g. Downtown Toronto, Mississauga">
-          </div>
-          <div class="form-group">
-            <label for="ref-notes">Anything else we should know? (optional)</label>
-            <textarea id="ref-notes" name="notes" rows="3" placeholder="e.g. They're currently self-managing, looking to switch from another PM company, etc."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-large submit-btn">Submit Referral</button>
-        </form>
-
-        <div id="success-message" class="success-message" style="display:none;">
-          <div class="success-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <h3>Referral submitted!</h3>
-          <p>We'll reach out to them within 24 hours. Thanks for spreading the word.</p>
-        </div>
+        <iframe
+          src="https://api.nurtre.io/widget/form/aK4Z2fvPKfGaArh3GOpp"
+          style="width:100%;height:100%;border:none;border-radius:5px"
+          id="inline-aK4Z2fvPKfGaArh3GOpp"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Referral Form"
+          data-height="645"
+          data-layout-iframe-id="inline-aK4Z2fvPKfGaArh3GOpp"
+          data-form-id="aK4Z2fvPKfGaArh3GOpp"
+          title="Referral Form"
+        ></iframe>
+        <script src="https://api.nurtre.io/js/form_embed.js"></script>
       </div>
     </div>
   </section>
@@ -224,19 +187,6 @@ const faqSchema = JSON.stringify({
 
 </Layout>
 
-<script>
-  // Check for successful submission redirect
-  if (window.location.search.includes('submitted=true')) {
-    const form = document.getElementById('referral-form');
-    const success = document.getElementById('success-message');
-    if (form && success) {
-      form.style.display = 'none';
-      success.style.display = 'block';
-    }
-    // Clean URL
-    window.history.replaceState({}, '', '/referral');
-  }
-</script>
 
 <style>
   /* Hero */
@@ -356,102 +306,7 @@ const faqSchema = JSON.stringify({
   .form-wrapper {
     max-width: 640px;
     margin: 0 auto;
-    background: white;
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .form-wrapper h3 {
-    font-size: 1.15rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-primary);
-    color: var(--color-text);
-  }
-
-  .form-wrapper h3:not(:first-child) {
-    margin-top: 2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  .form-group label {
-    display: block;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.375rem;
-    color: var(--color-text);
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.2s;
-    background: white;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(117, 155, 143, 0.15);
-  }
-
-  .form-group textarea {
-    resize: vertical;
-  }
-
-  .submit-btn {
-    width: 100%;
-    margin-top: 0.5rem;
-    padding: 1rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: none;
-  }
-
-  /* Success Message */
-  .success-message {
-    text-align: center;
-    padding: 2rem 0;
-  }
-
-  .success-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    color: white;
-  }
-
-  .success-message h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    border: none;
-    padding: 0;
-  }
-
-  .success-message p {
-    color: var(--color-text-light);
-    font-size: 1.05rem;
+    min-height: 645px;
   }
 
   /* Why Section */
@@ -599,14 +454,6 @@ const faqSchema = JSON.stringify({
     .steps-grid {
       grid-template-columns: 1fr;
       gap: 1rem;
-    }
-
-    .form-wrapper {
-      padding: 1.5rem;
-    }
-
-    .form-row {
-      grid-template-columns: 1fr;
     }
 
     .benefits-grid {
