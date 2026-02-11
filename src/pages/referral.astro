@@ -1,0 +1,618 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Airbnb Management Referral Program Toronto | Nurture";
+const pageDescription = "Refer an Airbnb host to Nurture and you both get one month of free management. Simple referral program for GTA property owners. Submit a referral today.";
+
+const steps = [
+  { number: '1', title: 'Submit a Referral', description: 'Fill out the form below with your info and your referral\'s contact details.' },
+  { number: '2', title: 'We Reach Out', description: 'We\'ll contact them directly, introduce Nurture, and offer a free rental estimate.' },
+  { number: '3', title: 'You Both Get Rewarded', description: 'When they sign up, you both receive one month of free management fees.' },
+];
+
+const faqs = [
+  { q: 'Who can I refer?', a: 'Anyone who owns a property in the GTA and is interested in short-term or mid-term rental management. They don\'t need to be currently listed on Airbnb.' },
+  { q: 'What\'s the reward?', a: 'You and the person you refer each get one month of management fees waived once they sign up and their first booking goes live.' },
+  { q: 'Is there a limit on referrals?', a: 'No limit. Refer as many people as you want. Each successful referral earns you another free month.' },
+  { q: 'Do I need to be a current Nurture client?', a: 'No. Anyone can refer a property owner. You don\'t need to be a current client to earn the reward.' },
+  { q: 'How long does the process take?', a: 'We reach out to your referral within 24 hours. The onboarding process typically takes about a week once they decide to move forward.' },
+  { q: 'What if my referral doesn\'t sign up?', a: 'No problem. There\'s no obligation on either side. We\'ll give them a free rental estimate regardless.' },
+];
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Airbnb Management Referral Program - Nurture",
+  "description": pageDescription,
+  "url": "https://www.nurturestays.ca/referral",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture",
+    "url": "https://www.nurturestays.ca"
+  }
+});
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+});
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={`${articleSchema}\n<script type="application/ld+json">${faqSchema}</script>`}>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Refer a Host, Get a Free Month</h1>
+      <p class="hero-subtitle">Know someone with an Airbnb or rental property in the GTA? Refer them to Nurture. When they sign up, you both get one month of management fees waived.</p>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">$0</span>
+          <span class="trust-label">Cost to Refer</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">No Limit</span>
+          <span class="trust-label">On Referrals</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">1 Month Free</span>
+          <span class="trust-label">For Both of You</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section steps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p class="section-subtitle">Three steps. No paperwork. No catch.</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map(step => (
+          <div class="step-card">
+            <div class="step-number">{step.number}</div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Referral Form -->
+  <section class="section form-section" id="refer">
+    <div class="container">
+      <div class="section-header">
+        <h2>Submit a Referral</h2>
+        <p class="section-subtitle">We'll reach out within 24 hours and give them a free rental estimate.</p>
+      </div>
+      <div class="form-wrapper">
+        <form id="referral-form" action="https://formsubmit.co/jeff@nurturestays.ca" method="POST">
+          <input type="hidden" name="_subject" value="New Referral Submission">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.nurturestays.ca/referral?submitted=true">
+          <input type="text" name="_honey" style="display:none">
+
+          <h3>Your Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="your-name">Your Name</label>
+              <input type="text" id="your-name" name="your_name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="your-email">Your Email</label>
+              <input type="email" id="your-email" name="your_email" required placeholder="you@example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="your-phone">Your Phone (optional)</label>
+            <input type="tel" id="your-phone" name="your_phone" placeholder="647-000-0000">
+          </div>
+
+          <h3>Referral's Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ref-name">Their Name</label>
+              <input type="text" id="ref-name" name="referral_name" required placeholder="Their full name">
+            </div>
+            <div class="form-group">
+              <label for="ref-email">Their Email or Phone</label>
+              <input type="text" id="ref-email" name="referral_contact" required placeholder="Email or phone number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ref-location">Property Location (optional)</label>
+            <input type="text" id="ref-location" name="referral_location" placeholder="e.g. Downtown Toronto, Mississauga">
+          </div>
+          <div class="form-group">
+            <label for="ref-notes">Anything else we should know? (optional)</label>
+            <textarea id="ref-notes" name="notes" rows="3" placeholder="e.g. They're currently self-managing, looking to switch from another PM company, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large submit-btn">Submit Referral</button>
+        </form>
+
+        <div id="success-message" class="success-message" style="display:none;">
+          <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h3>Referral submitted!</h3>
+          <p>We'll reach out to them within 24 hours. Thanks for spreading the word.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Refer -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Hosts Choose Nurture</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="benefit-icon">12-15%</span>
+          <h3>Lower Fees</h3>
+          <p>Most competitors charge 18-25%. Your referral saves money from day one.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">9 min</span>
+          <h3>Response Time</h3>
+          <p>Average guest response time. Not hours, not days. Minutes.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">30 day</span>
+          <h3>No Lock-In</h3>
+          <p>Cancel anytime with 30 days notice. No long-term contracts.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">100%</span>
+          <h3>Listing Ownership</h3>
+          <p>Your referral owns their listing. We never hold it hostage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Referral Program FAQ</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Know Someone With a Rental Property?</h2>
+      <p>It takes 30 seconds to submit a referral. One month free for both of you.</p>
+      <a href="#refer" class="btn btn-primary btn-large cta-btn">Refer a Host Now</a>
+      <p class="cta-note">Or call us directly: <a href="tel:+16479578956">647-957-8956</a></p>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Check for successful submission redirect
+  if (window.location.search.includes('submitted=true')) {
+    const form = document.getElementById('referral-form');
+    const success = document.getElementById('success-message');
+    if (form && success) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+    // Clean URL
+    window.history.replaceState({}, '', '/referral');
+  }
+</script>
+
+<style>
+  /* Hero */
+  .hero-section {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    color: white;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.95;
+    line-height: 1.7;
+  }
+
+  /* Trust Bar */
+  .trust-bar {
+    background: var(--color-dark);
+    color: white;
+    padding: 1.5rem;
+  }
+
+  .trust-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .trust-label {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  /* Steps */
+  .steps-section {
+    background: var(--color-background);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .step-number {
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.25rem;
+  }
+
+  .step-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Form Section */
+  .form-section {
+    background: var(--color-background-alt);
+  }
+
+  .form-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .form-wrapper h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-text);
+  }
+
+  .form-wrapper h3:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.375rem;
+    color: var(--color-text);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    background: white;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(117, 155, 143, 0.15);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .submit-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+  }
+
+  /* Success Message */
+  .success-message {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+  }
+
+  .success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    padding: 0;
+  }
+
+  .success-message p {
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+  }
+
+  /* Why Section */
+  .why-section {
+    background: var(--color-background);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid var(--color-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .benefit-icon {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-section {
+    background: var(--color-background-alt);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .faq-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: white;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-section p {
+    opacity: 0.95;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    background: white;
+    color: var(--color-primary-dark);
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .cta-note {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  .cta-note a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero-section {
+      padding: 3.5rem 1.5rem 3rem;
+    }
+
+    .trust-grid {
+      gap: 2rem;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .form-wrapper {
+      padding: 1.5rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
