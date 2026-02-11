@@ -1,5 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  { q: 'When will you contact my referral?', a: 'Within 24 hours. We\'ll introduce Nurture, explain our services, and offer them a free rental estimate with no obligation.' },
+  { q: 'Will my referral know I referred them?', a: 'Yes. We\'ll mention that you recommended us. Most people appreciate the personal introduction, and it helps build trust from the start.' },
+  { q: 'When do I get my $500?', a: 'You receive $500 once the person you referred signs up with Nurture and receives their first booking. This typically happens within 2 to 4 weeks of onboarding.' },
+  { q: 'How will I receive the $500?', a: 'We\'ll contact you directly to arrange payment once your referral\'s first booking is confirmed. We can send it via e-Transfer.' },
+  { q: 'Can I refer more than one person?', a: 'Yes. There\'s no limit. Each successful referral earns you another $500. Refer five people and that\'s $2,500.' },
+  { q: 'What if my referral isn\'t ready yet?', a: 'No problem. We\'ll give them a free rental estimate and answer any questions. If they decide to move forward later, your referral credit still applies.' },
+  { q: 'Do I need to be a Nurture client to earn the reward?', a: 'No. Anyone can refer a property owner and earn the $500 reward. You don\'t need to be a current client.' },
+  { q: 'What does Nurture charge for management?', a: 'Our management fees are 12-15%, significantly lower than the industry standard of 18-25%. No startup costs, no hidden fees, and no long-term contracts. <a href="/pricing-toronto-airbnb-management">See full pricing</a>.' },
+];
 ---
 
 <Layout title="Referral Submitted - Nurture" description="Thank you for submitting a referral to Nurture Airbnb Property Management. We'll reach out to them within 24 hours.">
@@ -53,6 +64,22 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <a href="/" class="btn btn-outline">Return to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Referral Program FAQ</h2>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p set:html={faq.a}></p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -198,6 +225,63 @@ import Layout from '../layouts/Layout.astro';
   .btn-outline:hover {
     background: var(--color-primary);
     color: white;
+  }
+
+  .faq-section {
+    background: white;
+    padding: 4rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    padding: 1.5rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+  }
+
+  .faq-card h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .faq-card a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .faq-card a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 600px) {
