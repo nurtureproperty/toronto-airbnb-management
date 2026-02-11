@@ -1,0 +1,1082 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb an investment property in Edmonton?", a: "Yes. Edmonton does not have a principal residence requirement. You can operate a short-term rental on an investment property, a second home, or any dwelling unit you own, as long as you hold a valid Residential Rental Accommodation (Short-Term) business licence for each property." },
+  { q: "How much does an Edmonton STR licence cost?", a: "The business licence fee is $94 per year per dwelling. The licence expires one year from issuance and must be renewed annually. You apply online through Edmonton's self-serve business licence portal." },
+  { q: "Is there a night limit in Edmonton?", a: "No. Edmonton does not impose an annual cap on the number of nights you can rent your property as a short-term rental. You can operate year-round without restriction, unlike Toronto's 180-night limit or similar caps in Ontario cities." },
+  { q: "What taxes apply to Edmonton Airbnb income?", a: "The main tax is the 4% Alberta Tourism Levy on all stays under 28 consecutive days. As of October 2024, Airbnb collects and remits this automatically. You also owe 5% GST (no PST in Alberta) if earning over $30,000/year. All rental income must be reported to the CRA." },
+  { q: "Do I need insurance for my Edmonton Airbnb?", a: "Edmonton does not mandate a specific minimum liability amount like Ontario cities require ($2M). However, standard homeowner's insurance typically does not cover short-term rental activity. The City strongly recommends contacting your insurer to ensure adequate STR coverage." },
+  { q: "What is the Operational Plan for Guest Management?", a: "It's a mandatory document submitted with your licence application. It details your guest check-in/check-out procedures, house rules, noise and parking compliance measures, emergency contacts, and advertising methods. The City must approve it before your licence is issued." },
+  { q: "How many guests can I have?", a: "If you live on-site, the limit is 2 sleeping units with a maximum of 2 persons per unit (4 guests total). Exceeding this requires a Major Home-Based Business Development Permit. If you rent the entire dwelling and don't live on-site, capacity is determined by fire code and building code compliance." },
+  { q: "Do I need a development permit?", a: "Only in specific situations: if you rent 4 or more sleeping units separately in one building, if you're a host living on-site renting more than 2 sleeping units, or if you're operating from a secondary suite or backyard housing unit that needs construction permits." },
+  { q: "What are the noise rules?", a: "Edmonton's Community Standards Bylaw prohibits residential noise from 10 PM to 7 AM, seven days a week. Violations carry a $250 fine. Hosts are responsible for ensuring guests comply with these rules." },
+  { q: "What happens if I operate without a licence?", a: "Operating without a valid business licence can result in a $2,000 fine per violation. In 2019, Edmonton issued 149 tickets to unlicensed short-term rental operators. The City actively monitors platforms for unlicensed listings." }
+];
+
+const relatedPosts = [
+  { title: 'Calgary Airbnb Short Term Rental Rules 2026', href: '/blog/calgary-airbnb-short-term-rental-rules-2026', description: 'Compare Edmonton rules with Calgary\'s STR regulations' },
+  { title: 'Airbnb Investment Property GTA: What Are Your Options?', href: '/blog/airbnb-investment-property-gta', description: 'How investment property rules compare across Canadian cities' },
+  { title: 'Airbnb Taxes Canada 2026: GTA Host Tax Guide', href: '/blog/airbnb-taxes-canada-gta-guide-2026', description: 'Complete Canadian Airbnb tax breakdown including GST, HST, and MAT' }
+];
+
+const tocItems = [
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'licence-requirements', text: 'Licence Requirements' },
+  { id: 'operational-plan', text: 'Operational Plan' },
+  { id: 'permits', text: 'Permits & Zoning' },
+  { id: 'taxes', text: 'Taxes & Levies' },
+  { id: 'occupancy-rules', text: 'Occupancy & Operating Rules' },
+  { id: 'fire-safety', text: 'Fire Safety' },
+  { id: 'noise-parking', text: 'Noise & Parking Rules' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'condo-rules', text: 'Condo Considerations' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Edmonton Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Edmonton Airbnb rules: no principal residence requirement, $94 licence, no night limit, 4% Alberta Tourism Levy. Complete 2026 host compliance guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-11",
+  "dateModified": "2026-02-11",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/edmonton-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Edmonton Regulations</span>
+      </nav>
+      <h1>Edmonton Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 11, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">11 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Edmonton is one of the most <strong>host-friendly major cities in Canada</strong> for short-term rentals. No principal residence requirement, no annual night cap, and a licence fee of just $94/year. Investment properties are welcome.</p>
+            <p class="lead">The rules are governed by <strong>Business Licence Bylaw 20002</strong>, which replaced the former Bylaw 13138 on January 17, 2022. Here's everything you need to know to operate legally in Edmonton.</p>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental?</h2>
+          <p>Edmonton defines a short-term rental as any residential accommodation rented for <strong>30 consecutive days or less</strong> for compensation. The City categorizes these under "Residential Rental Accommodation (Short-Term)" business licences.</p>
+
+          <p>Two rental types exist under this definition:</p>
+          <ul>
+            <li><strong>Entire dwelling rentals</strong>: The host is not on-site during the guest's stay</li>
+            <li><strong>Individual room rentals</strong>: The host resides on-site while renting rooms to guests</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>30 days vs 180 days:</strong> Edmonton uses a 30-day threshold, unlike <a href="/blog/calgary-airbnb-short-term-rental-rules-2026">Calgary's 180-day definition</a>. Stays of 31+ days in Edmonton fall outside STR regulations entirely.
+            </div>
+          </div>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is where Edmonton stands apart from most Canadian cities. <strong>You do not need to live in the property to rent it short-term.</strong></p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Investment Properties Allowed?</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Edmonton</strong></div>
+              <div class="comparison-col highlight">Yes, no restrictions</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Calgary</strong></div>
+              <div class="comparison-col highlight">Yes, with separate licence type</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Toronto</strong></div>
+              <div class="comparison-col highlight">No, principal residence only</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Mississauga</strong></div>
+              <div class="comparison-col highlight">No, principal residence only</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Ottawa</strong></div>
+              <div class="comparison-col highlight">No, principal residence only</div>
+            </div>
+          </div>
+
+          <p>A business licence is required for each dwelling used as a short-term rental, regardless of whether you live there or not. The operational rules differ slightly depending on whether the host resides on-site:</p>
+          <ul>
+            <li><strong>Host on-site:</strong> Maximum 2 sleeping units, each accommodating up to 2 persons. Exceeding this requires a Major Home-Based Business Development Permit.</li>
+            <li><strong>Host not on-site:</strong> No inherent cap on sleeping units. Capacity is determined by fire code and building code compliance.</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Why This Matters for Investors</h4>
+            <p>In <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a>, <a href="/blog/mississauga-airbnb-short-term-rental-rules-2026">Mississauga</a>, <a href="/blog/brampton-airbnb-short-term-rental-guide-2026">Brampton</a>, and most Ontario cities, <a href="/blog/airbnb-investment-property-gta">investment properties cannot be used for Airbnb</a>. Edmonton and <a href="/blog/calgary-airbnb-short-term-rental-rules-2026">Calgary</a> are among Canada's most flexible markets for STR investors.</p>
+          </div>
+
+          <h2 id="licence-requirements">Business Licence Requirements</h2>
+          <p>Every short-term rental in Edmonton requires a valid business licence. Here's what you need:</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Requirement</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Licence type</strong></td>
+                  <td>Residential Rental Accommodation (Short-Term)</td>
+                </tr>
+                <tr>
+                  <td><strong>Fee</strong></td>
+                  <td>$94/year per dwelling</td>
+                </tr>
+                <tr>
+                  <td><strong>Governing bylaw</strong></td>
+                  <td>Business Licence Bylaw 20002</td>
+                </tr>
+                <tr>
+                  <td><strong>Validity</strong></td>
+                  <td>One year from issuance, must renew annually</td>
+                </tr>
+                <tr>
+                  <td><strong>Application</strong></td>
+                  <td>Online at selfserve.edmonton.ca/businesslicence</td>
+                </tr>
+                <tr>
+                  <td><strong>Required documents</strong></td>
+                  <td>Completed Operational Plan for Guest Management (City-approved)</td>
+                </tr>
+                <tr>
+                  <td><strong>Advertising</strong></td>
+                  <td>Licence number must appear on all listings</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-tip">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Health inspection:</strong> Upon licence issuance, Alberta Health Services is notified and may conduct an inspection of your property. Make sure your unit meets health and safety standards before applying.
+            </div>
+          </div>
+
+          <h2 id="operational-plan">Operational Plan for Guest Management</h2>
+          <p>Edmonton requires all STR applicants to submit an Operational Plan for Guest Management with their licence application. This is a City-approved document that must detail:</p>
+
+          <ul>
+            <li><strong>Advertising methods</strong> and platforms used (Airbnb, VRBO, etc.)</li>
+            <li><strong>Guest check-in and check-out procedures</strong></li>
+            <li><strong>House rules</strong> provided to guests</li>
+            <li><strong>Noise, waste, and parking</strong> bylaw compliance measures</li>
+            <li><strong>Emergency contact information</strong></li>
+            <li><strong>Guest communication procedures</strong></li>
+            <li>Prohibition on <strong>guest-operated unlicensed businesses</strong> from the property</li>
+          </ul>
+
+          <p>The plan must be submitted for City approval with your application. If your operational procedures change after licensing, a revised plan must be submitted.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Template available:</strong> The City provides an official Operational Plan template. Download it from the <a href="https://www.edmonton.ca/sites/default/files/public-files/assets/PDF/OperationalPlan-GuestManagement-Short-termRentals.pdf" target="_blank" rel="noopener">City of Edmonton website</a> before starting your application.
+            </div>
+          </div>
+
+          <h2 id="permits">Development Permits & Zoning</h2>
+          <p>Most Edmonton hosts will not need a development permit. However, permits are required in these situations:</p>
+
+          <ul>
+            <li><strong>4+ sleeping units</strong> rented separately in one building: Both a Development Permit and Building Permit required</li>
+            <li><strong>Host on-site renting 3+ sleeping units:</strong> Requires a Major Home-Based Business Development Permit</li>
+            <li><strong>Secondary suites or backyard housing:</strong> Must have proper Development and Building Permits confirming the suite was legally constructed</li>
+            <li><strong>Physical modifications:</strong> Any changes to the floor plan (new bedrooms, finished basements) require permits</li>
+          </ul>
+
+          <p>Edmonton's Zoning Bylaw (Charter Bylaw 20001, effective January 1, 2024) does not explicitly prohibit short-term rentals in specific zones, but zoning compliance is required for any development permits.</p>
+
+          <h2 id="taxes">Taxes and Levies</h2>
+          <p>Edmonton hosts face fewer taxes than most Ontario cities. There is no separate municipal accommodation tax (MAT).</p>
+
+          <h3>Alberta Tourism Levy (4%)</h3>
+          <p>The provincial tourism levy is the main tax on short-term rentals:</p>
+          <ul>
+            <li><strong>Rate:</strong> 4% of the purchase price of accommodation</li>
+            <li><strong>Applies to:</strong> Base price plus cleaning fees, pet fees, amenity fees, booking/service charges</li>
+            <li><strong>Platform collection:</strong> As of October 1, 2024, Airbnb and other registered platforms collect and remit the levy automatically</li>
+            <li><strong>Direct bookings:</strong> Hosts accepting direct bookings must collect and remit the levy themselves</li>
+            <li><strong>Exemptions:</strong> Stays of 28+ consecutive days are exempt</li>
+            <li><strong>Registration:</strong> Through TRACS at Alberta.ca</li>
+            <li><strong>Remittance:</strong> Quarterly for hosts with fewer than 50 rooms</li>
+          </ul>
+
+          <h3>GST (5%)</h3>
+          <p>Alberta has no provincial sales tax. Only the federal 5% GST applies:</p>
+          <ul>
+            <li>Hosts earning over <strong>$30,000/year</strong> must register for a GST account with the CRA</li>
+            <li>Airbnb collects and remits GST on behalf of hosts who are not registered</li>
+            <li>All rental income must be reported to the CRA regardless of amount</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Tax Advantage: Alberta vs Ontario</h4>
+            <p>Edmonton hosts pay 5% GST compared to 13% HST in Ontario. Combined with no municipal accommodation tax (Toronto charges 8.5%, most Ontario cities charge 4%), the tax burden is significantly lower. For a deeper comparison, see our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Canadian Airbnb tax guide</a>.</p>
+          </div>
+
+          <h2 id="occupancy-rules">Occupancy and Operating Rules</h2>
+
+          <h3>Maximum Occupancy</h3>
+          <ul>
+            <li><strong>Host on-site:</strong> Maximum 2 sleeping units, each with up to 2 persons (4 guests total)</li>
+            <li><strong>Entire dwelling (host absent):</strong> No city-mandated cap beyond fire code and building code limits</li>
+            <li><strong>4+ sleeping units rented separately:</strong> Requires a Development Permit</li>
+          </ul>
+
+          <h3>Host Obligations</h3>
+          <p>Once licensed, Edmonton hosts must:</p>
+          <ul>
+            <li><strong>Post a telephone number</strong> inside the property continuously for guest contact</li>
+            <li><strong>Provide the City's official guest guide</strong> at check-in ("Short-Term Residential Rental Accommodation: Information for Guests")</li>
+            <li><strong>Mark fire exits</strong> clearly and consider providing fire extinguishers</li>
+            <li><strong>Respond to guest inquiries promptly</strong> to prevent neighbourhood complaints</li>
+            <li><strong>Display licence number</strong> on all listings and advertisements</li>
+          </ul>
+
+          <h3>Waste Management</h3>
+          <p>Hosts are responsible for educating guests on Edmonton's waste collection rules:</p>
+          <ul>
+            <li>Blue bags, food scraps carts, and garbage carts must be set out by 7 AM on collection days</li>
+            <li>Carts must remain 1 metre apart</li>
+            <li>No setting out waste on non-collection days</li>
+          </ul>
+
+          <h2 id="fire-safety">Fire Safety Requirements</h2>
+          <p>Fire safety is governed by the Alberta Fire Code. Key requirements:</p>
+
+          <ul>
+            <li><strong>Smoke alarms:</strong> Mandatory in all dwelling units, hardwired with battery backup, interconnected</li>
+            <li><strong>Carbon monoxide detectors:</strong> Required in all units</li>
+            <li><strong>Fire extinguishers:</strong> Recommended (at least one accessible to guests)</li>
+            <li><strong>Fire exits:</strong> Must be clearly marked</li>
+            <li><strong>Emergency egress:</strong> Bedrooms must have openable windows or exterior doors meeting building code requirements</li>
+          </ul>
+
+          <div class="callout callout-tip">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Post-licence inspection:</strong> Alberta Health Services may inspect your property after licence issuance. Ensure all fire safety equipment is installed and functional before you start hosting.
+            </div>
+          </div>
+
+          <h2 id="noise-parking">Noise and Parking Rules</h2>
+
+          <h3>Noise (Community Standards Bylaw 14600)</h3>
+          <ul>
+            <li><strong>Quiet hours:</strong> 10 PM to 7 AM, seven days a week</li>
+            <li><strong>Fine:</strong> $250 per violation</li>
+            <li><strong>Enforcement:</strong> Edmonton Police Service (780-423-4567)</li>
+            <li><strong>Reporting:</strong> Call 311 for general complaints or EPS non-emergency line for loud parties</li>
+          </ul>
+
+          <h3>Parking</h3>
+          <p>Guests have the same access to public street parking as neighbourhood residents. Common infractions to warn guests about:</p>
+          <ul>
+            <li>Vehicles parked 72+ hours without moving may be towed</li>
+            <li>No parking within 1.5 metres of a driveway</li>
+            <li>No parking within 5 metres of intersections, fire hydrants, crosswalks, stop signs, or yield signs</li>
+            <li>No parking on boulevards or square-top curbs</li>
+            <li>Winter parking bans must be observed</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Residential Parking Program Areas</h4>
+            <p>If your STR property is in a Residential Parking Program zone, <strong>you must provide on-property parking</strong> for guests. Street parking cannot be relied upon in these areas. Check with the City whether your neighbourhood participates.</p>
+          </div>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Edmonton enforces its STR rules through fines and licence actions:</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Violation</th>
+                  <th>Fine</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Operating without a business licence</td>
+                  <td>$2,000</td>
+                </tr>
+                <tr>
+                  <td>Failing to meet any licence condition</td>
+                  <td>Up to $2,000</td>
+                </tr>
+                <tr>
+                  <td>Noise violation (Community Standards Bylaw)</td>
+                  <td>$250</td>
+                </tr>
+                <tr>
+                  <td>Vehicle noise violation (Traffic Bylaw 5590)</td>
+                  <td>$162 - $1,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The City also has the authority to <strong>revoke or refuse to renew</strong> your licence for repeated violations or non-compliance with licence conditions.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Active enforcement:</strong> In 2019, Edmonton issued 149 tickets to unlicensed operators. Licensing compliance is estimated at only 40-57% of all listings, meaning enforcement is an ongoing priority.
+            </div>
+          </div>
+
+          <h2 id="condo-rules">Condo Considerations</h2>
+          <p>Even though Edmonton's municipal rules are permissive, <strong>your condo corporation can still prohibit short-term rentals</strong>. The City's business licence does not override private condo bylaws.</p>
+
+          <p>Before applying for a licence:</p>
+          <ul>
+            <li>Review your condo corporation's bylaws for any STR restrictions</li>
+            <li>Check if your homeowner association has rules against short-term rentals</li>
+            <li>Get written confirmation from your condo board if permitted</li>
+          </ul>
+
+          <h2 id="compliance-tips">Staying Compliant in Edmonton</h2>
+          <p>Edmonton's rules are straightforward compared to most cities. Here's how to stay on the right side:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get your licence before listing.</strong> At $94/year, it's one of the cheapest in Canada. Not worth the $2,000 fine for skipping it.</li>
+            <li><span class="tip-icon">2</span> <strong>Submit a thorough Operational Plan.</strong> The City must approve it before your licence is issued. Download the official template and fill it out completely.</li>
+            <li><span class="tip-icon">3</span> <strong>Display your licence number on every listing.</strong> Airbnb, VRBO, your own website. Missing it flags you for enforcement.</li>
+            <li><span class="tip-icon">4</span> <strong>Provide the City's guest guide at check-in.</strong> This covers noise rules, parking, and waste collection. It protects you from guest-caused violations.</li>
+            <li><span class="tip-icon">5</span> <strong>Install proper fire safety equipment.</strong> Smoke alarms, CO detectors, and marked fire exits. Alberta Health Services may inspect after licensing.</li>
+            <li><span class="tip-icon">6</span> <strong>Confirm Airbnb is collecting the Tourism Levy.</strong> Since October 2024, platforms handle this automatically. For direct bookings, register through TRACS and remit quarterly.</li>
+            <li><span class="tip-icon">7</span> <strong>Check your condo bylaws.</strong> Edmonton allows STRs, but your condo corporation might not. Verify before investing in setup.</li>
+            <li><span class="tip-icon">8</span> <strong>Keep your Operational Plan updated.</strong> If you change platforms, procedures, or house rules, submit a revised plan to the City.</li>
+          </ul>
+
+          <h2 id="official-resources">Official City of Edmonton Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Links</h4>
+            <ul>
+              <li><a href="https://www.edmonton.ca/residential_neighbourhoods/short-term-home-rentals" target="_blank" rel="noopener">City of Edmonton: Short-Term Home Rentals</a></li>
+              <li><a href="https://selfserve.edmonton.ca/businesslicence" target="_blank" rel="noopener">Business Licence Application Portal</a></li>
+              <li><a href="https://www.edmonton.ca/sites/default/files/public-files/assets/PDF/OperationalPlan-GuestManagement-Short-termRentals.pdf" target="_blank" rel="noopener">Operational Plan Template (PDF)</a></li>
+              <li><a href="https://www.edmonton.ca/sites/default/files/public-files/assets/PDF/Short-termResidentialRentalAccommodation_InformationforHosts.pdf" target="_blank" rel="noopener">Host Information Guide (PDF)</a></li>
+              <li><a href="https://www.edmonton.ca/sites/default/files/public-files/BL20002.pdf" target="_blank" rel="noopener">Business Licence Bylaw 20002 (PDF)</a></li>
+              <li><a href="https://www.alberta.ca/tourism-levy" target="_blank" rel="noopener">Alberta Tourism Levy Registration</a></li>
+              <li><a href="https://www.edmonton.ca/city_government/bylaws/noise" target="_blank" rel="noopener">Edmonton Noise Bylaws</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Edmonton Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Your Edmonton Airbnb?</h3>
+            <p>Edmonton's rules are straightforward, but getting your licence, Operational Plan, and tax compliance set up correctly from the start saves headaches down the road. Have questions? We're happy to help.</p>
+            <a href="/contact" class="btn btn-primary">Ask Us a Question</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Edmonton STR Rules?</h2>
+        <p>Need clarification on licensing, the Operational Plan, or tax requirements? Reach out and we'll help you understand the regulations.</p>
+        <a href="/contact" class="btn btn-primary btn-large">Contact Us</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box p {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .strategy-box a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .points-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .points-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .points-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .points-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .points-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .points-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
