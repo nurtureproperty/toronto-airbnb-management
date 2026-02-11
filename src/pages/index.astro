@@ -1171,42 +1171,46 @@ const latestPosts = allPosts
 
         /* ─── Referral Strip ─── */
         .referral-strip {
-            background: var(--cream);
-            padding: 1.5rem 2rem;
+            padding: 3.5rem 2rem;
+            background: var(--lp-charcoal);
+            color: white;
+            text-align: center;
         }
         .referral-strip-inner {
-            max-width: 900px;
+            max-width: 700px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
         }
         .referral-strip-text {
-            font-size: 1rem;
-            color: var(--charcoal);
+            margin-bottom: 1.5rem;
         }
         .referral-strip-text strong {
             display: block;
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
         .referral-strip-text span {
-            color: #666;
+            font-size: 1rem;
+            opacity: 0.85;
+            line-height: 1.7;
         }
         .referral-strip-btn {
-            background: var(--primary);
+            background: var(--lp-green);
             color: white;
-            padding: 0.7rem 1.5rem;
+            padding: 1.25rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            white-space: nowrap;
+            font-size: 1.2rem;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 25px rgba(117, 155, 143, 0.4);
         }
         .referral-strip-btn:hover {
-            background: var(--primary-dark);
+            background: var(--lp-green-dark);
             transform: translateY(-2px);
         }
 
@@ -1404,7 +1408,7 @@ const latestPosts = allPosts
 
             .lp-bold-banner { padding: 2rem 1.5rem; }
 
-            .referral-strip-inner { flex-direction: column; text-align: center; }
+            .referral-strip { padding: 3.5rem 1.25rem; }
             .section-header h2 { font-size: 2rem; }
             .cta-section h2 { font-size: 2rem; }
             .youtube-feed h2 { font-size: 1.75rem; }
