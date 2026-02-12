@@ -21,7 +21,7 @@ const faqs = [
   { q: 'What does Nurture charge?', a: 'Our management fees are 12-15%, significantly lower than the industry standard of 18-25%. No startup costs, no hidden fees, and no long-term contracts. <a href="/pricing-toronto-airbnb-management">See full pricing</a>.' },
 ];
 
-const articleSchema = JSON.stringify({
+const articleSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Airbnb Management Referral Program - Nurture",
@@ -32,9 +32,9 @@ const articleSchema = JSON.stringify({
     "name": "Nurture",
     "url": "https://www.nurturestays.ca"
   }
-});
+};
 
-const faqSchema = JSON.stringify({
+const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": faqs.map(faq => ({
@@ -45,10 +45,10 @@ const faqSchema = JSON.stringify({
       "text": faq.a
     }
   }))
-});
+};
 ---
 
-<Layout title={pageTitle} description={pageDescription} schema={`${articleSchema}\n<script type="application/ld+json">${faqSchema}</script>`}>
+<Layout title={pageTitle} description={pageDescription} schema={[articleSchema, faqSchema]}>
 
   <!-- Hero -->
   <section class="hero-section">
