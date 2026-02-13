@@ -64,6 +64,6 @@ The cottage owners dropping out aren't necessarily wrong to leave. But if you're
 
 That's where professional management makes sense. When regulatory changes happen (and they will keep happening), you want someone whose job it is to stay on top of this stuff.
 
-At Nurture, we handle the compliance headaches so you can focus on the income. Our [full Airbnb management service](/full-airbnb-management-toronto) covers licensing, insurance coordination, and regulatory updates. No long-term contracts, fees starting at just 12-15%, and you keep ownership of your listing.
+At Nurture, we handle the compliance headaches so you can focus on the income. Our [full Airbnb management service](/full-airbnb-management-toronto) covers licensing, insurance coordination, and regulatory updates. No long-term contracts, fees starting at just 10-15%, and you keep ownership of your listing.
 
 Ready to stay ahead of the regulation curve while cottage country sorts itself out? Give us a call at (647) 957-8956 or [get in touch](/contact) to see how we can help your Toronto property thrive.

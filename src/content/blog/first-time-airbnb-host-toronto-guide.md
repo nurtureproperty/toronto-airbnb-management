@@ -201,7 +201,7 @@ Be honest with yourself about a few things:
 
 If you've got the time, live nearby, and genuinely enjoy hosting, self management can work. You'll keep more of the revenue and have full control.
 
-If you're busy, live far away, or just want passive income without the hassle, professional management makes sense. You'll pay 10 to 25% of revenue (we charge 12-15%), but you'll also likely earn more because a professional manager optimizes pricing, responds faster, and maintains higher review scores.
+If you're busy, live far away, or just want passive income without the hassle, professional management makes sense. You'll pay 10 to 25% of revenue (we charge 10-15%), but you'll also likely earn more because a professional manager optimizes pricing, responds faster, and maintains higher review scores.
 
 Our [full management service](/full-airbnb-management-toronto) handles everything: listing creation, pricing, guest communication, cleaning, maintenance, and more. Most hosts actually net more money with us than they did on their own, even after our fee.
 
@@ -249,7 +249,7 @@ When you work with Nurture, you skip the learning curve entirely. We bring years
 - **Cleaning coordination** so turnovers happen reliably, every time
 - **Listing optimization** based on what actually works in the Toronto market
 
-Our hosts typically see 30-100% higher revenue compared to what they were earning on their own. And that's after our 12-15% fee.
+Our hosts typically see 30-100% higher revenue compared to what they were earning on their own. And that's after our 10-15% fee.
 
 The math is simple: you can spend six months figuring it out yourself, or you can start earning at full potential from week one.
 

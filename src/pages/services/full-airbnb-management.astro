@@ -21,7 +21,7 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "What's the difference between 12% and 15%?", a: "12% is for hosts who want to handle some tasks themselves (like restocking). 15% is true full-service where we handle absolutely everything. Most clients choose 15% for complete peace of mind." },
+  { q: "What's the difference between 10% and 15%?", a: "10% is for hosts who want to handle some tasks themselves (like restocking). 15% is true full-service where we handle absolutely everything. Most clients choose 15% for complete peace of mind." },
   { q: "How quickly can I get started?", a: "Most properties are live within 5-7 days. We handle photos, listing creation, and setup. Average time to first booking is under 1 week after going live." },
   { q: "What if I want to use my property sometimes?", a: "No problem! Just block the dates you want in the calendar. Many owners use their property for personal stays or visiting family. It's your property." },
   { q: "Do I need to sign a long contract?", a: "No. We work on a simple 30-day notice agreement. You can cancel anytime. We keep clients through great service, not contracts." },
@@ -42,7 +42,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Full-Service Airbnb Management",
-  "description": "Complete hands-off Airbnb management in Toronto and the Greater Toronto Area. We handle pricing, guests, cleaning, and maintenance. 12-15% commission.",
+  "description": "Complete hands-off Airbnb management in Toronto and the Greater Toronto Area. We handle pricing, guests, cleaning, and maintenance. 10-15% commission.",
   "url": "https://www.nurturestays.ca/services/full-airbnb-management",
   "provider": {
     "@type": "LocalBusiness",
@@ -53,7 +53,7 @@ const serviceSchema = {
   "serviceType": "Property Management",
   "offers": {
     "@type": "Offer",
-    "priceSpecification": { "@type": "PriceSpecification", "price": "12-15%", "priceCurrency": "CAD", "description": "Commission on rental revenue" }
+    "priceSpecification": { "@type": "PriceSpecification", "price": "10-15%", "priceCurrency": "CAD", "description": "Commission on rental revenue" }
   }
 };
 
@@ -70,7 +70,7 @@ const faqSchema = {
 const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Full-Service Airbnb Management Toronto & GTA" description="Complete Airbnb management in Toronto and the GTA. We handle pricing, guests, cleaning, and maintenance. 12-15% commission only. Get your free estimate." schema={pageSchema}>
+<Layout title="Full-Service Airbnb Management Toronto & GTA" description="Complete Airbnb management in Toronto and the GTA. We handle pricing, guests, cleaning, and maintenance. 10-15% commission only. Get your free estimate." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Full-Service Airbnb Management</h1>
@@ -90,7 +90,7 @@ const pageSchema = [serviceSchema, faqSchema];
           <span class="trust-label">Response Time</span>
         </div>
         <div class="trust-item">
-          <span class="trust-number">12-15%</span>
+          <span class="trust-number">10-15%</span>
           <span class="trust-label">Of Host Payout</span>
         </div>
       </div>
@@ -192,7 +192,7 @@ const pageSchema = [serviceSchema, faqSchema];
         <p class="serif-light">No hidden fees, no surprises</p>
       </div>
       <div class="pricing-box">
-        <span class="price">12-15%</span>
+        <span class="price">10-15%</span>
         <span class="price-label">of your host payout only</span>
         <p class="price-note">We only take commission on what you actually receive. Never on cleaning fees or Airbnb charges.<br>No setup fees. No monthly minimums.</p>
         <a href="/pricing-toronto-airbnb-management" class="btn btn-primary">See Full Pricing Details</a>
@@ -211,7 +211,7 @@ const pageSchema = [serviceSchema, faqSchema];
           <div class="feature-label"></div>
           <div class="plan-header">
             <span class="plan-name">Starter</span>
-            <span class="plan-rate">12%</span>
+            <span class="plan-rate">10%</span>
           </div>
           <div class="plan-header featured">
             <span class="plan-name">Professional</span>

@@ -62,6 +62,6 @@ Look, Airbnb's changes aren't slowing down. They're launching two new business l
 
 You don't have to figure this out alone. At Nurture, we help GTA property owners adapt to these platform shifts without losing sleep over every algorithm update. Our [Toronto Airbnb management services](/full-airbnb-management-toronto) include dynamic pricing, cancellation protection strategies, and listing optimization that actually works with these new AI systems.
 
-We're local, we don't lock you into long contracts, and you keep full ownership of your listing. Plus our fees are 12-15% instead of the 18-25% other companies charge.
+We're local, we don't lock you into long contracts, and you keep full ownership of your listing. Plus our fees are 10-15% instead of the 18-25% other companies charge.
 
 Ready to stop playing defense against platform changes? Give us a call at (647) 957-8956 or check out our [pricing](/pricing-toronto-airbnb-management) to see how we can protect your rental income this year.

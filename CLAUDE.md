@@ -190,7 +190,7 @@ Premium Airbnb management in the Greater Toronto Area. We help GTA homeowners ma
 ## Key Stats & Differentiators
 - 4.9? Average Airbnb Rating
 - 9 minute average response time
-- 12-15% management fee (competitors charge 18-25%)
+- 10-15% management fee (competitors charge 18-25%)
 - No long-term contracts
 - Clients own their listings (no hostage situations)
 - Direct owner contact (not group chats)
@@ -230,7 +230,7 @@ Premium Airbnb management in the Greater Toronto Area. We help GTA homeowners ma
 
 ## Pricing
 
-### Starter Plan - 12%
+### Starter Plan - 10%
 - Professional listing creation
 - Multi-platform distribution
 - Dynamic pricing optimization
