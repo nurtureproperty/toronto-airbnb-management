@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "How much does an Airbnb property manager charge in Toronto?", a: "Property management fees in the GTA range from 10% to 25% of gross booking revenue. Budget managers charge 10-15% and cover core services like guest communication, pricing, and cleaning coordination. Premium or full-service managers often charge 18-25% and may include furnishing, design, and concierge services. Be wary of managers who also charge setup fees, vacancy fees, or markups on supplies." },
+  { q: "How much does an Airbnb property manager charge in Toronto?", a: "Property management fees in the GTA range from 10% to 25%, but how that percentage is calculated matters. Some managers take their cut from gross bookings (before Airbnb fees and cleaning costs), while others like Nurture charge 10-15% of net revenue, calculated after Airbnb platform fees, cleaning, and other deductions. This means your effective fee is lower. Be wary of managers who also charge setup fees, vacancy fees, or markups on supplies." },
   { q: "Is it worth hiring a property manager for one Airbnb listing?", a: "It depends on your time and expertise. If you live near the property, have a flexible schedule, and enjoy hospitality, self-managing one listing is feasible. However, even a single listing requires 20-40 hours per month of active work. If your hourly earnings from your day job exceed what you'd save on management fees, hiring a manager is the better financial decision." },
   { q: "Can a property manager really increase my Airbnb revenue?", a: "Yes. Professional managers typically increase revenue 30% or more through dynamic pricing algorithms, optimized listing copy and photography, multi-platform distribution (Airbnb, VRBO, Booking.com), and faster response times that improve search ranking. A listing earning $3,000/month self-managed can often reach $3,800-$4,200/month with professional management." },
   { q: "What should I look for when choosing an Airbnb property manager?", a: "Five key factors: (1) transparent fee structure with no hidden costs, (2) month-to-month contracts so you can leave anytime, (3) you retain ownership of your listing and reviews, (4) direct communication with a dedicated manager rather than a call center, and (5) proven track record with verifiable reviews and occupancy data. Avoid managers who require long-term contracts or list properties under their own account." },
@@ -103,7 +103,7 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">You just got your Airbnb listing live. Now comes the question every GTA host faces: <strong>should you manage it yourself, or hire a property manager?</strong> The answer depends on your time, your revenue goals, and how you feel about 2 AM guest messages. Here's the honest breakdown with real numbers from the Toronto market.</p>
+            <p class="lead">It's one of the most common questions we get at Nurture from new and experienced GTA hosts alike: <strong>should you manage your Airbnb yourself, or hire a property manager?</strong> The answer depends on your time, your revenue goals, and how you feel about 2 AM guest messages. Here's the honest breakdown with real numbers from the Toronto market.</p>
           </div>
 
           <h2 id="time-cost">The Real Time Cost of Self-Managing an Airbnb</h2>
@@ -188,7 +188,7 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <h2 id="what-manager-does">What a Property Manager Actually Does</h2>
-          <p>A common misconception is that property managers just "answer messages for you." A good full-service Airbnb manager handles every aspect of the operation, from before the first guest books to long after they leave a review.</p>
+          <p>A common misconception is that property managers just "answer messages for you." Here's what our team at Nurture handles for every client, and what you should expect from any full-service manager worth their fee.</p>
 
           <div class="info-grid">
             <div class="info-card">
@@ -236,15 +236,15 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <h2 id="the-math">The Math: Self-Managed vs Professionally Managed</h2>
-          <p>Here's where it gets interesting. Many hosts assume the management fee is a "cost." In reality, professional management often pays for itself through higher revenue, better occupancy, and optimized pricing. Let's look at a real scenario using a typical 1-bedroom condo in the GTA.</p>
+          <p>Here's where it gets interesting. Many hosts assume the management fee is a "cost." In reality, professional management often pays for itself through higher revenue, better occupancy, and optimized pricing. Let's look at the <strong>real net income</strong> for a typical 1-bedroom condo in the GTA, after every expense is deducted.</p>
 
           <div class="table-container">
             <table class="rules-table">
               <thead>
                 <tr>
-                  <th>Factor</th>
+                  <th>Line Item</th>
                   <th>Self-Managed</th>
-                  <th>Professionally Managed</th>
+                  <th>Managed (Nurture)</th>
                 </tr>
               </thead>
               <tbody>
@@ -259,40 +259,65 @@ const pageSchema = [articleSchema, faqSchema];
                   <td>70-85%</td>
                 </tr>
                 <tr>
-                  <td><strong>Gross Monthly Revenue</strong></td>
-                  <td>~$3,000</td>
-                  <td>~$3,800</td>
+                  <td><strong>Gross Booking Revenue</strong></td>
+                  <td>$3,540</td>
+                  <td>$4,490</td>
                 </tr>
                 <tr>
-                  <td><strong>Management Fee</strong></td>
+                  <td>Airbnb Platform Fee (15.5%)</td>
+                  <td style="color: #e74c3c;">-$549</td>
+                  <td style="color: #e74c3c;">-$696</td>
+                </tr>
+                <tr>
+                  <td><strong>Airbnb Payout to Host</strong></td>
+                  <td>$2,991</td>
+                  <td>$3,794</td>
+                </tr>
+                <tr>
+                  <td>Cleaning Costs (12-15 turnovers)</td>
+                  <td style="color: #e74c3c;">-$480</td>
+                  <td style="color: #e74c3c;">-$560</td>
+                </tr>
+                <tr>
+                  <td>Supplies &amp; Restocking</td>
+                  <td style="color: #e74c3c;">-$100</td>
+                  <td style="color: #e74c3c;">-$100</td>
+                </tr>
+                <tr>
+                  <td>Utilities (Internet, Hydro)</td>
+                  <td style="color: #e74c3c;">-$150</td>
+                  <td style="color: #e74c3c;">-$150</td>
+                </tr>
+                <tr>
+                  <td><strong>Net Revenue (Before Management)</strong></td>
+                  <td><strong>$2,261</strong></td>
+                  <td><strong>$2,984</strong></td>
+                </tr>
+                <tr>
+                  <td>Management Fee (15% of net)</td>
                   <td>$0</td>
-                  <td>15% ($570)</td>
+                  <td style="color: #e74c3c;">-$448</td>
+                </tr>
+                <tr style="background: var(--color-primary-light);">
+                  <td><strong>Owner's Net Income</strong></td>
+                  <td><strong>$2,261/month</strong></td>
+                  <td><strong style="color: #27ae60;">$2,536/month</strong></td>
                 </tr>
                 <tr>
-                  <td><strong>Net Monthly Revenue</strong></td>
-                  <td>$3,000</td>
-                  <td><strong>$3,230</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>Time Invested (Monthly)</strong></td>
+                  <td><strong>Hours Spent Per Month</strong></td>
                   <td>80-120 hours</td>
                   <td>~1 hour (reviewing reports)</td>
                 </tr>
                 <tr>
-                  <td><strong>Effective Hourly Rate</strong></td>
-                  <td>$25-$37/hour</td>
-                  <td>Passive income</td>
-                </tr>
-                <tr>
-                  <td><strong>Annual Difference</strong></td>
-                  <td>Baseline</td>
-                  <td><strong>+$2,760/year more</strong></td>
+                  <td><strong>Annual Net Income</strong></td>
+                  <td>$27,132</td>
+                  <td><strong style="color: #27ae60;">$30,432</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p class="table-note">Based on average GTA 1-bedroom condo data. Self-managed occupancy reflects hosts without dynamic pricing tools or multi-platform distribution. Managed figures based on Nurture client averages. Actual results vary by location, property quality, and season.</p>
+          <p class="table-note">Based on average GTA 1-bedroom condo data. Self-managed occupancy reflects hosts without dynamic pricing or multi-platform distribution. Managed figures based on Nurture client averages. Cleaning fees charged to guests offset some cleaning costs but vary by listing. Actual results depend on location, property quality, and season.</p>
 
           <div class="callout">
             <div class="callout-icon">
@@ -302,13 +327,13 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>The Fee Pays for Itself</strong>
-              <p style="margin-top: 0.5rem; margin-bottom: 0;">In this example, the 15% management fee costs $570/month. But the revenue increase from professional pricing and higher occupancy adds $800/month. The owner nets $230 more per month <em>and</em> gets back 80+ hours of their time. For more detailed revenue projections, see our <a href="/blog/how-much-can-i-make-airbnb-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Toronto Airbnb revenue guide</a>.</p>
+              <strong>How Nurture's Fee Works: We Only Earn on Your Net</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Unlike many property managers who take their cut from gross bookings, Nurture's commission is calculated <strong>after</strong> Airbnb's platform fees, cleaning costs, and other deductions are removed. You only pay us on the money that actually reaches your pocket. In this example, our 15% fee is $448 on the $2,984 net, not $570 on the $3,800 gross. That's a meaningful difference, and it means our incentives are fully aligned with yours: we only earn more when your net income goes up. For more detailed revenue projections, see our <a href="/blog/how-much-can-i-make-airbnb-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Toronto Airbnb revenue guide</a>.</p>
             </div>
           </div>
 
           <h3>Where the Revenue Increase Comes From</h3>
-          <p>The 30%+ revenue increase isn't magic. It comes from compounding several small advantages.</p>
+          <p>The 30%+ revenue increase our clients typically see isn't magic. It comes from compounding several small advantages that are difficult to replicate as a solo host.</p>
 
           <ul>
             <li><strong>Dynamic pricing</strong> captures peak demand. Events like TIFF, the Toronto Marathon, or even a Taylor Swift concert can triple nightly rates. Most self-managers set a flat rate and miss these windows entirely.</li>
@@ -371,7 +396,7 @@ const pageSchema = [articleSchema, faqSchema];
             <div class="alternative-card">
               <span class="alt-number">5</span>
               <h4>You Don't Want 2 AM Messages</h4>
-              <p>Guests lock themselves out at midnight. The hot water stops working on a Saturday evening. The smoke detector starts chirping at 3 AM. A property manager handles all of this so you can sleep.</p>
+              <p>Guests lock themselves out at midnight. The hot water stops working on a Saturday evening. The smoke detector starts chirping at 3 AM. At Nurture, our average response time is 9 minutes, 24/7. That's the kind of coverage that keeps your reviews at 4.9 stars while you sleep.</p>
             </div>
             <div class="alternative-card">
               <span class="alt-number">6</span>
@@ -454,7 +479,7 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <h3>A Note on Mid-Term Rentals</h3>
-          <p>If you're weighing management options, don't overlook <a href="/blog/mid-term-rentals-toronto-guide-2026">mid-term rentals (30+ days)</a> as part of your strategy. Many professional managers can blend short-term and mid-term bookings to maximize annual revenue while reducing turnover frequency. This is especially valuable during Toronto's slower winter months or if you're looking to <a href="/blog/airbnb-vs-long-term-rental-toronto-2026">transition from traditional long-term renting</a>.</p>
+          <p>If you're weighing management options, don't overlook <a href="/blog/mid-term-rentals-toronto-guide-2026">mid-term rentals (30+ days)</a> as part of your strategy. At Nurture, we blend short-term and mid-term bookings for many of our clients to maximize annual revenue while reducing turnover frequency. This is especially valuable during Toronto's slower winter months or if you're looking to <a href="/blog/airbnb-vs-long-term-rental-toronto-2026">transition from traditional long-term renting</a>.</p>
 
           <h2 id="faqs">Frequently Asked Questions</h2>
           <div class="faq-list">
