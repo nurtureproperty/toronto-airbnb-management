@@ -1,0 +1,1112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Is Airbnb still profitable in Toronto in 2026?", a: "Yes, but profitability depends on management quality. The average Toronto host earns $3,100-$3,500 per month at 69% occupancy. Top performers earn $5,657+ per month. The days of easy money are over, but well-managed listings with professional photos, dynamic pricing, and fast response times continue to outperform long-term rentals by 30-100%." },
+  { q: "How much does an average Toronto Airbnb host earn?", a: "According to AirDNA data, the average Toronto Airbnb host earns approximately $37,000-$42,000 per year gross. Average nightly rates sit between $154 and $171 depending on property type. However, the top 10% of hosts earn $5,657+ per month ($67,800+/year), showing how much management quality affects income." },
+  { q: "Can I Airbnb my investment property in Toronto?", a: "In most cases, no. Toronto and most GTA cities require short-term rentals to be your principal residence. Investment properties generally cannot be listed for stays under 28 days. Mid-term rentals (30+ days) are a common alternative since they're exempt from principal residence requirements in most municipalities." },
+  { q: "What is Toronto's 180-night limit for Airbnb?", a: "Toronto caps entire-home short-term rentals at 180 nights per calendar year. This applies only to whole-unit registrations. Partial-unit registrations (renting a room while you're home) have no night limit. Many hosts fill the remaining months with mid-term bookings (30+ days) which don't count toward the cap." },
+  { q: "Is it too late to start an Airbnb in Toronto?", a: "No, but the bar for success is higher than it used to be. Listings surged 23.3% year-over-year, so competition is real. However, many of those new listings are poorly optimized with phone photos and static pricing. Hosts who invest in professional photography, dynamic pricing, and guest experience still achieve strong occupancy and revenue." },
+  { q: "How much does it cost to start an Airbnb in Toronto?", a: "Typical startup costs include furnishing ($3,000-$8,000 for a 1-bedroom), professional photography ($200-$500), STR registration ($375), smart lock ($200-$400), and initial supplies ($200-$400). Total: roughly $4,000-$10,000 depending on property size. Most hosts recoup this investment within 2-3 months of bookings." },
+  { q: "Should I hire an Airbnb management company in Toronto?", a: "If you can't respond to guests within 15 minutes, don't want to coordinate cleanings, or aren't optimizing your pricing daily, professional management typically pays for itself. A 10-15% management fee that increases your revenue by 30-100% is a net positive. Look for companies with transparent pricing, no lock-in contracts, and a proven local track record." }
+];
+
+const relatedPosts = [
+  { title: "How Much Can I Make on Airbnb in Toronto?", href: '/blog/how-much-can-i-make-airbnb-toronto-2026', description: 'Revenue data from 320+ Toronto listings analyzed' },
+  { title: "Best Toronto Neighborhoods for Airbnb", href: '/blog/best-neighborhood-toronto-airbnb-2026', description: 'King West, Yorkville, CityPlace and more ranked by revenue' },
+  { title: "How to Make More from Your Toronto Airbnb", href: '/blog/how-to-make-more-from-toronto-airbnb', description: 'Data-backed strategies to boost revenue and occupancy' }
+];
+
+const tocItems = [
+  { id: 'short-answer', text: 'The Short Answer' },
+  { id: 'market-numbers', text: '2026 Market Numbers' },
+  { id: 'whats-changed', text: "What's Changed Since the Boom" },
+  { id: 'regulation-factor', text: 'The Regulation Factor' },
+  { id: 'who-thriving', text: "Who's Still Thriving" },
+  { id: 'who-shouldnt', text: "Who Shouldn't Start" },
+  { id: 'mid-term-alternative', text: 'The Mid-Term Alternative' },
+  { id: 'how-to-succeed', text: 'How to Succeed in 2026' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Is Airbnb Worth It in Toronto 2026? | Real Market Data";
+const pageDescription = "Toronto Airbnb hosts average $3,520/month at 70% occupancy. Market is saturated but quality listings still thrive. See 2026 data and what's changed.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Is Airbnb Still Worth It in Toronto? 2026 Market Reality",
+  "description": pageDescription,
+  "datePublished": "2026-02-16",
+  "dateModified": "2026-02-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/is-airbnb-worth-it-toronto-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Is Airbnb Still Worth It in Toronto? 2026 Market Reality</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 16, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">11 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">"Is Airbnb still worth it?" is the most common question Toronto homeowners ask us in 2026. With listings surging 23% year-over-year, tighter regulations, and rising guest expectations, the honest answer is: <strong>yes, but only if you do it right.</strong> The easy money days are over. Quality and professional management now separate profitable listings from ones that sit empty.</p>
+          </div>
+
+          <h2 id="short-answer">The Short Answer: Yes, But the Bar Is Higher</h2>
+
+          <p>Toronto's Airbnb market is still profitable for hosts who treat it like a real business. The average host earns <a href="/blog/how-much-can-i-make-airbnb-toronto-2026">$3,100 to $3,500 per month</a>, which significantly outpaces long-term rental income. But the gap between top performers and everyone else has never been wider.</p>
+
+          <div class="key-stats-box">
+            <h4>Toronto Airbnb Market: 2026 Snapshot</h4>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-number">$154-171</span>
+                <span class="stat-label">Average Nightly Rate</span>
+              </div>
+              <div class="stat-card highlight">
+                <span class="stat-number">69%</span>
+                <span class="stat-label">Average Occupancy</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">$37-42K</span>
+                <span class="stat-label">Average Annual Revenue</span>
+              </div>
+              <div class="stat-card highlight">
+                <span class="stat-number">$5,657+</span>
+                <span class="stat-label">Top 10% Monthly</span>
+              </div>
+            </div>
+          </div>
+
+          <p>The top 10% of Toronto Airbnb hosts earn over $5,657 per month. The bottom 25% earn less than $1,500. The difference isn't luck or location alone. It's management quality: professional photos, dynamic pricing, fast response times, and consistent guest experiences.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Bottom line:</strong> Airbnb is worth it in Toronto if you're willing to invest in quality. Phone photos, static pricing, and slow responses won't cut it anymore. The hosts who adapt are thriving. The ones who don't are leaving money on the table.
+            </div>
+          </div>
+
+          <h2 id="market-numbers">Toronto Airbnb Market in 2026: The Numbers</h2>
+
+          <p>Let's look at what the data actually says. According to AirDNA, Toronto remains one of Canada's strongest short-term rental markets, but the landscape has shifted significantly since the post-pandemic boom.</p>
+
+          <h3>Revenue by Property Type</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Property Type</th>
+                  <th>Avg. Nightly Rate</th>
+                  <th>Avg. Occupancy</th>
+                  <th>Avg. Monthly Revenue</th>
+                  <th>Avg. Annual Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1-Bedroom</strong></td>
+                  <td>$154</td>
+                  <td>68%</td>
+                  <td>$3,140</td>
+                  <td>$37,700</td>
+                </tr>
+                <tr>
+                  <td><strong>2-Bedroom</strong></td>
+                  <td>$171</td>
+                  <td>70%</td>
+                  <td>$3,590</td>
+                  <td>$43,100</td>
+                </tr>
+                <tr>
+                  <td><strong>3-Bedroom</strong></td>
+                  <td>$210</td>
+                  <td>65%</td>
+                  <td>$4,095</td>
+                  <td>$49,100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Source: AirDNA market data, Toronto, January 2026. Revenue figures are gross before platform fees, management costs, and expenses.</p>
+
+          <p>These are averages. <strong>Top performers earn significantly more.</strong> A well-optimized 2-bedroom in a prime neighborhood like King West or CityPlace can generate $5,000 to $7,000 per month during peak season. The <a href="/blog/best-neighborhood-toronto-airbnb-2026">neighborhood you choose</a> matters enormously, but management quality matters even more.</p>
+
+          <h3>Key Market Trends</h3>
+          <ul>
+            <li><strong>Listings surged 23.3% year-over-year</strong>, meaning more competition for every booking</li>
+            <li><strong>Occupancy has declined for 8 consecutive months</strong> from the 2024 peak as supply outpaces demand growth</li>
+            <li><strong>Average daily rates remain stable</strong>, suggesting demand is healthy but spread across more listings</li>
+            <li><strong>Top 10% of hosts earn 3x the average</strong>, proving that quality listings still command premium rates and occupancy</li>
+          </ul>
+
+          <h2 id="whats-changed">What's Changed Since the "Airbnb Boom"</h2>
+
+          <p>If you hosted in 2021 or 2022, you remember what it was like: post-pandemic travel demand exploded, listings were scarce, and even mediocre properties booked solid. That era is over. Here's what's different now.</p>
+
+          <h3>1. Market Saturation Is Real</h3>
+          <p>The 23.3% surge in Toronto listings means guests have more choices than ever. With occupancy declining for 8 consecutive months, average and below-average listings are feeling the squeeze first. This isn't a crisis for quality hosts, but it is a wake-up call for anyone coasting on minimal effort.</p>
+
+          <h3>2. Regulations Have Tightened</h3>
+          <p>Toronto's <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">short-term rental regulations</a> are now fully enforced. The 180-night cap on entire homes, mandatory principal residence requirement, STR registration, and 8.5% MAT are all non-negotiable. Most GTA cities have followed with their own rules. The wild-west days of unregulated Airbnb hosting are finished.</p>
+
+          <h3>3. Guest Expectations Are Higher</h3>
+          <p>Guests in 2026 expect hotel-level quality from Airbnb stays. Professional photography, spotless cleaning, fast Wi-Fi, smart locks, quality linens, and responsive communication aren't differentiators anymore. They're the baseline. Fall below these standards and your reviews will reflect it, dragging down your search ranking and bookings.</p>
+
+          <h3>4. Airbnb's Algorithm Has Evolved</h3>
+          <p>The platform's search algorithm now heavily rewards:</p>
+          <ul>
+            <li><strong>Professional photography</strong> (higher click-through rates)</li>
+            <li><strong>Fast response times</strong> (under 1 hour, ideally under 15 minutes)</li>
+            <li><strong>Superhost and Guest Favorite status</strong> (priority placement in search)</li>
+            <li><strong>Competitive pricing</strong> (not cheapest, but value-aligned)</li>
+            <li><strong>Low cancellation rates</strong> (never cancel on guests)</li>
+          </ul>
+
+          <p>Listings that hit these marks get promoted in search results, creating a virtuous cycle: better visibility leads to more bookings, more reviews, and even better visibility.</p>
+
+          <h2 id="regulation-factor">The Regulation Factor</h2>
+
+          <p>Toronto's regulations are often seen as a barrier. In reality, they've actually helped quality hosts by reducing illegal supply and leveling the playing field.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>180-Night Cap</h4>
+              <p>Entire-home rentals limited to 180 nights per calendar year. <a href="/blog/toronto-airbnb-partial-unit-registration-guide-2026">Partial-unit registrations</a> (renting a room while home) have no limit.</p>
+            </div>
+            <div class="info-card">
+              <h4>Principal Residence</h4>
+              <p>Must be your primary home. Investment properties cannot be short-term rented in Toronto. <a href="/blog/airbnb-investment-property-gta">Mid-term rentals are an alternative</a>.</p>
+            </div>
+            <div class="info-card">
+              <h4>Registration: $375</h4>
+              <p>Annual STR registration required. License number must appear on all listings. Operating without registration carries fines up to $100,000.</p>
+            </div>
+          </div>
+
+          <div class="info-grid" style="margin-top: 0;">
+            <div class="info-card">
+              <h4>8.5% MAT</h4>
+              <p>Municipal Accommodation Tax collected automatically by Airbnb. Added on top of nightly rate, so it doesn't reduce your payout directly. <a href="/blog/airbnb-taxes-canada-gta-guide-2026">See our full tax guide</a>.</p>
+            </div>
+            <div class="info-card">
+              <h4>GTA Regulations</h4>
+              <p>Mississauga, Brampton, Vaughan, Hamilton, Oakville, and most GTA cities now require STR licensing. <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Check your city's rules</a>.</p>
+            </div>
+            <div class="info-card">
+              <h4>The Upside</h4>
+              <p>Enforcement has removed thousands of non-compliant listings from the market. Compliant hosts face less competition and often see improved occupancy rates as a result.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Regulation as Competitive Advantage:</strong> Many potential hosts are deterred by the registration process, night limits, and compliance requirements. If you're willing to do it properly, you're competing against a smaller pool of serious, compliant hosts rather than a flood of casual operators.
+            </div>
+          </div>
+
+          <h2 id="who-thriving">Who's Still Thriving (And Why)</h2>
+
+          <p>Despite the challenges, plenty of Toronto hosts are earning more than ever. Here's what they have in common.</p>
+
+          <div class="action-list">
+            <div class="action-item">
+              <span class="action-number">1</span>
+              <div class="action-content">
+                <h4>Professional Photography</h4>
+                <p>Every top performer uses professional listing photos. Listings with professional images get up to 40% more views and significantly higher click-through rates. A $300 to $500 photography investment pays for itself within the first week of bookings.</p>
+              </div>
+            </div>
+            <div class="action-item">
+              <span class="action-number">2</span>
+              <div class="action-content">
+                <h4>Dynamic Pricing (Not Airbnb Smart Pricing)</h4>
+                <p>Top earners use tools like PriceLabs, Beyond Pricing, or Wheelhouse that adjust rates based on demand, events, seasonality, and competitor pricing. Airbnb's built-in Smart Pricing consistently undervalues properties. External tools add an average of <a href="/blog/how-to-make-more-from-toronto-airbnb">27% to monthly revenue</a>.</p>
+              </div>
+            </div>
+            <div class="action-item">
+              <span class="action-number">3</span>
+              <div class="action-content">
+                <h4>Fast Response Times (Under 15 Minutes)</h4>
+                <p>Airbnb's algorithm rewards hosts who respond quickly. The top 10% of earners maintain response times well under the platform's 1-hour recommendation. This is one area where professional management makes a measurable difference.</p>
+              </div>
+            </div>
+            <div class="action-item">
+              <span class="action-number">4</span>
+              <div class="action-content">
+                <h4>Consistent 4.8+ Ratings</h4>
+                <p>Ratings directly impact search ranking. Hosts with 4.8+ overall ratings earn significantly more than those at 4.5 or below. Every aspect matters: cleanliness, accuracy, communication, check-in experience, location description, and value perception.</p>
+              </div>
+            </div>
+            <div class="action-item">
+              <span class="action-number">5</span>
+              <div class="action-content">
+                <h4>Multi-Platform Presence</h4>
+                <p>Top hosts don't rely solely on Airbnb. They list on VRBO, Booking.com, and sometimes <a href="/blog/direct-booking-sites-airbnb-hosts-guide-2026">their own direct booking site</a>. Multi-platform distribution increases visibility and reduces dependence on any single algorithm.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Location Still Matters</h3>
+          <p>Properties near transit, downtown, hospitals, and universities consistently perform best. The <a href="/blog/best-neighborhood-toronto-airbnb-2026">top neighborhoods for Airbnb in Toronto</a> include King West, CityPlace, the Entertainment District, Yorkville, and areas near major hospitals like Toronto General and SickKids. Proximity to the TTC subway is a significant booking driver for both leisure and business travelers.</p>
+
+          <h2 id="who-shouldnt">Who Shouldn't Start an Airbnb Right Now</h2>
+
+          <p>Being honest about this saves you time, money, and frustration. Airbnb in Toronto is not for everyone.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Investment Property Owners in Regulated Cities</h4>
+              <p>If the property isn't your principal residence, <a href="/blog/airbnb-investment-property-gta">most GTA cities won't issue an STR license</a>. Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville all enforce this rule. Consider <a href="/blog/mid-term-rentals-toronto-guide-2026">mid-term rentals</a> instead.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Properties in Condo Buildings That Ban STRs</h4>
+              <p>Many Toronto condo corporations prohibit short-term rentals in their declaration or rules. Even if the city allows it, your condo board's rules take priority. <a href="/blog/can-i-airbnb-my-condo-toronto-2026">Check your condo's STR policy</a> before investing in furnishings.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Anyone Expecting Truly Passive Income</h4>
+              <p>Self-managing an Airbnb is a part-time job. Guest communication, cleaning coordination, pricing adjustments, supply restocking, and maintenance require consistent attention. If you want passive income, you need a <a href="/contact">professional management company</a>.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Hosts Unwilling to Invest in Quality</h4>
+              <p>If you're not willing to furnish properly, get professional photos, or maintain cleaning standards, your listing will underperform. The market is too competitive for half-measures. A poorly presented listing earns less than a long-term tenant would.</p>
+            </div>
+          </div>
+
+          <h2 id="mid-term-alternative">The Mid-Term Alternative</h2>
+
+          <p>For homeowners who can't or don't want to navigate STR regulations, <a href="/blog/mid-term-rentals-toronto-guide-2026">mid-term rentals</a> (30+ days) offer a compelling middle ground.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why Mid-Term?</strong> Mid-term rentals earn 20-50% more than traditional long-term leases. They don't require an STR license, have no night limits, and don't require the property to be your principal residence. Corporate relocations, healthcare contracts, and insurance displacement drive consistent demand in the GTA.
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Factor</th>
+                  <th>Long-Term</th>
+                  <th>Mid-Term (30+ days)</th>
+                  <th>Short-Term (Airbnb)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Revenue vs. Long-Term</strong></td>
+                  <td>Baseline</td>
+                  <td>+20-50%</td>
+                  <td>+30-100%</td>
+                </tr>
+                <tr>
+                  <td><strong>STR License Required</strong></td>
+                  <td>No</td>
+                  <td>No</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Principal Residence</strong></td>
+                  <td>Not required</td>
+                  <td>Not required</td>
+                  <td>Required</td>
+                </tr>
+                <tr>
+                  <td><strong>Night Limit</strong></td>
+                  <td>None</td>
+                  <td>None</td>
+                  <td>180 nights/year</td>
+                </tr>
+                <tr>
+                  <td><strong>Furnishing Required</strong></td>
+                  <td>No</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td><strong>Management Effort</strong></td>
+                  <td>Low</td>
+                  <td>Medium</td>
+                  <td>High (low with manager)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Many savvy Toronto hosts use a blended strategy: Airbnb during peak months (May through October), then mid-term bookings for the slower winter season. This maximizes annual revenue while maintaining near-full occupancy year-round. It also reduces wear and tear compared to running short-term all year.</p>
+
+          <h2 id="how-to-succeed">How to Succeed on Airbnb in Toronto in 2026</h2>
+
+          <p>Based on data from hundreds of Toronto listings, here's the playbook that separates profitable hosts from struggling ones.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>1. Professional Photography</h4>
+              <p>First impressions are everything. Professional photos increase views by up to 40% and directly improve booking conversion. Budget $300 to $500 for a professional shoot with wide-angle lenses and proper staging.</p>
+            </div>
+            <div class="info-card">
+              <h4>2. Dynamic Pricing Tools</h4>
+              <p>Stop using flat rates or Airbnb's Smart Pricing. Tools like PriceLabs adjust your rates daily based on demand, local events, seasonality, and competitor pricing. Average revenue increase: 27%.</p>
+            </div>
+            <div class="info-card">
+              <h4>3. Maintain 4.8+ Rating</h4>
+              <p>Every review matters. Respond to issues immediately, keep the space spotless, ensure listing accuracy, and exceed expectations on amenities. Ratings below 4.8 significantly impact search visibility.</p>
+            </div>
+          </div>
+
+          <div class="info-grid" style="margin-top: 0;">
+            <div class="info-card">
+              <h4>4. Respond Within Minutes</h4>
+              <p>Airbnb tracks response time and uses it in search ranking. Aim for under 15 minutes during business hours. Automated messaging tools help, but a management company ensures 24/7 coverage.</p>
+            </div>
+            <div class="info-card">
+              <h4>5. Comply With All Regulations</h4>
+              <p>Register your STR, display your license number, collect MAT, and stay within the 180-night cap. Non-compliance risks fines up to $100,000 and listing removal. <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">See the full compliance guide</a>.</p>
+            </div>
+            <div class="info-card">
+              <h4>6. Diversify Across Platforms</h4>
+              <p>List on Airbnb, VRBO, and Booking.com at minimum. Each platform reaches different audiences. Use a channel manager to sync calendars and avoid double bookings.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Consider Professional Management:</strong> A 10-15% management fee that increases your revenue by 30-100% is a net positive investment. Professional managers handle pricing optimization, guest communication, cleaning coordination, and compliance, leaving you with truly passive income. <a href="/contact">Get a free estimate from Nurture</a>.
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Ready to See What Your Property Could Earn?</h3>
+            <p>Nurture helps Toronto homeowners earn 30-100% more through expert Airbnb management. Get a free estimate with real data for your specific property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Find Out What Your Toronto Property Could Earn</h2>
+        <p>Get a free revenue estimate based on real market data for your neighborhood and property type.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation &middot; First booking within 1 week</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .key-stats-box {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+  }
+
+  .key-stats-box h4 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
+
+  .stat-card.highlight {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .article-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .article-content a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .info-card a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .info-card a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .action-list {
+    margin: 2rem 0;
+  }
+
+  .action-item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .action-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .action-content h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .action-content p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+    flex-grow: 1;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
