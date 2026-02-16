@@ -1,0 +1,1034 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I refuse a booking on Airbnb?", a: "Yes, but with limitations. If you use Request to Book, you can decline any reservation for any non-discriminatory reason. If you use Instant Book, guests who meet your requirements can book automatically, but you can still cancel if the guest is unresponsive to messages or if something about the booking raises safety concerns. Airbnb allows three penalty-free Instant Book cancellations per year. You can also report a reservation to Airbnb before check-in if you believe the guest intends to throw a party." },
+  { q: "Are noise monitors legal in Ontario?", a: "Yes. Noise monitoring devices that measure decibel levels without recording audio or video are legal in Ontario. Devices like Minut, NoiseAware, and Alertify only track sound levels, not conversations, so they comply with privacy laws. You must disclose the presence of noise monitors in your Airbnb listing description and house manual. Many municipalities actually encourage their use as part of responsible hosting." },
+  { q: "What happens if a guest throws a party and I get demerit points?", a: "The consequences depend on your municipality. In Burlington, a noise bylaw infraction earns 5 demerit points, and 7 points triggers license suspension for up to 6 months. At 15 points, your license is revoked. Muskoka Lakes and Caledon have similar systems. Even a single party incident can put your entire STR operation at risk. This is why prevention through screening and monitoring is far more cost-effective than dealing with the aftermath." },
+  { q: "Should I require a security deposit on Airbnb?", a: "Airbnb does not collect traditional security deposits upfront. Instead, hosts can set a damage deposit amount in their listing settings, and Airbnb will charge the guest after checkout if you file a damage claim through the Resolution Center. For an extra layer of protection, some hosts use third-party services like Superhog or Autohost that collect a separate damage deposit or hold a card authorization before arrival." },
+  { q: "How do I handle a noise complaint from neighbours during an active booking?", a: "First, contact the guest immediately through the Airbnb app so there is a written record. Politely remind them of the house rules and quiet hours. If the noise continues, send a formal warning through Airbnb messaging. If the guest does not comply, contact Airbnb support to initiate a cancellation. Document everything including timestamps, noise monitor readings, and any neighbor communications. If the situation escalates, call local bylaw enforcement or police non-emergency." },
+  { q: "Does Airbnb's party ban replace my own house rules?", a: "No. Airbnb implemented a global party ban in 2022, prohibiting all parties and events at Airbnb listings. However, enforcement depends on reporting. Your own house rules provide an additional, enforceable layer of protection. Make your no-party policy explicit in your listing description, house rules, and house manual. Having it in writing gives you stronger standing when filing a claim or requesting Airbnb to cancel a reservation." },
+  { q: "Can professional management really prevent parties?", a: "No system is 100% foolproof, but professional management dramatically reduces the risk. Property managers screen every booking using established criteria, monitor noise levels 24/7, respond to issues within minutes, and have established protocols for de-escalation. At Nurture, our 9-minute average response time means we catch problems before they escalate. Hosts who use professional management report significantly fewer party incidents compared to self-managing." }
+];
+
+const relatedPosts = [
+  { title: "Airbnb Insurance Ontario: Host Coverage Guide", href: '/blog/airbnb-insurance-ontario-host-guide-2026', description: 'Protect your property with the right insurance coverage' },
+  { title: "Toronto Airbnb Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Registration, 180-night cap, and compliance requirements' },
+  { title: "Can I Airbnb My Condo in Toronto?", href: '/blog/can-i-airbnb-my-condo-toronto-2026', description: 'Condo board rules, noise bylaws, and neighbor relations' }
+];
+
+const tocItems = [
+  { id: 'why-screening-matters', text: 'Why Screening Matters Now' },
+  { id: 'red-flags', text: 'Red Flags to Watch For' },
+  { id: 'screening-process', text: 'The Screening Process' },
+  { id: 'instant-vs-request', text: 'Instant Book vs Request to Book' },
+  { id: 'noise-monitoring', text: 'Noise Monitoring Technology' },
+  { id: 'house-rules', text: 'House Rules That Work' },
+  { id: 'party-response', text: 'If a Party Happens' },
+  { id: 'professional-management', text: 'How Management Helps' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Guest Screening & Party Prevention 2026 Guide";
+const pageDescription = "Screen Airbnb guests effectively and prevent parties with noise monitors, house rules, and smart verification. Protect your property and license.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Guest Screening and Party Prevention Guide",
+  "description": pageDescription,
+  "datePublished": "2026-02-16",
+  "dateModified": "2026-02-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-guest-screening-party-prevention-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Guest Screening and Party Prevention Guide</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 16, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">A single party can end your Airbnb business. That is not an exaggeration. GTA municipalities now use <strong>demerit point systems</strong> that can suspend or revoke your short-term rental license after just one serious incident. Noise violations in <a href="/blog/burlington-airbnb-short-term-rental-rules-2026">Burlington</a> earn 5 demerit points, and 7 points triggers a license suspension of up to 6 months.</p>
+            <p class="lead">The good news: most party bookings follow predictable patterns, and effective screening catches them before they happen. This guide covers the red flags to watch for, the tools that work, and the exact process experienced hosts use to protect their properties and licenses.</p>
+          </div>
+
+          <h2 id="why-screening-matters">Why Screening Matters More Than Ever</h2>
+          <p>Guest screening has always been good practice, but in 2026 the stakes are significantly higher. Three changes in the Ontario regulatory landscape have made screening a business-critical function rather than a nice-to-have.</p>
+
+          <h3>Demerit Point Systems Are Spreading</h3>
+          <p>Multiple GTA municipalities now operate demerit point systems that penalize hosts for bylaw violations. Each noise complaint, each unauthorized gathering, each neighbor dispute adds points to your license. Accumulate enough points and your license is suspended or revoked entirely.</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Municipality</th>
+                  <th>Suspension Threshold</th>
+                  <th>Revocation Threshold</th>
+                  <th>Noise Violation Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="/blog/burlington-airbnb-short-term-rental-rules-2026">Burlington</a></td>
+                  <td class="highlight">7 points</td>
+                  <td class="highlight">15 points</td>
+                  <td>5 points</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/muskoka-lakes-airbnb-short-term-rental-rules-2026">Muskoka Lakes</a></td>
+                  <td class="highlight">N/A</td>
+                  <td class="highlight">15 points</td>
+                  <td>Varies</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/caledon-airbnb-short-term-rental-rules-2026">Caledon</a></td>
+                  <td class="highlight">Demerit system</td>
+                  <td class="highlight">Demerit system</td>
+                  <td>Varies</td>
+                </tr>
+                <tr>
+                  <td>Oakville</td>
+                  <td class="highlight">Demerit system</td>
+                  <td class="highlight">Demerit system</td>
+                  <td>Varies</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Notice that in Burlington, a single noise violation with a fine is worth 5 points. Add one fire code violation (7 points from an unauthorized party exceeding occupancy) and you have hit 12 points, dangerously close to the 15-point revocation threshold.</p>
+
+          <h3>Insurance Claims Get Denied</h3>
+          <p>Insurance companies are increasingly scrutinizing claims from party damage. If your insurer determines that you failed to screen guests or ignored obvious warning signs, they can deny the claim. This applies to both standalone <a href="/blog/airbnb-insurance-ontario-host-guide-2026">STR insurance policies</a> and Airbnb's AirCover. When you have $10,000 or more in damage and no insurance payout, the financial impact is devastating.</p>
+
+          <h3>Neighbor Relations and Condo Boards</h3>
+          <p>Even one party incident can turn neighbors against your operation. In <a href="/blog/can-i-airbnb-my-condo-toronto-2026">condo buildings</a>, a single noise complaint can trigger a board review of your STR activity. Condo corporations can amend their rules to ban short-term rentals, and one bad incident often provides the motivation for the board to do exactly that.</p>
+
+          <div class="warning-box">
+            <h4>The Real Cost of One Party</h4>
+            <p>A single unauthorized party can result in property damage ($5,000 to $50,000+), demerit points that suspend your license (loss of income for 6 months), denied insurance claims, neighbor complaints that trigger bylaw enforcement, and condo board action that permanently ends your STR operation. Prevention is always cheaper than recovery.</p>
+          </div>
+
+          <h2 id="red-flags">Red Flags to Watch For</h2>
+          <p>Experienced hosts learn to recognize booking patterns that indicate party intent. No single red flag is definitive, but multiple flags on the same booking should trigger additional screening.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Last-Minute Local Bookings</h4>
+              <p>Someone who lives 20 minutes away booking your place for Saturday night is the most common party indicator. Legitimate guests booking locally typically explain their reason (home renovation, family visit, special occasion).</p>
+            </div>
+            <div class="info-card">
+              <h4>Brand New Accounts</h4>
+              <p>Accounts with zero reviews, no profile photo, and minimal verification. While everyone starts somewhere, a new account combined with other red flags warrants extra scrutiny.</p>
+            </div>
+            <div class="info-card">
+              <h4>Booking "for a Friend"</h4>
+              <p>The person making the reservation says someone else will be staying. Third-party bookings violate Airbnb's terms of service and are a classic party setup where the account holder avoids accountability.</p>
+            </div>
+            <div class="info-card">
+              <h4>Vague Trip Purpose</h4>
+              <p>When asked about their visit, they avoid specifics or give non-answers like "just hanging out" or "getting together with some people." Legitimate travelers readily share their reason for visiting.</p>
+            </div>
+            <div class="info-card">
+              <h4>One-Night Weekend Stays</h4>
+              <p>A single Saturday night booking, especially combined with other flags. While one-night stays are common for business travelers on weeknights, weekend one-nighters from local guests deserve closer attention.</p>
+            </div>
+            <div class="info-card">
+              <h4>Large Group Sizes</h4>
+              <p>Guest count at or exceeding your maximum occupancy, especially when the booking is for a small property. A group of 8 booking a 2-bedroom condo for one night raises obvious questions.</p>
+            </div>
+          </div>
+
+          <p>Other patterns to note: guests significantly younger than the account holder (a parent booking for their college-age child), requests for late check-in on Friday or Saturday nights with no explanation, and messages that focus exclusively on whether there are neighbors nearby or how soundproof the unit is.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Don't discriminate:</strong> Screening must be based on booking behavior and trip details, never on a guest's age, race, gender, or other protected characteristics. Declining a booking because someone "looks young" is discrimination. Declining because they have no reviews, are local, booked one night on a Saturday, and won't explain the trip purpose is reasonable screening.
+            </div>
+          </div>
+
+          <h2 id="screening-process">The Screening Process: Step by Step</h2>
+          <p>A consistent screening process catches problematic bookings without creating friction for legitimate guests. Follow these steps for every reservation.</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Review the guest profile and past reviews.</strong> Check how many reviews they have, what other hosts said about them, and whether their profile is complete. A guest with 10+ positive reviews from other hosts is low risk. Pay attention to any mentions of noise, extra guests, or rule violations in past reviews.</li>
+            <li><span class="tip-icon">2</span> <strong>Check government ID verification status.</strong> Airbnb shows whether a guest has verified their identity with a government-issued ID. While this alone doesn't prevent parties, verified guests are accountable and less likely to risk their account status.</li>
+            <li><span class="tip-icon">3</span> <strong>Read the guest's initial message carefully.</strong> The tone and detail in their booking message tells you a lot. Guests who explain their trip purpose, mention who is traveling with them, and ask thoughtful questions about the property are almost always legitimate. Generic or empty messages from local guests warrant follow-up.</li>
+            <li><span class="tip-icon">4</span> <strong>Ask a qualifying question.</strong> A simple, friendly question like "What brings you to Toronto?" or "Are you visiting for work or leisure?" serves two purposes. It gives you context about the stay, and it signals to the guest that you are an attentive host who monitors their property.</li>
+            <li><span class="tip-icon">5</span> <strong>Evaluate the overall picture.</strong> No single factor should determine your decision. Look at the combination of profile completeness, reviews, message quality, trip purpose, booking timing, group size, and whether the guest is local. Multiple red flags together are the signal, not any individual flag.</li>
+            <li><span class="tip-icon">6</span> <strong>Use Airbnb's built-in tools.</strong> Airbnb provides a "Report this reservation" option before check-in if you believe a guest intends to violate house rules. Use it. You can also message Airbnb support to flag concerns. Creating a paper trail before an incident strengthens your position if you need to file a claim later.</li>
+          </ul>
+
+          <h2 id="instant-vs-request">Instant Book vs Request to Book</h2>
+          <p>One of the biggest decisions hosts face is whether to use Instant Book or Request to Book. Each has trade-offs when it comes to screening and party prevention.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Instant Book</div>
+              <div class="comparison-col highlight">Request to Book</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Higher search ranking on Airbnb</div>
+              <div class="comparison-col highlight">Lower search visibility</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">More bookings overall</div>
+              <div class="comparison-col highlight">Fewer but potentially higher-quality bookings</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Guests book without host approval</div>
+              <div class="comparison-col highlight">Every booking requires your approval</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Can set requirements (ID, reviews)</div>
+              <div class="comparison-col highlight">Full control over who stays</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">3 penalty-free cancellations/year</div>
+              <div class="comparison-col highlight">Decline without penalty</div>
+            </div>
+          </div>
+
+          <p><strong>Our recommendation:</strong> Use Instant Book with strict requirements enabled. This gives you the ranking benefit and higher booking volume while filtering out the highest-risk guests automatically. Set these Instant Book requirements:</p>
+
+          <ul>
+            <li><strong>Government ID verified:</strong> Mandatory for all guests</li>
+            <li><strong>Positive reviews from other hosts:</strong> Only guests with at least one positive review can Instant Book</li>
+            <li><strong>Recommendations from other hosts:</strong> An additional layer that screens out guests who received negative feedback</li>
+          </ul>
+
+          <p>With these settings enabled, guests who are brand new to Airbnb or who have negative reviews must send a Request to Book, giving you the opportunity to screen them manually. This hybrid approach captures most of the Instant Book benefits while maintaining a screening safety net.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Cancelling Instant Bookings:</strong> If an Instant Book guest is unresponsive to messages before check-in, you can cancel without penalty. Contact Airbnb support, explain that the guest is non-communicative and you have safety concerns, and request a cancellation. This is one of your most important tools for preventing problematic stays.
+            </div>
+          </div>
+
+          <h2 id="noise-monitoring">Noise Monitoring Technology</h2>
+          <p>Noise monitors are the single most effective party prevention tool available to hosts. These devices measure sound levels inside your property without recording conversations, making them privacy-compliant and legal in Ontario.</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Device</th>
+                  <th>Approx Cost</th>
+                  <th>Key Features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Minut</strong></td>
+                  <td class="highlight">$150-200/device</td>
+                  <td>Noise, occupancy, and temperature monitoring. Cigarette smoke detection. Integrates with Airbnb.</td>
+                </tr>
+                <tr>
+                  <td><strong>NoiseAware</strong></td>
+                  <td class="highlight">$200-250/device</td>
+                  <td>Indoor and outdoor sensors. Custom noise thresholds. Automated guest messaging.</td>
+                </tr>
+                <tr>
+                  <td><strong>Alertify</strong></td>
+                  <td class="highlight">$150-300/device</td>
+                  <td>Noise and cigarette smoke detection. Real-time alerts. No audio recording.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>How Noise Monitors Work</h3>
+          <p>These devices measure ambient decibel levels at regular intervals. You set a threshold (typically 70 to 80 dB, roughly the volume of a vacuum cleaner or loud conversation) and receive an alert on your phone when the threshold is exceeded for a sustained period. Brief spikes from a dropped pan or a laugh are filtered out. Sustained elevated noise, the kind that indicates a gathering, triggers the alert.</p>
+
+          <h3>The Deterrence Effect</h3>
+          <p>Perhaps the most valuable aspect of noise monitors is the deterrence they create. When your listing clearly states that noise monitoring devices are active in the property, the vast majority of potential party planners simply book elsewhere. They are looking for an easy target, and a monitored property is not one.</p>
+
+          <div class="strategy-box">
+            <h4>Recommended Noise Monitor Setup</h4>
+            <ol>
+              <li><strong>Place devices in common areas</strong> (living room, kitchen) where parties typically happen. Never place them in bedrooms or bathrooms.</li>
+              <li><strong>Set the threshold at 75 dB</strong> as a starting point. Adjust based on your property's baseline noise level and wall thickness.</li>
+              <li><strong>Enable automated first warnings</strong> if your device supports it. An automatic message saying "Our noise monitor detected elevated sound levels" is often enough to quiet things down.</li>
+              <li><strong>Disclose the device in your listing</strong> under the "Other things to note" section and in your house manual. Disclosure is required by Airbnb's policy and Ontario privacy considerations.</li>
+              <li><strong>Connect alerts to your phone</strong> so you can respond within minutes, not hours.</li>
+            </ol>
+          </div>
+
+          <h2 id="house-rules">House Rules That Actually Work</h2>
+          <p>Effective house rules are specific, visible, and enforceable. Vague rules like "be respectful" do nothing. Clear rules with stated consequences deter rule-breaking and give you standing to act when violations occur.</p>
+
+          <h3>Essential Rules for Party Prevention</h3>
+          <ul>
+            <li><strong>No parties or events of any kind.</strong> State this explicitly in your listing description, house rules, and physical house manual. Don't use softer language like "gatherings are discouraged." Be direct: "No parties, events, or gatherings are permitted at this property."</li>
+            <li><strong>Maximum occupancy is strictly enforced.</strong> Specify the exact number. "Maximum 4 guests. No visitors or additional guests permitted at any time without prior written approval from the host."</li>
+            <li><strong>Quiet hours from 10:00 PM to 8:00 AM.</strong> Align these with your municipality's noise bylaw. Most Ontario cities have quiet hours from 11 PM to 7 AM, so setting yours slightly more conservatively gives you a buffer.</li>
+            <li><strong>No unregistered guests.</strong> Only guests named in the reservation may enter the property. This prevents the common scenario where a guest invites 20 friends over for a "small get-together."</li>
+            <li><strong>No smoking anywhere on the property.</strong> Smoking damage is expensive, and it often accompanies party behavior.</li>
+            <li><strong>External cameras are present at entrances.</strong> Disclose camera locations in your listing. Cameras at entry points are permitted on Airbnb when disclosed. They deter unauthorized guests and provide evidence if a party occurs.</li>
+          </ul>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Make consequences clear:</strong> Include this statement in your house rules: "Violation of the no-party policy or exceeding maximum occupancy will result in immediate eviction with no refund. Guests will be held responsible for any damage, cleaning costs, and fines incurred." This language gives you grounds to act and signals to potential party planners that you mean business.
+            </div>
+          </div>
+
+          <h3>Where to Display Rules</h3>
+          <p>Rules only work if guests see them. Display your house rules in all four of these locations:</p>
+          <ol>
+            <li><strong>Listing description:</strong> In the "House rules" section and the "Other things to note" field</li>
+            <li><strong>Pre-check-in message:</strong> Send a message after booking with key rules and a request for acknowledgment</li>
+            <li><strong>Physical house manual:</strong> A printed document in the property that guests see on arrival</li>
+            <li><strong>Entry signage:</strong> A tasteful sign near the entrance reminding guests of noise hours and occupancy limits</li>
+          </ol>
+
+          <h2 id="party-response">What to Do If a Party Happens</h2>
+          <p>Despite your best screening and prevention efforts, a party might still occur. How you respond in the first 30 minutes determines the outcome. Speed and documentation are everything.</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Contact the guest immediately through Airbnb.</strong> Send a message through the Airbnb app (not text or phone) to create a timestamped paper trail. Be direct: "Our noise monitor has detected a noise level that exceeds our house rules. Please reduce the noise immediately and ensure only registered guests are present."</li>
+            <li><span class="tip-icon">2</span> <strong>Call the guest if they don't respond within 10 minutes.</strong> Follow up the Airbnb message with a phone call. Sometimes guests simply don't see app notifications during a loud gathering. A phone call gets immediate attention.</li>
+            <li><span class="tip-icon">3</span> <strong>Call local authorities if the situation continues.</strong> Contact your municipality's bylaw enforcement or police non-emergency line. In Toronto, call 311 for noise complaints. Having an official record of the complaint strengthens your position with Airbnb and your insurance provider.</li>
+            <li><span class="tip-icon">4</span> <strong>Document everything.</strong> Screenshot noise monitor readings with timestamps. Save all Airbnb messages. Photograph any damage you can see on cameras. Record neighbor complaints with dates and times. This documentation is critical for insurance claims, Airbnb Resolution Center cases, and municipal licensing proceedings.</li>
+            <li><span class="tip-icon">5</span> <strong>File with Airbnb Resolution Center within 72 hours.</strong> Airbnb requires damage claims to be filed within 72 hours of checkout (or before the next guest checks in, whichever comes first). Include all documentation: photos, noise readings, repair estimates, and correspondence with the guest.</li>
+            <li><span class="tip-icon">6</span> <strong>Contact your insurance provider.</strong> Notify your <a href="/blog/airbnb-insurance-ontario-host-guide-2026">STR insurance</a> provider about the incident even if you plan to pursue the claim through Airbnb first. Some policies have their own reporting deadlines. Getting it on record protects your coverage.</li>
+            <li><span class="tip-icon">7</span> <strong>Report to your municipal licensing body.</strong> This may seem counterintuitive, but proactively reporting an incident and demonstrating that you responded appropriately shows regulators that you are a responsible host. It is far better to self-report than to have a neighbor file a formal complaint that catches you off guard.</li>
+          </ul>
+
+          <h2 id="professional-management">How Professional Management Helps</h2>
+          <p>Guest screening and party prevention require constant vigilance. For hosts who cannot monitor their property 24 hours a day, professional management provides the infrastructure and expertise to handle this effectively.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>24/7 Monitoring</h4>
+              <p>Professional managers monitor noise levels and security cameras around the clock. At Nurture, our average response time is <strong>9 minutes</strong>, which means we catch and address issues before they escalate into license-threatening incidents.</p>
+            </div>
+            <div class="info-card">
+              <h4>Automated Screening</h4>
+              <p>Established screening protocols evaluate every booking against known risk factors. This consistent, systematic approach catches red flags that a busy self-managing host might miss during a hectic week.</p>
+            </div>
+            <div class="info-card">
+              <h4>Guest Communication</h4>
+              <p>Professional pre-arrival messaging sets clear expectations and establishes authority. Guests who know they are dealing with a management company rather than an absent homeowner are less likely to push boundaries.</p>
+            </div>
+            <div class="info-card">
+              <h4>Incident Response</h4>
+              <p>When issues arise, experienced managers follow established de-escalation protocols, coordinate with local authorities when necessary, and handle the documentation needed for insurance and Airbnb claims.</p>
+            </div>
+            <div class="info-card">
+              <h4>Noise Tech Already Installed</h4>
+              <p>Professional management companies install and maintain noise monitoring devices as standard practice. No upfront investment or technical setup required from the property owner.</p>
+            </div>
+            <div class="info-card">
+              <h4>Regulatory Compliance</h4>
+              <p>Managers stay current with <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">municipal bylaws</a> and ensure your operation meets all licensing requirements, including those related to guest conduct and noise management.</p>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Need Help With Guest Screening and Property Protection?</h3>
+            <p>Nurture handles guest screening, noise monitoring, and 24/7 incident response so you can earn passive income without the stress. Our 10-15% management fee covers <a href="/services/full-airbnb-management">full-service property management</a> including guest vetting and verification for every booking.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Protect Your Property and Your License</h2>
+        <p>Our team screens every guest and monitors your property 24/7 so one bad booking never costs you your STR license.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .warning-box a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .points-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .points-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .points-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .points-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .points-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .points-table td.highlight {
+    background: rgba(117, 155, 143, 0.1);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .points-table a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .points-table a:hover {
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .info-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .info-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .info-card a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ol {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .points-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
