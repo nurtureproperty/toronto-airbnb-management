@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "What percentage do Airbnb property managers charge in the GTA?", a: "GTA property managers typically charge 10-30% of booking revenue. Budget managers charge 10-15% for basic services (listing, messaging, pricing). Mid-range managers charge 15-20% and include cleaning coordination and supplies. Full-service premium managers charge 20-30% for concierge-level service. Always ask about hidden fees on top of the management percentage, as the total cost can be significantly higher than the advertised rate." },
-  { q: "Should I use Airbnb's Co-Host Network to find a property manager?", a: "Airbnb's Co-Host Network is a good starting point for finding individual co-hosts, with an average rating of 4.86 stars. However, co-hosts typically handle fewer services than full property management companies. They may not offer regulatory compliance support, professional cleaning coordination, or multi-platform distribution. For GTA hosts dealing with complex municipal regulations, a full PM company often provides better value." },
-  { q: "Can a property manager help with Toronto's STR registration?", a: "Yes, a good GTA property manager should handle or guide you through STR registration, license renewals, MAT tax setup, and ongoing compliance. In the GTA, regulations vary by city and change frequently. A local PM stays on top of these changes so you don't have to. If a PM doesn't mention compliance during your consultation, that's a red flag." },
+  { q: "What percentage do Airbnb property managers charge in the GTA?", a: "GTA property managers typically charge 10-30% of booking revenue. Starter-tier managers charge 10-15% for core services like listing creation, guest messaging, dynamic pricing, and screening. Full-service managers charge 15-20% and add cleaning coordination, supplies, and a dedicated account manager. Premium concierge managers charge 20-30% for luxury-level service. Beyond the percentage, ask whether the fee is calculated on gross or net revenue. A 15% fee on net revenue (after Airbnb platform fees, cleaning costs, and taxes are deducted) costs significantly less than 15% on gross bookings." },
+  { q: "Should I use Airbnb's Co-Host Network to find a property manager?", a: "Airbnb's Co-Host Network is a good starting point for finding individual co-hosts, with an average rating of 4.86 stars. However, co-hosts typically handle fewer services than full property management companies. They may not offer professional cleaning coordination, multi-platform distribution, or dynamic pricing optimization. For GTA hosts looking for hands-off management with higher revenue potential, a full PM company often provides better value." },
+  { q: "What's the difference between commission on gross vs net revenue?", a: "This is one of the most overlooked questions when comparing property managers. A PM charging 15% on gross revenue takes their cut from the total booking amount before any expenses are deducted. A PM charging 15% on net revenue only takes their cut after Airbnb's platform fee, cleaning costs, supplies, and applicable taxes are subtracted. On a property earning $4,500/month gross, the difference between 15% on gross ($675) and 15% on net (roughly $450) is over $2,700 per year back in your pocket. Always ask how the management fee is calculated and get it in writing." },
   { q: "What's the biggest red flag when hiring an Airbnb property manager?", a: "The single biggest red flag is a property manager who creates your Airbnb listing under their company account instead of yours. This means they control your reviews, your calendar, your Superhost status, and your guest relationships. If you ever leave, you start from zero with no reviews and no booking history. Always ensure you own your listing." },
   { q: "How long does it take to get my first booking with a property manager?", a: "With a competent property manager, expect your first booking within one to two weeks of going live. Top-performing PMs achieve this through professional photography, optimized listing copy, competitive launch pricing, and multi-platform distribution across Airbnb, VRBO, and Booking.com. If a PM can't get you booked within the first month, something is wrong." },
-  { q: "Do I need a property manager, or should I self-manage my Airbnb?", a: "It depends on your time, location, and comfort level. Self-managing saves the management fee but requires 10-15 hours per week for guest communication, cleaning coordination, pricing adjustments, and maintenance. A property manager handles everything for 10-15% of revenue and typically generates 30-100% more income through professional pricing, optimized listings, and faster response times. For most GTA hosts, the net income after management fees exceeds what they'd earn self-managing." },
+  { q: "Do I need a property manager, or should I self-manage my Airbnb?", a: "It depends on your time, location, and comfort level. Self-managing saves the management fee but requires 10-15 hours per week for guest communication, cleaning coordination, pricing adjustments, and maintenance. A property manager handles everything for 10-15% of revenue (some charge on net revenue after expenses, which is even less) and typically generates 30-100% more income through professional pricing, optimized listings, and faster response times. For most GTA hosts, the net income after management fees exceeds what they'd earn self-managing." },
   { q: "What should I look for in a property management contract?", a: "Look for month-to-month terms with 30-day cancellation notice, a clear fee structure with no hidden charges, confirmation that you own your listing, defined service scope, transparent reporting requirements, and a communication policy. Avoid contracts with early termination penalties, lock-in periods exceeding 3 months, or vague language about additional fees." }
 ];
 
@@ -108,7 +108,7 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <h2 id="why-it-matters">Why This Decision Matters</h2>
-          <p>Choosing a property manager isn't like picking a cleaning company. This person or company controls your income, your reviews, your guest experience, and your property's reputation. A great PM optimizes your pricing daily, responds to guests within minutes, coordinates professional cleanings, and keeps you compliant with <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026" style="color: var(--color-primary-dark); text-decoration: underline;">local regulations</a>. A bad PM does the bare minimum while charging you for premium service.</p>
+          <p>Choosing a property manager isn't like picking a cleaning company. This person or company controls your income, your reviews, your guest experience, and your property's reputation. A great PM optimizes your pricing daily, responds to guests within minutes, coordinates professional cleanings, and handles everything from supply restocking to review management. A bad PM does the bare minimum while charging you for premium service.</p>
 
           <p>The financial impact is significant. A well-managed listing can earn <a href="/blog/how-much-can-i-make-airbnb-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">$3,500 to $5,000+ per month</a> in the GTA. A poorly managed one might pull in $1,500 while the PM still collects their percentage. The difference between a good and bad property manager can be $20,000 or more per year on the same property.</p>
 
@@ -131,7 +131,7 @@ const pageSchema = [articleSchema, faqSchema];
             <div class="step-card">
               <span class="step-number">3</span>
               <h4>What's the Total Fee Structure?</h4>
-              <p>Ask for every single fee, not just the management percentage. Some companies advertise 15% but charge 25%+ when you add up setup fees, cleaning markups, supply markups, linen fees, photography charges, and maintenance coordination fees. Get the total cost in writing. A transparent PM will have a simple fee structure with no surprises.</p>
+              <p>Ask for every single fee, not just the management percentage. Some companies advertise 15% but charge 25%+ when you add up setup fees, cleaning markups, supply markups, linen fees, photography charges, and maintenance coordination fees. Also ask whether the commission is calculated on gross revenue or net revenue after expenses. A PM charging 15% on net (after Airbnb fees, cleaning, and taxes are deducted) costs you meaningfully less than 15% on gross. Get the total cost structure in writing. A transparent PM will have a simple fee structure with no surprises.</p>
             </div>
             <div class="step-card">
               <span class="step-number">4</span>
@@ -141,7 +141,7 @@ const pageSchema = [articleSchema, faqSchema];
             <div class="step-card">
               <span class="step-number">5</span>
               <h4>What's Their Response Time?</h4>
-              <p>The industry average for guest response times is measured in hours. Good PMs respond within 15 minutes. Ask for their actual average response time, not a vague "we respond quickly." Fast response times directly impact your search ranking on Airbnb and your guest satisfaction scores. Nine minutes or under is what you should expect from a top-tier PM.</p>
+              <p>The industry average for guest response times is measured in hours. Good PMs respond within 15 minutes. The best local GTA managers track this publicly and average under 10 minutes. Ask for their actual average response time, not a vague "we respond quickly." Fast response times directly impact your search ranking on Airbnb and your guest satisfaction scores. If a PM can't tell you their exact average, they probably don't track it.</p>
             </div>
             <div class="step-card">
               <span class="step-number">6</span>
@@ -156,17 +156,17 @@ const pageSchema = [articleSchema, faqSchema];
             <div class="step-card">
               <span class="step-number">8</span>
               <h4>What's Their Local Market Expertise?</h4>
-              <p>A PM based in Vancouver or a national franchise managing your Toronto listing won't understand GTA-specific regulations, seasonal demand patterns, or neighborhood dynamics. Ask where their team is based and how many GTA properties they manage. Local knowledge matters for pricing strategy, compliance, and vendor relationships.</p>
+              <p>A PM based in Vancouver or a national franchise managing your Toronto listing won't understand GTA-specific seasonal demand patterns or neighborhood dynamics. Ask where their team is based and how many GTA properties they manage. Local knowledge matters for pricing strategy, vendor relationships, and knowing which events and festivals drive demand in your area.</p>
             </div>
             <div class="step-card">
               <span class="step-number">9</span>
-              <h4>Do They Handle Regulatory Compliance?</h4>
-              <p>In the GTA, short-term rental regulations vary by city and change frequently. <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Toronto</a>, <a href="/blog/mississauga-airbnb-short-term-rental-rules-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Mississauga</a>, <a href="/blog/brampton-airbnb-short-term-rental-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Brampton</a>, and <a href="/blog/vaughan-airbnb-short-term-rental-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Vaughan</a> all have different rules. A good PM handles STR registration, <a href="/blog/airbnb-taxes-canada-gta-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">MAT collection</a>, license renewals, and ensures you stay compliant. If compliance isn't part of their service, you're taking on significant risk.</p>
+              <h4>Is the Commission on Gross or Net Revenue?</h4>
+              <p>This question alone can save you thousands per year. Some PMs take their commission on the total booking amount before any deductions. Others calculate their fee on net revenue, after Airbnb's platform fee (typically 3-15%), cleaning costs, supplies, and applicable taxes are subtracted. On a property earning $4,500/month gross, the difference between 15% on gross ($675) and 15% on net (roughly $450) is over $2,700 per year. Always ask for the calculation in writing.</p>
             </div>
             <div class="step-card">
               <span class="step-number">10</span>
               <h4>Can You See Real Client Results?</h4>
-              <p>Ask for Google reviews, client references, occupancy data, and revenue examples. Good PMs are proud to share results. Check their average Airbnb rating across managed properties (4.8+ is strong). Ask for specific examples of properties similar to yours and what revenue they've generated. If they can't provide concrete data, that tells you something.</p>
+              <p>Ask for Google reviews, client references, occupancy data, and revenue examples. Good PMs are proud to share results. Check their average Airbnb rating across managed properties (4.8+ is strong, 4.9+ is exceptional). Ask for specific examples of properties similar to yours and what revenue they've generated. The best managers will show you before-and-after numbers from real clients. If they can't provide concrete data, that tells you something.</p>
             </div>
           </div>
 
@@ -194,6 +194,7 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>"Vacancy fees" or minimum monthly charges:</strong> Some PMs charge you even when the property isn't booked. This removes their incentive to maximize your occupancy. A commission-only model aligns the PM's interests with yours.</li>
             <li><strong>No transparent reporting or monthly statements:</strong> You should receive detailed monthly reports showing bookings, revenue, expenses, and occupancy. If a PM can't or won't provide clear financial reporting, you'll never know if you're getting fair value.</li>
             <li><strong>Promises that sound too good to be true:</strong> "Guaranteed $5,000/month" or "100% occupancy" are unrealistic promises that no honest PM would make. Revenue depends on seasonality, market conditions, and your property type. Be wary of anyone who guarantees specific income numbers.</li>
+            <li><strong>Commission calculated on gross revenue:</strong> Some PMs take their percentage from the total booking amount before Airbnb fees, cleaning costs, and taxes are deducted. This means you're paying them a cut of money that never reaches your bank account. A PM who charges on net revenue (after all platform fees and operating expenses) is giving you a fundamentally better deal at the same percentage.</li>
             <li><strong>Management fees above 25% for standard service:</strong> In the GTA market, paying more than 25% for basic Airbnb management is above market rate. Premium concierge-level services may justify higher fees, but standard listing, messaging, and pricing optimization should not cost a quarter of your revenue.</li>
             <li><strong>Communication only through group chats or generic email:</strong> If you can't get a real person on the phone who knows your property, your issues will always be deprioritized. Direct contact with a dedicated account manager is what professional management looks like.</li>
             <li><strong>No local office or team in the GTA:</strong> A PM who manages your Toronto property from another province won't have reliable local cleaners, maintenance contacts, or understanding of municipal regulations. Local presence is essential for handling emergencies and guest issues.</li>
@@ -239,13 +240,30 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
             <div class="info-card">
               <h4>Local GTA Presence</h4>
-              <p>A team based in the Greater Toronto Area with local cleaners, maintenance contacts, and understanding of municipal regulations.</p>
+              <p>A team based in the Greater Toronto Area with local cleaners, maintenance contacts, and knowledge of neighborhood-level demand patterns.</p>
             </div>
             <div class="info-card">
               <h4>No Startup Costs</h4>
               <p>Commission-only model. The PM earns only when you earn. No upfront investment before you've received your first booking.</p>
             </div>
           </div>
+
+          <div class="info-grid" style="margin-top: 0;">
+            <div class="info-card">
+              <h4>Commission on Net Revenue</h4>
+              <p>The PM takes their percentage after Airbnb fees, cleaning, supplies, and taxes are deducted. You never pay commission on money that doesn't reach your pocket.</p>
+            </div>
+            <div class="info-card">
+              <h4>No Markups on Supplies</h4>
+              <p>Cleaning, linens, and restocking passed through at cost. No hidden 20-50% markups that quietly inflate your monthly expenses.</p>
+            </div>
+            <div class="info-card">
+              <h4>Fast First Booking</h4>
+              <p>A strong PM gets your first booking within the first week through launch pricing strategy, professional photography, and optimized listing copy.</p>
+            </div>
+          </div>
+
+          <p>If you find a GTA property manager that checks all of these boxes, you've found a strong match. Some locally owned managers have built their entire model around these principles, offering 10-15% commission on net revenue with no contracts, no markups, and no startup costs. They exist, and they're worth finding.</p>
 
           <h2 id="fee-comparison">Fee Comparison: What GTA Property Managers Actually Charge</h2>
           <p>Here's what you'll typically find when comparing Airbnb property management fees across the Greater Toronto Area.</p>
@@ -268,15 +286,15 @@ const pageSchema = [articleSchema, faqSchema];
                   <td>May not include cleaning coordination or supply restocking. Verify what's in vs out.</td>
                 </tr>
                 <tr>
-                  <td><strong>Mid-Range</strong></td>
+                  <td><strong>Full-Service</strong></td>
                   <td>15-20%</td>
-                  <td>Everything in budget + cleaning coordination, supply restocking, smart lock management, dedicated manager</td>
-                  <td>Check for markups on cleaning and supplies. Some charge cost + 20-50%.</td>
+                  <td>Everything in Starter + cleaning coordination, supply restocking, smart lock management, dedicated manager</td>
+                  <td>Ask if fee is on gross or net. Check for markups on cleaning and supplies (some charge cost + 20-50%).</td>
                 </tr>
                 <tr>
-                  <td><strong>Premium / Full-Service</strong></td>
+                  <td><strong>Premium Concierge</strong></td>
                   <td>20-30%</td>
-                  <td>Everything in mid-range + concierge services, interior design, furnishing, deep maintenance</td>
+                  <td>Everything in Full-Service + concierge services, interior design, furnishing, deep maintenance</td>
                   <td>Justified for luxury properties. Overkill for a standard 1-bedroom condo.</td>
                 </tr>
               </tbody>
@@ -292,8 +310,8 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>Lower % Doesn't Always Mean Better Value</strong>
-              <p style="margin-top: 0.5rem; margin-bottom: 0;">A PM charging 10% who generates $4,000/month in revenue costs you $400 and nets you $3,600. A PM charging 20% who only generates $2,500/month costs you $500 and nets you $2,000. The cheapest option isn't always the most profitable. Factor in total cost including hidden fees and, more importantly, the revenue they actually generate for you.</p>
+              <strong>The Fee Percentage Is Only Half the Story</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">A PM charging 15% on gross revenue takes $675 from a $4,500 booking month. A PM charging 15% on net revenue (after ~$1,500 in Airbnb fees, cleaning, and supplies) takes roughly $450 from that same month. That's $225/month difference, or $2,700/year, on the same advertised percentage. Then factor in hidden fees: setup charges, cleaning markups, supply markups, and vacancy fees can push your real cost well past 25%. Always compare the total annual cost, not just the headline number.</p>
             </div>
           </div>
 
@@ -343,8 +361,8 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
             <div class="step-card">
               <span class="step-number">9</span>
-              <h4>"Do you handle STR registration and MAT tax compliance?"</h4>
-              <p>In the GTA, regulatory compliance is essential. If the PM doesn't mention compliance proactively, they may not be equipped to handle the complexity of GTA municipal rules.</p>
+              <h4>"Is your management fee calculated on gross or net revenue?"</h4>
+              <p>Many hosts never think to ask this, but it significantly affects your take-home income. A PM who charges on net revenue (after platform fees, cleaning, and taxes) is giving you a better deal than the same percentage on gross. If they charge on gross, factor that into your total cost comparison.</p>
             </div>
             <div class="step-card">
               <span class="step-number">10</span>
@@ -375,8 +393,8 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
             <div class="alternative-card">
               <span class="alt-number">2</span>
-              <h4>Regulatory Gaps</h4>
-              <p>Individual co-hosts rarely handle STR registration, <a href="/blog/airbnb-taxes-canada-gta-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">MAT tax collection</a>, or license renewals. In the GTA, where regulations differ by city and change frequently, this can leave you exposed to fines.</p>
+              <h4>Limited Revenue Optimization</h4>
+              <p>Individual co-hosts typically don't invest in professional <a href="/blog/airbnb-dynamic-pricing-tools-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">dynamic pricing tools</a>, listing optimization, or professional photography. These are the services that drive the 30-100% revenue increases that full PM companies deliver.</p>
             </div>
           </div>
 
@@ -393,7 +411,7 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <p>The Co-Host Network is a solid starting point if you want light-touch help. For comprehensive management in the GTA, including compliance, cleaning coordination, multi-platform distribution, and dedicated support, a full property management company typically provides more value.</p>
+          <p>The Co-Host Network is a solid starting point if you want light-touch help. For comprehensive management in the GTA, including cleaning coordination, multi-platform distribution, dynamic pricing, and dedicated support, a full property management company typically provides more value.</p>
 
           <h2 id="faqs">Frequently Asked Questions</h2>
           <div class="faq-list">
@@ -407,7 +425,7 @@ const pageSchema = [articleSchema, faqSchema];
 
           <div class="article-cta">
             <h3>Looking for a Property Manager That Checks Every Box?</h3>
-            <p>Get a free rental estimate for your GTA property. No contracts, no setup fees, no hidden charges. See exactly <a href="/blog/how-much-can-i-make-airbnb-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">how much your property could earn</a>.</p>
+            <p>Nurture offers 10-15% commission on net revenue (after Airbnb fees, cleaning, and taxes), no contracts, no setup fees, and no markups. See exactly <a href="/blog/how-much-can-i-make-airbnb-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">how much your property could earn</a>.</p>
             <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
           </div>
         </article>
@@ -434,9 +452,9 @@ const pageSchema = [articleSchema, faqSchema];
     <div class="container">
       <div class="cta-content">
         <h2>Find the Right Property Manager</h2>
-        <p>Get a free estimate and see what professional Airbnb management looks like. No lock-in contracts, transparent pricing.</p>
+        <p>Commission on net revenue. No contracts, no markups, no startup fees. 4.9-star average rating and 9-minute response times.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
-        <p class="cta-note">Free consultation · No obligation · First booking within 1 week</p>
+        <p class="cta-note">Free consultation · No obligation · You own your listing · First booking within 1 week</p>
       </div>
     </div>
   </section>
