@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
   { q: "Is it legal to take direct bookings instead of using Airbnb?", a: "Yes, completely legal. Airbnb does not have an exclusivity clause. You can accept bookings through your own website, by phone, or through any other channel. You still need to comply with your local STR regulations (licensing, night limits, MAT tax collection), but how you accept bookings is entirely your choice." },
-  { q: "How much can I save by taking direct bookings?", a: "Airbnb charges hosts 3% and guests 14-20% in service fees. On a $200/night booking for 3 nights ($600), Airbnb takes $18 from you and $84-$120 from the guest. Direct bookings eliminate both fees. You can offer a 5-10% discount to guests while still earning more per booking than you would through Airbnb." },
+  { q: "How much can I save by taking direct bookings?", a: "Since December 2025, Airbnb charges hosts a flat 15.5% service fee on every booking. On a $200/night booking for 3 nights ($600), Airbnb takes $93. On a 30-night stay at $100/night, that's $465 gone to Airbnb. Direct bookings eliminate that fee entirely. Even after Stripe's 2.9% processing fee, you keep significantly more per booking." },
   { q: "Do I need a professional website for direct bookings?", a: "Not necessarily. A simple one-page site with property photos, an availability calendar, pricing, and a booking/inquiry form is enough to start. Platforms like Lodgify, Hospitable, and Hostaway offer templates specifically designed for vacation rental hosts. You can have a professional site live in a weekend." },
   { q: "How do I handle payments for direct bookings?", a: "Stripe is the most popular option for vacation rental hosts. It integrates with most booking platforms, charges 2.9% + $0.30 per transaction, and handles security deposits. Square and PayPal are alternatives. Always use a payment processor rather than accepting e-transfers or cash to protect both parties and maintain a clear record." },
   { q: "What about guest screening without Airbnb's verification?", a: "Several third-party services handle guest screening for direct bookings. Autohost, Guest Ranger, and Superhog offer ID verification, background checks, and damage protection. These services cost $5-$15 per reservation and provide verification standards that often exceed what Airbnb offers." },
@@ -32,7 +32,7 @@ const tocItems = [
 ];
 
 const pageTitle = "Direct Booking Sites for Airbnb Hosts 2026 | Full Guide";
-const pageDescription = "Build a direct booking site and stop paying Airbnb 14-20% per booking. Re-engage past guests, get referrals, handle screening and insurance. Start today.";
+const pageDescription = "Build a direct booking site and stop paying Airbnb's 15.5% host fee. Re-engage past guests, get referrals, handle screening and insurance. Start today.";
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -107,7 +107,7 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">Every booking through Airbnb costs you 3% in host fees and your guest 14-20% in service fees. <strong>On a $3,000 monthly booking, that's $90 from you and $420-$600 from your guest, gone to Airbnb.</strong> A direct booking site lets you keep that money, build relationships with guests, and reduce your dependence on any single platform.</p>
+            <p class="lead">Since December 2025, Airbnb charges hosts a flat 15.5% service fee on every booking. <strong>On a $3,000 monthly booking, that's $465 gone to Airbnb.</strong> A direct booking site lets you keep that money, build relationships with guests, and reduce your dependence on any single platform.</p>
           </div>
 
           <h2 id="why-direct">Why Direct Bookings Matter</h2>
@@ -116,7 +116,7 @@ const pageSchema = [articleSchema, faqSchema];
           <div class="info-grid">
             <div class="info-card">
               <h4>Save on Fees</h4>
-              <p>Eliminate Airbnb's 3% host fee and 14-20% guest service fee. You can pass some of those savings to guests as a direct-booking discount while still earning more per night.</p>
+              <p>Eliminate Airbnb's 15.5% host fee. On a $1,000 booking, that's $155 back in your pocket. Direct bookings let you keep more of every dollar you earn.</p>
             </div>
             <div class="info-card">
               <h4>Own the Relationship</h4>
@@ -136,37 +136,37 @@ const pageSchema = [articleSchema, faqSchema];
               <thead>
                 <tr>
                   <th>Booking</th>
-                  <th>Airbnb (Host Pays)</th>
-                  <th>Airbnb (Guest Pays)</th>
-                  <th>Direct (Total Saved)</th>
+                  <th>Airbnb Fee (15.5%)</th>
+                  <th>Stripe Fee (2.9%)</th>
+                  <th>You Save Going Direct</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>3-night stay ($200/night)</strong></td>
-                  <td>$18 host fee</td>
-                  <td>$84-$120 guest fee</td>
-                  <td><strong>$102-$138 saved</strong></td>
+                  <td>$93</td>
+                  <td>$17</td>
+                  <td><strong>$76 saved</strong></td>
                 </tr>
                 <tr>
                   <td><strong>7-night stay ($175/night)</strong></td>
-                  <td>$37 host fee</td>
-                  <td>$172-$245 guest fee</td>
-                  <td><strong>$209-$282 saved</strong></td>
+                  <td>$190</td>
+                  <td>$36</td>
+                  <td><strong>$154 saved</strong></td>
                 </tr>
                 <tr>
                   <td><strong>30-night stay ($100/night)</strong></td>
-                  <td>$90 host fee</td>
-                  <td>$420-$600 guest fee</td>
-                  <td><strong>$510-$690 saved</strong></td>
+                  <td>$465</td>
+                  <td>$87</td>
+                  <td><strong>$378 saved</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p class="table-note">Airbnb host fee is 3%. Guest service fee ranges from 14-20% depending on booking length, location, and other factors. Longer stays tend toward the lower end.</p>
+          <p class="table-note">As of December 2025, Airbnb charges hosts a flat 15.5% service fee. Guests no longer see a separate service fee. Stripe charges 2.9% + $0.30 per transaction.</p>
 
-          <p>Even after payment processing fees (2.9% with Stripe), the savings are significant. Offer guests a 5-10% discount for booking direct and you both come out ahead.</p>
+          <p>The savings add up fast. A host doing $50,000/year in bookings pays $7,750 to Airbnb. Going direct with Stripe, that drops to about $1,450. That's over $6,000 back in your pocket annually.</p>
 
           <h2 id="build-site">How to Build Your Direct Booking Site</h2>
           <p>You don't need a developer or a big budget. Several platforms are built specifically for vacation rental hosts who want a professional booking site without the complexity.</p>
