@@ -110,13 +110,29 @@ Look at those competitor rates. MasterHost charges up to 20%. Maxima is 18%+. Ma
 
 We charge 10-15%. Here's why we can do that:
 
-**We're local and lean.** No corporate overhead, no national offices to maintain. Just a focused GTA team.
+**We're local and lean.** No corporate overhead, no national offices to maintain. Just a focused GTA team that knows which Toronto events spike demand and adjusts your pricing daily.
 
-**We're transparent about costs.** No setup fees, no hidden charges for basic services. The percentage you see is what you pay.
+**We're transparent about costs.** No setup fees, no hidden charges for basic services. The percentage you see is what you pay. No markups on cleaning, supplies, or restocking.
 
-**We calculate on net, not gross.** You keep more because we don't inflate our take with Airbnb's fees and cleaning charges.
+**We calculate on net, not gross.** You keep more because we don't inflate our take with Airbnb's fees and cleaning charges. Over a year, this alone saves you $1,000 to $2,700 compared to a manager charging the same percentage on gross.
+
+**We use professional [dynamic pricing tools](/blog/airbnb-dynamic-pricing-tools-guide-2026) with daily local adjustments.** PriceLabs handles the baseline automation. Our team handles everything the algorithm misses: new competitor listings, construction disruptions, sold-out hotel inventory, and neighborhood events. Hosts using dynamic pricing earn [64% more than those with static rates](/blog/airbnb-dynamic-pricing-tools-guide-2026).
 
 **No long contracts.** Month-to-month means we have to earn your business every month. Companies that lock you in for a year don't have to try as hard.
+
+**9-minute average response time.** While most competitors take hours or days, we respond in under 10 minutes on average. Fast responses directly boost your Airbnb search ranking and guest satisfaction.
+
+**You always own your listing.** Your reviews, your Superhost status, your booking history. If you ever leave, everything stays with you. No hostage situations.
+
+## The Pricing Strategy Gap Most Hosts Miss
+
+Here's something that doesn't show up in a fee comparison table: **how your manager handles pricing affects your revenue more than the management fee itself.**
+
+Our [analysis of 320 Toronto listings](/blog/airbnb-dynamic-pricing-tools-guide-2026) found that hosts using dynamic pricing earn **$3,303/month** compared to **$2,020/month** for those with static pricing. That's a 64% difference. When you layer professional management on top (listing optimization, photography, fast response times, multi-platform distribution), professionally managed properties earn **$4,460+/month** on the same property type.
+
+So a manager charging 15% who generates $4,460/month costs you $669 and nets you $3,791. A cheaper manager charging 12% who generates $2,500/month costs you $300 and nets you $2,200. **The "cheaper" option costs you $1,591 per month in lost revenue.**
+
+At Nurture, dynamic pricing isn't a checkbox. We use PriceLabs combined with daily hands-on adjustments for the Toronto market. We're tweaking rates around long weekends, pushing prices during TIFF and Pride, and dropping strategic discounts to fill orphan days that would otherwise generate zero revenue.
 
 ## Red Flags When Choosing Toronto Airbnb Management
 
