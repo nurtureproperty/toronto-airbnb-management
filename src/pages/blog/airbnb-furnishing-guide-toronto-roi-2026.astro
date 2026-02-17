@@ -1,0 +1,949 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How much does it cost to furnish an Airbnb in Toronto?", a: "It depends on the property size and tier you're targeting. A budget setup for a spare room or already partially furnished condo runs $2,000 to $3,500, focusing on linens, a quality mattress, and a few kitchen essentials. A mid-range setup for a dedicated Airbnb unit runs $5,000 to $8,000 with quality pieces that photograph well and last through guest use. A premium, design-forward setup runs $10,000 to $15,000 and is best suited for luxury listings targeting business travelers and high-end guests." },
+  { q: "What is the single most important furnishing purchase for an Airbnb?", a: "A quality mattress, without question. Sleep quality is mentioned in Airbnb reviews more than any other single comfort factor. A cheap mattress leads directly to negative reviews, which suppresses your ranking and booking rate. Budget $500 to $1,000 for a mattress from a brand like Casper, Endy, or a mid-range option from Ikea or The Brick. Pair it with white hotel-quality cotton sheets and you've covered the two highest-ROI purchases available." },
+  { q: "Can I deduct Airbnb furnishing costs on my taxes?", a: "Yes. All furnishing costs are deductible as business expenses against your Airbnb rental income. Smaller items like linens, towels, kitchen supplies, and decor are typically expensed in the year of purchase. Larger items like furniture and appliances are depreciated over several years using CRA's Capital Cost Allowance (CCA) system. Keep all receipts organized from day one. For a detailed breakdown, see our Airbnb tax guide for Canadian hosts." },
+  { q: "Where should I buy furniture for my Toronto Airbnb?", a: "For budget setups, IKEA (North York and Etobicoke locations) and Wayfair offer solid value. For mid-range pieces that photograph well and hold up to guest use, Structube, Article, CB2, and HomeSense are popular among Toronto hosts. For premium listings, West Elm, EQ3, and Pottery Barn offer design-forward options. Facebook Marketplace and Kijiji are excellent for supplementing with good-condition used pieces, especially for starter properties." },
+  { q: "How often should I replace Airbnb linens and towels?", a: "Plan to replace linens and towels every 50 to 100 washes, which works out to roughly every 6 to 12 months with regular hosting activity. White cotton linens show wear and staining more visibly than dark fabrics, but they also signal cleanliness and launder more reliably. Proactively replacing linens before they look worn is far better than waiting for a guest to mention it in a review. Budget for this as an ongoing operating cost, not a one-time expense." },
+  { q: "What furniture materials hold up best in an Airbnb?", a: "For flooring, vinyl plank is the most durable and easiest to clean. For seating, microfiber or faux leather wipes down easily and resists staining better than fabric couches. Melamine or ceramic dishes outlast glassware with minimal breakage cost. Solid wood furniture survives guest use far better than particleboard, though quality IKEA solid wood pieces can work at the budget tier. Avoid glass tables, white fabric couches, delicate decorative items, and carpet if at all possible." },
+  { q: "What items do Airbnb guests notice most?", a: "Guests notice, and mention in reviews, the mattress and sleep quality most frequently. After that, towels and linens (cleanliness signals), the coffee setup, blackout curtains (especially in Toronto condos with city light exposure), and the overall tidiness and organization of the kitchen. Guests rarely comment on art, decorative pillows, or accent rugs. Spend where it shows in reviews, not where it looks impressive in person." },
+  { q: "How quickly does a furnishing investment pay for itself?", a: "A $2,000 furnishing investment in a Toronto 2-bedroom Airbnb typically pays for itself within one to two months, assuming even modest improvement in occupancy or nightly rate from better reviews. The median Toronto 2-bedroom Airbnb earns around $2,337 per month, with top-performing listings reaching $5,414. Even a 10 to 15% improvement in performance from quality furnishing covers a mid-range setup cost within a single season." }
+];
+
+const relatedPosts = [
+  { title: "Airbnb Photography Guide: Listings That Convert", href: '/blog/airbnb-photography-guide-toronto-2026', description: 'Great furnishings need great photos to convert into bookings' },
+  { title: "Accessible Airbnb Hosting 2026", href: '/blog/airbnb-accessibility-hosting-guide-2026', description: 'Include accessibility modifications in your furnishing budget for maximum return on investment' },
+  { title: "How Much Can I Make on Airbnb in Toronto?", href: '/blog/how-much-can-i-make-airbnb-toronto-2026', description: 'Revenue data to help you calculate the ROI on your furnishing investment' }
+];
+
+const tocItems = [
+  { id: 'investment-spectrum', text: 'The Furnishing Investment Spectrum' },
+  { id: 'highest-roi', text: 'Highest ROI Items Ranked' },
+  { id: 'what-doesnt-matter', text: "What Doesn't Matter (Save Your Money)" },
+  { id: 'durability', text: 'Durability: What Survives Guest Use' },
+  { id: 'room-by-room', text: 'Room-by-Room Priority Order' },
+  { id: 'where-to-buy', text: 'Where to Buy in Toronto/GTA' },
+  { id: 'tax-deductions', text: 'Tax Deductions for Furnishing Costs' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Furnishing Guide 2026 | Best ROI Items for Hosts";
+const pageDescription = "Furnish your Airbnb for maximum ROI: budget tiers from $2K to $10K, which items actually boost revenue, and what guests notice most. Toronto host guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Furnishing Guide: Best ROI Items for Toronto Hosts",
+  "description": pageDescription,
+  "datePublished": "2026-03-05",
+  "dateModified": "2026-03-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-furnishing-guide-toronto-roi-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Furnishing Guide: Best ROI Items for Toronto Hosts</h1>
+      <div class="article-meta">
+        <span class="meta-date">March 5, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Most new hosts spend money in the wrong places. They buy expensive art and decorative pillows, then cut corners on the mattress. <strong>This guide is built around ROI: what actually drives 5-star reviews, higher nightly rates, and repeat bookings for Toronto Airbnb hosts.</strong> The median Toronto 2-bedroom earns $2,337 per month. Top performers hit $5,414. Furnishing is one of the few controllable variables that separates the two.</p>
+          </div>
+
+          <h2 id="investment-spectrum">The Furnishing Investment Spectrum</h2>
+          <p>There is no single right budget for furnishing an Airbnb. The right number depends on your property, your market position, and what's already in the unit. Here's how the three tiers break down.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>Budget Range</th>
+                  <th>Best For</th>
+                  <th>Target Guest</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Budget</strong></td>
+                  <td>$2,000&ndash;$3,500</td>
+                  <td>Spare rooms, condos with existing furniture</td>
+                  <td>Budget travelers, short stays</td>
+                </tr>
+                <tr>
+                  <td><strong>Mid-Range</strong></td>
+                  <td>$5,000&ndash;$8,000</td>
+                  <td>Dedicated Airbnb units, 1-2 bedroom condos</td>
+                  <td>Business travelers, couples, families</td>
+                </tr>
+                <tr>
+                  <td><strong>Premium</strong></td>
+                  <td>$10,000&ndash;$15,000+</td>
+                  <td>Luxury listings, design-forward properties</td>
+                  <td>High-end guests, executives, special occasions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Budget Tier: $2,000&ndash;$3,500</h3>
+          <p>The budget approach is not about buying cheap everything. It's about being strategic: spend where it counts, skip what doesn't. This tier works when the unit already has some furniture in place, such as a spare bedroom in your condo or a furnished investment property that just needs a refresh.</p>
+          <p>At this budget, concentrate spending on the mattress, linens, and towels (your highest-ROI items), a coffee maker, and basic kitchen supplies. Fill remaining gaps with quality IKEA pieces and well-chosen items from Facebook Marketplace. The goal is a space that photographs cleanly and delivers on the essentials guests actually notice.</p>
+
+          <h3>Mid-Range Tier: $5,000&ndash;$8,000</h3>
+          <p>This is the most common tier for Toronto hosts setting up a dedicated Airbnb unit from scratch. It allows for quality furnishings from Structube, Article, and CB2 that hold up to guest use and look strong in listing photos. At this budget, you can furnish every room properly and add thoughtful touches like a quality coffee station and blackout curtains throughout.</p>
+          <p>Mid-range furnishings are durable enough to last three to five years with proper care and good enough to support a pricing strategy at the upper end of your neighbourhood's range. The <a href="/blog/how-much-can-i-make-airbnb-toronto-2026">ROI case</a> is straightforward: a $6,000 investment in a Toronto 2-bedroom typically pays back within three to four months of improved bookings and higher nightly rates.</p>
+
+          <h3>Premium Tier: $10,000&ndash;$15,000+</h3>
+          <p>Premium furnishing is a deliberate brand positioning strategy. It targets the top 10 to 15% of guests who are willing to pay significantly more for a design-forward, Instagram-worthy space. At this level, you'd typically engage a professional interior designer, invest in statement lighting, and source pieces from West Elm, Pottery Barn, or Restoration Hardware.</p>
+          <p>Professional photography becomes even more important at this tier. A $10,000 furnishing budget paired with a $200 to $400 professional photo shoot can position your listing to earn the Airbnb Guest Favorite badge, which comes with a documented 104% premium over standard listings. The math works when the per-night rate justifies the investment.</p>
+
+          <h2 id="highest-roi">Highest ROI Items Ranked</h2>
+          <p>This ranking is based on what actually appears in guest reviews, what drives booking decisions, and what separates 4-star from 5-star ratings. Spend here first, then work your way down.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Mattress: $500&ndash;$1,000</h4>
+              <p>Sleep quality is the most frequently mentioned comfort factor in Airbnb reviews. A poor mattress generates direct complaints. A great mattress generates unsolicited praise. This is not where you cut costs. Consider Casper, Endy, or a mid-range option from Sleep Country. A quality mattress lasts five to seven years with a mattress protector.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Linens &amp; Towels: $200&ndash;$400</h4>
+              <p>White, hotel-quality cotton instantly signals "clean and professional." It's the first thing guests see when they walk into the bedroom and the first thing they reach for in the bathroom. Buy two sets per bed so you can always have a clean set ready. Replace every 6 to 12 months as part of your operating budget.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Coffee Station: $100&ndash;$300</h4>
+              <p>A Nespresso machine or a quality drip coffee maker with good beans is mentioned in over 30% of positive Toronto Airbnb reviews. Morning coffee is an emotional experience for guests. A great setup costs very little and generates disproportionate goodwill. Include whole beans or quality pods, not budget instant coffee.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Blackout Curtains: $50&ndash;$150</h4>
+              <p>Toronto condos are surrounded by city lights, construction, and streetlights. Without blackout curtains, guests wake up at 5am and leave you a review about it. This is a $75 purchase that directly impacts sleep quality, the single most review-relevant factor. Install them in every bedroom.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Smart TV with Streaming: $300&ndash;$500</h4>
+              <p>A 55-inch smart TV with a Roku or Chromecast built in is now a baseline expectation. Guests want to cast their Netflix or sign into their own accounts. A 43-inch or smaller TV in a living room will generate comments. Size matters more than brand at this price point.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Sofa &amp; Seating: $500&ndash;$1,500</h4>
+              <p>The living room couch is a major photograph subject and a primary comfort item. Choose firm, supportive, stain-resistant fabric or faux leather. Avoid white, ivory, or light grey fabric. A sectional works well in open-concept Toronto condos. Structube and Article offer good options in this range.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">7</span>
+              <h4>Kitchen Essentials: $200&ndash;$400</h4>
+              <p>Guests who cook will notice the difference between a dull knife and a sharp one. A good knife set, quality non-stick cookware, and matching dishes signal that you take hosting seriously. You don't need All-Clad. A good IKEA or Cuisinart set is perfectly adequate. Include a can opener, cutting board, mixing bowls, and a colander.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">8</span>
+              <h4>Professional Photos: $200&ndash;$400</h4>
+              <p>This isn't a furnishing item, but it belongs on this list. Professional photography is the highest-ROI marketing spend available to an Airbnb host. It makes a $5,000 furnishing setup look like a $10,000 one. Airbnb's own data shows professionally photographed listings earn significantly more. Don't skip it.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The ROI Math:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">A $2,000 targeted investment (mattress, linens, coffee station, blackout curtains) in a Toronto 2-bedroom Airbnb earning $2,337/month median revenue pays for itself within one to two months if it delivers even a modest improvement in review scores and occupancy. Listings with higher ratings consistently command higher nightly rates and fill more nights per month.</p>
+            </div>
+          </div>
+
+          <h2 id="what-doesnt-matter">What Doesn't Matter (Save Your Money)</h2>
+          <p>New hosts consistently overspend in areas that generate zero return and underspend where it matters. Here's what to skip.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Expensive Art</h4>
+              <p>Guests almost never mention art in reviews unless it's offensive or strange. A few simple, inoffensive prints from Desenio or Society6 are sufficient. Don't spend more than $50 to $100 total on wall art.</p>
+            </div>
+            <div class="info-card">
+              <h4>Decorative Pillows</h4>
+              <p>Three or four accent pillows on a bed is a pleasant touch. Eight pillows creates work (guests pile them on the floor) and suggests fussiness. More is not better. Keep it simple.</p>
+            </div>
+            <div class="info-card">
+              <h4>Fancy Rugs</h4>
+              <p>Area rugs get stained, hold odors, and are nearly impossible to clean between stays. The return on a $300 rug is negative once the first wine spill or muddy shoes arrive. Stick to hard flooring.</p>
+            </div>
+          </div>
+
+          <div class="info-grid" style="margin-top: 0;">
+            <div class="info-card">
+              <h4>High-End Appliances</h4>
+              <p>Guests want a reliable coffee maker, not an impressive one. A $90 Nespresso Essenza outperforms a $300 Moccamaster in a guest context because it's simple, fast, and consistent. Reliability beats prestige in Airbnb settings.</p>
+            </div>
+            <div class="info-card">
+              <h4>Matching Bedroom Sets</h4>
+              <p>The coordinated headboard, dresser, nightstand, and armoire sets sold by furniture stores are expensive, heavy, and generic. An eclectic but cohesive mix of quality individual pieces photographs better and costs less.</p>
+            </div>
+            <div class="info-card">
+              <h4>Plants</h4>
+              <p>Real plants die between stays, require care instructions, and become a liability. Faux plants look cheap in photos. Neither is worth the trouble at the investment required for a believable setup.</p>
+            </div>
+          </div>
+
+          <h2 id="durability">Durability: What Survives Guest Use</h2>
+          <p>Guests are not as careful with your property as you are. That's not malice, it's simply the psychology of temporary spaces. Your furnishing choices need to account for this reality upfront.</p>
+
+          <h3>Materials That Last</h3>
+          <ul>
+            <li><strong>Flooring:</strong> Vinyl plank (LVP) is the clear winner. Waterproof, scratch-resistant, easy to clean, and it photographs well. If you have the ability to install LVP before listing, it pays for itself in reduced replacement and cleaning costs.</li>
+            <li><strong>Seating:</strong> Microfiber and faux leather wipe down with a damp cloth and resist staining far better than woven fabric. Dark colours hide minor marks between professional cleans.</li>
+            <li><strong>Dishes:</strong> Melamine or thick ceramic over glass or fine china. Budget for occasional breakage as a normal operating cost regardless of material choice.</li>
+            <li><strong>Bed frames:</strong> Solid wood or metal over upholstered or particleboard. Upholstered bed frames absorb odors and are difficult to clean. Particleboard fails quickly under regular use.</li>
+            <li><strong>Mattress protectors:</strong> Waterproof, always. Replace every one to two years. This is non-negotiable and extends mattress life significantly.</li>
+          </ul>
+
+          <h3>Materials to Avoid</h3>
+          <ul>
+            <li><strong>Glass tabletops:</strong> They chip, shatter, and show every fingerprint and ring mark. Replace with solid wood or laminate surfaces.</li>
+            <li><strong>White fabric sofas:</strong> Will be stained within two to three bookings. Light fabric in general is problematic in rental settings.</li>
+            <li><strong>Carpet:</strong> Holds odors, stains permanently, and flags cleanliness concerns in listing photos. If the unit currently has carpet, consider replacement before listing.</li>
+            <li><strong>Anything genuinely fragile or sentimental:</strong> Remove it from the property before guests arrive. Breakage is not a matter of if, but when.</li>
+          </ul>
+
+          <h3>Replacement Schedule</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Expected Lifespan</th>
+                  <th>Replacement Trigger</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Linens (sheets)</strong></td>
+                  <td>6&ndash;12 months</td>
+                  <td>Pilling, yellowing, thinning fabric</td>
+                </tr>
+                <tr>
+                  <td><strong>Towels</strong></td>
+                  <td>6&ndash;12 months</td>
+                  <td>Fraying, odor retention, rough texture</td>
+                </tr>
+                <tr>
+                  <td><strong>Mattress protector</strong></td>
+                  <td>1&ndash;2 years</td>
+                  <td>Any staining, loss of waterproofing</td>
+                </tr>
+                <tr>
+                  <td><strong>Pillows</strong></td>
+                  <td>1&ndash;2 years</td>
+                  <td>Flattening, yellowing, odor</td>
+                </tr>
+                <tr>
+                  <td><strong>Mattress</strong></td>
+                  <td>5&ndash;7 years</td>
+                  <td>Sagging, coil noise, guest complaints</td>
+                </tr>
+                <tr>
+                  <td><strong>Sofa</strong></td>
+                  <td>3&ndash;5 years</td>
+                  <td>Visible wear, staining, structural issues</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="room-by-room">Room-by-Room Priority Order</h2>
+          <p>If you have a limited budget, this is the order in which to furnish. Every dollar in an earlier category returns more than a dollar in a later one.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Bedroom First</h4>
+              <p>Mattress, quality pillow set, two full linen sets, a mattress protector, and blackout curtains. This is the room that drives review scores more than any other. If the budget is truly tight, spend it here and use what you have everywhere else.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Bathroom Second</h4>
+              <p>Hotel-white towels (two per guest), a quality bath mat, a clear mirror with good lighting, and a supply caddy stocked with full-size toiletries. Bathrooms are photographed, noticed, and judged closely. A clean, well-stocked bathroom is a 5-star signal.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Kitchen Third</h4>
+              <p>Coffee maker and quality beans or pods, a sharp knife set, non-stick cookware, matching dishes and cutlery for the maximum guest count, a toaster, and basic pantry staples (oil, salt, pepper, sugar). Guests who cook will use all of this. Guests who don't will still use the coffee maker.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Living Room Last</h4>
+              <p>A comfortable couch, a properly sized smart TV, adequate lighting, and a side table or two. This room matters, but it matters less than the bedroom and bathroom. Guests spend relatively little active time in the living room compared to sleeping and morning routines.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Nurture's Onboarding Approach</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">When Nurture onboards a new property, we walk through the unit with the owner and provide a specific furnishing priority list based on current condition and target market. This avoids overspending on low-ROI items and ensures the property is ready to earn its first booking within the week. <a href="/contact" style="color: var(--color-primary-dark); text-decoration: underline;">Get your free property assessment.</a></p>
+            </div>
+          </div>
+
+          <h2 id="where-to-buy">Where to Buy in Toronto/GTA</h2>
+          <p>The right source depends on your budget tier and timeline. Here's where Toronto hosts actually shop.</p>
+
+          <h3>Budget Sources</h3>
+          <ul>
+            <li><strong>IKEA:</strong> North York (400 Highway 7 East, Richmond Hill) and Etobicoke (1065 The Queensway) are the two GTA locations. IKEA is unbeatable for basic functional pieces, kitchen supplies, and lighting. Their mattresses are adequate at the budget tier. Avoid their sofas for Airbnb use.</li>
+            <li><strong>Wayfair:</strong> Good for specific items where you know what you want. Delivery is often free or low-cost, which matters for large furniture. Read reviews carefully for quality variance.</li>
+            <li><strong>Facebook Marketplace and Kijiji:</strong> Excellent for well-maintained used furniture from homeowners who are moving or upgrading. You can furnish an entire condo at the budget tier this way if you're patient. Stick to solid wood pieces and skip anything upholstered.</li>
+            <li><strong>Habitat for Humanity ReStore:</strong> Toronto locations carry donated furniture and building materials at steep discounts. Inconsistent inventory, but worth checking for unique pieces.</li>
+          </ul>
+
+          <h3>Mid-Range Sources</h3>
+          <ul>
+            <li><strong>Structube:</strong> Multiple GTA locations, modern design, reasonable prices, and quality that holds up well. Their sofas are a popular choice among Toronto Airbnb hosts for good reason.</li>
+            <li><strong>Article:</strong> Online-only, excellent quality-to-price ratio, and fast delivery. A strong choice for statement sofas, dining tables, and bedroom furniture.</li>
+            <li><strong>CB2:</strong> Yorkdale and Eaton Centre locations. Slightly higher price point than Structube but excellent for a cohesive, modern look that photographs well.</li>
+            <li><strong>HomeSense:</strong> TJX's home goods chain with rotating inventory. Great for textiles, mirrors, lighting, and accent pieces at below-retail prices. Requires regular visits to find the right items.</li>
+            <li><strong>Walmart Canada:</strong> Underrated for linens, kitchen basics, and small appliances. Their George Home line offers acceptable quality for items that need frequent replacement.</li>
+          </ul>
+
+          <h3>Premium Sources</h3>
+          <ul>
+            <li><strong>West Elm:</strong> Yorkdale and Eaton Centre locations. Solid quality, design-forward pieces that photograph exceptionally well and last under guest use.</li>
+            <li><strong>EQ3:</strong> Canadian brand with showrooms in Toronto. Excellent for modern, durable furniture with a premium feel at a slightly lower price point than Pottery Barn.</li>
+            <li><strong>Pottery Barn and Restoration Hardware:</strong> For luxury listings where the furnishing investment is explicitly part of the pricing strategy. These pieces support significantly higher nightly rates when the overall property matches.</li>
+          </ul>
+
+          <h2 id="tax-deductions">Tax Deductions for Furnishing Costs</h2>
+          <p>Every dollar you spend furnishing your Airbnb is a business expense that reduces your taxable rental income. Understanding how this works helps you plan your investment correctly and keep clean records from the start.</p>
+
+          <h3>How to Deduct Furnishing Costs</h3>
+          <p>The CRA distinguishes between current expenses (deducted in full in the year of purchase) and capital expenses (depreciated over multiple years using Capital Cost Allowance).</p>
+          <ul>
+            <li><strong>Expense immediately:</strong> Linens, towels, kitchen supplies, cleaning products, light bulbs, small appliances under $500, toiletry supplies. These are consumable or low-cost operational items.</li>
+            <li><strong>Depreciate over time:</strong> Furniture (sofas, beds, dining tables), major appliances (refrigerator, washer/dryer), electronics (TV, speakers), and mattresses. These are capital assets that CRA expects you to depreciate using Class 8 (20% declining balance) for most furniture and equipment.</li>
+            <li><strong>Professional services:</strong> Interior design fees, professional photography, and staging costs are fully deductible in the year incurred.</li>
+          </ul>
+
+          <p>For a full breakdown of how Airbnb income and expenses work with the CRA, see our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Airbnb tax guide for Canadian hosts</a>. The short version: keep every receipt from day one, track every purchase in a spreadsheet organized by category, and consult an accountant familiar with rental property for your first year.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Important: Personal Use Proration</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">If you use the property personally for any portion of the year, you must prorate your deductions based on the percentage of time it was rented. For example, if you rented for 200 days and used it personally for 30 days, you can deduct 200/230 of your furnishing and operating costs. Keep a log of personal versus rental days.</p>
+            </div>
+          </div>
+
+          <h3>The Bottom Line on ROI</h3>
+          <p>A $5,000 furnishing investment in a Toronto 2-bedroom Airbnb, properly deducted, costs you significantly less after tax than the sticker price. Meanwhile, the revenue improvement from higher review scores and better listing photos can generate thousands in additional annual income. The <a href="/blog/first-time-airbnb-host-toronto-guide">startup cost section of our first-time host guide</a> covers how to model this for your specific property.</p>
+
+          <p>If you want expert guidance on furnishing priorities, <a href="/full-airbnb-management-toronto">Nurture's full management service</a> includes a property assessment during onboarding. We've helped dozens of Toronto hosts set up their properties efficiently, avoiding the expensive mistakes that first-timers typically make. Our management fee is 10 to 15% with no long-term contracts and no startup costs.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Ready to Set Up Your Property the Right Way?</h3>
+            <p>Nurture provides a furnishing priority assessment as part of our onboarding process. We'll tell you exactly where to spend and where to save, so your property earns its first booking within a week. <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">10 to 15% management fee</a>, no long-term contracts.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Maximize Your Rental Income</h2>
+        <p>Find out exactly how much your furnished Toronto property could earn on Airbnb. Free estimate, no obligation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

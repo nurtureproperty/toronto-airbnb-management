@@ -72,7 +72,7 @@ Here's what most new Toronto hosts spend to get started:
 
 **Total range:** $700 to $3,500+ depending on how much your place needs.
 
-The biggest variable is furniture and decor. If your place is already well furnished, you're looking at the lower end. If you need to buy beds, couches, and kitchen essentials, budget accordingly.
+The biggest variable is furniture and decor. If your place is already well furnished, you're looking at the lower end. If you need to buy beds, couches, and kitchen essentials, budget accordingly. Our [Airbnb furnishing guide for Toronto hosts](/blog/airbnb-furnishing-guide-toronto-roi-2026) breaks down exactly where to spend and where to save, with budget tiers from $2,000 to $15,000.
 
 ## Step 4: Understand Your Earning Potential
 

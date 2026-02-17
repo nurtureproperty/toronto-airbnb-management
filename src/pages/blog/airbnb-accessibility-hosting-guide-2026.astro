@@ -1,0 +1,980 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I legally need to make my Airbnb accessible?", a: "Ontario's Accessibility for Ontarians with Disabilities Act (AODA) applies to businesses operating in the province. If your short-term rental qualifies as a commercial operation, certain accessibility requirements may apply. However, beyond legal minimums, making your property more accessible is a strong business decision. Accessible listings attract a large underserved traveler segment and face far less competition than standard listings." },
+  { q: "How much does it cost to make my Airbnb more accessible?", a: "Basic accessibility upgrades, including grab bars, a shower bench, non-slip mats, lever door handles, and motion-sensor night lights, cost between $200 and $500 in total. These modifications benefit all guests, not just travelers with disabilities, and they pay for themselves quickly through higher occupancy and the ability to charge a slight premium for accessible accommodation." },
+  { q: "What accessibility filters does Airbnb offer?", a: "Airbnb allows hosts to tag over a dozen accessibility features, including step-free guest entrance, step-free paths to the bedroom and bathroom, wide doorways (32 inches or more), accessible-height bed and toilet, shower chair, grab bars in the bathroom, roll-in shower, ceiling or mobile hoist, and pool or hot tub with accessible entry. Guests actively filter by these features when searching for accommodation." },
+  { q: "Will adding accessibility features increase my bookings?", a: "Almost certainly, yes. Only 10 to 15 percent of Airbnb listings mark any accessibility features, yet 22 percent of Canadians live with a disability, plus a large and growing population of older travelers, families with members who have mobility challenges, and anyone recovering from an injury. Marking accurate accessibility features places your listing in front of an underserved market with few competing options." },
+  { q: "Are Toronto condos with elevators already considered accessible?", a: "A condo with an elevator eliminates one of the biggest barriers for mobility-impaired travelers, the stairs. Many newer Toronto and GTA condos also have wide hallways, accessible lobby entrances, and automatic doors. These properties can legitimately mark step-free entrance, step-free path to bedroom, and elevator access, making them naturally competitive in accessibility searches with minimal additional investment." },
+  { q: "What is the accessible travel market worth?", a: "The accessible travel market in North America is valued at over $17 billion annually. Globally, travelers with disabilities represent a market of hundreds of billions of dollars. Despite this demand, accessible accommodation remains significantly undersupplied, especially in the short-term rental sector. This gap creates a genuine revenue opportunity for hosts willing to invest even modestly in accessibility improvements." },
+  { q: "Should I mention accessibility limitations in my listing?", a: "Absolutely, and this is as important as highlighting your accessible features. If your unit has a step at the entrance, narrow bathroom doorways, or no elevator access, disclose these clearly. Guests with disabilities research their accommodation carefully and read listings thoroughly. Accurate information prevents negative reviews from guests who arrive and find the property does not meet their needs, and it builds trust with the guests your listing genuinely suits." },
+  { q: "Can Nurture help me optimize my listing for accessibility searches?", a: "Yes. Nurture's listing optimization service includes a full audit of your property's accessibility features and ensures every eligible filter is correctly checked on your Airbnb profile. We also help write listing descriptions that accurately communicate your property's accessibility, photograph accessible features in a way that builds confidence for potential guests, and advise on low-cost modifications that deliver the highest booking impact." }
+];
+
+const relatedPosts = [
+  { title: "Airbnb Furnishing Guide: Best ROI Items", href: '/blog/airbnb-furnishing-guide-toronto-roi-2026', description: 'Include accessibility modifications in your furnishing budget for maximum return on investment' },
+  { title: "Can I Airbnb My Condo in Toronto?", href: '/blog/can-i-airbnb-my-condo-toronto-2026', description: 'Many Toronto condos with elevators already meet basic accessibility standards with no additional investment' },
+  { title: "First Time Airbnb Host Toronto Guide", href: '/blog/first-time-airbnb-host-toronto-guide', description: 'Complete setup guide including how to make your space guest-ready for all travelers' }
+];
+
+const tocItems = [
+  { id: 'the-opportunity', text: 'The Accessibility Opportunity' },
+  { id: 'airbnb-filters', text: "Airbnb's Accessibility Filters" },
+  { id: 'low-cost-modifications', text: 'Low-Cost Modifications' },
+  { id: 'medium-cost-modifications', text: 'Medium-Cost Modifications' },
+  { id: 'listing-optimization', text: 'Listing Optimization Tips' },
+  { id: 'condo-advantage', text: 'Toronto Condo Advantages' },
+  { id: 'guest-communication', text: 'Guest Communication' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Accessible Airbnb Hosting 2026 | Inclusive Property Guide";
+const pageDescription = "Make your Airbnb accessible and tap into underserved traveler demand. Accessibility features, Airbnb filters, modifications with ROI, and listing optimization.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Accessible Airbnb Hosting: Making Your Property Inclusive",
+  "description": pageDescription,
+  "datePublished": "2026-03-06",
+  "dateModified": "2026-03-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-accessibility-hosting-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Accessible Airbnb Hosting: Making Your Property Inclusive</h1>
+      <div class="article-meta">
+        <span class="meta-date">March 6, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Over 6.2 million Canadians live with a disability, yet only 10 to 15 percent of Airbnb listings mark any accessibility features. <strong>That gap is a significant revenue opportunity for hosts willing to make even modest property modifications.</strong> This guide covers the exact accessibility filters Airbnb offers, which modifications deliver the best return on investment, and how to optimize your listing to attract this underserved and highly loyal traveler segment.</p>
+          </div>
+
+          <h2 id="the-opportunity">The Accessibility Opportunity for Airbnb Hosts</h2>
+          <p>Accessible travel is one of the most underserved segments in the short-term rental market. According to Statistics Canada, 22 percent of Canadians identify as having a disability. Add aging baby boomers who need accessible accommodation for leisure travel, families with members who have mobility challenges, and travelers recovering from injuries, and you're looking at a massive pool of potential guests with very few suitable options.</p>
+
+          <p>The accessible travel market in North America is valued at over $17 billion annually. That spending power is real, and it flows toward properties that can confidently say "yes, this space works for you."</p>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-number">22%</div>
+              <div class="stat-label">of Canadians have a disability (Stats Canada)</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">$17B+</div>
+              <div class="stat-label">accessible travel market in North America</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">10-15%</div>
+              <div class="stat-label">of listings mark any accessibility features</div>
+            </div>
+          </div>
+
+          <p>The demand-supply mismatch is stark. When a traveler using a wheelchair or walker searches for accommodation in Toronto, they have far fewer options than the typical traveler. Accessible listings face dramatically less competition and tend to book out faster and at higher rates because guests in this segment are willing to pay more for genuine accessibility confidence.</p>
+
+          <p>The aging population amplifies this trend year over year. Baby boomers are retiring with travel savings and more leisure time than any previous generation, and many of them now prefer or require step-free access, grab bars, and accessible bathroom facilities. This demographic is not going away.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why Accessible Listings Outperform:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Travelers with disabilities often book further in advance, stay longer on average, and are more likely to return to a property they know works for them. That combination of advance booking and repeat business is extremely valuable for hosts trying to maintain steady occupancy.</p>
+            </div>
+          </div>
+
+          <h2 id="airbnb-filters">Airbnb's Accessibility Filters</h2>
+          <p>Airbnb has built a robust set of accessibility filters that guests can use to narrow their search. When a guest enables one of these filters, only listings that have specifically checked that feature will appear in results. If you have the feature but haven't marked it, you're invisible to those guests.</p>
+
+          <p>Here are all the accessibility features Airbnb currently allows hosts to tag:</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Step-Free Guest Entrance</h4>
+              <p>No steps between the street or parking area and the front door. This is one of the most searched accessibility filters and an immediate differentiator in markets with lots of older housing stock.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Step-Free Path to Bedroom</h4>
+              <p>No steps between the entrance and the sleeping area. Includes elevator access if the bedroom is on a different floor from the entrance. Critical for wheelchair and walker users.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Step-Free Path to Bathroom</h4>
+              <p>No steps between the sleeping area and the bathroom. For many mobility-impaired guests, a single unexpected step to the bathroom at night is a deal-breaker.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Wide Doorways (32+ Inches)</h4>
+              <p>Standard doorways are 28 to 30 inches. Wheelchair users typically need at least 32 inches of clear width. Wide doorways to both the bedroom and bathroom can be tagged separately.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Accessible-Height Bed</h4>
+              <p>A bed at a height that allows a person to transfer from a wheelchair or to sit and stand comfortably. Adjustable bases or platform beds at approximately 20 to 23 inches from floor to mattress top are ideal.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Accessible-Height Toilet</h4>
+              <p>Comfort-height or "ADA-height" toilets are 17 to 19 inches from floor to seat, about 2 to 4 inches taller than standard. This feature can be combined with a raised toilet seat attachment.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">7</span>
+              <h4>Grab Bars in Bathroom</h4>
+              <p>Safety bars beside the toilet and inside the shower or tub. The single highest-impact accessibility modification you can make, at the lowest cost. Benefits guests of all ages and abilities.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">8</span>
+              <h4>Shower Chair or Bench</h4>
+              <p>A portable shower bench or fold-down shower seat. Some guests need to sit while showering. This is a simple, low-cost addition that significantly expands your eligible guest pool.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">9</span>
+              <h4>Roll-In Shower</h4>
+              <p>A shower with no threshold or lip, allowing wheelchair entry directly. This is a more significant renovation but opens your property to guests who cannot use a traditional shower at all.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">10</span>
+              <h4>Ceiling or Mobile Hoist</h4>
+              <p>Lifting equipment for guests who need transfer assistance. This is a high-investment feature typically relevant to properties specifically targeting guests with significant mobility needs.</p>
+            </div>
+          </div>
+
+          <p>Beyond these core filters, Airbnb also allows you to tag pool or hot tub with accessible entry if applicable. The key point: go through every single filter and check everything that honestly applies to your property. Many hosts miss features they already have simply because they've never reviewed this section of their listing settings.</p>
+
+          <h2 id="low-cost-modifications">Low-Cost Accessibility Modifications</h2>
+          <p>The most important insight for Airbnb hosts considering accessibility upgrades: you do not need to spend thousands to make a meaningful difference. A targeted set of low-cost modifications can unlock Airbnb's accessibility filters and meaningfully expand your guest pool.</p>
+
+          <p>Here is a full breakdown of the modifications that deliver the best return on investment, ordered by impact.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Modification</th>
+                  <th>Estimated Cost</th>
+                  <th>Installation</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Grab bars in bathroom</strong></td>
+                  <td>$20-50 per bar</td>
+                  <td>DIY or handyman (1-2 hours)</td>
+                  <td>Very High</td>
+                </tr>
+                <tr>
+                  <td><strong>Shower bench or chair</strong></td>
+                  <td>$30-80</td>
+                  <td>No installation, portable</td>
+                  <td>High</td>
+                </tr>
+                <tr>
+                  <td><strong>Non-slip bath mats</strong></td>
+                  <td>$10-20 per mat</td>
+                  <td>No installation required</td>
+                  <td>Medium (safety)</td>
+                </tr>
+                <tr>
+                  <td><strong>Lever door handles</strong></td>
+                  <td>$15-30 per handle</td>
+                  <td>DIY (15 minutes each)</td>
+                  <td>Medium</td>
+                </tr>
+                <tr>
+                  <td><strong>Motion-sensor night lights</strong></td>
+                  <td>$15-30 total</td>
+                  <td>Plug-in, no installation</td>
+                  <td>Medium (safety)</td>
+                </tr>
+                <tr>
+                  <td><strong>Raised toilet seat</strong></td>
+                  <td>$30-50</td>
+                  <td>No installation, removable</td>
+                  <td>Medium-High</td>
+                </tr>
+                <tr>
+                  <td><strong>Removable threshold ramps</strong></td>
+                  <td>$30-100</td>
+                  <td>No installation, removable</td>
+                  <td>High</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Cost estimates based on Canadian retail pricing, 2026. Installation costs for a handyman are approximately $50-100/hour. All items above are available at major hardware retailers including Home Depot and RONA.</p>
+
+          <p><strong>Total cost for a comprehensive basic accessibility package: $200 to $500.</strong> That's a one-time investment that could unlock hundreds or thousands of dollars in additional bookings annually, particularly during periods when general demand is lower.</p>
+
+          <h3>Grab Bars: The Single Best Investment</h3>
+          <p>If you only make one accessibility improvement, install grab bars in the bathroom. Beside the toilet and inside the shower are the two most impactful locations. Grab bars are helpful to virtually every guest, including older travelers, people recovering from surgery, parents bathing young children, and anyone who has ever slipped in a wet shower. The cost is $20 to $50 per bar installed, and the safety benefit is immediate.</p>
+
+          <p>Use stainless steel or chrome finish bars rated for at least 250 lbs. Install them into wall studs for proper support. If you're not comfortable with DIY installation, any handyman can complete both bars in under two hours.</p>
+
+          <h3>Lever Handles: A Subtle but Meaningful Upgrade</h3>
+          <p>Round doorknobs are genuinely difficult to use for people with limited hand strength or dexterity, including those with arthritis, which affects an enormous number of older Canadians. Lever handles require no gripping or twisting. Replacing round knobs throughout your unit costs as little as $15 to $30 per handle and takes about 15 minutes each with a screwdriver. It's a small change that signals care and attention to your guests.</p>
+
+          <h2 id="medium-cost-modifications">Medium-Cost Modifications</h2>
+          <p>If your property already has the low-cost basics covered, or if you're furnishing a property from scratch and want to position it specifically for the accessible travel market, these medium-cost modifications dramatically increase your accessibility rating and the range of guests you can accommodate.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Doorway Widening</h4>
+              <p>Standard doorways are 28 to 30 inches. Widening to 32 or 36 inches opens the property to wheelchair users. Cost: $200 to $500 per door depending on wall construction. Focus first on the bathroom doorway.</p>
+            </div>
+            <div class="info-card">
+              <h4>Walk-In Shower Conversion</h4>
+              <p>Replacing a tub/shower combo with a barrier-free or low-threshold walk-in shower is the most impactful single renovation. Cost: $2,000 to $5,000 depending on size and finish. Adds resale value beyond Airbnb income.</p>
+            </div>
+            <div class="info-card">
+              <h4>Smart Home Controls</h4>
+              <p>Voice-controlled lights, smart thermostat, and keyless entry benefit guests with limited mobility. Cost: $100 to $300 for a basic smart home setup. Also improves the experience for all guests and streamlines your hosting operations.</p>
+            </div>
+          </div>
+
+          <p>Walk-in shower conversions deserve special attention for hosts in the GTA condo market. Many Toronto condos still have tub/shower combos from original construction. Converting to a barrier-free shower not only unlocks Airbnb's "roll-in shower" filter but is also a premium amenity that commands higher nightly rates from all guests, not just those with accessibility needs. The renovation pays back through both higher rates and expanded guest eligibility.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>ROI Perspective:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">A $300 investment in grab bars, shower bench, lever handles, night lights, and a raised toilet seat can make your listing appear in searches that were previously invisible to you. The accessible travel segment is loyalty-driven. Guests who find a property that genuinely works for them come back, refer others, and leave detailed positive reviews.</p>
+            </div>
+          </div>
+
+          <h2 id="listing-optimization">How to List Accessibility Features on Airbnb</h2>
+          <p>Having accessible features and correctly communicating them in your Airbnb listing are two different things. Many hosts have grab bars installed and a step-free entrance but have never checked the corresponding filters. Here's how to optimize your listing for accessibility searches.</p>
+
+          <h3>Step 1: Audit Your Airbnb Accessibility Settings</h3>
+          <p>In your Airbnb host dashboard, go to your listing, then to "Amenities," and scroll to the Accessibility section. Go through every filter one by one and check everything that honestly applies. Do not skip items because you think they might not matter. Every checked filter expands the search results where your listing appears.</p>
+
+          <h3>Step 2: Mention Accessibility in Your Listing Description</h3>
+          <p>Don't rely on filters alone. Write a clear paragraph in your listing description about accessibility. Specify what's there: "The bathroom has two grab bars beside the toilet and one inside the shower. The unit is on the 4th floor with elevator access from the lobby. All doorways are 32 inches wide." Specific, concrete language builds far more trust than vague claims.</p>
+
+          <h3>Step 3: Photograph Your Accessible Features</h3>
+          <p>Guests with disabilities look at listing photos more carefully than most. Include dedicated photos of your grab bars, the shower or bathroom layout, the entrance and any step-free path, and the elevator if applicable. A photo of a well-installed grab bar communicates far more than a checkmark on a filter. Caption your photos clearly in the Airbnb photo editor.</p>
+
+          <h3>Step 4: Be Honest About Limitations</h3>
+          <p>If your unit has a 2-inch step at the front door, a narrow hallway, or a bathroom with a tub-only shower, say so. Travelers with disabilities are experienced at researching accommodation and will find out. A guest who books based on inaccurate information and arrives to find the property doesn't meet their needs will leave a damaging review. Accurate disclosure, even of limitations, builds long-term trust and prevents negative reviews from guests who weren't the right fit.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Airbnb's Accuracy Policy</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Airbnb requires hosts to accurately represent their accessibility features. Marking a feature your property doesn't actually have can lead to guest complaints, refund requests, and listing penalties. Only check filters for features that are genuinely in place and functional. If you're unsure whether a feature qualifies, err on the side of not checking it and describe what you do have in your listing description instead.</p>
+            </div>
+          </div>
+
+          <h2 id="condo-advantage">Toronto Condo Advantages for Accessibility</h2>
+          <p>GTA hosts operating in Toronto condos have a natural head start on accessibility that many don't fully recognize or market. Many of the most important accessibility features are already built into modern condo buildings, and all you need to do is check the correct filters and describe these features clearly.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Elevator Access</h4>
+              <p>Any condo with elevator access from the lobby to your unit qualifies for "step-free path to bedroom" if the path from elevator to your unit is also step-free. Most post-2000 Toronto condos meet this criteria. Check your building's lobby and hallway layout to confirm.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Automatic Lobby Doors</h4>
+              <p>Many Toronto condo buildings have automatic sliding or push-button lobby doors, eliminating a common barrier for wheelchair users. If your building has these, mention them explicitly in your listing description.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Accessible Parking</h4>
+              <p>If your building has accessible parking spots or if your unit comes with a parking space close to the elevator, this is a meaningful amenity for guests with mobility challenges. Include this in your listing if applicable.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Wide Hallways</h4>
+              <p>Newer Toronto condos built under current building codes typically have hallways of 44 inches or more. This is comfortably wheelchair-accessible. If your building's hallways are wide, it's worth mentioning in your listing even if Airbnb doesn't have a specific filter for it.</p>
+            </div>
+          </div>
+
+          <p>Ground floor units in houses and low-rise buildings are another strong accessibility play. Eliminating stairs entirely makes a property accessible to guests who cannot use stairs at all. If you have a ground floor unit, lead with this in your listing description and make sure the step-free entrance filter is checked.</p>
+
+          <p>For hosts managing properties in <a href="/blog/can-i-airbnb-my-condo-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Toronto condos</a>, reviewing your building's accessibility features and translating them into your Airbnb listing settings is one of the highest-ROI tasks you can do in an afternoon.</p>
+
+          <h2 id="guest-communication">Guest Communication Best Practices</h2>
+          <p>Accessibility is as much about communication as it is about physical features. Guests with disabilities often contact hosts before booking to ask specific questions about the property. How you respond, and how much detail you proactively provide, directly affects your booking conversion rate for this segment.</p>
+
+          <h3>Ask About Specific Needs</h3>
+          <p>When a guest with accessibility needs books or inquires, reach out and ask if there's anything specific they need you to prepare or confirm before arrival. This is not intrusive. It's good hosting. Common questions include whether you can provide information about the path from parking to the unit, whether the shower bench will be available, or whether nearby restaurants have accessible entrances.</p>
+
+          <h3>Provide an Arrival Information Package</h3>
+          <p>For guests who mention mobility challenges, consider adding a section to your <a href="/blog/airbnb-welcome-book-template-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">welcome book</a> that covers: the exact path from the street to your unit with step counts or photo documentation, elevator location and operation, any interior thresholds or small steps, location of grab bars and shower bench, and nearby accessible transit stops, restaurants, and amenities.</p>
+
+          <h3>Note Nearby Accessible Infrastructure</h3>
+          <p>Many Toronto neighborhoods are well-served by TTC Wheel-Trans and accessible subway stations. If your property is near a fully accessible TTC station (those with elevators to street level), mention this. For guests who rely on accessible transit, proximity to these stations is as important as the property's internal features.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>A Note on Ontario's AODA:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">The Accessibility for Ontarians with Disabilities Act sets standards for businesses operating in Ontario. If your short-term rental is structured and operated as a business, certain AODA requirements around customer service and communication may apply. The Act's customer service standard generally requires businesses to accommodate people with disabilities and to communicate in accessible ways. Consult a legal professional if you're uncertain about your obligations under AODA as a STR host.</p>
+            </div>
+          </div>
+
+          <h3>Getting Your First Accessible Booking</h3>
+          <p>Once you've made your modifications, checked all your filters, and updated your listing description and photos, consider how to reach accessible travelers proactively. Encouraging early reviews from guests who appreciate your accessibility features builds social proof in your listing. A review that specifically mentions the grab bars, the step-free entrance, or the shower bench is far more persuasive to future accessible travelers than any listing description you could write yourself.</p>
+
+          <p>For new <a href="/blog/first-time-airbnb-host-toronto-guide" style="color: var(--color-primary-dark); text-decoration: underline;">Airbnb hosts in Toronto</a> setting up a property from scratch, building accessibility into your initial setup is always cheaper than retrofitting later. Budget $300 to $500 for basic accessibility items alongside your initial furnishing costs, and you launch with a listing that's competitive in a segment most other hosts have overlooked.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Ready to Optimize Your Listing for More Bookings?</h3>
+            <p>Nurture's listing optimization includes a full accessibility audit, filter review, and description updates to reach guests your current listing is missing. <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">Our full management service</a> covers everything so you earn more with less effort.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Maximize Your Rental Income</h2>
+        <p>Find out how accessibility features and full listing optimization can increase your Airbnb bookings and revenue. Free estimate, no obligation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .stat-box {
+    background: var(--color-primary-light);
+    border: 1px solid var(--color-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.4;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .stats-row {
+      grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
