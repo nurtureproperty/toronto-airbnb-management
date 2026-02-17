@@ -1,0 +1,881 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Should I allow pets on my Airbnb?", a: "For most hosts, allowing pets is worth it. Over 40% of Airbnb travelers search with the 'pets allowed' filter, but only 20-25% of listings allow them. That gap means less competition and higher demand for your property. Add a pet fee of $25-75 per stay and you're generating extra revenue with minimal effort. The key is setting clear rules and using washable, pet-proof furnishings." },
+  { q: "How much should I charge as a pet fee on Airbnb?", a: "The most common approach is a one-time flat fee of $25-75 per stay, regardless of how long the booking is. Some hosts charge a nightly pet fee of $10-25, which works well for longer stays. Airbnb does not currently support refundable pet deposits, so a flat non-refundable fee is standard. Whatever you charge, make it clearly visible in your listing so guests aren't surprised." },
+  { q: "Will pets damage my Airbnb property?", a: "Pet-related damage does happen, but it is usually minor and manageable: scratched floors near doors, pet hair on furniture, or the occasional accident on a rug. You can reduce risk by specifying size limits (most hosts cap at 25kg), limiting the number of pets (1-2), requiring pets to be crated when unsupervised, and using durable furnishings like vinyl plank flooring and washable slipcovers. AirCover provides some damage protection, though coverage limits apply." },
+  { q: "Does Airbnb's AirCover cover pet damage?", a: "AirCover does cover certain types of damage caused by guests' pets, but there are limits and the claims process requires documentation. You'll need to report the damage promptly, provide photos, and submit repair or replacement cost estimates. AirCover does not cover general wear from repeated pet stays. For significant damage, your personal insurance policy may also come into play, though many standard homeowner's policies exclude damage caused by guests' animals. See our insurance guide for details." },
+  { q: "My condo has a no-pets policy. Can I still allow guest pets?", a: "If your condo corporation has a no-pets rule in its declaration or rules, you cannot allow guest pets regardless of your personal preference. Condo pet policies vary widely: some ban all animals, some have size limits, some allow pets only for owners. Violating condo rules can result in fines or legal action from the board. Always review your condo declaration before enabling the pets-allowed option on your listing." },
+  { q: "What should my pet house rules include?", a: "Your pet house rules should cover: maximum number of pets (1-2 is standard), weight limit (25kg/50lbs is common), which areas pets are allowed in, whether pets can be on furniture or beds, the requirement that pets be crated or supervised when left alone, that the owner is financially responsible for all damage, no aggressive breeds (often required by insurance), cleanup requirements for outdoor spaces, and that pets must be disclosed at the time of booking. Do not allow undisclosed pets: make clear in your listing that unregistered pets result in immediate cancellation." },
+  { q: "How does allowing pets affect my cleaning process?", a: "Plan to add 15-30 minutes to your regular turnover for pet stays. The core extras are: thorough vacuuming of all soft surfaces including furniture, baseboards, and curtains; lint rolling fabric items; checking all floor areas (especially near doors and in corners) for accidents; airing out the property to eliminate pet odor; and laundering all throws, slipcovers, and extra blankets. Pet odor is the number one complaint from guests with allergies, so ventilation is critical." },
+  { q: "Do pet-friendly listings get better or worse reviews?", a: "Pet-friendly listings tend to perform well in reviews because the guests you attract are specifically looking for what you offer. Pet owners are often highly motivated to leave good reviews to maintain their ability to travel with pets. The main review risk is from subsequent guests with allergies who may notice pet hair or odor if turnover was inadequate. Being transparent in your listing about being a pet-welcoming space sets proper expectations and filters for the right audience." }
+];
+
+const relatedPosts = [
+  { title: "Airbnb Cleaning Checklist: 5-Star Turnover Guide", href: '/blog/airbnb-cleaning-turnover-checklist-2026', description: 'Room-by-room cleaning protocols including extra steps for pet-friendly properties' },
+  { title: "Airbnb Insurance Ontario Host Guide", href: '/blog/airbnb-insurance-ontario-host-guide-2026', description: 'Coverage requirements and what AirCover does and does not cover for pet damage' },
+  { title: "Airbnb Guest Screening & Party Prevention", href: '/blog/airbnb-guest-screening-party-prevention-guide-2026', description: 'How to screen guests effectively including verifying pet details before booking' }
+];
+
+const tocItems = [
+  { id: 'the-opportunity', text: 'The Pet-Friendly Opportunity' },
+  { id: 'setup', text: 'Setting Up Your Property' },
+  { id: 'house-rules', text: 'Pet House Rules Template' },
+  { id: 'pet-fees', text: 'Setting Pet Fees' },
+  { id: 'cleaning-protocol', text: 'Cleaning Protocol for Pet Stays' },
+  { id: 'insurance', text: 'Insurance and Liability' },
+  { id: 'condo-restrictions', text: 'Condo Restrictions' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Pet-Friendly Airbnb Hosting 2026 | Setup & Revenue Guide";
+const pageDescription = "Allow pets on your Airbnb and tap into 40%+ of travelers who search pet-friendly. Pet fees, damage prevention, cleaning protocols, and revenue impact data.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pet-Friendly Airbnb Hosting: Setup, Rules, and Revenue Impact",
+  "description": pageDescription,
+  "datePublished": "2026-02-28",
+  "dateModified": "2026-02-28",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/pet-friendly-airbnb-hosting-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Pet-Friendly Airbnb Hosting: Setup, Rules, and Revenue Impact</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 28, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">More than 40% of Airbnb travelers filter for pet-friendly listings, but fewer than one in four properties allows pets. <strong>That supply gap is one of the easiest revenue opportunities available to Toronto-area hosts.</strong> Pet fees, longer stays, and repeat bookings from loyal pet owners add up to thousands of dollars in extra annual income. This guide covers everything you need to do it right: property setup, house rules, fee structures, cleaning protocols, and how to protect yourself from damage.</p>
+          </div>
+
+          <h2 id="the-opportunity">The Pet-Friendly Opportunity</h2>
+          <p>Allowing pets is a straightforward way to expand your booking pool without spending a dollar on renovations. The numbers make the case clearly.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>40%+ Search Pet-Friendly</h4>
+              <p>More than four in ten Airbnb travelers use the pet-friendly filter when searching. If your listing doesn't appear in those results, you're invisible to a massive segment of the market.</p>
+            </div>
+            <div class="info-card">
+              <h4>Only 20-25% Allow Pets</h4>
+              <p>Fewer than one in four listings accepts pets. The demand is enormous but the supply is thin, which means less competition and stronger booking rates for pet-welcoming hosts.</p>
+            </div>
+            <div class="info-card">
+              <h4>Pure Profit Pet Fees</h4>
+              <p>A $50 pet fee per stay, at 50 bookings per year, is $2,500 in added revenue. After minimal extra cleaning time, nearly all of that goes straight to your bottom line.</p>
+            </div>
+          </div>
+
+          <p>Beyond the fee revenue, pet owners tend to book longer stays than the average guest. They're settling in somewhere comfortable for their animal, not just crashing for a night. Pet owners also tend to be more conscientious guests: they understand that property damage could cost them future bookings, so they treat spaces carefully.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Revenue Snapshot:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">The median Toronto 2-bedroom Airbnb earns approximately $2,337 per month. Adding a pet fee of $50 per stay across 50 annual bookings adds $2,500 per year, and longer average stays from pet owners can push occupancy higher. For most hosts, allowing pets with the right rules in place is a net positive.</p>
+            </div>
+          </div>
+
+          <h2 id="setup">Setting Up Your Property for Pets</h2>
+          <p>You don't need to overhaul your space to welcome pets. A few targeted changes to furnishings, supplies, and layout will protect your property and make pet-owning guests feel genuinely welcome.</p>
+
+          <h3>Furnishing and Flooring</h3>
+          <p>The most impactful upgrade for a pet-friendly property is replacing carpet with hard flooring. Carpet holds pet hair, absorbs odors, and is difficult to fully clean between stays. Vinyl plank and tile are the two best choices for pet-welcoming properties: both are durable, easy to mop, and resistant to scratches and accidents. If you have existing carpet in a bedroom, consider a removable area rug that can be easily laundered.</p>
+
+          <p>For furniture, washable slipcovers are your best friend. A quality slipcover over a sofa takes five minutes to remove, thirty minutes to machine wash, and completely eliminates the pet-hair problem on upholstered surfaces. Remove or store any delicate or expensive items: silk cushions, fragile decor, light-colored rugs that won't survive an accident.</p>
+
+          <h3>Pet Amenity Kit</h3>
+          <p>A small welcome kit for pets signals that you're a thoughtful host, and it generates goodwill that shows up in reviews. Consider leaving:</p>
+          <ul>
+            <li><strong>Water and food bowls:</strong> Stainless steel, dishwasher-safe. A small detail that guests genuinely appreciate.</li>
+            <li><strong>Waste bags:</strong> A roll near the door or on the patio. Removes any excuse for guests not cleaning up.</li>
+            <li><strong>A pet blanket or bed:</strong> A dedicated dog blanket draped over one couch spot gives pets an approved spot and reduces hair spread to the rest of the furniture.</li>
+            <li><strong>A paw-wipe towel:</strong> Especially useful if you have outdoor space. A dedicated towel by the entrance signals where guests should wipe paws before entering.</li>
+            <li><strong>Lint rollers:</strong> Leave two or three for guests to use during their stay. You'll still use your own for turnover, but this is a thoughtful touch.</li>
+          </ul>
+
+          <h3>Safety and Security</h3>
+          <p>If your property has a balcony, patio, or outdoor space, assess it for pet safety before enabling the pets-allowed option. Small gaps in railings, unfenced gardens, or accessible stairs can be hazards for small dogs. Fix any obvious gaps and note any limitations in your listing (e.g., "balcony has railings, suitable for dogs over 10lbs").</p>
+
+          <p>Keep toxic plants out of reach or remove them entirely. Common houseplants like pothos, peace lilies, and snake plants are toxic to dogs and cats. If you've decorated with plants, verify they're pet-safe or relocate them before accepting pet bookings.</p>
+
+          <h2 id="house-rules">Pet House Rules Template</h2>
+          <p>Clear, specific house rules are your primary protection against pet-related damage and disputes. Add these to your Airbnb house rules section and your house manual. Vague rules create grey areas; specific rules set expectations that guests agreed to at booking.</p>
+
+          <div class="rules-template">
+            <div class="rules-header">Sample Pet House Rules</div>
+            <ul class="rules-list">
+              <li><strong>Maximum 2 pets per booking.</strong> All pets must be disclosed at the time of booking. Undisclosed pets will result in cancellation without refund.</li>
+              <li><strong>Weight limit: 25kg (55lbs) per pet.</strong> Please message us before booking if you have a larger dog; we may be able to accommodate on a case-by-case basis.</li>
+              <li><strong>Pets are not permitted on the beds.</strong> A pet blanket is provided on the sofa if you'd like to give your pet an approved spot on the furniture.</li>
+              <li><strong>Pets must be crated or in a secure room when left alone in the property.</strong> This protects your pet from anxiety-related damage and protects the property from chewing or scratching while unsupervised.</li>
+              <li><strong>The guest accepts full financial responsibility for any pet-related damage</strong> beyond normal wear. This includes but is not limited to: carpet damage, chewed furniture, soiling of mattresses, or damage to outdoor spaces.</li>
+              <li><strong>No aggressive breeds.</strong> This is an insurance requirement. Guests are responsible for ensuring their pet is not listed on breed-restriction lists.</li>
+              <li><strong>Please clean up after your pet in all outdoor areas</strong> (yard, patio, or common areas). Waste bags are provided in the welcome basket.</li>
+              <li><strong>Pets are not permitted in the [secondary bedroom / gym / office / laundry room].</strong> (Customize as needed.)</li>
+            </ul>
+          </div>
+
+          <p>Post these rules in your Airbnb listing, in your house manual, and as a printed card in the property. The more places a rule appears, the harder it is for a guest to claim they didn't see it.</p>
+
+          <h2 id="pet-fees">Setting Pet Fees</h2>
+          <p>Airbnb allows you to set a pet fee as part of your listing's pricing structure. Here's how the common approaches compare.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Fee Type</th>
+                  <th>Amount</th>
+                  <th>Best For</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>One-Time Flat Fee</strong></td>
+                  <td>$25-$75 per stay</td>
+                  <td>Short to medium stays (1-7 nights)</td>
+                  <td>Most common. Simple for guests, predictable for hosts.</td>
+                </tr>
+                <tr>
+                  <td><strong>Nightly Pet Fee</strong></td>
+                  <td>$10-$25 per night</td>
+                  <td>Longer stays (7+ nights)</td>
+                  <td>Scales with stay length, which compensates for added cleaning time on extended stays.</td>
+                </tr>
+                <tr>
+                  <td><strong>Per-Pet Fee</strong></td>
+                  <td>$25-$50 per pet</td>
+                  <td>Hosts allowing 2+ pets</td>
+                  <td>Requires clear communication so two-pet households aren't surprised by double fees.</td>
+                </tr>
+                <tr>
+                  <td><strong>No Pet Fee</strong></td>
+                  <td>$0</td>
+                  <td>Hosts pricing it into nightly rate</td>
+                  <td>Can improve conversion if your nightly rate is already competitive. Forfeits transparent revenue.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Airbnb does not currently support refundable pet deposits. If a guest's pet causes damage, you file a claim through AirCover rather than retaining a deposit. Set your fee at a level that reflects the extra cleaning cost, with some buffer for minor damage without needing to file a claim.</p>
+
+          <h3>How to Set Up Pet Fees in Airbnb</h3>
+          <p>To enable pets and set your fee in Airbnb's host dashboard: go to your listing, navigate to "Policies," and enable the "Pets allowed" toggle. Then go to "Pricing" and look for the "Additional guest fees" or "Extra charges" section, where you can add a pet fee. The fee will be displayed to guests during checkout so there are no surprises.</p>
+
+          <p>Consider testing different price points. If you start at $25 and notice that pet bookings are very frequent with no issues, you have room to move to $50. If you're getting few pet bookings, the fee is not the likely culprit since pet owners expect to pay some fee and your overall nightly rate is more likely the factor to review.</p>
+
+          <h3>Revenue Math</h3>
+          <p>To put the pet fee opportunity in concrete terms: a property with 50 annual bookings, 40% of which include pets, at a $50 flat fee, generates $1,000 in pet fee revenue. Bump that fee to $75 and it's $1,500. If pet-friendly status increases your overall booking rate from 70% to 80% occupancy, the incremental nightly revenue from those added stays will dwarf the pet fee income itself.</p>
+
+          <h2 id="cleaning-protocol">Cleaning Protocol for Pet Stays</h2>
+          <p>A rigorous turnover process is what separates hosts who have great experiences with pet guests from those who don't. The goal is to eliminate all evidence of a pet before the next guests arrive, including guests who may have allergies.</p>
+
+          <h3>Extra Steps for Pet Turnovers</h3>
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Full Vacuum Pass</h4>
+              <p>Vacuum all floors, soft furniture, curtains, baseboards, and under furniture. Use an attachment tool on fabric sofas and chairs. One pass is often not enough: do a second pass on any area with visible hair.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Lint Roll Everything Fabric</h4>
+              <p>Lint roll all throws, cushions, lamp shades, fabric headboards, and any decorative pillows. This catches fine pet hair that vacuums miss. Keep a large supply of lint rollers in your cleaning kit.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Check for Accidents</h4>
+              <p>Inspect all floor areas near doors, corners, and under furniture for accidents. Use a UV blacklight to detect urine that isn't visible to the naked eye. Treat any spots with an enzyme cleaner before standard mopping.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Launder Soft Items</h4>
+              <p>Wash all throws, slipcovers, and extra blankets from the pet stay. If the pet was allowed on a couch with a slipcover, that cover goes in the wash regardless of visible soiling.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Air Out the Property</h4>
+              <p>Pet odor is the number one complaint from subsequent guests. Open all windows for at least 30 minutes regardless of the season. Use a light, neutral deodorizer (not heavily scented, which can trigger its own complaints) on fabric surfaces.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Photo Documentation</h4>
+              <p>Before each pet checkout turnover begins, take photos of the property's condition. This is your evidence base for any damage claim through AirCover. Document the state of floors, furniture, and outdoor areas.</p>
+            </div>
+          </div>
+
+          <p>Budget 15-30 minutes of additional turnover time for pet stays. Some hosts charge a slightly higher cleaning fee for pet bookings to offset this cost. If you use a cleaning service, brief them on the pet turnover protocol and ensure they're equipped with the right tools.</p>
+
+          <h2 id="insurance">Insurance and Liability</h2>
+          <p>Understanding what is and isn't covered before something goes wrong will save you significant stress later.</p>
+
+          <h3>AirCover for Hosts</h3>
+          <p>Airbnb's AirCover program provides damage protection for hosts, and it does cover pet-related damage caused by guests. To make a successful claim: document the condition of the property before the stay with photos, report the damage within 14 days of checkout (or before the next guest checks in, whichever comes first), and submit itemized repair or replacement estimates.</p>
+
+          <p>AirCover does not cover normal wear and tear, or pet hair left on furniture that required extra cleaning time without physical damage. It is also subject to review and Airbnb may not approve every claim in full. For smaller pet-related issues (a chewed cushion, an accident on a rug), many hosts choose to absorb the cost rather than file a claim, since the accumulated pet fees over time more than cover these minor expenses.</p>
+
+          <p>For a complete breakdown of what AirCover covers and how to file effectively, see our <a href="/blog/airbnb-insurance-ontario-host-guide-2026">Airbnb Insurance Ontario Host Guide</a>.</p>
+
+          <h3>Your Personal Insurance Policy</h3>
+          <p>Standard homeowner's insurance in Ontario typically does not cover damage to your property caused by guests' animals. Some policies explicitly exclude all guest-related damage. Before you start accepting pet bookings, contact your insurance provider and ask two specific questions: does your policy cover damage caused by paying guests at all, and does it cover pet-related damage specifically.</p>
+
+          <p>If your policy has gaps, short-term rental insurance products from providers like Slice, Square One, or through your existing broker can fill them. A small additional premium is worthwhile if you're running a high-volume pet-friendly listing. For Toronto condo hosts, also check whether your <a href="/blog/can-i-airbnb-my-condo-toronto-2026">condo corporation's insurance</a> has any bearing on guest-caused damage claims.</p>
+
+          <h3>Protecting Yourself</h3>
+          <p>The simplest and most effective protection is a combination of: clear house rules that guests agreed to at booking, pre- and post-stay photo documentation, a pet fee that cushions minor damage, and AirCover for anything more serious. Hosts who follow this framework rarely have significant financial exposure from pet stays.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Undisclosed Pets Are the Real Risk</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">The most common pet-related dispute is not damage from disclosed pets but from guests who sneak in a pet without telling you. Make your rules explicit: undisclosed pets result in cancellation without refund. A zero-tolerance policy on this, stated clearly in your listing, is your strongest deterrent. For guidance on screening guests before they book, see our <a href="/blog/airbnb-guest-screening-party-prevention-guide-2026" style="color: #e74c3c; text-decoration: underline;">guest screening guide</a>.</p>
+            </div>
+          </div>
+
+          <h2 id="condo-restrictions">Condo Restrictions: What to Check First</h2>
+          <p>Before you enable the pets-allowed option on your Airbnb listing, you need to verify two separate things: the city's short-term rental regulations and your condo corporation's pet rules. These are independent, and failing either one creates a problem.</p>
+
+          <p>In Toronto, condo corporations operate under their own declarations, bylaws, and rules, which are separate from city bylaws. A condo building can prohibit pets from being brought by guests even if city law says nothing about it. Conversely, some condos that restrict owner-occupied pets allow guest pets, though this is uncommon.</p>
+
+          <p>To verify your condo's position, review three documents: the condo declaration (the founding document), the condo bylaws, and the building rules. The rules are most likely to address guest pets specifically since declarations and bylaws tend to be more general. If the documents are unclear, contact your property manager directly and ask in writing so you have a record.</p>
+
+          <p>If you're hosting in a condo and haven't yet reviewed the short-term rental regulations that apply, our guide on <a href="/blog/can-i-airbnb-my-condo-toronto-2026">Airbnb in Toronto condos</a> covers the full picture: what condo boards can and cannot restrict, how STR licensing interacts with condo rules, and what to do if your board is hostile to short-term rentals.</p>
+
+          <h3>Managing Allergies and Transparency</h3>
+          <p>Once you allow pets, some potential guests with allergies may be concerned about whether the property has been cleaned thoroughly between stays. The best approach is proactive disclosure: state in your listing description that you welcome pets and that your turnover cleaning includes a full pet protocol. This filters for the right guests and builds confidence that you take cleanliness seriously.</p>
+
+          <p>If a guest messages you asking whether pets have recently stayed, answer honestly. Trying to obscure it will cost you more in a bad review than in a declined booking. Guests who need a pet-free environment due to allergies will self-select out, and the guests who remain will be genuinely compatible with your listing.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want Pet-Friendly Hosting Done Right?</h3>
+            <p>Nurture manages pet-friendly properties across Toronto and the GTA, including specialized cleaning protocols, pet fee setup, and house rules that protect your property. <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">Full management</a> at 10-15% with no long-term contracts.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Maximize Your Airbnb Revenue</h2>
+        <p>Find out how much more your property could earn with pet-friendly hosting and expert management. Free estimate, no obligation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .rules-template {
+    background: var(--color-background-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+
+  .rules-header {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .rules-list {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .rules-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
