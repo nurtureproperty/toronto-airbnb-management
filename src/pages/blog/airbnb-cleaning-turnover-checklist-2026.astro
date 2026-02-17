@@ -1,0 +1,1134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How often should an Airbnb be professionally cleaned?", a: "Every single turnover between guests requires a full professional clean. This means after every checkout, before every new check-in, regardless of how long the previous stay was. Monthly deep cleans (including oven interiors, behind appliances, grout, window tracks) are also recommended on top of standard turnovers." },
+  { q: "How long should an Airbnb turnover take?", a: "Turnover time depends on property size. A studio or bachelor unit should take 45 to 60 minutes. A one-bedroom should take 60 to 90 minutes. A two-bedroom needs 90 to 120 minutes. Three bedrooms and larger require 2 to 3 hours minimum. Same-day turnovers require efficient cleaners and good systems, so always build in a buffer." },
+  { q: "How do I find a reliable Airbnb cleaner in the GTA?", a: "Look for cleaners with Airbnb or short-term rental experience specifically. General house cleaners often skip the hospitality-level details that affect reviews (toilet paper folds, product restocking, checking that remotes work). Ask for references from other hosts, post in local Airbnb host Facebook groups, or work with a property management company like Nurture that handles cleaning coordination as part of the management service." },
+  { q: "What do Airbnb guests complain about most in reviews?", a: "Cleanliness is the most cited category in negative Airbnb reviews. The top complaints are: hair in the bathroom (shower, floor, sink), dirty dishes or sticky surfaces in the kitchen, musty or stale smell, stained linens, and a general feeling that the space is not hotel-clean. Guests set their expectations based on your listing photos, so if your photos show a pristine space, cleaning must live up to that." },
+  { q: "How much should I pay an Airbnb cleaner in Toronto?", a: "In the GTA, Airbnb cleaning rates run $25 to $40 per hour for individual cleaners, or $80 to $150 flat rate per turnover for a one-bedroom, and $120 to $200 for a two-bedroom. Companies charge more than independent cleaners. Flat-rate pricing per turnover is usually better for hosts than hourly, as it incentivizes efficiency. Always confirm the rate includes laundry and supply restocking, or price those separately." },
+  { q: "What is the most important thing to check in a final walkthrough?", a: "The five highest-priority items in a final walkthrough are: (1) no hair anywhere in the bathroom, (2) fresh linens on all beds with no stains, (3) all lights working (burned-out bulbs are a common complaint), (4) smart lock or key access confirmed working, and (5) no personal items or trash left by the previous guest. Complete your walkthrough with the mindset of a guest seeing the space for the first time." },
+  { q: "How do I handle same-day turnovers with back-to-back bookings?", a: "Same-day turnovers require a tight system. Set a clear checkout time (10 or 11am) and check-in time (3pm minimum) to give yourself a 4-hour window. Have your cleaner confirmed and on standby the night before. Use a digital checklist with photo verification so you can confirm completion remotely. Stage all supplies and linens in advance so the cleaner isn't hunting for anything during the turnover." },
+  { q: "Does Nurture handle cleaning coordination for hosts?", a: "Yes. Nurture's Professional Plan (15% management fee) includes professional cleaning coordination, linen and supply restocking, and smart lock management. We source and vet cleaners, coordinate scheduling around check-ins and checkouts, and perform quality checks. Hosts don't need to coordinate anything directly. Our 10% Starter Plan does not include cleaning coordination, but we can refer vetted cleaners." }
+];
+
+const relatedPosts = [
+  { title: "The Toilet Paper Trick for 5-Star Reviews", href: '/blog/show-this-to-your-airbnb-cleaner-for-5-star-reviews', description: 'Simple finishing touches that make guests feel like they are staying somewhere special' },
+  { title: "Airbnb Superhost 2026: How to Get & Keep Status", href: '/blog/airbnb-superhost-guide-2026', description: 'Maintaining Superhost requires consistent 4.8+ ratings and cleaning is the biggest factor' },
+  { title: "Why Your Toronto Airbnb Isn't Making Money", href: '/blog/why-your-toronto-airbnb-isnt-making-money', description: 'The 9 most common problems and exactly how to fix each one' }
+];
+
+const tocItems = [
+  { id: 'why-cleaning-matters', text: 'Why Cleaning Drives Reviews' },
+  { id: 'time-standards', text: 'Turnover Time Standards' },
+  { id: 'room-by-room', text: 'Room-by-Room Checklist' },
+  { id: 'final-walkthrough', text: 'Final Walkthrough: 10-Point Check' },
+  { id: 'supply-restocking', text: 'Supply Restocking Guide' },
+  { id: 'hiring-cleaners', text: 'Hiring & Training Cleaners' },
+  { id: 'quality-control', text: 'Quality Control Systems' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Cleaning Checklist 2026 | 5-Star Turnover Guide";
+const pageDescription = "Complete Airbnb cleaning checklist for 5-star turnovers. Room-by-room guide with timing standards, quality checks, and what guests actually notice.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Cleaning Checklist: The Complete 5-Star Turnover Guide",
+  "description": pageDescription,
+  "datePublished": "2026-02-19",
+  "dateModified": "2026-02-19",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-cleaning-turnover-checklist-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Cleaning Checklist: The Complete 5-Star Turnover Guide</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 19, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">11 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Cleanliness is the single most reviewed category on Airbnb, and the most common reason hosts lose their 5-star rating. <strong>This complete room-by-room checklist, with timing standards, supply lists, and quality control systems, is everything you need to deliver consistent hotel-level turnovers.</strong> Whether you clean yourself or manage a team, this guide will protect your rating and your revenue.</p>
+          </div>
+
+          <h2 id="why-cleaning-matters">Why Cleaning Is the #1 Factor in Airbnb Reviews</h2>
+          <p>Airbnb guests leave reviews across six categories: cleanliness, accuracy, check-in, communication, location, and value. Cleanliness is the most cited category in negative reviews by a wide margin. A single bad cleanliness review can tank an otherwise perfect record and cost you Superhost status.</p>
+
+          <p>The financial stakes are significant. Hosts with 100 or more reviews earn an average of $4,684 per month, compared to just $1,307 per month for hosts with fewer than 10 reviews. Bad cleaning drives bad reviews, which drives fewer bookings, which drives lower revenue. The compounding effect over 12 months is substantial.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The Revenue Impact of Cleanliness:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Airbnb's Guest Favorite badge, earned through consistently high cleanliness and overall ratings, delivers a +104% revenue premium over unlabeled listings. Superhost status requires a 4.8+ overall rating, and cleanliness is the most common reason hosts fall below that threshold. Professionally managed properties earn $4,460 or more per month on average, with consistent cleaning as one of the key differentiators.</p>
+            </div>
+          </div>
+
+          <p>The practical lesson: cleaning is not a cost center. It is a revenue driver. Every dollar spent on a thorough turnover is an investment in your review rating, your Superhost status, and ultimately your nightly rate and occupancy.</p>
+
+          <h3>What Guests Actually Notice</h3>
+          <p>Guests don't inspect your property the way a cleaning supervisor would. They notice specific things in specific moments: the first impression when they walk in (smell, visual), the bathroom when they shower, the bed when they get in, and the kitchen when they cook. These are your highest-impact areas. Everything else is secondary.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>First Impression</h4>
+              <p>The smell and visual cleanliness within the first 30 seconds of arrival. Fresh scent, no clutter, surfaces visibly clean.</p>
+            </div>
+            <div class="info-card">
+              <h4>Bathroom</h4>
+              <p>Hair is the most common complaint in reviews. One visible hair in the shower ends a 5-star review. Toilet and mirror quality also matters.</p>
+            </div>
+            <div class="info-card">
+              <h4>Bed & Linens</h4>
+              <p>Guests notice stains, wrinkles, and odour in linens immediately. White linens signal cleanliness. Hospital corners or hotel-folding signals quality.</p>
+            </div>
+          </div>
+
+          <h2 id="time-standards">Turnover Time Standards</h2>
+          <p>Unrealistic time expectations are the most common reason turnovers are rushed and reviews suffer. Use these benchmarks when scheduling cleaners and setting checkout and check-in windows.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Property Size</th>
+                  <th>Standard Turnover</th>
+                  <th>Deep Clean (Monthly)</th>
+                  <th>Recommended Window</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Studio / Bachelor</strong></td>
+                  <td>45-60 minutes</td>
+                  <td>90-120 minutes</td>
+                  <td>11am checkout / 3pm check-in</td>
+                </tr>
+                <tr>
+                  <td><strong>1-Bedroom</strong></td>
+                  <td>60-90 minutes</td>
+                  <td>2-2.5 hours</td>
+                  <td>11am checkout / 3pm check-in</td>
+                </tr>
+                <tr>
+                  <td><strong>2-Bedroom</strong></td>
+                  <td>90-120 minutes</td>
+                  <td>2.5-3 hours</td>
+                  <td>10am checkout / 4pm check-in</td>
+                </tr>
+                <tr>
+                  <td><strong>3-Bedroom+</strong></td>
+                  <td>2-3 hours</td>
+                  <td>4+ hours</td>
+                  <td>10am checkout / 4pm check-in</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Times assume a single experienced cleaner. With two cleaners, divide times roughly in half. Always build in a 30-minute buffer before guest check-in for final walkthrough and unexpected issues.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Same-Day Turnovers: Proceed with Caution</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Same-day turnovers (guest checks out and new guest checks in the same day) are high-risk. One late checkout, a larger-than-expected mess, or a cleaner running behind can result in a delayed check-in, which is one of the most complained-about experiences on Airbnb. If you accept same-day bookings, ensure your cleaner is confirmed the night before and you have a contingency plan.</p>
+            </div>
+          </div>
+
+          <h2 id="room-by-room">Room-by-Room Checklist</h2>
+          <p>Use this checklist as a printable handout for your cleaners. Tick every item every turnover, not just the tasks that look visibly dirty.</p>
+
+          <h3>Kitchen</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Wipe stovetop, burner grates, and behind the burner knobs</li>
+                <li>Clean inside microwave (turntable, walls, door seal)</li>
+                <li>Wipe exterior of all appliances (fridge, microwave, toaster, coffee maker)</li>
+                <li>Clean inside fridge: remove all guest food, wipe shelves and drawers</li>
+                <li>Run dishwasher or hand-wash all dishes; verify no spots or residue</li>
+                <li>Check all utensils, glasses, and mugs for cleanliness and completeness</li>
+                <li>Restock coffee station: pods or grounds, filters, sugar, stir sticks</li>
+                <li>Disinfect countertops and backsplash</li>
+                <li>Clean inside and outside of the sink; shine the faucet</li>
+                <li>Replace kitchen trash bag; wipe inside and outside of bin</li>
+                <li>Sweep and mop kitchen floor, including under the stove and fridge</li>
+                <li>Wipe cabinet faces and drawer fronts</li>
+                <li>Check that oven interior is clean (monthly deep clean)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Bathroom(s)</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Scrub toilet bowl, under the rim, around the base, and behind the tank</li>
+                <li>Disinfect toilet seat, lid, and handle</li>
+                <li>Scrub shower or tub: tiles, grout lines, glass door or curtain</li>
+                <li>Check and remove all hair: shower drain, floor, sink, counter</li>
+                <li>Clean mirror streak-free (use newspaper or microfibre for a lint-free finish)</li>
+                <li>Wipe sink basin, faucet, and soap dish</li>
+                <li>Disinfect all surfaces: counter, toilet tank, door handle, light switch</li>
+                <li>Restock toiletries: shampoo, conditioner, body wash, hand soap, lotion</li>
+                <li>Replace toilet paper with a fresh roll and <a href="/blog/show-this-to-your-airbnb-cleaner-for-5-star-reviews" style="color: var(--color-primary-dark); text-decoration: underline;">fold the end into a bow or point</a></li>
+                <li>Leave 1-2 backup rolls visible under the sink or in a basket</li>
+                <li>Fold towels hotel-style and arrange neatly on rack or shelf</li>
+                <li>Clean and dry bath mat or replace with a fresh one</li>
+                <li>Dust exhaust fan cover (monthly: vacuum the interior)</li>
+                <li>Sweep and mop floor, including behind the toilet</li>
+                <li>Empty trash and replace liner; wipe inside and outside of bin</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The Hair Rule</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Hair is mentioned in more negative cleanliness reviews than any other single item. Train your cleaner to check the shower drain, the floor around the drain, the soap shelf, the bathroom floor corners, the sink, and the back of the toilet after every other task is complete. It is the last check, so nothing gets missed.</p>
+            </div>
+          </div>
+
+          <h3>Bedroom(s)</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Strip all linens and pillowcases; replace with freshly laundered set</li>
+                <li>Check mattress protector for stains; replace if needed</li>
+                <li>Check mattress surface for stains or damage</li>
+                <li><a href="/blog/how-to-make-your-bed-for-your-airbnb-show-this-to-your-clean" style="color: var(--color-primary-dark); text-decoration: underline;">Make bed hotel-style</a>: tight corners, pillows centered and fluffed</li>
+                <li>Wipe nightstands and any bedside surfaces</li>
+                <li>Check phone chargers: plugged in, working, cables tidy</li>
+                <li>Empty closet of any guest items left behind; wipe closet shelf</li>
+                <li>Dust blackout curtains or blinds; ensure they open and close properly</li>
+                <li>Check under the bed for guest belongings or dust bunnies</li>
+                <li>Vacuum carpet or sweep and mop hard floors, including under bed</li>
+                <li>Wipe light switches and door handles</li>
+                <li>Check that all bedroom lamps work; replace bulbs if needed</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Living Area</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Remove all couch cushions and vacuum the sofa thoroughly, including crevices</li>
+                <li>Flip cushion inserts and re-arrange decorative pillows neatly</li>
+                <li>Wipe TV screen with a dry microfibre cloth (no chemical sprays)</li>
+                <li>Wipe TV remote, check batteries; confirm it works on the correct input</li>
+                <li>Dust all surfaces: coffee table, side tables, shelves, TV stand</li>
+                <li>Wipe down any visible smudges on walls, doors, or light switches</li>
+                <li>Clean windows and sliding door glass inside-facing surfaces</li>
+                <li>Vacuum rugs and hard floors throughout</li>
+                <li>Tidy any host-provided items (books, board games, menus) into their place</li>
+                <li>Empty any trash cans and replace liners</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Entryway</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Wipe door handle and keypad (inside and outside)</li>
+                <li>Test smart lock code: confirm it works before leaving</li>
+                <li>Shake out or replace welcome mat</li>
+                <li>Clear shoe area or entryway shelf of any guest items</li>
+                <li>Wipe any hooks, coat rack, or storage near the entry</li>
+                <li>Sweep entryway floor; wipe baseboards if visibly dirty</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>General (Every Turnover)</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Test every light in the property; replace any burned-out bulbs</li>
+                <li>Check WiFi: connect and confirm it works before leaving</li>
+                <li>Set thermostat to the default welcome temperature</li>
+                <li>Open blinds or curtains to the standard position for check-in photos</li>
+                <li>Test smoke and CO detectors (press test button, confirm beep)</li>
+                <li>Check HVAC filter: replace if visibly clogged (check monthly)</li>
+                <li>Confirm no previous guest belongings remain anywhere in the unit</li>
+                <li>Take a final photo of each room for quality verification</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 id="final-walkthrough">The Final Walkthrough: 10-Point Check</h2>
+          <p>The final walkthrough is the most important step in the turnover. It takes 5 to 10 minutes and is done after the cleaner has finished everything else. Think of it as the quality assurance step before every check-in.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Smell Test</h4>
+              <p>Walk in through the front door and inhale. No musty, pet, food, or cleaning product odour. The property should smell neutral or gently fresh.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Bathroom Hair Check</h4>
+              <p>Do the hair sweep last: shower drain, floor corners, sink, and behind the toilet. One hair in the shower is a review risk.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Linen Inspection</h4>
+              <p>Pull back the duvet and check the fitted sheet for stains. Examine pillowcases. Confirm no odour. Replace immediately if anything is questionable.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Lock Test</h4>
+              <p>Enter the door code the guest will use and confirm it unlocks. Do not assume it works. A failed code is an emergency call at 10pm.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Light Check</h4>
+              <p>Flip every switch. Walk every room. Burned-out bulbs are one of the most commonly mentioned maintenance issues in reviews.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>WiFi Confirmation</h4>
+              <p>Connect a device using the guest password and load a page. Confirm the password displayed in the welcome book is correct.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">7</span>
+              <h4>Supply Inventory</h4>
+              <p>Confirm toilet paper, paper towels, soap, shampoo, conditioner, body wash, coffee pods, and trash bags are all stocked to the correct quantities.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">8</span>
+              <h4>Previous Guest Items</h4>
+              <p>Walk through every room and check: under the bed, inside drawers, on closet shelves, behind bathroom door. Left items require contact and storage.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">9</span>
+              <h4>Kitchen Ready Check</h4>
+              <p>Open the fridge: empty, clean, no odours. Open the microwave: clean. Check the coffee station is stocked and the coffee maker is empty and ready.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">10</span>
+              <h4>Photo Documentation</h4>
+              <p>Take a photo of each room, the bathroom, the kitchen, and the front door. Time-stamp these. They serve as proof of condition at check-in if any dispute arises.</p>
+            </div>
+          </div>
+
+          <h2 id="supply-restocking">Supply Restocking Guide</h2>
+          <p>Running out of essentials mid-stay is one of the most preventable review complaints. Stock quantities based on the number of guests and the length of the booking. The table below shows recommended starting quantities for a standard 2-night stay with 2 guests.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Supply Item</th>
+                  <th>Per Turnover (2 guests, 2 nights)</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Toilet Paper</strong></td>
+                  <td>4 rolls minimum</td>
+                  <td>1 on roll, 3 in reserve. Scale up for longer stays.</td>
+                </tr>
+                <tr>
+                  <td><strong>Paper Towels</strong></td>
+                  <td>1 full roll</td>
+                  <td>Replace if less than half remaining from previous guest.</td>
+                </tr>
+                <tr>
+                  <td><strong>Hand Soap (Bathroom)</strong></td>
+                  <td>Full dispenser</td>
+                  <td>Use pump dispensers for easy visual check.</td>
+                </tr>
+                <tr>
+                  <td><strong>Dish Soap</strong></td>
+                  <td>Bottle at least half full</td>
+                  <td>Top up or replace if under 30%.</td>
+                </tr>
+                <tr>
+                  <td><strong>Shampoo / Conditioner</strong></td>
+                  <td>Full dispensers or 50ml bottles</td>
+                  <td>Hotel-style wall dispensers reduce restocking frequency.</td>
+                </tr>
+                <tr>
+                  <td><strong>Body Wash</strong></td>
+                  <td>Full dispenser or 50ml bottle</td>
+                  <td>Scent-neutral preferred for guest sensitivity.</td>
+                </tr>
+                <tr>
+                  <td><strong>Coffee / Tea</strong></td>
+                  <td>6-8 pods or 2 tbsp ground coffee per guest</td>
+                  <td>Include a variety: regular, decaf, at minimum.</td>
+                </tr>
+                <tr>
+                  <td><strong>Trash Bags</strong></td>
+                  <td>2-3 per bin</td>
+                  <td>Leave extras under the new liner for easy guest replacement.</td>
+                </tr>
+                <tr>
+                  <td><strong>Dishwasher Pods</strong></td>
+                  <td>4-6 pods</td>
+                  <td>Store visibly under the sink.</td>
+                </tr>
+                <tr>
+                  <td><strong>Sponge / Scrubber</strong></td>
+                  <td>Replace every 2-3 stays</td>
+                  <td>Nothing signals neglect like a stained sponge.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Keep a dedicated supply storage area in a closet or under-sink cabinet. Your cleaner should be able to restock everything from that storage without leaving the property. Do a full inventory reorder every two to four weeks depending on booking volume.</p>
+
+          <h2 id="hiring-cleaners">Hiring and Training Airbnb Cleaners in the GTA</h2>
+          <p>The cleaner you hire will have more direct impact on your Airbnb rating than almost any other decision you make. A great cleaner with a mediocre property beats a poor cleaner in a beautiful property every time.</p>
+
+          <h3>What to Look For</h3>
+          <ul>
+            <li><strong>Short-term rental experience:</strong> General house cleaners are trained for thoroughness over speed, not hospitality standards. Ask specifically for Airbnb or vacation rental experience.</li>
+            <li><strong>Availability on short notice:</strong> Guest checkouts change, same-day turnovers happen, and weekend bookings are common. Your cleaner must be able to confirm availability within 24 hours.</li>
+            <li><strong>Digital communication:</strong> They should be comfortable receiving checklists, sending photos, and communicating via WhatsApp or a management app.</li>
+            <li><strong>References from other hosts:</strong> Ask for at least two Airbnb hosts who can speak to the cleaner's reliability and quality.</li>
+            <li><strong>Attention to hospitality details:</strong> Ask them what they do with toilet paper at the end of a turnover. The <a href="/blog/show-this-to-your-airbnb-cleaner-for-5-star-reviews" style="color: var(--color-primary-dark); text-decoration: underline;">toilet paper fold</a> is a small but meaningful test of whether they think like an Airbnb host.</li>
+          </ul>
+
+          <h3>GTA Cleaning Rates (2026)</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Pricing Model</th>
+                  <th>Rate Range</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Hourly (individual)</strong></td>
+                  <td>$25-$40/hour</td>
+                  <td>Hosts who want to optimize cost on smaller units</td>
+                </tr>
+                <tr>
+                  <td><strong>Flat rate, 1BR</strong></td>
+                  <td>$80-$120 per turnover</td>
+                  <td>Most hosts: predictable cost, incentivizes efficiency</td>
+                </tr>
+                <tr>
+                  <td><strong>Flat rate, 2BR</strong></td>
+                  <td>$120-$180 per turnover</td>
+                  <td>Standard for 2-bedroom properties</td>
+                </tr>
+                <tr>
+                  <td><strong>Flat rate, 3BR+</strong></td>
+                  <td>$180-$250+ per turnover</td>
+                  <td>Larger homes; negotiate based on scope</td>
+                </tr>
+                <tr>
+                  <td><strong>Cleaning company</strong></td>
+                  <td>+20-30% premium</td>
+                  <td>Hosts who need backup coverage and reliability guarantees</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Rates vary by neighborhood, seasonal demand, and whether laundry and supply restocking are included. Always clarify what is included in the flat rate before booking.</p>
+
+          <h3>Training Your Cleaner</h3>
+          <p>Even an experienced Airbnb cleaner needs to be trained to your specific property and standards. Do a walkthrough together before the first turnover. Cover the following:</p>
+          <ul>
+            <li>Where supplies are stored and what the restocking levels are</li>
+            <li>How linens are stored, which sets go with which bed, and your bed-making standard</li>
+            <li>The smart lock system: how to enter and how to confirm it's locked on departure</li>
+            <li>Any property-specific quirks (garbage chute location, recycling rules, elevator timing)</li>
+            <li>The photo verification process: which rooms to photograph and where to send the photos</li>
+            <li>Who to call if something is broken, damaged, or missing</li>
+          </ul>
+
+          <h2 id="quality-control">Quality Control Systems</h2>
+          <p>Even the best cleaner has off days. A quality control system catches issues before guests do, which is the difference between a 5-star and a 3-star review.</p>
+
+          <h3>Photo Verification</h3>
+          <p>Require your cleaner to send a photo of every room after completing the turnover. This takes under 5 minutes and creates a timestamped record of the property's condition at check-in. Review the photos remotely before confirming the unit is ready. Platforms like Turno (formerly TurnoverBnB) or simple WhatsApp photo shares both work well for this.</p>
+
+          <h3>Spot Checks</h3>
+          <p>Visit the property in person at least once a month, arriving as if you were a guest: use the front door code, walk through each room with fresh eyes. What do you notice in the first 10 seconds? That's what your guests notice. Check under the bed, inside drawers, behind the toilet, and in the back corners of the fridge.</p>
+
+          <h3>Guest Feedback Loop</h3>
+          <p>After every checkout, read the cleanliness rating the guest gave you in their private review data (available in your Airbnb host dashboard). Track it. If your cleanliness rating drops below 4.8 on any stay, review the check-in photo documentation and follow up with your cleaner to understand what happened. Treat each review as data, not just feedback.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>How Nurture Handles Cleaning Quality Control</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Nurture's <a href="/services/airbnb-cleaning" style="color: var(--color-primary-dark); text-decoration: underline;">Professional Plan (15%)</a> includes full cleaning coordination: sourcing and vetting cleaners, scheduling turnovers automatically around bookings, requiring photo verification after every turnover, and tracking cleanliness ratings across all client properties. Hosts receive a 9-minute average response time on any issue and never need to coordinate a turnover directly. <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">Learn more about full management.</a></p>
+            </div>
+          </div>
+
+          <h3>Same-Day Turnover Strategies</h3>
+          <p>Back-to-back bookings with a same-day turnover are high-pressure situations. The following strategies reduce the risk of a failed or delayed turnover.</p>
+          <ul>
+            <li><strong>Confirm your cleaner the night before:</strong> Never assume availability on the day. Send a message the evening before every checkout to confirm time and get an explicit confirmation.</li>
+            <li><strong>Stage supplies in advance:</strong> Have replacement linens, toiletries, and consumables ready in a designated storage area so the cleaner never needs to wait for supplies.</li>
+            <li><strong>Set a firm checkout time:</strong> 10am or 11am maximizes your turnover window. Guests who check out late compress your cleaning time, which increases risk.</li>
+            <li><strong>Use a 3pm or 4pm check-in minimum:</strong> The most common mistake is setting a 2pm check-in on same-day bookings. A 4-hour window (10am to 2pm) is not enough when you factor in late checkouts, laundry, and unexpected issues.</li>
+            <li><strong>Have a backup cleaner:</strong> One cleaner cancellation should not result in a check-in failure. Build a short list of backup cleaners who know your property and can step in with minimal notice.</li>
+          </ul>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want Consistent 5-Star Turnovers Without the Coordination?</h3>
+            <p>Nurture's <a href="/services/airbnb-cleaning" style="color: var(--color-primary-dark); text-decoration: underline;">Professional Plan</a> includes full cleaning coordination, linen management, and quality checks. 15% management fee, no long-term contracts, and you keep ownership of your listing.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Protect Your Rating. Maximize Your Revenue.</h2>
+        <p>Find out how Nurture's professional cleaning coordination and full management can keep your property at 5-star standard.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .checklist-box {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    background: white;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
