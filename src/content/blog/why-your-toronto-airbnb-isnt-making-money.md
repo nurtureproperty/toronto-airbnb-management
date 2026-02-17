@@ -28,7 +28,7 @@ We see this constantly: hosts with beautiful properties getting zero bookings be
 
 **The fix:** Hire a professional photographer. Seriously. It costs $200 to $400 and will pay for itself within your first few bookings. If you absolutely can't afford that right now, at least shoot during the day with all the lights on, declutter everything, and take wide angle shots from corners.
 
-Check out our [photography service](/services/airbnb-photography) if you want this handled properly.
+Our [Airbnb photography guide](/blog/airbnb-photography-guide-toronto-2026) covers exactly which rooms to shoot, how to stage each space, DIY smartphone technique, and the eight mistakes that silently kill your conversion rate. Check out our [photography service](/services/airbnb-photography) if you want this handled properly.
 
 ## 2. Your Pricing Is All Wrong
 

@@ -1,0 +1,978 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How much does professional Airbnb photography cost in Toronto?", a: "Professional real estate and Airbnb photography in Toronto typically costs $200 to $400 for a standard condo or home shoot. That includes wide-angle shots, HDR editing, and delivery of 20 to 30 edited images. Some photographers charge by the hour ($150/hr) while others offer flat-rate packages. For most hosts, this is one of the best investments you'll make, paying for itself within one or two additional bookings driven by improved conversion." },
+  { q: "Is DIY photography ever good enough for Airbnb?", a: "Yes, but only if you have a modern smartphone (iPhone 14 or later, Samsung S22 or later), shoot in bright daylight conditions, and follow proper staging and technique. DIY photography is acceptable for budget listings or while you're getting started. However, if your listing sits in a competitive market like downtown Toronto or you're targeting higher nightly rates, professional photos will significantly outperform even a well-executed DIY shoot. The wide-angle lens alone makes a visible difference." },
+  { q: "How many photos should I upload to Airbnb?", a: "Aim for 20 to 30 photos. Airbnb's algorithm favours listings with more photos, and guests want to see every room before booking. The sweet spot is 25: enough to tell the full story of the space without padding. More is generally better than fewer. Listings with fewer than 10 photos perform noticeably worse in search rankings and conversion rates." },
+  { q: "What is the best time of day to photograph an Airbnb?", a: "The best light for interior photography is during a bright overcast day, which diffuses sunlight evenly and eliminates harsh shadows. If it's sunny, shoot one to two hours before sunset (golden hour) for warm, flattering light through windows. Avoid midday direct sun, which creates blown-out windows and dark interiors. Always supplement natural light by turning on every lamp, overhead light, and under-cabinet light in the space." },
+  { q: "What editing tools should I use for DIY Airbnb photos?", a: "For smartphone photos, Lightroom Mobile (free) is the best option. Adjust brightness up by 15 to 25 points, add slight contrast (+10), lift shadows (+20), and reduce highlights (-20) to recover window detail. Crop to a 3:2 ratio and make sure the horizon is perfectly straight. Snapseed is a good free alternative. For desktop editing, Adobe Lightroom Classic gives the most control. Avoid Instagram-style filters, which look unprofessional in a listing context." },
+  { q: "Which photo should be the Airbnb cover photo?", a: "Your cover photo is the single most important image. It determines whether a guest clicks on your listing in search results. Use your best, brightest, most visually appealing shot. For most Toronto properties, this is either the living room with natural light and styled furniture, or a bedroom with a made bed and clean white linens. If you have a balcony with a city view, CN Tower view, or lake view, that almost always performs best as a cover photo. Test different covers by tracking how your listing's click-through rate changes." },
+  { q: "Do I need to reshoot my photos after each stay?", a: "No, you don't need to reshoot after each stay. However, you should reshoot when: you renovate or significantly redecorate, guests repeatedly mention in reviews that the space looks different from the photos, seasonal decor changes significantly (Christmas vs. summer), or your current photos are more than two years old. If your booking rate drops without an obvious explanation, outdated or poor photos are often the culprit." },
+  { q: "Does photo quality really affect Airbnb revenue?", a: "Dramatically. Photos are the first and most important factor in a guest's decision to click on your listing. Listings with professional photos earn significantly more per year than those with amateur shots. The Guest Favorite badge, which requires excellent ratings and listings, comes with a 104% revenue premium. Bad photos suppress bookings regardless of how good your pricing, location, or amenities are. The research is clear: photo quality is the highest-ROI improvement most hosts can make." }
+];
+
+const relatedPosts = [
+  { title: "Why Your Toronto Airbnb Isn't Making Money", href: '/blog/why-your-toronto-airbnb-isnt-making-money', description: 'Bad photos are the number one reason listings underperform. See all 9 common problems.' },
+  { title: "First Time Airbnb Host Toronto Guide", href: '/blog/first-time-airbnb-host-toronto-guide', description: 'Step-by-step setup guide including when and how to invest in professional photos.' },
+  { title: "How to Make More from Your Toronto Airbnb", href: '/blog/how-to-make-more-from-toronto-airbnb', description: 'Data-driven analysis of what actually increases bookings and revenue.' }
+];
+
+const tocItems = [
+  { id: 'why-photos-matter', text: 'Why Photos Are Everything' },
+  { id: 'pro-vs-diy', text: 'Professional vs DIY Photography' },
+  { id: 'essential-shots', text: 'The Essential Shots' },
+  { id: 'shot-checklist', text: 'Shot Checklist' },
+  { id: 'staging-tips', text: 'Staging Tips' },
+  { id: 'diy-technique', text: 'DIY Technique Tips' },
+  { id: 'common-mistakes', text: 'Common Mistakes' },
+  { id: 'editing-and-upload', text: 'Editing and Upload Strategy' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Photography Guide 2026 | Listings That Convert";
+const pageDescription = "Airbnb photography guide: pro vs DIY, which rooms to shoot, staging tips, editing, and what actually converts browsers into bookers. Cost breakdown included.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Photography Guide: How to Shoot Listings That Actually Convert",
+  "description": pageDescription,
+  "datePublished": "2026-03-04",
+  "dateModified": "2026-03-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-photography-guide-toronto-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Photography Guide: How to Shoot Listings That Actually Convert</h1>
+      <div class="article-meta">
+        <span class="meta-date">March 4, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Your Airbnb listing gets three seconds. That's how long a guest spends scanning search results before deciding whether to click. <strong>Your cover photo makes or breaks that decision, and every photo after it either builds trust or destroys it.</strong> This guide covers everything you need to know: professional vs DIY, which rooms to shoot, staging, technique, editing, and the mistakes that silently kill your conversion rate.</p>
+          </div>
+
+          <h2 id="why-photos-matter">Why Photos Are the Single Most Important Factor</h2>
+          <p>Guests don't read your description before clicking. They don't check your amenities list, your reviews, or your price. They look at your cover photo. If it doesn't grab them, they scroll. If it does, they click through and your other photos either confirm the decision or create doubt.</p>
+
+          <p>The data backs this up consistently. Listings with professional photography earn significantly more per year than comparable listings with amateur photos. The Airbnb Guest Favorite badge, which requires excellent photos alongside strong ratings, carries a <strong>104% revenue premium</strong> over non-badged listings. And properties with 100 or more reviews earn an average of $4,684 per month versus $1,307 for listings with fewer than 10 reviews. Photos drive the initial bookings that generate those reviews.</p>
+
+          <p>If you've followed the <a href="/blog/why-your-toronto-airbnb-isnt-making-money" style="color: var(--color-primary-dark); text-decoration: underline;">research on underperforming Airbnb listings</a>, you already know that bad photos top the list of reasons hosts leave money on the table. It's the highest-leverage fix available to most hosts, and it's often the cheapest relative to the return.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The 3-Second Rule:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Guests spend approximately three seconds deciding whether to click on a listing. Your cover photo is doing all the selling in those three seconds. Everything else, your price, your description, your amenities, only matters after the click.</p>
+            </div>
+          </div>
+
+          <h2 id="pro-vs-diy">Professional Photography vs DIY: Making the Right Call</h2>
+          <p>The first decision every host faces is whether to hire a professional or shoot it themselves. The honest answer depends on your budget, your phone, and your market.</p>
+
+          <h3>The Case for Professional Photography</h3>
+          <p>Professional real estate and Airbnb photography in Toronto costs $200 to $400 for a standard shoot. That includes a wide-angle lens (which dramatically increases apparent room size), HDR processing (which balances bright windows with dark interiors), professional editing, and delivery of 20 to 30 finished images within 24 to 48 hours.</p>
+
+          <p>The ROI calculation is straightforward. If professional photos help you convert one additional booking per month at $150 per night for two nights, that's $300 in additional revenue. Your $300 investment pays for itself within the first month and then continues generating returns every month after that. For a listing charging $200 per night, it pays back in a single booking.</p>
+
+          <p>Beyond the financial return, professional photographers bring a trained eye for composition, they know how to use supplemental lighting, and they can make a 500-square-foot condo look genuinely spacious. Attempting to replicate those results with a smartphone requires significant effort and rarely achieves the same output.</p>
+
+          <p><strong>Professional photography is the right choice for most Toronto hosts</strong>, particularly those in competitive neighbourhoods like downtown, King West, the Annex, or Distillery District where your photos are competing against other professionally shot listings.</p>
+
+          <h3>When DIY Is Acceptable</h3>
+          <p>DIY photography makes sense in a few specific situations: you genuinely cannot afford $200 right now, your listing is in a lower-competition market where most nearby photos are also amateur, or you're testing the waters before committing to a full professional shoot.</p>
+
+          <p>If you go the DIY route, you'll need a modern smartphone with a wide-angle lens mode (iPhone 14 or later, Samsung Galaxy S22 or later), excellent natural light, a thorough understanding of staging, and time to take 50 to 100 shots and select the best. The technique section below covers everything you need to execute a competent DIY shoot.</p>
+
+          <div class="comparison-boxes">
+            <div class="comparison-box">
+              <h4 class="comparison-label pro">Professional Photography</h4>
+              <ul>
+                <li>Cost: $200 to $400 in Toronto</li>
+                <li>Wide-angle lens (shoots rooms larger)</li>
+                <li>HDR processing (balances window light)</li>
+                <li>Professional staging eye</li>
+                <li>Consistent colour correction</li>
+                <li>Delivered in 24 to 48 hours</li>
+                <li>Best for: all competitive markets</li>
+              </ul>
+            </div>
+            <div class="comparison-box">
+              <h4 class="comparison-label diy">DIY Photography</h4>
+              <ul>
+                <li>Cost: Free (requires modern smartphone)</li>
+                <li>Limited by phone's lens width</li>
+                <li>Requires bright natural light conditions</li>
+                <li>Takes 2 to 4 hours of setup and shooting</li>
+                <li>Results depend heavily on skill</li>
+                <li>Editing still required (Lightroom Mobile)</li>
+                <li>Best for: low-competition markets, tight budgets</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 id="essential-shots">The Essential Shots (In Order of Importance)</h2>
+          <p>Every Airbnb listing needs the same core set of photos. Here's the priority order and what to aim for in each shot.</p>
+
+          <h3>1. The Cover Photo</h3>
+          <p>Your cover photo appears in search results, on the map view, and at the top of your listing. It's the most important single image in your listing. Use your best, brightest, most visually compelling shot.</p>
+
+          <p>For most Toronto properties, the best cover photo is either the living room with natural light and well-staged furniture, or the primary bedroom with a made bed and crisp white linens. If you have a balcony or window with a city view, CN Tower sightline, or lake view, that image almost always outperforms an interior shot. Views are emotionally compelling in a way that furniture simply isn't.</p>
+
+          <p>Test your cover photo. If your booking rate is lower than you'd expect, swap to a different cover and monitor whether click-through improves over two to four weeks.</p>
+
+          <h3>2. Bedroom(s)</h3>
+          <p>The bedroom is typically what guests are most interested in seeing. Shoot from the doorway corner with the camera at waist height. The bed should be perfectly made with clean, wrinkle-free linens (white photographs best). Include both nightstands, lamps, and any window light. Symmetry matters here: centered headboard, matching nightstands, evenly arranged pillows.</p>
+
+          <h3>3. Kitchen</h3>
+          <p>Clear the counters completely, then add back only a few styled items: a coffee maker, a small plant or herb pot, a bowl of fruit. Shoot from a corner to capture as much of the space as possible. Open cabinet doors that reveal clean dishware. Turn on under-cabinet lighting.</p>
+
+          <h3>4. Bathroom</h3>
+          <p>The bathroom must look spotless. Fold fresh towels into the hotel-style fold, arrange toiletries neatly, and keep the toilet seat down (non-negotiable). Good lighting is critical because bathrooms often have poor natural light. Turn on every light source, including vanity lights. Remove all personal items from the counter.</p>
+
+          <h3>5. Living Area</h3>
+          <p>Style the space as if a guest just arrived and made themselves comfortable. Fluff the cushions, open the curtains fully, and ensure the TV is visible. Avoid cluttered coffee tables. A couple of decorative items (candle, small plant, design book) add warmth without visual noise.</p>
+
+          <h3>6. View or Balcony</h3>
+          <p>If your property has any outdoor space or a view worth showing, photograph it. In Toronto, skyline views, CN Tower sightlines, and lake views are significant booking drivers for both leisure and corporate travellers. Shoot at blue hour (just after sunset) for a dramatic city view with lit windows.</p>
+
+          <h3>7. Workspace</h3>
+          <p>If you're targeting the <a href="/blog/airbnb-corporate-travel-toronto-guide-2026" style="color: var(--color-primary-dark); text-decoration: underline;">business traveller market</a>, a clean, well-lit desk setup with a monitor or at minimum a lamp and clear surface is a meaningful differentiator. Corporate guests filter listings by workspace availability.</p>
+
+          <h3>8. Building Amenities</h3>
+          <p>If your building has a pool, gym, rooftop terrace, or lobby worth showing, include those photos. Ask building management for permission first. These amenities add perceived value and help guests understand what they're getting beyond the unit itself.</p>
+
+          <h3>9. Neighbourhood</h3>
+          <p>A few street-level shots of nearby restaurants, parks, or transit stations help guests visualize the experience. These aren't mandatory but add depth to listings in desirable neighbourhoods where walkability is a selling point.</p>
+
+          <h2 id="shot-checklist">Shot Checklist: What to Capture in Every Listing</h2>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Room / Area</th>
+                  <th>Minimum Shots</th>
+                  <th>Key Details to Capture</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cover / Hero Shot</strong></td>
+                  <td>1 (select best)</td>
+                  <td>Best composition, natural light, styled</td>
+                  <td>Essential</td>
+                </tr>
+                <tr>
+                  <td><strong>Primary Bedroom</strong></td>
+                  <td>2 to 3</td>
+                  <td>Made bed, symmetry, window light, wide angle</td>
+                  <td>Essential</td>
+                </tr>
+                <tr>
+                  <td><strong>Additional Bedrooms</strong></td>
+                  <td>1 to 2 each</td>
+                  <td>Made bed, adequate lighting</td>
+                  <td>Essential (if applicable)</td>
+                </tr>
+                <tr>
+                  <td><strong>Kitchen</strong></td>
+                  <td>2 to 3</td>
+                  <td>Clean counters, styled, appliances visible</td>
+                  <td>Essential</td>
+                </tr>
+                <tr>
+                  <td><strong>Bathroom</strong></td>
+                  <td>1 to 2</td>
+                  <td>Spotless, folded towels, toiletries arranged</td>
+                  <td>Essential</td>
+                </tr>
+                <tr>
+                  <td><strong>Living Room</strong></td>
+                  <td>2 to 3</td>
+                  <td>Styled, TV visible, natural light, cushions fluffed</td>
+                  <td>Essential</td>
+                </tr>
+                <tr>
+                  <td><strong>Dining Area</strong></td>
+                  <td>1 to 2</td>
+                  <td>Table set or clean, chairs visible</td>
+                  <td>Important</td>
+                </tr>
+                <tr>
+                  <td><strong>Balcony / Outdoor</strong></td>
+                  <td>1 to 2</td>
+                  <td>Furniture visible, view prominent</td>
+                  <td>Important (if applicable)</td>
+                </tr>
+                <tr>
+                  <td><strong>View</strong></td>
+                  <td>1 to 2</td>
+                  <td>City skyline, CN Tower, lake, park</td>
+                  <td>High (if noteworthy)</td>
+                </tr>
+                <tr>
+                  <td><strong>Workspace</strong></td>
+                  <td>1</td>
+                  <td>Desk, lamp, monitor or clear surface</td>
+                  <td>Important for business listings</td>
+                </tr>
+                <tr>
+                  <td><strong>Building Amenities</strong></td>
+                  <td>1 to 2 per amenity</td>
+                  <td>Pool, gym, rooftop, lobby</td>
+                  <td>Include if available</td>
+                </tr>
+                <tr>
+                  <td><strong>Neighbourhood</strong></td>
+                  <td>1 to 2</td>
+                  <td>Street, nearby restaurants, park, transit</td>
+                  <td>Optional but helpful</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Target 20 to 30 total photos. Airbnb's algorithm favours listings with more images, and guests use photos to make booking decisions. More is better than fewer, provided every photo shows the property in a positive light.</p>
+
+          <h2 id="staging-tips">Staging Tips That Make a Measurable Difference</h2>
+          <p>No amount of photography skill can save a poorly staged room. Before the camera comes out, the space needs to be presentation-ready. These are the staging principles that consistently produce better photos.</p>
+
+          <h3>Declutter Ruthlessly</h3>
+          <p>Less is more in property photography. Remove everything from countertops except the items you're deliberately styling. Clear nightstands of everything except lamps. Take down family photos, personal art, and magnets from the fridge. The goal is a clean, neutral canvas that guests can project themselves onto.</p>
+
+          <h3>Add Intentional Warmth</h3>
+          <p>Empty rooms feel sterile and uninviting. Add small, deliberate touches that make the space feel lived-in without looking cluttered: a vase of fresh flowers or a plant on the kitchen counter, a decorative book and candle on the coffee table, a folded throw on the couch. These details signal "welcoming home" rather than "vacant rental."</p>
+
+          <h3>Use White Linens</h3>
+          <p>White linens photograph dramatically better than coloured or patterned ones. They look clean, fresh, and hotel-quality. If you currently use dark or patterned bedding, switching to white is one of the most cost-effective staging upgrades you can make. A crisp white duvet with white pillowcases photographs beautifully even with a basic camera.</p>
+
+          <h3>Style the Bathroom Like a Hotel</h3>
+          <p>Fold towels in the classic hotel style (thirds horizontally, then in half), arrange them on the towel bar or folded neatly at the foot of the bathtub. Put a small plant or single candle on the counter. Arrange toiletries symmetrically. Every personal item, razors, medications, and hair products, should be out of frame completely.</p>
+
+          <h3>Open Every Curtain and Blind</h3>
+          <p>Natural light is the most flattering light for interior photography. Open all curtains and blinds fully before shooting. If direct sun is creating harsh shadows, a sheer curtain diffuses it while still letting light in. Shooting on a bright overcast day is ideal because the clouds act as a natural softbox.</p>
+
+          <h3>Turn On All Artificial Lights</h3>
+          <p>Even with strong natural light, turn on every lamp, overhead light, under-cabinet light, and bathroom vanity light in the space. Layered lighting adds warmth, fills shadows, and creates a more inviting atmosphere in photos.</p>
+
+          <h2 id="diy-technique">DIY Technique Tips: Getting the Most from Your Smartphone</h2>
+          <p>If you're shooting your own listing, technique makes the difference between photos that look amateur and photos that look competent. Follow these principles precisely.</p>
+
+          <h3>Timing: When to Shoot</h3>
+          <p>The best conditions for DIY interior photography are a bright overcast day (clouds diffuse sunlight evenly) or the one to two hours before sunset on a sunny day. Avoid shooting in direct midday sun, which blows out windows and creates harsh interior shadows. Avoid shooting at night even with all lights on, because artificial light alone rarely produces flattering results.</p>
+
+          <h3>Camera Position</h3>
+          <p>Hold your phone at waist height, not eye level. Shooting from around 100 centimetres off the ground creates a more natural, spacious-feeling perspective. Eye-level shots make ceilings feel low and rooms feel small. From a corner, not the middle of a wall, so you capture two walls and the full depth of the room.</p>
+
+          <h3>Use Wide-Angle Mode</h3>
+          <p>Modern iPhones and Samsung flagships have an ultra-wide lens option (typically 0.5x in the camera app). Use it for room shots. It significantly increases apparent room size and matches the look of professional real estate photography. For detail shots (the coffee station, toiletries arrangement, a styled bookshelf), use the standard lens or even portrait mode.</p>
+
+          <h3>HDR and Editing Modes</h3>
+          <p>Enable HDR mode in your camera settings if it isn't on by default. HDR (High Dynamic Range) captures multiple exposures and combines them, which helps balance bright windows with darker interior walls. On iPhone, Smart HDR is enabled by default. On Android, look for HDR in the camera settings menu.</p>
+
+          <h3>Take More Shots Than You Think You Need</h3>
+          <p>For each room, shoot 8 to 15 frames from slightly different angles and positions. The difference between the best shot and the second-best shot from a session is often significant. You're not paying per frame, so take enough to give yourself real options in editing.</p>
+
+          <h2 id="common-mistakes">Common Mistakes That Kill Your Listing's Performance</h2>
+          <p>These are the photo errors we see most often in Toronto listings, and each one costs hosts real money.</p>
+
+          <div class="mistakes-grid">
+            <div class="mistake-card">
+              <div class="mistake-number">1</div>
+              <h4>Dark Photos</h4>
+              <p>The most common and most damaging mistake. Dark rooms look small, uninviting, and like they're hiding something. If your photos look dark on your phone screen, they look terrible on a laptop. Open every curtain, turn on every light, and edit brightness up.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">2</div>
+              <h4>Vertical Orientation</h4>
+              <p>Airbnb displays photos in landscape (horizontal) format. Photos taken in portrait mode (holding the phone upright) are cropped in a way that wastes most of the frame. Always shoot rooms in landscape orientation.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">3</div>
+              <h4>Too Few Photos</h4>
+              <p>Listings with fewer than 10 photos perform noticeably worse in Airbnb's search algorithm and convert at lower rates. Guests want to see every room. Fewer photos create doubt, not mystery.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">4</div>
+              <h4>Toilet Lid Up</h4>
+              <p>A small detail that guests notice instantly. Before shooting the bathroom, close the toilet lid. It's a simple fix that separates professional-looking listings from amateur ones.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">5</div>
+              <h4>Mirror Shots Showing the Photographer</h4>
+              <p>Any large mirror in the frame becomes a problem if you're visible in it. Either position yourself out of the frame, use the phone's timer with a tripod, or reframe the shot to exclude the mirror.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">6</div>
+              <h4>Misleading Wide-Angle Use</h4>
+              <p>Shooting with an extremely wide lens can make rooms look much larger than they actually are. Guests who arrive and find the space significantly smaller than expected leave negative reviews. Use wide-angle to show the room naturally, not to misrepresent it.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">7</div>
+              <h4>Cluttered or Messy Rooms</h4>
+              <p>Staging happens before the camera comes out. A technically excellent photo of a cluttered room is still a bad listing photo. Allow enough time to properly prepare each room before shooting.</p>
+            </div>
+            <div class="mistake-card">
+              <div class="mistake-number">8</div>
+              <h4>Outdated Photos After Renovations</h4>
+              <p>If you've renovated your kitchen, updated furniture, or made any significant changes since your last shoot, your photos no longer represent your listing accurately. Reshoot. Outdated photos mislead guests and generate disappointed reviews.</p>
+            </div>
+          </div>
+
+          <h2 id="editing-and-upload">Editing Basics and Upload Strategy</h2>
+          <p>Even professional photos benefit from light editing. For DIY photos, editing is essential.</p>
+
+          <h3>Editing Fundamentals</h3>
+          <p>Use Lightroom Mobile (free) or Snapseed for smartphone photos. The key adjustments for Airbnb photography are:</p>
+          <ul>
+            <li><strong>Exposure/Brightness:</strong> Increase by 15 to 25 points. Interior photos almost always benefit from being slightly brighter than they look straight from the camera.</li>
+            <li><strong>Highlights:</strong> Reduce by 20 to 30 points to recover blown-out window detail.</li>
+            <li><strong>Shadows:</strong> Increase by 20 to 30 points to lift dark corners and interior shadows.</li>
+            <li><strong>Contrast:</strong> Add 10 points to prevent the image from looking flat after brightness adjustments.</li>
+            <li><strong>White Balance:</strong> Ensure the image looks neutral, not too warm (yellow) or too cool (blue). Interiors often need a slight cooling adjustment to counteract warm lamp light.</li>
+            <li><strong>Straighten:</strong> Ensure all vertical lines (door frames, walls) are perfectly straight. Tilted photos look unprofessional immediately.</li>
+            <li><strong>Crop:</strong> Crop to a 3:2 ratio, which is the standard landscape format and matches Airbnb's display dimensions.</li>
+          </ul>
+
+          <p>Avoid heavy filtering, artificial vignettes, or any adjustment that makes the space look dramatically different from how it actually appears in person.</p>
+
+          <h3>How Many Photos to Upload</h3>
+          <p>The target range is 20 to 30 photos. Airbnb's algorithm rewards listings with more photos, and guest conversion improves with more complete visual coverage. If you have a 1-bedroom condo, 20 photos is appropriate. For a 3-bedroom house, 30 or more is reasonable. More is better than fewer, provided every photo adds value.</p>
+
+          <h3>Photo Order Strategy</h3>
+          <p>Airbnb uses your first five photos in search result previews and when guests hover over your listing. The order matters. Structure your photo sequence strategically:</p>
+          <ol>
+            <li>Cover photo (your absolute best shot)</li>
+            <li>Second compelling shot (bedroom or view)</li>
+            <li>Living area</li>
+            <li>Kitchen</li>
+            <li>Another bedroom or amenity</li>
+            <li>Bathroom(s)</li>
+            <li>Detail shots and neighbourhood photos at the end</li>
+          </ol>
+
+          <p>Put your strongest photos first. Guests who click through your listing may not scroll to the end, so front-load the most impressive images.</p>
+
+          <h3>When to Reshoot</h3>
+          <p>Plan to reshoot your listing photography in these situations: after any renovation or significant furniture change, if guests repeatedly mention in reviews that the space doesn't match the photos, after more than two years have passed since the last shoot, or if your booking rate drops without an obvious explanation like seasonal slowdown or price changes.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Nurture's Photography Service</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">When you manage your property with Nurture, professional listing photography is included as part of your <a href="/services/airbnb-photography" style="color: var(--color-primary-dark); text-decoration: underline;">listing setup</a>. We handle the full shoot, editing, and strategic photo ordering to maximize click-through rate and conversion from day one. Our management fee is 10 to 15%, with no startup costs and no long-term contracts.</p>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want Professional Photos as Part of Your Listing Setup?</h3>
+            <p>Nurture includes professional photography with full <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">Airbnb management</a>. We handle everything from the shoot to listing optimization. Call us at (647) 957-8956 or get your free estimate below.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Maximize Your Listing's Revenue</h2>
+        <p>Great photos are just the start. Find out how Nurture can help you earn more from your Toronto property.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  /* Pro vs DIY comparison boxes */
+  .comparison-boxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .comparison-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .comparison-label {
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  .comparison-label.pro {
+    border-bottom-color: var(--color-primary);
+    color: var(--color-primary-dark);
+  }
+
+  .comparison-label.diy {
+    border-bottom-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  .comparison-box ul {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .comparison-box li {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Mistakes grid */
+  .mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .mistake-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .mistake-number {
+    width: 28px;
+    height: 28px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .mistake-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .mistake-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-boxes {
+      grid-template-columns: 1fr;
+    }
+
+    .mistakes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

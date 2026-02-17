@@ -155,7 +155,7 @@ Don't overlook the details. Guests notice when there's no can opener, when the w
 
 Your listing is your sales page. It needs to do three things: grab attention, build trust, and answer questions.
 
-**Photos first:** Get professional photos. We've said it before, we'll say it again. This is the single most important factor in getting bookings. A professional photographer costs $200 to $400 and will pay for itself quickly. See our [photography service](/services/airbnb-photography) if you want help.
+**Photos first:** Get professional photos. We've said it before, we'll say it again. This is the single most important factor in getting bookings. A professional photographer costs $200 to $400 and will pay for itself quickly. See our [complete Airbnb photography guide](/blog/airbnb-photography-guide-toronto-2026) for staging tips, DIY technique, and what rooms to prioritize, or visit our [photography service](/services/airbnb-photography) if you want it handled for you.
 
 **Title that stands out:** Skip generic titles like "Nice condo downtown." Be specific and highlight your best feature. "CN Tower Views from Bed - King West 1BR" tells guests something useful.
 
