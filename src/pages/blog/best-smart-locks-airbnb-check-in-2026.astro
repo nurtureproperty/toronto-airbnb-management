@@ -1,0 +1,913 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need WiFi for a smart lock to work?", a: "It depends on the lock. Most popular smart locks (Schlage Encode Plus, Yale Assure Lock 2, August WiFi) require WiFi for remote code management and PMS integration. The igloohome Smart Deadbolt is the major exception: it uses offline PIN codes generated via Bluetooth, which makes it ideal for cottages or rural properties with unreliable internet. Bluetooth-only locks like the Wyze Lock Bolt also work without WiFi but have limited remote management capabilities." },
+  { q: "What is the best budget smart lock for Airbnb?", a: "The Wyze Lock Bolt ($70-90) is the most affordable option with fingerprint and PIN access. However, it uses Bluetooth only and has limited property management software integration, which means you'll need to set guest codes manually. For hosts managing multiple properties or bookings, the igloohome Smart Deadbolt ($150-200) is a better budget pick because it offers automatic PIN generation and syncs with most PMS platforms, even without constant WiFi." },
+  { q: "Can I install a smart lock on my condo door in Toronto?", a: "Many Toronto condo corporations prohibit modifications to exterior doors, including replacing the deadbolt entirely. In this case, a retrofit smart lock like the August WiFi Smart Lock is your best option. It installs on the interior side of your existing deadbolt, replacing only the thumb-turn mechanism, so the exterior keyway remains intact and unchanged. Always check your condo declaration and get written approval from your property management office before installing any lock." },
+  { q: "How do smart locks integrate with property management software?", a: "Most WiFi-enabled smart locks integrate with popular property management software platforms via API. When a booking is confirmed, the PMS automatically generates a unique, time-limited PIN code for that guest, then sends it to the lock. The code activates at the check-in time and expires at checkout. Hosts never need to manually create or share codes. Schlage, Yale, August, and igloohome all offer certified integrations with major PMS platforms." },
+  { q: "What happens if the smart lock battery dies?", a: "Most smart locks include a low-battery alert sent to your phone (usually at 20% and again at 10%) giving you weeks of advance notice. In an emergency, most locks allow temporary power via a 9-volt battery held against external terminals to provide enough charge to open the door. This is why a physical backup plan is still essential: keep an emergency lockbox with a key somewhere accessible, and ensure your property manager or a trusted contact has a spare key." },
+  { q: "Are smart lock codes truly secure for short-term rentals?", a: "Yes, when used correctly. The security comes from auto-expiring codes: each guest gets a unique PIN that works only during their stay window and becomes invalid at checkout. Unlike static lockbox codes that can be written down or shared indefinitely, auto-expiring codes are useless after the stay ends. Most platforms also provide an audit trail showing exactly when each code was used, which is valuable for resolving any access disputes." },
+  { q: "Which smart lock has the best battery life?", a: "The igloohome Smart Deadbolt leads on battery life, rated for up to 12-18 months on four AA batteries because it does not maintain a constant WiFi connection. Yale Assure Lock 2 and Schlage Encode Plus are rated for 6-12 months. August WiFi Smart Lock typically lasts 3-6 months due to its always-on WiFi module. Battery life shortens significantly in cold Canadian winters, so factor in seasonal replacements for outdoor-exposed locks." },
+  { q: "Can I still use a physical key with a smart lock?", a: "Most smart deadbolts retain a physical key slot as a backup. The August WiFi Smart Lock is a retrofit solution that keeps your existing deadbolt entirely, so guests and you can still use the original key if needed. Schlage Encode Plus, Yale Assure Lock 2, and igloohome all include a keyed cylinder. The Wyze Lock Bolt is a notable exception with fingerprint-only backup alongside the PIN, with no traditional key slot." }
+];
+
+const relatedPosts = [
+  { title: "Airbnb Guest Screening & Party Prevention", href: '/blog/airbnb-guest-screening-party-prevention-guide-2026', description: 'Combine smart access control with guest verification for maximum property protection' },
+  { title: "Airbnb Superhost 2026: How to Get & Keep Status", href: '/blog/airbnb-superhost-guide-2026', description: 'Self check-in and fast response times are key metrics for earning Superhost' },
+  { title: "Can I Airbnb My Condo in Toronto?", href: '/blog/can-i-airbnb-my-condo-toronto-2026', description: 'Condo-specific considerations including lock restrictions and board rules' }
+];
+
+const tocItems = [
+  { id: 'why-self-check-in', text: 'Why Self Check-In Matters' },
+  { id: 'check-in-options', text: 'Check-In Options Compared' },
+  { id: 'best-smart-locks', text: 'Best Smart Locks for Airbnb' },
+  { id: 'what-to-look-for', text: 'What to Look For' },
+  { id: 'automated-codes', text: 'Automated Guest Codes' },
+  { id: 'condo-considerations', text: 'Condo Considerations' },
+  { id: 'backup-access', text: 'Backup Access Plans' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Best Smart Locks & Check-In for Airbnb Hosts 2026";
+const pageDescription = "Best Airbnb smart locks compared: August, Yale, Schlage, igloohome. Remote code management, PMS integration, and self check-in setup guide for hosts.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Best Smart Locks and Check-In Systems for Airbnb Hosts 2026",
+  "description": pageDescription,
+  "datePublished": "2026-02-22",
+  "dateModified": "2026-02-22",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/best-smart-locks-airbnb-check-in-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Best Smart Locks and Check-In Systems for Airbnb Hosts 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 22, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Self check-in is no longer a nice-to-have for Airbnb hosts. <strong>It directly impacts your Superhost status, your guest ratings, and your ability to scale beyond one property.</strong> The right smart lock automates guest access, generates expiring codes for every booking, and integrates with your property management software so you never have to manually share a code again.</p>
+          </div>
+
+          <h2 id="why-self-check-in">Why Self Check-In Matters More Than Ever</h2>
+          <p>Airbnb's algorithm rewards listings that guests love, and seamless arrival is one of the first impressions that defines the entire stay. Self check-in has become the most requested amenity on Airbnb globally, and hosts who offer it consistently earn higher overall ratings.</p>
+
+          <p>The business case for smart locks goes beyond convenience. Nurture's average response time is under 9 minutes, which contributes directly to Superhost qualification. But response time only gets you so far if guests are waiting at the door because key handoff fell through. Smart locks close that gap entirely.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Superhost Status</h4>
+              <p>Airbnb tracks check-in rating as a core metric. Hosts with seamless self check-in consistently score 5 stars on arrival, a key input for the overall rating that determines Superhost qualification.</p>
+            </div>
+            <div class="info-card">
+              <h4>Guest Favorite Badge</h4>
+              <p>Listings that earn the Guest Favorite badge command a 104% revenue premium on average. Consistently excellent check-in experiences are one of the fastest ways to accumulate the five-star reviews that unlock this badge.</p>
+            </div>
+            <div class="info-card">
+              <h4>Late Arrival Freedom</h4>
+              <p>Guests arrive at all hours. Smart locks eliminate the stress of coordinating key handoffs for late flights, delayed trains, or guests who simply lost track of time. They check in on their schedule, not yours.</p>
+            </div>
+          </div>
+
+          <h2 id="check-in-options">Check-In Options: A Clear Comparison</h2>
+          <p>Before diving into specific smart lock models, it helps to understand the three main access options and where each makes sense.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Cost</th>
+                  <th>Guest Experience</th>
+                  <th>Security</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Smart Lock</strong></td>
+                  <td>$70-$300</td>
+                  <td>Excellent: unique code per stay, no coordination needed</td>
+                  <td>High: auto-expiring codes, audit trail</td>
+                  <td>All hosts managing more than one booking per month</td>
+                </tr>
+                <tr>
+                  <td><strong>Lockbox</strong></td>
+                  <td>$20-$80</td>
+                  <td>Acceptable but dated</td>
+                  <td>Low: static code can be shared indefinitely</td>
+                  <td>Budget setups, very occasional rentals</td>
+                </tr>
+                <tr>
+                  <td><strong>In-Person Key Exchange</strong></td>
+                  <td>$0</td>
+                  <td>Poor: scheduling conflicts, late arrivals cause friction</td>
+                  <td>Medium: key can be copied</td>
+                  <td>Not recommended for Airbnb hosts</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Lockboxes are often seen as a budget-friendly smart lock alternative, but they have a critical flaw for short-term rentals: the code is static. Every guest who ever stayed has the code. Changing it requires a manual visit to the property. For any host with more than a handful of bookings per year, a smart lock pays for itself in security alone, before accounting for the time savings on code management.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The Key Exchange Problem:</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">In-person key handoff is the worst option for Airbnb hosts at scale. It ties every check-in to your schedule, creates friction for guests arriving off-hours, and makes it impossible to manage more than one or two properties without a local assistant. Smart locks are the foundation of a scalable hosting operation.</p>
+            </div>
+          </div>
+
+          <h2 id="best-smart-locks">Best Smart Locks for Airbnb Hosts in 2026</h2>
+          <p>Not all smart locks are built for short-term rental use. The models below were selected specifically for their PMS integration capability, remote code management, reliability in Canadian conditions, and guest ease of use.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Lock</th>
+                  <th>Price</th>
+                  <th>Connectivity</th>
+                  <th>PMS Integration</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Schlage Encode Plus</strong></td>
+                  <td>$250-$300</td>
+                  <td>WiFi built-in</td>
+                  <td>Excellent</td>
+                  <td>Hosts who want the most reliable, no-hub setup</td>
+                </tr>
+                <tr>
+                  <td><strong>Yale Assure Lock 2</strong></td>
+                  <td>$200-$280</td>
+                  <td>WiFi module</td>
+                  <td>Excellent</td>
+                  <td>Hosts who want a sleek, design-forward lock</td>
+                </tr>
+                <tr>
+                  <td><strong>August WiFi Smart Lock</strong></td>
+                  <td>$200-$250</td>
+                  <td>WiFi built-in</td>
+                  <td>Excellent</td>
+                  <td>Condos with exterior door restrictions</td>
+                </tr>
+                <tr>
+                  <td><strong>igloohome Smart Deadbolt</strong></td>
+                  <td>$150-$200</td>
+                  <td>Bluetooth + offline PIN</td>
+                  <td>Good</td>
+                  <td>Cottages, rural properties, unreliable WiFi</td>
+                </tr>
+                <tr>
+                  <td><strong>Kwikset Halo</strong></td>
+                  <td>$150-$200</td>
+                  <td>WiFi built-in</td>
+                  <td>Good</td>
+                  <td>Mid-range option with broad compatibility</td>
+                </tr>
+                <tr>
+                  <td><strong>Wyze Lock Bolt</strong></td>
+                  <td>$70-$90</td>
+                  <td>Bluetooth only</td>
+                  <td>Limited</td>
+                  <td>Budget-conscious hosts with simple needs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Schlage Encode Plus: Best Overall</h3>
+          <p>The Schlage Encode Plus is the gold standard for Airbnb property managers. Built-in WiFi means no hub or bridge is required, and it connects directly to your router for remote access. Schlage's reputation for commercial-grade security carries over here: the lock is BHMA Grade 1 certified, the highest residential security rating available.</p>
+
+          <p>What makes it stand out for short-term rentals is its rock-solid PMS integration. It works seamlessly with all major property management software platforms, allowing automatic code generation and expiry tied to booking windows. Apple Home Key support (tap your iPhone to unlock) is a premium feature guests love. The price of $250-300 is at the top end, but the reliability justifies it for serious hosts.</p>
+
+          <h3>Yale Assure Lock 2: Best Design</h3>
+          <p>Yale's Assure Lock 2 brings a clean, minimalist look that fits modern condo interiors far better than most competing locks. The WiFi module (purchased separately or in a bundle) enables the same remote management and PMS integration as the Schlage. It operates within the August app ecosystem, which has an excellent reputation for stability and feature updates.</p>
+
+          <p>At $200-280, it sits in the mid-to-high range but offers a strong combination of aesthetics, reliability, and integration depth. The Yale name is trusted by building management, which can help when seeking condo board approval.</p>
+
+          <h3>August WiFi Smart Lock: Best for Condos</h3>
+          <p>The August WiFi Smart Lock is a retrofit solution, meaning it replaces only the interior thumb-turn of your existing deadbolt. The exterior of the door remains unchanged, which is critical for Toronto condo hosts whose buildings prohibit exterior door modifications. See the <a href="/blog/can-i-airbnb-my-condo-toronto-2026">condo Airbnb guide</a> for more on board restrictions.</p>
+
+          <p>Installation takes about 15 minutes with no special tools. The built-in WiFi enables full remote management and PMS integration, and the auto-lock feature ensures the door is never accidentally left unlocked. At $200-250, it's competitively priced given its retrofit capability. The one trade-off: the interior unit is larger and more visible than a full deadbolt replacement.</p>
+
+          <h3>igloohome Smart Deadbolt: Best for Remote Properties</h3>
+          <p>igloohome's standout feature is its offline PIN technology. Codes are cryptographically generated in the cloud and synced to the lock via Bluetooth, but once set, they work without any WiFi or Bluetooth connection at the door. This is transformative for cottage hosts or rural properties where internet reliability is inconsistent.</p>
+
+          <p>Despite the offline-first design, igloohome integrates with most PMS platforms via cloud sync. Codes are generated automatically per booking and programmed to expire at checkout. Battery life is exceptional: 12-18 months on standard AA batteries because the lock draws no power for WiFi. At $150-200, it is excellent value for the specific use case it solves.</p>
+
+          <h3>Kwikset Halo: Solid Mid-Range</h3>
+          <p>The Kwikset Halo offers built-in WiFi and PMS compatibility at a mid-range price of $150-200. Kwikset's SmartKey re-key technology allows you to change the physical key without a locksmith. It lacks the premium feel of Schlage or Yale but performs reliably for everyday hosting. A practical choice for hosts who want WiFi capability without the premium price tag.</p>
+
+          <h3>Wyze Lock Bolt: Budget Pick</h3>
+          <p>At $70-90, the Wyze Lock Bolt is the most affordable option on this list. It offers fingerprint access and PIN entry, but it runs on Bluetooth only, which means remote access requires a separate hub and guest code management is largely manual. PMS integration is limited compared to WiFi-enabled competitors. Suitable for hosts managing a single listing on a tight budget who don't mind setting codes by hand for each booking.</p>
+
+          <h2 id="what-to-look-for">What to Look For When Choosing a Smart Lock</h2>
+          <p>The right lock depends on your property type, internet setup, and how you manage bookings. Here are the key factors to evaluate.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Connectivity: WiFi vs Bluetooth vs Z-Wave</h4>
+              <p>WiFi locks connect directly to your router and allow remote management from anywhere. Bluetooth locks require you or a guest to be physically nearby. Z-Wave locks require a separate hub. For most Airbnb hosts, built-in WiFi is the right choice for remote property management.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>PMS Integration</h4>
+              <p>If you use property management software to automate bookings, cleaning schedules, and guest communication, verify the lock has a certified integration. Without it, you're generating and sending codes manually for every stay, which defeats the purpose.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Auto-Expiring Codes</h4>
+              <p>This is non-negotiable for security. The lock must support time-limited codes that automatically deactivate at checkout. Any lock that only supports static codes is a security liability for a short-term rental with rotating guests.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Battery Life and Alerts</h4>
+              <p>Canadian winters accelerate battery drain. Look for locks with multi-month battery life and low-battery alerts sent to your phone. A dead lock during a guest stay is a five-star review killer. Plan for seasonal battery replacements regardless of rated life.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Retrofit vs Full Replacement</h4>
+              <p>Retrofit locks (like August) replace only the interior mechanism. Full replacement locks (Schlage, Yale, igloohome) replace the entire deadbolt. Condos with exterior modification restrictions require a retrofit solution. Standalone properties can use either.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Audit Trail</h4>
+              <p>A log showing exactly when each code was used provides accountability. If a guest claims they couldn't get in, or if something goes missing after checkout, the access log tells you who entered the property and when. Most WiFi locks include this feature.</p>
+            </div>
+          </div>
+
+          <h2 id="automated-codes">Setting Up Automated Guest Codes</h2>
+          <p>The real power of a smart lock for Airbnb hosting isn't the hardware. It's the automation layer that sits on top. When your lock integrates with property management software, the workflow looks like this:</p>
+
+          <ol>
+            <li><strong>Booking confirmed:</strong> Your PMS receives the reservation from Airbnb, VRBO, or direct booking.</li>
+            <li><strong>Code generated automatically:</strong> The software creates a unique PIN code tied to the guest's check-in and checkout times.</li>
+            <li><strong>Guest receives instructions:</strong> An automated message is sent to the guest with their unique code and check-in instructions, typically 24-48 hours before arrival.</li>
+            <li><strong>Code activates at check-in time:</strong> The lock only accepts the guest's code starting at the scheduled check-in hour.</li>
+            <li><strong>Code expires at checkout:</strong> Automatically deactivated at the checkout time. No manual intervention required.</li>
+            <li><strong>Access log updated:</strong> Every use of the code is recorded for review if needed.</li>
+          </ol>
+
+          <p>This entire workflow runs without you touching anything. A guest books your property at 2 a.m., and by morning they have their unique code waiting in their inbox, set to expire the moment they check out. No phone calls, no key handoffs, no wondering whether the previous guest's code still works.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>How Nurture Handles This</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Smart lock management is included in Nurture's Professional plan (15%). We configure the integration with your lock, set up automated code generation for every booking, and handle any lockout situations. Hosts on the Professional plan never manually touch a guest code. <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">Learn about full management</a> or <a href="/contact" style="color: var(--color-primary-dark); text-decoration: underline;">get a free estimate</a>.</p>
+            </div>
+          </div>
+
+          <h2 id="condo-considerations">Condo Considerations for Toronto Hosts</h2>
+          <p>Toronto hosts face a challenge that freehold property owners don't: many condo corporations prohibit modifications to suite entrance doors. This restriction exists because the door and its hardware are technically common element property, not the unit owner's property to modify freely.</p>
+
+          <p>Before purchasing any smart lock, take these steps:</p>
+
+          <ul>
+            <li><strong>Review your condo declaration:</strong> Look for language about "entrance doors," "common elements," or "alterations." If modifications require board approval, start that process early.</li>
+            <li><strong>Contact your property management office:</strong> Ask specifically whether replacing the interior thumb-turn only (retrofit) is permitted. Many buildings that prohibit exterior changes allow interior-only retrofits.</li>
+            <li><strong>Get written approval:</strong> Verbal approval is not enough. Get any permission in writing before purchasing a lock. This protects you if management personnel changes.</li>
+            <li><strong>Consider the August as your first choice:</strong> Because it leaves the exterior keyway, strike plate, and face of the deadbolt unchanged, it is the most likely to meet condo building standards. The exterior of the door looks identical before and after installation.</li>
+          </ul>
+
+          <p>For more detail on what your condo corporation can and cannot restrict for short-term rentals, see the full guide on <a href="/blog/can-i-airbnb-my-condo-toronto-2026">Airbnb in Toronto condos</a>.</p>
+
+          <h3>Buildings with Fob Entry Systems</h3>
+          <p>Some newer Toronto condo buildings use key fob access for suite doors rather than traditional deadbolts. These systems are typically managed by the building and cannot be replaced with third-party smart locks. In this case, a lockbox at a secure location inside the building (if permitted) or lobby-level key exchange via a concierge is the alternative. Contact your building management to understand your specific options.</p>
+
+          <h2 id="backup-access">Backup Access Plans</h2>
+          <p>Even the most reliable smart lock can fail. Dead batteries, WiFi outages, a guest who accidentally deletes the code email, or a rare firmware glitch can all strand a guest outside your property. A backup plan is not optional; it's part of operating a professional listing.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Emergency Lockbox</h4>
+              <p>Mount a heavy-duty combination lockbox in a discreet but accessible location near the property. Store a physical key inside. Share the lockbox code only with guests after confirming they have exhausted other options. Change the code periodically.</p>
+            </div>
+            <div class="info-card">
+              <h4>Property Manager Access</h4>
+              <p>Your property manager should always have a spare physical key for the property. In a lockout scenario, Nurture's team can coordinate emergency access within the hour for managed properties, ensuring guests are never left stranded.</p>
+            </div>
+            <div class="info-card">
+              <h4>Guest Instructions</h4>
+              <p>Include clear troubleshooting steps in your check-in message: what to do if the PIN doesn't work, who to call, and where the backup access is. Guests who know what to do are far less likely to leave a negative review over a minor access hiccup.</p>
+            </div>
+          </div>
+
+          <h3>Security Best Practices</h3>
+          <p>Smart locks are significantly more secure than traditional keys or lockboxes when used correctly. These practices ensure you get the full security benefit:</p>
+
+          <ul>
+            <li><strong>Never reuse codes:</strong> Every booking gets a fresh, unique code. Even if the same guest books again, generate a new code for the new stay.</li>
+            <li><strong>Set codes to activate at check-in time:</strong> A code that works starting 3 p.m. on check-in day cannot be used by the previous guest to access the property at 1 p.m. to retrieve a forgotten item without your knowledge.</li>
+            <li><strong>Review the audit trail after each stay:</strong> A quick check of the access log confirms the code was only used during the booking window. Any anomalies are visible immediately.</li>
+            <li><strong>Enable low-battery notifications:</strong> Set alerts at 25% and 10% so you always have advance warning before a battery failure.</li>
+            <li><strong>Update firmware regularly:</strong> Smart lock manufacturers release security patches. Enable automatic firmware updates or check manually every few months.</li>
+          </ul>
+
+          <p>Smart lock security complements guest screening, not replaces it. For a complete approach to protecting your property, the <a href="/blog/airbnb-guest-screening-party-prevention-guide-2026">guest screening and party prevention guide</a> covers the verification, deposit, and ID-check strategies that work alongside access control.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want Seamless Check-In Without the Setup Headache?</h3>
+            <p>Nurture's Professional plan includes smart lock integration, automated code management for every booking, and lockout support. 15% fee, no contracts, and you keep ownership of your listing.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Hands-Off Airbnb Management</h2>
+        <p>From smart lock setup to guest communication, Nurture handles the operations so you collect the income. Call (647) 957-8956 for a free consultation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
