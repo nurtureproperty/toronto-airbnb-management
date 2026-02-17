@@ -1,0 +1,1094 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "What should I include in an Airbnb welcome book?", a: "At minimum, your welcome book should cover: wifi network name and password (prominently displayed), check-in instructions (lock code, building access, parking), house rules (noise hours, smoking, pets, max occupancy), how to use appliances (TV, thermostat, washer/dryer), checkout instructions, emergency contacts, and local recommendations for restaurants, coffee shops, grocery stores, and transit. The goal is to answer every question a guest might ask before they ask it." },
+  { q: "Should my welcome book be digital or physical?", a: "Most professional hosts use both. A digital welcome book (via Touchstay, Hostfully, or a Google Doc link) can be sent before arrival so guests arrive informed. A physical copy left at the property is a backup for guests who don't check messages. The physical copy also feels more personal and professional. If you must choose one, go digital: it's easier to update and guests can reference it from anywhere." },
+  { q: "How long should an Airbnb welcome book be?", a: "Aim for 10 to 15 pages for a physical book, or the equivalent in a digital format. Long enough to cover everything a guest needs, short enough that they'll actually read it. Use clear headings, bullet points, and photos rather than dense paragraphs. The most important sections (wifi password, check-in, checkout) should be instantly findable, not buried in text." },
+  { q: "What tools can I use to create a digital welcome book?", a: "Touchstay and Hostfully Guidebooks are purpose-built for Airbnb hosts and include features like maps, clickable links, and sections organized by category. Canva has beautiful free templates you can customize and export as a PDF. Google Docs or Notion work well if you want something simple and easy to update. For a branded, professional look, Canva is the fastest starting point for most hosts." },
+  { q: "How do welcome books affect Airbnb reviews?", a: "Significantly. Guests consistently mention 'the host thought of everything' and 'everything was clearly explained' in five-star reviews. When guests have to message you repeatedly asking where the TV remote is or what the wifi password is, it creates friction and reflects in your rating. A thorough welcome book reduces those messages, makes guests feel cared for, and leads to glowing reviews that mention the personal touches." },
+  { q: "How often should I update my welcome book?", a: "Review your welcome book every three to six months. Update restaurant recommendations when places close or open, refresh transit information if routes change, update any construction detours, and revise checkout instructions if your process changes. Also update it any time a guest asks a question that isn't already answered, because that question will be asked again." },
+  { q: "Do I need a welcome book if I'm already sending automated messages?", a: "Yes. Automated messages are excellent for pre-arrival communication, but guests don't always read or retain everything in a message sent days before their stay. A welcome book at the property gives them an immediate reference on arrival. The combination of pre-arrival automated messages and an on-site welcome book is the most effective approach for reducing guest questions and improving the experience." },
+  { q: "Can Nurture create a welcome book for my property?", a: "Yes. Nurture creates a custom welcome book for every property we manage as part of our standard service. It includes your specific wifi details, appliance instructions, building access information, emergency contacts, and curated local recommendations for your neighbourhood. Our welcome books are one reason our managed properties consistently earn more five-star reviews." }
+];
+
+const relatedPosts = [
+  { title: "First Time Airbnb Host Toronto Guide", href: '/blog/first-time-airbnb-host-toronto-guide', description: 'Step-by-step guide to setting up your space and creating a great guest experience' },
+  { title: "Best Neighborhoods in Toronto for Airbnb", href: '/blog/best-neighborhood-toronto-airbnb-2026', description: 'Neighbourhood insights to include in your local recommendations section' },
+  { title: "The Toilet Paper Trick for 5-Star Reviews", href: '/blog/show-this-to-your-airbnb-cleaner-for-5-star-reviews', description: 'Small touches that make guests feel like they are staying somewhere special' }
+];
+
+const tocItems = [
+  { id: 'why-welcome-book', text: 'Why a Welcome Book Matters' },
+  { id: 'digital-vs-physical', text: 'Digital vs Physical' },
+  { id: 'welcome-page', text: 'Welcome Page & Wifi' },
+  { id: 'house-rules-appliances', text: 'House Rules & Appliances' },
+  { id: 'checkin-checkout', text: 'Check-In & Checkout' },
+  { id: 'local-recommendations', text: 'Local Recommendations' },
+  { id: 'tools-updates', text: 'Tools & Keeping It Fresh' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Welcome Book Template | What Every Host Needs";
+const pageDescription = "Free Airbnb welcome book template: wifi info, house rules, local recommendations, emergency contacts, and checkout instructions. Reduce guest questions 80%.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Welcome Book Template: What Every Host Needs to Include",
+  "description": pageDescription,
+  "datePublished": "2026-02-24",
+  "dateModified": "2026-02-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-welcome-book-template-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Welcome Book Template: What Every Host Needs to Include</h1>
+      <div class="article-meta">
+        <span class="meta-date">February 24, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">A well-crafted welcome book is one of the highest-leverage investments a host can make. <strong>Guests who find everything they need immediately leave better reviews, send fewer messages, and feel more at home.</strong> This template covers every section your welcome book needs, with example copy you can customize for your property today.</p>
+          </div>
+
+          <h2 id="why-welcome-book">Why a Welcome Book Matters</h2>
+          <p>The average Airbnb guest sends three to five messages to their host during a stay. Most of those messages ask questions that a good welcome book would have already answered: what's the wifi password, how does the TV work, where should we put the garbage, what time is checkout.</p>
+
+          <p>Every message a guest has to send is a small friction point. Friction accumulates into a review that says "host was responsive" instead of "host thought of everything." The difference between those two phrases is the difference between a four-star stay and a five-star stay.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Fewer Guest Messages</h4>
+              <p>Hosts with thorough welcome books report up to an 80% reduction in during-stay messages. That's less work for you and a smoother experience for your guests.</p>
+            </div>
+            <div class="info-card">
+              <h4>Better Reviews</h4>
+              <p>Five-star reviews consistently mention "the host thought of everything" and "everything was clearly explained." Welcome books drive this language directly.</p>
+            </div>
+            <div class="info-card">
+              <h4>Professional Impression</h4>
+              <p>A polished welcome book signals that your operation is professional, not ad hoc. Guests treat properties with more care when the hosting feels intentional.</p>
+            </div>
+          </div>
+
+          <p>The data backs this up. On Airbnb, listings with 100 or more reviews earn an average of $4,684 per month compared to $1,307 for listings with fewer than 10 reviews. Review volume is the single biggest driver of Airbnb income, and the guest experience you create, including how well-prepared your welcome book is, drives your ability to accumulate those reviews quickly.</p>
+
+          <p>Listings that earn the Guest Favorite badge (awarded to the top-rated properties on the platform) command a 104% premium over standard listings. That badge is built on consistent five-star experiences, and a great welcome book is one of the most reliable ways to create them.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>What Guests Actually Read</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Guests arrive tired, often jet-lagged or stressed from travel. They will scan your welcome book for the wifi password first, then checkout instructions the morning they leave. Everything else should be easy to find when needed. Design for scanning, not for reading front-to-back.</p>
+            </div>
+          </div>
+
+          <h2 id="digital-vs-physical">Digital vs Physical: Which Format Works Best</h2>
+          <p>This is not an either/or question. Professional hosts use both formats, and each serves a different purpose in the guest journey.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Digital Welcome Book</h4>
+              <p>Sent before arrival via Airbnb message or email. Guests can review it while still packing, look up the parking situation before they arrive, and share it with travel companions. Digital books can include clickable maps, restaurant links, and video guides for complicated appliances. Tools like Touchstay and Hostfully Guidebooks make this easy to build. A simple Google Doc or Canva PDF also works well.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Physical Welcome Book</h4>
+              <p>Left at the property, ideally on the kitchen counter or coffee table where guests will find it immediately. The physical copy is the backup when guests haven't read their messages. It also feels more personal. A printed, laminated binder or a small notebook looks polished and is easy to flip through. Guests who arrive and immediately see a thoughtful printed guide feel welcomed before they've even set down their bags.</p>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Format</th>
+                  <th>Pros</th>
+                  <th>Cons</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Digital (Touchstay, Hostfully)</strong></td>
+                  <td>Clickable links, maps, videos, easy to update, searchable, shareable with travel group</td>
+                  <td>Requires internet access, guests may not read before arrival</td>
+                </tr>
+                <tr>
+                  <td><strong>Digital (Google Doc / PDF)</strong></td>
+                  <td>Free, easy to create, shareable link, familiar format</td>
+                  <td>Less polished, no interactive features, harder to organize</td>
+                </tr>
+                <tr>
+                  <td><strong>Canva PDF</strong></td>
+                  <td>Beautiful templates, branded, professional appearance, printable</td>
+                  <td>Requires Canva account, some design time</td>
+                </tr>
+                <tr>
+                  <td><strong>Physical Binder</strong></td>
+                  <td>Always available, no tech required, personal feel, easy to scan quickly</td>
+                  <td>Cannot include clickable links, requires reprinting to update, can get damaged</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The recommendation: build your welcome book in Canva or Touchstay, send the digital version in your pre-arrival message, and print a copy to leave at the property. This covers every guest, regardless of their relationship with technology.</p>
+
+          <h2 id="welcome-page">Section 1: Welcome Page and Wifi</h2>
+          <p>Your welcome page sets the tone. Keep it warm and personal. Guests booked your home over a hotel because they wanted a more human experience. Your opening should reflect that.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: Welcome Page</div>
+            <div class="template-content">
+              <p><strong>Welcome to [Property Name]!</strong></p>
+              <p>We're so glad you're here. We've put this guide together to make your stay as comfortable and seamless as possible. If you ever need anything we haven't covered, don't hesitate to reach out.</p>
+              <p><strong>Wifi Network:</strong> [Network Name]<br>
+              <strong>Wifi Password:</strong> [Password]</p>
+              <p>Enjoy your stay!<br>[Your Name(s)]</p>
+            </div>
+          </div>
+
+          <p>The wifi password is the single most looked-for piece of information in any welcome book. Put it on the first page, in a large font, and consider adding a printed wifi card near the router as a backup. Do not make guests hunt for it.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Pro Tip: QR Code for Wifi</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Generate a free QR code that automatically connects guests to your wifi network when scanned. Print it on a small card near the router. Guests with smartphones can connect in seconds without typing a password. Free QR code generators are available at qr-code-generator.com.</p>
+            </div>
+          </div>
+
+          <h2 id="house-rules-appliances">Section 2: House Rules, Appliances, and Building</h2>
+
+          <h3>House Rules</h3>
+          <p>Your house rules in the welcome book should match what's in your Airbnb listing. Repetition here is intentional: guests don't always read listing rules carefully before booking, and a physical reminder at the property is more effective than a digital agreement they clicked through without reading.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: House Rules</div>
+            <div class="template-content">
+              <ul style="margin: 0; padding-left: 1.25rem;">
+                <li><strong>Quiet hours:</strong> 10:00 PM to 8:00 AM. Please keep noise levels considerate of neighbours during these hours.</li>
+                <li><strong>Smoking:</strong> No smoking inside the unit. [Outdoor smoking area if applicable, or building-wide policy].</li>
+                <li><strong>Pets:</strong> [Pets welcome / No pets permitted].</li>
+                <li><strong>Maximum occupancy:</strong> [X] guests. Unregistered guests are not permitted overnight.</li>
+                <li><strong>No parties or events.</strong> This is a residential building.</li>
+                <li><strong>Parking:</strong> Your designated spot is [Spot #]. Visitor parking is [location].</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Appliance Guides</h3>
+          <p>This is where most welcome books fall short. Hosts assume guests will figure out the TV or the thermostat on their own. They won't, and the resulting frustration shows up in reviews as "minor issues with the space" or "had to ask about a few things."</p>
+
+          <p>Write simple instructions for every appliance that is not immediately obvious:</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Television &amp; Streaming</h4>
+              <p>Which remote does what. How to switch inputs. Which streaming services are available. Login credentials for Netflix/Disney+ if you share an account. How to connect a personal device if the TV supports it. A numbered step-by-step like "Press INPUT, select HDMI 2, use the Netflix button on the remote" takes 30 seconds to write and saves every single guest a frustrating 10 minutes.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Thermostat</h4>
+              <p>The temperature range guests are permitted to set (to prevent 30°C heating bills). How to operate it: which buttons adjust temperature, how to switch between heating and cooling. If it's a smart thermostat with an app, note whether guests can use it or should use the physical controls only.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Washer &amp; Dryer</h4>
+              <p>Where to find laundry detergent. Which cycle to use for normal loads. Whether the dryer has a lint trap that needs cleaning. How to use the steam or sanitize features if present. Any quirks (e.g., "the dryer takes about 70 minutes for a full load" or "pull the door firmly to make sure it latches").</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Coffee Maker</h4>
+              <p>What type of coffee maker it is (drip, Keurig, Nespresso, French press). Where pods or filters are stored. How to descale if guests ask. Whether you provide coffee and filters or guests should bring their own. The coffee maker is often the first thing guests interact with each morning, make it effortless.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Dishwasher</h4>
+              <p>Where dishwasher pods are stored. Which cycle to run for normal loads. Whether guests should run it before they leave and where the clean dishes should go. Some guests have never encountered certain dishwasher models. A sentence or two eliminates the confusion.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Oven &amp; Stove</h4>
+              <p>Gas or electric? How to light the burners if gas. Whether the oven has a broiler setting and where to find it. Preheat time for the oven (if it runs slow or fast compared to standard). What pans and cooking equipment are available. If there's a hood fan, how to turn it on and adjust the speed.</p>
+            </div>
+          </div>
+
+          <p>For any appliance that's particularly complicated or unusual, add a photo. A single clear image of the remote, labeled with arrows, is worth more than three paragraphs of text.</p>
+
+          <h3>Building Information</h3>
+
+          <div class="template-block">
+            <div class="template-label">Template: Building Amenities</div>
+            <div class="template-content">
+              <ul style="margin: 0; padding-left: 1.25rem;">
+                <li><strong>Gym:</strong> [Floor/Location]. Open [hours]. Your fob grants access.</li>
+                <li><strong>Pool/Hot Tub:</strong> [Floor/Location]. Open [hours]. Bring your own towel.</li>
+                <li><strong>Rooftop/Terrace:</strong> [Floor/Location]. Open [hours].</li>
+                <li><strong>Party Room:</strong> Available to book through the concierge. Not for use without reservation.</li>
+                <li><strong>Recycling &amp; Garbage:</strong> [Location on floor or in building]. Green bin is [location]. Recycling is [location].</li>
+                <li><strong>Mail Room:</strong> [Location]. You don't need to access this during your stay.</li>
+                <li><strong>Concierge/Security:</strong> Located in the lobby. Available [hours].</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 id="checkin-checkout">Section 3: Check-In Details and Checkout Instructions</h2>
+
+          <h3>Check-In Information</h3>
+          <p>Even if you've sent check-in instructions via Airbnb, include them in the welcome book as a physical reference. Guests arriving exhausted at 11 PM after a flight don't want to dig through their phone messages to find the door code.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: Check-In Details</div>
+            <div class="template-content">
+              <p><strong>Building Entry:</strong> [Intercom code / fob instructions / lobby code]</p>
+              <p><strong>Elevator:</strong> Take the elevator to floor [X]. Your fob activates the elevator button.</p>
+              <p><strong>Unit Door:</strong> Enter code [####] on the smart lock. Press the lock button when you leave. The code works for the duration of your stay.</p>
+              <p><strong>Parking:</strong> Your spot is [#] in [Level/Location]. Enter via [entrance]. Your fob opens the parking gate.</p>
+              <p><strong>Fob:</strong> You have [X] fob(s) in the unit. Please do not lose them. Replacement cost is $[X].</p>
+            </div>
+          </div>
+
+          <h3>Checkout Instructions</h3>
+          <p>Clear checkout instructions reduce cleaning costs and prevent disputes. Guests who know exactly what to do leave the space in better condition than guests who guess.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: Checkout Instructions</div>
+            <div class="template-content">
+              <p><strong>Checkout time: 11:00 AM</strong></p>
+              <ul style="margin: 0.5rem 0; padding-left: 1.25rem;">
+                <li>Strip the beds and leave sheets and towels in a pile on the bedroom floor (no need to remake the bed).</li>
+                <li>Load the dishwasher and run it on a normal cycle before you leave.</li>
+                <li>Take all garbage to the [location] on your floor. Any leftover food should go in the green bin.</li>
+                <li>Leave the thermostat at [X]°C.</li>
+                <li>Turn off all lights and close the windows.</li>
+                <li>Leave your key fob(s) on the kitchen counter.</li>
+                <li>The door will lock automatically behind you.</li>
+              </ul>
+              <p style="margin-top: 0.75rem; margin-bottom: 0;">That's it! Please leave a review on Airbnb. We appreciate every one.</p>
+            </div>
+          </div>
+
+          <h3>Emergency Contacts</h3>
+          <p>Include this section near the front of the book, not buried at the end. Guests in an emergency should not have to search for a phone number.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: Emergency Contacts</div>
+            <div class="template-content">
+              <ul style="margin: 0; padding-left: 1.25rem;">
+                <li><strong>Emergency (fire, police, ambulance):</strong> 911</li>
+                <li><strong>Building Security / Concierge:</strong> [Number]</li>
+                <li><strong>Property Manager / Host:</strong> [Number] (available [hours]; for urgent issues outside those hours, text first)</li>
+                <li><strong>Maintenance Emergency (after hours):</strong> [Number]</li>
+                <li><strong>Nearest Hospital:</strong> [Hospital Name], [Address], [Phone]</li>
+                <li><strong>Nearest Urgent Care / Walk-In Clinic:</strong> [Clinic Name], [Address], [Hours]</li>
+                <li><strong>Nearest Pharmacy:</strong> [Pharmacy Name], [Address], [Hours]</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 id="local-recommendations">Section 4: Local Recommendations</h2>
+          <p>This is the section that transforms a welcome book from useful into memorable. Guests booking an Airbnb over a hotel are specifically looking for local, authentic experiences. Your curated list of neighbourhood favourites gives them exactly that, and it's something no hotel can offer.</p>
+
+          <p>This section is also where you demonstrate local knowledge. If you manage a property in <a href="/blog/best-neighborhood-toronto-airbnb-2026">Toronto's most popular Airbnb neighbourhoods</a>, guests want to know the hidden gems that don't show up on TripAdvisor. The more specific and personal your recommendations, the more valuable they are.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: Local Recommendations</div>
+            <div class="template-content">
+              <p><strong>Coffee</strong></p>
+              <ul style="margin: 0.25rem 0 1rem; padding-left: 1.25rem;">
+                <li>[Coffee Shop Name] on [Street]: Our favourite. Try the [signature drink]. [Walking distance/time].</li>
+                <li>[Coffee Shop Name]: Great spot for working. Lots of outlets and a quiet atmosphere.</li>
+              </ul>
+              <p><strong>Breakfast &amp; Brunch</strong></p>
+              <ul style="margin: 0.25rem 0 1rem; padding-left: 1.25rem;">
+                <li>[Restaurant Name]: Best eggs benny in the neighbourhood. Lineup on weekends, arrive before 9:30 AM or after 1:00 PM.</li>
+                <li>[Restaurant Name]: Great for a quick, casual breakfast. No reservations needed.</li>
+              </ul>
+              <p><strong>Dinner</strong></p>
+              <ul style="margin: 0.25rem 0 1rem; padding-left: 1.25rem;">
+                <li>[Restaurant Name]: Our top pick. [Cuisine type]. Make a reservation, it fills up.</li>
+                <li>[Restaurant Name]: More casual, no reservations, great for a weeknight.</li>
+                <li>[Restaurant Name]: Best value on the street. Try the [dish].</li>
+              </ul>
+              <p><strong>Grocery</strong></p>
+              <ul style="margin: 0.25rem 0 1rem; padding-left: 1.25rem;">
+                <li>[Store Name]: [Walking distance/time]. Open until [time].</li>
+                <li>[Convenience Store]: Around the corner for quick items. Open until [time].</li>
+              </ul>
+              <p><strong>Transit</strong></p>
+              <ul style="margin: 0.25rem 0; padding-left: 1.25rem;">
+                <li>Nearest TTC station: [Station Name] ([Walking distance/time]).</li>
+                <li>Use the Presto card (Presto machines at the station) or tap your credit card directly at subway turnstiles.</li>
+                <li>[Bus route] runs on [Street] and takes you to [destination] in about [X] minutes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Neighbourhood Guide</h3>
+          <p>Beyond the practical recommendations, add a short paragraph about what makes your neighbourhood special. Is it walkable? Is there a farmers market on weekends? A great park nearby? A hidden laneway with street art? This personal context is what guests remember and mention in their reviews.</p>
+
+          <div class="template-block">
+            <div class="template-label">Template: Neighbourhood Introduction</div>
+            <div class="template-content">
+              <p>You're staying in [Neighbourhood Name], one of our favourite parts of [City]. The area is known for [what it's known for: walkability, restaurant scene, waterfront, parks, arts, markets, etc.]. Most of what you'll need is within a [X]-minute walk.</p>
+              <p>On weekends, check out [Farmers Market / Street Festival / Park Name]. It's [a few sentences of what makes it special]. [Specific hidden gem]: locals love [Restaurant/Shop/Spot], which you won't find on most tourist lists.</p>
+            </div>
+          </div>
+
+          <p>If your property is in Toronto, tailor the local section to the specific neighbourhood. King West guests want different recommendations than guests staying near the Beaches or in North York. Generic recommendations are easy to spot and guests discount them quickly. Specific, personal recommendations feel genuine and reflect real hosting care.</p>
+
+          <h2 id="tools-updates">Section 5: Tools, Common Mistakes, and Keeping It Updated</h2>
+
+          <h3>Tools for Creating Your Welcome Book</h3>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Touchstay</h4>
+              <p>Purpose-built for Airbnb hosts. Interactive digital guidebook with maps, photos, and sections. Guests access it via a link you send before arrival. Includes templates for every section. Subscription-based but worth it for hosts managing multiple properties.</p>
+            </div>
+            <div class="info-card">
+              <h4>Hostfully Guidebooks</h4>
+              <p>Similar to Touchstay. Integrates with Hostfully's broader property management platform. Good option if you're already using Hostfully for other aspects of your hosting operation.</p>
+            </div>
+            <div class="info-card">
+              <h4>Canva</h4>
+              <p>The fastest way to create a beautiful physical welcome book. Search "Airbnb welcome book" in Canva's template library and customize with your colours, photos, and content. Free tier is sufficient. Export as PDF and print.</p>
+            </div>
+          </div>
+
+          <div class="info-grid" style="margin-top: 0;">
+            <div class="info-card">
+              <h4>Google Docs</h4>
+              <p>Free, familiar, and easy to share via link. Less visually polished but completely functional. Use a shared link as your digital welcome book and print the same document for a physical copy. Update once and the digital version updates automatically.</p>
+            </div>
+            <div class="info-card">
+              <h4>Notion</h4>
+              <p>Good for hosts who want a more organized digital guide with subpages for different sections. Guests access via a shared Notion link. Works best for guests who are comfortable with digital tools.</p>
+            </div>
+            <div class="info-card">
+              <h4>Simple PDF</h4>
+              <p>Even a clean, well-organized Word document exported as a PDF works. Format matters less than content. A thorough, well-organized plain PDF beats a beautiful but incomplete interactive guide every time.</p>
+            </div>
+          </div>
+
+          <h3>How to Keep Your Welcome Book Updated</h3>
+          <p>An outdated welcome book is worse than no welcome book. Guests who follow a recommendation to a restaurant that closed six months ago will mention it in their review. Set a calendar reminder to review and refresh your welcome book every three to four months.</p>
+
+          <p>What to review on each update cycle:</p>
+          <ul>
+            <li><strong>Restaurants and coffee shops:</strong> Have any closed? Opened? Changed hours significantly? A quick Google Maps check takes five minutes.</li>
+            <li><strong>Transit information:</strong> TTC route changes, new subway stations, construction detours affecting walking routes.</li>
+            <li><strong>Building amenities:</strong> Pool closed for maintenance? Gym hours changed? Parking rules updated?</li>
+            <li><strong>Checkout instructions:</strong> Any changes to your process, garbage pickup schedule, or key return procedure?</li>
+            <li><strong>Wifi credentials:</strong> If you changed your router password, update every copy immediately.</li>
+          </ul>
+
+          <p>Also update your welcome book any time a guest asks a question that isn't answered in it. If one guest asked, more will ask. Add the answer to prevent the next message.</p>
+
+          <h3>Common Welcome Book Mistakes</h3>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Burying the Wifi Password</h4>
+              <p>The wifi password should be on page one, in a large font, impossible to miss. Guests want it the moment they walk in. If they have to flip to page eight to find it, you've already created friction.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>Making It Too Long</h4>
+              <p>A 40-page welcome book is not more helpful than a 15-page one. Guests won't read it. Keep sections concise, use bullet points over paragraphs, and include only what guests actually need. Edit ruthlessly.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Generic Recommendations</h4>
+              <p>"There are lots of great restaurants nearby!" tells guests nothing. Specific names, specific dishes, specific walking times are what make recommendations useful. If you wouldn't stake your reputation on the recommendation, don't include it.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>Unclear Checkout Instructions</h4>
+              <p>Vague instructions like "clean up before you leave" lead to guests leaving dishes in the sink, beds unmade, and thermostats at 26°C. Be specific about exactly what you expect, in the order you want it done.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>No Emergency Contacts</h4>
+              <p>Many hosts forget this section entirely, or include only their own number. Guests need to know what to do if there's a building emergency at 2 AM and you don't answer. Include building security, maintenance emergency lines, and the nearest hospital.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Outdated Information</h4>
+              <p>An outdated welcome book erodes trust faster than having none at all. Guests who follow a wrong recommendation or incorrect checkout instruction feel misled. Review and update every three months without exception.</p>
+            </div>
+          </div>
+
+          <h3>The Impact on Your Reviews</h3>
+          <p>Guest reviews have a consistent pattern. Guests who had a smooth, frictionless stay where they found everything they needed write reviews that mention how comfortable they felt, how welcoming the host was, and how they'd return. Guests who had small frustrations, even if they liked the space overall, write reviews that note "a few things could be improved" or "had to ask the host about several things."</p>
+
+          <p>The welcome book is your opportunity to anticipate every friction point and eliminate it before it happens. This is what <a href="/blog/first-time-airbnb-host-toronto-guide">five-star hosting</a> looks like in practice: not perfection, but preparation. For more detail on what makes guests feel well taken care of, see our guide on <a href="/blog/show-this-to-your-airbnb-cleaner-for-5-star-reviews">the small touches that drive five-star reviews</a>.</p>
+
+          <p>If your Airbnb is underperforming, a weak welcome experience may be contributing. You can read more about the full picture in our breakdown of <a href="/blog/why-your-toronto-airbnb-isnt-making-money">why Toronto Airbnbs underperform</a>.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Nurture's Approach</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Nurture creates a custom welcome book for every property we manage as part of our standard service. We cover wifi, appliances, building access, emergency contacts, and curated local recommendations for your specific neighbourhood. It's one of the reasons our managed properties earn reviews that say "the host thought of everything." Learn more about <a href="/full-airbnb-management-toronto" style="color: var(--color-primary-dark); text-decoration: underline;">our full management service here</a>.</p>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want a Custom Welcome Book for Your Property?</h3>
+            <p>Nurture creates fully custom welcome books for every property we manage, along with listing optimization, dynamic pricing, and full guest communication. 10-15% management fee, no long-term contracts.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Maximize Your Airbnb Income</h2>
+        <p>Find out what your property could earn with professional management. Free estimate, no obligation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation · 10-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .table-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .template-block {
+    background: #f0f7f5;
+    border: 1px solid var(--color-primary);
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .template-label {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .template-content {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .template-content p {
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .template-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .template-content ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+  }
+
+  .template-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

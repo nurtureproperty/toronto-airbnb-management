@@ -140,7 +140,7 @@ Your space needs to be guest ready. That means comfortable, clean, functional, a
 - Iron and ironing board
 - Extra blankets
 - Clear checkout instructions
-- Local guidebook or recommendations
+- Local guidebook or recommendations (see our [Airbnb welcome book template](/blog/airbnb-welcome-book-template-guide-2026) for a complete section-by-section guide)
 
 **Safety (required):**
 - Working smoke detectors on every level

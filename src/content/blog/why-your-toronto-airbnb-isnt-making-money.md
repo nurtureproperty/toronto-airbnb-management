@@ -82,6 +82,8 @@ One bad review can tank your ranking for weeks. And if you've got a pattern of c
 
 If cleanliness is the issue, hire professional cleaners. If communication is the problem, respond faster or get help. If accuracy is the issue, update your listing to match reality.
 
+One often-overlooked fix: a thorough [welcome book](/blog/airbnb-welcome-book-template-guide-2026) that answers guest questions before they arise. Hosts who provide clear wifi info, appliance guides, and checkout instructions reduce guest friction and earn more five-star reviews.
+
 See our [cleaning services](/services/airbnb-cleaning) for help with the cleanliness piece.
 
 ## 7. You're Only on Airbnb
@@ -142,6 +144,7 @@ No sales pitch. Just honest feedback.
 
 ## Related Articles
 
+- [Airbnb Welcome Book Template: What Every Host Needs to Include](/blog/airbnb-welcome-book-template-guide-2026)
 - [Airbnb Cleaning Checklist 2026: The Complete 5-Star Turnover Guide](/blog/airbnb-cleaning-turnover-checklist-2026)
 - [Complete List: 444 Toronto Condos That Allow Short Term Rentals](/blog/toronto-condos-that-allow-airbnb-short-term-rental)
 - [Toronto Airbnb Short Term Rental Regulations 2026](/blog/toronto-airbnb-short-term-rental-regulations-2026)
