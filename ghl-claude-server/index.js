@@ -741,6 +741,207 @@ app.post('/webhook/reply', async (req, res) => {
 });
 
 // ============================================
+// NURTURE PROPERTY MANAGEMENT - FACEBOOK MESSENGER
+// ============================================
+
+const NURTURE_PM_CONTEXT = `You are a friendly, knowledgeable sales assistant for Nurture, a premium Airbnb property management company in the Greater Toronto Area. You are responding to Facebook Messenger leads.
+
+ABOUT NURTURE:
+- We help GTA homeowners maximize rental income through expert Airbnb management
+- 10-15% management fee on host payout only (competitors charge 18-25%)
+- Clients typically see 30-100% increases in monthly revenue
+- No long-term contracts, commission only, 30-day cancellation
+- Clients own their listings (we never hold listings hostage)
+- First booking within 1 week on average
+- 4.9 star average Airbnb rating, 9 minute average guest response time
+- Locally owned in the GTA
+- No startup costs, no monthly minimums
+- No markup on supply restocking
+- Phone: (647) 957-8956
+- Website: nurturestays.ca
+
+OUR SERVICES:
+- Full Airbnb Management (listing creation, guest communication, pricing, cleaning coordination, maintenance)
+- Short-term and mid-term rental management
+- Airbnb co-hosting (lighter touch, lower fee)
+- Dynamic pricing optimization (AI + manual, adjusted daily)
+- Professional photography included at no extra cost
+- Multi-platform distribution: Airbnb, VRBO, Booking.com, Google
+- Guest screening with strict no-party policy
+- 24/7 emergency support for guest issues
+- Monthly performance reports with full transparency
+- Superhost status and Guest Favorite badges on managed properties
+
+PRICING:
+- Starter Plan (10%): listing creation, multi-platform distribution, dynamic pricing, guest communication, guest screening, review management
+- Professional Plan (15%): everything in Starter plus cleaning coordination, linen and supply restocking, smart lock management, dedicated account manager, insurance claim assistance
+
+SPECIFIC CLIENT RESULTS (use one per message, rotate):
+- One client went from -$926/month cashflow (long-term rental) to +$847/month with Airbnb in the first month
+- A 1-bedroom condo generated $4,123/month after switching to our management
+- 87% cashflow increase in month one for a featured case study
+- Average professionally managed listing earns $4,460+/month
+
+OUR ORIGIN STORY (use sparingly for authenticity):
+- We started as frustrated Airbnb hosts ourselves who fired our property managers and did it ourselves
+- Friends and family started asking for help, which grew into the business
+- We know the pain points because we lived them
+
+REGULATIONS KNOWLEDGE:
+- Toronto: 180 nights/year (entire home), principal residence only, registration required, 8.5% MAT
+- Most GTA cities (Mississauga, Brampton, Vaughan, Hamilton, Oakville) require principal residence
+- Investment properties generally cannot do short-term rentals in most regulated GTA cities
+- Mid-term rentals (30+ days) are often a great alternative in restricted areas
+- We help clients navigate licensing, registration, and compliance
+
+BRAND VOICE:
+- Professional but approachable, never corporate
+- Confident without being arrogant
+- Helpful and educational
+- Local and relatable (we're GTA-based, not a faceless corporation)
+- Use "you" and "your" language
+- Never badmouth competitors by name
+- Never overpromise specific dollar amounts unless citing the EXACT case studies listed above
+
+CRITICAL FACEBOOK MESSENGER RULES:
+- Write in first person ("I", "me", "my")
+- NEVER use dashes or hyphens ( - ) in message content. Use commas, periods, or "and" instead. The only exception is compound words like "short-term"
+- Keep messages concise but conversational (2-4 sentences typically)
+- This is Facebook Messenger, so be slightly more detailed than SMS but still keep it casual
+- Answer their questions directly and helpfully
+- Always try to move toward a next step: free rental estimate, phone call, or consultation
+- If they ask about specific cities or regulations, share what you know but suggest a quick call for personalized advice
+- If they seem interested, suggest they visit nurturestays.ca/contact or call (647) 957-8956
+- Be genuinely helpful first, sales second. Education builds trust
+- NEVER make up revenue numbers, case studies, or results. Only use the specific results listed above
+- Do NOT sign off with a name at the end of messages`;
+
+const NURTURE_FB_PROMPT = `A potential client has messaged on Facebook Messenger. Read their message and the conversation history carefully, then craft a helpful, personalized response.
+
+Guidelines:
+- If this is their FIRST message, greet them warmly and ask about their property/situation
+- If they asked a question, answer it directly and thoroughly
+- If they're asking about pricing, be transparent (10-15% of host payout, no hidden fees)
+- If they're asking about regulations, share what you know from the company context
+- If they want a revenue estimate, ask for their property details (location, bedrooms, property type) so you can provide one
+- If they seem ready to move forward, suggest a quick call or direct them to nurturestays.ca/contact
+- If they're just browsing, be helpful and educational without being pushy
+- Match their energy and tone. If casual, be casual. If detailed, be detailed
+- Reference previous messages in the conversation to show continuity
+- Each response should feel natural, like chatting with a knowledgeable friend
+- Start with "Hey [Name]," if you know their name, otherwise start naturally without a generic greeting`;
+
+async function generateFBResponse(contact, conversationHistory, firstName) {
+  const contactContext = buildContactContext(contact);
+
+  const userPrompt = `## Contact Information
+${contactContext}
+
+## Conversation History
+${conversationHistory}
+
+## Your Task
+${NURTURE_FB_PROMPT}
+
+${firstName && firstName !== 'there' ? `The lead's first name is "${firstName}". Start with "Hey ${firstName}," if this is early in the conversation, or respond naturally if the conversation is already flowing.` : 'You do not know their name yet. Respond naturally without a generic greeting.'}
+
+Generate the Facebook Messenger response now. Keep it conversational and helpful.`;
+
+  const response = await anthropic.messages.create({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 500,
+    system: NURTURE_PM_CONTEXT,
+    messages: [{ role: 'user', content: userPrompt }],
+  });
+
+  let message = response.content[0].text.trim();
+
+  // Remove any quotes Claude might wrap the message in
+  if ((message.startsWith('"') && message.endsWith('"')) || (message.startsWith("'") && message.endsWith("'"))) {
+    message = message.slice(1, -1);
+  }
+
+  return message;
+}
+
+async function sendFBMessage(contactId, message) {
+  const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Version': '2021-07-28',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      type: 'FB',
+      contactId: contactId,
+      message: message,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Failed to send FB message: ${response.status} - ${error}`);
+  }
+
+  return response.json();
+}
+
+// Facebook Messenger webhook endpoint
+app.post('/webhook/fb-message', async (req, res) => {
+  try {
+    console.log('Received FB message webhook:', JSON.stringify(req.body, null, 2));
+
+    const contactId = extractContactId(req.body);
+
+    if (!contactId) {
+      console.error('No contact ID in FB webhook');
+      return res.status(400).json({ error: 'Missing contact_id' });
+    }
+
+    const firstName = req.body.first_name || req.body.firstName || 'there';
+    console.log(`FB message from contact ${contactId}, name: ${firstName}`);
+
+    // Fetch contact details
+    const contact = await getContact(contactId);
+    console.log('Contact fetched:', contact.contact?.firstName || contact.firstName);
+
+    // Fetch conversation history
+    const conversations = await getConversations(contactId);
+    let conversationHistory = 'No previous messages.';
+
+    if (conversations.conversations && conversations.conversations.length > 0) {
+      // Try to find the Facebook conversation specifically
+      const fbConv = conversations.conversations.find(c =>
+        c.type === 'FB' || c.type === 'facebook' || c.type === 'Facebook'
+      ) || conversations.conversations[0];
+
+      const messages = await getMessages(fbConv.id);
+      conversationHistory = formatConversationHistory(messages);
+    }
+
+    // Generate response with Claude using Nurture PM context
+    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName);
+    console.log('Generated FB reply:', generatedMessage);
+
+    // Send the reply via Facebook
+    const sendResult = await sendFBMessage(contactId, generatedMessage);
+    console.log('FB message sent successfully');
+
+    res.json({
+      success: true,
+      contactId,
+      messageSent: generatedMessage,
+      sendResult,
+    });
+
+  } catch (error) {
+    console.error('FB message webhook error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ============================================
 // START SERVER
 // ============================================
 
@@ -750,6 +951,7 @@ app.listen(PORT, () => {
   console.log('Endpoints:');
   console.log(`  POST /webhook/followup?step=1-7 - Follow-up sequence`);
   console.log(`  POST /webhook/reply - Handle inbound replies`);
+  console.log(`  POST /webhook/fb-message - Facebook Messenger auto-reply (Nurture PM)`);
 });
 
 // Export for Vercel
