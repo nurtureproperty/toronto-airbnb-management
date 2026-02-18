@@ -8,7 +8,16 @@
       "source": "Google News - Airbnb Ontario Regulations",
       "priority": "ontario_str (ontario + short-term rental)",
       "hash": "e8f244f11623f1aa0228e5c1a95cd88b"
+    },
+    {
+      "title": "Toronto landlord found condo listed on Airbnb by someone who wasn't her tenant. She blames lax city rules - CBC",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiekFVX3lxTE1YVUFFa3FUeVBXZmRpd296bDRwYmdmSmJjZnBXV1lheTNNSUU4UE1UUkc5NzZtN1ZCN3Y4S3BuQmNGMkh4b0o5bXlZaDRIM2FFeDk4NGhyWm9rWDZtWnJjSHc0V1U2LUdGZlVNdzZSVFR1MlJRbjh4NXNR?oc=5\" target=\"_blank\">Toronto landlord found condo listed on Airbnb by someone who wasn't her tenant. She blames lax city rules</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBC</font>",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1YVUFFa3FUeVBXZmRpd296bDRwYmdmSmJjZnBXV1lheTNNSUU4UE1UUkc5NzZtN1ZCN3Y4S3BuQmNGMkh4b0o5bXlZaDRIM2FFeDk4NGhyWm9rWDZtWnJjSHc0V1U2LUdGZlVNdzZSVFR1MlJRbjh4NXNR?oc=5",
+      "published": "Mon, 08 May 2023 07:00:00 GMT",
+      "source": "Google News - Airbnb Ontario Regulations",
+      "priority": "ontario_str (toronto + airbnb)",
+      "hash": "d23fb737ba290cf2a0e4ece2f64e6a07"
     }
   ],
-  "updated": "2026-02-17T14:50:45.197361+00:00"
+  "updated": "2026-02-18T14:50:10.174229+00:00"
 }
