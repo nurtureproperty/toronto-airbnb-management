@@ -567,10 +567,14 @@ function buildContactContext(contact) {
 
 function formatConversationHistory(messagesResponse) {
   // Handle various GHL API response formats
+  // GHL returns: { messages: { lastMessageId, nextPage, messages: [...] } }
   let messageList = null;
 
   if (Array.isArray(messagesResponse)) {
     messageList = messagesResponse;
+  } else if (messagesResponse?.messages?.messages && Array.isArray(messagesResponse.messages.messages)) {
+    // Nested format: { messages: { messages: [...] } }
+    messageList = messagesResponse.messages.messages;
   } else if (messagesResponse?.messages && Array.isArray(messagesResponse.messages)) {
     messageList = messagesResponse.messages;
   } else if (messagesResponse?.data && Array.isArray(messagesResponse.data)) {
@@ -816,36 +820,41 @@ CRITICAL FACEBOOK MESSENGER RULES:
 - NEVER make up revenue numbers, case studies, or results. Only use the specific results listed above
 - Do NOT sign off with a name at the end of messages`;
 
-const NURTURE_FB_PROMPT = `A potential client has messaged on Facebook Messenger. Read their message and the conversation history carefully, then craft a helpful, personalized response.
+const NURTURE_FB_PROMPT = `You are replying to the LATEST inbound message in an ongoing Facebook Messenger conversation.
 
-Guidelines:
-- If this is their FIRST message, greet them warmly and ask about their property/situation
-- If they asked a question, answer it directly and thoroughly
-- If they're asking about pricing, be transparent (10-15% of host payout, no hidden fees)
-- If they're asking about regulations, share what you know from the company context
-- If they want a revenue estimate, ask for their property details (location, bedrooms, property type) so you can provide one
-- If they seem ready to move forward, suggest a quick call or direct them to nurturestays.ca/contact
-- If they're just browsing, be helpful and educational without being pushy
-- Match their energy and tone. If casual, be casual. If detailed, be detailed
-- Reference previous messages in the conversation to show continuity
-- Each response should feel natural, like chatting with a knowledgeable friend
-- Start with "Hey [Name]," if you know their name, otherwise start naturally without a generic greeting`;
+CRITICAL RULES:
+1. READ THE FULL CONVERSATION HISTORY FIRST. Never ask questions that have already been answered.
+2. Your reply must directly respond to the lead's MOST RECENT message(s). Do not start from scratch.
+3. If they already told you their location, property type, or situation, acknowledge it and build on it.
+4. If they asked a specific question, answer it directly. Do not deflect with generic responses.
+5. NEVER repeat a greeting or introduction if the conversation is already underway.
+
+Response guidelines:
+- If they asked about pricing, be transparent (10-15% of host payout, no hidden fees)
+- If they asked about regulations, share specifics from the company context (bylaws, license fees, night limits)
+- If they want a revenue estimate, use what you know (location, bedrooms, property type) to give a ballpark or ask only for missing details
+- If they mention long-term rentals, explain how switching to short-term (or mid-term 30+ days) can increase income significantly, but respect their preference
+- If they seem ready, suggest a quick call or direct them to nurturestays.ca/contact
+- Match their energy. Short messages get short replies. Detailed questions get detailed answers
+- Each response should feel like a natural continuation of the conversation, not a fresh sales pitch`;
 
 async function generateFBResponse(contact, conversationHistory, firstName) {
   const contactContext = buildContactContext(contact);
 
-  const userPrompt = `## Contact Information
-${contactContext}
+  console.log('Conversation history being sent to Claude:', conversationHistory);
 
-## Conversation History
-${conversationHistory}
-
-## Your Task
+  const userPrompt = `## Your Task
 ${NURTURE_FB_PROMPT}
 
-${firstName && firstName !== 'there' ? `The lead's first name is "${firstName}". Start with "Hey ${firstName}," if this is early in the conversation, or respond naturally if the conversation is already flowing.` : 'You do not know their name yet. Respond naturally without a generic greeting.'}
+## Contact Information
+${contactContext}
 
-Generate the Facebook Messenger response now. Keep it conversational and helpful.`;
+${firstName && firstName !== 'there' ? `The lead's name is "${firstName}".` : 'You do not know their name yet.'}
+
+## Full Conversation History (read this carefully before replying)
+${conversationHistory}
+
+Now write your reply to the lead's most recent message above. Reply ONLY with the message text, nothing else.`;
 
   const response = await anthropic.messages.create({
     model: 'claude-sonnet-4-20250514',
@@ -920,8 +929,11 @@ app.post('/webhook/fb-message', async (req, res) => {
       const messagesResponse = await getMessages(fbConv.id);
 
       // Extract the raw message list
+      // GHL returns: { messages: { lastMessageId, nextPage, messages: [...] } }
       if (Array.isArray(messagesResponse)) {
         rawMessages = messagesResponse;
+      } else if (messagesResponse?.messages?.messages && Array.isArray(messagesResponse.messages.messages)) {
+        rawMessages = messagesResponse.messages.messages;
       } else if (messagesResponse?.messages && Array.isArray(messagesResponse.messages)) {
         rawMessages = messagesResponse.messages;
       } else if (messagesResponse?.data && Array.isArray(messagesResponse.data)) {
