@@ -909,6 +909,7 @@ app.post('/webhook/fb-message', async (req, res) => {
     // Fetch conversation history
     const conversations = await getConversations(contactId);
     let conversationHistory = 'No previous messages.';
+    let rawMessages = [];
 
     if (conversations.conversations && conversations.conversations.length > 0) {
       // Try to find the Facebook conversation specifically
@@ -916,8 +917,30 @@ app.post('/webhook/fb-message', async (req, res) => {
         c.type === 'FB' || c.type === 'facebook' || c.type === 'Facebook'
       ) || conversations.conversations[0];
 
-      const messages = await getMessages(fbConv.id);
-      conversationHistory = formatConversationHistory(messages);
+      const messagesResponse = await getMessages(fbConv.id);
+
+      // Extract the raw message list
+      if (Array.isArray(messagesResponse)) {
+        rawMessages = messagesResponse;
+      } else if (messagesResponse?.messages && Array.isArray(messagesResponse.messages)) {
+        rawMessages = messagesResponse.messages;
+      } else if (messagesResponse?.data && Array.isArray(messagesResponse.data)) {
+        rawMessages = messagesResponse.data;
+      }
+
+      conversationHistory = formatConversationHistory(messagesResponse);
+    }
+
+    // Check if the last message is outbound (we already replied) - skip if so
+    if (rawMessages.length > 0) {
+      const sorted = [...rawMessages].sort((a, b) =>
+        new Date(b.dateAdded || b.createdAt || 0) - new Date(a.dateAdded || a.createdAt || 0)
+      );
+      const lastMsg = sorted[0];
+      if (lastMsg && lastMsg.direction === 'outbound') {
+        console.log('Last message is outbound (already replied). Skipping auto-reply.');
+        return res.json({ success: true, skipped: true, reason: 'Already replied' });
+      }
     }
 
     // Generate response with Claude using Nurture PM context
