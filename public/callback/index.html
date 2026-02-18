@@ -1,0 +1,15 @@
+<html>
+<body>
+<h2>QuickBooks Authorization</h2>
+<p>Copy the values below and paste them to Claude:</p>
+<pre id="output">Loading...</pre>
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code');
+const realmId = params.get('realmId');
+const state = params.get('state');
+document.getElementById('output').textContent =
+  'code=' + code + '\nrealmId=' + realmId + '\nstate=' + state;
+</script>
+</body>
+</html>
