@@ -1,0 +1,949 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How much can I earn hosting during the FIFA World Cup in Toronto?", a: "According to Deloitte research commissioned by Airbnb, Toronto hosts can expect to earn an average of $2,700 USD during the tournament period. That's on top of Airbnb's $1,000 CAD bonus for new hosts. Hotel prices are expected to spike 107% above normal, meaning Airbnb listings priced competitively will see strong demand." },
+  { q: "What is Airbnb's $1,000 new host incentive?", a: "Airbnb is offering approximately $1,000 CAD ($750 USD) to new entire home hosts in World Cup host cities. You must sign up at airbnb.com/new-host-fifa before publishing your listing, welcome your first guest by July 31, 2026, and complete a qualifying reservation of at least $100 USD before taxes." },
+  { q: "Do I need to register my STR with the City of Toronto?", a: "Yes. You must register with the City and display your STR registration number (format: STR-0000-XXXXXX) on all listings. The 2026 renewal fee is $390. You can register online at secure.toronto.ca. Operating without registration can result in fines up to $100,000." },
+  { q: "Can I rent my investment property during the World Cup?", a: "No. Toronto's principal residence rule still applies during the World Cup. You can only short-term rent the home where you actually live. For investment properties, consider mid-term rentals (30+ days) which fall outside STR regulations." },
+  { q: "What is the MAT tax rate during the World Cup?", a: "Toronto temporarily increased the Municipal Accommodation Tax to 8.5% (up from 6%) effective June 1, 2025 through July 31, 2026. This increase was specifically implemented to help fund World Cup hosting costs. You must collect and remit this tax on all bookings." },
+  { q: "When are the Toronto World Cup matches?", a: "Toronto hosts 6 matches between June 12 and July 2, 2026. The first match on June 12 is historic: Canada's first ever men's FIFA World Cup match on home soil. Additional matches feature Germany, Ghana, Croatia, Senegal, and a Round of 32 knockout game." },
+  { q: "Does the 180-night limit affect World Cup hosting?", a: "The 180-night annual limit applies to entire home rentals only. If you rent rooms in your home while you're present, there's no night limit. For most hosts, the World Cup window (roughly 3 weeks) won't come close to the limit unless you've already used most of your nights." },
+  { q: "What type of listings are in highest demand for the World Cup?", a: "Families and groups account for more than half of World Cup bookings, with 75% of family bookings requesting 2 or 3 bedroom listings. Two-night stays are most common (30% of bookings), followed by 4 to 5 night stays (20%). If you have a multi-bedroom home, you're in a strong position." },
+  { q: "Is there a FIFA Fan Festival in Toronto?", a: "Yes. The FIFA Fan Festival runs at Fort York National Historic Site and The Bentway for the entire tournament duration, June 11 through July 19. It features live match broadcasts, cultural performances, and local food. It's free to attend, which means visitors will be in Toronto even on non-match days." },
+  { q: "How do I get started as a new Airbnb host for the World Cup?", a: "First, register at airbnb.com/new-host-fifa to lock in the $1,000 CAD incentive. Then register with the City of Toronto for your STR number. Create your listing with professional photos and competitive pricing. Or contact Nurture to handle everything from listing creation to guest communication." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short-Term Rental Rules 2026', href: '/blog/toronto-airbnb-short-term-rental-rules-2026', description: 'Complete guide to Toronto STR registration, 180-night limit, and compliance' },
+  { title: 'How Much Can You Earn on Airbnb in Toronto?', href: '/blog/how-much-can-you-earn-airbnb-toronto-2026', description: 'Revenue data, neighborhood breakdown, and income projections for Toronto hosts' },
+  { title: 'Airbnb Dynamic Pricing Toronto 2026', href: '/blog/airbnb-dynamic-pricing-toronto-2026', description: 'How to price your listing during high-demand events like the World Cup' }
+];
+
+const tocItems = [
+  { id: 'opportunity', text: 'The Opportunity' },
+  { id: 'match-schedule', text: 'Toronto Match Schedule' },
+  { id: 'airbnb-incentive', text: '$1,000 New Host Bonus' },
+  { id: 'earnings', text: 'Expected Earnings' },
+  { id: 'regulations', text: 'Toronto STR Rules' },
+  { id: 'mat-tax', text: '8.5% MAT Tax' },
+  { id: 'demand', text: 'Who Is Coming' },
+  { id: 'getting-started', text: 'How to Get Started' },
+  { id: 'resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Toronto Airbnb FIFA World Cup 2026 Hosting Guide";
+const pageDescription = "Airbnb offers $1,000 to new Toronto hosts for FIFA World Cup 2026. Earn $2,700+ avg, 300K visitors expected. Complete hosting and compliance guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-02-20",
+  "dateModified": "2026-02-20",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-airbnb-fifa-world-cup-2026-hosting-guide"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>FIFA World Cup 2026 Hosting</span>
+      </nav>
+      <h1>Toronto Airbnb FIFA World Cup 2026: The Complete Hosting Guide</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published February 20, 2026</span>
+        <span class="meta-separator">·</span>
+        <span class="meta-read-time">12 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">The FIFA World Cup is coming to Toronto this summer, and Airbnb just dropped a <strong>$1,000 CAD bonus</strong> for new hosts. With over <strong>300,000 visitors</strong> expected, hotel prices projected to double, and six matches at BMO Field between June 12 and July 2, this is the biggest short-term rental opportunity Toronto has ever seen.</p>
+            <p class="lead">Whether you're already an Airbnb host or thinking about listing your place for the first time, here's everything you need to know to capitalize on the tournament while staying compliant with Toronto's STR regulations.</p>
+          </div>
+
+          <h2 id="opportunity">Why This Is a Once in a Generation Opportunity</h2>
+          <p>Let's put some numbers on the table. This isn't just "a big event." It's the largest sporting event on the planet coming to your backyard.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Metric</div>
+              <div class="comparison-col highlight">The Numbers</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Visitors to Toronto</div>
+              <div class="comparison-col highlight"><strong>300,000+</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Match attendance (BMO Field)</div>
+              <div class="comparison-col highlight"><strong>146,000 fans</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Hotel price spike</div>
+              <div class="comparison-col highlight"><strong>107% above normal</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Average hotel rate during tournament</div>
+              <div class="comparison-col highlight"><strong>$531/night</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Airbnb search increase (YoY)</div>
+              <div class="comparison-col highlight"><strong>80%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Expected Airbnb guests (Toronto + Vancouver)</div>
+              <div class="comparison-col highlight"><strong>61,000</strong></div>
+            </div>
+          </div>
+
+          <p>With downtown hotels projected at $500 to $800 per night, Airbnb hosts offering clean, well-priced alternatives are going to clean up. (Pun absolutely intended.)</p>
+
+          <p>The economic impact for the GTA alone is projected at <strong>$940 million</strong> in total economic output, $520 million in GDP, and over 6,600 jobs created. This is real money flowing into the city, and hosts are positioned to capture a meaningful share of it.</p>
+
+          <h2 id="match-schedule">Toronto Match Schedule</h2>
+          <p>BMO Field has been expanded from 30,000 to <strong>45,000 seats</strong> with a $146 million renovation. Toronto hosts 6 matches total: 5 group stage and 1 knockout round.</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time (ET)</th>
+                  <th>Match</th>
+                  <th>Round</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="highlight">Fri, June 12</td>
+                  <td>3:00 PM</td>
+                  <td><strong>Canada vs. TBD (UEFA Playoff)</strong></td>
+                  <td>Group B</td>
+                </tr>
+                <tr>
+                  <td>Wed, June 17</td>
+                  <td>7:00 PM</td>
+                  <td>Ghana vs. Panama</td>
+                  <td>Group L</td>
+                </tr>
+                <tr>
+                  <td>Sat, June 20</td>
+                  <td>4:00 PM</td>
+                  <td><strong>Germany vs. Cote d'Ivoire</strong></td>
+                  <td>Group E</td>
+                </tr>
+                <tr>
+                  <td>Tue, June 23</td>
+                  <td>7:00 PM</td>
+                  <td>Croatia vs. Panama</td>
+                  <td>Group L</td>
+                </tr>
+                <tr>
+                  <td>Fri, June 26</td>
+                  <td>3:00 PM</td>
+                  <td>Senegal vs. TBD</td>
+                  <td>Group I</td>
+                </tr>
+                <tr>
+                  <td class="highlight">Thu, July 2</td>
+                  <td>7:00 PM</td>
+                  <td><strong>Round of 32 Knockout</strong></td>
+                  <td>Knockout</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The June 12 opener is the one to watch. It's <strong>Canada's first ever men's FIFA World Cup match on home soil</strong>. Expect the city to be absolutely electric. Will Arnett (yes, the Bojack Horseman guy) is Toronto's World Cup Ambassador, which tells you the kind of energy this event is bringing.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Beyond match days:</strong> The FIFA Fan Festival at Fort York and The Bentway runs the <strong>entire tournament</strong> (June 11 through July 19) with free live broadcasts, cultural performances, and food. Visitors will be in Toronto even on non-match days, extending demand well beyond the 6 game dates.
+            </div>
+          </div>
+
+          <h2 id="airbnb-incentive">Airbnb's $1,000 New Host Bonus</h2>
+          <p>Airbnb is calling this their "biggest new host incentive program ever." Here's how it works:</p>
+
+          <ul>
+            <li><strong>Amount:</strong> Approximately $1,000 CAD ($750 USD)</li>
+            <li><strong>Who qualifies:</strong> New hosts or anyone with no active home listings as of February 1, 2026</li>
+            <li><strong>Step 1:</strong> Sign up at <strong>airbnb.com/new-host-fifa</strong> before publishing your listing</li>
+            <li><strong>Step 2:</strong> Publish an entire home listing (not a private room)</li>
+            <li><strong>Step 3:</strong> Complete a qualifying reservation (minimum $100 USD before taxes) by July 31, 2026</li>
+            <li><strong>Important:</strong> Cancelled stays don't count toward the incentive</li>
+          </ul>
+
+          <p>So you get the bonus on top of whatever you earn from the booking itself. For a new host earning $2,700+ during the tournament period, that's nearly $4,000 total. Not bad for a few weeks of hosting.</p>
+
+          <div class="strategy-box">
+            <h4>Pro Tip: Don't Wait Until June</h4>
+            <p>The incentive is available now, and Airbnb's algorithm favors listings with reviews. If you list your place in March or April and get a few bookings (and reviews) before the World Cup, your listing will rank higher in search results when the big demand hits. Early listings also get a "new listing boost" from Airbnb's algorithm.</p>
+          </div>
+
+          <h2 id="earnings">Expected Earnings for Toronto Hosts</h2>
+          <p>Deloitte (commissioned by Airbnb) put together some projections that are worth paying attention to:</p>
+
+          <ul>
+            <li><strong>Average Toronto host earnings:</strong> $2,700 USD during the tournament</li>
+            <li><strong>Vancouver hosts (for comparison):</strong> $4,200 USD average</li>
+            <li><strong>Average across all 16 host cities:</strong> $3,000 USD per host</li>
+          </ul>
+
+          <p>These are averages. Hosts with well-optimized listings, professional photos, and competitive pricing will earn significantly more. A well-managed 2 bedroom condo near BMO Field or downtown could easily pull $300 to $500 per night during peak match weekends.</p>
+
+          <p>For context, 85% of Toronto Airbnb listings are priced under $500/night, and 67% of 2+ bedroom listings are under $500. With hotels averaging $531/night, there's a massive sweet spot for Airbnb hosts to offer better value while still earning premium rates.</p>
+
+          <h2 id="regulations">Toronto STR Rules You Must Follow</h2>
+          <p>The World Cup doesn't create any exemptions from <a href="/blog/toronto-airbnb-short-term-rental-rules-2026">Toronto's existing STR regulations</a>. Here's the checklist:</p>
+
+          <ul>
+            <li><strong>Principal residence only:</strong> You can only STR the home where you actually live. Investment properties don't qualify</li>
+            <li><strong>Registration required:</strong> You need an STR number (STR-0000-XXXXXX) displayed on all listings. Fee: $390 for 2026</li>
+            <li><strong>180-night annual limit:</strong> Applies to entire home rentals only. No limit on private rooms while you're home</li>
+            <li><strong>$2M liability insurance:</strong> Required for all registered STR operators</li>
+            <li><strong>Safety compliance:</strong> Smoke alarms, CO detectors, fire extinguishers</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Enforcement Is Tightened for 2026</h4>
+            <p>Toronto has reduced the STR registration revocation process from 40 days to just 10 days. The city is cracking down on unregistered operators, especially ahead of the World Cup. Operating without registration can result in fines up to $100,000. Get registered now.</p>
+          </div>
+
+          <h2 id="mat-tax">The 8.5% MAT Tax Increase</h2>
+          <p>Here's something many hosts don't know yet: Toronto <strong>temporarily increased the Municipal Accommodation Tax from 6% to 8.5%</strong>, effective June 1, 2025 through July 31, 2026. This was specifically implemented to help fund World Cup hosting costs.</p>
+
+          <p>The city expects this increase to generate an additional $56.6 million. For hosts, this means:</p>
+
+          <ul>
+            <li>You must collect <strong>8.5% MAT</strong> on all bookings during this period</li>
+            <li>Airbnb collects and remits MAT automatically on your behalf</li>
+            <li>Rooms fully booked and paid before June 1, 2025 are exempt from the increase</li>
+            <li>Partial prepayments or deposits do <strong>not</strong> qualify for the exemption</li>
+          </ul>
+
+          <p>Don't let the tax increase scare you. With hotel rates at $531/night average, guests are expecting to pay premium prices. The 8.5% MAT is a minor factor when your listing offers genuine value compared to a hotel room at double the price.</p>
+
+          <h2 id="demand">Who Is Coming to Toronto (And What They Want)</h2>
+          <p>Understanding your guests helps you optimize your listing. Here's what the data shows:</p>
+
+          <h3>Guest Demographics</h3>
+          <ul>
+            <li><strong>Families and groups</strong> account for more than half of all World Cup Airbnb bookings</li>
+            <li><strong>75% of family bookings</strong> are for 2 and 3 bedroom listings</li>
+            <li><strong>Gen Z travelers</strong> represent over 15% of Canadian bookings, with nearly half traveling in groups</li>
+            <li>Top source countries: <strong>United States, United Kingdom, and Canada</strong></li>
+          </ul>
+
+          <h3>Stay Patterns</h3>
+          <ul>
+            <li><strong>2-night stays</strong> are most common (30% of bookings)</li>
+            <li><strong>4 to 5 night stays</strong> are second most popular (20%)</li>
+            <li>Germans are visiting the most destinations. Argentinians are booking the longest trips</li>
+          </ul>
+
+          <div class="strategy-box">
+            <h4>Listing Optimization for World Cup Guests</h4>
+            <ol>
+              <li><strong>Multi-bedroom wins:</strong> If you have 2 or 3 bedrooms, emphasize this in your title and photos</li>
+              <li><strong>Minimum stay:</strong> Consider setting a 2-night minimum during match weekends to maximize revenue</li>
+              <li><strong>Transit access:</strong> Highlight proximity to BMO Field, TTC stations, or the Fan Festival at Fort York</li>
+              <li><strong>International guests:</strong> Make sure your listing description mentions nearby restaurants, grocery stores, and transit in clear English</li>
+            </ol>
+          </div>
+
+          <h2 id="getting-started">How to Get Started</h2>
+
+          <ol class="tips-list">
+            <li>
+              <span class="tip-icon">1</span>
+              <div><strong>Claim the $1,000 incentive:</strong> Sign up at airbnb.com/new-host-fifa before creating your listing. You must register here first to qualify for the bonus</div>
+            </li>
+            <li>
+              <span class="tip-icon">2</span>
+              <div><strong>Register with the City:</strong> Apply for your STR registration number at <a href="https://secure.toronto.ca/webapps/short-term-rental/registration/" target="_blank" rel="noopener">Toronto's STR portal</a>. This takes time, so start now</div>
+            </li>
+            <li>
+              <span class="tip-icon">3</span>
+              <div><strong>Get insured:</strong> Secure $2M liability insurance that explicitly covers short-term rental activity</div>
+            </li>
+            <li>
+              <span class="tip-icon">4</span>
+              <div><strong>Create your listing:</strong> Professional photos make a massive difference. Use Airbnb's new Host Resource Centre for tips, or work with a property manager like Nurture</div>
+            </li>
+            <li>
+              <span class="tip-icon">5</span>
+              <div><strong>Price it right:</strong> Start competitive to build reviews before the tournament, then adjust pricing upward as June approaches. <a href="/blog/airbnb-dynamic-pricing-toronto-2026">Dynamic pricing tools</a> can help you capture peak demand automatically</div>
+            </li>
+            <li>
+              <span class="tip-icon">6</span>
+              <div><strong>Get reviews early:</strong> List in March or April to build your review count and search ranking before the World Cup rush</div>
+            </li>
+          </ol>
+
+          <h2 id="resources">Official Resources</h2>
+
+          <div class="resources-box">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="https://news.airbnb.com/airbnb-is-offering-1000-to-new-fifa-world-cup-2026-hosts-in-canada/" target="_blank" rel="noopener">Airbnb $1,000 New Host Incentive</a></li>
+              <li><a href="https://torontofwc26.ca/game" target="_blank" rel="noopener">Toronto FIFA World Cup Match Schedule</a></li>
+              <li><a href="https://torontofwc26.ca/news/fifa-toronto-fan-festival-venue-location" target="_blank" rel="noopener">FIFA Fan Festival at Fort York</a></li>
+              <li><a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-rights-information/short-term-rentals/short-term-rental-operators-hosts/" target="_blank" rel="noopener">Toronto STR Registration Portal</a></li>
+              <li><a href="https://www.toronto.ca/explore-enjoy/festivals-events/fifa-world-cup-26/" target="_blank" rel="noopener">City of Toronto FIFA World Cup Page</a></li>
+              <li><a href="https://www.destinationtoronto.com/research/leisure-articles/post/preparing-for-fifa-world-cup-26/" target="_blank" rel="noopener">Destination Toronto Business Prep Guide</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Host During the World Cup Without the Hassle?</h3>
+            <p>Nurture handles everything from listing creation and professional photography to guest communication, cleaning coordination, and compliance. We've managed properties through every major Toronto event, and we're ready for the World Cup. Our fee? Just 10 to 15% of your host payout.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Host for the World Cup?</h2>
+        <p>Get a free rental estimate and find out how much your property could earn this summer.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ol {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .points-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .points-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .points-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .points-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .points-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .points-table td.highlight {
+    background: rgba(117, 155, 143, 0.1);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .points-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
