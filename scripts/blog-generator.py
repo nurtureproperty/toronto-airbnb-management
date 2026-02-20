@@ -101,6 +101,7 @@ RSS_FEEDS = [
 RELEVANCE_KEYWORDS = {
     # Location keywords - article MUST mention Ontario/GTA locations
     "required_locations": [
+        "canada", "canadian",
         "toronto", "ontario", "gta", "greater toronto area",
         "mississauga", "brampton", "vaughan", "markham", "richmond hill",
         "oakville", "hamilton", "burlington", "ajax", "pickering", "whitby",
@@ -116,6 +117,7 @@ RELEVANCE_KEYWORDS = {
         "furnished rental", "rental regulation", "rental bylaw", "rental license",
         "rental licensing", "host", "listing", "mat tax", "accommodation tax",
         "principal residence", "180 day", "180 night",
+        "fifa", "world cup",
     ],
     # Exclude negative/irrelevant content
     "exclude": [
