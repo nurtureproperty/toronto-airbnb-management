@@ -22,6 +22,7 @@ const relatedPosts = [
 
 const tocItems = [
   { id: 'airbnb-incentive', text: '$1,000 New Host Bonus' },
+  { id: 'eligible-postal-codes', text: 'Eligible Postal Codes' },
   { id: 'opportunity', text: 'The Opportunity' },
   { id: 'earnings', text: 'Expected Earnings' },
   { id: 'match-schedule', text: 'Toronto Match Schedule' },
@@ -130,6 +131,38 @@ const pageSchema = [articleSchema, faqSchema];
           <div class="strategy-box">
             <h4>Pro Tip: Don't Wait Until June</h4>
             <p>The incentive is available now, and Airbnb's algorithm favors listings with reviews. If you list your place in March or April and get a few bookings (and reviews) before the World Cup, your listing will rank higher in search results when the big demand hits. Early listings also get a "new listing boost" from Airbnb's algorithm.</p>
+          </div>
+
+          <h2 id="eligible-postal-codes">Does Your Postal Code Qualify?</h2>
+          <p>Airbnb's bonus is only available to hosts in eligible postal codes across the Greater Toronto Area and surrounding regions. If your property's postal code is on this list, you qualify. If it's not, you won't be able to claim the $1,000 incentive even if you're in Ontario.</p>
+
+          <div class="postal-code-section">
+            <div class="postal-group">
+              <h4>Toronto (M Postal Codes)</h4>
+              <p class="postal-note">All Toronto proper neighbourhoods from Scarborough to Etobicoke to North York.</p>
+              <div class="postal-grid">
+                {['M1B','M1C','M1E','M1G','M1H','M1J','M1K','M1L','M1M','M1N','M1P','M1R','M1S','M1T','M1V','M1W','M1X','M2H','M2J','M2K','M2L','M2M','M2N','M2P','M2R','M3A','M3B','M3C','M3H','M3J','M3K','M3L','M3M','M3N','M4A','M4B','M4C','M4E','M4G','M4H','M4J','M4K','M4L','M4M','M4N','M4P','M4R','M4S','M4T','M4V','M4W','M4X','M4Y','M5A','M5B','M5C','M5E','M5G','M5H','M5J','M5M','M5N','M5P','M5R','M5S','M5T','M5V','M6A','M6B','M6C','M6E','M6G','M6H','M6J','M6K','M6L','M6M','M6N','M6P','M6R','M6S','M8V','M8W','M8X','M8Y','M8Z','M9A','M9B','M9C','M9L','M9M','M9N','M9P','M9R','M9V','M9W'].map(code => (
+                  <span class="postal-code">{code}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="postal-group">
+              <h4>GTA Suburbs (L Postal Codes)</h4>
+              <p class="postal-note">Covers Mississauga, Brampton, Oakville, Burlington, Hamilton, Markham, Richmond Hill, Vaughan, Ajax, Whitby, and surrounding areas.</p>
+              <div class="postal-grid">
+                {['L0H','L0J','L0P','L0R','L1B','L1C','L1G','L1H','L1J','L1K','L1L','L1N','L1P','L1R','L1S','L1T','L1V','L1W','L1X','L1Z','L3P','L3R','L3S','L3T','L4B','L4C','L4E','L4H','L4J','L4K','L4L','L4S','L4T','L4W','L4X','L4Y','L4Z','L5A','L5B','L5C','L5E','L5G','L5H','L5K','L5L','L5M','L5N','L5R','L5V','L5W','L6A','L6C','L6E','L6G','L6H','L6M','L6P','L6R','L6S','L6T','L6V','L6W','L6X','L6Y','L6Z','L7A','L7C','L7P','L7R','L7S','L8B','L8H','L8K','L8L','L8M','L8N','L8P','L8R','L8S','L8T','L8V','L9A','L9C','L9E','L9T'].map(code => (
+                  <span class="postal-code">{code}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <p>Not sure which area your postal code covers? The M codes are Toronto proper. L codes starting with L5 are Mississauga, L6 covers Brampton and Oakville, L4 covers Vaughan and Markham, L8 is Hamilton, and L1 codes are mostly Durham Region (Ajax, Whitby, Oshawa). Source: <a href="https://www.airbnb.ca/e/fifa-new-host" target="_blank" rel="noopener">Airbnb's official FIFA new host page</a>.</p>
+
+          <div class="warning-box">
+            <h4>Not on the List?</h4>
+            <p>If your postal code isn't listed, you can still host for the World Cup and earn great money. You just won't qualify for the $1,000 Airbnb bonus. The tourist demand extends well beyond the eligible zones, and mid-range GTA properties outside Toronto will still see strong demand as guests look for more affordable options.</p>
           </div>
 
           <h2 id="opportunity">Why This Is a Once in a Generation Opportunity</h2>
@@ -640,6 +673,51 @@ const pageSchema = [articleSchema, faqSchema];
 
   .comparison-row .comparison-col.highlight {
     background: rgba(117, 155, 143, 0.1);
+  }
+
+  .postal-code-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .postal-group {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .postal-group h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-primary-dark);
+  }
+
+  .postal-note {
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .postal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .postal-code {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--color-text);
+    white-space: nowrap;
   }
 
   .warning-box {
