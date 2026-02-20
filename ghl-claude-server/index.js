@@ -779,7 +779,13 @@ WRITING RULES:
 - First person ("I", "we"). Never sign off with a name
 - Answer their question first, then nudge toward next step (estimate, call, nurturestays.ca/contact)
 - Don't make up numbers. Only cite the exact results above
-- Be helpful first, sales second. No corporate speak, no fluff`;
+- Be helpful first, sales second. No corporate speak, no fluff
+
+MEETING AVAILABILITY (STRICT RULES):
+- ONLY offer meetings Monday to Friday, 10:00 AM to 6:30 PM Eastern Time (Toronto time)
+- NEVER suggest Saturday or Sunday under any circumstances
+- When offering to book, always use a specific time slot from the Available Meeting Slots list provided in the prompt
+- If no slots are listed, say "book a quick call at nurturestays.ca/contact" instead of guessing a time`;
 
 const NURTURE_FB_PROMPT = `Reply to the lead's LATEST message. Read the full conversation history first.
 
@@ -788,12 +794,176 @@ RULES:
 2. Reply to their most recent message directly. Don't start over
 3. Keep it short. 1-3 sentences. Match their energy
 4. If the conversation is already going, don't re-introduce yourself
-5. Answer first, then nudge toward a call or estimate if it fits naturally`;
+5. Answer first, then nudge toward a call or estimate if it fits naturally
+6. When suggesting a meeting, ONLY use time slots from the "Available Meeting Slots" list below. Never invent times`;
 
-async function generateFBResponse(contact, conversationHistory, firstName) {
+// ============================================
+// CALENDAR API FUNCTIONS
+// ============================================
+
+const BOOK_APPOINTMENT_TOOL = {
+  name: 'book_appointment',
+  description: 'Book a consultation appointment in the CRM calendar. Only use this tool when the lead has explicitly confirmed they want to book at a specific time from the available slots list. Do NOT use speculatively.',
+  input_schema: {
+    type: 'object',
+    properties: {
+      start_datetime: {
+        type: 'string',
+        description: 'The appointment start time in ISO 8601 format (e.g. "2026-02-20T14:00:00-05:00"). Must match one of the available slots exactly.',
+      },
+      duration_minutes: {
+        type: 'integer',
+        description: 'Meeting duration in minutes. Default 30.',
+        default: 30,
+      },
+    },
+    required: ['start_datetime'],
+  },
+};
+
+async function getCalendarFreeSlots(calendarId) {
+  // Start from tomorrow 10am Toronto time, look 5 days out
+  const now = new Date();
+  const torontoNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Toronto' }));
+
+  const start = new Date(torontoNow);
+  start.setDate(start.getDate() + 1);
+  start.setHours(10, 0, 0, 0);
+
+  const end = new Date(start);
+  end.setDate(end.getDate() + 5);
+  end.setHours(18, 30, 0, 0);
+
+  const params = new URLSearchParams({
+    calendarId,
+    startDate: start.getTime().toString(),
+    endDate: end.getTime().toString(),
+    timezone: 'America/Toronto',
+  });
+
+  const response = await fetch(`${GHL_API_BASE}/calendars/free-slots?${params}`, {
+    headers: {
+      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Version': '2021-07-28',
+    },
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    console.error('Calendar API error:', response.status, err);
+    return null;
+  }
+
+  return response.json();
+}
+
+function formatSlotsForClaude(slotsData) {
+  if (!slotsData) return null;
+
+  console.log('Raw calendar slots:', JSON.stringify(slotsData).slice(0, 600));
+
+  // Handle multiple GHL response formats
+  const slotGroups =
+    slotsData?.data?.slots ||
+    slotsData?.slots ||
+    slotsData?.data ||
+    slotsData;
+
+  if (!slotGroups || typeof slotGroups !== 'object') return null;
+
+  const slots = [];
+
+  for (const [, times] of Object.entries(slotGroups)) {
+    if (!Array.isArray(times)) continue;
+
+    times.slice(0, 3).forEach(slot => {
+      const startTime = slot.startTime || slot.start || slot;
+      if (!startTime || typeof startTime !== 'string') return;
+
+      const start = new Date(startTime);
+      if (isNaN(start.getTime())) return;
+
+      // Double-check: must be weekday, within business hours EST
+      const estStr = start.toLocaleString('en-US', { timeZone: 'America/Toronto', hour12: false });
+      const estDate = new Date(estStr);
+      const dayOfWeek = estDate.getDay();
+      const hour = estDate.getHours();
+      const minute = estDate.getMinutes();
+
+      if (dayOfWeek === 0 || dayOfWeek === 6) return; // Skip weekends
+      if (hour < 10) return;
+      if (hour > 18 || (hour === 18 && minute > 0)) return; // After 6:30pm
+
+      const label = start.toLocaleString('en-CA', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZone: 'America/Toronto',
+      });
+
+      slots.push({ label, iso: start.toISOString() });
+    });
+  }
+
+  if (!slots.length) return null;
+
+  const top = slots.slice(0, 6);
+  return (
+    'Available meeting slots (Toronto time, Mon-Fri only):\n' +
+    top.map((s, i) => `${i + 1}. ${s.label}  [ISO: ${s.iso}]`).join('\n') +
+    '\n\nWhen the lead picks one of these, use the book_appointment tool with its ISO time.'
+  );
+}
+
+async function createAppointment(calendarId, contactId, startIso, durationMinutes = 30) {
+  const start = new Date(startIso);
+  const end = new Date(start.getTime() + durationMinutes * 60 * 1000);
+
+  const response = await fetch(`${GHL_API_BASE}/calendars/events/appointments`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Version': '2021-07-28',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      calendarId,
+      contactId,
+      startTime: start.toISOString(),
+      endTime: end.toISOString(),
+      title: 'Nurture Consultation',
+      status: 'confirmed',
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Failed to create appointment: ${response.status} - ${err}`);
+  }
+
+  return response.json();
+}
+
+async function generateFBResponse(contact, conversationHistory, firstName, contactId) {
   const contactContext = buildContactContext(contact);
 
   console.log('Conversation history being sent to Claude:', conversationHistory);
+
+  // Fetch real available calendar slots (Mon-Fri 10am-6:30pm EST only)
+  let slotsContext = 'No specific slots available right now. Direct to nurturestays.ca/contact to book.';
+  const calendarId = process.env.GHL_CALENDAR_ID;
+  if (calendarId) {
+    try {
+      const rawSlots = await getCalendarFreeSlots(calendarId);
+      const formatted = formatSlotsForClaude(rawSlots);
+      if (formatted) slotsContext = formatted;
+    } catch (e) {
+      console.error('Could not fetch calendar slots:', e.message);
+    }
+  }
 
   const userPrompt = `## Your Task
 ${NURTURE_FB_PROMPT}
@@ -803,19 +973,77 @@ ${contactContext}
 
 ${firstName && firstName !== 'there' ? `The lead's name is "${firstName}".` : 'You do not know their name yet.'}
 
+## Available Meeting Slots
+${slotsContext}
+
 ## Full Conversation History (read this carefully before replying)
 ${conversationHistory}
 
-Now write your reply to the lead's most recent message above. Reply ONLY with the message text, nothing else.`;
+Now write your reply to the lead's most recent message above. Reply ONLY with the message text, nothing else.
+If the lead has clearly confirmed they want to book a specific slot from the list above, also call the book_appointment tool.`;
+
+  // Include booking tool only when calendar is configured
+  const tools = calendarId ? [BOOK_APPOINTMENT_TOOL] : undefined;
+
+  const messages = [{ role: 'user', content: userPrompt }];
 
   const response = await anthropic.messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 500,
     system: NURTURE_PM_CONTEXT,
-    messages: [{ role: 'user', content: userPrompt }],
+    tools,
+    messages,
   });
 
-  let message = response.content[0].text.trim();
+  // Handle tool use (appointment booking)
+  const toolUseBlock = response.content.find(b => b.type === 'tool_use' && b.name === 'book_appointment');
+  const textBlock = response.content.find(b => b.type === 'text');
+
+  if (toolUseBlock && calendarId && contactId) {
+    const { start_datetime, duration_minutes = 30 } = toolUseBlock.input;
+    console.log('Claude wants to book appointment at:', start_datetime);
+
+    let toolResultContent;
+    try {
+      const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes);
+      console.log('Appointment created:', appt?.id || JSON.stringify(appt).slice(0, 100));
+      toolResultContent = JSON.stringify({ success: true, message: 'Appointment booked successfully' });
+    } catch (e) {
+      console.error('Failed to create appointment:', e.message);
+      toolResultContent = JSON.stringify({ success: false, error: e.message });
+    }
+
+    // Ask Claude for the confirmation message now that the tool ran
+    const confirmResponse = await anthropic.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 300,
+      system: NURTURE_PM_CONTEXT,
+      tools,
+      messages: [
+        ...messages,
+        { role: 'assistant', content: response.content },
+        {
+          role: 'user',
+          content: [
+            {
+              type: 'tool_result',
+              tool_use_id: toolUseBlock.id,
+              content: toolResultContent,
+            },
+          ],
+        },
+      ],
+    });
+
+    let confirmText = confirmResponse.content.find(b => b.type === 'text')?.text?.trim() || '';
+    if ((confirmText.startsWith('"') && confirmText.endsWith('"')) || (confirmText.startsWith("'") && confirmText.endsWith("'"))) {
+      confirmText = confirmText.slice(1, -1);
+    }
+    return confirmText;
+  }
+
+  // No tool use - return plain text reply
+  let message = textBlock?.text?.trim() || '';
 
   // Remove any quotes Claude might wrap the message in
   if ((message.startsWith('"') && message.endsWith('"')) || (message.startsWith("'") && message.endsWith("'"))) {
@@ -908,8 +1136,8 @@ app.post('/webhook/fb-message', async (req, res) => {
       }
     }
 
-    // Generate response with Claude using Nurture PM context
-    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName);
+    // Generate response with Claude using Nurture PM context (pass contactId for calendar booking)
+    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId);
     console.log('Generated FB reply:', generatedMessage);
 
     // Send the reply via Facebook
