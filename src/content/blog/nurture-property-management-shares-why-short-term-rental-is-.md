@@ -55,7 +55,7 @@ But if you're looking for completely passive income with zero involvement? Short
 
 Most management companies in the GTA charge 18-25% and lock you into long contracts. They hold your listing hostage, making it nearly impossible to switch if you're not happy.
 
-We do things differently at Nurture. Our fees run 10-15%, and we don't believe in trapping our clients with contracts. You keep ownership of your listing. If we're not delivering results, you can walk away anytime.
+We do things differently at Nurture. Our fees run 12-15%, and we don't believe in trapping our clients with contracts. You keep ownership of your listing. If we're not delivering results, you can walk away anytime.
 
 We started as a real estate marketing company before moving into property management. That background means we know how to make listings stand out on Airbnb, Vrbo, and other platforms.
 

@@ -813,7 +813,7 @@ Own a unit in one of these buildings? Nurture provides [full service Airbnb mana
 - Cleaning and turnover coordination
 - Maintenance and emergency support
 
-Our management fee is just 10-15% of revenue. No long term contracts.
+Our management fee is just 12-15% of revenue. No long term contracts.
 
 **Ready to start earning?** [Contact us today](/contact) or call 647-957-8956 for a free property analysis.
 
