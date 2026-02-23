@@ -74,7 +74,7 @@ const pageTitle = "Whitby Airbnb Management | 10-15%";
 const pageDescription = "Whitby Airbnb management for Harbour, Downtown, and GO Station area properties. No license yet, act before rules change. 10-15% fees. Get your free estimate.";
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Whitby Airbnb Management</span></h1>
@@ -246,8 +246,6 @@ const pageDescription = "Whitby Airbnb management for Harbour, Downtown, and GO 
       </div>
     </div>
   </section>
-
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">

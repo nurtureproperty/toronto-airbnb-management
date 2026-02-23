@@ -74,7 +74,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Oakville Airbnb Management | 10-15%" description="Oakville Airbnb management for Downtown, Bronte, and Glen Abbey properties. Full licensing and demerit compliance included. 10-15% fees. Free estimate.">
+<Layout title="Oakville Airbnb Management | 10-15%" description="Oakville Airbnb management for Downtown, Bronte, and Glen Abbey properties. Full licensing and demerit compliance included. 10-15% fees. Free estimate." schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Oakville Airbnb Management</span></h1>
@@ -232,8 +232,6 @@ const faqSchema = {
       </div>
     </div>
   </section>
-
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="section other-areas">
     <div class="container">

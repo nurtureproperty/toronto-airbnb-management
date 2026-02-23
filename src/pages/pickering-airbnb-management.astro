@@ -75,7 +75,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Pickering Airbnb Management</span></h1>
@@ -247,8 +247,6 @@ const faqSchema = {
       </div>
     </div>
   </section>
-
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">

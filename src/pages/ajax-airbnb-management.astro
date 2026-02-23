@@ -75,8 +75,7 @@ const pageTitle = "Ajax Airbnb Management | No STR Rules";
 const pageDescription = "Ajax Airbnb management: no license, no night limits, investment properties welcome. Waterfront and GO Station areas. 10-15% fees. Get your free estimate.";
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<Layout title={pageTitle} description={pageDescription} schema={faqSchema}>
 
   <section class="hero">
     <div class="container">

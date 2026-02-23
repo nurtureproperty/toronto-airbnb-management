@@ -74,7 +74,7 @@ const services = [
 ];
 ---
 
-<Layout title="Waterloo Airbnb Management | 10-15%" description="Waterloo Airbnb management for University District, Uptown, and Tech Corridor properties. Dynamic pricing and STR compliance. 10-15% fees. Free estimate.">
+<Layout title="Waterloo Airbnb Management | 10-15%" description="Waterloo Airbnb management for University District, Uptown, and Tech Corridor properties. Dynamic pricing and STR compliance. 10-15% fees. Free estimate." schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Waterloo Airbnb Management</span></h1>
@@ -238,8 +238,6 @@ const services = [
       </div>
     </div>
   </section>
-
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">

@@ -41,6 +41,18 @@ Service pages follow a consistent structure:
 
 Each page defines its own scoped styles within `<style>` tags. Data arrays (packages, FAQs, steps) are defined in the frontmatter.
 
+### Schema / Structured Data
+
+**ALWAYS pass JSON-LD schema via the Layout `schema` prop. NEVER add inline `<script type="application/ld+json">` tags inside pages.** The Layout component already handles injecting all schema (LocalBusiness + page-specific) into the `<head>`. Adding an inline script creates duplicate schema, which Google flags as "Duplicate field" errors.
+
+```astro
+<!-- CORRECT: pass schema via Layout prop -->
+<Layout title="Page Title" description="..." schema={faqSchema}>
+
+<!-- WRONG: inline script duplicates what Layout already injects -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+```
+
 ## Deployment
 
 Changes pushed to `master` branch auto-deploy to production (GitHub → hosting provider).
@@ -149,7 +161,7 @@ const relatedPosts = [
 ## Writing Guidelines
 
 ### Punctuation Rules
-**Never use spaced hyphens ( - ) in paragraph content.** This is a common informal writing habit that looks unprofessional.
+**NEVER use dashes or hyphens ( - ) in ANY written content: blog articles, SMS messages, emails, social posts, or any other output.** This is a hard rule with no exceptions except compound words (e.g., "short-term", "full-service").
 
 Instead of hyphens, use:
 - **Commas** for clauses that add information: "your principal residence, where you normally live"

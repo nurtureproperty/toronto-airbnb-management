@@ -71,7 +71,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Guelph Airbnb Management | 10-15%" description="Guelph Airbnb management for University of Guelph area, Downtown, and hospital district properties. Dynamic pricing included. 10-15% fees. Free estimate.">
+<Layout title="Guelph Airbnb Management | 10-15%" description="Guelph Airbnb management for University of Guelph area, Downtown, and hospital district properties. Dynamic pricing included. 10-15% fees. Free estimate." schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Guelph Airbnb Management</span></h1>
@@ -232,8 +232,6 @@ const faqSchema = {
       </div>
     </div>
   </section>
-
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="cta-section">
     <div class="container">

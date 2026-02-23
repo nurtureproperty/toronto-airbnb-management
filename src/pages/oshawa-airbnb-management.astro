@@ -74,7 +74,7 @@ const pageTitle = "Oshawa Airbnb Management | 10-15%";
 const pageDescription = "Oshawa Airbnb management: licensed STR market with 180-day limit. University, hospital, and event venue demand. Full compliance. 10-15% fees. Free estimate.";
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Oshawa Airbnb Management</span></h1>
@@ -266,7 +266,6 @@ const pageDescription = "Oshawa Airbnb management: licensed STR market with 180-
     </div>
   </section>
 
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 
 <style>

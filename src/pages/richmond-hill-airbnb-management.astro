@@ -73,7 +73,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title="Richmond Hill Airbnb Management | 10-15%" description="Richmond Hill Airbnb management: no STR license, no MAT, no night limits. Oak Ridges and Bayview Hill areas. Investment OK. 10-15% fees. Free estimate.">
+<Layout title="Richmond Hill Airbnb Management | 10-15%" description="Richmond Hill Airbnb management: no STR license, no MAT, no night limits. Oak Ridges and Bayview Hill areas. Investment OK. 10-15% fees. Free estimate." schema={faqSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Richmond Hill Airbnb Management</span></h1>
@@ -231,8 +231,6 @@ const faqSchema = {
       </div>
     </div>
   </section>
-
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="section other-areas">
     <div class="container">
