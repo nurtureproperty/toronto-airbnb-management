@@ -26,7 +26,25 @@
       "source": "Google News - Airbnb Ontario Regulations",
       "priority": "ontario_str (canadian + airbnb)",
       "hash": "4ac9664cbf81c8679b4c0a136c2b9288"
+    },
+    {
+      "title": "'Every cottage country town is facing this:' Ontario lakeside towns push to license short-term rentals | CBC News - CBC",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxQTzFPQzlib0o4Q2RyNGRxaXNfSzJoQW52Ykduc1RLS0pIRGRHeGZ6V21XNEI1UWxDUTVpbWlLNkM3aGx0aVVJTEhmdXFicTZiUzhPV0NWaE96NE9rU0lXdDlXc3FHZWtYOUtyMG1sMllKdm9YUUpKOU9FaGZjcGxBTQ?oc=5\" target=\"_blank\">'Every cottage country town is facing this:' Ontario lakeside towns push to license short-term rentals | CBC News</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBC</font>",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQTzFPQzlib0o4Q2RyNGRxaXNfSzJoQW52Ykduc1RLS0pIRGRHeGZ6V21XNEI1UWxDUTVpbWlLNkM3aGx0aVVJTEhmdXFicTZiUzhPV0NWaE96NE9rU0lXdDlXc3FHZWtYOUtyMG1sMllKdm9YUUpKOU9FaGZjcGxBTQ?oc=5",
+      "published": "Sun, 10 Apr 2022 07:00:00 GMT",
+      "source": "Google News - Airbnb Ontario Regulations",
+      "priority": "ontario_str (ontario + short-term rental)",
+      "hash": "bbeda1525609c7d54645bb7b77211764"
+    },
+    {
+      "title": "Toronto to enforce new Airbnb regulations after tribunal rules in favour of stricter bylaws - CBC",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxQMHlzQXJnUi1IQklJd2V5c1pQTTIta000VEZXX2FsSkZxVk9CRXdjemxLYk9KbUFYeE1MRml4Z19jMHpMb2lZZV9rRmNOeGZOYUJoYTVWWHRaU2dBTVUwYmVNVjkzcnRVRmxGN0tNdWhCOUlja1FOWlh3QW1mR043aVk2bVI4VUdxSFZ0YnoybVc?oc=5\" target=\"_blank\">Toronto to enforce new Airbnb regulations after tribunal rules in favour of stricter bylaws</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBC</font>",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMHlzQXJnUi1IQklJd2V5c1pQTTIta000VEZXX2FsSkZxVk9CRXdjemxLYk9KbUFYeE1MRml4Z19jMHpMb2lZZV9rRmNOeGZOYUJoYTVWWHRaU2dBTVUwYmVNVjkzcnRVRmxGN0tNdWhCOUlja1FOWlh3QW1mR043aVk2bVI4VUdxSFZ0YnoybVc?oc=5",
+      "published": "Tue, 19 Nov 2019 08:00:00 GMT",
+      "source": "Google News - Airbnb Ontario Regulations",
+      "priority": "ontario_str (toronto + airbnb)",
+      "hash": "0cfe417a7a31aad486ba9a5c4cdca250"
     }
   ],
-  "updated": "2026-03-02T14:46:36.911654+00:00"
+  "updated": "2026-03-03T14:48:33.415735+00:00"
 }
