@@ -61,6 +61,20 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Hours of Operation -->
+  <section class="hours-section">
+    <div class="container">
+      <div class="hours-card">
+        <h3>Hours of Operation</h3>
+        <ul>
+          <li><span class="day">Monday to Friday</span><span class="time">9:00 AM to 6:00 PM</span></li>
+          <li><span class="day">Saturday &amp; Sunday</span><span class="time">11:00 AM to 5:00 PM</span></li>
+        </ul>
+        <p class="hours-note">Guest support for managed properties is available 24/7.</p>
+      </div>
+    </div>
+  </section>
+
 </Layout>
 
 <script is:inline>
@@ -202,6 +216,62 @@ import Layout from '../layouts/Layout.astro';
 
   .form-card iframe {
     height: 1000px !important;
+  }
+
+  /* Hours Section */
+  .hours-section {
+    padding: 0 0 3rem;
+  }
+
+  .hours-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--color-bg-alt);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--color-border);
+  }
+
+  .hours-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .hours-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hours-card li {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+  }
+
+  .hours-card .day {
+    font-weight: 600;
+    color: var(--color-text);
+    min-width: 150px;
+    text-align: right;
+  }
+
+  .hours-card .time {
+    min-width: 150px;
+    text-align: left;
+  }
+
+  .hours-note {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
   }
 
   /* Responsive */
