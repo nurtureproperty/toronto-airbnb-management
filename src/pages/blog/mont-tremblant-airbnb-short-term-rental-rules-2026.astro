@@ -1,0 +1,1054 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Can I Airbnb my investment property in Mont-Tremblant?", a: "It depends on the zoning. Unlike most Ontario cities, Quebec does not have a blanket principal residence requirement for STRs. Mont-Tremblant uses zoning to control where tourism residences (résidences de tourisme) are permitted. If your investment property is in an authorized zone (mostly around the resort station and village areas), you can register it with CITQ and operate legally." },
+  { q: "What is the CITQ and why do I need it?", a: "The CITQ (Corporation de l'industrie touristique du Québec) is Quebec's provincial body that regulates all tourist accommodation. Any property rented for 31 days or less must be registered with CITQ. This is a provincial law that applies across all of Quebec, not just Mont-Tremblant. Without a valid CITQ registration number, you cannot legally list on Airbnb." },
+  { q: "How much does CITQ registration cost?", a: "For 2026, registration fees are $54/year for a primary residence establishment, $156/year for a general tourist accommodation establishment (investment properties, chalets, condos). These fees are paid online through the CITQ portal and must be renewed annually." },
+  { q: "What insurance do I need?", a: "$2,000,000 in civil liability insurance per event is required. This must be submitted with your CITQ registration application. Standard homeowner's insurance typically won't cover short-term rental activities, so you'll need specialized STR coverage or a rider from your insurer." },
+  { q: "Does Airbnb collect the lodging tax automatically?", a: "Yes. Airbnb collects and remits the 3.5% Quebec lodging tax (taxe sur l'hébergement) automatically for bookings in Quebec. You don't need to handle this separately for platform bookings. For direct bookings, you must collect and remit the 3.5% yourself to Revenu Québec." },
+  { q: "What's the difference between Mont-Tremblant and Lac-Tremblant-Nord?", a: "They are two separate municipalities with different rules. Ville de Mont-Tremblant (the resort town) allows STRs in designated zones. Lac-Tremblant-Nord (a smaller municipality to the north) only allows rentals of 31+ consecutive days, effectively banning traditional Airbnb. Always verify which municipality your property is in before proceeding." },
+  { q: "What happens if I operate without a CITQ number?", a: "Quebec takes enforcement seriously. Fines start at $5,000 for individuals and can reach $10,000. Platforms like Airbnb can be fined up to $100,000 per illegal listing. Between 2020 and 2024, Quebec issued over $15 million in fines province-wide. Additionally, since 2024, the CRA denies all expense deductions on non-compliant STR income, meaning you'd pay tax on gross revenue." },
+  { q: "How long does the registration process take?", a: "The process itself is straightforward once you have your documents. The biggest variable is getting the Municipal Compliance Notice (Avis de conformité) signed by Mont-Tremblant's urban planning department. Allow 2 to 4 weeks for the municipality to process and sign this form. Once you have it, the CITQ online application can be completed the same day." }
+];
+
+const relatedPosts = [
+  { title: 'Ottawa Airbnb Short Term Rental Rules 2026', href: '/blog/ottawa-airbnb-short-term-rental-rules-2026', description: 'Ontario\'s capital requires principal residence and a bi-annual permit' },
+  { title: 'Muskoka Airbnb Short Term Rental Rules 2026', href: '/blog/muskoka-airbnb-short-term-rental-rules-2026', description: 'Ontario\'s cottage country has a $1,000/year license and demerit system' },
+  { title: 'Niagara Falls Airbnb Short Term Rental Rules 2026', href: '/blog/niagara-falls-airbnb-short-term-rental-rules-2026', description: 'Zoning-based restrictions similar to Mont-Tremblant\'s approach' }
+];
+
+const tocItems = [
+  { id: 'quebec-vs-ontario', text: 'Quebec vs Ontario Rules' },
+  { id: 'what-is-str', text: 'What Counts as an STR' },
+  { id: 'zoning', text: 'Zoning: Where STRs Are Allowed' },
+  { id: 'citq-registration', text: 'CITQ Registration' },
+  { id: 'step-by-step', text: 'Step by Step Process' },
+  { id: 'compliance-notice', text: 'Municipal Compliance Notice' },
+  { id: 'insurance', text: 'Insurance Requirements' },
+  { id: 'lodging-tax', text: 'Quebec Lodging Tax (3.5%)' },
+  { id: 'income-tax', text: 'Income Tax & CRA Rules' },
+  { id: 'penalties', text: 'Fines & Penalties' },
+  { id: 'lac-tremblant-nord', text: 'Lac-Tremblant-Nord Warning' },
+  { id: 'compliance-tips', text: 'Staying Compliant' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Mont-Tremblant Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Mont-Tremblant Airbnb rules: CITQ registration required, zoning restrictions, 3.5% lodging tax, $2M insurance. Your complete 2026 Quebec host compliance guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-09",
+  "dateModified": "2026-03-09",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/mont-tremblant-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Mont-Tremblant Regulations</span>
+      </nav>
+      <h1>Mont-Tremblant Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 9, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">12 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Mont-Tremblant is one of Canada's top resort destinations. World class skiing in winter, golf and hiking in summer, and a year-round pedestrian village that draws over 2.5 million visitors annually. That kind of tourism demand makes it prime territory for Airbnb hosts.</p>
+            <p class="lead">But here's the catch: Quebec handles short-term rental regulations completely differently from Ontario. There's no municipal STR license like Toronto or Ottawa. Instead, everything flows through the provincial CITQ system, with municipal zoning on top. If you're used to Ontario rules, forget what you know. This guide covers the full picture.</p>
+          </div>
+
+          <h2 id="quebec-vs-ontario">Quebec vs Ontario: A Completely Different System</h2>
+          <p>If you own property in Ontario and Quebec (or you're comparing markets), this is the most important thing to understand:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Rule</div>
+              <div class="comparison-col highlight">Quebec (Mont-Tremblant)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Regulated by</div>
+              <div class="comparison-col highlight"><strong>Province (CITQ)</strong> + municipal zoning</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration body</div>
+              <div class="comparison-col highlight"><strong>CITQ</strong> (provincial)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong> (zoning-based)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Night limit</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Accommodation tax</div>
+              <div class="comparison-col highlight"><strong>3.5%</strong> lodging tax (provincial)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Insurance minimum</div>
+              <div class="comparison-col highlight"><strong>$2,000,000</strong> per event</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual fee</div>
+              <div class="comparison-col highlight"><strong>$54 to $156</strong>/year</div>
+            </div>
+          </div>
+
+          <p>The biggest difference? <strong>No principal residence requirement.</strong> In most Ontario cities (Toronto, Mississauga, Brampton, Ottawa), you can only Airbnb the home you live in. In Mont-Tremblant, investment properties, vacation chalets, and condos can all qualify, as long as they're in an authorized zone.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why this matters for investors:</strong> Mont-Tremblant is one of the few major Canadian resort markets where you can legally operate a short-term rental on a non-primary residence. This makes it attractive for property investors looking at the vacation rental market.
+            </div>
+          </div>
+
+          <h2 id="what-is-str">What Counts as a Short-Term Rental in Quebec?</h2>
+          <p>Quebec's <em>Loi sur l'hébergement touristique</em> (Tourist Accommodation Act) defines it clearly:</p>
+
+          <blockquote class="bylaw-quote">
+            A tourist accommodation establishment is any establishment offering at least one accommodation unit (bed, room, suite, apartment, house, chalet, or campsite) for rent to tourists for a period not exceeding 31 days.
+            <cite>Quebec Tourist Accommodation Act</cite>
+          </blockquote>
+
+          <p>Key elements:</p>
+          <ul>
+            <li><strong>31 days or less</strong> = short-term rental (not 28 or 30 like in Ontario)</li>
+            <li><strong>Any accommodation unit</strong> counts: a room, an apartment, a full chalet</li>
+            <li><strong>Rented to tourists</strong> for compensation</li>
+            <li><strong>Rentals of 32+ days</strong> are not subject to these rules</li>
+          </ul>
+
+          <h2 id="zoning">Zoning: Where STRs Are Allowed in Mont-Tremblant</h2>
+          <p>This is where Mont-Tremblant adds its own layer on top of the provincial CITQ rules. The city uses zoning to control where "résidences de tourisme" (tourism residences) can operate.</p>
+
+          <h3>Permitted Zones</h3>
+          <p>STRs are generally allowed in:</p>
+          <ul>
+            <li><strong>Resort station areas</strong> (around the Tremblant ski resort base)</li>
+            <li><strong>Village commercial zones</strong> (Chemin du Village, pedestrian village area)</li>
+            <li><strong>Mixed-use zones</strong> near Lac Tremblant</li>
+            <li><strong>Zones coded HT (habitation-touristique)</strong> and CVG (village-station)</li>
+          </ul>
+
+          <h3>Prohibited or Restricted Zones</h3>
+          <p>STRs are typically <strong>not</strong> allowed in:</p>
+          <ul>
+            <li><strong>Single-family residential zones</strong> away from the resort</li>
+            <li><strong>Strictly residential neighbourhoods</strong></li>
+            <li><strong>Some zones with conditional use only</strong> (case-by-case approval)</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Check Your Zone Before You Buy</h4>
+            <p>The city maintains a zoning map showing exactly where tourism residences are permitted. Before purchasing a property or listing an existing one, verify the zoning with Mont-Tremblant's urban planning department (Service d'urbanisme). Contact them at <strong>urbanisme@villedemont-tremblant.qc.ca</strong> or call <strong>311</strong> (locally) or <strong>819-425-8614</strong> from outside Mont-Tremblant.</p>
+          </div>
+
+          <p>In zones where STRs are prohibited, you cannot rent for 31 days or less, even as your principal residence. However, mid-term rentals (32+ days) remain permitted in all zones.</p>
+
+          <h2 id="citq-registration">CITQ Registration: The Core Requirement</h2>
+          <p>The CITQ (Corporation de l'industrie touristique du Québec) is the provincial body that handles all tourist accommodation registration in Quebec. Think of it as a province-wide STR license.</p>
+
+          <h3>Registration Categories</h3>
+          <p>CITQ has three categories. You need to choose the right one:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Category</div>
+              <div class="comparison-col highlight">Annual Fee (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Primary Residence</strong><br>Renting your own home to one group at a time, no meals included</div>
+              <div class="comparison-col highlight"><strong>$54</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>General Tourist Accommodation</strong><br>Investment properties, chalets, condos, secondary residences</div>
+              <div class="comparison-col highlight"><strong>$156</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Youth Tourism</strong><br>Hostels with 30%+ dorm beds</div>
+              <div class="comparison-col highlight"><strong>$131</strong></div>
+            </div>
+          </div>
+
+          <p>Most Mont-Tremblant hosts will fall under <strong>General Tourist Accommodation</strong> ($156/year), since the typical setup is a chalet or condo that isn't the owner's primary home. If you live in your Mont-Tremblant property full-time and rent it out occasionally, you'd qualify for the Primary Residence category ($54/year).</p>
+
+          <h3>Required Documents</h3>
+          <p>You'll need the following to apply:</p>
+          <ul>
+            <li><strong>Municipal Compliance Notice (Avis de conformité)</strong> signed by Mont-Tremblant's urban planning department</li>
+            <li><strong>Property title, municipal tax bill, or lease agreement</strong></li>
+            <li><strong>Proof of civil liability insurance</strong> ($2,000,000 per event minimum)</li>
+            <li><strong>Interior and exterior photographs</strong> of the property</li>
+            <li><strong>Co-ownership provisions or syndicate authorization</strong> (if condo)</li>
+            <li><strong>Owner authorization</strong> (if you're a tenant subletting)</li>
+          </ul>
+
+          <h3>Registration Certificate</h3>
+          <p>Once approved, CITQ issues a registration certificate containing:</p>
+          <ul>
+            <li>Your registration number (6 digits)</li>
+            <li>Property address and category</li>
+            <li>Number of accommodation units</li>
+            <li>Issue and expiry dates (valid 12 months)</li>
+          </ul>
+
+          <p>This certificate must be:</p>
+          <ul>
+            <li><strong>Displayed at the main entrance</strong> of your property in full view</li>
+            <li><strong>Included in all advertisements</strong> and listing descriptions</li>
+            <li><strong>Shared with platforms</strong> like Airbnb (they require it before your listing goes live)</li>
+          </ul>
+
+          <h2 id="step-by-step">Step by Step: How to Register Your Mont-Tremblant Airbnb</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Verify your zoning.</strong> Contact Mont-Tremblant's Service d'urbanisme at 819-425-8614 or urbanisme@villedemont-tremblant.qc.ca. Confirm that your property is in a zone where tourism residences are permitted.</li>
+            <li><span class="tip-icon">2</span> <strong>Get your Municipal Compliance Notice.</strong> Download the "Avis de conformité" form from the CITQ website. Fill out Sections 1 through 3, then submit it to Mont-Tremblant's urban planning department for Section 4 (the municipal sign-off). Allow 2 to 4 weeks.</li>
+            <li><span class="tip-icon">3</span> <strong>Secure your insurance.</strong> Get $2,000,000 civil liability insurance that explicitly covers short-term rental activity. Keep the certificate handy for your application.</li>
+            <li><span class="tip-icon">4</span> <strong>Take property photos.</strong> CITQ requires both interior and exterior photographs of your property.</li>
+            <li><span class="tip-icon">5</span> <strong>Apply online at CITQ.</strong> Visit <strong>citq.qc.ca</strong> and complete the registration form. Upload all documents and pay the fee ($54 or $156 depending on category).</li>
+            <li><span class="tip-icon">6</span> <strong>Receive your certificate.</strong> CITQ reviews your application and issues your registration certificate with your 6-digit number.</li>
+            <li><span class="tip-icon">7</span> <strong>Display and advertise.</strong> Post the certificate at your property entrance. Include your registration number on every Airbnb listing, VRBO listing, and advertisement. Share the certificate with each platform.</li>
+            <li><span class="tip-icon">8</span> <strong>Renew annually.</strong> Your registration expires after 12 months. Submit your renewal application at least 60 days before expiry to avoid gaps in compliance.</li>
+          </ul>
+
+          <h2 id="compliance-notice">The Municipal Compliance Notice (Avis de Conformité)</h2>
+          <p>This document is the critical link between Mont-Tremblant's municipal zoning and Quebec's provincial CITQ system. You cannot get a CITQ registration without it.</p>
+
+          <p>The form has four sections:</p>
+          <ol>
+            <li><strong>Section 1:</strong> Your personal information (operator/owner details)</li>
+            <li><strong>Section 2:</strong> Property details (address, unit type, number of units)</li>
+            <li><strong>Section 3:</strong> Category of establishment (primary residence, general, or youth)</li>
+            <li><strong>Section 4:</strong> Reserved for the municipality. An authorized municipal employee confirms whether your property's intended use complies with local zoning, signs and stamps the form, then returns it to you.</li>
+          </ol>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>If the municipality says "Non":</strong> If Mont-Tremblant's urban planning department indicates your property's zoning does not permit tourism residences, you cannot proceed with CITQ registration. Your options are to apply for a zoning variance (rarely granted), switch to mid-term rentals (32+ days), or convert to long-term rental use.
+            </div>
+          </div>
+
+          <p>A new Compliance Notice is also required when:</p>
+          <ul>
+            <li>There's a change of operator (new owner or manager)</li>
+            <li>You change the type or number of accommodation units</li>
+            <li>You add units or convert rooms to a different configuration</li>
+          </ul>
+
+          <h2 id="insurance">Insurance Requirements</h2>
+          <p>Quebec requires significantly higher insurance coverage than most Ontario municipalities:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Minimum coverage</div>
+              <div class="comparison-col highlight"><strong>$2,000,000</strong> per event</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Type</div>
+              <div class="comparison-col highlight"><strong>Civil liability insurance</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Must cover</div>
+              <div class="comparison-col highlight"><strong>Short-term rental activities</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Proof required</div>
+              <div class="comparison-col highlight"><strong>With CITQ application</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Updates</div>
+              <div class="comparison-col highlight"><strong>Within 30 days of changes</strong></div>
+            </div>
+          </div>
+
+          <p>For comparison, most Ontario cities require $1,000,000 to $2,000,000. Quebec standardizes it at the $2M level across the province.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Airbnb's Host Protection Insurance is not enough.</strong> Platform coverage supplements your policy but does not replace the CITQ requirement. You need your own $2M civil liability policy from a licensed insurer.
+            </div>
+          </div>
+
+          <h2 id="lodging-tax">Quebec Lodging Tax (Taxe sur l'hébergement): 3.5%</h2>
+          <p>Quebec charges a provincial lodging tax on all short-term accommodations:</p>
+
+          <blockquote class="bylaw-quote">
+            The tax on lodging is 3.5% of the price of an overnight stay, applicable to accommodation of fewer than 32 consecutive days in any tourist accommodation establishment.
+            <cite>Revenu Québec</cite>
+          </blockquote>
+
+          <p>How it works:</p>
+          <ul>
+            <li><strong>Airbnb, VRBO, and other platforms</strong> collect and remit the 3.5% automatically on your behalf</li>
+            <li><strong>Direct bookings</strong> require you to collect 3.5% from guests and remit to Revenu Québec</li>
+            <li><strong>Calculated on</strong> the nightly rate only (exclude cleaning fees, parking, and other services)</li>
+            <li><strong>GST and QST</strong> also apply on top if you earn $30,000+ annually from short-term rentals</li>
+          </ul>
+
+          <p>Unlike Ontario's MAT (Municipal Accommodation Tax), Quebec's lodging tax is provincial and funds tourism promotion across the province.</p>
+
+          <h2 id="income-tax">Income Tax and CRA Rules for Quebec STRs</h2>
+          <p>This is where things get serious for hosts who skip registration:</p>
+
+          <div class="warning-box">
+            <h4>CRA Denies Deductions on Non-Compliant STRs</h4>
+            <p>Since January 1, 2024, the federal government denies <strong>all income tax deductions</strong> for short-term rental properties that don't comply with provincial or municipal registration requirements. If you operate without a CITQ number, you'll pay income tax on your <strong>gross rental revenue</strong> with zero deductions for expenses like mortgage interest, insurance, cleaning, or supplies.</p>
+          </div>
+
+          <p>This means operating without CITQ registration doesn't just risk provincial fines. It also means the CRA treats your rental income as though you have zero expenses. On a property earning $60,000/year in gross revenue with $40,000 in expenses, that's the difference between paying tax on $20,000 versus $60,000.</p>
+
+          <p>Additional tax obligations:</p>
+          <ul>
+            <li><strong>All rental income</strong> must be reported to both CRA (federal) and Revenu Québec (provincial)</li>
+            <li><strong>GST/HST registration</strong> required if earning $30,000+/year</li>
+            <li><strong>QST registration</strong> also required at the $30,000 threshold in Quebec</li>
+            <li><strong>Keep records</strong> for at least 6 years for tax purposes</li>
+          </ul>
+
+          <h2 id="penalties">Fines and Penalties</h2>
+          <p>Quebec does not mess around with enforcement:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Violation</div>
+              <div class="comparison-col highlight">Fine</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Operating without CITQ registration (individual)</div>
+              <div class="comparison-col highlight"><strong>$5,000 to $10,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Platform listing illegal property</div>
+              <div class="comparison-col highlight"><strong>Up to $100,000</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal zoning violation</div>
+              <div class="comparison-col highlight"><strong>$1,000 to $4,000/day</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">CRA deduction denial (non-compliant)</div>
+              <div class="comparison-col highlight"><strong>Tax on gross revenue</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Each day of continued violation</div>
+              <div class="comparison-col highlight"><strong>Separate offense</strong></div>
+            </div>
+          </div>
+
+          <p>The numbers tell the story: between March 2020 and March 2024, Quebec issued over <strong>3,600 fines totaling more than $15 million</strong> to non-compliant operators. In the 2023/2024 fiscal year alone, $5 million in fines were issued province-wide.</p>
+
+          <h2 id="lac-tremblant-nord">Warning: Lac-Tremblant-Nord Is a Different Municipality</h2>
+          <p>This trips up a lot of buyers. Lac-Tremblant-Nord is a separate municipality from Ville de Mont-Tremblant, and their rules are dramatically different.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Rule</div>
+              <div class="comparison-col highlight">Difference</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Mont-Tremblant (Ville)</div>
+              <div class="comparison-col highlight"><strong>STRs allowed</strong> in designated zones</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Lac-Tremblant-Nord</div>
+              <div class="comparison-col highlight"><strong>Minimum 31+ days only</strong> (no Airbnb)</div>
+            </div>
+          </div>
+
+          <p>Lac-Tremblant-Nord's Zoning By-law 2021-02 (Section 3.3.1) explicitly states that "location court terme" (short-term rental) requires a minimum of 31+ consecutive days per stay, up to 180 days maximum. This effectively <strong>bans traditional Airbnb-style rentals</strong> in the entire municipality.</p>
+
+          <p>Additional restrictions in Lac-Tremblant-Nord:</p>
+          <ul>
+            <li>Must be in a single-family detached home (H1 use)</li>
+            <li>No renting secondary buildings (cabins, garages, bunkie)</li>
+            <li>No signage permitted</li>
+            <li>No camping vehicles or tents during rental periods</li>
+            <li>Septic system must be pumped every 2 years minimum</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>How to check which municipality you're in:</strong> Properties on the north shore of Lac Tremblant may fall in Lac-Tremblant-Nord rather than Ville de Mont-Tremblant. Verify by checking your municipal tax bill or contacting the MRC des Laurentides.
+            </div>
+          </div>
+
+          <h2 id="compliance-tips">Staying Compliant in Mont-Tremblant</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Verify zoning first, buy second.</strong> Before purchasing an investment property, confirm with Mont-Tremblant's urban planning department that the specific lot allows tourism residences. Don't rely on a real estate agent's word alone.</li>
+            <li><span class="tip-icon">2</span> <strong>Get your CITQ number before listing.</strong> Airbnb and VRBO require your registration number before your listing goes live in Quebec. Don't try to list first and register later.</li>
+            <li><span class="tip-icon">3</span> <strong>Display your number everywhere.</strong> Your 6-digit CITQ registration number must appear on every listing, every ad, and on a certificate posted at your property entrance. This is how inspectors verify compliance.</li>
+            <li><span class="tip-icon">4</span> <strong>Renew 60 days early.</strong> Your CITQ registration expires after 12 months. Submit your renewal well before the deadline to avoid any gap where your listing gets suspended.</li>
+            <li><span class="tip-icon">5</span> <strong>Keep your insurance current.</strong> If your $2M policy lapses or changes, update CITQ within 30 days. An insurance gap means your registration is non-compliant.</li>
+            <li><span class="tip-icon">6</span> <strong>Track your revenue for tax thresholds.</strong> At $30,000/year in gross STR revenue, you must register for both GST and QST. Most active Mont-Tremblant listings will hit this threshold.</li>
+            <li><span class="tip-icon">7</span> <strong>Check your condo declaration.</strong> Even if the zone permits STRs, your condo association (syndicat de copropriété) may prohibit them. Review your declaration of co-ownership before applying.</li>
+            <li><span class="tip-icon">8</span> <strong>Consider mid-term as a backup.</strong> If your property is in a prohibited zone, rentals of 32+ consecutive days are not subject to STR rules. Corporate relocations and seasonal workers create steady demand in the Tremblant area.</li>
+          </ul>
+
+          <h2 id="official-resources">Official Resources</h2>
+          <p>Always verify current rules with official sources:</p>
+
+          <div class="resources-box">
+            <h4>Provincial (CITQ)</h4>
+            <ul>
+              <li><a href="https://citq.qc.ca/en/" target="_blank" rel="noopener">CITQ Official Website</a></li>
+              <li><a href="https://citq.qc.ca/en/Page_1ouverture.php" target="_blank" rel="noopener">CITQ Registration Application</a></li>
+              <li><a href="https://citq.qc.ca/en/fraisenregistrement.php" target="_blank" rel="noopener">CITQ Registration Fees</a></li>
+              <li><a href="https://www.legisquebec.gouv.qc.ca/fr/document/lc/H-1.01?langCont=en" target="_blank" rel="noopener">Quebec Tourist Accommodation Act (full text)</a></li>
+            </ul>
+          </div>
+
+          <div class="resources-box">
+            <h4>Municipal (Mont-Tremblant)</h4>
+            <ul>
+              <li><a href="https://www.villedemont-tremblant.qc.ca/citoyens/urbanisme/residence-de-tourisme" target="_blank" rel="noopener">Mont-Tremblant Tourism Residence Rules</a></li>
+              <li><a href="https://www.villedemont-tremblant.qc.ca/citoyens/urbanisme/reglements-durbanisme" target="_blank" rel="noopener">Mont-Tremblant Zoning Regulations</a></li>
+              <li><strong>Urban Planning Department:</strong> 311 (locally) or 819-425-8614</li>
+              <li><strong>Email:</strong> urbanisme@villedemont-tremblant.qc.ca</li>
+            </ul>
+          </div>
+
+          <div class="resources-box">
+            <h4>Tax</h4>
+            <ul>
+              <li><a href="https://www.revenuquebec.ca/en/businesses/consumption-taxes/tax-on-lodging/" target="_blank" rel="noopener">Revenu Québec: Tax on Lodging</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/news/newsroom/tax-tips/tax-tips-2025/changes-rules-eligible-deductions-short-term-rental-income.html" target="_blank" rel="noopener">CRA: STR Deduction Rules</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Mont-Tremblant Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Thinking About Airbnb in Mont-Tremblant?</h3>
+            <p>Nurture manages short-term rentals across Ontario and Quebec. We handle CITQ registration, guest communication, cleaning coordination, and compliance so you can earn passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Mont-Tremblant STR Rules?</h2>
+        <p>Our team can help you with CITQ registration and property management in Quebec's top resort market.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
