@@ -1,0 +1,967 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Richmond Hill?", a: "No. As of 2026, Richmond Hill has no STR licensing requirement. You do not need a permit, license, or registration to operate a short-term rental. However, the city has been studying regulation since 2020, so this could change. General bylaws for noise, parking, and property standards still apply." },
+  { q: "Can I Airbnb my investment property in Richmond Hill?", a: "Yes. Since there is no principal residence requirement, you can operate an Airbnb on an investment property, a secondary residence, or your primary home. This is a significant advantage over nearby cities like Toronto, Vaughan, and Markham where investment property STRs are restricted or banned." },
+  { q: "Is there a night limit in Richmond Hill?", a: "No. There is no cap on the number of nights per year you can rent your property. In contrast, Toronto and Oshawa cap entire-home rentals at 180 nights per year." },
+  { q: "Do I need to pay Municipal Accommodation Tax (MAT)?", a: "No. Richmond Hill does not currently collect MAT on short-term rentals. Nearby cities like Toronto (6%), Vaughan (4%), and Oshawa (5%) all charge MAT. This means higher net revenue per booking in Richmond Hill compared to regulated neighbours." },
+  { q: "What insurance do I need for an Airbnb in Richmond Hill?", a: "While there is no city-mandated insurance minimum, you should carry at least $2,000,000 in liability insurance that covers short-term rental activity. Standard homeowner's insurance typically excludes STR guests. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
+  { q: "Will Richmond Hill regulate STRs in the future?", a: "Likely yes. The city commissioned a 42-page technical study in 2021 recommending a principal residence requirement and zoning framework. The study has not been enacted into law yet, but it signals the direction regulation will likely take. If you're considering an investment property, be aware this could change." },
+  { q: "Is Markham a better option than Richmond Hill for Airbnb?", a: "No. Markham generally does not permit STRs under 30 days. Richmond Hill is one of the few York Region cities where you can freely operate short-term rentals without restrictions. If you're comparing York Region markets, Richmond Hill is currently the most flexible." },
+  { q: "Do I need to collect HST on my Airbnb income?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." }
+];
+
+const relatedPosts = [
+  { title: 'GTA Cities with No Airbnb License Required 2026', href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Ajax, Pickering, Richmond Hill, King Township: GTA cities with no STR license or MAT' },
+  { title: 'Vaughan Airbnb Short Term Rental Guide 2026', href: '/blog/vaughan-airbnb-short-term-rental-guide-2026', description: 'Your neighbour to the west requires principal residence, licensing, and 4% MAT' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Toronto\'s 180-night limit, registration, and 6% MAT compared to Richmond Hill\'s zero restrictions' }
+];
+
+const tocItems = [
+  { id: 'current-rules', text: 'Current Rules (2026)' },
+  { id: 'no-license', text: 'No License Required' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'no-night-limit', text: 'No Night Limit' },
+  { id: 'no-mat', text: 'No MAT Tax' },
+  { id: 'what-does-apply', text: 'What Rules DO Apply' },
+  { id: 'comparison', text: 'Richmond Hill vs Neighbours' },
+  { id: 'future-regulation', text: 'Future Regulation Coming?' },
+  { id: 'study-recommendations', text: 'What the City Study Recommends' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Richmond Hill Hosts' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Richmond Hill Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Richmond Hill has no Airbnb license, no principal residence rule, no night limit, and no MAT tax. Complete 2026 guide to STR rules in York Region.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-10",
+  "dateModified": "2026-03-10",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/richmond-hill-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Richmond Hill Regulations</span>
+      </nav>
+      <h1>Richmond Hill Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 10, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Richmond Hill is one of the few cities in the Greater Toronto Area where you can Airbnb with essentially zero STR-specific regulations. No license. No principal residence rule. No night limit. No municipal accommodation tax.</p>
+            <p class="lead">That makes it an outlier in York Region, where neighbours like Vaughan, Markham, and Newmarket have all introduced restrictions. Whether you own your primary home or an investment property, Richmond Hill is currently one of the most flexible GTA markets for short-term rental hosts. Here's the full picture, including what's likely coming.</p>
+          </div>
+
+          <h2 id="current-rules">Current Rules: The Short Version</h2>
+          <p>Let's start with what every Richmond Hill host wants to know:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Richmond Hill (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration number on listing?</div>
+              <div class="comparison-col highlight"><strong>Not required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+          </div>
+
+          <p>That's the good news. The city's Official Plan is silent on STRs. The existing zoning bylaws (some dating back decades) don't mention short-term rentals. There is no licensing bylaw. You are, for now, free to operate.</p>
+
+          <h2 id="no-license">No License or Registration Required</h2>
+          <p>Unlike Toronto, Mississauga, Vaughan, Oshawa, and most other GTA cities that have introduced STR licensing, Richmond Hill has not enacted any licensing requirement for short-term rental operators.</p>
+
+          <p>This means:</p>
+          <ul>
+            <li><strong>No application to file</strong> with the city</li>
+            <li><strong>No fees to pay</strong> for a permit or license</li>
+            <li><strong>No registration number</strong> to display on your listing</li>
+            <li><strong>No annual renewal</strong> process</li>
+          </ul>
+
+          <p>You can list your property on Airbnb, VRBO, or any platform without any municipal approval process.</p>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is the biggest differentiator. Most GTA cities with STR regulations require the property to be your principal residence, the home where you actually live. That effectively bans investment property Airbnbs.</p>
+
+          <p>Richmond Hill has no such rule. You can operate short-term rentals on:</p>
+          <ul>
+            <li><strong>Your primary home</strong> (whole or partial)</li>
+            <li><strong>An investment property</strong> (condo, house, townhouse)</li>
+            <li><strong>A secondary residence</strong></li>
+            <li><strong>Multiple properties</strong> (no limit on number of STRs you can operate)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why this matters for investors:</strong> If you own a rental property in Richmond Hill and want to switch from long-term to short-term rental, there's no regulatory barrier. In Toronto, Vaughan, or Mississauga, that same switch would be illegal on an investment property.
+            </div>
+          </div>
+
+          <h2 id="no-night-limit">No Night Limit</h2>
+          <p>Many GTA cities cap how many nights per year you can rent your entire home:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Annual Night Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>180 nights</strong> (entire home)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Mississauga</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Burlington</div>
+              <div class="comparison-col highlight"><strong>183 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Richmond Hill</div>
+              <div class="comparison-col highlight"><strong>No limit</strong></div>
+            </div>
+          </div>
+
+          <p>In Richmond Hill, you can rent your property 365 nights a year if you want. There is no cap on entire-home or partial-home rentals.</p>
+
+          <h2 id="no-mat">No Municipal Accommodation Tax</h2>
+          <p>Richmond Hill does not charge MAT (Municipal Accommodation Tax) on short-term rentals. Here's how that compares to your neighbours:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">MAT Rate</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>6%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Vaughan</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>5%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Brampton</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Richmond Hill</div>
+              <div class="comparison-col highlight"><strong>0%</strong></div>
+            </div>
+          </div>
+
+          <p>On a $200/night booking, that's $8 to $12 per night that guests in other cities pay but Richmond Hill guests don't. This makes your listing slightly more competitive on price, or means more revenue in your pocket.</p>
+
+          <h2 id="what-does-apply">What Rules DO Apply</h2>
+          <p>Just because there's no STR-specific bylaw doesn't mean it's a free-for-all. Richmond Hill's general municipal bylaws still apply to every property:</p>
+
+          <h3>Noise Bylaws</h3>
+          <p>Richmond Hill enforces noise restrictions. Excessive noise from guests, especially late at night, can result in complaints and fines. Make sure your house rules address quiet hours.</p>
+
+          <h3>Property Standards</h3>
+          <p>Your property must meet the city's property standards bylaw. This covers maintenance, cleanliness, structural safety, and general upkeep. A poorly maintained rental can trigger complaints and inspections.</p>
+
+          <h3>Parking</h3>
+          <p>Richmond Hill's zoning bylaws require specific parking provisions for residential properties. In most single-detached zones, that's two parking spaces per dwelling unit. Make sure your guests have adequate parking so they don't spill onto the street or block neighbours.</p>
+
+          <h3>Fire Code and Building Code</h3>
+          <p>Your property must comply with Ontario's Fire Protection and Prevention Act and the Building Code. Smoke detectors, carbon monoxide detectors, and proper egress from bedrooms are all required. This applies to every dwelling, not just STRs.</p>
+
+          <h3>Condo Rules</h3>
+          <p>If your property is in a condominium, the condo corporation's declaration and rules may restrict or prohibit short-term rentals, even though the city doesn't. Always check your condo docs before listing.</p>
+
+          <div class="warning-box">
+            <h4>Condo Corporations Can Override City Rules</h4>
+            <p>Even in an unregulated city like Richmond Hill, your condo board can prohibit short-term rentals in their declaration. Many newer condos in Richmond Hill have STR restrictions. Check your declaration of co-ownership and any condo rules before listing. A $200 fine from your condo corporation is not worth it.</p>
+          </div>
+
+          <h2 id="comparison">Richmond Hill vs Neighbouring Cities</h2>
+          <p>Here's how Richmond Hill stacks up against every neighbouring municipality:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">STR Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green"><strong>Richmond Hill</strong></div>
+              <div class="comparison-col highlight"><strong>No regulations</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Vaughan</div>
+              <div class="comparison-col highlight">Principal residence, license, 4% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Markham</div>
+              <div class="comparison-col highlight">Generally not permitted</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Newmarket</div>
+              <div class="comparison-col highlight">Regulated, license required</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Aurora</div>
+              <div class="comparison-col highlight">Regulated, license required</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">King Township</div>
+              <div class="comparison-col highlight">Not regulated</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight">Principal residence, 180 nights, 6% MAT</div>
+            </div>
+          </div>
+
+          <p>In York Region, only Richmond Hill and King Township remain unregulated. Markham has effectively banned STRs. Vaughan, Newmarket, and Aurora all require licensing. Richmond Hill is the largest York Region city where you can freely operate.</p>
+
+          <h2 id="future-regulation">Is Regulation Coming?</h2>
+          <p>Almost certainly. The question is when, not if.</p>
+
+          <p>Here's the timeline so far:</p>
+          <ul>
+            <li><strong>2020:</strong> City received resident complaints about noise, parking, and property standards from STR properties</li>
+            <li><strong>October 2020:</strong> City launched a public survey on whether STRs should be regulated (262 respondents)</li>
+            <li><strong>June 2021:</strong> Stakeholder consultations with Airbnb and Booking.com</li>
+            <li><strong>November 2021:</strong> City commissioned a 42-page technical study with recommendations for regulation</li>
+            <li><strong>2022 to present:</strong> The study's recommendations have not yet been enacted into law</li>
+          </ul>
+
+          <p>The public survey results were mixed: <strong>56% of respondents</strong> said STRs should not be permitted in Richmond Hill, while 44% believed they should be. The top concerns were "party houses" where owners aren't present, property maintenance, traffic, loss of long-term rental housing, garbage, and parking.</p>
+
+          <h2 id="study-recommendations">What the City's Technical Study Recommends</h2>
+          <p>The November 2021 technical study laid out a clear framework that Richmond Hill would likely adopt if and when they regulate. Here's what the consultants recommended:</p>
+
+          <h3>Proposed Definition</h3>
+          <blockquote class="bylaw-quote">
+            "Short-term accommodation means all or part of a dwelling unit that is used to provide sleeping accommodation for any rental period that is less than 30 consecutive days, is the principal residence of the short-term accommodation operator, and does not include a hotel, motel, or bed and breakfast establishment."
+            <cite>Richmond Hill STR Technical Study, November 2021 (Recommended Definition)</cite>
+          </blockquote>
+
+          <h3>Key Recommendations</h3>
+          <ul>
+            <li><strong>Principal residence requirement:</strong> STRs would only be permitted in the operator's principal residence</li>
+            <li><strong>Permitted in all residential zones:</strong> All housing types (detached, semi, townhouse, condo, secondary suites)</li>
+            <li><strong>Under 30 consecutive days:</strong> The threshold distinguishing STRs from long-term rentals</li>
+            <li><strong>Licensing to be considered later:</strong> The study recommended monitoring zoning controls first, then adding licensing if issues persist</li>
+            <li><strong>No MAT recommendation:</strong> The study did not recommend implementing MAT</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>What this means for investment property owners:</strong> If Richmond Hill adopts these recommendations, investment property STRs would no longer be permitted. If you're operating an investment property as an Airbnb in Richmond Hill, monitor city council agendas closely. You may need to pivot to mid-term rentals (30+ days) if a principal residence rule passes.
+            </div>
+          </div>
+
+          <h2 id="tax-obligations">Tax Obligations (Even Without City Regulations)</h2>
+          <p>No municipal STR rules doesn't mean no taxes. Federal and provincial tax obligations still apply:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>$0</strong> (Richmond Hill doesn't charge MAT)</div>
+            </div>
+          </div>
+
+          <p>Key tax points:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but you can still register voluntarily to claim input tax credits</li>
+            <li><strong>Expense deductions:</strong> Mortgage interest, insurance, cleaning, supplies, platform fees, and property management fees are all deductible against STR income</li>
+            <li><strong>CRA compliance is key:</strong> Since 2024, the federal government denies expense deductions on non-compliant STRs. Richmond Hill has no compliance requirement, so this rule doesn't affect you here. But keep proper records in case regulations are introduced.</li>
+          </ul>
+
+          <h2 id="tips">Tips for Richmond Hill Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> No city requirement doesn't mean you should skip it. Get $2M liability coverage that explicitly covers short-term rental activity. One guest injury without coverage could cost you everything.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your condo declaration.</strong> If you're in a condo, the corporation's rules override the city's lack of regulation. Many Richmond Hill condos prohibit or restrict STRs.</li>
+            <li><span class="tip-icon">3</span> <strong>Be a good neighbour.</strong> The reason Richmond Hill hasn't regulated yet may partly be because STRs haven't caused enough problems. Noise complaints, parking issues, and garbage problems from STR guests are exactly what triggers cities to crack down. Set clear house rules.</li>
+            <li><span class="tip-icon">4</span> <strong>Monitor city council.</strong> Subscribe to Richmond Hill's planning committee agendas at <strong>richmondhill.ca</strong>. When regulation comes, you want advance notice, not a surprise.</li>
+            <li><span class="tip-icon">5</span> <strong>Register for HST if you're earning over $30K.</strong> The CRA threshold is $30,000 in gross revenue across all your STR properties nationwide. Most active hosts hit this. Register proactively.</li>
+            <li><span class="tip-icon">6</span> <strong>Maintain your property.</strong> Property standards complaints can trigger city inspections regardless of STR bylaws. Keep your property in good condition and your guests will leave better reviews too.</li>
+            <li><span class="tip-icon">7</span> <strong>Have a backup plan.</strong> If a principal residence rule passes, your investment property Airbnb becomes illegal overnight. Consider whether mid-term rentals (30+ days) could work as an alternative. Corporate relocations and students create steady demand in Richmond Hill.</li>
+            <li><span class="tip-icon">8</span> <strong>Document everything.</strong> Keep booking records, guest communications, and financial records for at least 6 years. If regulation is introduced with a licensing requirement, having clean records will make compliance easier.</li>
+          </ul>
+
+          <h2 id="official-resources">Official Resources</h2>
+          <p>Stay up to date with the city's latest developments:</p>
+
+          <div class="resources-box">
+            <h4>City of Richmond Hill</h4>
+            <ul>
+              <li><a href="https://www.richmondhill.ca/en/news/richmond-hill-considers-regulating-shortterm-rental-accommodations.aspx" target="_blank" rel="noopener">Richmond Hill: Considering STR Regulation</a></li>
+              <li><a href="https://www.richmondhill.ca/en/shared-content/resources/documents/Zone-Richmond-Hill/Short-Term-And-Shared-Accommodations-First-Draft-Study.pdf" target="_blank" rel="noopener">STR Technical Study (42-page PDF, November 2021)</a></li>
+              <li><a href="https://www.richmondhill.ca/en/shared-content/resources/documents/Zone-Richmond-Hill/Short-Term-And-Shared-Accommodations-What-We-Heard-Report.pdf" target="_blank" rel="noopener">What We Heard Report (Public Consultation)</a></li>
+              <li><a href="https://www.richmondhill.ca/en/living-here/Property-Standards.aspx" target="_blank" rel="noopener">Property Standards Bylaw</a></li>
+              <li><strong>City Contact:</strong> 905-771-0198 or <a href="https://www.richmondhill.ca" target="_blank" rel="noopener">richmondhill.ca</a></li>
+            </ul>
+          </div>
+
+          <h2 id="faqs">Common Questions From Richmond Hill Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your Richmond Hill Rental Income?</h3>
+            <p>Nurture manages short-term rentals across the GTA. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Richmond Hill?</h2>
+        <p>Our local GTA experts can help you set up and maximize your short-term rental.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row .comparison-col.highlight-green {
+    background: rgba(117, 155, 143, 0.05);
+    font-weight: 600;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
