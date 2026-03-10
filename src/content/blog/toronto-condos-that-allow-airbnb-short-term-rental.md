@@ -809,7 +809,7 @@ Own a unit in one of these buildings? Nurture provides [full service Airbnb mana
 - STR registration with the City of Toronto
 - Professional photography and listing optimization
 - Dynamic pricing to maximize your revenue
-- 24/7 guest communication
+- Guest communication and support
 - Cleaning and turnover coordination
 - Maintenance and emergency support
 
