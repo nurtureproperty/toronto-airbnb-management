@@ -1,0 +1,1115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How long does it take to set up a property for Airbnb?", a: "For a furnished property that just needs fine-tuning, expect 1 to 3 days of focused work. For an unfurnished property starting from scratch (furniture, linens, supplies, photography, listing creation), plan for 1 to 2 weeks. The biggest time sinks are waiting for furniture deliveries and scheduling a professional photographer. You can speed things up by ordering everything in one batch and using the waiting period to write your guest guide and set up your smart lock." },
+  { q: "What is the minimum I need to start hosting on Airbnb?", a: "At the absolute minimum, you need a clean space with a bed, fresh linens, towels, basic toiletries (soap, shampoo, toilet paper), WiFi, a way for guests to access the property (smart lock or lockbox), and a published listing with photos. That said, the difference between a minimum viable listing and a 5-star listing is about $500 to $1,000 in supplies and staging. That investment pays for itself within the first few bookings through better reviews and higher nightly rates." },
+  { q: "Do I need professional photos for my Airbnb listing?", a: "Yes, and this is one of the highest ROI investments you can make. Professional Airbnb photos cost $150 to $400 in the GTA and directly impact your click-through rate in search results. Listings with professional photography earn 20 to 40% more than listings with phone photos. Airbnb's algorithm also favors listings with high-quality images because they convert better, which means better search placement." },
+  { q: "What supplies do Airbnb guests expect?", a: "At minimum: fresh linens and towels, toilet paper, hand soap, shampoo, conditioner, body wash, dish soap, a sponge, paper towels, coffee or tea, trash bags, and basic cooking supplies (salt, pepper, oil). Guests also expect a hair dryer, hangers, an iron or steamer, and extra blankets. The items guests mention most in positive reviews are a comfortable mattress, quality towels, a good coffee setup, and blackout curtains." },
+  { q: "How do I write a good Airbnb guest guide?", a: "A good guest guide covers five areas: (1) arrival instructions with smart lock code and parking details, (2) WiFi name and password, (3) how to use appliances and systems (thermostat, TV, washer/dryer, coffee maker), (4) house rules and quiet hours, and (5) local recommendations for food, groceries, transit, and attractions. Keep it short and scannable. Guests skim, they don't read novels. A printed binder plus a digital PDF sent before check-in covers both preferences." },
+  { q: "Should I install a smart lock for my Airbnb?", a: "Absolutely. Smart locks eliminate key exchange logistics, reduce lockout emergencies, and let you generate unique codes for each guest and cleaner. The Schlage Encode Plus and Yale Assure Lock 2 are the most popular among Toronto hosts. Expect to pay $200 to $350 for a quality smart lock. If you manage the property yourself, this is the single most time-saving upgrade you can install." },
+  { q: "How much should I budget for Airbnb startup costs?", a: "For a furnished property that needs supplies and staging, budget $1,000 to $2,500. For an unfurnished property, budget $5,000 to $15,000 depending on size and quality tier. The biggest line items are furniture ($3,000 to $8,000 for a 1-bedroom), a mattress ($500 to $1,000), linens and towels ($300 to $600), kitchen essentials ($200 to $400), toiletries and consumables ($100 to $200), smart lock ($200 to $350), and professional photography ($150 to $400)." },
+  { q: "Does Nurture help with property setup?", a: "Yes. Nurture's Professional Plan (15% management fee) includes assistance with property setup, from recommending furnishings and supplies to coordinating professional photography and creating an optimized listing. We handle everything from smart lock installation guidance to guest guide creation. Most of our clients receive their first booking within one week of going live." }
+];
+
+const relatedPosts = [
+  { title: "Airbnb Furnishing Guide: Best ROI Items for Hosts", href: '/blog/airbnb-furnishing-guide-toronto-roi-2026', description: 'Detailed breakdown of what to buy, where to buy it in the GTA, and which items actually boost revenue' },
+  { title: "Airbnb Cleaning Checklist: 5-Star Turnover Guide", href: '/blog/airbnb-cleaning-turnover-checklist-2026', description: 'Room-by-room cleaning checklist to maintain your property after setup' },
+  { title: "Best Smart Locks for Airbnb Self Check-In", href: '/blog/best-smart-locks-airbnb-check-in-2026', description: 'Compare the top smart locks for Toronto hosts with installation tips' }
+];
+
+const tocItems = [
+  { id: 'inventory-count', text: 'Step 1: Inventory Count' },
+  { id: 'linens-towels', text: 'Step 2: Linens and Towels' },
+  { id: 'safety-compliance', text: 'Step 3: Safety and Compliance' },
+  { id: 'smart-lock', text: 'Step 4: Smart Lock and Access' },
+  { id: 'kitchen-setup', text: 'Step 5: Kitchen Setup' },
+  { id: 'bathroom-essentials', text: 'Step 6: Bathroom Essentials' },
+  { id: 'staging-decor', text: 'Step 7: Staging and Decor' },
+  { id: 'guest-guide', text: 'Step 8: Guest Guide' },
+  { id: 'tech-connectivity', text: 'Step 9: Tech and Connectivity' },
+  { id: 'photography-prep', text: 'Step 10: Photography Prep' },
+  { id: 'final-walkthrough', text: 'The Final Walkthrough' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb Setup Checklist 2026 | Prepare Your Home to Host";
+const pageDescription = "Complete Airbnb property setup checklist: inventory, linens, staging, guest guide, smart lock, safety, and photography. Get your first 5-star review from day one.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Airbnb Property Setup Checklist: How to Prepare Your Home to Host",
+  "description": pageDescription,
+  "datePublished": "2026-03-11",
+  "dateModified": "2026-03-11",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-property-setup-checklist-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Airbnb Property Setup Checklist: How to Prepare Your Home to Host</h1>
+      <div class="article-meta">
+        <span class="meta-date">March 11, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">You've got the property. Now what? <strong>This is the complete, step-by-step checklist for preparing your home for Airbnb guests, from counting every fork in the kitchen to staging the perfect photo-ready bedroom.</strong> Whether you're onboarding your first listing or prepping a new client property, this guide covers everything that needs to happen before your first guest walks through the door.</p>
+          </div>
+
+          <h2 id="inventory-count">Step 1: The Inventory Count</h2>
+          <p>Before you buy anything, count what you already have. Grab a notepad (or your phone) and walk through every room. You need to know exactly what's there, what's missing, and what needs replacing. This is the unsexy foundation of a great Airbnb, and skipping it is how you end up with four forks and zero wine glasses on opening night.</p>
+
+          <h3>Kitchen Inventory</h3>
+          <p>Open every drawer and cabinet. Count each item and write it down. Your goal is to stock enough for the maximum number of guests your listing accommodates, plus a few extras for breakage.</p>
+
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Plates (dinner and side): minimum 2 per guest</li>
+                <li>Bowls (cereal/soup): minimum 2 per guest</li>
+                <li>Mugs and glasses: minimum 2 of each per guest</li>
+                <li>Wine glasses: at least 4 (people break these, keep extras)</li>
+                <li>Forks, knives, spoons: minimum 2 full sets per guest</li>
+                <li>Cooking utensils: spatula, wooden spoon, tongs, ladle, can opener, bottle opener, corkscrew</li>
+                <li>Pots and pans: 1 small pot, 1 large pot, 1 frying pan minimum</li>
+                <li>Baking sheet, cutting board, colander</li>
+                <li>Measuring cups (nice to have)</li>
+                <li>Sharp knife set or at least one quality chef's knife</li>
+                <li>Mixing bowls: at least 2</li>
+                <li>Tupperware or food storage containers: 3 to 4 pieces</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>A quick rule of thumb: if you'd be annoyed that it was missing in a vacation rental, your guest will be too. Nobody has ever left a 1-star review because you had too many spatulas.</p>
+
+          <h3>Bedroom Inventory</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Mattress condition: is it comfortable? Stained? Sagging?</li>
+                <li>Mattress protector: waterproof, essential</li>
+                <li>Sheet sets: minimum 2 per bed (one on, one in the wash)</li>
+                <li>Pillows: 2 per guest minimum, 4 per bed looks more inviting</li>
+                <li>Pillow protectors: waterproof, on every pillow</li>
+                <li>Duvet or comforter: clean, unstained, appropriate weight</li>
+                <li>Duvet cover: white preferred for cleanliness signal</li>
+                <li>Extra blanket: folded at the foot of the bed</li>
+                <li>Hangers: at least 10 per closet</li>
+                <li>Nightstand on each side of the bed</li>
+                <li>Bedside lamp: at least one per side</li>
+                <li>Alarm clock (optional, but appreciated by business travelers)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Living Area Inventory</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Sofa condition: clean, no stains, no broken springs</li>
+                <li>Throw pillows: 2 to 4 for comfort and style</li>
+                <li>Throw blanket: 1, draped neatly</li>
+                <li>Coffee table and side table</li>
+                <li>TV: working, with remote and fresh batteries</li>
+                <li>TV stand or wall mount</li>
+                <li>Lamps: at least 2 light sources beyond overhead</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Pro Tip: The Inventory Spreadsheet</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Create a simple spreadsheet with three columns: Item, Quantity, and Condition. This becomes your restocking reference for every turnover. Your cleaner can flag items that need replacing during each visit, and you'll never scramble to figure out how many wine glasses you're supposed to have.</p>
+            </div>
+          </div>
+
+          <h2 id="linens-towels">Step 2: Linens and Towels</h2>
+          <p>Linens are the single biggest factor in whether your Airbnb feels like a hotel or feels like crashing at your cousin's place. This is not the area to cut corners. Guests touch your sheets and towels more than anything else in the property, and they judge your entire listing by how these feel.</p>
+
+          <h3>What You Need</h3>
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity Per Guest</th>
+                  <th>Backup Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bath towels</strong></td>
+                  <td>2 per guest</td>
+                  <td>2 extra sets on site</td>
+                </tr>
+                <tr>
+                  <td><strong>Hand towels</strong></td>
+                  <td>1 per guest</td>
+                  <td>2 extra</td>
+                </tr>
+                <tr>
+                  <td><strong>Washcloths</strong></td>
+                  <td>1 per guest</td>
+                  <td>4 extra</td>
+                </tr>
+                <tr>
+                  <td><strong>Bath mat</strong></td>
+                  <td>1 per bathroom</td>
+                  <td>1 extra per bathroom</td>
+                </tr>
+                <tr>
+                  <td><strong>Sheet sets</strong></td>
+                  <td>1 on bed</td>
+                  <td>1 spare per bed</td>
+                </tr>
+                <tr>
+                  <td><strong>Pillowcases</strong></td>
+                  <td>1 per pillow</td>
+                  <td>2 extra per bed</td>
+                </tr>
+                <tr>
+                  <td><strong>Kitchen towels</strong></td>
+                  <td>2 per kitchen</td>
+                  <td>2 extra</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Quality Standards</h3>
+          <ul>
+            <li><strong>Color:</strong> White is the gold standard. It signals cleanliness, launders well with bleach, and looks professional in listing photos. If you hate white, go with a neutral gray or cream.</li>
+            <li><strong>Material:</strong> 100% cotton, minimum 300 thread count for sheets. Turkish or Egyptian cotton towels in 600 GSM or higher. These cost more upfront but last longer and get better reviews.</li>
+            <li><strong>Where to buy in Toronto:</strong> Costco (excellent value for towels), HomeSense, Bed Bath & Beyond, or Amazon for bulk orders. IKEA towels are decent budget options but wear faster.</li>
+          </ul>
+
+          <p>One more thing: always have a complete extra set of linens stored at the property. When a cleaner discovers a stained sheet during turnover, you need an immediate replacement on site, not a trip to HomeSense at 2pm before a 3pm check-in.</p>
+
+          <h2 id="safety-compliance">Step 3: Safety and Compliance</h2>
+          <p>This isn't the exciting part, but it's the part that keeps you legal and keeps your guests alive. In Toronto and most GTA cities, short-term rental regulations require specific safety equipment. Even in unregulated municipalities, Airbnb's own policies require hosts to confirm safety devices are installed.</p>
+
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Smoke detector on every level and in every sleeping area</li>
+                <li>Carbon monoxide detector on every level with fuel-burning appliances or attached garage</li>
+                <li>Fire extinguisher (kitchen area, easily accessible)</li>
+                <li>First aid kit (basic: bandages, antiseptic, pain reliever)</li>
+                <li>Emergency contact card posted visibly</li>
+                <li>Fire escape route posted (condo buildings usually provide this)</li>
+                <li>STR license or registration number (if required by your municipality)</li>
+                <li>$2,000,000 liability insurance (required in Toronto, Mississauga, Hamilton, and most regulated GTA cities)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Don't Skip the License</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">In Toronto, you need an STR registration to legally host. <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Fines for operating without registration can reach $10,000 per offense.</a> Mississauga, Brampton, Hamilton, Oakville, and Vaughan all have their own licensing requirements too. Check your city's rules before you list. Not after your first guest checks in.</p>
+            </div>
+          </div>
+
+          <p>Test every smoke detector and CO detector on camera if you're filming. Press the test button, wait for the beep. This takes 30 seconds per device and gives you documented proof that everything was working on setup day.</p>
+
+          <h2 id="smart-lock">Step 4: Smart Lock and Access</h2>
+          <p>If you take one piece of advice from this entire guide, let it be this: install a smart lock. It eliminates key exchanges, late night lockouts, the "I lost the key" phone call at midnight, and the coordination headache of getting keys to your cleaner. A smart lock pays for itself in sanity within the first month.</p>
+
+          <h3>Recommended Smart Locks for Toronto Hosts</h3>
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Schlage Encode Plus</h4>
+              <p>$300 to $350. Apple HomeKit compatible. Generate codes remotely, track entry history, and integrate with Airbnb's built-in smart lock feature.</p>
+            </div>
+            <div class="info-card">
+              <h4>Yale Assure Lock 2</h4>
+              <p>$250 to $300. Works with most smart home systems. Touchscreen keypad, auto-lock feature, and easy code management through the app.</p>
+            </div>
+            <div class="info-card">
+              <h4>August Wi-Fi Smart Lock</h4>
+              <p>$200 to $250. Fits over your existing deadbolt. Good budget option if you're renting and can't change the lock hardware.</p>
+            </div>
+          </div>
+
+          <h3>Access Setup Checklist</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Install smart lock and test with 3 different codes</li>
+                <li>Set up auto-lock (locks automatically after 30 seconds)</li>
+                <li>Create a master code for yourself</li>
+                <li>Create a separate code for your cleaner</li>
+                <li>Test the "guest arrival experience": walk from the street to the front door using only the instructions you plan to send</li>
+                <li>If condo: document building entry process (fob, buzzer code, lobby directions)</li>
+                <li>If condo: photograph the path from lobby to unit door</li>
+                <li>Write step-by-step arrival instructions with photos</li>
+                <li>Keep a physical backup key in a secure lockbox as emergency backup</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>Here's the test that matters: have a friend who's never been to your property try to get in using only your written instructions. If they get confused at any point, your guests will too. Fix the instructions, not the friend.</p>
+
+          <h2 id="kitchen-setup">Step 5: Kitchen Setup</h2>
+          <p>Your inventory count told you what you have. Now let's make sure you have everything guests actually need. The kitchen is where you'll get the most "thoughtful host" comments in reviews, and also where you'll get the most complaints if something basic is missing.</p>
+
+          <h3>Essentials (Non-Negotiable)</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Coffee maker (drip or single-serve) with coffee, filters, and sugar</li>
+                <li>Electric kettle with a selection of tea bags</li>
+                <li>Toaster</li>
+                <li>Cooking oil, salt, and pepper</li>
+                <li>Dish soap, sponge, and dish rack or dishwasher pods</li>
+                <li>Paper towels (full roll plus 1 backup)</li>
+                <li>Trash bags (in the can plus extras underneath)</li>
+                <li>Cling wrap and aluminum foil</li>
+                <li>Trash can with lid and recycling bin, both labeled</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Nice-to-Have (These Get Mentioned in Reviews)</h3>
+          <ul>
+            <li><strong>Spice rack:</strong> Even a basic set of 6 to 8 spices signals a host who cares. Guests who cook will love you for it.</li>
+            <li><strong>Baking basics:</strong> A muffin tin, mixing bowl, and measuring cups cost almost nothing and appeal to families.</li>
+            <li><strong>Wine opener and bottle opener:</strong> The number of Airbnb hosts who forget a corkscrew is genuinely shocking. Don't be that host.</li>
+            <li><strong>Reusable grocery bags:</strong> Toronto charges for plastic bags. Your guests will appreciate 2 or 3 reusable bags hanging in the closet.</li>
+            <li><strong>Welcome snacks:</strong> A small basket with granola bars, instant oatmeal packets, or local treats. Cost: under $10. Impact on reviews: disproportionately large.</li>
+          </ul>
+
+          <h2 id="bathroom-essentials">Step 6: Bathroom Essentials</h2>
+          <p>The bathroom is where cleanliness reviews are won or lost. Your setup needs to look and feel like a hotel bathroom, not a roommate's bathroom. The good news is this doesn't require expensive renovations. It requires the right products in the right quantities, presented neatly.</p>
+
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Shampoo, conditioner, and body wash (wall-mounted pump dispensers preferred)</li>
+                <li>Hand soap at every sink</li>
+                <li>Toilet paper: 1 roll on the holder, 2 to 3 backup rolls visible</li>
+                <li>Hair dryer (wall-mounted or stored in a visible spot)</li>
+                <li>Mirror: full-length if possible, at minimum a well-lit vanity mirror</li>
+                <li>Towel rack or hooks with enough space for all guests' towels</li>
+                <li>Bath mat (non-slip)</li>
+                <li>Small trash can with lid</li>
+                <li>Plunger (stored discreetly but accessible)</li>
+                <li>Cleaning wipes under the sink for guest use</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Wall-Mounted Dispensers vs. Individual Bottles</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Wall-mounted pump dispensers ($15 to $30 each) save you money on restocking, look more professional, and are better for the environment. Guests prefer them too. Just make sure you refill them between every turnover and clean the pump nozzles regularly. Individual travel-size bottles are wasteful and look cheap in photos.</p>
+            </div>
+          </div>
+
+          <h2 id="staging-decor">Step 7: Staging and Decor</h2>
+          <p>Staging is the difference between a listing that looks "fine" and one that makes people stop scrolling and click "Book." You don't need to be an interior designer. You need to follow a few rules that make any space photograph well and feel welcoming.</p>
+
+          <h3>The Staging Rules</h3>
+          <ul>
+            <li><strong>Remove all personal items.</strong> Family photos, mail, prescription bottles, personal toiletries, kids' artwork on the fridge. All of it. Guests want to feel like they're staying in their own space, not borrowing yours.</li>
+            <li><strong>Declutter every surface.</strong> Each countertop, nightstand, and shelf should have a maximum of 2 to 3 items. Empty space looks clean. Cluttered space looks dirty, even if it's spotless.</li>
+            <li><strong>Use a neutral color palette.</strong> White, cream, sage green, warm gray. Avoid bold patterns on large items (couches, bedspreads). Save color for small accents like throw pillows and artwork.</li>
+            <li><strong>Add texture.</strong> A knit throw blanket, a woven basket, linen curtains. Texture makes rooms feel warm and inviting in photos without adding clutter.</li>
+            <li><strong>Plants are worth it.</strong> One or two low-maintenance plants (pothos, snake plant, ZZ plant) make any room feel alive. If you can't commit to real plants, high-quality faux plants work fine. Guests can't tell the difference in photos or in person.</li>
+            <li><strong>Upgrade your lighting.</strong> Replace harsh overhead bulbs with warm-toned LEDs (2700K to 3000K). Add a table lamp or floor lamp to every room. Good lighting makes everything look better in photos and makes guests feel more comfortable.</li>
+          </ul>
+
+          <h3>Room-by-Room Staging Priorities</h3>
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Bedroom</h4>
+              <p>White duvet, 4 pillows stacked, throw blanket at the foot, one plant on the nightstand, bedside lamps on. This is your listing's hero image.</p>
+            </div>
+            <div class="info-card">
+              <h4>Living Room</h4>
+              <p>Fluffed throw pillows, draped blanket on the sofa arm, coffee table book, one plant, curtains open for natural light. Less is more.</p>
+            </div>
+            <div class="info-card">
+              <h4>Bathroom</h4>
+              <p>Rolled white towels on a shelf or in a basket, a small plant on the counter, pump dispensers lined up neatly. Hotel vibes.</p>
+            </div>
+          </div>
+
+          <h2 id="guest-guide">Step 8: Write Your Guest Guide</h2>
+          <p>A guest guide saves you from answering the same 15 questions over and over. It also makes your guests feel taken care of from the moment they arrive. Think of it as your property's user manual, written for someone who's never been there before and doesn't want to text you at 11pm asking how the thermostat works.</p>
+
+          <h3>What to Include</h3>
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>Arrival Instructions</h4>
+              <p>Smart lock code, parking details, building entry if applicable, floor and unit number. Include photos of the building entrance and door.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>WiFi and Entertainment</h4>
+              <p>WiFi network name and password (printed large and clear). TV instructions, streaming app logins (Netflix, etc.), Bluetooth speaker instructions if applicable.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>Appliance Instructions</h4>
+              <p>How to use the thermostat, washer/dryer, dishwasher, coffee maker, and oven. Simple bullet points, not novels. Include photos for anything confusing.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>House Rules</h4>
+              <p>Quiet hours, smoking policy, shoe policy, maximum occupancy, garbage and recycling instructions, checkout procedures.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>Local Recommendations</h4>
+              <p>Your top 3 restaurants, nearest grocery store, closest pharmacy, public transit options, and one unique local experience. Guests trust host recommendations more than Google.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>Emergency Info</h4>
+              <p>Your contact number (or property manager's), building maintenance, nearest hospital or walk-in clinic, and 911 reminder with the property's full address.</p>
+            </div>
+          </div>
+
+          <p><strong>Format matters.</strong> Create a printed binder for the property and a digital PDF you send to guests 24 hours before check-in. The binder should live on the kitchen counter or coffee table where guests see it immediately. The digital version means they have it on their phone before they arrive.</p>
+
+          <h2 id="tech-connectivity">Step 9: Tech and Connectivity</h2>
+          <p>WiFi is the third most important amenity on Airbnb after the bed and the bathroom. If your WiFi doesn't work, nothing else matters. Guests will forgive a lot of things. Slow WiFi is not one of them.</p>
+
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Test WiFi speed: minimum 25 Mbps download (50+ preferred for remote workers)</li>
+                <li>WiFi name and password printed or framed near the router</li>
+                <li>TV set up with streaming apps: Netflix, YouTube, Prime Video</li>
+                <li>All remotes tested with fresh batteries</li>
+                <li>Phone chargers at every bedside: USB-C and Lightning cables</li>
+                <li>At least 2 accessible power outlets per room (use power strips if needed)</li>
+                <li>Bluetooth speaker (optional, but appreciated and inexpensive)</li>
+                <li>Smart thermostat or clear instructions for the existing thermostat</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>Run a speed test (speedtest.net) and screenshot the result. If your WiFi is under 25 Mbps, call your internet provider and upgrade before you list. This is especially important in Toronto condos, where concrete walls can weaken the signal. A $40 WiFi mesh extender solves most coverage issues.</p>
+
+          <h2 id="photography-prep">Step 10: Photography Prep</h2>
+          <p>Your listing photos are your storefront. <a href="/blog/airbnb-photography-guide-toronto-2026" style="color: var(--color-primary-dark); text-decoration: underline;">Professional Airbnb photography</a> costs $150 to $400 in the GTA and is one of the highest ROI investments you'll make. But even the best photographer can't save a poorly staged space. Here's how to prep.</p>
+
+          <h3>Before the Photographer Arrives</h3>
+          <div class="checklist-box">
+            <div class="checklist-category">
+              <ul class="checklist">
+                <li>Deep clean every room (not a regular clean, a deep clean)</li>
+                <li>Stage every room according to the guidelines above</li>
+                <li>Remove all personal items, clutter, and visible cords</li>
+                <li>Open all blinds and curtains for maximum natural light</li>
+                <li>Turn on every light in the property (overhead + lamps)</li>
+                <li>Make every bed hotel-style with pillows perfectly arranged</li>
+                <li>Close all toilet lids</li>
+                <li>Arrange towels neatly: rolled or hotel-folded</li>
+                <li>Clear kitchen counters except for the coffee setup and one decorative item</li>
+                <li>Put away all cleaning supplies, trash cans, and visible utility items</li>
+                <li>Fresh flowers on the kitchen counter or dining table (adds warmth to photos)</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>Schedule your photo shoot between 10am and 2pm for the best natural light. If your unit faces east, go earlier. If it faces west, go later. Tell your photographer which room you want as the hero image (usually the bedroom or living room with the best natural light).</p>
+
+          <h2 id="final-walkthrough">The Final Walkthrough: See It Like a Guest</h2>
+          <p>Everything is set up. Linens are fresh, the smart lock works, the guest guide is printed, and the photos are scheduled. Now do the most important exercise: walk through the front door as if you've never been here before.</p>
+
+          <div class="alternatives-grid">
+            <div class="alternative-card">
+              <span class="alt-number">1</span>
+              <h4>The Smell Test</h4>
+              <p>Walk in and inhale. Is there any odour at all? Musty, cleaning products, cooking, pet smell? The property should smell neutral or subtly fresh. Nothing more.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">2</span>
+              <h4>The Sleep Test</h4>
+              <p>Lay on every bed. Is the mattress comfortable? Are the pillows supportive? Does the room get dark enough with the curtains closed? Would you sleep well here?</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">3</span>
+              <h4>The Shower Test</h4>
+              <p>Turn on the shower. Is the water pressure decent? Does it get hot quickly? Is the drain clear? Are the toiletries easy to reach? Is there a place to hang a washcloth?</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">4</span>
+              <h4>The Dark Test</h4>
+              <p>Close all the curtains and blinds. Is the bedroom dark enough to sleep in? Light bleed from streetlights and building corridors is the most common sleep complaint in Toronto condos. Blackout curtains cost $30 to $60 and solve this instantly.</p>
+            </div>
+          </div>
+
+          <div class="alternatives-grid" style="margin-top: 0;">
+            <div class="alternative-card">
+              <span class="alt-number">5</span>
+              <h4>The Lock Test</h4>
+              <p>Leave the property and lock the door. Now enter the guest code. Does it work on the first try? Try it twice more. If there's any hesitation, reconfigure the lock before your first guest arrives.</p>
+            </div>
+            <div class="alternative-card">
+              <span class="alt-number">6</span>
+              <h4>The 10-Second Test</h4>
+              <p>Stand in the doorway of each room for 10 seconds and just look. What catches your eye? If anything looks off, out of place, or dingy, your guests will notice the same thing.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The Friend Test</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Before your first guest, invite a friend or family member to "check in" using only your guest guide and arrival instructions. Ask them to be brutally honest. Where did they get confused? What felt like it was missing? What impressed them? This one test will catch 90% of the issues your real guests would have flagged in a review.</p>
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want Help Setting Up Your Airbnb the Right Way?</h3>
+            <p>Nurture helps GTA homeowners go from empty property to first booking in as little as one week. We handle setup guidance, listing creation, professional photography coordination, and ongoing management at 12 to 15%.</p>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">Ready to start hosting? <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener" style="color: var(--color-primary-dark); text-decoration: underline;">Sign up for Airbnb through our link</a> and get a free consultation on your property's earning potential. <em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>From Setup to First Booking in One Week</h2>
+        <p>Find out how much your property could earn on Airbnb with a free estimate from Nurture.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation · 12-15% management fee</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table th {
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rules-table tr:hover {
+    background: var(--color-background-alt);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .alternative-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .alt-number {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .alternative-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .alternative-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .checklist-box {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    background: white;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .rules-table th,
+    .rules-table td {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
