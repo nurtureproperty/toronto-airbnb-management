@@ -2,13 +2,13 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I rent my Airbnb for more than 180 nights?", a: "Yep, and there are two legit ways to do it. You can register for partial-unit rentals (renting rooms while you're home) which has no night cap at all. Or you can switch to mid-term rentals of 28+ days, which aren't even considered short-term rentals under the bylaw. We've had clients in Liberty Village combine both strategies to rent year-round." },
+  { q: "Can I rent my Airbnb for more than 180 nights?", a: "The 180 night cap only applies to entire-unit rentals. If you register for partial-unit rentals (renting rooms while you're home), there's no night limit at all. You could rent 365 nights a year, completely legally. We've had clients in Liberty Village do very well with this approach." },
   { q: "Does the limit reset at the start of each year?", a: "It does. The 180-night count runs January 1st to December 31st, then you're back to zero. But here's what catches people: you need to track nights across ALL platforms combined. Airbnb, VRBO, direct bookings. They all count toward your total." },
   { q: "Can I switch between entire-unit and partial-unit registration?", a: "Not without some hassle. When you register, you pick one or the other. Want to switch? You'll need to apply for a whole new registration. So think carefully about which one makes sense for your situation before you commit." },
-  { q: "What qualifies as a mid-term rental?", a: "Any booking of 28 consecutive days or more. That's the magic number. These rentals don't need STR registration, aren't subject to the 180-night cap, and here's the big one: they don't require principal residence status. It's basically a different category entirely." },
+  { q: "What qualifies as a mid-term rental?", a: "Any booking of 28 consecutive days or more. These rentals fall into a different category entirely. They don't need STR registration, aren't subject to the 180 night cap, and don't require principal residence status. For investment property owners who can't get an STR license, mid-term is often the best path forward." },
   { q: "Can I do mid-term rentals on my investment property?", a: "Yes, and this is honestly the best option for most investment property owners in Toronto. Since 28+ day rentals aren't classified as short-term rentals, the principal residence rule doesn't apply. We manage several investment condos near the Financial District this way." },
   { q: "Do Toronto's rules apply to Mississauga or Brampton?", a: "Nope. Toronto's bylaws stop at the city limits. Mississauga, Brampton, Vaughan, Markham. They've all got their own rules. Some are stricter, some are more relaxed. Don't assume what works in one city applies to another." },
-  { q: "Is Airbnb still worth it with all these restrictions?", a: "100%. Even capped at 180 nights, most of our hosts earn 30-100% more than they would with a long-term tenant. Plus you can fill the remaining months with mid-term rentals. A 1-bedroom in King West typically pulls $3,500-4,500/month short-term versus $2,400 long-term." },
+  { q: "Is Airbnb still worth it with all these restrictions?", a: "100%. Even capped at 180 nights, most of our hosts earn 30-100% more than they would with a long-term tenant. A 1-bedroom in King West typically pulls $3,500-4,500/month short-term versus $2,400 long-term. And if you qualify for partial-unit registration, there's no night cap at all." },
   { q: "Can I rent my basement apartment on Airbnb?", a: "Yes, as long as it's your principal residence. The city allows STRs in basement suites, laneway houses, and garden suites. We've got hosts in the Beaches and High Park areas doing exactly this with their basement units." },
   { q: "What records do I need to keep?", a: "Keep everything for at least 3 years: booking confirmations, guest contact info, dates, and proof that your registration number was on every listing. The city does audit hosts, and you don't want to be scrambling for records when they come knocking." }
 ];
@@ -16,13 +16,13 @@ const faqs = [
 const relatedPosts = [
   { title: "Airbnb FIFA World Cup Bonus: $1,000 for New Hosts", href: '/blog/airbnb-fifa-world-cup-bonus-toronto-2026', description: '$1,000 new host bonus, $2,700 avg earnings, 300K visitors, and World Cup compliance checklist' },
   { title: 'Airbnb Taxes Canada: GTA Host Guide', href: '/blog/airbnb-taxes-canada-gta-guide-2026', description: 'Income tax, HST, MAT, and deductible expenses for Canadian Airbnb hosts' },
-  { title: 'Airbnb Insurance Ontario 2026', href: '/blog/airbnb-insurance-ontario-host-guide-2026', description: '$2M liability required, AirCover gaps, best providers compared for Ontario hosts' }
+  { title: 'Ontario Airbnb Occupancy Limits Per Bedroom 2026', href: '/blog/ontario-airbnb-occupancy-limits-per-bedroom-2026', description: 'Toronto has no per-bedroom limits. See how every GTA city compares on guest caps' }
 ];
 
 const tocItems = [
   { id: 'what-is-limit', text: 'The 180-Night Limit' },
   { id: 'partial-unit', text: 'Partial-Unit: No Limit' },
-  { id: 'mid-term-strategy', text: 'Mid-Term Strategy' },
+  { id: 'mid-term-strategy', text: 'Mid-Term Alternative' },
   { id: 'geographic-scope', text: 'Cities Covered' },
   { id: 'registration', text: 'Getting Registered' },
   { id: 'what-qualifies', text: 'Qualifying Properties' },
@@ -34,7 +34,7 @@ const tocItems = [
 ];
 
 const pageTitle = "Toronto Airbnb Short Term Rental Regulations 2026";
-const pageDescription = "Toronto Airbnb rules: 180-night limit, partial-unit option with no cap, mid-term rental strategies, and step-by-step registration guide. Get compliant today.";
+const pageDescription = "Toronto Airbnb rules: 180-night limit, partial-unit option with no cap, registration guide, and mid-term alternative for investment properties. Get compliant today.";
 
 // Schema.org structured data
 const articleSchema = {
@@ -201,31 +201,32 @@ const pageSchema = [articleSchema, faqSchema];
 
           <p>Here's the annoying part: you can't just flip between them whenever you want. Once you pick, you're locked in. Want to switch? New registration. So think about your actual lifestyle before committing. Can you realistically stay home during rentals? If not, entire-unit makes more sense even with the cap.</p>
 
-          <h2 id="mid-term-strategy">Mid-Term Rentals: The Loophole That Isn't a Loophole</h2>
-          <p>Okay, this is where things get interesting. <strong>Mid-term rentals completely bypass Toronto's STR rules.</strong> It's not a grey area or a workaround. The bylaw simply doesn't apply to rentals of 28+ days.</p>
+          <h2 id="mid-term-strategy">Mid-Term Rentals: An Alternative for Investment Properties</h2>
+          <p>If you don't qualify for an STR license (investment property, no principal residence, condo board says no), mid-term rentals are worth knowing about. <strong>Rentals of 28+ days fall outside Toronto's STR bylaws entirely.</strong> It's not a grey area. The bylaw simply doesn't apply.</p>
 
           <blockquote class="bylaw-quote">
             "Short-term rental means the use of all or part of a dwelling unit...for a rental period of less than 28 consecutive days."
             <cite>Toronto Municipal Code § 547-1 Definitions</cite>
           </blockquote>
 
-          <h3>What This Actually Means for Your Rental</h3>
-          <p>Book someone for 28 days or longer, and suddenly:</p>
+          <h3>Who Should Consider Mid-Term Rentals?</h3>
+          <p>Mid-term rentals (28+ days) are a completely separate category. Here's what makes them different:</p>
           <ul>
-            <li>It <strong>doesn't count</strong> toward your 180-night cap, at all</li>
-            <li>You <strong>don't need</strong> that STR registration</li>
-            <li>The principal residence rule? <strong>Doesn't apply</strong></li>
-            <li>That 8.5% MAT tax? <strong>You don't pay it</strong></li>
+            <li><strong>No STR registration</strong> needed</li>
+            <li>The principal residence rule <strong>doesn't apply</strong></li>
+            <li><strong>No 180 night cap</strong></li>
+            <li><strong>No 8.5% MAT tax</strong></li>
           </ul>
 
           <div class="strategy-box">
-            <h4>The Strategy Smart Toronto Hosts Are Using</h4>
-            <p>This isn't theoretical. We've got clients doing this right now:</p>
-            <ol>
-              <li><strong>May through October:</strong> Short-term Airbnb at premium rates. TIFF, Pride, Caribana, Blue Jays games. These months are gold for nightly bookings in downtown Toronto.</li>
-              <li><strong>November through April:</strong> Switch to 28+ day rentals. Traveling nurses at Mount Sinai, consultants on Bay Street projects, international students waiting for their U of T dorms. There's serious demand.</li>
-            </ol>
-            <p>You hit 180 nights of STR during high season when rates are best, then fill the rest with mid-term. No gaps, no violations, maximum revenue.</p>
+            <h4>Mid-Term Works Best For:</h4>
+            <ul>
+              <li><strong>Investment property owners</strong> who can't get an STR license because they don't live in the unit</li>
+              <li><strong>Condo owners</strong> whose building prohibits short-term rentals but allows monthly tenants</li>
+              <li><strong>Homeowners in restricted areas</strong> like Markham where STRs under 30 days aren't really allowed</li>
+              <li><strong>Anyone who prefers fewer turnovers</strong> and more predictable monthly income</li>
+            </ul>
+            <p>There's strong demand for furnished monthly rentals in Toronto. Traveling nurses at Mount Sinai, consultants on Bay Street projects, international students waiting for U of T dorms. These tenants are reliable and low maintenance.</p>
           </div>
 
           <h3>Where to Find Mid-Term Guests</h3>
@@ -344,7 +345,7 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>8.5%</strong> gets added on top of your nightly rate</li>
             <li><strong>Airbnb and VRBO collect it automatically</strong>, so you don't have to do anything</li>
             <li><strong>Only applies to stays under 28 days</strong></li>
-            <li><strong>Mid-term rentals (28+ days)?</strong> No MAT. Another reason that strategy works.</li>
+            <li><strong>Mid-term rentals (28+ days)?</strong> No MAT applies.</li>
           </ul>
 
           <p>The good news: if you're using major platforms, they handle the collection and remittance. You won't even touch the money. Just know that your guests are paying 8.5% on top of what you're charging, so factor that into your pricing. A $200/night stay actually costs your guest $217.</p>
@@ -371,7 +372,7 @@ const pageSchema = [articleSchema, faqSchema];
                 <span class="annual">+25% more income</span>
               </div>
             </div>
-            <p class="example-note">And that's just the 180 nights. Fill the remaining 185 days with mid-term rentals at $3,000/month, and you're looking at $54,000+ annually. That's nearly double a long-term lease.</p>
+            <p class="example-note">That's $7,200 more per year from just 180 nights. And if you qualify for partial-unit registration (renting rooms while home), there's no night cap at all, meaning even higher earning potential.</p>
           </div>
 
           <h3>You Keep Control of Your Property</h3>
@@ -383,14 +384,14 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>No eviction nightmares:</strong> Guests leave in a few days, not after months of LTB hearings</li>
           </ul>
 
-          <h3>The Hybrid Approach Really Works</h3>
-          <p>I keep coming back to this because it's the smartest play for most Toronto hosts:</p>
+          <h3>Flexibility You Don't Get With a Lease</h3>
+          <p>One of the biggest perks of short-term hosting:</p>
           <ul>
-            <li><strong>180 nights of premium STR</strong> during high season when tourists are paying top dollar</li>
-            <li><strong>Mid-term rentals (28+ days)</strong> during slower months when nightly demand drops</li>
+            <li><strong>180 nights of premium rates</strong> during high season when tourists are paying top dollar</li>
             <li><strong>Block time for yourself</strong> when you want to actually use your home</li>
+            <li><strong>Adjust pricing in real time</strong> based on events, holidays, and demand</li>
           </ul>
-          <p>You're not leaving money on the table either way.</p>
+          <p>Try doing that with a 12 month lease.</p>
 
           <h3>Toronto's Tourism Is Only Growing</h3>
           <p>TIFF, Pride, Caribana, Raptors games, Blue Jays, concerts at Rogers Centre and Scotiabank Arena... Toronto's calendar is packed. Add business travel to the Financial District and convention visitors, and there's consistent demand year-round. The 180-night cap is a constraint, not a death sentence.</p>
@@ -405,7 +406,7 @@ const pageSchema = [articleSchema, faqSchema];
             <li><span class="tip-icon">1</span> <strong>Track every single night.</strong> Use a spreadsheet, use software, whatever works. But don't rely on memory. I've seen hosts hit 185 nights without realizing it because they lost track across platforms.</li>
             <li><span class="tip-icon">2</span> <strong>Put your registration number everywhere.</strong> Every listing, every platform, every ad. The city checks. It's not optional.</li>
             <li><span class="tip-icon">3</span> <strong>Keep records for 3 years minimum.</strong> Booking confirmations, guest info, payment records. When the city audits (and they do), you'll be glad you kept everything.</li>
-            <li><span class="tip-icon">4</span> <strong>Plan ahead when you're getting close to 180.</strong> Around night 150, start thinking about switching to 28+ day bookings. Don't wait until you're at 175 and scrambling.</li>
+            <li><span class="tip-icon">4</span> <strong>Plan ahead when you're getting close to 180.</strong> Around night 150, start monitoring your count closely. Don't wait until you're at 175 and scrambling to block your calendar.</li>
             <li><span class="tip-icon">5</span> <strong>Seriously consider partial-unit if it fits your life.</strong> No night limit at all. It's worth the trade-off of being home during stays for some people.</li>
             <li><span class="tip-icon">6</span> <strong>Check condo rules FIRST.</strong> Before you register, before you list, before you do anything. A condo ban trumps city approval every time.</li>
             <li><span class="tip-icon">7</span> <strong>Regulations change.</strong> What's true today might not be true in 2027. Keep an eye on city announcements.</li>

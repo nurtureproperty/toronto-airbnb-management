@@ -1,0 +1,1088 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "What is the most common occupancy limit for Airbnb in Ontario?", a: "The most common rule across regulated Ontario cities is 2 persons per bedroom. Burlington, Milton, Hamilton, Ottawa, Oshawa, and Muskoka Lakes all use some version of this formula. Some cities like Milton and Niagara-on-the-Lake add a +2 buffer on top (so a 3-bedroom property allows 8 guests total). Cities without explicit per-bedroom limits, like Toronto and Mississauga, leave it to hosts and platforms to set their own caps." },
+  { q: "Does Toronto have a maximum occupancy per bedroom for Airbnb?", a: "No. Toronto's short-term rental bylaw (Chapter 547) does not include any per-bedroom occupancy limits. You can set your own guest limits based on what makes sense for your property, your insurance policy, and your comfort level. That said, Airbnb's own platform caps listings at 16 guests maximum, and most hosts set limits based on available sleeping arrangements." },
+  { q: "What happens if guests exceed the occupancy limit?", a: "In cities with demerit point systems like Burlington and Oakville, exceeding maximum occupancy can earn you 3 to 5 demerit points per incident. At 7 points, your license gets suspended for up to 6 months. At 15 points, it's revoked. In other cities, you face fines that can range from $500 to $100,000 depending on the municipality." },
+  { q: "Do children count toward Airbnb occupancy limits?", a: "It depends on the city. Hamilton and Muskoka Lakes specifically exclude children aged 2 and under from occupancy counts. Brampton counts children under 12 as 0.5 persons. Most other regulated cities don't make any age distinction, so all guests count equally regardless of age." },
+  { q: "Can I add extra mattresses to increase my guest capacity?", a: "Not in cities with per-bedroom occupancy rules. Burlington's bylaw specifically states the limit is based on 'legal bedrooms' that meet Building Code and Fire Code requirements. You can't convert a den, living room, or closet into a bedroom just by adding a mattress. The bedroom must be on your approved floor plan." },
+  { q: "Does Mississauga have occupancy limits for Airbnb?", a: "No. Mississauga's STR bylaw does not include per-bedroom occupancy limits. Like Toronto, the city regulates STRs through licensing, principal residence requirements, and night caps (180 days/year), but does not dictate how many guests can sleep in each bedroom." },
+  { q: "How do occupancy limits affect my Airbnb pricing?", a: "Properties in cities without occupancy limits (Toronto, Mississauga, Vaughan, Oakville) can accommodate larger groups and charge accordingly. A 5-bedroom Toronto home can sleep 10 to 16 guests and charge premium rates for group travel. In Burlington, that same 5-bedroom property is capped at 12 guests (2 per bedroom + 2). This matters most during peak events like the FIFA World Cup when large group demand surges." },
+  { q: "What if my city doesn't have occupancy rules?", a: "Even without city-imposed limits, you should still set reasonable occupancy caps. Your insurance policy likely has guest limits. Airbnb caps at 16. Condo corporations may have their own rules. And from a practical standpoint, overcrowding leads to noise complaints, faster wear on your property, and lower reviews. A good rule of thumb is 2 guests per bedroom plus 2, which matches what most regulated cities require." }
+];
+
+const relatedPosts = [
+  { title: "Toronto Airbnb Short Term Rental Regulations 2026", href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete Toronto STR rules: 180-night limit, registration, MAT tax, and compliance tips' },
+  { title: "Burlington Airbnb Short Term Rental Rules 2026", href: '/blog/burlington-airbnb-short-term-rental-rules-2026', description: 'Burlington demerit point system, 183-night limit, and 2 adults per bedroom rule' },
+  { title: "Airbnb Guest Screening & Party Prevention Guide", href: '/blog/airbnb-guest-screening-party-prevention-guide-2026', description: 'Vet guests effectively to prevent occupancy violations and protect your license' }
+];
+
+const tocItems = [
+  { id: 'why-occupancy-matters', text: 'Why Occupancy Limits Matter' },
+  { id: 'quick-reference', text: 'Quick Reference Table' },
+  { id: 'cities-with-limits', text: 'Cities WITH Limits' },
+  { id: 'cities-without-limits', text: 'Cities WITHOUT Limits' },
+  { id: 'children-exemptions', text: 'Children & Exemptions' },
+  { id: 'enforcement', text: 'Enforcement & Penalties' },
+  { id: 'best-practices', text: 'Best Practices' },
+  { id: 'official-sources', text: 'Official Sources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Ontario Airbnb Occupancy Limits Per Bedroom 2026";
+const pageDescription = "Ontario Airbnb occupancy limits by city: Toronto has none, Burlington caps at 2 per bedroom. Full GTA comparison table with bylaw sources. Stay compliant.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-12",
+  "dateModified": "2026-03-12",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/ontario-airbnb-occupancy-limits-per-bedroom-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Occupancy Limits</span>
+      </nav>
+      <h1>Ontario Airbnb Occupancy Limits Per Bedroom: 2026 City Comparison</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 12, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Here's something that surprises most Ontario hosts: <strong>Toronto has zero occupancy limits per bedroom</strong>. You could technically sleep 16 guests in a 2-bedroom condo and the city wouldn't blink. (Your neighbours might, though.)</p>
+            <p class="lead">Meanwhile, just 50 km away in Burlington, you're capped at <strong>2 adults per legal bedroom</strong>. Get caught with extra guests and you're looking at demerit points that can suspend your license. Every Ontario city writes its own rules, and they vary wildly.</p>
+            <p class="lead">We compiled the occupancy rules from every regulated GTA municipality so you know exactly how many guests you can host, and where.</p>
+          </div>
+
+          <h2 id="why-occupancy-matters">Why Occupancy Limits Matter</h2>
+          <p>Occupancy limits affect three things that directly hit your bottom line:</p>
+
+          <ul>
+            <li><strong>Revenue potential.</strong> A 4-bedroom property in Toronto can sleep 10+ guests and command $400+ per night for group bookings. That same property in Burlington is capped at 10 guests (2 per bedroom + 2). In Ottawa, it's 8 guests maximum regardless of property size.</li>
+            <li><strong>License compliance.</strong> Cities with demerit point systems (Burlington, Oakville, Muskoka Lakes) treat occupancy violations seriously. One incident can put your license at risk.</li>
+            <li><strong>Insurance claims.</strong> If you file a damage claim and the insurer finds you exceeded your city's occupancy limit, they may deny the claim entirely. Overcrowding can also void your liability coverage.</li>
+          </ul>
+
+          <h2 id="quick-reference">Quick Reference: Occupancy Limits by City</h2>
+          <p>Here's every GTA and Ontario city we track, sorted by whether they have explicit per-bedroom occupancy rules:</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Occupancy Rule</th>
+                  <th>Example (3-Bed)</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="/blog/burlington-airbnb-short-term-rental-rules-2026">Burlington</a></td>
+                  <td class="highlight">2 adults per legal bedroom</td>
+                  <td>6 guests</td>
+                  <td>By-law 01-2025, Schedule 2 § 2(b)</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/milton-airbnb-short-term-rental-rules-2026">Milton</a></td>
+                  <td class="highlight">2 persons per bedroom + 2</td>
+                  <td>8 guests</td>
+                  <td>By-law 062-2022, § 10.5</td>
+                </tr>
+                <tr>
+                  <td>Hamilton</td>
+                  <td class="highlight">2 persons per sleeping room</td>
+                  <td>6 guests</td>
+                  <td>STR Licensing By-law, Schedule Q</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/oshawa-airbnb-short-term-rental-rules-2026">Oshawa</a></td>
+                  <td class="highlight">2 occupants per room (max 2 rooms)</td>
+                  <td>4 guests max</td>
+                  <td>Licensing By-law 122-2024, Schedule Q</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/ottawa-airbnb-short-term-rental-rules-2026">Ottawa</a></td>
+                  <td class="highlight">2 persons per sleeping room (max 8 total)</td>
+                  <td>6 guests</td>
+                  <td>By-law 2021-104, § 4(1)</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/niagara-on-the-lake-airbnb-short-term-rental-rules-2026">Niagara-on-the-Lake</a></td>
+                  <td class="highlight">(2 &times; bedrooms) + 2</td>
+                  <td>8 guests</td>
+                  <td>STR By-law, § 15.1</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/muskoka-lakes-airbnb-short-term-rental-rules-2026">Muskoka Lakes</a></td>
+                  <td class="highlight">2 persons per bedroom*</td>
+                  <td>6 guests*</td>
+                  <td>By-law 2025-049, § 5.5(a)</td>
+                </tr>
+                <tr>
+                  <td>Brampton</td>
+                  <td>1 person per 14 sq. m of habitable rooms</td>
+                  <td>Varies by size</td>
+                  <td>STR By-law, § 8.1</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a></td>
+                  <td>No per-bedroom limit</td>
+                  <td>Host sets limit</td>
+                  <td>Chapter 547</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/mississauga-airbnb-short-term-rental-rules-2026">Mississauga</a></td>
+                  <td>No per-bedroom limit</td>
+                  <td>Host sets limit</td>
+                  <td>By-law 0081-2018</td>
+                </tr>
+                <tr>
+                  <td>Vaughan</td>
+                  <td>No per-bedroom limit</td>
+                  <td>Host sets limit</td>
+                  <td>STR By-law</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/oakville-airbnb-short-term-rental-rules-2026">Oakville</a></td>
+                  <td>No per-bedroom limit</td>
+                  <td>Host sets limit</td>
+                  <td>By-law 2023-069</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/london-airbnb-short-term-rental-rules-2026">London</a></td>
+                  <td>No per-bedroom limit (max 5 bedrooms)</td>
+                  <td>Host sets limit</td>
+                  <td>By-law C.P.-1553-247</td>
+                </tr>
+                <tr>
+                  <td><a href="/blog/niagara-falls-airbnb-short-term-rental-rules-2026">Niagara Falls</a></td>
+                  <td>Set by Chief Building Official</td>
+                  <td>Varies per property</td>
+                  <td>VRU By-law</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><em>*Muskoka Lakes allows increased occupancy if the property's septic system was designed for higher capacity under the Ontario Building Code.</em></p>
+
+          <h2 id="cities-with-limits">Cities With Per-Bedroom Occupancy Rules</h2>
+
+          <h3>Burlington: 2 Adults Per Legal Bedroom</h3>
+          <p>Burlington has one of the strictest occupancy rules in the GTA. Their <a href="/blog/burlington-airbnb-short-term-rental-rules-2026">By-law 01-2025</a> (effective May 1, 2025) caps occupancy at 2 adults per legal bedroom:</p>
+
+          <blockquote class="bylaw-quote">
+            "Have a maximum occupancy of 2 adults per legal bedroom."
+            <cite>Burlington By-law 01-2025, Schedule 2 § 2(b)</cite>
+          </blockquote>
+
+          <p>The key word is "legal." Your bedroom must meet Building Code and Fire Code standards. A den with a pullout couch doesn't count. A converted garage doesn't count. Only bedrooms shown on your approved floor plan qualify.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Demerit points:</strong> Exceeding occupancy in Burlington earns 3 points (confirmed order) or 5 points (with fine). At 7 points, your license is suspended. One occupancy violation plus one noise complaint could end your hosting career.
+            </div>
+          </div>
+
+          <h3>Milton: 2 Per Bedroom + 2 Additional</h3>
+          <p><a href="/blog/milton-airbnb-short-term-rental-rules-2026">Milton's By-law 062-2022</a> uses a slightly more generous formula:</p>
+
+          <blockquote class="bylaw-quote">
+            "The Licensee shall ensure that the maximum number of occupants within a short term rental shall not exceed a total number based upon two (2) persons per bedroom plus an additional two (2) persons."
+            <cite>Milton By-law 062-2022, § 10.5</cite>
+          </blockquote>
+
+          <p>So a 3-bedroom in Milton can host 8 guests (6 from bedrooms + 2 extra), while a 3-bedroom in Burlington is capped at 6. That "+2" makes a real difference for larger groups.</p>
+
+          <h3>Hamilton: 2 Per Sleeping Room</h3>
+          <p>Hamilton's STR licensing bylaw keeps it simple: maximum 2 persons per sleeping room. Children aged 2 and under don't count toward the limit. Hamilton uses the term "sleeping room" rather than "bedroom," which is slightly broader but still requires the room to be a legitimate sleeping space.</p>
+
+          <h3>Oshawa: 2 Per Room, Max 2 Rooms</h3>
+          <p><a href="/blog/oshawa-airbnb-short-term-rental-rules-2026">Oshawa's rules</a> are the most restrictive in the GTA for room rentals. You can rent a maximum of 2 rooms with a maximum of 2 occupants per room. This means 4 guests is your absolute ceiling for room-by-room rentals, regardless of property size.</p>
+
+          <h3>Ottawa: 2 Per Sleeping Room, Capped at 8 or 10</h3>
+          <p><a href="/blog/ottawa-airbnb-short-term-rental-rules-2026">Ottawa's By-law 2021-104</a> uses the 2 per sleeping room formula but adds an overall cap that might surprise you:</p>
+
+          <blockquote class="bylaw-quote">
+            "The maximum limit for overnight guests in a short-term rental shall be two (2) persons per sleeping room."
+            <cite>Ottawa By-law 2021-104, § 4(1)</cite>
+          </blockquote>
+
+          <p>Even with many bedrooms, Ottawa caps you at:</p>
+          <ul>
+            <li><strong>Standard dwelling:</strong> 4 sleeping rooms, max 8 guests total</li>
+            <li><strong>Oversize dwelling:</strong> 8 sleeping rooms, max 10 guests total</li>
+          </ul>
+          <p>So even if you have a 6-bedroom home in Ottawa, your maximum is 10 guests. The math doesn't scale linearly.</p>
+
+          <h3>Niagara-on-the-Lake: (2 &times; Bedrooms) + 2</h3>
+          <p><a href="/blog/niagara-on-the-lake-airbnb-short-term-rental-rules-2026">NOTL's bylaw</a> uses the same "+2" formula as Milton:</p>
+
+          <blockquote class="bylaw-quote">
+            "The maximum number of guests within a Short Term Rental shall not exceed a total number based upon two (2) guests per bedroom plus an additional two (2) guests within the rental."
+            <cite>Niagara-on-the-Lake STR By-law, § 15.1</cite>
+          </blockquote>
+
+          <h3>Muskoka Lakes: 2 Per Bedroom (Expandable)</h3>
+          <p><a href="/blog/muskoka-lakes-airbnb-short-term-rental-rules-2026">Muskoka's By-law 2025-049</a> starts at 2 persons per bedroom but has a unique twist: you can request higher occupancy if your septic system was designed and built to handle more people under the Ontario Building Code. Children aged 2 and under don't count.</p>
+
+          <h3>Brampton: Square Footage Based</h3>
+          <p>Brampton is the oddball. Instead of counting bedrooms, they use a square footage formula:</p>
+
+          <blockquote class="bylaw-quote">
+            "The maximum number of occupants in a dwelling unit shall not exceed one person for each fourteen (14) sq. metres (150 sq. ft.) of the total floor area of all habitable rooms."
+            <cite>Brampton STR By-law, § 8.1</cite>
+          </blockquote>
+
+          <p>Children under 12 count as 0.5 persons. So a 1,200 sq. ft. unit with 800 sq. ft. of habitable rooms could host about 5 adults (or 6 adults and 2 kids under 12).</p>
+
+          <h2 id="cities-without-limits">Cities Without Per-Bedroom Occupancy Limits</h2>
+          <p>These GTA cities regulate short-term rentals but <strong>do not</strong> dictate how many guests can sleep in each bedroom:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">What They Regulate Instead</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a></div>
+              <div class="comparison-col highlight">180-night limit, principal residence, 8.5% MAT, registration</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><a href="/blog/mississauga-airbnb-short-term-rental-rules-2026">Mississauga</a></div>
+              <div class="comparison-col highlight">180-day limit, principal residence, license ($283/yr)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Vaughan</div>
+              <div class="comparison-col highlight">Principal residence, license, 4% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><a href="/blog/oakville-airbnb-short-term-rental-rules-2026">Oakville</a></div>
+              <div class="comparison-col highlight">Principal residence, license ($237/yr), 4% MAT, no night limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><a href="/blog/london-airbnb-short-term-rental-rules-2026">London</a></div>
+              <div class="comparison-col highlight">Principal residence, max 5 bedrooms, license ($196/yr), 4% MAT</div>
+            </div>
+          </div>
+
+          <p>The absence of per-bedroom limits in Toronto is particularly notable for hosts during major events. A 5-bedroom home in Rosedale can accommodate large groups during the <a href="/blog/airbnb-fifa-world-cup-bonus-toronto-2026">FIFA World Cup</a> without any city-imposed guest cap. You set the limit based on available sleeping arrangements, your insurance, and your comfort level.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>London's 5-bedroom cap:</strong> While London doesn't limit guests per bedroom, they cap the total number of bedrooms at 5 per STA. Floor area requirements also apply: minimum 7 sq. metres for the primary sleeping area plus 4 sq. metres per additional person.
+            </div>
+          </div>
+
+          <h2 id="children-exemptions">Children and Age Exemptions</h2>
+          <p>Not all guests are counted equally. Here's how different cities handle children:</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Children Exemption</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hamilton</td>
+                  <td class="highlight">Children aged 2 and under not counted</td>
+                </tr>
+                <tr>
+                  <td>Muskoka Lakes</td>
+                  <td class="highlight">Children aged 2 and under not counted</td>
+                </tr>
+                <tr>
+                  <td>Brampton</td>
+                  <td class="highlight">Children under 12 count as 0.5 persons</td>
+                </tr>
+                <tr>
+                  <td>Burlington</td>
+                  <td>No exemption (rule says "adults" though)</td>
+                </tr>
+                <tr>
+                  <td>Milton</td>
+                  <td>No exemption (rule says "persons")</td>
+                </tr>
+                <tr>
+                  <td>Ottawa</td>
+                  <td>No exemption</td>
+                </tr>
+                <tr>
+                  <td>Niagara-on-the-Lake</td>
+                  <td>No exemption</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Burlington's wording is interesting: it says "2 <strong>adults</strong> per legal bedroom." Technically, children might not count toward the limit. But we'd recommend confirming this interpretation with the city's licensing office before banking on it.</p>
+
+          <h2 id="enforcement">Enforcement and Penalties</h2>
+          <p>How seriously do cities enforce occupancy limits? It varies:</p>
+
+          <h3>Demerit Point Cities</h3>
+          <p>Burlington, Oakville, and Muskoka Lakes use demerit point systems where occupancy violations carry real consequences:</p>
+
+          <div class="points-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Points for Occupancy Violation</th>
+                  <th>Suspension Threshold</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Burlington</td>
+                  <td class="highlight">3 points (order) / 5 points (fine)</td>
+                  <td>7 points</td>
+                </tr>
+                <tr>
+                  <td>Muskoka Lakes</td>
+                  <td class="highlight">Varies by violation type</td>
+                  <td>15 points = revocation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Fine-Based Cities</h3>
+          <p>Most other regulated cities enforce through fines rather than point systems:</p>
+          <ul>
+            <li><strong>Milton:</strong> $500 to $100,000 (Provincial Offences Act)</li>
+            <li><strong>Hamilton:</strong> Fines per STR licensing bylaw</li>
+            <li><strong>Ottawa:</strong> Up to $100,000 per offense</li>
+            <li><strong>Oshawa:</strong> $500 (no license) to $100,000 (POA)</li>
+          </ul>
+
+          <div class="warning-box">
+            <h4>Enforcement Is Increasing</h4>
+            <p>Multiple Ontario cities hired dedicated STR enforcement officers in 2025. Burlington, Caledon, and Oshawa all added enforcement staff. Complaints from neighbours are the most common trigger for investigations, so even one noisy night with too many guests can start the process.</p>
+          </div>
+
+          <h2 id="best-practices">Best Practices for Setting Occupancy</h2>
+          <p>Whether your city has occupancy rules or not, here's how to set smart guest limits:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Follow the 2+2 rule as a baseline.</strong> Even in cities without limits, 2 guests per bedroom plus 2 additional is sensible. It matches what most regulated cities require and keeps wear on your property manageable.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your insurance policy.</strong> Many STR insurance policies have guest limits. Exceeding them could void your coverage. Confirm your maximum with your insurer and set your Airbnb listing accordingly.</li>
+            <li><span class="tip-icon">3</span> <strong>Match Airbnb settings to local law.</strong> Set your listing's maximum guests to match (or be lower than) your city's cap. This prevents accidental violations before they happen.</li>
+            <li><span class="tip-icon">4</span> <strong>Include limits in your house rules and rental agreement.</strong> Stating "maximum 8 guests, no exceptions" in writing gives you recourse if guests show up with extras. In Burlington, this also satisfies the Renter's Code requirement.</li>
+            <li><span class="tip-icon">5</span> <strong>Use noise monitoring.</strong> Devices like Minut or NoiseAware can alert you to potential overcrowding without invading guest privacy. A sudden spike in noise levels at 11pm often means uninvited guests have arrived.</li>
+            <li><span class="tip-icon">6</span> <strong>Check condo rules separately.</strong> Your condo corporation may have its own occupancy restrictions that are stricter than the city's. Condo rules override municipal permissions.</li>
+          </ul>
+
+          <h2 id="official-sources">Official Bylaw Sources</h2>
+          <p>We sourced every occupancy rule in this article directly from official municipal bylaws. Here are the primary sources:</p>
+
+          <div class="resources-box">
+            <h4>Official Municipal Resources</h4>
+            <ul>
+              <li><strong>Burlington:</strong> <a href="https://www.burlington.ca" target="_blank" rel="noopener">City of Burlington</a> (By-law 01-2025)</li>
+              <li><strong>Milton:</strong> <a href="https://www.milton.ca/en/living-in-milton/short-term-rentals.aspx" target="_blank" rel="noopener">Milton STR Licensing</a> (By-law 062-2022)</li>
+              <li><strong>Hamilton:</strong> <a href="https://www.hamilton.ca" target="_blank" rel="noopener">City of Hamilton</a> (STR Licensing By-law)</li>
+              <li><strong>Oshawa:</strong> <a href="https://www.oshawa.ca/business-development/housing-permits-and-licences/short-term-rentals/" target="_blank" rel="noopener">Oshawa STR Licensing</a> (By-law 122-2024)</li>
+              <li><strong>Ottawa:</strong> <a href="https://ottawa.ca/en/living-ottawa/laws-licences-and-permits/laws/laws-z/short-term-rental-law-no-2021-104" target="_blank" rel="noopener">Ottawa STR Law</a> (By-law 2021-104)</li>
+              <li><strong>Niagara-on-the-Lake:</strong> <a href="https://www.notl.com/short-term-rentals" target="_blank" rel="noopener">NOTL STR</a></li>
+              <li><strong>Muskoka Lakes:</strong> <a href="https://www.muskokalakes.ca/township-hall/by-law-enforcement/short-term-rental-accommodations/" target="_blank" rel="noopener">Muskoka Lakes STRA</a> (By-law 2025-049)</li>
+              <li><strong>Toronto:</strong> <a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-standards/short-term-rentals/" target="_blank" rel="noopener">Toronto STR</a> (Chapter 547)</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Bylaws change frequently.</strong> We update this article as municipalities amend their regulations, but always confirm current rules directly with your city before setting occupancy limits. Several cities (Barrie, Collingwood, Cambridge) are developing new STR frameworks that may include occupancy rules.
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Not Sure About Your City's Rules?</h3>
+            <p>Nurture manages Airbnb properties across the GTA and keeps up with every bylaw change so you don't have to. We handle compliance, guest screening, and occupancy management for all our clients.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Occupancy Rules?</h2>
+        <p>Our local experts know every GTA municipality's rules inside and out.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .comparison-row a:hover {
+    text-decoration: underline;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .points-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .points-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .points-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .points-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .points-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .points-table td.highlight {
+    background: rgba(117, 155, 143, 0.1);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .points-table a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .points-table a:hover {
+    text-decoration: underline;
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .points-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
