@@ -307,7 +307,7 @@ Most see 30-100% increases in monthly revenue."
 @docs/bylaws/hamilton bylaw.txt
 - Principal residence only
 - License: $200-$1,000
-- $2M liability insurance required
+- $1M liability insurance required (operators)
 - License valid 2 years
 
 ### Oakville
@@ -357,7 +357,7 @@ Most see 30-100% increases in monthly revenue."
 @docs/bylaws/Ottawa bylaw.txt
 - Under 30 consecutive nights
 - Principal residence required
-- Permit: $112/2 years
+- Permit: $123/2 years ($65 admin + $58 permit)
 - 4% MAT
 
 ### London

@@ -4,10 +4,10 @@ import Layout from '../../layouts/Layout.astro';
 const faqs = [
   { q: "Can I Airbnb my investment property in Niagara Falls?", a: "Yes, and this is what makes Niagara Falls unusual. Their Vacation Rental Unit (VRU) license doesn't require principal residence. You need a licensed responsible person available 24/7 within one hour of the property, but you don't have to live there. This is one of the few Ontario cities where investment property STRs are genuinely viable." },
   { q: "What's the difference between VRU and OOSTR licenses?", a: "VRU (Vacation Rental Unit) is for entire-home rentals where you're not on-site. No principal residence needed, but you need a responsible person within one hour. OOSTR (Owner Occupied Short-Term Accommodation) is like a B&B where you live on-site while hosting guests. OOSTR has a 150m spacing rule from other OOSTRs." },
-  { q: "What happens if I get complaints about my rental?", a: "Niagara Falls uses a three-strike system. Three sustained complaints or violations within one calendar year means automatic 6-month license suspension. After that, you can reapply but your track record follows you. The city takes noise and nuisance complaints seriously given the tourist area dynamics." },
+  { q: "What happens if I get complaints about my rental?", a: "Niagara Falls uses a three-strike system. Three valid violations or three convictions means automatic license revocation. After revocation, you must wait 6 months before you can reapply, and your track record follows you. The city takes noise and nuisance complaints seriously given the tourist area dynamics." },
   { q: "Do I need to be available 24/7 for my rental?", a: "For VRU licenses, your designated responsible person must be available 24 hours a day, 7 days a week, and able to arrive at the property within one hour of being contacted. This can be you, a property manager, or another licensed responsible person." },
   { q: "What inspections are required?", a: "You'll need three inspections: Fire Department (fire safety plan, smoke/CO detectors, extinguishers), Niagara Region Health (sanitation, water), and ESA electrical certificate. All must pass before your license is approved. Budget time for scheduling and potential re-inspections." },
-  { q: "Can I rent to large groups for bachelor/bachelorette parties?", a: "Technically yes, but you're liable for their behavior. The bylaw holds operators responsible for guest conduct. If a party gets three noise complaints in a year, that's your license suspended for 6 months. Many hosts set strict house rules and guest limits to avoid this." },
+  { q: "Can I rent to large groups for bachelor/bachelorette parties?", a: "Technically yes, but you're liable for their behavior. The bylaw holds operators responsible for guest conduct. If a party results in three violations, that's your license revoked with a 6 month wait before you can reapply. Many hosts set strict house rules and guest limits to avoid this." },
   { q: "What's the maximum stay allowed?", a: "28 consecutive days or less qualifies as short-term rental under the bylaw. Anything longer is considered a regular tenancy and falls under different rules (Residential Tenancies Act). Most hosts target the tourist market with 2-7 night stays." },
   { q: "Is there a MAT (Municipal Accommodation Tax)?", a: "Niagara Falls charges a flat $2 per night per room MAT, which is different from the percentage-based MAT in cities like Toronto. Airbnb collects and remits this automatically, so you don't have to handle it manually." },
   { q: "Can I operate multiple STRs in Niagara Falls?", a: "Yes, there's no limit on how many VRU licenses you can hold. Each property needs its own license, inspections, and responsible person coverage. Some investors run multiple units, treating it like a hospitality business rather than a side hustle." }
@@ -281,12 +281,12 @@ const pageSchema = [articleSchema, faqSchema];
             <p>Schedule inspections early in your application process. Each department has its own timeline, and re-inspections (if you fail) add weeks. Budget 4-8 weeks for all inspections to clear.</p>
           </div>
 
-          <h2 id="three-strike">The Three-Strike Complaint System</h2>
-          <p>This is where Niagara Falls gets serious. They track complaints and violations, and three strikes means automatic suspension.</p>
+          <h2 id="three-strike">The Three-Strike Violation System</h2>
+          <p>This is where Niagara Falls gets serious. They track violations and convictions, and three strikes means automatic revocation.</p>
 
           <blockquote class="bylaw-quote">
-            "Where an Operator accumulates three (3) or more demerit points within a calendar year, the Licence shall be automatically suspended for a period of six (6) months."
-            <cite>Niagara Falls By-law 2021-57, Section 8.2</cite>
+            "Where the City has determined three (3) valid violations have occurred or three (3) convictions have been registered against a licensee, the licence shall be automatically revoked."
+            <cite>Niagara Falls By-law 2021-57, Section 11</cite>
           </blockquote>
 
           <h3>What Counts as a Strike</h3>
@@ -308,12 +308,12 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>The bachelor party problem:</strong> Niagara Falls sees a lot of bachelor/bachelorette groups. Three noise complaints from one wild weekend could cost you your license for six months. Many successful hosts use strict guest screening and house rules to avoid this.
+              <strong>The bachelor party problem:</strong> Niagara Falls sees a lot of bachelor/bachelorette groups. Three violations could cost you your license entirely, with a 6 month wait before you can even reapply. Many successful hosts use strict guest screening and house rules to avoid this.
             </div>
           </div>
 
-          <h3>After a Suspension</h3>
-          <p>Once suspended, you cannot operate for 6 months. After that period, you can reapply, but the city considers your history. Repeated suspensions can lead to permanent license denial.</p>
+          <h3>After a Revocation</h3>
+          <p>Once revoked, you cannot operate or reapply for 6 months. After that period, you can submit a new application, but the city considers your history. A pattern of revocations can lead to permanent license denial.</p>
 
           <h2 id="penalties">Fines and Penalties</h2>
           <p>Operating without a license or violating the bylaw comes with significant fines:</p>

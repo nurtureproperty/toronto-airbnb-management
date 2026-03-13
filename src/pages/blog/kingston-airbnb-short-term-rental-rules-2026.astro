@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I Airbnb my investment property in Kingston?", a: "Yes! Unlike Toronto, Mississauga, and most GTA cities, Kingston does NOT require principal residence. You can STR an investment property. The only limit is 2 licenses per operator, so you could run up to 2 Airbnb properties in Kingston even if you don't live there." },
-  { q: "Is there a night limit for Airbnb in Kingston?", a: "No annual night limit. Kingston's bylaw defines STR as 30 days or less per booking, but there's no cap on how many nights per year you can rent. You could theoretically operate 365 nights a year, unlike Toronto's 180-night limit." },
+  { q: "Can I Airbnb my investment property in Kingston?", a: "Based on Kingston's Bylaw 2021-10, there does not appear to be a principal residence requirement, which would allow investment properties. The bylaw limits operators to 2 STR licenses. However, Kingston has updated its regulations multiple times, so verify current rules directly with the city before listing." },
+  { q: "Is there a night limit for Airbnb in Kingston?", a: "Based on the bylaw, there does not appear to be an annual night limit. Kingston defines an STR as 30 days or less per booking, but the bylaw doesn't specify a cap on total nights per year. Confirm with the city, as regulations may have been updated since our last review." },
   { q: "How much is the Kingston STR license?", a: "License fees are set in Kingston's Fees and Charges Bylaw. Check the city website for current rates. The license needs to be renewed annually, and all fees are non-refundable even if your application is denied." },
   { q: "What's the occupancy limit for Kingston Airbnb?", a: "Maximum 2 occupants per bedroom, and no more than 10 guests total per booking. If you're renting individual rooms while home, max 3 rooms with 4 guests total in aggregate. Children under 2 don't count toward the limit." },
   { q: "Do I need to display my license number?", a: "Yes, three ways: post the physical license near your entry, include the license number in all marketing materials and listings, and provide the city with links to your listings. The city actively checks compliance." },
@@ -32,7 +32,7 @@ const tocItems = [
 ];
 
 const pageTitle = "Kingston Airbnb Short Term Rental Rules 2026";
-const pageDescription = "Kingston Airbnb rules: NO principal residence required, up to 2 STR licenses per person, and no annual night limit. Your complete 2026 licensing guide.";
+const pageDescription = "Kingston Airbnb rules: STR license required, no principal residence requirement reported. Verify current rules with the city. Your 2026 licensing guide.";
 
 // Schema.org structured data
 const articleSchema = {
@@ -108,8 +108,12 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">Kingston is one of the <strong>most investor-friendly cities in Ontario for Airbnb</strong>. Unlike Toronto, Mississauga, and most GTA municipalities, Kingston does NOT require your STR to be your principal residence. You can legally operate investment properties as short-term rentals.</p>
-            <p class="lead">Here's everything you need to know about Kingston's STR licensing bylaw (Bylaw 2021-10) and how to operate compliantly.</p>
+            <div class="warning-box">
+              <h4>Verify With the City</h4>
+              <p>Kingston's STR regulations have been updated multiple times since 2021. Some details in this guide may have changed. We strongly recommend contacting the City of Kingston directly at <strong>613-546-4291</strong> or visiting <a href="https://www.cityofkingston.ca" target="_blank" rel="noopener">cityofkingston.ca</a> to confirm current requirements before listing your property.</p>
+            </div>
+            <p class="lead">Kingston is reported to be one of the <strong>more investor-friendly cities in Ontario for Airbnb</strong>. Based on Bylaw 2021-10 and subsequent amendments, Kingston does not appear to require your STR to be your principal residence, which would allow investment properties to be used for short-term rentals.</p>
+            <p class="lead">Here's what we know about Kingston's STR licensing bylaw (Bylaw 2021-10) and how to operate compliantly.</p>
           </div>
 
           <h2 id="overview">Kingston STR Overview</h2>

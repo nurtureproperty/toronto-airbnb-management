@@ -41,7 +41,7 @@
 | **PEEL REGION** |
 | Caledon | Regulated (2026) | Yes | Yes ($500) | 180/year + 300 cap | TBD |
 | **OTHER MAJOR CITIES** |
-| Ottawa | Regulated | Yes | Yes ($112/2yr) | None | 4% |
+| Ottawa | Regulated | Yes | Yes ($123/2yr) | None | 4% |
 | London | Regulated | Yes | Yes ($196/yr) | None | 4% |
 | Kingston | Check with city | TBD | TBD | TBD | TBD |
 | Barrie | Developing | TBD | TBD | TBD | TBD |
@@ -324,7 +324,7 @@
 - **Status:** REGULATED (By-law 2021-104, since July 2022)
 - **Definition:** Under 30 consecutive nights
 - **Principal Residence:** Required (cottage rental exception for rural areas)
-- **Permit Fee:** $112 bi-annually (2 years)
+- **Permit Fee:** $123 bi-annually ($65 admin + $58 permit, valid 2 years)
 - **MAT:** 4%
 - **Insurance:** Required
 - **Max Occupancy:** 2 guests per bedroom, max 10 total

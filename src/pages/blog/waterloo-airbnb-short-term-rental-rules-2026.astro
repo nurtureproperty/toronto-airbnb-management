@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Can I Airbnb my investment property in Waterloo?", a: "No. Waterloo requires Short-Term Rentals to be Owner Occupied, meaning you must own at least 50% of the property and actually live there. Investment properties don't qualify. For investment properties, consider mid-term rentals (31+ days) which fall outside the STR definition and don't have the owner-occupancy requirement." },
+  { q: "Can I Airbnb my investment property in Waterloo?", a: "It depends on the building type. For low-rise properties (under 3 storeys), Waterloo requires STRs to be Owner Occupied, so investment properties don't qualify. However, units in high-rise buildings (3+ storeys) are exempt from the owner-occupancy requirement, meaning you can STR an investment condo in a high-rise. For low-rise investment properties, consider mid-term rentals (31+ days) which fall outside the STR definition entirely." },
   { q: "What's the maximum number of nights I can rent per year?", a: "275 days per calendar year. This is actually quite generous compared to Toronto's 180-night limit. But here's the catch: you also can't rent to any single guest for more than 30 consecutive days. So you need to manage bookings to stay within both limits." },
   { q: "Do I need a license for a 30-day rental?", a: "It depends. If the rental is exactly 30 days, it falls within the STR definition (30 days or less). If it's 31+ days, it's not considered a Short-Term Rental and different rules apply. The platform matters too - if you list on Airbnb even for 31+ days, it might still be classified as STR." },
   { q: "How much does a Waterloo STR license cost?", a: "License fees are set in the City's Fees and Charges By-Law and vary by class. Class B licenses (required for STRs) have their own fee structure. Contact the City's Municipal Enforcement Services at 519-747-8785 for current rates, as these change annually." },
@@ -156,9 +156,22 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>Be on the official land registry</strong> - your name must show on the parcel register</li>
           </ul>
 
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>High-Rise Exemption:</strong> The owner-occupancy requirement only applies to <strong>low-rise buildings (under 3 storeys)</strong>. If your unit is in a building with 3 or more storeys, you do NOT need to be the owner-occupant to operate an STR. This means investment condos in high-rise buildings can qualify for short-term rental licensing in Waterloo, even if you don't live there.
+            </div>
+          </div>
+
           <div class="warning-box">
-            <h4>Investment Properties Don't Qualify</h4>
-            <p>Unlike some cities where you can get away with creative structures, Waterloo is explicit: STRs must be owner-occupied. Investment properties, properties held in certain corporate structures, or homes where you don't actually live cannot be used for short-term rentals under 30 days. For investment properties, mid-term rentals (31+ consecutive days) are your best option.</p>
+            <h4>Low-Rise Investment Properties Don't Qualify</h4>
+            <p>For low-rise properties (houses, townhomes, duplexes under 3 storeys), Waterloo is explicit: STRs must be owner-occupied. Investment properties, properties held in certain corporate structures, or homes where you don't actually live cannot be used for short-term rentals under 30 days. For these properties, mid-term rentals (31+ consecutive days) are your best option.</p>
           </div>
 
           <h2 id="night-limits">The 275-Night Annual Limit</h2>
