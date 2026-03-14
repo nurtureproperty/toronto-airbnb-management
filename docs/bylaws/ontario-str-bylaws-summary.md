@@ -26,7 +26,7 @@
 | King Township | Not Regulated | No | No | None | No |
 | Georgina | Regulated | Check | Yes | Check | Check |
 | **WATERLOO REGION** |
-| Kitchener | Regulated (2025) | Yes | Yes | TBD | Yes |
+| Kitchener | NOT Regulated | No | No | None | 4% (regional) |
 | Waterloo | Regulated (2025) | Yes | Yes | TBD | Yes |
 | Cambridge | Developing | TBD | TBD | TBD | TBD |
 | **NIAGARA REGION** |
@@ -160,12 +160,15 @@
 ## WATERLOO REGION
 
 ### Kitchener
-- **Status:** REGULATED (as of January 2025)
-- **License:** Required under new Lodging House Bylaw
-- **Principal Residence:** Required
-- **Inspections:** Mandatory for safety compliance
+- **Status:** NOT REGULATED (Council rejected proposed STR bylaw June 23, 2025)
+- **License:** Not required for STRs
+- **Principal Residence:** Not required
+- **Night Limit:** None
+- **MAT:** 4% (regional, collected by Airbnb on behalf of Region of Waterloo)
+- **Notes:** Staff proposed a "Shared Accommodation By-law" but council determined the financial and staffing demands were unsustainable. Lodging House Bylaw (Chapter 553) applies to 5+ tenant properties only, not typical STRs.
 - **Website:** https://www.kitchener.ca
-- **Engagement:** https://www.engagewr.ca/ShortTermRentals
+- **Engagement:** https://www.engagewr.ca/ShortTermRentals (project closed)
+- **Blog Guide:** https://www.nurturestays.ca/blog/kitchener-airbnb-short-term-rental-rules-2026
 
 ### Waterloo
 - **Status:** REGULATED (as of January 2025)

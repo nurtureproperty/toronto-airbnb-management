@@ -1,0 +1,846 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Kitchener?", a: "No. Kitchener city council voted in June 2025 to reject the proposed STR licensing program. There is no STR license, permit, or registration required. You can list on Airbnb, VRBO, or any platform without city approval." },
+  { q: "Can I Airbnb my investment property in Kitchener?", a: "Yes. Since there is no principal residence requirement, you can operate short-term rentals on investment properties, secondary residences, or your primary home. This is a major advantage over neighboring Waterloo, which requires owner-occupancy for low-rise STRs." },
+  { q: "Is there a night limit in Kitchener?", a: "No. There is no annual night cap. You can rent your property 365 nights a year. Compare that to Toronto (180 nights), Oshawa (180 nights), and Burlington (183 nights)." },
+  { q: "Do I need to pay Municipal Accommodation Tax (MAT)?", a: "Yes. The Region of Waterloo collects a 4% MAT on short-term rentals across Kitchener, Waterloo, and Cambridge. Airbnb collects and remits this automatically on your behalf for platform bookings." },
+  { q: "What's the difference between Kitchener and Waterloo rules?", a: "Night and day. Waterloo requires a Class B license, owner-occupancy (for low-rise buildings), limits you to 275 nights per year, caps rentals at 4 bedrooms, and requires inspections plus a criminal record check. Kitchener has none of these requirements. Two cities that share a border, completely opposite STR frameworks." },
+  { q: "What insurance do I need for an Airbnb in Kitchener?", a: "While there is no city-mandated insurance requirement, you should carry at least $2,000,000 in liability insurance covering short-term rental activity. Standard homeowner's insurance typically excludes STR guests. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
+  { q: "What happened to the proposed STR bylaw?", a: "City staff proposed a 'Shared Accommodation By-law' that would have regulated STRs alongside lodging houses. It included Granicus compliance monitoring, 3 new staff positions, and a licensing framework. Council determined the financial and staffing demands were unsustainable and voted it down in June 2025." },
+  { q: "Do I need to collect HST on my Airbnb income?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." }
+];
+
+const relatedPosts = [
+  { title: 'Waterloo Airbnb Short Term Rental Rules 2026', href: '/blog/waterloo-airbnb-short-term-rental-rules-2026', description: 'Your neighbour to the east requires owner-occupancy, licensing, and 275-night limits' },
+  { title: 'GTA Cities with No Airbnb License Required 2026', href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Ajax, Pickering, Richmond Hill, and more: GTA cities with no STR restrictions' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding which Ontario cities allow investment property STRs' }
+];
+
+const tocItems = [
+  { id: 'current-rules', text: 'Current Rules (2026)' },
+  { id: 'no-license', text: 'No License Required' },
+  { id: 'what-happened', text: 'Why Council Rejected the Bylaw' },
+  { id: 'kitchener-vs-waterloo', text: 'Kitchener vs Waterloo' },
+  { id: 'mat-tax', text: '4% Regional MAT' },
+  { id: 'what-does-apply', text: 'What Rules DO Apply' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Kitchener Hosts' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Kitchener Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Kitchener has no Airbnb license, no principal residence rule, and no night limit. Council rejected the STR bylaw in 2025. Your complete 2026 hosting guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/kitchener-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Kitchener Regulations</span>
+      </nav>
+      <h1>Kitchener Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 16, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">8 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Here's a plot twist most people don't expect: <strong>Kitchener has no STR bylaw.</strong> City council voted in June 2025 to reject the proposed short-term rental licensing program. No license. No principal residence rule. No night limit. No inspections.</p>
+            <p class="lead">That makes Kitchener one of the most flexible STR markets in southwestern Ontario, and the polar opposite of its next-door neighbour Waterloo, which has some of the strictest rules in the province. Here's what you need to know.</p>
+          </div>
+
+          <h2 id="current-rules">Current Rules: The Short Version</h2>
+          <p>Let's get straight to what every Kitchener host wants to know:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Kitchener (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>4% (regional)</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration number on listing?</div>
+              <div class="comparison-col highlight"><strong>Not required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+          </div>
+
+          <p>The only tax that applies to STR operators is the 4% Regional MAT, and Airbnb collects that automatically. Beyond that, you're operating in one of Ontario's least restricted STR markets.</p>
+
+          <h2 id="no-license">No License or Registration Required</h2>
+          <p>Unlike Toronto, Mississauga, Waterloo, Hamilton, and most other regulated Ontario cities, Kitchener has no licensing requirement for short-term rental operators.</p>
+
+          <p>This means:</p>
+          <ul>
+            <li><strong>No application to file</strong> with the city</li>
+            <li><strong>No fees to pay</strong> for a permit or license</li>
+            <li><strong>No registration number</strong> to display on your listing</li>
+            <li><strong>No annual renewal</strong> process</li>
+            <li><strong>No inspections</strong> (electrical, fire, or building code) specific to STRs</li>
+            <li><strong>No criminal record check</strong> required</li>
+          </ul>
+
+          <p>You can list your property on Airbnb, VRBO, or any platform without any municipal approval. There is also no principal residence requirement, meaning investment properties, secondary homes, and multiple STR properties are all permitted.</p>
+
+          <h2 id="what-happened">Why Council Rejected the STR Bylaw</h2>
+          <p>This wasn't an oversight. City staff actually proposed a comprehensive STR licensing program, and council said no.</p>
+
+          <p>Here's what happened:</p>
+          <ul>
+            <li><strong>Late 2024:</strong> City launched public engagement on a proposed "Shared Accommodation By-law" that would combine lodging house and STR regulation</li>
+            <li><strong>November 2024:</strong> Two public information sessions held (November 18 and 27)</li>
+            <li><strong>December 2024:</strong> Community survey closed (December 6)</li>
+            <li><strong>2025:</strong> Staff brought forward recommendations including Granicus compliance monitoring software to track 60+ rental platforms, plus 3 new city staff positions for licensing, inspection, and enforcement</li>
+            <li><strong>June 23, 2025:</strong> Council voted to reject the proposal, determining the financial and staffing demands of a city-run licensing system would be unsustainable</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>What this means:</strong> Council didn't reject the idea permanently. They decided the cost of running a licensing program wasn't worth it right now. If STR complaints increase or the provincial landscape changes, this could come back. But for 2026, Kitchener hosts are in the clear.
+            </div>
+          </div>
+
+          <h2 id="kitchener-vs-waterloo">Kitchener vs Waterloo: A Tale of Two Cities</h2>
+          <p>This might be the most dramatic STR rule contrast in all of Ontario. Kitchener and Waterloo share a border (locals call the whole area "KW"), but their Airbnb rules couldn't be more different.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Rule</div>
+              <div class="comparison-col highlight">Kitchener vs Waterloo</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License required?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: No</strong> / Waterloo: Class B required</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: No</strong> / Waterloo: Yes (low-rise)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Night limit?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: None</strong> / Waterloo: 275/year</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Bedroom limit?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: None</strong> / Waterloo: 4 max</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Inspections?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: None</strong> / Waterloo: ESA + HVAC required</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Criminal record check?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: No</strong> / Waterloo: Yes</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Fines?</div>
+              <div class="comparison-col highlight"><strong>Kitchener: N/A</strong> / Waterloo: Up to $100,000</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>Both: 4% regional</strong></div>
+            </div>
+          </div>
+
+          <p>If you're deciding where to buy an investment property in the KW area, this comparison matters. A property on the Kitchener side of the border operates freely. The same property 500 metres away in Waterloo requires licensing, inspections, and owner-occupancy (for low-rise buildings).</p>
+
+          <p>For the full breakdown on Waterloo's rules, see our <a href="/blog/waterloo-airbnb-short-term-rental-rules-2026">Waterloo Airbnb Short Term Rental Rules 2026</a> guide.</p>
+
+          <h2 id="mat-tax">The 4% Regional MAT</h2>
+          <p>The one tax that does apply: the Region of Waterloo collects a 4% Municipal Accommodation Tax on short-term rentals across Kitchener, Waterloo, and Cambridge.</p>
+
+          <p>Here's what you need to know:</p>
+          <ul>
+            <li><strong>Rate:</strong> 4% of the nightly booking rate</li>
+            <li><strong>Who collects it:</strong> Airbnb collects and remits automatically on platform bookings</li>
+            <li><strong>Direct bookings:</strong> If you take bookings outside of platforms, you're responsible for collecting and remitting the 4% yourself</li>
+            <li><strong>Regional, not city:</strong> This is a Region of Waterloo tax, not a Kitchener city tax</li>
+          </ul>
+
+          <p>On a $150/night booking, that's $6 per night. Compare that to Toronto's 8.5% ($12.75 per night on the same booking) or Oshawa's 5% ($7.50). It's on the lower end of Ontario MAT rates.</p>
+
+          <h2 id="what-does-apply">What Rules DO Apply</h2>
+          <p>No STR bylaw doesn't mean no rules at all. Kitchener's general municipal bylaws still apply:</p>
+
+          <h3>Noise Bylaws</h3>
+          <p>Kitchener enforces noise restrictions. Council specifically cited existing noise bylaws as a tool for managing STR issues when they rejected the proposed licensing program. Set clear quiet hours in your house rules.</p>
+
+          <h3>Property Standards</h3>
+          <p>Your property must meet the city's property standards bylaw. This covers maintenance, structural safety, and general upkeep. Neighbour complaints about a poorly maintained rental can trigger inspections.</p>
+
+          <h3>Parking</h3>
+          <p>Zoning bylaws require specific parking provisions for residential properties. Make sure your guests have adequate parking and aren't spilling onto the street or blocking neighbours.</p>
+
+          <h3>Fire Code and Building Code</h3>
+          <p>Ontario's Fire Protection and Prevention Act and the Building Code apply to every dwelling. Smoke detectors, carbon monoxide detectors, and proper bedroom egress are all required regardless of STR bylaws.</p>
+
+          <h3>Condo Rules</h3>
+          <p>If your property is in a condo, the corporation's declaration and rules may restrict or prohibit short-term rentals even though the city doesn't. Always check your condo docs before listing.</p>
+
+          <h3>Lodging House Bylaw (Different from STR)</h3>
+          <p>Kitchener does have a Lodging House bylaw (Municipal Code Chapter 553, effective January 2025) that regulates properties with 5 or more tenants sharing facilities. This applies to rooming houses, not typical Airbnb operations. If you're renting individual rooms to 5+ unrelated guests simultaneously, you may fall under this bylaw. A standard whole-home or single-room Airbnb listing does not.</p>
+
+          <h2 id="tax-obligations">Tax Obligations</h2>
+          <p>No municipal STR regulations doesn't mean no taxes. Federal and provincial obligations still apply:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Regional MAT (4%)</div>
+              <div class="comparison-col highlight"><strong>Collected by Airbnb</strong> automatically on platform bookings</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+          </div>
+
+          <h2 id="tips">Tips for Kitchener Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> No city requirement doesn't mean you should skip it. Get $2M liability coverage that explicitly covers short-term rental activity. One guest injury without coverage could be financially devastating.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your condo declaration.</strong> If you're in a condo, the corporation's rules can prohibit STRs regardless of city policy. Read your declaration before listing.</li>
+            <li><span class="tip-icon">3</span> <strong>Be a good neighbour.</strong> Council rejected STR regulation partly because the cost didn't justify the current complaint volume. If that changes, the bylaw proposal comes back. Noise complaints, parking issues, and garbage problems are exactly what triggers regulation. Keep your guests in line.</li>
+            <li><span class="tip-icon">4</span> <strong>Register for HST if you're earning over $30K.</strong> The CRA threshold is $30,000 in gross revenue across all your STR properties nationwide. Most active hosts hit this. Register proactively.</li>
+            <li><span class="tip-icon">5</span> <strong>Know the KW border.</strong> If you're buying an investment property in the Kitchener-Waterloo area, confirm which city it falls in. A property in Waterloo faces strict licensing requirements. A property in Kitchener operates freely.</li>
+            <li><span class="tip-icon">6</span> <strong>Monitor city council.</strong> The rejected bylaw could return. Subscribe to council agendas at <strong>kitchener.ca</strong> so you have advance notice if regulation is reconsidered.</li>
+            <li><span class="tip-icon">7</span> <strong>Keep records.</strong> Even without a licensing requirement, maintain booking records, guest communications, and financial documentation for at least 6 years. Good records make tax filing easier and protect you if regulation is introduced later.</li>
+          </ul>
+
+          <h2 id="official-resources">Official Resources</h2>
+
+          <div class="resources-box">
+            <h4>City of Kitchener</h4>
+            <ul>
+              <li><a href="https://www.engagewr.ca/ShortTermRentals" target="_blank" rel="noopener">EngageWR: Short-Term Rental Bylaw (Project Closed)</a></li>
+              <li><a href="https://www.kitchener.ca/en/bylaws-and-enforcement/lodging-houses.aspx" target="_blank" rel="noopener">Kitchener Lodging Houses (Chapter 553)</a></li>
+              <li><a href="https://www.kitchener.ca" target="_blank" rel="noopener">City of Kitchener</a></li>
+              <li><strong>City Contact:</strong> 519-741-2200 or <a href="https://www.kitchener.ca" target="_blank" rel="noopener">kitchener.ca</a></li>
+            </ul>
+          </div>
+
+          <p><em>Sources: Kitchener Council Meeting Minutes (June 23, 2025), City of Kitchener EngageWR project, Region of Waterloo MAT program. Regulations change frequently. Verify current rules with the City of Kitchener.</em></p>
+
+          <p><em>This article contains a <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">referral link</a>. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Common Questions From Kitchener Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your Kitchener Rental Income?</h3>
+            <p>Nurture manages short-term rentals across southwestern Ontario. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Kitchener?</h2>
+        <p>Our local experts can help you set up and maximize your short-term rental.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
