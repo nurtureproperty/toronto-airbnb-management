@@ -1,0 +1,961 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Pickering?", a: "No. As of 2026, Pickering has no STR licensing, registration, or permit requirement. You can list your property on Airbnb, VRBO, or any other platform without municipal approval. General bylaws for noise, parking, and property standards still apply to all residential properties." },
+  { q: "Can I Airbnb my investment property in Pickering?", a: "Yes. Pickering has no principal residence requirement, so investment properties, secondary homes, and primary residences are all eligible for short-term rental use. This is a major advantage over nearby Oshawa, which requires STRs to be your principal residence." },
+  { q: "Is there a night limit for Airbnb in Pickering?", a: "No. There is no annual cap on how many nights you can rent your property. You can operate 365 nights a year. For comparison, Oshawa caps entire-home rentals at 180 nights per year." },
+  { q: "Does Pickering charge Municipal Accommodation Tax (MAT)?", a: "No. Pickering does not collect MAT on short-term rentals. Neighbouring Oshawa charges 5% MAT on all STR bookings. This means your net revenue per booking is higher in Pickering compared to regulated Durham Region neighbours." },
+  { q: "What insurance do I need for an Airbnb in Pickering?", a: "There is no city-mandated insurance minimum, but you should carry at least $2,000,000 in liability insurance that explicitly covers short-term rental activity. Standard homeowner's policies typically exclude STR guests. Airbnb's Host Protection Insurance supplements your coverage but does not replace a dedicated policy." },
+  { q: "Will Pickering regulate short-term rentals in the future?", a: "It's possible. Whitby (also in Durham Region) is actively developing STR regulations, and Oshawa already has a full licensing framework. As the region grows and housing pressures increase, Pickering may follow suit. However, no formal proposals have been announced as of early 2026." },
+  { q: "Do I need to collect HST on my Airbnb income in Pickering?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." },
+  { q: "How does Pickering compare to Ajax for Airbnb?", a: "Both cities are unregulated for short-term rentals: no license, no principal residence rule, no night limit, no MAT. The main differences come down to location and demand. Pickering has GO Transit access to downtown Toronto, proximity to the proposed Casino Pickering, and the growing Seaton community. Ajax also has GO access and sits right next door. Both are strong options for Durham Region hosts." }
+];
+
+const relatedPosts = [
+  { title: 'GTA Cities with No Airbnb License Required 2026', href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Ajax, Pickering, Richmond Hill, King Township: GTA cities where you can host without a license or MAT' },
+  { title: 'Airbnb Investment Property in the GTA', href: '/blog/airbnb-investment-property-gta', description: 'Where you can and can\'t Airbnb an investment property across the Greater Toronto Area' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Toronto\'s 180-night cap, registration, and 8.5% MAT compared to Pickering\'s zero restrictions' }
+];
+
+const tocItems = [
+  { id: 'current-rules', text: 'Current Rules (2026)' },
+  { id: 'no-license', text: 'No License Required' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'no-night-limit', text: 'No Night Limit' },
+  { id: 'no-mat', text: 'No MAT Tax' },
+  { id: 'what-does-apply', text: 'What Rules DO Apply' },
+  { id: 'comparison', text: 'Pickering vs Durham Neighbours' },
+  { id: 'why-pickering', text: 'Why Pickering Works for Airbnb' },
+  { id: 'future-regulation', text: 'Future Regulation?' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Pickering Hosts' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Pickering Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Pickering has no Airbnb license, no principal residence rule, no night limit, and no MAT. Your complete 2026 Durham Region STR guide. Start hosting today.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-20",
+  "dateModified": "2026-03-20",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/pickering-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Pickering Regulations</span>
+      </nav>
+      <h1>Pickering Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 20, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Pickering sits right at the doorstep of Toronto, with GO Train service that gets you downtown in about 40 minutes. It also happens to be one of the few Durham Region cities with absolutely no short-term rental regulations. No license. No principal residence rule. No night cap. No accommodation tax.</p>
+            <p class="lead">While next door Oshawa has a full STR licensing system with fees, night limits, and a 5% tax, Pickering hosts operate in a completely different reality. If you own property here, whether it's your home or an investment, the city has nothing specific to say about your Airbnb. Here's everything you need to know.</p>
+          </div>
+
+          <h2 id="current-rules">Current Rules: The Quick Version</h2>
+          <p>Here's the summary every Pickering host needs:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Pickering (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration number on listing?</div>
+              <div class="comparison-col highlight"><strong>Not required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+          </div>
+
+          <p>Pickering's zoning bylaws don't specifically address short-term rentals. There is no licensing bylaw, no STR registry, and no accommodation tax ordinance. You are free to list and operate.</p>
+
+          <h2 id="no-license">No License or Registration Required</h2>
+          <p>Several Durham Region cities have moved to regulate STRs. Oshawa introduced a full licensing framework in 2024 with application fees, inspections, and ongoing compliance requirements. Whitby is developing its own system.</p>
+
+          <p>Pickering has done none of that. As a host, this means:</p>
+          <ul>
+            <li><strong>No application to submit</strong> to the city</li>
+            <li><strong>No fees to pay</strong> for any permit or license</li>
+            <li><strong>No registration number</strong> to display on your listing</li>
+            <li><strong>No inspections</strong> specific to STR activity</li>
+            <li><strong>No annual renewal</strong> or compliance reporting</li>
+          </ul>
+
+          <p>You can list your property on <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">Airbnb</a>, VRBO, Booking.com, or any other platform without any municipal sign-off.</p>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is the big one. Most GTA cities that regulate STRs require the property to be your principal residence, meaning the place where you actually live. That rule effectively kills investment property Airbnbs.</p>
+
+          <p>Pickering has no such restriction. You can run short-term rentals on:</p>
+          <ul>
+            <li><strong>Your primary home</strong> (whole unit or spare rooms)</li>
+            <li><strong>An investment property</strong> (condo, house, townhouse)</li>
+            <li><strong>A secondary residence</strong></li>
+            <li><strong>Multiple properties</strong> (no limit on how many you operate)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Investor friendly:</strong> If you own a rental property in Pickering and want to switch from long-term tenants to short-term guests, there's no regulatory barrier. In Oshawa, Toronto, or Mississauga, that same switch would be illegal on an investment property.
+            </div>
+          </div>
+
+          <h2 id="no-night-limit">No Night Limit</h2>
+          <p>Several cities across the GTA cap how many nights you can rent your entire home each year. Here's how Pickering compares:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Annual Night Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>180 nights</strong> (entire home)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Mississauga</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Milton</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Pickering</div>
+              <div class="comparison-col highlight"><strong>No limit</strong></div>
+            </div>
+          </div>
+
+          <p>In Pickering, you can rent your property every single night of the year. No cap on entire-home rentals, no cap on room rentals. Full flexibility.</p>
+
+          <h2 id="no-mat">No Municipal Accommodation Tax</h2>
+          <p>Pickering does not collect MAT on short-term rentals. Here's the comparison with nearby cities:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">MAT Rate</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>6%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>5%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Brampton</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Vaughan</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Pickering</div>
+              <div class="comparison-col highlight"><strong>0%</strong></div>
+            </div>
+          </div>
+
+          <p>On a $175/night booking, that's $7 to $9 per night that guests in other cities pay but Pickering guests don't. That adds up fast over a year of bookings, either making your listing more price competitive or putting more money in your pocket.</p>
+
+          <h2 id="what-does-apply">What Rules DO Apply in Pickering</h2>
+          <p>No STR bylaw doesn't mean anything goes. Pickering's general municipal bylaws apply to every property, including ones used for short-term rentals:</p>
+
+          <h3>Noise Bylaws</h3>
+          <p>Pickering's noise bylaw restricts excessive sound, particularly during overnight hours. Guest parties and loud gatherings can lead to complaints and fines. Include clear quiet hours in your house rules, especially if you're in a residential neighbourhood near families.</p>
+
+          <h3>Property Standards</h3>
+          <p>The city's property standards bylaw covers maintenance, structural safety, cleanliness, and overall upkeep. A neglected property can trigger complaints and inspections from bylaw officers, regardless of whether it's used as an STR.</p>
+
+          <h3>Parking</h3>
+          <p>Pickering's zoning bylaws include residential parking requirements. Make sure your guests have designated spots and aren't blocking neighbours or spilling onto the street. This is especially important in newer subdivisions in Seaton where street parking can be tight.</p>
+
+          <h3>Fire Code and Building Code</h3>
+          <p>Ontario's Fire Protection and Prevention Act applies to all dwellings. Smoke detectors on every level, carbon monoxide detectors near sleeping areas, and proper egress from bedrooms are all required. This isn't STR-specific, but it matters for guest safety and your liability.</p>
+
+          <h3>Condo Rules</h3>
+          <p>If your property is in a condominium, the condo corporation's declaration and rules can restrict or ban short-term rentals entirely, even though the city doesn't. This is a separate layer of governance that overrides the city's permissive stance.</p>
+
+          <div class="warning-box">
+            <h4>Condo Boards Can Ban STRs Even in Pickering</h4>
+            <p>The city might not regulate your Airbnb, but your condo board sure can. Many newer condos near Pickering Town Centre have restrictions on rentals under 30 days. Before you list, read your declaration of co-ownership and any condo rules cover to cover. Getting fined $500 by your condo corp is a quick way to wipe out your hosting profits.</p>
+          </div>
+
+          <h2 id="comparison">Pickering vs Durham Region Neighbours</h2>
+          <p>Durham Region is a patchwork when it comes to STR rules. Here's how every municipality in the region compares:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">STR Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green"><strong>Pickering</strong></div>
+              <div class="comparison-col highlight"><strong>No regulations</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Ajax</div>
+              <div class="comparison-col highlight">No regulations</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Clarington</div>
+              <div class="comparison-col highlight">No regulations</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight">Licensed: $150, 180 nights, 5% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Whitby</div>
+              <div class="comparison-col highlight">Developing regulations</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Scugog</div>
+              <div class="comparison-col highlight">Not permitted</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Brock</div>
+              <div class="comparison-col highlight">No regulations</div>
+            </div>
+          </div>
+
+          <p>Pickering, Ajax, Clarington, and Brock are the unregulated bunch in Durham Region. Oshawa has the strictest rules, with principal residence, night limits, inspections, and MAT. Whitby is somewhere in between, working on its framework. Scugog has banned STRs outright.</p>
+
+          <p>If you're deciding where to invest in Durham Region for short-term rental income, Pickering and Ajax offer the most flexibility. The key difference between the two comes down to location and the type of guest demand you want to attract.</p>
+
+          <h2 id="why-pickering">Why Pickering Works for Airbnb</h2>
+          <p>Beyond the regulatory freedom, Pickering has some real advantages as an Airbnb market:</p>
+
+          <h3>GO Transit Access</h3>
+          <p>Pickering GO Station connects directly to Union Station in downtown Toronto. For business travellers and tourists who want a quieter, more affordable base while still accessing the city, this is a selling point. Your listing can highlight the commute time (roughly 40 minutes door to door) as a genuine alternative to a $300/night Toronto hotel.</p>
+
+          <h3>Durham College and Ontario Tech University</h3>
+          <p>The Durham College / Ontario Tech campus in nearby Oshawa draws visiting parents, prospective students, and faculty. Pickering is the closest unregulated city with easy highway access to campus. Graduation season, orientation week, and campus events create consistent demand spikes you can price into.</p>
+
+          <h3>Casino Pickering (Proposed)</h3>
+          <p>The proposed Casino Pickering development at the corner of Highway 401 and Bayly Street has the potential to bring a new wave of visitors to the area. If approved and built, this entertainment complex would create steady tourism demand for nearby short-term rentals. Keep an eye on city council updates for project timelines.</p>
+
+          <h3>Seaton Community Growth</h3>
+          <p>Seaton is one of the largest new urban developments in Canada, planned for up to 70,000 residents. As this community builds out, construction workers, contractors, and new homeowners waiting for closing dates all need temporary housing. Mid-term and short-term rentals near Seaton can capture this demand.</p>
+
+          <h3>Proximity to Toronto</h3>
+          <p>Pickering is the first city east of Toronto along the 401. Guests who get priced out of Toronto hotels or want more space (families, groups) often search the eastern suburbs. Your listing competes on value: more square footage, free parking, and neighbourhood charm at a fraction of downtown prices.</p>
+
+          <h2 id="future-regulation">Is Regulation Coming to Pickering?</h2>
+          <p>No formal proposal has been announced, but the trend in Durham Region is clear. Oshawa regulated in 2024. Whitby is actively developing its framework. As housing affordability pressure mounts across Durham Region, Pickering may eventually follow.</p>
+
+          <p>Factors that could push regulation forward:</p>
+          <ul>
+            <li><strong>Housing supply pressure:</strong> Durham Region's population is growing rapidly, and every unit used for STR is one less available for long-term renters</li>
+            <li><strong>Neighbour complaints:</strong> Noise, parking, and "party house" issues are the top triggers for municipal action everywhere in Ontario</li>
+            <li><strong>Regional coordination:</strong> If Whitby finalizes its bylaws, Pickering could feel pressure to align with the rest of the region</li>
+            <li><strong>Revenue opportunity:</strong> MAT represents real money for municipalities. Oshawa's 5% MAT on STR bookings generates revenue that other cities notice</li>
+          </ul>
+
+          <p>That said, Pickering has shown no urgency to act. There are no public surveys, no stakeholder consultations, and no technical studies on the books. For now, hosts operate freely.</p>
+
+          <h2 id="tax-obligations">Tax Obligations (Even Without City Regulations)</h2>
+          <p>The city might not tax your STR income, but the federal and provincial governments still do:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>$0</strong> (Pickering doesn't charge MAT)</div>
+            </div>
+          </div>
+
+          <p>Key tax points:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number in your account settings</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but you can register voluntarily to claim input tax credits on your expenses</li>
+            <li><strong>Deductible expenses:</strong> Mortgage interest, insurance premiums, cleaning costs, supplies, platform fees, property management fees, and maintenance are all deductible against your STR income</li>
+            <li><strong>2024 federal rule:</strong> The CRA now denies expense deductions on non-compliant STRs in restricted areas. Since Pickering has no STR restrictions, this rule doesn't affect you here. But keep proper records in case regulations come down the line.</li>
+          </ul>
+
+          <h2 id="tips">Tips for Pickering Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> The city doesn't require it, but you absolutely should carry $2M liability coverage that explicitly includes short-term rental activity. Standard homeowner's policies don't cover STR guests, and one slip-and-fall claim without coverage could be devastating.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your condo docs first.</strong> If you're in a condo near Pickering Town Centre or along Kingston Road, your condo corporation may prohibit rentals under 30 days. The city's silence on STRs doesn't override your condo declaration.</li>
+            <li><span class="tip-icon">3</span> <strong>Highlight GO Train access in your listing.</strong> "40 minutes to downtown Toronto by GO Train" is a headline that sells. Business travellers and tourists searching for Toronto accommodations often filter by transit access. Mention the Pickering GO Station by name and approximate walk/drive time from your property.</li>
+            <li><span class="tip-icon">4</span> <strong>Provide free parking.</strong> This is your edge over Toronto listings. Most Pickering properties come with a driveway, and free parking is a genuine differentiator on Airbnb. Call it out prominently in your listing title or photos.</li>
+            <li><span class="tip-icon">5</span> <strong>Be a respectful neighbour.</strong> The best way to keep regulations away is to avoid giving the city a reason to act. Set firm house rules on noise, guest counts, and garbage. Introduce yourself to your neighbours and give them a way to reach you directly if there's ever an issue.</li>
+            <li><span class="tip-icon">6</span> <strong>Register for HST proactively.</strong> If you're running your property full-time, you'll likely cross the $30,000 gross revenue threshold within your first year. Register early and claim back input tax credits on your hosting expenses.</li>
+            <li><span class="tip-icon">7</span> <strong>Target Durham College and Ontario Tech events.</strong> Keep a calendar of graduation ceremonies, orientation weeks, open houses, and major campus events. Adjust your pricing upward during these high-demand periods. Parents visiting from out of town often book 2 to 3 nights.</li>
+            <li><span class="tip-icon">8</span> <strong>Have a mid-term backup plan.</strong> If Pickering does introduce a principal residence rule someday, investment property STRs would become illegal. Mid-term rentals (30+ days) are typically exempt from STR rules across Ontario. Corporate relocations, students, and families between homes create steady mid-term demand in Pickering.</li>
+          </ul>
+
+          <p class="referral-note"><em>Ready to list your property? <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">Sign up for Airbnb through our link</a> and get a free consultation on maximizing your Pickering rental income. This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Common Questions From Pickering Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your Pickering Rental Income?</h3>
+            <p>Nurture manages short-term rentals across the GTA, including Durham Region. We handle guest communication, cleaning coordination, dynamic pricing, and everything else so you can collect passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Pickering?</h2>
+        <p>Our local GTA experts can help you set up and maximize your short-term rental in Durham Region.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row .comparison-col.highlight-green {
+    background: rgba(117, 155, 143, 0.05);
+    font-weight: 600;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .referral-note {
+    background: var(--color-background-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin: 2rem 0;
+  }
+
+  .referral-note a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .referral-note a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
