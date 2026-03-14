@@ -1,0 +1,871 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Ajax?", a: "No. As of 2026, Ajax has no STR licensing requirement. You don't need a permit, license, or registration to operate a short-term rental. General municipal bylaws for noise, parking, and property standards still apply to every property." },
+  { q: "Can I Airbnb my investment property in Ajax?", a: "Yes. Ajax has no principal residence requirement, so you can operate an Airbnb on an investment property, a secondary home, or your primary residence. This is a major advantage over nearby Oshawa, which restricts STRs to principal residences only." },
+  { q: "Is there a night limit for Airbnb in Ajax?", a: "No. There is no cap on the number of nights per year you can rent your property. You can operate 365 nights a year if you want. Nearby Oshawa caps entire-home rentals at 180 days per year." },
+  { q: "Do I need to pay Municipal Accommodation Tax (MAT) in Ajax?", a: "No. Ajax does not collect MAT on short-term rentals. Your neighbour Oshawa charges 5% MAT, Brampton charges 4%, and Toronto charges 8.5%. This means higher net revenue per booking for Ajax hosts." },
+  { q: "What insurance do I need for an Airbnb in Ajax?", a: "While Ajax has no city-mandated insurance minimum, you should carry at least $2,000,000 in liability insurance that explicitly covers short-term rental activity. Standard homeowner's insurance typically excludes STR guests. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
+  { q: "Will Ajax regulate short-term rentals in the future?", a: "It's possible but not imminent. Ajax has not announced any plans to introduce STR-specific bylaws. However, Oshawa (next door) introduced licensing in 2024 and Whitby is developing regulations. If Durham Region trends toward regulation, Ajax may follow. Monitor the Town of Ajax website for council updates." },
+  { q: "Do I need to collect HST on my Airbnb income in Ajax?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." },
+  { q: "How does Ajax compare to Oshawa for Airbnb hosting?", a: "Ajax is significantly more flexible. Oshawa requires a principal residence, a $150 license, charges 5% MAT, limits rentals to 180 days per year, and mandates $2M insurance and property inspections. Ajax has none of these requirements. If you own an investment property, Ajax is the better market in Durham Region." }
+];
+
+const relatedPosts = [
+  { title: 'GTA Cities with No Airbnb License Required 2026', href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Ajax, Pickering, Richmond Hill, King Township: GTA cities where you can host without a license or MAT' },
+  { title: 'Oshawa Airbnb Short Term Rental Rules 2026', href: '/blog/oshawa-airbnb-short-term-rental-rules-2026', description: 'Your neighbour to the east requires principal residence, $150 license, 5% MAT, and 180 day limit' },
+  { title: 'Can You Airbnb an Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Which GTA cities allow investment property STRs and which ones don\'t' }
+];
+
+const tocItems = [
+  { id: 'current-rules', text: 'Current Rules (2026)' },
+  { id: 'no-license', text: 'No License Required' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'no-night-limit', text: 'No Night Limit' },
+  { id: 'no-mat', text: 'No MAT Tax' },
+  { id: 'what-does-apply', text: 'What Rules DO Apply' },
+  { id: 'comparison', text: 'Ajax vs Durham Region' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Ajax Hosts' },
+  { id: 'getting-started', text: 'Getting Started' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Ajax Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Ajax has no Airbnb license, no principal residence rule, no night limit, and no MAT. Your complete 2026 guide to STR rules in Durham Region. Start hosting today.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-18",
+  "dateModified": "2026-03-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/ajax-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Ajax Regulations</span>
+      </nav>
+      <h1>Ajax Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 18, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Ajax is one of the most Airbnb-friendly cities in the Greater Toronto Area. No license. No principal residence rule. No night limit. No municipal accommodation tax. If you own property in Ajax and want to list it on Airbnb, there is basically nothing stopping you.</p>
+            <p class="lead">That puts Ajax in rare company for Durham Region, where neighbouring Oshawa has gone all in on regulation with a $150 license, 5% MAT, principal residence requirement, and 180 day cap. Whether you own your primary home or an investment condo near the GO station, Ajax gives you the freedom to host without red tape.</p>
+          </div>
+
+          <h2 id="current-rules">Current Rules: The Quick Summary</h2>
+          <p>Here's what every Ajax property owner wants to know:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Ajax (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration number on listing?</div>
+              <div class="comparison-col highlight"><strong>Not required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+          </div>
+
+          <p>The Town of Ajax has not enacted any STR-specific bylaws. General municipal bylaws for noise, property standards, and parking still apply (more on that below), but there is no licensing framework, no registration process, and no accommodation tax.</p>
+
+          <h2 id="no-license">No License or Registration Required</h2>
+          <p>Unlike Oshawa, Toronto, Mississauga, and most other GTA cities that have rolled out STR licensing programs, Ajax has not introduced any licensing requirement for short-term rental operators.</p>
+
+          <p>This means:</p>
+          <ul>
+            <li><strong>No application to file</strong> with the Town</li>
+            <li><strong>No fees to pay</strong> for a permit or license</li>
+            <li><strong>No registration number</strong> to display on your listing</li>
+            <li><strong>No annual renewal</strong> process</li>
+            <li><strong>No property inspection</strong> required by the municipality</li>
+          </ul>
+
+          <p>You can list your property on Airbnb, VRBO, Booking.com, or any other platform without any municipal approval. Compare that to Oshawa, where hosts need to pay $150, pass a property inspection, and display their license number on every listing.</p>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is where Ajax really stands out. Most regulated GTA cities require the property to be your principal residence, the home where you actually live. That rule effectively kills investment property Airbnbs.</p>
+
+          <p>Ajax has no such restriction. You can operate short-term rentals on:</p>
+          <ul>
+            <li><strong>Your primary home</strong> (whole unit or individual rooms)</li>
+            <li><strong>An investment property</strong> (condo, house, townhouse)</li>
+            <li><strong>A secondary residence</strong></li>
+            <li><strong>Multiple properties</strong> (no limit on how many STRs you can run)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why this matters for investors:</strong> If you own a rental property near Ajax GO Station or in the South Ajax condo corridor, you can switch from long-term to short-term rental without any regulatory barrier. In Oshawa, Toronto, or Mississauga, that same switch would be illegal on an investment property.
+            </div>
+          </div>
+
+          <h2 id="no-night-limit">No Night Limit</h2>
+          <p>Many GTA cities cap how many nights per year you can rent your entire home. Ajax has no such cap.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Annual Night Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>180 nights</strong> (entire home)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Mississauga</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Burlington</div>
+              <div class="comparison-col highlight"><strong>183 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Ajax</div>
+              <div class="comparison-col highlight"><strong>No limit</strong></div>
+            </div>
+          </div>
+
+          <p>You can rent your Ajax property 365 nights a year. There is no cap on entire-home or partial-home rentals. That's a serious revenue advantage over cities that force you to stop hosting halfway through the year.</p>
+
+          <h2 id="no-mat">No Municipal Accommodation Tax</h2>
+          <p>Ajax does not charge MAT (Municipal Accommodation Tax) on short-term rentals. Here's what your neighbours charge:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">MAT Rate</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>8.5%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>5%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Brampton</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Vaughan</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Ajax</div>
+              <div class="comparison-col highlight"><strong>0%</strong></div>
+            </div>
+          </div>
+
+          <p>On a $200/night booking in Oshawa, your guest pays $10 in MAT. In Toronto, that's $17. In Ajax, it's zero. That either makes your listing more competitive on price or puts more money in your pocket per booking.</p>
+
+          <h2 id="what-does-apply">What Rules DO Apply in Ajax</h2>
+          <p>No STR bylaw doesn't mean anything goes. Ajax's general municipal bylaws apply to every property, and they'll definitely apply if guests cause problems:</p>
+
+          <h3>Noise Bylaws</h3>
+          <p>Ajax enforces noise restrictions under its general noise bylaw. Loud parties, late night music, and disruptive guests can result in complaints and fines. Set clear quiet hours in your house rules, especially if your property is in a residential neighbourhood like South Ajax, Westney Heights, or Village neighbourhood.</p>
+
+          <h3>Property Standards</h3>
+          <p>Your property must meet Ajax's property standards bylaw. This covers exterior maintenance, cleanliness, structural safety, and general upkeep. A poorly maintained rental can trigger neighbour complaints and municipal inspections regardless of whether STR bylaws exist.</p>
+
+          <h3>Parking</h3>
+          <p>Ajax's zoning bylaws include parking requirements for residential properties. Make sure your guests have adequate off-street parking so they don't block neighbours or create street congestion. This is especially important in tighter subdivisions around Harwood Avenue and Rossland Road.</p>
+
+          <h3>Fire Code and Building Code</h3>
+          <p>Ontario's Fire Protection and Prevention Act applies to every dwelling. Smoke detectors, carbon monoxide detectors, and proper egress from bedrooms are required. This isn't STR-specific, but it protects your guests and your liability.</p>
+
+          <h3>Condo Corporation Rules</h3>
+          <p>If your property is in a condominium, the condo corporation's declaration and rules may restrict or prohibit short-term rentals even though the Town doesn't. This is especially relevant for newer condos along Kingston Road and near Ajax GO Station.</p>
+
+          <div class="warning-box">
+            <h4>Your Condo Board Can Still Say No</h4>
+            <p>Even in an unregulated city like Ajax, your condo corporation can prohibit short-term rentals in their declaration. Always check your declaration of co-ownership and condo rules before listing. A bylaw infraction fine from your condo board is not worth the hassle.</p>
+          </div>
+
+          <h2 id="comparison">Ajax vs Neighbouring Durham Region Cities</h2>
+          <p>Here's how Ajax compares to every nearby municipality in Durham Region:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">STR Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green"><strong>Ajax</strong></div>
+              <div class="comparison-col highlight"><strong>No regulations, no license, no MAT</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight">$150 license, principal residence, 180 days, 5% MAT, $2M insurance</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Pickering</div>
+              <div class="comparison-col highlight">Not regulated (same as Ajax)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Whitby</div>
+              <div class="comparison-col highlight">Developing regulations (coming soon)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Clarington</div>
+              <div class="comparison-col highlight">Not regulated</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Scugog</div>
+              <div class="comparison-col highlight">STRs not permitted</div>
+            </div>
+          </div>
+
+          <p>In Durham Region, Ajax, Pickering, and Clarington are the unregulated trio. Oshawa went full regulation in 2024. Whitby is working on its own framework. Scugog has banned STRs entirely. If you're looking to invest in Durham Region Airbnb properties, Ajax and Pickering are your best bets for flexibility.</p>
+
+          <h2 id="tax-obligations">Tax Obligations (Even Without City Regulations)</h2>
+          <p>Just because Ajax doesn't tax or regulate your STR doesn't mean you're off the hook with the federal and provincial governments. These obligations apply everywhere in Ontario:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>$0</strong> (Ajax doesn't charge MAT)</div>
+            </div>
+          </div>
+
+          <p>Key tax points for Ajax hosts:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but you can register voluntarily to claim input tax credits on expenses</li>
+            <li><strong>Expense deductions:</strong> Mortgage interest, insurance, cleaning, supplies, platform fees, and property management fees are all deductible against your STR income</li>
+            <li><strong>2024 federal rule:</strong> The government now denies expense deductions on non-compliant STRs in regulated cities. Since Ajax has no STR regulations, this rule doesn't affect you here. But keep proper records in case that changes.</li>
+          </ul>
+
+          <h2 id="tips">Tips for Ajax Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> No city requirement doesn't mean you should skip it. Carry at least $2M liability coverage that explicitly covers short-term rental activity. One guest slip-and-fall without coverage could wipe you out.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your condo declaration.</strong> If you're in one of the newer condos near Ajax GO or along Kingston Road, your condo corporation may have STR restrictions in the declaration. Read it before you list.</li>
+            <li><span class="tip-icon">3</span> <strong>Be a good neighbour.</strong> Ajax hasn't regulated STRs yet, and one reason may be that hosts haven't caused enough problems to force the Town's hand. Noise complaints, parking issues, and garbage from guests are exactly what pushes cities toward regulation. Set clear house rules and enforce them.</li>
+            <li><span class="tip-icon">4</span> <strong>Highlight the GO Transit connection.</strong> Ajax GO Station puts downtown Toronto about 50 minutes away by train. That's a huge selling point for business travelers and tourists who want cheaper accommodation outside the city. Mention it in your listing.</li>
+            <li><span class="tip-icon">5</span> <strong>Register for HST if you're earning over $30K.</strong> The CRA threshold is $30,000 in gross revenue across all your STR properties. Most active hosts hit this number. Register proactively to avoid penalties.</li>
+            <li><span class="tip-icon">6</span> <strong>Maintain your property to code.</strong> Property standards complaints can trigger municipal inspections whether or not STR bylaws exist. Well-maintained properties also get better reviews, which means more bookings.</li>
+            <li><span class="tip-icon">7</span> <strong>Watch what Whitby does.</strong> Whitby (right next door) is developing STR regulations. If Whitby follows Oshawa's lead with licensing and a principal residence requirement, Ajax may feel pressure to do the same. Keep an eye on Durham Region council agendas.</li>
+            <li><span class="tip-icon">8</span> <strong>Keep detailed records.</strong> Track every booking, guest communication, and expense for at least 6 years. If Ajax introduces regulation later, clean records make compliance painless. They also make tax filing much easier.</li>
+          </ul>
+
+          <h2 id="getting-started">Ready to Start Hosting in Ajax?</h2>
+          <p>If you've been thinking about listing your Ajax property on Airbnb, the regulatory environment couldn't be simpler. No license to apply for, no fees to pay, no night caps to worry about.</p>
+
+          <p>New to Airbnb? You can <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">sign up for Airbnb through our referral link</a> and get a free consultation with our team to help you optimize your listing from day one.</p>
+
+          <p class="fine-print"><em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Common Questions From Ajax Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your Ajax Rental Income?</h3>
+            <p>Nurture manages short-term rentals across the GTA. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Ajax?</h2>
+        <p>Our local GTA experts can help you set up and maximize your short-term rental.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .fine-print {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row .comparison-col.highlight-green {
+    background: rgba(117, 155, 143, 0.05);
+    font-weight: 600;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
