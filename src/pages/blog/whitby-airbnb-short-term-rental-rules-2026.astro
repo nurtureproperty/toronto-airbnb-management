@@ -1,0 +1,938 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Whitby right now?", a: "No. As of early 2026, Whitby has no STR licensing requirement. You can list your property on Airbnb, VRBO, or any platform without a municipal permit. However, the Town is actively developing a licensing framework through ConnectWhitby.ca, so this will likely change. General bylaws for noise, parking, and property standards still apply." },
+  { q: "What STR regulations are coming to Whitby?", a: "Whitby is actively developing a short-term rental licensing framework. While the exact rules haven't been finalized, neighbouring Oshawa's regulations (principal residence requirement, $150 license, 180-night limit, 5% MAT) offer a strong preview of what Durham Region cities tend to adopt. Monitor ConnectWhitby.ca for updates on public consultations and draft bylaws." },
+  { q: "Can I Airbnb my investment property in Whitby?", a: "Yes, for now. Since Whitby has no principal residence requirement, you can operate an Airbnb on an investment property, a secondary residence, or your primary home. However, if Whitby follows Oshawa's model (which required principal residence), investment property STRs would become restricted. Consider this risk before investing heavily in an STR setup." },
+  { q: "Should I wait to start hosting until rules are finalized?", a: "No reason to wait. You can legally operate right now, and building up your listing's reviews and ranking before regulations arrive gives you a head start. Hosts with established track records are often better positioned to meet licensing requirements. Just be prepared to adapt when rules come into effect." },
+  { q: "Is there a night limit for Airbnb in Whitby?", a: "No. There is currently no cap on the number of nights per year you can rent your property. If Whitby follows Oshawa's model, a 180-night annual limit for entire-home rentals could be introduced. Partial rentals (renting rooms while you're home) are typically unlimited even in regulated cities." },
+  { q: "Do I need to pay Municipal Accommodation Tax (MAT) in Whitby?", a: "No. Whitby does not currently collect MAT on short-term rentals. Neighbouring Oshawa charges 5% MAT, and most regulated Durham Region and GTA cities charge 4% to 5%. If Whitby introduces regulations, MAT will very likely be part of the package." },
+  { q: "What insurance do I need for an Airbnb in Whitby?", a: "While there is no city-mandated insurance minimum right now, you should carry at least $2,000,000 in liability insurance that covers short-term rental activity. Standard homeowner's insurance typically excludes STR guests. Oshawa requires $2M liability insurance, and Whitby will likely require the same. Get covered now regardless." },
+  { q: "How does Whitby compare to Oshawa for Airbnb hosting?", a: "Whitby is currently much more flexible. Oshawa requires a $150 license, principal residence, 180-night limit, 5% MAT, $2M insurance, property inspection, and a local contact person. Whitby has none of these requirements yet. However, Oshawa's regulations offer a preview of what Whitby will likely adopt. Ajax and Pickering, also in Durham Region, remain unregulated like Whitby." }
+];
+
+const relatedPosts = [
+  { title: 'GTA Cities with No Airbnb License Required 2026', href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Ajax, Pickering, Richmond Hill, and other GTA cities where you can host without a license' },
+  { title: 'Oshawa Airbnb Short Term Rental Rules 2026', href: '/blog/oshawa-airbnb-short-term-rental-rules-2026', description: 'Whitby\'s neighbour requires a $150 license, 180 nights, 5% MAT, and principal residence' },
+  { title: 'Airbnb Investment Property in the GTA', href: '/blog/airbnb-investment-property-gta', description: 'Which GTA cities allow investment property Airbnbs and what to know before you list' }
+];
+
+const tocItems = [
+  { id: 'current-rules', text: 'Current Rules (2026)' },
+  { id: 'whats-coming', text: "What's Coming" },
+  { id: 'oshawa-preview', text: "Oshawa's Rules (A Preview)" },
+  { id: 'what-applies-now', text: 'What Rules Apply Now' },
+  { id: 'how-to-prepare', text: 'How to Prepare' },
+  { id: 'comparison', text: 'Whitby vs Neighbours' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Whitby Hosts' },
+  { id: 'official-resources', text: 'Official Resources' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Whitby Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Whitby has no Airbnb license yet, but regulations are actively in development. Current rules, what's coming, and how to prepare. Get ahead now.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-22",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/whitby-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Whitby Regulations</span>
+      </nav>
+      <h1>Whitby Airbnb Short Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 22, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Whitby sits in an interesting spot right now. There are no STR-specific bylaws on the books, which means you can legally operate an Airbnb today without a license, without a principal residence requirement, and without paying municipal accommodation tax.</p>
+            <p class="lead">But here's the catch: the Town of Whitby is actively developing a short-term rental licensing framework. Regulations are coming. The question isn't if, it's when. If you're a Whitby homeowner thinking about hosting (or already hosting), this guide covers exactly where things stand, what's likely on the way, and how to position yourself before the rules arrive.</p>
+          </div>
+
+          <h2 id="current-rules">Current Rules: Where Whitby Stands Today</h2>
+          <p>The good news first. Here's what Whitby hosts are working with right now:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Whitby (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>Not yet</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration number on listing?</div>
+              <div class="comparison-col highlight"><strong>Not required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes (for now)</strong></div>
+            </div>
+          </div>
+
+          <p>That "not yet" and "for now" language is intentional. Unlike cities such as Ajax and Pickering where regulation isn't even on the radar, Whitby has publicly signalled that rules are in the works. You can operate freely today, but treat this as a window, not the permanent state of things.</p>
+
+          <h2 id="whats-coming">What's Coming: Whitby's Developing Framework</h2>
+          <p>The Town of Whitby has been working on a new STR licensing framework. Public engagement is happening through <strong>ConnectWhitby.ca</strong>, where residents and hosts can provide input on the proposed rules.</p>
+
+          <p>While the final bylaws haven't been enacted, we can make educated guesses based on what other Durham Region cities have done. Here's what's likely on the table:</p>
+
+          <h3>Principal Residence Requirement</h3>
+          <p>This is the single biggest change that would affect hosts. Oshawa, Toronto, Mississauga, Brampton, and virtually every other regulated GTA city requires STRs to be operated from the host's principal residence. If Whitby follows this pattern (and there's every reason to expect they will), investment property Airbnbs would no longer be permitted.</p>
+
+          <h3>Licensing and Registration</h3>
+          <p>Expect a licensing system where hosts must apply, pay a fee, and display a registration number on all listings. Oshawa charges $150 ($100 license + $50 application). Fees in other cities range from $123 in Ottawa to $500 in Caledon.</p>
+
+          <h3>Night Limits</h3>
+          <p>A cap of 180 nights per year for entire-home rentals is the most common approach in Ontario. Oshawa, Toronto, Mississauga, Milton, and Caledon all use this number. Partial rentals (renting rooms while you're home) are typically exempt from night limits.</p>
+
+          <h3>Municipal Accommodation Tax (MAT)</h3>
+          <p>Oshawa charges 5% MAT. Most other regulated GTA cities charge 4%. It would be surprising if Whitby didn't include MAT in their framework. Airbnb typically collects and remits MAT automatically once a city enacts it.</p>
+
+          <h3>Insurance and Safety Requirements</h3>
+          <p>Expect a mandatory $2,000,000 liability insurance requirement, property inspections, and rules around smoke alarms, CO detectors, and maximum occupancy per bedroom.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The smart move:</strong> Don't wait for the bylaws to arrive before getting organized. If you already have proper insurance, clean financial records, and a well-maintained property, the transition to a licensed framework will be painless. If you scramble after the fact, you'll be competing with every other host trying to get compliant at the last minute.
+            </div>
+          </div>
+
+          <h2 id="oshawa-preview">Oshawa's Rules: A Preview of What's Likely Coming</h2>
+          <p>Oshawa is Whitby's immediate neighbour to the west, and their STR regulations (Licensing By-law 122-2024) are the best crystal ball we have. Here's what Oshawa requires:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Oshawa (Active)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Definition</div>
+              <div class="comparison-col highlight">Rentals of <strong>28 consecutive days or less</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence?</div>
+              <div class="comparison-col highlight"><strong>Yes, required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License fee</div>
+              <div class="comparison-col highlight"><strong>$150</strong> ($100 license + $50 application)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Night limit</div>
+              <div class="comparison-col highlight"><strong>180 days/year</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>5%</strong> (quarterly remittance)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Insurance</div>
+              <div class="comparison-col highlight"><strong>$2,000,000 liability</strong> (must cover STR use)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Room rentals</div>
+              <div class="comparison-col highlight"><strong>Max 2 rooms</strong>, max 2 occupants per room</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Local contact</div>
+              <div class="comparison-col highlight"><strong>Required</strong> (1-hour response, 24/7)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Property inspection</div>
+              <div class="comparison-col highlight"><strong>Required</strong> before license approval</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Record keeping</div>
+              <div class="comparison-col highlight"><strong>6 years</strong> (7 years for MAT records)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Fines</div>
+              <div class="comparison-col highlight">Up to <strong>$100,000</strong></div>
+            </div>
+          </div>
+
+          <p>That's a detailed rulebook. And if Whitby's bylaw ends up looking even 80% like Oshawa's, you'll want to be ready. The hosts who start preparing now will have the smoothest transition.</p>
+
+          <h2 id="what-applies-now">What Rules Apply Right Now</h2>
+          <p>No STR-specific bylaw doesn't mean anything goes. Whitby's general municipal bylaws apply to every property, including Airbnbs:</p>
+
+          <h3>Noise Bylaws</h3>
+          <p>Whitby enforces noise restrictions, especially during nighttime hours. Guest parties and loud music are the fastest way to get your neighbours calling bylaw enforcement. Set clear quiet hours in your house rules and enforce them.</p>
+
+          <h3>Property Standards</h3>
+          <p>Your property must meet the Town's property standards bylaw. This covers maintenance, structural safety, cleanliness, and general upkeep. A complaint from a neighbour can trigger an inspection regardless of whether you're running an STR.</p>
+
+          <h3>Parking</h3>
+          <p>Whitby's zoning bylaws require adequate parking for residential properties. Make sure your guests know where to park and that they aren't blocking driveways or spilling onto residential streets. Parking complaints are one of the top triggers for STR regulation discussions.</p>
+
+          <h3>Fire Code and Building Code</h3>
+          <p>Ontario's Fire Protection and Prevention Act applies to all dwellings. Smoke detectors and carbon monoxide detectors are required on every level. Bedrooms must have proper egress. These aren't STR-specific rules, they're the law for every home.</p>
+
+          <h3>Condo Rules</h3>
+          <p>If your property is a condo in downtown Whitby or Whitby Shores, the condo corporation's declaration may restrict or prohibit short-term rentals. The city's silence on STRs doesn't override your condo board's rules.</p>
+
+          <div class="warning-box">
+            <h4>Condo Corporations Can Override Everything</h4>
+            <p>Even though Whitby has no STR bylaw, your condo board can ban short-term rentals entirely through their declaration or rules. Always check your condo documentation before listing. Getting hit with fines from your condo corporation while the city has no rules at all would be an especially frustrating way to learn this lesson.</p>
+          </div>
+
+          <h2 id="how-to-prepare">How to Prepare for Whitby's Coming Regulations</h2>
+          <p>Here's the practical playbook for getting ahead of whatever Whitby's council decides:</p>
+
+          <h3>1. Start Building Reviews Now</h3>
+          <p>If you haven't listed yet, now is the best time to start. <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">Sign up on Airbnb</a> and start collecting reviews while there are zero barriers to entry. A listing with 20+ five-star reviews and Superhost status is worth far more than a brand new listing that launches the day licensing goes live. Every review you collect now is a competitive advantage later.</p>
+
+          <h3>2. Get $2M Liability Insurance</h3>
+          <p>Every regulated city in Ontario requires $2,000,000 in liability insurance that explicitly covers short-term rental activity. Don't wait for the bylaw. Get insured now. Standard homeowner's insurance typically excludes STR guests, so you need a rider or a specialized policy. This protects you today and ensures you're ready for licensing tomorrow.</p>
+
+          <h3>3. Install Safety Equipment</h3>
+          <p>Smoke detectors on every level, carbon monoxide detectors near sleeping areas, and fire extinguishers in the kitchen. These are already required by Ontario's Fire Code, but regulated cities will inspect specifically for them. Get compliant now and you'll sail through any future property inspection.</p>
+
+          <h3>4. Keep Detailed Records</h3>
+          <p>Start keeping booking records, guest information, financial transactions, and maintenance logs from day one. Oshawa requires 6 years of record keeping. If Whitby follows suit, you'll thank yourself for starting early. Good records also make tax time much easier.</p>
+
+          <h3>5. Follow ConnectWhitby.ca</h3>
+          <p>This is where the Town of Whitby posts public engagement opportunities on their STR framework. Sign up for updates, participate in consultations, and make your voice heard. The hosts who engage with the process have a better chance of influencing rules that work for everyone.</p>
+
+          <h3>6. Have a Mid-Term Backup Plan</h3>
+          <p>If you're operating an investment property as a short-term rental, start thinking about what happens if a principal residence rule passes. Mid-term rentals (30+ days) are exempt from STR regulations in virtually every Ontario city. Corporate relocations, contract workers at GM's Oshawa plant, and students at Ontario Tech University create steady demand for furnished monthly rentals in Durham Region.</p>
+
+          <h2 id="comparison">Whitby vs Durham Region Neighbours</h2>
+          <p>Durham Region is a patchwork of regulation levels. Here's where every municipality stands:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col">License?</div>
+              <div class="comparison-col highlight">Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green"><strong>Whitby</strong></div>
+              <div class="comparison-col">No (developing)</div>
+              <div class="comparison-col highlight"><strong>Developing regulations</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col">Yes ($150)</div>
+              <div class="comparison-col highlight">Fully regulated, 180 nights, 5% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Ajax</div>
+              <div class="comparison-col">No</div>
+              <div class="comparison-col highlight">Not regulated</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Pickering</div>
+              <div class="comparison-col">No</div>
+              <div class="comparison-col highlight">Not regulated</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Clarington</div>
+              <div class="comparison-col">No</div>
+              <div class="comparison-col highlight">Not regulated</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Scugog</div>
+              <div class="comparison-col">N/A</div>
+              <div class="comparison-col highlight">STRs not permitted</div>
+            </div>
+          </div>
+
+          <p>Whitby is in a unique middle ground. Ajax, Pickering, and Clarington aren't even talking about regulation. Oshawa has a full licensing system in place. Whitby is the one actively working on it but hasn't crossed the finish line yet. That gives current hosts a limited window to establish their operations.</p>
+
+          <h2 id="tax-obligations">Tax Obligations (Even Without City Regulations)</h2>
+          <p>The absence of municipal STR rules doesn't exempt you from federal and provincial taxes. These apply to every Airbnb host in Ontario:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>$0</strong> (Whitby doesn't charge MAT yet)</div>
+            </div>
+          </div>
+
+          <p>Key tax points:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but you can register voluntarily to claim input tax credits on expenses</li>
+            <li><strong>Expense deductions:</strong> Mortgage interest, insurance, cleaning, supplies, platform fees, and property management fees are all deductible against STR income</li>
+            <li><strong>CRA compliance:</strong> Since 2024, the federal government denies expense deductions on non-compliant STRs in restricted areas. Since Whitby has no restrictions, this rule doesn't currently affect you here. But keep proper records in case that changes.</li>
+          </ul>
+
+          <h2 id="tips">Tips for Whitby Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>List now, build reviews.</strong> The window before regulation arrives is your best opportunity to establish your listing. Reviews compound over time, and a listing with dozens of five-star reviews will outperform a brand new one when the market gets more competitive post-regulation.</li>
+            <li><span class="tip-icon">2</span> <strong>Get insurance before you need it.</strong> $2M liability coverage that explicitly covers short-term rental activity. Don't wait for the city to mandate it. One guest slip-and-fall without coverage could wipe you out.</li>
+            <li><span class="tip-icon">3</span> <strong>Check your condo docs.</strong> If you're in one of the newer condos in downtown Whitby or Whitby Shores, your condo corporation may already prohibit STRs. The city's lack of regulation doesn't help you if your condo board says no.</li>
+            <li><span class="tip-icon">4</span> <strong>Be the neighbour you'd want.</strong> The biggest single driver of STR regulation is neighbour complaints about noise, parking, and garbage. Run a tight ship. Set quiet hours. Provide clear parking instructions. If Whitby hosts collectively keep the peace, regulation might be lighter than expected.</li>
+            <li><span class="tip-icon">5</span> <strong>Follow ConnectWhitby.ca.</strong> Subscribe for updates on the STR licensing framework. When public consultations open, participate. Your input could shape rules that are practical for hosts instead of purely restrictive.</li>
+            <li><span class="tip-icon">6</span> <strong>Register for HST if you earn over $30K.</strong> The CRA threshold is $30,000 in gross revenue across all properties nationwide. Most active hosts hit this within a year. Register proactively to avoid penalties.</li>
+            <li><span class="tip-icon">7</span> <strong>Highlight Whitby's appeal in your listing.</strong> Downtown Whitby's restaurants and shops, the waterfront trail along Lake Ontario, easy GO Transit access to Union Station, proximity to the Durham Region trail network. These are real selling points for guests. Local flavour in your listing description beats generic copy every time.</li>
+            <li><span class="tip-icon">8</span> <strong>Keep detailed records from day one.</strong> Booking logs, guest communications, financial records, maintenance receipts. Store everything for at least 6 years. When licensing arrives, having clean records makes compliance a non-issue.</li>
+          </ul>
+
+          <h2 id="official-resources">Official Resources</h2>
+          <p>Stay up to date with Whitby's regulatory developments:</p>
+
+          <div class="resources-box">
+            <h4>Town of Whitby</h4>
+            <ul>
+              <li><a href="https://connectwhitby.ca" target="_blank" rel="noopener">ConnectWhitby.ca</a> (search "short-term rentals" for engagement opportunities)</li>
+              <li><a href="https://www.whitby.ca" target="_blank" rel="noopener">Town of Whitby Official Website</a></li>
+              <li><strong>Town Contact:</strong> 905-668-5803 or <a href="https://www.whitby.ca" target="_blank" rel="noopener">whitby.ca</a></li>
+            </ul>
+            <h4>Neighbouring Municipality Rules</h4>
+            <ul>
+              <li><a href="https://www.oshawa.ca/business-development/housing-permits-and-licences/short-term-rentals/" target="_blank" rel="noopener">Oshawa STR Licensing</a></li>
+              <li><a href="/blog/oshawa-airbnb-short-term-rental-rules-2026">Our Oshawa STR Guide 2026</a></li>
+            </ul>
+          </div>
+
+          <p class="referral-disclosure"><em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Common Questions From Whitby Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="article-cta">
+            <h3>Thinking About Airbnb in Whitby?</h3>
+            <p>Nurture manages short-term rentals across the GTA, including Durham Region. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property. Get set up now and be ready when regulations arrive.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Whitby?</h2>
+        <p>Our local GTA experts can help you set up and maximize your short-term rental.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header.three-col,
+  .comparison-row.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row .comparison-col.highlight-green {
+    background: rgba(117, 155, 143, 0.05);
+    font-weight: 600;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box ul:last-child {
+    margin-bottom: 0;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .referral-disclosure {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .comparison-header.three-col,
+    .comparison-row.three-col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
