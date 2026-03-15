@@ -14,6 +14,39 @@ const anthropic = new Anthropic({
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 
 // ============================================
+// DYNAMIC KNOWLEDGE BASE (fetched from GitHub, cached 24h)
+// ============================================
+const KNOWLEDGE_BASE_URL = 'https://raw.githubusercontent.com/nurtureproperty/toronto-airbnb-management/master/ghl-claude-server/bot-knowledge.md';
+let cachedKnowledge = null;
+let knowledgeCachedAt = 0;
+const KNOWLEDGE_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+async function getKnowledgeBase() {
+  const now = Date.now();
+  if (cachedKnowledge && (now - knowledgeCachedAt) < KNOWLEDGE_CACHE_TTL) {
+    return cachedKnowledge;
+  }
+
+  try {
+    console.log('Fetching fresh knowledge base from GitHub...');
+    const response = await fetch(KNOWLEDGE_BASE_URL);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const text = await response.text();
+
+    // Truncate to ~80K chars to stay within Claude context limits
+    cachedKnowledge = text.length > 80000 ? text.slice(0, 80000) + '\n\n[Knowledge base truncated]' : text;
+    knowledgeCachedAt = now;
+    console.log(`Knowledge base loaded: ${(cachedKnowledge.length / 1024).toFixed(1)} KB`);
+    return cachedKnowledge;
+  } catch (e) {
+    console.error('Failed to fetch knowledge base:', e.message);
+    // Return cached version if available, even if stale
+    if (cachedKnowledge) return cachedKnowledge;
+    return null;
+  }
+}
+
+// ============================================
 // COMPANY CONTEXT FOR CLAUDE
 // ============================================
 const COMPANY_CONTEXT = `
@@ -1114,17 +1147,23 @@ async function generateFBResponse(contact, conversationHistory, firstName, conta
 
   console.log('Conversation history being sent to Claude:', conversationHistory);
 
-  // Fetch real available calendar slots (Mon-Fri 10am-6:30pm EST only)
-  let slotsContext = 'No specific slots available right now. Direct to nurturestays.ca/contact to book.';
+  // Fetch knowledge base and calendar slots in parallel
   const calendarId = process.env.GHL_CALENDAR_ID;
-  if (calendarId) {
-    try {
-      const rawSlots = await getCalendarFreeSlots(calendarId);
-      const formatted = formatSlotsForClaude(rawSlots);
-      if (formatted) slotsContext = formatted;
-    } catch (e) {
-      console.error('Could not fetch calendar slots:', e.message);
-    }
+  const [knowledgeBase, rawSlots] = await Promise.all([
+    getKnowledgeBase(),
+    calendarId ? getCalendarFreeSlots(calendarId).catch(e => { console.error('Could not fetch calendar slots:', e.message); return null; }) : Promise.resolve(null),
+  ]);
+
+  let slotsContext = 'No specific slots available right now. Direct to nurturestays.ca/contact to book.';
+  if (rawSlots) {
+    const formatted = formatSlotsForClaude(rawSlots);
+    if (formatted) slotsContext = formatted;
+  }
+
+  // Build system prompt: hardcoded rules + dynamic knowledge
+  let systemPrompt = NURTURE_PM_CONTEXT;
+  if (knowledgeBase) {
+    systemPrompt += '\n\n## EXTENDED KNOWLEDGE BASE (use this to answer detailed questions about bylaws, blog articles, services, etc.)\n\n' + knowledgeBase;
   }
 
   const userPrompt = `## Your Task
@@ -1153,7 +1192,7 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
   const response = await anthropic.messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 500,
-    system: NURTURE_PM_CONTEXT,
+    system: systemPrompt,
     tools,
     messages,
   });
@@ -1208,7 +1247,7 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
     const confirmResponse = await anthropic.messages.create({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 300,
-      system: NURTURE_PM_CONTEXT,
+      system: systemPrompt,
       tools,
       messages: [
         ...messages,
