@@ -8,7 +8,8 @@ const faqs = [
   { q: "Does part-time Airbnb use trigger a change of use?", a: "Not if three conditions are met: the rental use is relatively small compared to personal use, you made no structural changes, and you don't claim CCA on the building. If you live in your home most of the year and Airbnb it when you travel, CRA treats this as continued personal use. No deemed disposition. Full principal residence exemption." },
   { q: "What if I Airbnb all 180 nights in Toronto?", a: "At 180 out of 365 nights (~49% rental use), you're in a grey area. CRA could argue the rental use is no longer 'relatively small.' The safest approach: don't claim building CCA and don't make structural changes. That keeps your principal residence exemption intact and preserves the 45(2) election as a backup if CRA ever challenges." },
   { q: "What is the 45(2) election?", a: "If you move out and convert your home to a full-time Airbnb, CRA treats it as if you sold the property. The 45(2) election defers this and lets you keep designating the home as your principal residence for up to 4 more years while it's rented. The one condition: you must never claim CCA on the building, or the election is voided." },
-  { q: "Do I need to collect HST on my Airbnb income?", a: "If your total STR revenue exceeds $30,000 per year, you must register for HST (13%). Below that, registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." },
+  { q: "Do I need to collect HST on my Airbnb income?", a: "If your gross STR revenue exceeds $30,000 in any rolling four consecutive quarters (or a single quarter), you must register for HST within 29 days. Below that threshold, registration is optional. Airbnb already collects and remits HST on platform bookings for unregistered hosts. Once you register, you take over HST collection but can claim Input Tax Credits on business expenses like furniture, cleaning, and photography." },
+  { q: "Should I register for HST voluntarily before hitting $30K?", a: "It depends on your startup costs. If you're furnishing a property from scratch and spending $10,000+ on furniture and supplies, voluntary registration lets you claim back the 13% HST on those purchases as Input Tax Credits. If you're renting a spare room with existing furniture, the extra paperwork isn't worth it. One caution: if you register and later stop hosting, CRA may treat the conversion as a change of use, which can trigger HST on the property's fair market value. Talk to your accountant first." },
   { q: "What happens to my principal residence exemption when I sell?", a: "If you never claimed CCA on the building, made no structural changes for rental purposes, and your rental use was ancillary, the full exemption applies. The entire capital gain is tax-free. This is why protecting the PRE matters more than any CCA deduction." }
 ];
 
@@ -27,6 +28,7 @@ const tocItems = [
   { id: 'change-of-use', text: 'Change of Use Rules' },
   { id: 'the-45-2-election', text: 'The 45(2) Election' },
   { id: 'section-67-7', text: 'Section 67.7 Warning' },
+  { id: 'hst', text: 'HST: The $30K Threshold' },
   { id: 'tips', text: 'Golden Rules' },
   { id: 'faqs', text: 'FAQs' }
 ];
@@ -295,6 +297,65 @@ const pageSchema = [articleSchema, faqSchema];
 
           <p>Bottom line: get your license, stay compliant, and then claim your CCA on contents. For the full list of which cities require what, see our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Airbnb Taxes Canada guide</a>.</p>
 
+          <h2 id="hst">HST: The $30K Threshold</h2>
+          <p>HST is separate from CCA and capital gains, but it catches a lot of GTA hosts off guard. Here's how it works.</p>
+
+          <h3>When You Must Register</h3>
+          <p>If your <strong>gross STR revenue exceeds $30,000 in any rolling four consecutive calendar quarters</strong> (or in a single quarter), you become a mandatory HST registrant. You have <strong>29 days</strong> to register with the CRA after crossing that threshold. Miss that deadline and you owe HST on every booking from the day you should have registered, plus interest and penalties.</p>
+
+          <p>Important: the $30,000 is <strong>gross revenue</strong>, not profit. Cleaning fees, service charges, and all other income count toward the total.</p>
+
+          <h3>What Happens Below $30K</h3>
+          <p>If you're under $30,000, you're a "small supplier" and HST registration is <strong>optional</strong>. Airbnb already collects and remits HST on your behalf for platform bookings. You don't need to do anything extra.</p>
+
+          <p>But there's a catch: because you're not registered, you <strong>can't claim Input Tax Credits (ITCs)</strong>. That means you're paying 13% HST on furniture, cleaning supplies, photography, and every other business expense with no way to get it back.</p>
+
+          <h3>What Changes Above $30K</h3>
+          <p>Once you register for HST, three things change:</p>
+          <ul>
+            <li><strong>You collect HST yourself.</strong> Airbnb stops collecting it on your behalf. You charge 13% on every booking and remit it to CRA quarterly or annually.</li>
+            <li><strong>You can claim ITCs.</strong> Every HST dollar you pay on business expenses (furniture, cleaning, supplies, professional photography, property management fees) comes back to you as a credit against what you owe. This is real money. A $2,000 couch that cost you $260 in HST? You get that $260 back.</li>
+            <li><strong>You file HST returns.</strong> Quarterly or annually, depending on your revenue level.</li>
+          </ul>
+
+          <h3>The Quick Method Shortcut</h3>
+          <p>If your annual revenue (including HST) is under $400,000, you can use the <strong>Quick Method</strong>. Instead of tracking every ITC, you remit a flat <strong>8.8%</strong> of HST-included revenue to CRA and keep the rest. No ITC tracking needed. For hosts with low expenses relative to revenue, this is simpler and sometimes cheaper.</p>
+
+          <h3>Should New Hosts Register Voluntarily?</h3>
+          <p>If you just started and aren't sure you'll hit $30K, here's the decision:</p>
+
+          <div class="comparison-table" style="margin: 1.5rem 0;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Register voluntarily</th>
+                  <th>Wait until you must</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Claim ITCs on all startup purchases (furniture, renos, supplies)</td>
+                  <td>No ITCs on anything you've already bought</td>
+                </tr>
+                <tr>
+                  <td>More paperwork (quarterly/annual HST returns)</td>
+                  <td>Simpler until you cross $30K</td>
+                </tr>
+                <tr>
+                  <td>Makes sense if you're buying a lot of furniture and supplies upfront</td>
+                  <td>Makes sense if you're testing the waters with minimal investment</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>If you're furnishing a property from scratch and spending $10,000+ on furniture, appliances, and supplies, voluntary registration can save you $1,300+ in ITCs right away. If you're renting out a spare bedroom with existing furniture, waiting makes more sense.</p>
+
+          <h3>The Change of Use HST Trap</h3>
+          <p>This is the one that really stings. If you register for HST and later <strong>stop short-term renting</strong> (convert back to personal use or switch to long-term rental), CRA may treat this as a "change of use." That can trigger HST on the <strong>fair market value of the property</strong> at the time of conversion. On a $800,000 Toronto condo, that's $104,000 in HST.</p>
+
+          <p>This doesn't apply to every situation, and there are exceptions for properties that were always primarily personal use. But it's a real risk for hosts who register, rent full-time for a few years, then stop. <strong>Talk to your accountant before registering</strong>, especially if there's any chance you'll stop hosting within a few years.</p>
+
           <h2 id="tips">The Golden Rules for GTA Hosts</h2>
 
           <ul class="tips-list">
@@ -303,7 +364,8 @@ const pageSchema = [articleSchema, faqSchema];
             <li><span class="tip-icon">3</span> <strong>Get your STR license.</strong> Section 67.7 denies all deductions for non-compliant STRs. In Toronto, Mississauga, Brampton, and other regulated cities, your license is the foundation of every tax deduction you claim.</li>
             <li><span class="tip-icon">4</span> <strong>Prorate by nights rented.</strong> Divide nights rented by 365 to get your rental use percentage. Apply that to all expense deductions and CCA claims.</li>
             <li><span class="tip-icon">5</span> <strong>Keep receipts for everything.</strong> Every furniture purchase, linen refresh, smart lock, and cleaning supply. Organize by CCA class. Your accountant will thank you.</li>
-            <li><span class="tip-icon">6</span> <strong>Talk to a CPA before selling.</strong> The interplay between CCA recapture, capital gains, and the PRE is complex. One conversation before you list your property can save tens of thousands.</li>
+            <li><span class="tip-icon">6</span> <strong>Track your revenue against the $30K HST threshold.</strong> Once you cross $30,000 in gross STR revenue over four consecutive quarters, you have 29 days to register. If you're spending big on furniture upfront, voluntary registration gets you ITCs immediately.</li>
+            <li><span class="tip-icon">7</span> <strong>Talk to a CPA before selling.</strong> The interplay between CCA recapture, capital gains, HST, and the PRE is complex. One conversation before you list your property can save tens of thousands.</li>
           </ul>
 
           <h2 id="faqs">Frequently Asked Questions</h2>
