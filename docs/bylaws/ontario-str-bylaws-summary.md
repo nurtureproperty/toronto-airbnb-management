@@ -28,7 +28,7 @@
 | **WATERLOO REGION** |
 | Kitchener | NOT Regulated | No | No | None | 4% (regional) |
 | Waterloo | Regulated (2025) | Yes | Yes | TBD | Yes |
-| Cambridge | Developing | TBD | TBD | TBD | TBD |
+| Cambridge | NOT Regulated | No | No | None | 4% (regional) |
 | **NIAGARA REGION** |
 | Niagara Falls | Strictly Regulated | Zoning-based | Yes ($500) | 28/stay | $2/night |
 | St. Catharines | Regulated | Yes | Yes | None | 4% |
@@ -179,9 +179,10 @@
 - **Website:** https://www.waterloo.ca/en/living/residential-rental-licences.aspx
 
 ### Cambridge
-- **Status:** DEVELOPING REGULATIONS
-- **Notes:** Part of regional STR bylaw review with Kitchener/Waterloo
+- **Status:** NOT REGULATED
+- **Notes:** No STR-specific bylaw, licensing, or registration. No evidence of active regulation development as of early 2026. Zoning By-law (150-85) defines B&B but not STR. 4% regional MAT collected by Airbnb.
 - **Website:** https://www.cambridge.ca
+- **Blog Guide:** https://www.nurturestays.ca/blog/cambridge-airbnb-short-term-rental-rules-2026
 
 ---
 

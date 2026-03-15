@@ -2,45 +2,46 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Do I need a license to Airbnb in Kitchener?", a: "No. Kitchener city council voted in June 2025 to reject the proposed STR licensing program. There is no STR license, permit, or registration required. You can list on Airbnb, VRBO, or any platform without city approval." },
-  { q: "Can I Airbnb my investment property in Kitchener?", a: "Yes. Since there is no principal residence requirement, you can operate short-term rentals on investment properties, secondary residences, or your primary home. This is a major advantage over neighboring Waterloo, which requires owner-occupancy for low-rise STRs." },
-  { q: "Is there a night limit in Kitchener?", a: "No. There is no annual night cap. You can rent your property 365 nights a year. Compare that to Toronto (180 nights), Oshawa (180 nights), and Burlington (183 nights)." },
-  { q: "Do I need to pay Municipal Accommodation Tax (MAT)?", a: "Yes. The Region of Waterloo collects a 4% MAT on short-term rentals across Kitchener, Waterloo, and Cambridge. Airbnb collects and remits this automatically on your behalf for platform bookings." },
-  { q: "What's the difference between Kitchener and Waterloo rules?", a: "Night and day. Waterloo requires a Class B license, owner-occupancy (for low-rise buildings), limits you to 275 nights per year, caps rentals at 4 bedrooms, and requires inspections plus a criminal record check. Kitchener has none of these requirements. Two cities that share a border, completely opposite STR frameworks." },
-  { q: "What insurance do I need for an Airbnb in Kitchener?", a: "While there is no city-mandated insurance requirement, you should carry at least $2,000,000 in liability insurance covering short-term rental activity. Standard homeowner's insurance typically excludes STR guests. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
-  { q: "What happened to the proposed STR bylaw?", a: "City staff proposed a 'Shared Accommodation By-law' that would have regulated STRs alongside lodging houses. It included Granicus compliance monitoring, 3 new staff positions, and a licensing framework. Council determined the financial and staffing demands were unsustainable and voted it down in June 2025." },
-  { q: "Do I need to collect HST on my Airbnb income?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." }
+  { q: "Do I need a license to Airbnb in Cambridge?", a: "No. Cambridge has no short-term rental licensing bylaw, registration requirement, or permit system. You can list your property on Airbnb, VRBO, or any platform without municipal approval." },
+  { q: "Can I Airbnb my investment property in Cambridge?", a: "Yes. There is no principal residence requirement in Cambridge, so investment properties, secondary homes, and multi-property portfolios are all permitted for short-term rental use. This is a major advantage over most regulated Ontario cities." },
+  { q: "Is there a night limit for Airbnb in Cambridge?", a: "No. There is no annual night cap. You can rent your property 365 nights per year. Compare that to Toronto (180 nights), Waterloo (275 nights), Burlington (183 nights), and Oshawa (180 nights)." },
+  { q: "Do I need to pay Municipal Accommodation Tax (MAT) in Cambridge?", a: "Yes. The Region of Waterloo collects a 4% MAT on short-term rentals (29 nights or fewer) across Cambridge, Kitchener, and Waterloo. Airbnb collects and remits this automatically on platform bookings. For direct bookings, you're responsible for collecting and remitting the 4% yourself." },
+  { q: "How does Cambridge compare to Kitchener and Waterloo for Airbnb?", a: "Three cities, three approaches. Cambridge and Kitchener are both unregulated with no license, no principal residence rule, and no night limits. Waterloo is the opposite: it requires a Class B license, owner-occupancy for low-rise buildings, limits you to 275 nights per year, and caps rentals at 4 bedrooms. All three share the same 4% regional MAT." },
+  { q: "What insurance do I need for an Airbnb in Cambridge?", a: "There is no city-mandated insurance requirement, but you should carry at least $2,000,000 in liability insurance that explicitly covers short-term rental activity. Standard homeowner's insurance typically excludes commercial guest activity. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
+  { q: "Is Cambridge considering STR regulations?", a: "As of early 2026, there is no evidence of active council discussions, staff reports, or public consultations about STR-specific bylaws in Cambridge. The city's approach could change if complaints increase or provincial rules shift, but nothing is on the horizon right now." },
+  { q: "Do I need to collect HST on my Airbnb income in Cambridge?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." }
 ];
 
 const relatedPosts = [
-  { title: 'Cambridge Airbnb Short Term Rental Rules 2026', href: '/blog/cambridge-airbnb-short-term-rental-rules-2026', description: 'The third tri-city: also unregulated with no license, no night limit, and investment properties allowed' },
-  { title: 'Waterloo Airbnb Short Term Rental Rules 2026', href: '/blog/waterloo-airbnb-short-term-rental-rules-2026', description: 'Your neighbour to the east requires owner-occupancy, licensing, and 275-night limits' },
-  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Understanding which Ontario cities allow investment property STRs' }
+  { title: 'Kitchener Airbnb Short Term Rental Rules 2026', href: '/blog/kitchener-airbnb-short-term-rental-rules-2026', description: 'Your neighbour to the north: also unregulated after council rejected the STR bylaw' },
+  { title: 'Waterloo Airbnb Short Term Rental Rules 2026', href: '/blog/waterloo-airbnb-short-term-rental-rules-2026', description: 'The third tri-city: strict licensing, owner-occupancy, and 275-night limits' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Which Ontario cities allow investment property STRs and which ones don\'t' }
 ];
 
 const tocItems = [
   { id: 'current-rules', text: 'Current Rules (2026)' },
   { id: 'no-license', text: 'No License Required' },
-  { id: 'what-happened', text: 'Why Council Rejected the Bylaw' },
-  { id: 'kitchener-vs-waterloo', text: 'Kitchener vs Waterloo' },
+  { id: 'tri-city', text: 'The Tri-City Contrast' },
+  { id: 'zoning', text: 'Zoning: The B&B Question' },
   { id: 'mat-tax', text: '4% Regional MAT' },
   { id: 'what-does-apply', text: 'What Rules DO Apply' },
+  { id: 'market-snapshot', text: 'Cambridge Market Snapshot' },
   { id: 'tax-obligations', text: 'Tax Obligations' },
-  { id: 'tips', text: 'Tips for Kitchener Hosts' },
+  { id: 'tips', text: 'Tips for Cambridge Hosts' },
   { id: 'official-resources', text: 'Official Resources' },
   { id: 'faqs', text: 'FAQs' }
 ];
 
-const pageTitle = "Kitchener Airbnb Short Term Rental Rules 2026";
-const pageDescription = "Kitchener has no Airbnb license, no principal residence rule, and no night limit. Council rejected the STR bylaw in 2025. Your complete 2026 hosting guide.";
+const pageTitle = "Cambridge Airbnb Short Term Rental Rules 2026";
+const pageDescription = "Cambridge has no Airbnb license, no principal residence rule, and no night limit. The most flexible of the tri-cities. Your complete 2026 hosting guide.";
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": pageTitle,
   "description": pageDescription,
-  "datePublished": "2026-03-16",
-  "dateModified": "2026-03-16",
+  "datePublished": "2026-03-15",
+  "dateModified": "2026-03-15",
   "author": {
     "@type": "Organization",
     "name": "Nurture Airbnb Property Management",
@@ -57,7 +58,7 @@ const articleSchema = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.nurturestays.ca/blog/kitchener-airbnb-short-term-rental-rules-2026"
+    "@id": "https://www.nurturestays.ca/blog/cambridge-airbnb-short-term-rental-rules-2026"
   }
 };
 
@@ -80,13 +81,13 @@ const pageSchema = [articleSchema, faqSchema];
       <nav class="breadcrumb">
         <a href="/blog">Blog</a>
         <span>/</span>
-        <span>Kitchener Regulations</span>
+        <span>Cambridge Regulations</span>
       </nav>
-      <h1>Kitchener Airbnb Short Term Rental Rules 2026</h1>
+      <h1>Cambridge Airbnb Short Term Rental Rules 2026</h1>
       <div class="article-meta">
-        <span class="meta-date">Published March 16, 2026</span>
+        <span class="meta-date">Published March 15, 2026</span>
         <span class="meta-separator">&middot;</span>
-        <span class="meta-read-time">8 min read</span>
+        <span class="meta-read-time">9 min read</span>
       </div>
     </div>
   </section>
@@ -107,17 +108,17 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">Here's a plot twist most people don't expect: <strong>Kitchener has no STR bylaw.</strong> City council voted in June 2025 to reject the proposed short-term rental licensing program. No license. No principal residence rule. No night limit. No inspections.</p>
-            <p class="lead">That makes Kitchener one of the most flexible STR markets in southwestern Ontario, and the polar opposite of its next-door neighbour Waterloo, which has some of the strictest rules in the province. Here's what you need to know.</p>
+            <p class="lead"><strong>Cambridge has no STR bylaw.</strong> No license. No principal residence rule. No night limit. No inspections. No registration number on your listing. If you're looking for a place to Airbnb in the Waterloo Region without regulatory headaches, Cambridge is it.</p>
+            <p class="lead">What makes this especially interesting is the contrast with its neighbours. Cambridge, Kitchener, and Waterloo are the "tri-cities" that make up the Region of Waterloo, and all three have taken completely different approaches to short-term rentals. Here's everything you need to know.</p>
           </div>
 
           <h2 id="current-rules">Current Rules: The Short Version</h2>
-          <p>Let's get straight to what every Kitchener host wants to know:</p>
+          <p>Here's what every Cambridge host wants to know upfront:</p>
 
           <div class="comparison-table">
             <div class="comparison-header">
               <div class="comparison-col">Requirement</div>
-              <div class="comparison-col highlight">Kitchener (2026)</div>
+              <div class="comparison-col highlight">Cambridge (2026)</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">STR license required?</div>
@@ -145,10 +146,10 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <p>The only tax that applies to STR operators is the 4% Regional MAT, and Airbnb collects that automatically. Beyond that, you're operating in one of Ontario's least restricted STR markets.</p>
+          <p>The only tax that applies to STR operators is the 4% Regional MAT, and Airbnb handles that automatically. Beyond that, you're operating in one of Ontario's most permissive STR environments.</p>
 
           <h2 id="no-license">No License or Registration Required</h2>
-          <p>Unlike Toronto, Mississauga, Waterloo, Hamilton, and most other regulated Ontario cities, Kitchener has no licensing requirement for short-term rental operators.</p>
+          <p>Unlike Toronto, Mississauga, Waterloo, Hamilton, and most other regulated Ontario cities, Cambridge has no licensing requirement for short-term rental operators.</p>
 
           <p>This means:</p>
           <ul>
@@ -160,19 +161,7 @@ const pageSchema = [articleSchema, faqSchema];
             <li><strong>No criminal record check</strong> required</li>
           </ul>
 
-          <p>You can list your property on Airbnb, VRBO, or any platform without any municipal approval. There is also no principal residence requirement, meaning investment properties, secondary homes, and multiple STR properties are all permitted.</p>
-
-          <h2 id="what-happened">Why Council Rejected the STR Bylaw</h2>
-          <p>This wasn't an oversight. City staff actually proposed a comprehensive STR licensing program, and council said no.</p>
-
-          <p>Here's what happened:</p>
-          <ul>
-            <li><strong>Late 2024:</strong> City launched public engagement on a proposed "Shared Accommodation By-law" that would combine lodging house and STR regulation</li>
-            <li><strong>November 2024:</strong> Two public information sessions held (November 18 and 27)</li>
-            <li><strong>December 2024:</strong> Community survey closed (December 6)</li>
-            <li><strong>2025:</strong> Staff brought forward recommendations including Granicus compliance monitoring software to track 60+ rental platforms, plus 3 new city staff positions for licensing, inspection, and enforcement</li>
-            <li><strong>June 23, 2025:</strong> Council voted to reject the proposal, determining the financial and staffing demands of a city-run licensing system would be unsustainable</li>
-          </ul>
+          <p>You can list your property on Airbnb, VRBO, or any booking platform without municipal approval. There is also no principal residence requirement, so investment properties, secondary homes, and multi-property operations are all permitted.</p>
 
           <div class="callout">
             <div class="callout-icon">
@@ -183,89 +172,142 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>What this means:</strong> Council didn't reject the idea permanently. They decided the cost of running a licensing program wasn't worth it right now. If STR complaints increase or the provincial landscape changes, this could come back. But for 2026, Kitchener hosts are in the clear.
+              <strong>Is regulation coming?</strong> As of early 2026, there is no evidence of active council discussions, staff reports, or public consultations about STR-specific bylaws in Cambridge. Kitchener explored STR regulation in 2024/2025 and rejected it. Cambridge hasn't even started the conversation. That said, if complaint volumes increase or the province introduces new rules, this could change.
             </div>
           </div>
 
-          <h2 id="kitchener-vs-waterloo">Kitchener vs Waterloo: A Tale of Two Cities</h2>
-          <p>This might be the most dramatic STR rule contrast in all of Ontario. Kitchener and Waterloo share a border (locals call the whole area "KW"), but their Airbnb rules couldn't be more different.</p>
+          <h2 id="tri-city">The Tri-City Contrast: Three Cities, Three Approaches</h2>
+          <p>This is the most interesting STR story in Ontario right now. Cambridge, Kitchener, and Waterloo share borders, share a regional government, share the same 4% MAT, and locals treat them as one metro area. But their Airbnb rules are completely different.</p>
 
           <div class="comparison-table">
             <div class="comparison-header">
               <div class="comparison-col">Rule</div>
-              <div class="comparison-col highlight">Kitchener vs Waterloo</div>
+              <div class="comparison-col highlight">Cambridge vs Kitchener vs Waterloo</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">License required?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: No</strong> / Waterloo: Class B required</div>
+              <div class="comparison-col highlight"><strong>Cambridge: No</strong> / Kitchener: No / Waterloo: Class B required</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">Principal residence?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: No</strong> / Waterloo: Yes (low-rise)</div>
+              <div class="comparison-col highlight"><strong>Cambridge: No</strong> / Kitchener: No / Waterloo: Yes (low-rise)</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">Night limit?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: None</strong> / Waterloo: 275/year</div>
+              <div class="comparison-col highlight"><strong>Cambridge: None</strong> / Kitchener: None / Waterloo: 275/year</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">Bedroom limit?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: None</strong> / Waterloo: 4 max</div>
+              <div class="comparison-col highlight"><strong>Cambridge: None</strong> / Kitchener: None / Waterloo: 4 max</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">Inspections?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: None</strong> / Waterloo: ESA + HVAC required</div>
+              <div class="comparison-col highlight"><strong>Cambridge: None</strong> / Kitchener: None / Waterloo: ESA + HVAC required</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">Criminal record check?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: No</strong> / Waterloo: Yes</div>
+              <div class="comparison-col highlight"><strong>Cambridge: No</strong> / Kitchener: No / Waterloo: Yes</div>
             </div>
             <div class="comparison-row">
-              <div class="comparison-col">Fines?</div>
-              <div class="comparison-col highlight"><strong>Kitchener: N/A</strong> / Waterloo: Up to $100,000</div>
+              <div class="comparison-col">STR-specific fines?</div>
+              <div class="comparison-col highlight"><strong>Cambridge: None</strong> / Kitchener: None / Waterloo: Up to $100,000</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">MAT</div>
-              <div class="comparison-col highlight"><strong>Both: 4% regional</strong></div>
+              <div class="comparison-col highlight"><strong>All three: 4% regional</strong></div>
             </div>
           </div>
 
-          <p>If you're deciding where to buy an investment property in the KW area, this comparison matters. A property on the Kitchener side of the border operates freely. The same property 500 metres away in Waterloo requires licensing, inspections, and owner-occupancy (for low-rise buildings).</p>
+          <p>If you're deciding where to buy an investment property in the region, this matters. A property in Waterloo requires licensing, inspections, owner-occupancy (for low-rise buildings), and caps you at 275 nights. The same property across the border in Cambridge or Kitchener? No restrictions at all.</p>
 
-          <p>For the full breakdown on Waterloo's rules, see our <a href="/blog/waterloo-airbnb-short-term-rental-rules-2026">Waterloo Airbnb Short Term Rental Rules 2026</a> guide.</p>
+          <p>For the full breakdown, see our <a href="/blog/waterloo-airbnb-short-term-rental-rules-2026">Waterloo Airbnb rules guide</a> and <a href="/blog/kitchener-airbnb-short-term-rental-rules-2026">Kitchener Airbnb rules guide</a>.</p>
+
+          <h2 id="zoning">Zoning: The Bed and Breakfast Question</h2>
+          <p>Here's the one nuance worth understanding. Cambridge's Zoning By-law (No. 150-85) does define a "bed and breakfast" as a use:</p>
+
+          <blockquote class="bylaw-quote">
+            "A single-detached dwelling in which no more than three guest rooms are made available by the resident of the said dwelling for the temporary accommodation of the traveling public."
+            <cite>Cambridge Zoning By-law No. 150-85</cite>
+          </blockquote>
+
+          <p>The zoning bylaw does <strong>not</strong> define "short-term rental" as a separate use category. This creates a grey area:</p>
+          <ul>
+            <li><strong>Renting rooms in your home while you live there</strong> could fall under the B&B definition (limited to single-detached homes, max 3 guest rooms)</li>
+            <li><strong>Renting an entire home, condo, or apartment</strong> as a whole-unit Airbnb is not explicitly addressed in zoning</li>
+          </ul>
+
+          <p>In practice, Cambridge has not enforced zoning restrictions against Airbnb operators. Hundreds of listings operate across the city without zoning challenges. But it's worth knowing that the formal zoning framework hasn't caught up to the reality of modern short-term rentals.</p>
 
           <h2 id="mat-tax">The 4% Regional MAT</h2>
-          <p>The one tax that does apply: the Region of Waterloo collects a 4% Municipal Accommodation Tax on short-term rentals across Kitchener, Waterloo, and Cambridge.</p>
+          <p>The one tax that applies: the Region of Waterloo collects a 4% Municipal Accommodation Tax on short-term rentals across the entire region.</p>
 
           <p>Here's what you need to know:</p>
           <ul>
-            <li><strong>Rate:</strong> 4% of the nightly booking rate</li>
+            <li><strong>Rate:</strong> 4% of the nightly booking rate (including cleaning fees)</li>
+            <li><strong>Applies to:</strong> Reservations of 29 nights or fewer</li>
             <li><strong>Who collects it:</strong> Airbnb collects and remits automatically on platform bookings</li>
             <li><strong>Direct bookings:</strong> If you take bookings outside of platforms, you're responsible for collecting and remitting the 4% yourself</li>
-            <li><strong>Regional, not city:</strong> This is a Region of Waterloo tax, not a Kitchener city tax</li>
+            <li><strong>Coverage:</strong> Cambridge, Kitchener, Waterloo, Woolwich, Wellesley, and Wilmot</li>
           </ul>
 
-          <p>On a $150/night booking, that's $6 per night. Compare that to Toronto's 8.5% ($12.75 per night on the same booking) or Oshawa's 5% ($7.50). It's on the lower end of Ontario MAT rates.</p>
+          <p>On a $150/night booking, that's $6 per night. Compare that to Toronto's 8.5% ($12.75 per night) or Oshawa's 5% ($7.50). It's on the lower end of Ontario MAT rates.</p>
 
           <h2 id="what-does-apply">What Rules DO Apply</h2>
-          <p>No STR bylaw doesn't mean no rules at all. Kitchener's general municipal bylaws still apply:</p>
+          <p>No STR bylaw doesn't mean no rules. Cambridge's general municipal bylaws apply to every property, including those used for short-term rentals.</p>
 
-          <h3>Noise Bylaws</h3>
-          <p>Kitchener enforces noise restrictions. Council specifically cited existing noise bylaws as a tool for managing STR issues when they rejected the proposed licensing program. Set clear quiet hours in your house rules.</p>
+          <h3>Noise Bylaw (032-04)</h3>
+          <p>Cambridge enforces noise restrictions. Guest parties at 2 AM will generate complaints, and bylaw officers will respond. Set clear quiet hours in your house rules and enforce them.</p>
 
           <h3>Property Standards</h3>
-          <p>Your property must meet the city's property standards bylaw. This covers maintenance, structural safety, and general upkeep. Neighbour complaints about a poorly maintained rental can trigger inspections.</p>
+          <p>Your property must meet the city's property standards bylaw covering structural safety, maintenance, and general upkeep. Neighbour complaints about a poorly maintained property can trigger inspections.</p>
 
-          <h3>Parking</h3>
-          <p>Zoning bylaws require specific parking provisions for residential properties. Make sure your guests have adequate parking and aren't spilling onto the street or blocking neighbours.</p>
+          <h3>Lot Maintenance</h3>
+          <p>Yard cleanliness, grass and weed control, and exterior upkeep are all enforceable. Keep your property looking sharp, especially if you're managing remotely.</p>
+
+          <h3>Rented Accommodation (036-04)</h3>
+          <p>This bylaw requires adequate heating for rental units. If you're hosting in winter, your heating system must keep the unit at a livable temperature.</p>
 
           <h3>Fire Code and Building Code</h3>
-          <p>Ontario's Fire Protection and Prevention Act and the Building Code apply to every dwelling. Smoke detectors, carbon monoxide detectors, and proper bedroom egress are all required regardless of STR bylaws.</p>
+          <p>Ontario's Fire Protection and Prevention Act and the Building Code apply to every dwelling. Smoke detectors, carbon monoxide detectors, and proper bedroom egress are all required regardless of whether STR-specific bylaws exist.</p>
 
           <h3>Condo Rules</h3>
           <p>If your property is in a condo, the corporation's declaration and rules may restrict or prohibit short-term rentals even though the city doesn't. Always check your condo docs before listing.</p>
 
-          <h3>Lodging House Bylaw (Different from STR)</h3>
-          <p>Kitchener does have a Lodging House bylaw (Municipal Code Chapter 553, effective January 2025) that regulates properties with 5 or more tenants sharing facilities. This applies to rooming houses, not typical Airbnb operations. If you're renting individual rooms to 5+ unrelated guests simultaneously, you may fall under this bylaw. A standard whole-home or single-room Airbnb listing does not.</p>
+          <h2 id="market-snapshot">Cambridge Market Snapshot</h2>
+          <p>Cambridge is a growing STR market with solid demand from business travelers, university visitors (Conestoga College has a Cambridge campus), and tourists exploring the Grand River valley.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Metric</div>
+              <div class="comparison-col highlight">Cambridge (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Active STR listings</div>
+              <div class="comparison-col highlight"><strong>~150 to 400+</strong> (varies by source)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Average daily rate</div>
+              <div class="comparison-col highlight"><strong>$108 to $119/night</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Average occupancy</div>
+              <div class="comparison-col highlight"><strong>~43%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Property mix</div>
+              <div class="comparison-col highlight"><strong>~71% entire home</strong>, ~29% private room</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Peak month</div>
+              <div class="comparison-col highlight"><strong>August</strong> (~52% occupancy)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Slowest month</div>
+              <div class="comparison-col highlight"><strong>February</strong> (~39% occupancy)</div>
+            </div>
+          </div>
+
+          <p>Top performers (top 10% of listings) earn $3,500+ per month. The key to reaching that tier: professional photos, dynamic pricing, fast response times, and strong reviews. Or, you know, <a href="/contact">let us handle that for you</a>.</p>
 
           <h2 id="tax-obligations">Tax Obligations</h2>
           <p>No municipal STR regulations doesn't mean no taxes. Federal and provincial obligations still apply:</p>
@@ -289,35 +331,53 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h2 id="tips">Tips for Kitchener Hosts</h2>
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Federal deduction rules:</strong> Since January 2024, the CRA denies expense deductions for non-compliant STRs. Since Cambridge has no STR licensing requirement, hosts here are not at risk of losing deductions for lacking a municipal licence. Just make sure you comply with zoning and report all income.
+            </div>
+          </div>
+
+          <h2 id="tips">Tips for Cambridge Hosts</h2>
 
           <ul class="tips-list">
-            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> No city requirement doesn't mean you should skip it. Get $2M liability coverage that explicitly covers short-term rental activity. One guest injury without coverage could be financially devastating.</li>
-            <li><span class="tip-icon">2</span> <strong>Check your condo declaration.</strong> If you're in a condo, the corporation's rules can prohibit STRs regardless of city policy. Read your declaration before listing.</li>
-            <li><span class="tip-icon">3</span> <strong>Be a good neighbour.</strong> Council rejected STR regulation partly because the cost didn't justify the current complaint volume. If that changes, the bylaw proposal comes back. Noise complaints, parking issues, and garbage problems are exactly what triggers regulation. Keep your guests in line.</li>
-            <li><span class="tip-icon">4</span> <strong>Register for HST if you're earning over $30K.</strong> The CRA threshold is $30,000 in gross revenue across all your STR properties nationwide. Most active hosts hit this. Register proactively.</li>
-            <li><span class="tip-icon">5</span> <strong>Know the KW border.</strong> If you're buying an investment property in the Kitchener-Waterloo area, confirm which city it falls in. A property in Waterloo faces strict licensing requirements. A property in Kitchener operates freely.</li>
-            <li><span class="tip-icon">6</span> <strong>Monitor city council.</strong> The rejected bylaw could return. Subscribe to council agendas at <strong>kitchener.ca</strong> so you have advance notice if regulation is reconsidered.</li>
+            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> No city requirement doesn't mean you should skip it. Carry at least $2,000,000 in liability coverage that explicitly covers short-term rental activity. One guest injury without coverage could be financially devastating.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your condo declaration.</strong> If you're in a condo, the corporation's rules can prohibit STRs regardless of city policy. Read your declaration and rules before listing.</li>
+            <li><span class="tip-icon">3</span> <strong>Be a good neighbour.</strong> Cambridge hasn't regulated STRs because the issue hasn't reached critical mass. Noise complaints, parking issues, and garbage problems are exactly what triggers cities to act. Keep your guests in line and you keep the regulatory status quo.</li>
+            <li><span class="tip-icon">4</span> <strong>Register for HST if you're earning over $30K.</strong> The CRA threshold is $30,000 in gross revenue across all your STR properties. Most active full-time hosts hit this. Register proactively.</li>
+            <li><span class="tip-icon">5</span> <strong>Know your tri-city borders.</strong> If you're buying an investment property, confirm it's actually in Cambridge and not Kitchener or Waterloo. While Kitchener is also unregulated, Waterloo has strict rules. Municipal boundaries matter.</li>
+            <li><span class="tip-icon">6</span> <strong>Price for the market.</strong> Cambridge ADRs average $108 to $119/night. You can beat those numbers with professional photography, a well-stocked property, and dynamic pricing tools that adjust rates based on demand, events, and seasonality.</li>
             <li><span class="tip-icon">7</span> <strong>Keep records.</strong> Even without a licensing requirement, maintain booking records, guest communications, and financial documentation for at least 6 years. Good records make tax filing easier and protect you if regulation is introduced later.</li>
           </ul>
 
           <h2 id="official-resources">Official Resources</h2>
 
           <div class="resources-box">
-            <h4>City of Kitchener</h4>
+            <h4>City of Cambridge</h4>
+            <ul>
+              <li><a href="https://www.cambridge.ca" target="_blank" rel="noopener">City of Cambridge</a></li>
+              <li><a href="https://www.cambridge.ca/en/your-city/Municipal_By-Law_Compliance_Team.aspx" target="_blank" rel="noopener">Municipal By-Law Compliance Team</a></li>
+              <li><strong>Bylaw Enforcement:</strong> (519) 623-1340 ext. 7907 or <a href="mailto:bylaw@cambridge.ca">bylaw@cambridge.ca</a></li>
+            </ul>
+            <h4 style="margin-top: 1rem;">Region of Waterloo</h4>
             <ul>
               <li><a href="https://www.engagewr.ca/ShortTermRentals" target="_blank" rel="noopener">EngageWR: Short-Term Rental Bylaw (Project Closed)</a></li>
-              <li><a href="https://www.kitchener.ca/en/bylaws-and-enforcement/lodging-houses.aspx" target="_blank" rel="noopener">Kitchener Lodging Houses (Chapter 553)</a></li>
-              <li><a href="https://www.kitchener.ca" target="_blank" rel="noopener">City of Kitchener</a></li>
-              <li><strong>City Contact:</strong> 519-741-2200 or <a href="https://www.kitchener.ca" target="_blank" rel="noopener">kitchener.ca</a></li>
             </ul>
           </div>
 
-          <p><em>Sources: Kitchener Council Meeting Minutes (June 23, 2025), City of Kitchener EngageWR project, Region of Waterloo MAT program. Regulations change frequently. Verify current rules with the City of Kitchener.</em></p>
+          <p>Ready to <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">list your Cambridge property on Airbnb</a>? Sign up through our link and get a free consultation on maximizing your rental income.</p>
+
+          <p><em>Sources: City of Cambridge Zoning By-law No. 150-85, Region of Waterloo MAT program, Cambridge Municipal By-Law Compliance Team. Regulations change frequently. Verify current rules with the City of Cambridge.</em></p>
 
           <p><em>This article contains a <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">referral link</a>. We may earn a small commission at no cost to you.</em></p>
 
-          <h2 id="faqs">Common Questions From Kitchener Hosts</h2>
+          <h2 id="faqs">Common Questions From Cambridge Hosts</h2>
           <div class="faq-list">
             {faqs.map(faq => (
               <div class="faq-item">
@@ -328,7 +388,7 @@ const pageSchema = [articleSchema, faqSchema];
           </div>
 
           <div class="article-cta">
-            <h3>Want to Maximize Your Kitchener Rental Income?</h3>
+            <h3>Want to Maximize Your Cambridge Rental Income?</h3>
             <p>Nurture manages short-term rentals across southwestern Ontario. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property.</p>
             <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
           </div>
@@ -355,7 +415,7 @@ const pageSchema = [articleSchema, faqSchema];
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Questions About Airbnb in Kitchener?</h2>
+        <h2>Questions About Airbnb in Cambridge?</h2>
         <p>Our local experts can help you set up and maximize your short-term rental.</p>
         <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
         <p class="cta-note">Free consultation &middot; No obligation</p>
@@ -539,6 +599,24 @@ const pageSchema = [articleSchema, faqSchema];
     line-height: 1.7;
   }
 
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-accent);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
   .callout {
     display: flex;
     gap: 1rem;
@@ -599,26 +677,6 @@ const pageSchema = [articleSchema, faqSchema];
 
   .comparison-row .comparison-col.highlight {
     background: rgba(117, 155, 143, 0.1);
-  }
-
-  .warning-box {
-    background: #fff5f5;
-    border-left: 4px solid #e74c3c;
-    padding: 1.5rem;
-    border-radius: 0 12px 12px 0;
-    margin: 2rem 0;
-  }
-
-  .warning-box h4 {
-    color: #c0392b;
-    margin-bottom: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-  }
-
-  .warning-box p {
-    margin: 0;
-    color: var(--color-text);
   }
 
   .resources-box {
