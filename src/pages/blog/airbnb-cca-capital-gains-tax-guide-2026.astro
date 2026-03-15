@@ -10,6 +10,7 @@ const faqs = [
   { q: "What is the 45(2) election?", a: "If you move out and convert your home to a full-time Airbnb, CRA treats it as if you sold the property. The 45(2) election defers this and lets you keep designating the home as your principal residence for up to 4 more years while it's rented. The one condition: you must never claim CCA on the building, or the election is voided." },
   { q: "Do I need to collect HST on my Airbnb income?", a: "If your gross STR revenue exceeds $30,000 in any rolling four consecutive quarters (or a single quarter), you must register for HST within 29 days. Below that threshold, registration is optional. Airbnb already collects and remits HST on platform bookings for unregistered hosts. Once you register, you take over HST collection but can claim Input Tax Credits on business expenses like furniture, cleaning, and photography." },
   { q: "Should I register for HST voluntarily before hitting $30K?", a: "It depends on your startup costs. If you're furnishing a property from scratch and spending $10,000+ on furniture and supplies, voluntary registration lets you claim back the 13% HST on those purchases as Input Tax Credits. If you're renting a spare room with existing furniture, the extra paperwork isn't worth it. One caution: if you register and later stop hosting, CRA may treat the conversion as a change of use, which can trigger HST on the property's fair market value. Talk to your accountant first." },
+  { q: "Is Airbnb or long-term rental better for taxes?", a: "If you live in the property, Airbnb is better because you keep your principal residence exemption (tax-free sale). Long-term rental means moving out, which triggers a deemed disposition and starts the clock on taxable capital gains. Airbnb also has more deductible expenses (cleaning, linens, furnishings) and HST Input Tax Credits if registered. Long-term rental is simpler (no HST, no MAT, no STR license needed) but you lose the PRE, which is usually worth far more than any deduction." },
   { q: "What happens to my principal residence exemption when I sell?", a: "If you never claimed CCA on the building, made no structural changes for rental purposes, and your rental use was ancillary, the full exemption applies. The entire capital gain is tax-free. This is why protecting the PRE matters more than any CCA deduction." }
 ];
 
@@ -29,6 +30,7 @@ const tocItems = [
   { id: 'the-45-2-election', text: 'The 45(2) Election' },
   { id: 'section-67-7', text: 'Section 67.7 Warning' },
   { id: 'hst', text: 'HST: The $30K Threshold' },
+  { id: 'str-vs-ltr', text: 'Airbnb vs Long-Term Rental' },
   { id: 'tips', text: 'Golden Rules' },
   { id: 'faqs', text: 'FAQs' }
 ];
@@ -355,6 +357,111 @@ const pageSchema = [articleSchema, faqSchema];
           <p>This is the one that really stings. If you register for HST and later <strong>stop short-term renting</strong> (convert back to personal use or switch to long-term rental), CRA may treat this as a "change of use." That can trigger HST on the <strong>fair market value of the property</strong> at the time of conversion. On a $800,000 Toronto condo, that's $104,000 in HST.</p>
 
           <p>This doesn't apply to every situation, and there are exceptions for properties that were always primarily personal use. But it's a real risk for hosts who register, rent full-time for a few years, then stop. <strong>Talk to your accountant before registering</strong>, especially if there's any chance you'll stop hosting within a few years.</p>
+
+          <h2 id="str-vs-ltr">Airbnb vs Long-Term Rental: Tax Comparison</h2>
+          <p>Many GTA homeowners weigh Airbnb against renting to a long-term tenant. The revenue difference gets all the attention, but the tax treatment is completely different. Here's how they stack up.</p>
+
+          <h3>CCA: Same Rules, Different Risk</h3>
+          <p>Both short-term and long-term rentals let you claim CCA. The CCA classes are identical: Class 8 for furniture, Class 12 for linens, Class 50 for electronics. But here's where it diverges:</p>
+          <ul>
+            <li><strong>Long-term rental:</strong> You've moved out. CRA treats this as a full change of use (deemed disposition). Your principal residence exemption is already at risk. Claiming building CCA on top of that makes the tax hit on sale even worse, but the PRE ship has likely sailed anyway unless you filed a 45(2) election.</li>
+            <li><strong>Short-term rental (Airbnb):</strong> You still live there. Your PRE is intact, and the entire strategy of this guide is to keep it that way. Never claim building CCA. Claim contents freely.</li>
+          </ul>
+          <p>In short: long-term landlords have already accepted the change of use consequences. Airbnb hosts who live in their home still have the PRE to protect.</p>
+
+          <h3>Principal Residence Exemption</h3>
+          <p>This is the biggest difference between the two, and it's not close.</p>
+          <div class="comparison-table" style="margin: 1.5rem 0;">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Airbnb (you live there)</th>
+                  <th>Long-term tenant (you moved out)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PRE available?</strong></td>
+                  <td>Yes, if rental use is ancillary and no building CCA claimed</td>
+                  <td>Only with a 45(2) election, and only for up to 4 extra years</td>
+                </tr>
+                <tr>
+                  <td><strong>Capital gains on sale</strong></td>
+                  <td>Fully sheltered (tax-free) if PRE applies</td>
+                  <td>Taxable on gains after the deemed disposition date</td>
+                </tr>
+                <tr>
+                  <td><strong>45(2) election useful?</strong></td>
+                  <td>Backup only (in case CRA challenges your rental use level)</td>
+                  <td>Essential. Without it, gains are taxable from the day you moved out.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>On a Toronto home that gained $400,000 in value, the PRE saves roughly <strong>$100,000 in capital gains tax</strong>. That's the real cost of converting to a long-term rental without proper planning.</p>
+
+          <h3>HST Treatment</h3>
+          <ul>
+            <li><strong>Short-term rental:</strong> HST applies. You must register once you cross $30,000 in gross revenue. You collect 13% on bookings and can claim ITCs on business expenses.</li>
+            <li><strong>Long-term rental (30+ days):</strong> <strong>HST exempt.</strong> Residential rent is not subject to HST. No registration required, no HST collected, but also no ITCs on expenses. The 13% you pay on a new fridge or washer? That's just a cost.</li>
+          </ul>
+          <p>This is one area where long-term rentals are simpler. No HST returns, no threshold tracking, no change-of-use trap.</p>
+
+          <h3>Deductible Expenses</h3>
+          <p>Both rental types let you deduct operating expenses against rental income: mortgage interest, property tax, insurance, repairs, utilities, and management fees. The difference is what <em>extra</em> expenses each one generates:</p>
+          <div class="comparison-table" style="margin: 1.5rem 0;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Airbnb expenses</th>
+                  <th>Long-term rental expenses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cleaning between guests (fully deductible)</td>
+                  <td>Minimal cleaning costs</td>
+                </tr>
+                <tr>
+                  <td>Linens, towels, kitchen supplies (CCA Class 12, 100%)</td>
+                  <td>Tenant provides their own</td>
+                </tr>
+                <tr>
+                  <td>Professional photography, listing fees</td>
+                  <td>Basic listing or agent fees</td>
+                </tr>
+                <tr>
+                  <td>Smart locks, noise monitors (CCA Class 50, 55%)</td>
+                  <td>Standard lock and key</td>
+                </tr>
+                <tr>
+                  <td>Platform fees (Airbnb 3%, management 12-15%)</td>
+                  <td>Property management (8-10%) or self-managed</td>
+                </tr>
+                <tr>
+                  <td>Furniture, appliances you provide (CCA Class 8, 20%)</td>
+                  <td>Often unfurnished, tenant brings furniture</td>
+                </tr>
+                <tr>
+                  <td>MAT (4-8.5% depending on city)</td>
+                  <td>No MAT</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Airbnb has more expenses, but also more deductions. Long-term rentals are leaner on both sides.</p>
+
+          <h3>Section 67.7 (Compliance)</h3>
+          <ul>
+            <li><strong>Short-term rental:</strong> Must be licensed and compliant with local bylaws or <strong>all deductions are denied</strong>. No license in Toronto? CRA taxes your gross income with zero deductions.</li>
+            <li><strong>Long-term rental:</strong> Section 67.7 does not apply. There's no STR license requirement for 30+ day rentals. Your deductions are safe regardless of municipal STR bylaws.</li>
+          </ul>
+
+          <h3>The Bottom Line</h3>
+          <p>If you live in your home and Airbnb it part-time, you get the best of both worlds: rental income <strong>plus</strong> a tax-free sale through the PRE. That combination doesn't exist with a long-term tenant.</p>
+          <p>If you're considering moving out and renting long-term, the math changes completely. You lose the PRE (or start a 4-year countdown with the 45(2) election), HST simplifies, and your CCA strategy shifts because the building CCA question is no longer about protecting the PRE.</p>
+          <p>Either way, <strong>talk to your accountant before switching rental strategies</strong>. The tax consequences of going from Airbnb to long-term (or vice versa) can be significant, especially around HST change-of-use rules and deemed dispositions.</p>
 
           <h2 id="tips">The Golden Rules for GTA Hosts</h2>
 
