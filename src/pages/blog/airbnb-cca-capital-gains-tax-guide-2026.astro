@@ -12,6 +12,7 @@ const faqs = [
   { q: "Should I register for HST voluntarily before hitting $30K?", a: "It depends on your startup costs. If you're furnishing a property from scratch and spending $10,000+ on furniture and supplies, voluntary registration lets you claim back the 13% HST on those purchases as Input Tax Credits. If you're renting a spare room with existing furniture, the extra paperwork probably isn't worth it. For part-time hosts who live in their home, the main downside of registering is paperwork (quarterly or annual HST returns), not risk. The change-of-use HST trap you may have heard about mostly applies to full-time commercial operators who moved out, not to someone hosting from their principal residence." },
   { q: "Do I charge HST on mid-term rentals (30+ days)?", a: "No. Residential rent for continuous occupancy of at least one calendar month is HST exempt under the Excise Tax Act, Schedule V, Part I, paragraph 6(a). This applies whether you're HST-registered or not. Airbnb automatically handles this: bookings of one month or longer don't have tax applied. Note that the legal threshold is one calendar month, not exactly 30 days." },
   { q: "Is Airbnb or long-term rental better for taxes?", a: "If you live in the property, Airbnb is better because you keep your principal residence exemption (tax-free sale). Long-term rental means moving out, which triggers a deemed disposition and starts the clock on taxable capital gains. Airbnb also has more deductible expenses (cleaning, linens, furnishings) and HST Input Tax Credits if registered. Long-term rental is simpler (no HST, no MAT, no STR license needed) but you lose the PRE, which is usually worth far more than any deduction." },
+  { q: "Does CRA know how much I earned on Airbnb?", a: "Yes. Since January 2024, Airbnb, VRBO, and all rental platforms report your gross income, SIN, property address, number of bookings, and days rented directly to CRA under Part XX of the Income Tax Act. CRA cross-references this against your tax return. This applies to both short-term and mid-term rental income." },
   { q: "What happens to my principal residence exemption when I sell?", a: "If you never claimed CCA on the building, made no structural changes for rental purposes, and your rental use was ancillary, the full exemption applies. The entire capital gain is tax-free. This is why protecting the PRE matters more than any CCA deduction." }
 ];
 
@@ -32,6 +33,7 @@ const tocItems = [
   { id: 'section-67-7', text: 'Section 67.7 Warning' },
   { id: 'hst', text: 'HST: The $30K Threshold' },
   { id: 'str-vs-ltr', text: 'Airbnb vs Long-Term Rental' },
+  { id: 'cra-reporting', text: 'How CRA Knows What You Earned' },
   { id: 'tips', text: 'Golden Rules' },
   { id: 'faqs', text: 'FAQs' }
 ];
@@ -485,6 +487,47 @@ const pageSchema = [articleSchema, faqSchema];
           <p>If you live in your home and Airbnb it part-time, you get the best of both worlds: rental income <strong>plus</strong> a tax-free sale through the PRE. That combination doesn't exist with a long-term tenant.</p>
           <p>If you're considering moving out and renting long-term, the math changes completely. You lose the PRE (or start a 4-year countdown with the 45(2) election), HST simplifies, and your CCA strategy shifts because the building CCA question is no longer about protecting the PRE.</p>
           <p>Either way, <strong>talk to your accountant before switching rental strategies</strong>. The tax consequences of going from Airbnb to long-term (or vice versa) can be significant, especially around HST change-of-use rules and deemed dispositions.</p>
+
+          <h2 id="cra-reporting">How CRA Knows What You Earned</h2>
+          <p>Some hosts wonder whether CRA can actually verify rental income, especially for mid-term rentals where there's no STR license creating a paper trail. The short answer: yes, they can. And since 2024, they don't even have to try very hard.</p>
+
+          <h3>Platform Reporting (Since January 2024)</h3>
+          <p>Under <a href="https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance/reporting-rules-digital-platforms.html" target="_blank" rel="noopener">Part XX of the Income Tax Act</a>, Airbnb, VRBO, Booking.com, and every other rental platform must now report the following directly to CRA for each host:</p>
+          <ul>
+            <li>Your <strong>full legal name, address, date of birth, and SIN</strong></li>
+            <li><strong>Total income paid to you</strong>, broken down by quarter</li>
+            <li><strong>Number of bookings</strong> per quarter</li>
+            <li><strong>Property address</strong> of each listing</li>
+            <li><strong>Number of days rented</strong> per property</li>
+            <li>Fees, commissions, and taxes withheld</li>
+          </ul>
+          <p>The first reports were filed January 31, 2025 (covering 2024). This applies to <strong>all rental income through the platform</strong>, whether the stay was 2 nights or 60 nights. STR and mid-term income are both reported.</p>
+
+          <p>CRA cross-references this data against your T1 tax return. If Airbnb reports $45,000 in gross income and you report $30,000 on your T776 (or don't file a T776 at all), it triggers an automated flag.</p>
+
+          <h3>What About Direct Bookings?</h3>
+          <p>Income from direct bookings (not through a platform) is not reported by a third party. But CRA has other tools:</p>
+          <ul>
+            <li><strong>Bank deposit patterns:</strong> Regular deposits that don't match your declared income can trigger scrutiny. Banks report cash transactions over $10,000 to FINTRAC, which shares intelligence with CRA.</li>
+            <li><strong>Municipal license registries:</strong> CRA can cross-reference STR license databases with tax filings.</li>
+            <li><strong>Lifestyle audits:</strong> If your declared income doesn't match your spending, CRA can dig deeper.</li>
+          </ul>
+
+          <h3>How You Report Rental Income</h3>
+          <p>All rental income (STR and mid-term) goes on <strong><a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/rental-income/completing-form-t776-statement-real-estate-rentals.html" target="_blank" rel="noopener">Form T776, Statement of Real Estate Rentals</a></strong>, filed with your personal T1 return. You report gross rents, deduct eligible expenses (mortgage interest, property tax, insurance, repairs, management fees, cleaning, supplies), and claim CCA. The net rental income flows to Line 12600 of your return.</p>
+
+          <p>Airbnb doesn't issue a T4A or any official CRA tax slip. Instead, you get an annual earnings summary from the platform, and CRA gets the same numbers directly. Keep your platform statements, bank records, and all expense receipts for <strong>at least 6 years</strong> (<a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/ic78-10/books-records-retention-destruction.html" target="_blank" rel="noopener">CRA IC78-10R5</a>).</p>
+
+          <h3>Penalties for Getting It Wrong</h3>
+          <p>Underreporting rental income or inflating expenses isn't worth the risk:</p>
+          <ul>
+            <li><strong>Late filing:</strong> 5% of unpaid tax plus 1% per month late, up to 17% total</li>
+            <li><strong>Repeated failure to report income:</strong> 10% of unreported income or 50% of the tax difference, whichever is less</li>
+            <li><strong>Gross negligence (knowingly filing false returns):</strong> 50% of the understated tax, plus potential criminal charges with fines of 50-200% of evaded tax and up to 5 years imprisonment</li>
+            <li><strong>Interest:</strong> Compounded daily on all unpaid amounts (currently in the 8-10% range)</li>
+          </ul>
+
+          <p>The bottom line: report everything accurately. CRA now has the platform data to check, and the penalties for getting caught far outweigh any short-term tax savings from underreporting.</p>
 
           <h2 id="tips">The Golden Rules for GTA Hosts</h2>
 
