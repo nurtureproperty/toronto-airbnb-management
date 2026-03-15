@@ -1379,6 +1379,117 @@ app.post('/webhook/fb-message', async (req, res) => {
 });
 
 // ============================================
+// NURTURE PM - GENERIC MESSAGE WEBHOOK (SMS, Chat, Email, etc.)
+// ============================================
+// Use this for any Nurture PM pipeline that isn't Facebook Messenger.
+// GHL workflow: trigger on inbound message → webhook to /webhook/nurture-pm?type=SMS
+// Supports: SMS, Email, Live_Chat, WhatsApp, GMB, IG, Custom
+
+async function sendGHLMessage(contactId, message, messageType = 'SMS') {
+  const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Version': '2021-07-28',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      type: messageType,
+      contactId: contactId,
+      message: message,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Failed to send ${messageType} message: ${response.status} - ${error}`);
+  }
+
+  return response.json();
+}
+
+app.post('/webhook/nurture-pm', async (req, res) => {
+  try {
+    console.log('Received Nurture PM webhook:', JSON.stringify(req.body, null, 2));
+
+    const contactId = extractContactId(req.body);
+    // Message type from query param, body, or default to SMS
+    const messageType = req.query.type || req.body.type || req.body.messageType || 'SMS';
+
+    if (!contactId) {
+      console.error('No contact ID in Nurture PM webhook');
+      return res.status(400).json({ error: 'Missing contact_id' });
+    }
+
+    const firstName = req.body.first_name || req.body.firstName || 'there';
+    console.log(`Nurture PM ${messageType} message from contact ${contactId}, name: ${firstName}`);
+
+    // Fetch contact details
+    const contact = await getContact(contactId);
+    console.log('Contact fetched:', contact.contact?.firstName || contact.firstName);
+
+    // Fetch conversation history
+    const conversations = await getConversations(contactId);
+    let conversationHistory = 'No previous messages.';
+    let rawMessages = [];
+
+    if (conversations.conversations && conversations.conversations.length > 0) {
+      // Try to find the matching conversation type, fallback to most recent
+      const matchingConv = conversations.conversations.find(c =>
+        c.type && c.type.toUpperCase() === messageType.toUpperCase()
+      ) || conversations.conversations[0];
+
+      const messagesResponse = await getMessages(matchingConv.id);
+
+      if (Array.isArray(messagesResponse)) {
+        rawMessages = messagesResponse;
+      } else if (messagesResponse?.messages?.messages && Array.isArray(messagesResponse.messages.messages)) {
+        rawMessages = messagesResponse.messages.messages;
+      } else if (messagesResponse?.messages && Array.isArray(messagesResponse.messages)) {
+        rawMessages = messagesResponse.messages;
+      } else if (messagesResponse?.data && Array.isArray(messagesResponse.data)) {
+        rawMessages = messagesResponse.data;
+      }
+
+      conversationHistory = formatConversationHistory(messagesResponse);
+    }
+
+    // Check if the last message is outbound (already replied) - skip unless forced
+    const forceReply = req.query.force === 'true';
+    if (!forceReply && rawMessages.length > 0) {
+      const sorted = [...rawMessages].sort((a, b) =>
+        new Date(b.dateAdded || b.createdAt || 0) - new Date(a.dateAdded || a.createdAt || 0)
+      );
+      const lastMsg = sorted[0];
+      if (lastMsg && lastMsg.direction === 'outbound') {
+        console.log('Last message is outbound (already replied). Skipping auto-reply.');
+        return res.json({ success: true, skipped: true, reason: 'Already replied' });
+      }
+    }
+
+    // Generate response using same Nurture PM context + knowledge base + tools
+    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId);
+    console.log(`Generated ${messageType} reply:`, generatedMessage);
+
+    // Send the reply via the appropriate channel
+    const sendResult = await sendGHLMessage(contactId, generatedMessage, messageType);
+    console.log(`${messageType} message sent successfully`);
+
+    res.json({
+      success: true,
+      contactId,
+      messageType,
+      messageSent: generatedMessage,
+      sendResult,
+    });
+
+  } catch (error) {
+    console.error('Nurture PM webhook error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ============================================
 // START SERVER
 // ============================================
 
@@ -1386,9 +1497,10 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`GHL Claude Server running on port ${PORT}`);
   console.log('Endpoints:');
-  console.log(`  POST /webhook/followup?step=1-7 - Follow-up sequence`);
-  console.log(`  POST /webhook/reply - Handle inbound replies`);
+  console.log(`  POST /webhook/followup?step=1-7 - Follow-up sequence (Nurtre lead gen)`);
+  console.log(`  POST /webhook/reply - Handle inbound replies (Nurtre lead gen)`);
   console.log(`  POST /webhook/fb-message - Facebook Messenger auto-reply (Nurture PM)`);
+  console.log(`  POST /webhook/nurture-pm?type=SMS|Email|Live_Chat|WhatsApp - Generic Nurture PM auto-reply`);
 });
 
 // Export for Vercel
