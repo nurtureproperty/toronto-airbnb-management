@@ -795,11 +795,112 @@ RULES:
 3. Keep it short. 1-3 sentences. Match their energy
 4. If the conversation is already going, don't re-introduce yourself
 5. Answer first, then nudge toward a call or estimate if it fits naturally
-6. When suggesting a meeting, ONLY use time slots from the "Available Meeting Slots" list below. Never invent times`;
+6. When suggesting a meeting, ONLY use time slots from the "Available Meeting Slots" list below. Never invent times. If they confirm a slot, use the book_appointment tool to lock it in
+7. NEVER promise to personally call, visit, or take actions you cannot do. You are a text assistant. If they ask for a call, offer to book one using the available slots, or direct them to nurturestays.ca/contact
+8. If someone gives their phone number and asks for a callback, use the notify_team tool so someone can call them back. Say something like "Got it! I've flagged your number for the team, someone will reach out shortly. In the meantime, mind if I ask what property you're looking to manage?"
+9. If a lead seems urgent or ready to talk NOW (gives phone number, says "call me", "ASAP", "right now", etc.), ALWAYS use the notify_team tool with urgent: true
+10. When the conversation naturally reaches a point where a call would help, proactively offer available time slots from the list below`;
 
 // ============================================
 // CALENDAR API FUNCTIONS
 // ============================================
+
+const NOTIFY_TEAM_TOOL = {
+  name: 'notify_team',
+  description: 'Notify the team (via SMS and Slack) that a lead needs attention. Use this when a lead gives their phone number, asks for a callback, says "call me", or wants to talk ASAP. Always use this BEFORE replying so the team gets notified immediately.',
+  input_schema: {
+    type: 'object',
+    properties: {
+      lead_name: {
+        type: 'string',
+        description: 'The lead\'s name',
+      },
+      lead_phone: {
+        type: 'string',
+        description: 'The lead\'s phone number (if provided)',
+      },
+      summary: {
+        type: 'string',
+        description: 'Brief summary of what the lead wants (e.g. "wants a callback to discuss their condo", "ready to talk ASAP about property management")',
+      },
+      urgent: {
+        type: 'boolean',
+        description: 'True if the lead wants immediate attention (said "ASAP", "call me now", gave phone number for callback)',
+        default: false,
+      },
+    },
+    required: ['lead_name', 'summary'],
+  },
+};
+
+async function notifyTeamSMS(leadName, leadPhone, summary, urgent) {
+  const ownerPhone = process.env.OWNER_PHONE;
+  if (!ownerPhone) {
+    console.log('OWNER_PHONE not set, skipping SMS notification');
+    return;
+  }
+
+  const urgentTag = urgent ? '🔴 URGENT' : '📩 New';
+  let msg = `${urgentTag} FB lead: ${leadName}`;
+  if (leadPhone) msg += ` (${leadPhone})`;
+  msg += `\n${summary}`;
+
+  try {
+    // Send SMS via GHL internal notification (to owner's contact in GHL)
+    const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+        'Version': '2021-07-28',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        type: 'SMS',
+        contactId: ownerPhone, // This should be the owner's GHL contact ID
+        message: msg,
+      }),
+    });
+    console.log('Team SMS notification sent:', response.ok);
+  } catch (e) {
+    console.error('Failed to send SMS notification:', e.message);
+  }
+}
+
+async function notifyTeamSlack(leadName, leadPhone, summary, urgent, contactId) {
+  const slackToken = process.env.SLACK_BOT_TOKEN;
+  const slackChannel = process.env.SLACK_CHANNEL_ID;
+  if (!slackToken || !slackChannel) {
+    console.log('Slack not configured, skipping Slack notification');
+    return;
+  }
+
+  const urgentEmoji = urgent ? ':rotating_light:' : ':incoming_envelope:';
+  const urgentLabel = urgent ? '*URGENT* ' : '';
+  let text = `${urgentEmoji} ${urgentLabel}*FB Messenger Lead Wants a Call*\n`;
+  text += `*Name:* ${leadName}\n`;
+  if (leadPhone) text += `*Phone:* ${leadPhone}\n`;
+  text += `*Summary:* ${summary}`;
+  if (contactId) text += `\n<https://app.gohighlevel.com/v2/location/your-location/contacts/${contactId}|View in GHL>`;
+
+  try {
+    const response = await fetch('https://slack.com/api/chat.postMessage', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${slackToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        channel: slackChannel,
+        text,
+        unfurl_links: false,
+      }),
+    });
+    const result = await response.json();
+    console.log('Slack notification sent:', result.ok);
+  } catch (e) {
+    console.error('Failed to send Slack notification:', e.message);
+  }
+}
 
 const BOOK_APPOINTMENT_TOOL = {
   name: 'book_appointment',
@@ -982,8 +1083,9 @@ ${conversationHistory}
 Now write your reply to the lead's most recent message above. Reply ONLY with the message text, nothing else.
 If the lead has clearly confirmed they want to book a specific slot from the list above, also call the book_appointment tool.`;
 
-  // Include booking tool only when calendar is configured
-  const tools = calendarId ? [BOOK_APPOINTMENT_TOOL] : undefined;
+  // Include tools - always include notify_team, add booking tool when calendar is configured
+  const tools = [NOTIFY_TEAM_TOOL];
+  if (calendarId) tools.push(BOOK_APPOINTMENT_TOOL);
 
   const messages = [{ role: 'user', content: userPrompt }];
 
@@ -995,25 +1097,53 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
     messages,
   });
 
-  // Handle tool use (appointment booking)
-  const toolUseBlock = response.content.find(b => b.type === 'tool_use' && b.name === 'book_appointment');
+  // Handle tool use (appointment booking and/or team notification)
+  const toolUseBlocks = response.content.filter(b => b.type === 'tool_use');
   const textBlock = response.content.find(b => b.type === 'text');
 
-  if (toolUseBlock && calendarId && contactId) {
-    const { start_datetime, duration_minutes = 30 } = toolUseBlock.input;
-    console.log('Claude wants to book appointment at:', start_datetime);
+  if (toolUseBlocks.length > 0) {
+    const toolResults = [];
 
-    let toolResultContent;
-    try {
-      const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes);
-      console.log('Appointment created:', appt?.id || JSON.stringify(appt).slice(0, 100));
-      toolResultContent = JSON.stringify({ success: true, message: 'Appointment booked successfully' });
-    } catch (e) {
-      console.error('Failed to create appointment:', e.message);
-      toolResultContent = JSON.stringify({ success: false, error: e.message });
+    for (const toolUseBlock of toolUseBlocks) {
+      if (toolUseBlock.name === 'book_appointment' && calendarId && contactId) {
+        const { start_datetime, duration_minutes = 30 } = toolUseBlock.input;
+        console.log('Claude wants to book appointment at:', start_datetime);
+
+        let toolResultContent;
+        try {
+          const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes);
+          console.log('Appointment created:', appt?.id || JSON.stringify(appt).slice(0, 100));
+          toolResultContent = JSON.stringify({ success: true, message: 'Appointment booked successfully' });
+        } catch (e) {
+          console.error('Failed to create appointment:', e.message);
+          toolResultContent = JSON.stringify({ success: false, error: e.message });
+        }
+
+        toolResults.push({
+          type: 'tool_result',
+          tool_use_id: toolUseBlock.id,
+          content: toolResultContent,
+        });
+
+      } else if (toolUseBlock.name === 'notify_team') {
+        const { lead_name, lead_phone, summary, urgent } = toolUseBlock.input;
+        console.log(`Notifying team: ${lead_name} - ${summary} (urgent: ${urgent})`);
+
+        // Send notifications in parallel
+        await Promise.all([
+          notifyTeamSlack(lead_name, lead_phone, summary, urgent, contactId),
+          notifyTeamSMS(lead_name, lead_phone, summary, urgent),
+        ]);
+
+        toolResults.push({
+          type: 'tool_result',
+          tool_use_id: toolUseBlock.id,
+          content: JSON.stringify({ success: true, message: 'Team notified via Slack and SMS' }),
+        });
+      }
     }
 
-    // Ask Claude for the confirmation message now that the tool ran
+    // Ask Claude for the final message now that tools have run
     const confirmResponse = await anthropic.messages.create({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 300,
@@ -1022,16 +1152,7 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
       messages: [
         ...messages,
         { role: 'assistant', content: response.content },
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'tool_result',
-              tool_use_id: toolUseBlock.id,
-              content: toolResultContent,
-            },
-          ],
-        },
+        { role: 'user', content: toolResults },
       ],
     });
 
