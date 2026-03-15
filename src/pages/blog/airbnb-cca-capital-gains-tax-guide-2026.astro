@@ -2,38 +2,37 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
-  { q: "Should I claim CCA on my Airbnb building?", a: "In most cases, no. CCA on the building saves you tax now but costs you the same tax (or more) through recapture when you sell. Worse, it permanently blocks the 45(3) election and can void the 45(2) election, both of which shelter far more capital gains than the CCA ever saved. CCA on contents like furniture, linens, and electronics is almost always worth claiming since those items genuinely depreciate and don't affect your principal residence exemption." },
-  { q: "What is CCA recapture and how is it taxed?", a: "Recapture happens when you sell a depreciable asset for more than its remaining undepreciated capital cost (UCC). The recaptured amount is taxed as 100% ordinary income at your full marginal rate. This is worse than capital gains treatment, which is only 50% inclusion. For example, if you claimed $60,000 in building CCA and sell above UCC, that $60,000 is fully taxable as income, not as a capital gain." },
-  { q: "What is the 45(2) election?", a: "The 45(2) election lets you defer the deemed disposition that normally occurs when you convert your principal residence into a rental property. It allows you to continue designating the property as your principal residence for up to 4 additional years while it's being rented. The key condition: you must never claim CCA on the building, or the election is automatically rescinded." },
-  { q: "What is the 45(3) election?", a: "The 45(3) election lets you defer the deemed disposition when you convert a rental property into your principal residence. Filed when you eventually sell (not when you move in), it allows you to retroactively designate up to 4 years of the rental period as principal residence years. The critical condition: if you ever claimed CCA on the building after 1984, this election is permanently unavailable." },
-  { q: "Can I claim CCA on Airbnb furniture and still keep the principal residence exemption?", a: "Yes. CCA on contents like furniture (Class 8), linens (Class 12), and electronics (Class 50) does not affect your principal residence exemption. The restriction only applies to CCA claimed on the building itself (Class 1 or Class 3). Claim CCA on your contents without worry." },
-  { q: "What CCA classes apply to Airbnb furnishings?", a: "Class 8 (20%) covers furniture and appliances like beds, couches, fridges, and washers. Class 12 (100%) covers linens, towels, dishes, cutlery, and kitchen utensils under $500. Class 50 (55%) covers electronics like smart locks, security cameras, noise monitors, and computers. Class 12 items are particularly valuable since you write off the full cost." },
-  { q: "Does part-time Airbnb use trigger a change of use?", a: "Not if three conditions are met: the rental use is relatively small compared to personal use, you made no structural changes to the property, and you don't claim CCA on the building. If you live in your condo most of the year and Airbnb it occasionally, CRA generally treats this as continued personal use with no deemed disposition." },
-  { q: "What happens if I Airbnb for more than 4 years after moving out?", a: "With the 45(2) election, you can designate the property as your principal residence for up to 4 years (5 with the plus-one rule). Any appreciation beyond that window is taxable as a capital gain when you sell. There is an exception: if you moved for employer-required relocation (40+ km farther from the property), the 4-year limit is removed entirely under section 54.1." }
+  { q: "Should I claim CCA on my Airbnb building?", a: "No. Your Airbnb is your principal residence. Claiming CCA on the building risks your principal residence exemption, which shelters the entire capital gain when you sell. CCA on the building is just a tax deferral anyway: you save now but pay it all back through recapture when you sell. CCA on contents (furniture, linens, electronics) is a different story. Claim those freely." },
+  { q: "What is CCA recapture?", a: "When you sell a property you claimed CCA on, the CCA you deducted gets added back to your income at 100% inclusion. That's worse than capital gains, which are only 50% inclusion. If you claimed $60,000 in building CCA, you owe tax on the full $60,000 as ordinary income when you sell." },
+  { q: "What CCA can I claim on my Airbnb furnishings?", a: "Class 8 (20% per year) covers furniture and appliances like beds, couches, fridges, and washers. Class 12 (100%) covers linens, towels, dishes, cutlery, and kitchen utensils under $500. Class 50 (55%) covers electronics like smart locks, security cameras, and noise monitors. These don't affect your principal residence exemption." },
+  { q: "Does part-time Airbnb use trigger a change of use?", a: "Not if three conditions are met: the rental use is relatively small compared to personal use, you made no structural changes, and you don't claim CCA on the building. If you live in your home most of the year and Airbnb it when you travel, CRA treats this as continued personal use. No deemed disposition. Full principal residence exemption." },
+  { q: "What if I Airbnb all 180 nights in Toronto?", a: "At 180 out of 365 nights (~49% rental use), you're in a grey area. CRA could argue the rental use is no longer 'relatively small.' The safest approach: don't claim building CCA and don't make structural changes. That keeps your principal residence exemption intact and preserves the 45(2) election as a backup if CRA ever challenges." },
+  { q: "What is the 45(2) election?", a: "If you move out and convert your home to a full-time Airbnb, CRA treats it as if you sold the property. The 45(2) election defers this and lets you keep designating the home as your principal residence for up to 4 more years while it's rented. The one condition: you must never claim CCA on the building, or the election is voided." },
+  { q: "Do I need to collect HST on my Airbnb income?", a: "If your total STR revenue exceeds $30,000 per year, you must register for HST (13%). Below that, registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." },
+  { q: "What happens to my principal residence exemption when I sell?", a: "If you never claimed CCA on the building, made no structural changes for rental purposes, and your rental use was ancillary, the full exemption applies. The entire capital gain is tax-free. This is why protecting the PRE matters more than any CCA deduction." }
 ];
 
 const relatedPosts = [
   { title: 'Airbnb Taxes Canada 2026: GTA Host Tax Guide', href: '/blog/airbnb-taxes-canada-gta-guide-2026', description: 'Income tax, HST registration, MAT, and deductible expenses for Ontario hosts' },
-  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Principal residence rules and which Ontario cities allow investment property STRs' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to Toronto STR regulations including the 180-night limit' },
   { title: 'Airbnb Insurance Ontario Host Guide 2026', href: '/blog/airbnb-insurance-ontario-host-guide-2026', description: 'Liability coverage, AirCover gaps, and what Ontario hosts actually need' }
 ];
 
 const tocItems = [
+  { id: 'the-big-picture', text: 'The Big Picture' },
   { id: 'what-is-cca', text: 'What Is CCA?' },
-  { id: 'cca-classes', text: 'CCA Classes for Airbnb Hosts' },
-  { id: 'the-cca-trap', text: 'The CCA Trap (Read This First)' },
-  { id: 'when-cca-worth-it', text: 'When CCA IS Worth Claiming' },
+  { id: 'what-to-claim', text: 'What to Claim (Contents)' },
+  { id: 'what-not-to-claim', text: 'What NOT to Claim (Building)' },
+  { id: 'the-cca-trap', text: 'The CCA Trap' },
   { id: 'change-of-use', text: 'Change of Use Rules' },
-  { id: 'election-45-2', text: 'The 45(2) Election' },
-  { id: 'election-45-3', text: 'The 45(3) Election' },
-  { id: 'scenarios', text: 'GTA Host Scenarios' },
+  { id: 'the-45-2-election', text: 'The 45(2) Election' },
   { id: 'section-67-7', text: 'Section 67.7 Warning' },
   { id: 'tips', text: 'Golden Rules' },
   { id: 'faqs', text: 'FAQs' }
 ];
 
 const pageTitle = "Airbnb CCA & Capital Gains Tax Guide 2026";
-const pageDescription = "CCA for Airbnb hosts: which classes to claim, the CCA trap, 45(2) and 45(3) elections, recapture rules, and when to skip building depreciation. Complete 2026 guide.";
+const pageDescription = "CCA for GTA Airbnb hosts: claim furniture and linens, never claim the building. Protect your principal residence exemption. Complete 2026 guide.";
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -87,7 +86,7 @@ const pageSchema = [articleSchema, faqSchema];
       <div class="article-meta">
         <span class="meta-date">Published March 15, 2026</span>
         <span class="meta-separator">&middot;</span>
-        <span class="meta-read-time">14 min read</span>
+        <span class="meta-read-time">10 min read</span>
       </div>
     </div>
   </section>
@@ -108,58 +107,67 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead"><strong>Capital Cost Allowance (CCA) is the most misunderstood tax tool in the Airbnb world.</strong> Claimed correctly, it shelters thousands in annual income. Claimed on the wrong asset, it can cost you six figures in capital gains when you sell.</p>
-            <p class="lead">If you're hosting in the GTA, here's what makes this especially important: <strong>Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville all require your Airbnb to be your principal residence.</strong> That means the property you're renting to guests is likely the same one you'll want the principal residence exemption on when you sell. One wrong CCA claim on the building and you could lose that exemption on hundreds of thousands of dollars in gains.</p>
-            <p class="lead">This guide covers every CCA class relevant to Airbnb hosts, the recapture trap, and the two elections (45(2) and 45(3)) that can shelter years of appreciation. Every scenario is written with GTA principal residence hosts in mind.</p>
+            <p class="lead">If you Airbnb in the GTA, your property is almost certainly your principal residence. Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville all require it. That means the home you're renting to guests is the same one you'll want the <strong>principal residence exemption (PRE)</strong> on when you sell.</p>
+            <p class="lead">The PRE can shelter hundreds of thousands of dollars in capital gains, completely tax-free. <strong>One wrong CCA claim on the building can put that at risk.</strong> This guide explains what CCA you should claim, what you should never touch, and what to do if your living situation changes.</p>
           </div>
 
           <div class="warning-box">
             <h4>Not Tax Advice</h4>
-            <p>This article is for informational purposes only. CCA, capital gains, and the section 45 elections are complex and depend on your specific situation. Consult a CPA or tax professional before making decisions. The scenarios below are simplified illustrations, not recommendations.</p>
+            <p>This article is for informational purposes only. Consult a CPA or tax professional before making decisions. The examples below are simplified illustrations, not recommendations.</p>
+          </div>
+
+          <h2 id="the-big-picture">The Big Picture</h2>
+          <p>Here's the one-sentence version: <strong>Claim CCA on your furniture, linens, and electronics. Never claim CCA on the building.</strong></p>
+
+          <p>That's it. If you remember nothing else from this article, remember that. Here's why it matters:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">CCA on Contents</div>
+              <div class="comparison-col highlight">CCA on Building</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Saves you real money every year</div>
+              <div class="comparison-col highlight">Saves you money now, but you pay it ALL back when you sell (recapture)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Does NOT affect your principal residence exemption</div>
+              <div class="comparison-col highlight"><strong>Can destroy your principal residence exemption</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Safe to claim every year</div>
+              <div class="comparison-col highlight">Voids the 45(2) election if you ever move out</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Items genuinely lose value</div>
+              <div class="comparison-col highlight">Toronto buildings appreciate, making recapture worse</div>
+            </div>
           </div>
 
           <h2 id="what-is-cca">What Is CCA?</h2>
-          <p>CCA is Canada's version of depreciation. Instead of deducting the full cost of a capital asset (like a building or furniture) in the year you buy it, CRA requires you to deduct it gradually over time using prescribed rates for each asset class.</p>
+          <p>CCA (Capital Cost Allowance) is Canada's version of depreciation. Instead of deducting the full cost of furniture or equipment in the year you buy it, CRA requires you to deduct it gradually using prescribed rates for each type of asset.</p>
 
-          <p>For Airbnb hosts, CCA applies to two categories of assets:</p>
-          <ul>
-            <li><strong>The building itself</strong> (the structure, not the land). This is where the trap lives.</li>
-            <li><strong>The contents</strong> (furniture, appliances, linens, electronics). This is where the easy wins are.</li>
-          </ul>
+          <p>Every depreciable asset falls into a "class" with a specific annual deduction rate. The classes that matter for Airbnb hosts are straightforward.</p>
 
-          <p>Land is never depreciable. When you buy a property, you need to split the purchase price between land and building using your MPAC assessment, an appraisal, or your purchase agreement.</p>
-
-          <h2 id="cca-classes">CCA Classes for Airbnb Hosts</h2>
-          <p>Every depreciable asset falls into a CCA class with a specific annual rate. Here are the classes that matter for short-term rental operators:</p>
+          <h2 id="what-to-claim">What to Claim: Contents (Furniture, Linens, Electronics)</h2>
+          <p>These are safe to claim. They don't affect your principal residence exemption, and they genuinely lose value over time.</p>
 
           <div class="comparison-table">
             <div class="comparison-header">
-              <div class="comparison-col">Class & Rate</div>
+              <div class="comparison-col">CCA Class & Rate</div>
               <div class="comparison-col highlight">What It Covers</div>
             </div>
             <div class="comparison-row">
-              <div class="comparison-col"><strong>Class 1 (4%)</strong></div>
-              <div class="comparison-col highlight">Buildings acquired after 1987. The building portion of your Airbnb property. <strong>Danger zone for PRE.</strong></div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col"><strong>Class 8 (20%)</strong></div>
-              <div class="comparison-col highlight">Furniture (beds, couches, tables), appliances (fridge, stove, washer, dryer), fixtures, tools over $500. The "catch-all" class.</div>
-            </div>
-            <div class="comparison-row">
               <div class="comparison-col"><strong>Class 12 (100%)</strong></div>
-              <div class="comparison-col highlight">Linens, towels, sheets, dishes, cutlery, kitchen utensils, tools under $500. <strong>Full write-off in year one.</strong></div>
+              <div class="comparison-col highlight">Linens, towels, sheets, dishes, cutlery, kitchen utensils, tools under $500. <strong>Full write-off.</strong></div>
             </div>
             <div class="comparison-row">
-              <div class="comparison-col"><strong>Class 50 (55%)</strong></div>
-              <div class="comparison-col highlight">Computers, smart locks, security cameras, noise monitors, smart thermostats, tablets, Wi-Fi routers.</div>
+              <div class="comparison-col"><strong>Class 8 (20%/year)</strong></div>
+              <div class="comparison-col highlight">Furniture (beds, couches, tables, dressers), appliances (fridge, stove, washer, dryer, microwave).</div>
             </div>
             <div class="comparison-row">
-              <div class="comparison-col"><strong>Class 10 (30%)</strong></div>
-              <div class="comparison-col highlight">Motor vehicles used for property management (visiting your STR, picking up supplies, meeting guests).</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col"><strong>Class 13 (varies)</strong></div>
-              <div class="comparison-col highlight">Leasehold improvements. If you lease a property and renovate it for Airbnb use, amortized over the lease term.</div>
+              <div class="comparison-col"><strong>Class 50 (55%/year)</strong></div>
+              <div class="comparison-col highlight">Smart locks, security cameras, noise monitors, Wi-Fi routers, tablets, computers.</div>
             </div>
           </div>
 
@@ -172,194 +180,62 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>Class 12 is your best friend.</strong> Linens, towels, dishes, and utensils are 100% deductible. You replace these regularly anyway. A $2,000 linen refresh is a full deduction in year one (subject to the half-year rule, so $1,000 the first year, $1,000 the second). Keep your receipts.
+              <strong>Class 12 is your best friend.</strong> Towels, sheets, dishes, and utensils are 100% deductible. A $2,000 linen refresh is a full write-off. You replace these regularly anyway. Keep your receipts.
             </div>
           </div>
+
+          <h3>How to Prorate</h3>
+          <p>Since you live in the property and also Airbnb it, you prorate CCA by rental use. The simplest method: <strong>nights rented / 365</strong>.</p>
+          <ul>
+            <li>Airbnb 120 nights/year = ~33% rental use</li>
+            <li>Airbnb 180 nights/year (Toronto max for entire home) = ~49% rental use</li>
+          </ul>
+          <p>Apply that percentage to your CCA claim. If you bought $5,000 in Class 8 furniture and Airbnb 120 nights, your CCA is: $5,000 x 20% x 33% = $330 deduction.</p>
 
           <h3>The Half-Year Rule</h3>
-          <p>In the year you acquire depreciable property, you can only claim CCA on half of the net additions. This means a $10,000 Class 8 furniture purchase in year one gives you: 20% x ($10,000 x 50%) = $1,000 in CCA, not $2,000.</p>
+          <p>In the year you buy something, you can only claim CCA on half of the cost. So $10,000 in Class 8 furniture gives you: 20% x ($10,000 x 50%) = $1,000 in year one, then the full rate in following years.</p>
 
-          <p>For 2025 and later acquisitions, the Reaccelerated Investment Incentive Property (RIIP) rules may suspend the half-year rule and provide enhanced first-year CCA (up to 3x the normal rate). Ask your accountant whether your purchases qualify.</p>
+          <h2 id="what-not-to-claim">What NOT to Claim: The Building</h2>
+          <p>The building portion of your property falls into <strong>Class 1 (4% per year)</strong>. On a $500,000 condo where $400,000 is the building, that's about $16,000 in CCA the first year, or roughly $5,000 to $7,000 in tax savings depending on your bracket.</p>
 
-          <h2 id="the-cca-trap">The CCA Trap: Why Building CCA Can Cost You More Than It Saves</h2>
-          <p>This is the single most important section in this guide. Read it twice.</p>
+          <p>Sounds appealing. Here's why it's a trap for principal residence hosts.</p>
 
-          <p>Here's the trap in plain English:</p>
-          <ol>
-            <li><strong>You claim CCA on the building</strong> over several years, saving tax at your marginal rate</li>
-            <li><strong>You sell the property</strong></li>
-            <li><strong>CCA recapture kicks in</strong>: the CCA you claimed is added back to your income at <strong>100% inclusion</strong> (ordinary income, not capital gains)</li>
-            <li><strong>Net result:</strong> you saved tax at 43% and paid it back at 43%. Zero net benefit. You just deferred the tax.</li>
-            <li><strong>Bonus damage:</strong> by claiming CCA on the building, you permanently blocked the 45(3) election and voided any 45(2) election, which could have sheltered far more gains than the CCA ever saved</li>
-          </ol>
+          <h2 id="the-cca-trap">The CCA Trap: How $5K in Savings Can Cost You $100K+</h2>
 
-          <h3>The Math That Kills</h3>
-          <p>Let's say you buy a Toronto condo for $500,000 ($400K building, $100K land) and Airbnb it for 10 years.</p>
+          <h3>Problem 1: Recapture</h3>
+          <p>When you sell, every dollar of building CCA you claimed gets added back to your income at <strong>100% inclusion</strong>. Not 50% like a capital gain. The full amount.</p>
+          <p>If you claimed $60,000 in building CCA over 10 years and sell, that $60,000 is taxed as ordinary income. At a 43% marginal rate, you owe $25,800. The same $25,800 you "saved" over the decade. <strong>Net benefit: zero.</strong> You just deferred the tax.</p>
 
-          <div class="comparison-table">
-            <div class="comparison-header">
-              <div class="comparison-col">Scenario</div>
-              <div class="comparison-col highlight">With Building CCA vs Without</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">CCA claimed (10 years)</div>
-              <div class="comparison-col highlight"><strong>~$60,000</strong> vs $0</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">Tax saved (at 43%)</div>
-              <div class="comparison-col highlight"><strong>~$25,800</strong> vs $0</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">Recapture on sale (100% income)</div>
-              <div class="comparison-col highlight"><strong>$25,800 tax</strong> vs $0</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">Net CCA benefit</div>
-              <div class="comparison-col highlight"><strong>$0</strong> (tax deferral only)</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">45(2)/45(3) elections available?</div>
-              <div class="comparison-col highlight"><strong>No (permanently blocked)</strong> vs Yes</div>
-            </div>
-            <div class="comparison-row">
-              <div class="comparison-col">Potential PRE shelter lost</div>
-              <div class="comparison-col highlight"><strong>4+ years of capital gains</strong> vs Fully available</div>
-            </div>
-          </div>
-
-          <p>The $25,800 in CCA "savings" was just a tax deferral. And it cost you access to elections that could shelter $50,000 to $200,000+ in capital gains. That's not a trade-off. That's a mistake.</p>
-
-          <h2 id="when-cca-worth-it">When CCA IS Worth Claiming</h2>
-
-          <h3>Always Claim: Contents (Furniture, Linens, Electronics)</h3>
-          <p>CCA on contents is almost always worth it. These items genuinely depreciate, you'll rarely sell them for more than their UCC, and they don't affect your principal residence exemption. Claim Class 8, Class 12, and Class 50 without hesitation.</p>
-
-          <h3>Sometimes Claim: Building CCA</h3>
-          <p>Building CCA makes sense in a narrow set of circumstances:</p>
-          <ul>
-            <li><strong>Pure investment property</strong> that was never and will never be your principal residence (no PRE to protect, no 45(2)/45(3) to preserve)</li>
-            <li><strong>Corporate ownership</strong> at the 12.2% small business rate now, with plans to withdraw at personal rates later (the rate differential creates a real deferral benefit)</li>
-            <li><strong>You plan to refinance, not sell.</strong> If you never trigger a disposition, recapture never hits</li>
-            <li><strong>High bracket now, low bracket later.</strong> If you're at 53% marginal rate today and expect to be at 33% when you sell, CCA creates a real savings (not just deferral)</li>
-            <li><strong>Long hold periods</strong> where the time value of deferred tax is meaningful (20+ years)</li>
-          </ul>
-
-          <h3>Never Claim: Building CCA on These</h3>
-          <ul>
-            <li>Your principal residence that you Airbnb part-time</li>
-            <li>A property you might move back into (kills 45(2))</li>
-            <li>A rental you might move into someday (kills 45(3) permanently)</li>
-            <li>Any property in a high-appreciation market where PRE shelter is worth more than CCA savings</li>
-          </ul>
-
-          <h2 id="change-of-use">Change of Use: When CRA Says You "Sold" Without Selling</h2>
-          <p>When a property changes from personal use to income-producing (or vice versa), CRA treats it as a "deemed disposition" at fair market value. You're treated as if you sold and immediately repurchased the property. This can trigger capital gains tax even though no money changed hands.</p>
-
-          <h3>When Change of Use Applies</h3>
-          <ul>
-            <li>You move out of your home and start Airbnbing it full-time</li>
-            <li>You stop renting a property and move into it</li>
-            <li>You convert a significant portion of your home from personal to rental use</li>
-          </ul>
-
-          <h3>When Change of Use Does NOT Apply</h3>
-          <p>CRA will not treat part-time Airbnb use as a change of use if all three conditions are met:</p>
+          <h3>Problem 2: Your Principal Residence Exemption</h3>
+          <p>This is the real cost. CRA's guidance (Income Tax Folio S1-F3-C2) says your part-time Airbnb use does <strong>not</strong> trigger a change of use as long as:</p>
           <ol>
             <li>The rental use is <strong>relatively small</strong> compared to personal use</li>
-            <li>You made <strong>no structural changes</strong> to make the property more suitable for rental</li>
-            <li>You <strong>don't claim CCA</strong> on the building</li>
+            <li>You made <strong>no structural changes</strong> for rental purposes</li>
+            <li>You <strong>don't claim CCA on the building</strong></li>
           </ol>
-          <p>This is the safe harbour for hosts who live in their condo most of the year and Airbnb it when they travel. No change of use. Full PRE intact.</p>
+          <p>All three must be true. Fail condition #3 by claiming building CCA, and CRA can treat the property as partially converted to income use. That means a portion of your capital gain when you sell is <strong>not sheltered</strong> by the PRE.</p>
 
-          <h2 id="election-45-2">The 45(2) Election: Principal Residence to Rental</h2>
-          <p>This election is for people who <strong>move out</strong> of their home and start renting it (including as an Airbnb).</p>
+          <p>On a Toronto condo that appreciated $300,000, losing even a partial PRE could mean $30,000 to $75,000+ in capital gains tax. Compare that to the $5,000/year you saved with building CCA. The math doesn't work.</p>
 
-          <h3>What It Does</h3>
-          <p>Without the election, moving out and renting triggers a deemed disposition at fair market value. The 45(2) election says: "Pretend no change of use happened." No deemed disposition. No immediate tax. You continue treating the property as your principal residence.</p>
+          <h3>Problem 3: You Lose Your Safety Net</h3>
+          <p>The 45(2) election (explained below) is your backup plan if you ever move out and convert the property to a full-time rental. It lets you keep the PRE for up to 4 more years. But it only works if you <strong>never claimed building CCA</strong>. One year of building CCA voids it permanently.</p>
 
-          <h3>The 4-Year Bonus</h3>
-          <p>With the election in place, you can designate the property as your principal residence for <strong>up to 4 additional years</strong> while it's being rented, even though you don't live there. Combined with the "+1 rule" in the PRE formula (which gives you one free year), that's <strong>up to 5 years</strong> of capital gains shelter.</p>
+          <h2 id="change-of-use">Change of Use: What Happens If Your Situation Changes</h2>
+          <p>As long as you live in your home and Airbnb it part-time (no building CCA, no structural changes), CRA sees no change of use. Your PRE is fully intact. But life happens. Here's what to know if things change.</p>
 
-          <h3>How to File</h3>
-          <p>Attach a signed letter to your income tax return for the year the change of use occurs. The letter should identify the property and state you are electing under subsection 45(2) of the Income Tax Act. If you e-file, mail the letter separately to your tax centre.</p>
+          <h3>If You Keep Living There and Airbnbing Part-Time</h3>
+          <p>This is the typical GTA host. Nothing to worry about. No change of use. No election needed. No deemed disposition. Just report your rental income on T776, prorate your expenses, claim CCA on contents, and skip the building.</p>
 
-          <h3>The One Condition That Matters</h3>
-          <p><strong>Do not claim CCA on the building.</strong> If you claim CCA on the building in any year, the election is automatically rescinded on January 1 of that year. Gone. No take-backs. CCA on contents (furniture, linens) is fine.</p>
+          <h3>If You Max Out 180 Nights in Toronto</h3>
+          <p>At 180 out of 365 nights (~49% rental use), you're in a grey area. CRA could argue the rental is no longer "relatively small." The safest approach:</p>
+          <ul>
+            <li><strong>Don't claim building CCA.</strong> This is non-negotiable at high rental use.</li>
+            <li><strong>Don't make structural changes.</strong> Converting a den into a "guest suite" counts.</li>
+            <li>If CRA ever challenges, having never claimed building CCA means the 45(2) election is available as a backup.</li>
+          </ul>
 
-          <div class="strategy-box good">
-            <h4>When 45(2) Makes Sense</h4>
-            <ul>
-              <li>You're <strong>moving temporarily</strong> (job relocation, renovation, family reasons) and plan to return within a few years</li>
-              <li>The property has <strong>significant unrealized gains</strong> you want to shelter</li>
-              <li>You're in a <strong>high-appreciation market</strong> (Toronto, Vancouver) where 4 years of gains can be substantial</li>
-              <li>You're relocating for work and qualify for the <strong>section 54.1 extension</strong> (employer-required move 40+ km farther), which <strong>removes the 4-year cap entirely</strong></li>
-            </ul>
-          </div>
-
-          <div class="strategy-box bad">
-            <h4>When 45(2) Does NOT Make Sense</h4>
-            <ul>
-              <li>You've <strong>permanently left</strong> and will never return. Beyond 4 years, the remaining gains are fully taxable anyway.</li>
-              <li>You <strong>need building CCA deductions</strong> to make the rental cash-flow positive. Claiming CCA kills the election.</li>
-              <li>You already <strong>own another home</strong> you want to designate as your principal residence. You can only designate one property per family per year.</li>
-              <li>The property <strong>hasn't appreciated much</strong>. If there's minimal gain to shelter, the election doesn't save you anything.</li>
-              <li>You're holding a <strong>pure investment property</strong> that was never your principal residence. The election only applies to properties that were your principal residence first.</li>
-            </ul>
-          </div>
-
-          <h3>What Happens After 4 Years?</h3>
-          <p>The election itself doesn't expire, but the PRE designation benefit is capped at 4 years (plus the +1). Any appreciation after the 4-year window is fully taxable as a capital gain when you sell.</p>
-
-          <p><strong>Exception:</strong> Under section 54.1, if you relocated for an employer-required move (not self-initiated) and the new workplace is 40+ km farther from the property, the 4-year limit is removed entirely. You can designate the property as your principal residence for the entire rental period.</p>
-
-          <h2 id="election-45-3">The 45(3) Election: Rental to Principal Residence</h2>
-          <p>This election is for people who <strong>buy a rental/investment property</strong>, operate it (including as an Airbnb), and then <strong>later move into it</strong> as their home.</p>
-
-          <h3>What It Does</h3>
-          <p>Without the election, moving into a rental property triggers a deemed disposition. The 45(3) election defers this. But the real power is what comes next.</p>
-
-          <h3>The 4-Year Retroactive Designation</h3>
-          <p>When you eventually sell the property, the 45(3) election lets you <strong>retroactively designate up to 4 years</strong> of the rental period as principal residence years, even though you weren't living there. Combined with the +1 rule, that's up to 5 years of shelter.</p>
-
-          <h3>When to File</h3>
-          <p>Here's a critical difference from 45(2): you <strong>file the 45(3) election when you sell the property</strong>, not when you move in. Attach a signed letter to your tax return for the year of sale.</p>
-
-          <h3>The Permanent Disqualifier</h3>
-
-          <div class="warning-box">
-            <h4>If you ever claimed CCA on the building after 1984, the 45(3) election is permanently unavailable.</h4>
-            <p>This is absolute. Section 45(4) of the Income Tax Act completely nullifies the 45(3) election if CCA was claimed on the building in any year after 1984. There is no workaround, no appeal, no exception. One year of building CCA permanently kills the option.</p>
-          </div>
-
-          <div class="strategy-box good">
-            <h4>When 45(3) Makes Sense</h4>
-            <ul>
-              <li>You bought an <strong>investment property</strong>, Airbnbed it for a few years, and now want to move in</li>
-              <li>The property <strong>appreciated significantly</strong> during the rental years</li>
-              <li>You <strong>never claimed CCA on the building</strong> (contents are fine)</li>
-              <li>You <strong>don't need to designate another property</strong> as your principal residence for those retroactive years</li>
-            </ul>
-          </div>
-
-          <div class="strategy-box bad">
-            <h4>When 45(3) Does NOT Make Sense</h4>
-            <ul>
-              <li>You <strong>claimed CCA on the building</strong> at any point after 1984. The election is permanently blocked. No exceptions.</li>
-              <li>You had <strong>another property designated</strong> as principal residence during the rental years. You can't double-dip.</li>
-              <li>The property <strong>didn't appreciate</strong> during the rental period. If there's no gain to shelter, the election doesn't save anything.</li>
-              <li>You <strong>only rented it for a year or two</strong>. The +1 rule already covers one year for free. The election adds value mainly when the rental period is 2 to 4 years.</li>
-            </ul>
-          </div>
-
-          <h3>Common 45(3) Mistakes</h3>
-          <ol>
-            <li><strong>Claiming building CCA and hoping to use 45(3) later.</strong> This is the #1 mistake. Once CCA is claimed on the building, the election is gone forever.</li>
-            <li><strong>Filing at the wrong time.</strong> The election is filed when you sell, not when you move in.</li>
-            <li><strong>Not getting an appraisal.</strong> You need fair market value documentation at the time of change of use, even if you plan to elect. Get an appraisal when you move in.</li>
-            <li><strong>Forgetting about the +1 rule.</strong> The retroactive 4 years plus the +1 gives you 5 years of designation, not 4.</li>
-          </ol>
-
-          <h2 id="scenarios">Real Scenarios for GTA Hosts</h2>
+          <h3>If You Move Out</h3>
+          <p>Moving out and renting full-time triggers a <strong>deemed disposition</strong> at fair market value. CRA treats you as if you sold and immediately repurchased the property. This is where the 45(2) election comes in.</p>
 
           <div class="callout">
             <div class="callout-icon">
@@ -370,87 +246,64 @@ const pageSchema = [articleSchema, faqSchema];
               </svg>
             </div>
             <div class="callout-content">
-              <strong>GTA reality check:</strong> Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville all require your Airbnb to be your <strong>principal residence</strong>. That means most GTA hosts are Airbnbing the same home they live in and plan to sell someday. The principal residence exemption (PRE) is worth far more than any CCA claim. Protect it.
+              <strong>GTA compliance note:</strong> If you move out, your property may no longer qualify as a short-term rental under Toronto, Mississauga, Brampton, or other cities that require principal residence. You might need to switch to mid-term rentals (30+ days), which are typically exempt from STR rules. Talk to a bylaw expert before assuming you can keep Airbnbing after you move out.
             </div>
           </div>
 
-          <h3>Scenario 1: The Typical GTA Host (Most Common)</h3>
-          <p><em>You live in your Toronto condo full-time and Airbnb it when you travel, or you rent a spare bedroom while you're home. This is the most common setup in the GTA because of the principal residence requirement.</em></p>
+          <h2 id="the-45-2-election">The 45(2) Election: If You Move Out</h2>
+          <p>The 45(2) election is your safety net for the "I moved out" scenario. Here's how it works in plain English.</p>
+
+          <h3>What It Does</h3>
+          <p>It tells CRA: "Pretend I didn't move out. No change of use happened." This means:</p>
           <ul>
-            <li><strong>Change of use?</strong> No. The rental use is ancillary to your personal use, you made no structural changes, and you're not claiming building CCA. CRA sees this as continued personal use.</li>
-            <li><strong>Principal residence exemption?</strong> Fully intact. When you sell, the full gain is sheltered.</li>
-            <li><strong>Claim CCA on building?</strong> Absolutely not. Your condo is your principal residence. Building CCA would threaten the PRE that could shelter $200K+ in gains.</li>
-            <li><strong>Claim CCA on contents?</strong> Yes. Furniture (Class 8), linens and towels (Class 12), smart lock and noise monitor (Class 50). These don't affect your PRE at all.</li>
-            <li><strong>Election needed?</strong> Neither. No change of use means no deemed disposition. Nothing to elect.</li>
-            <li><strong>Report income?</strong> Yes, on T776. Prorate expenses by rental use (nights rented / 365). If you Airbnb 120 nights, that's ~33% rental use.</li>
-            <li><strong>Bottom line:</strong> Claim CCA on contents, deduct your prorated expenses, and never touch building CCA. This is the simplest and safest setup.</li>
+            <li>No deemed disposition (no immediate capital gains tax)</li>
+            <li>You can keep designating the property as your principal residence for <strong>up to 4 more years</strong> while it's rented</li>
+            <li>Combined with the "+1 rule" in the PRE formula, that's <strong>up to 5 years</strong> of gains sheltered</li>
           </ul>
 
-          <h3>Scenario 2: You Max Out 180 Nights in Toronto</h3>
-          <p><em>You live in your Toronto home and Airbnb the entire unit for the full 180 nights allowed per year (the maximum for entire-home rentals). You live there the other 185 nights.</em></p>
+          <h3>How to File</h3>
+          <p>Attach a signed letter to your income tax return for the year you moved out. The letter should identify the property address and state you are electing under subsection 45(2) of the Income Tax Act. If you e-file, mail the letter separately to your tax centre.</p>
+
+          <h3>The One Condition</h3>
+          <p><strong>You must never have claimed CCA on the building.</strong> If you claim building CCA in any year, the election is automatically rescinded on January 1 of that year. Gone. No take-backs. This is why we keep repeating: never claim building CCA on your principal residence.</p>
+
+          <h3>When It Makes Sense</h3>
           <ul>
-            <li><strong>Change of use?</strong> This is the grey area. At 180/365 nights (~49% rental use), the rental is no longer "relatively small." CRA could argue a partial change of use.</li>
-            <li><strong>How to stay safe:</strong> Do NOT claim CCA on the building. As long as you skip building CCA and made no structural changes, CRA's guidance in Income Tax Folio S1-F3-C2 supports continued principal residence status.</li>
-            <li><strong>Claim CCA on contents?</strong> Yes, prorated to ~49% rental use.</li>
-            <li><strong>What if CRA challenges?</strong> If they treat 180 nights as a partial change of use, you'd want the 45(2) election as backup. But this only works if you never claimed building CCA.</li>
-            <li><strong>Bottom line:</strong> The higher your rental use, the more critical it is to avoid building CCA. Your safety net (the 45(2) election) only works if the building CCA box stays empty.</li>
+            <li>You're <strong>moving temporarily</strong> (job relocation, moving in with a partner, renovating) and plan to return within a few years</li>
+            <li>The property has <strong>significant unrealized gains</strong> (most Toronto properties do)</li>
+            <li>You're relocating for work and qualify for the <strong>section 54.1 extension</strong> (employer-required move 40+ km farther), which <strong>removes the 4-year cap entirely</strong></li>
           </ul>
 
-          <h3>Scenario 3: You Move Out and Convert to Full-Time Airbnb</h3>
-          <p><em>You own a home in Mississauga. You move in with a partner across town and convert your place entirely to Airbnb. Note: under Mississauga's rules, the property must be your principal residence, so you'd need to maintain it as such or switch to mid-term rentals (30+ days).</em></p>
+          <h3>When It Doesn't Help</h3>
           <ul>
-            <li><strong>Change of use?</strong> Yes. Moving out and renting full-time triggers a deemed disposition at fair market value.</li>
-            <li><strong>File 45(2)?</strong> Yes, immediately. Attach a signed letter to your return for the year you moved out. This defers the deemed disposition and lets you keep designating the property as your principal residence for up to 4 more years (5 with the +1 rule).</li>
-            <li><strong>Claim CCA on building?</strong> No. Claiming CCA voids the 45(2) election. You'd lose years of PRE designation.</li>
-            <li><strong>Claim CCA on contents?</strong> Yes.</li>
-            <li><strong>STR compliance warning:</strong> If the city requires principal residence and you've moved out, you may not be eligible to STR the property at all. Section 67.7 would deny all your deductions. Consider mid-term rentals (30+ days) as an alternative, which are typically exempt from STR rules.</li>
-            <li><strong>If employer-required relocation (40+ km):</strong> The 4-year cap is removed entirely under section 54.1. This is the best case scenario for the 45(2) election.</li>
-            <li><strong>Bottom line:</strong> The 45(2) election is powerful but only works for a few years. And in regulated GTA cities, moving out creates a compliance problem beyond just taxes. Talk to both your accountant and a bylaw expert.</li>
+            <li>You've <strong>permanently left</strong> and will never return. After 4 years, the remaining gains are taxable anyway.</li>
+            <li>You already <strong>claimed building CCA</strong>. The election is already dead.</li>
+            <li>You own <strong>another home</strong> you want to designate as principal residence. You can only designate one property per family per year.</li>
           </ul>
 
-          <h3>Scenario 4: You Buy a Condo, Rent It, Then Move In</h3>
-          <p><em>You buy a second condo in Hamilton. You can't Airbnb it short-term (Hamilton requires principal residence), so you rent it mid-term (30+ days) or long-term for a few years. Then you move in and it becomes your home.</em></p>
+          <h2 id="section-67-7">Section 67.7: Get Your License or Lose Everything</h2>
+          <p>Since January 2024, the CRA denies <strong>all expense deductions</strong> (including CCA on contents) for short-term rentals that don't comply with local laws.</p>
+
+          <p>For GTA hosts, this means:</p>
           <ul>
-            <li><strong>During rental years:</strong> Report income on T776. Claim CCA on contents. <strong>Never claim CCA on the building.</strong></li>
-            <li><strong>When you move in:</strong> This triggers a deemed disposition at FMV. Get an appraisal at the time you move in.</li>
-            <li><strong>When you eventually sell:</strong> File the 45(3) election with that year's return. Retroactively designate up to 4 years of the rental period as principal residence (5 with the +1 rule).</li>
-            <li><strong>If you had claimed building CCA:</strong> The 45(3) election is permanently unavailable. The entire appreciation during rental years is fully taxable. In Toronto or Hamilton, that could be $50K to $200K+ over a few years.</li>
-            <li><strong>Bottom line:</strong> If there's any chance you'll move into a rental property someday, never claim building CCA. The 45(3) election is too valuable to lose.</li>
+            <li><strong>No Toronto STR registration?</strong> All deductions denied.</li>
+            <li><strong>No Mississauga license?</strong> All deductions denied.</li>
+            <li><strong>Exceeding Toronto's 180-night limit?</strong> Deductions denied for the excess nights.</li>
+            <li>You'd be taxed on <strong>gross rental income</strong> with zero deductions: no mortgage interest, no property tax, no cleaning, no CCA, nothing.</li>
+            <li>CRA can reassess you <strong>indefinitely</strong> for non-compliant STR deductions. No time limit.</li>
           </ul>
 
-          <h3>Scenario 5: Cottage Country (Muskoka, Blue Mountains)</h3>
-          <p><em>You own a Muskoka cottage, use it in summer, and Airbnb it the rest of the year.</em></p>
-          <ul>
-            <li><strong>Change of use?</strong> Likely no, if rental is supplementary to personal use and no structural changes were made.</li>
-            <li><strong>PRE choice:</strong> You can designate the cottage OR your city home as principal residence each year, not both. Designate whichever had the most appreciation that year.</li>
-            <li><strong>CCA on building?</strong> No. Keep PRE flexibility for both properties. You might want to designate the cottage in a year it appreciates significantly.</li>
-            <li><strong>CCA on contents?</strong> Yes.</li>
-            <li><strong>Bottom line:</strong> Cottage owners have the most PRE flexibility (you can switch between properties year to year), but building CCA on either property eliminates that flexibility.</li>
-          </ul>
+          <p>Bottom line: get your license, stay compliant, and then claim your CCA on contents. For the full list of which cities require what, see our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Airbnb Taxes Canada guide</a>.</p>
 
-          <h2 id="section-67-7">Section 67.7: The Non-Compliance Nuclear Option</h2>
-          <p>Since January 2024, the CRA denies <strong>all expense deductions</strong> (including CCA) for short-term rentals that don't comply with provincial or municipal laws.</p>
-
-          <p>In practice, this means:</p>
-          <ul>
-            <li>If your municipality requires an STR license and you don't have one, <strong>every deduction is denied</strong></li>
-            <li>You'd be taxed on <strong>gross rental income</strong> with zero deductions: no mortgage interest, no property tax, no cleaning, no CCA, nothing</li>
-            <li>CRA can reassess you <strong>indefinitely</strong> for non-compliant STR deductions (no normal reassessment time limit)</li>
-            <li>The denial is proportional: non-compliant days / total STR days x deductions</li>
-          </ul>
-
-          <p>Cities like Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville, Waterloo, and Burlington all require STR licenses. Unregulated cities like Cambridge, Kitchener, Ajax, and Pickering don't have this risk since there's no local law to violate. See our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Airbnb Taxes Canada guide</a> for the full breakdown.</p>
-
-          <h2 id="tips">The Golden Rules</h2>
+          <h2 id="tips">The Golden Rules for GTA Hosts</h2>
 
           <ul class="tips-list">
-            <li><span class="tip-icon">1</span> <strong>Never claim CCA on the building if you might want the PRE.</strong> This is the rule that trumps all others. The tax savings from building CCA are almost always a deferral, not a reduction. The elections you lose are worth far more.</li>
-            <li><span class="tip-icon">2</span> <strong>Always claim CCA on contents.</strong> Furniture (Class 8), linens (Class 12), electronics (Class 50). These don't affect your PRE and the deductions are real since these items genuinely lose value.</li>
-            <li><span class="tip-icon">3</span> <strong>Get an appraisal at every change of use.</strong> Whether you're moving out or moving in, document the fair market value. You'll need it when you sell, and getting a retroactive appraisal years later is unreliable and expensive.</li>
-            <li><span class="tip-icon">4</span> <strong>File your elections on time.</strong> The 45(2) election goes with the return for the year of change of use. The 45(3) election goes with the return for the year of sale. Late filing is possible but may incur penalties.</li>
-            <li><span class="tip-icon">5</span> <strong>Track your UCC meticulously.</strong> Keep a running balance of undepreciated capital cost for every CCA class. Your accountant will need this when you sell, and reconstructing it years later from old receipts is painful.</li>
-            <li><span class="tip-icon">6</span> <strong>Comply with local STR laws.</strong> Section 67.7 denies all deductions (including CCA) for non-compliant STRs. In regulated cities, get your license. In unregulated cities, stay current on bylaw changes.</li>
-            <li><span class="tip-icon">7</span> <strong>Talk to a CPA before selling.</strong> The interplay between CCA recapture, capital gains, PRE designation, and the section 45 elections is complex. A single conversation with a tax professional before you list your property can save you tens of thousands.</li>
+            <li><span class="tip-icon">1</span> <strong>Never claim CCA on the building.</strong> Your home is your principal residence. The PRE is worth far more than any building CCA deduction. This is the rule that matters most.</li>
+            <li><span class="tip-icon">2</span> <strong>Always claim CCA on contents.</strong> Linens (Class 12, 100%), furniture (Class 8, 20%), electronics (Class 50, 55%). These deductions are real and don't affect your PRE.</li>
+            <li><span class="tip-icon">3</span> <strong>Get your STR license.</strong> Section 67.7 denies all deductions for non-compliant STRs. In Toronto, Mississauga, Brampton, and other regulated cities, your license is the foundation of every tax deduction you claim.</li>
+            <li><span class="tip-icon">4</span> <strong>Prorate by nights rented.</strong> Divide nights rented by 365 to get your rental use percentage. Apply that to all expense deductions and CCA claims.</li>
+            <li><span class="tip-icon">5</span> <strong>Keep receipts for everything.</strong> Every furniture purchase, linen refresh, smart lock, and cleaning supply. Organize by CCA class. Your accountant will thank you.</li>
+            <li><span class="tip-icon">6</span> <strong>Talk to a CPA before selling.</strong> The interplay between CCA recapture, capital gains, and the PRE is complex. One conversation before you list your property can save tens of thousands.</li>
           </ul>
 
           <h2 id="faqs">Frequently Asked Questions</h2>
@@ -465,7 +318,7 @@ const pageSchema = [articleSchema, faqSchema];
 
           <div class="warning-box" style="margin-top: 3rem;">
             <h4>Important: We Are Not Accountants</h4>
-            <p>Nurture is a property management company, not an accounting firm. This article is for informational purposes only and does not constitute legal, tax, or financial advice. CCA rules, capital gains treatment, the section 45 elections, and recapture calculations are complex and depend entirely on your specific circumstances. <strong>Before making any tax decisions based on this article, speak with a licensed accountant or CPA who specializes in real estate or short-term rental taxation.</strong> A single conversation with the right professional can save you tens of thousands of dollars. Tax rules change frequently. Always verify current rules directly with the CRA or your accountant.</p>
+            <p>Nurture is a property management company, not an accounting firm. This article is for informational purposes only and does not constitute legal, tax, or financial advice. CCA rules, capital gains treatment, and the principal residence exemption depend entirely on your specific circumstances. <strong>Before making any tax decisions based on this article, speak with a licensed accountant or CPA who specializes in real estate or short-term rental taxation.</strong> A single conversation with the right professional can save you tens of thousands of dollars. Tax rules change frequently. Always verify current rules directly with the CRA or your accountant.</p>
           </div>
 
           <p><em>This article contains a <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">referral link</a>. We may earn a small commission at no cost to you.</em></p>
@@ -722,46 +575,6 @@ const pageSchema = [articleSchema, faqSchema];
     line-height: 1.7;
   }
 
-  .strategy-box {
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin: 2rem 0;
-  }
-
-  .strategy-box.good {
-    background: #f0faf5;
-    border-left: 4px solid #27ae60;
-  }
-
-  .strategy-box.bad {
-    background: #fdf6f0;
-    border-left: 4px solid #e67e22;
-  }
-
-  .strategy-box h4 {
-    margin-bottom: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-  }
-
-  .strategy-box.good h4 {
-    color: #1e8449;
-  }
-
-  .strategy-box.bad h4 {
-    color: #d35400;
-  }
-
-  .strategy-box ul {
-    margin: 0;
-    padding-left: 1.25rem;
-  }
-
-  .strategy-box li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-  }
-
   .comparison-table {
     background: var(--color-background-alt);
     border-radius: 12px;
@@ -783,7 +596,7 @@ const pageSchema = [articleSchema, faqSchema];
   }
 
   .comparison-header .comparison-col.highlight {
-    background: var(--color-primary);
+    background: #c0392b;
   }
 
   .comparison-row {
@@ -802,34 +615,7 @@ const pageSchema = [articleSchema, faqSchema];
   }
 
   .comparison-row .comparison-col.highlight {
-    background: rgba(117, 155, 143, 0.1);
-  }
-
-  .resources-box {
-    background: var(--color-background-alt);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin: 2rem 0;
-  }
-
-  .resources-box h4 {
-    margin-bottom: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-  }
-
-  .resources-box ul {
-    margin: 0;
-    padding-left: 1.25rem;
-  }
-
-  .resources-box a {
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-
-  .resources-box a:hover {
-    text-decoration: underline;
+    background: rgba(192, 57, 43, 0.08);
   }
 
   .tips-list {
@@ -903,14 +689,6 @@ const pageSchema = [articleSchema, faqSchema];
   .article-cta p {
     color: var(--color-text-light);
     margin-bottom: 1.5rem;
-  }
-
-  .disclaimer {
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
   }
 
   .related-section {
