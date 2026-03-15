@@ -1,0 +1,1007 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Should I claim CCA on my Airbnb building?", a: "In most cases, no. CCA on the building saves you tax now but costs you the same tax (or more) through recapture when you sell. Worse, it permanently blocks the 45(3) election and can void the 45(2) election, both of which shelter far more capital gains than the CCA ever saved. CCA on contents like furniture, linens, and electronics is almost always worth claiming since those items genuinely depreciate and don't affect your principal residence exemption." },
+  { q: "What is CCA recapture and how is it taxed?", a: "Recapture happens when you sell a depreciable asset for more than its remaining undepreciated capital cost (UCC). The recaptured amount is taxed as 100% ordinary income at your full marginal rate. This is worse than capital gains treatment, which is only 50% inclusion. For example, if you claimed $60,000 in building CCA and sell above UCC, that $60,000 is fully taxable as income, not as a capital gain." },
+  { q: "What is the 45(2) election?", a: "The 45(2) election lets you defer the deemed disposition that normally occurs when you convert your principal residence into a rental property. It allows you to continue designating the property as your principal residence for up to 4 additional years while it's being rented. The key condition: you must never claim CCA on the building, or the election is automatically rescinded." },
+  { q: "What is the 45(3) election?", a: "The 45(3) election lets you defer the deemed disposition when you convert a rental property into your principal residence. Filed when you eventually sell (not when you move in), it allows you to retroactively designate up to 4 years of the rental period as principal residence years. The critical condition: if you ever claimed CCA on the building after 1984, this election is permanently unavailable." },
+  { q: "Can I claim CCA on Airbnb furniture and still keep the principal residence exemption?", a: "Yes. CCA on contents like furniture (Class 8), linens (Class 12), and electronics (Class 50) does not affect your principal residence exemption. The restriction only applies to CCA claimed on the building itself (Class 1 or Class 3). Claim CCA on your contents without worry." },
+  { q: "What CCA classes apply to Airbnb furnishings?", a: "Class 8 (20%) covers furniture and appliances like beds, couches, fridges, and washers. Class 12 (100%) covers linens, towels, dishes, cutlery, and kitchen utensils under $500. Class 50 (55%) covers electronics like smart locks, security cameras, noise monitors, and computers. Class 12 items are particularly valuable since you write off the full cost." },
+  { q: "Does part-time Airbnb use trigger a change of use?", a: "Not if three conditions are met: the rental use is relatively small compared to personal use, you made no structural changes to the property, and you don't claim CCA on the building. If you live in your condo most of the year and Airbnb it occasionally, CRA generally treats this as continued personal use with no deemed disposition." },
+  { q: "What happens if I Airbnb for more than 4 years after moving out?", a: "With the 45(2) election, you can designate the property as your principal residence for up to 4 years (5 with the plus-one rule). Any appreciation beyond that window is taxable as a capital gain when you sell. There is an exception: if you moved for employer-required relocation (40+ km farther from the property), the 4-year limit is removed entirely under section 54.1." }
+];
+
+const relatedPosts = [
+  { title: 'Airbnb Taxes Canada 2026: GTA Host Tax Guide', href: '/blog/airbnb-taxes-canada-gta-guide-2026', description: 'Income tax, HST registration, MAT, and deductible expenses for Ontario hosts' },
+  { title: 'Can I Airbnb My Investment Property in the GTA?', href: '/blog/airbnb-investment-property-gta', description: 'Principal residence rules and which Ontario cities allow investment property STRs' },
+  { title: 'Airbnb Insurance Ontario Host Guide 2026', href: '/blog/airbnb-insurance-ontario-host-guide-2026', description: 'Liability coverage, AirCover gaps, and what Ontario hosts actually need' }
+];
+
+const tocItems = [
+  { id: 'what-is-cca', text: 'What Is CCA?' },
+  { id: 'cca-classes', text: 'CCA Classes for Airbnb Hosts' },
+  { id: 'the-cca-trap', text: 'The CCA Trap (Read This First)' },
+  { id: 'when-cca-worth-it', text: 'When CCA IS Worth Claiming' },
+  { id: 'change-of-use', text: 'Change of Use Rules' },
+  { id: 'election-45-2', text: 'The 45(2) Election' },
+  { id: 'election-45-3', text: 'The 45(3) Election' },
+  { id: 'scenarios', text: 'Real Scenarios' },
+  { id: 'section-67-7', text: 'Section 67.7 Warning' },
+  { id: 'tips', text: 'Golden Rules' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Airbnb CCA & Capital Gains Tax Guide 2026";
+const pageDescription = "CCA for Airbnb hosts: which classes to claim, the CCA trap, 45(2) and 45(3) elections, recapture rules, and when to skip building depreciation. Complete 2026 guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-15",
+  "dateModified": "2026-03-15",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/airbnb-cca-capital-gains-tax-guide-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>CCA & Capital Gains</span>
+      </nav>
+      <h1>Airbnb CCA & Capital Gains Tax Guide 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 15, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead"><strong>Capital Cost Allowance (CCA) is the most misunderstood tax tool in the Airbnb world.</strong> Claimed correctly, it shelters thousands in annual income. Claimed on the wrong asset, it can cost you six figures in capital gains when you sell.</p>
+            <p class="lead">This guide covers every CCA class relevant to Airbnb hosts, the recapture rules that catch people off guard, and the two elections (45(2) and 45(3)) that can shelter years of property appreciation. We'll also walk through real scenarios so you can see exactly when each strategy makes sense and when it doesn't.</p>
+          </div>
+
+          <div class="warning-box">
+            <h4>Not Tax Advice</h4>
+            <p>This article is for informational purposes only. CCA, capital gains, and the section 45 elections are complex and depend on your specific situation. Consult a CPA or tax professional before making decisions. The scenarios below are simplified illustrations, not recommendations.</p>
+          </div>
+
+          <h2 id="what-is-cca">What Is CCA?</h2>
+          <p>CCA is Canada's version of depreciation. Instead of deducting the full cost of a capital asset (like a building or furniture) in the year you buy it, CRA requires you to deduct it gradually over time using prescribed rates for each asset class.</p>
+
+          <p>For Airbnb hosts, CCA applies to two categories of assets:</p>
+          <ul>
+            <li><strong>The building itself</strong> (the structure, not the land). This is where the trap lives.</li>
+            <li><strong>The contents</strong> (furniture, appliances, linens, electronics). This is where the easy wins are.</li>
+          </ul>
+
+          <p>Land is never depreciable. When you buy a property, you need to split the purchase price between land and building using your MPAC assessment, an appraisal, or your purchase agreement.</p>
+
+          <h2 id="cca-classes">CCA Classes for Airbnb Hosts</h2>
+          <p>Every depreciable asset falls into a CCA class with a specific annual rate. Here are the classes that matter for short-term rental operators:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Class & Rate</div>
+              <div class="comparison-col highlight">What It Covers</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Class 1 (4%)</strong></div>
+              <div class="comparison-col highlight">Buildings acquired after 1987. The building portion of your Airbnb property. <strong>Danger zone for PRE.</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Class 8 (20%)</strong></div>
+              <div class="comparison-col highlight">Furniture (beds, couches, tables), appliances (fridge, stove, washer, dryer), fixtures, tools over $500. The "catch-all" class.</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Class 12 (100%)</strong></div>
+              <div class="comparison-col highlight">Linens, towels, sheets, dishes, cutlery, kitchen utensils, tools under $500. <strong>Full write-off in year one.</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Class 50 (55%)</strong></div>
+              <div class="comparison-col highlight">Computers, smart locks, security cameras, noise monitors, smart thermostats, tablets, Wi-Fi routers.</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Class 10 (30%)</strong></div>
+              <div class="comparison-col highlight">Motor vehicles used for property management (visiting your STR, picking up supplies, meeting guests).</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>Class 13 (varies)</strong></div>
+              <div class="comparison-col highlight">Leasehold improvements. If you lease a property and renovate it for Airbnb use, amortized over the lease term.</div>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Class 12 is your best friend.</strong> Linens, towels, dishes, and utensils are 100% deductible. You replace these regularly anyway. A $2,000 linen refresh is a full deduction in year one (subject to the half-year rule, so $1,000 the first year, $1,000 the second). Keep your receipts.
+            </div>
+          </div>
+
+          <h3>The Half-Year Rule</h3>
+          <p>In the year you acquire depreciable property, you can only claim CCA on half of the net additions. This means a $10,000 Class 8 furniture purchase in year one gives you: 20% x ($10,000 x 50%) = $1,000 in CCA, not $2,000.</p>
+
+          <p>For 2025 and later acquisitions, the Reaccelerated Investment Incentive Property (RIIP) rules may suspend the half-year rule and provide enhanced first-year CCA (up to 3x the normal rate). Ask your accountant whether your purchases qualify.</p>
+
+          <h2 id="the-cca-trap">The CCA Trap: Why Building CCA Can Cost You More Than It Saves</h2>
+          <p>This is the single most important section in this guide. Read it twice.</p>
+
+          <p>Here's the trap in plain English:</p>
+          <ol>
+            <li><strong>You claim CCA on the building</strong> over several years, saving tax at your marginal rate</li>
+            <li><strong>You sell the property</strong></li>
+            <li><strong>CCA recapture kicks in</strong>: the CCA you claimed is added back to your income at <strong>100% inclusion</strong> (ordinary income, not capital gains)</li>
+            <li><strong>Net result:</strong> you saved tax at 43% and paid it back at 43%. Zero net benefit. You just deferred the tax.</li>
+            <li><strong>Bonus damage:</strong> by claiming CCA on the building, you permanently blocked the 45(3) election and voided any 45(2) election, which could have sheltered far more gains than the CCA ever saved</li>
+          </ol>
+
+          <h3>The Math That Kills</h3>
+          <p>Let's say you buy a Toronto condo for $500,000 ($400K building, $100K land) and Airbnb it for 10 years.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Scenario</div>
+              <div class="comparison-col highlight">With Building CCA vs Without</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">CCA claimed (10 years)</div>
+              <div class="comparison-col highlight"><strong>~$60,000</strong> vs $0</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Tax saved (at 43%)</div>
+              <div class="comparison-col highlight"><strong>~$25,800</strong> vs $0</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Recapture on sale (100% income)</div>
+              <div class="comparison-col highlight"><strong>$25,800 tax</strong> vs $0</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Net CCA benefit</div>
+              <div class="comparison-col highlight"><strong>$0</strong> (tax deferral only)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">45(2)/45(3) elections available?</div>
+              <div class="comparison-col highlight"><strong>No (permanently blocked)</strong> vs Yes</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Potential PRE shelter lost</div>
+              <div class="comparison-col highlight"><strong>4+ years of capital gains</strong> vs Fully available</div>
+            </div>
+          </div>
+
+          <p>The $25,800 in CCA "savings" was just a tax deferral. And it cost you access to elections that could shelter $50,000 to $200,000+ in capital gains. That's not a trade-off. That's a mistake.</p>
+
+          <h2 id="when-cca-worth-it">When CCA IS Worth Claiming</h2>
+
+          <h3>Always Claim: Contents (Furniture, Linens, Electronics)</h3>
+          <p>CCA on contents is almost always worth it. These items genuinely depreciate, you'll rarely sell them for more than their UCC, and they don't affect your principal residence exemption. Claim Class 8, Class 12, and Class 50 without hesitation.</p>
+
+          <h3>Sometimes Claim: Building CCA</h3>
+          <p>Building CCA makes sense in a narrow set of circumstances:</p>
+          <ul>
+            <li><strong>Pure investment property</strong> that was never and will never be your principal residence (no PRE to protect, no 45(2)/45(3) to preserve)</li>
+            <li><strong>Corporate ownership</strong> at the 12.2% small business rate now, with plans to withdraw at personal rates later (the rate differential creates a real deferral benefit)</li>
+            <li><strong>You plan to refinance, not sell.</strong> If you never trigger a disposition, recapture never hits</li>
+            <li><strong>High bracket now, low bracket later.</strong> If you're at 53% marginal rate today and expect to be at 33% when you sell, CCA creates a real savings (not just deferral)</li>
+            <li><strong>Long hold periods</strong> where the time value of deferred tax is meaningful (20+ years)</li>
+          </ul>
+
+          <h3>Never Claim: Building CCA on These</h3>
+          <ul>
+            <li>Your principal residence that you Airbnb part-time</li>
+            <li>A property you might move back into (kills 45(2))</li>
+            <li>A rental you might move into someday (kills 45(3) permanently)</li>
+            <li>Any property in a high-appreciation market where PRE shelter is worth more than CCA savings</li>
+          </ul>
+
+          <h2 id="change-of-use">Change of Use: When CRA Says You "Sold" Without Selling</h2>
+          <p>When a property changes from personal use to income-producing (or vice versa), CRA treats it as a "deemed disposition" at fair market value. You're treated as if you sold and immediately repurchased the property. This can trigger capital gains tax even though no money changed hands.</p>
+
+          <h3>When Change of Use Applies</h3>
+          <ul>
+            <li>You move out of your home and start Airbnbing it full-time</li>
+            <li>You stop renting a property and move into it</li>
+            <li>You convert a significant portion of your home from personal to rental use</li>
+          </ul>
+
+          <h3>When Change of Use Does NOT Apply</h3>
+          <p>CRA will not treat part-time Airbnb use as a change of use if all three conditions are met:</p>
+          <ol>
+            <li>The rental use is <strong>relatively small</strong> compared to personal use</li>
+            <li>You made <strong>no structural changes</strong> to make the property more suitable for rental</li>
+            <li>You <strong>don't claim CCA</strong> on the building</li>
+          </ol>
+          <p>This is the safe harbour for hosts who live in their condo most of the year and Airbnb it when they travel. No change of use. Full PRE intact.</p>
+
+          <h2 id="election-45-2">The 45(2) Election: Principal Residence to Rental</h2>
+          <p>This election is for people who <strong>move out</strong> of their home and start renting it (including as an Airbnb).</p>
+
+          <h3>What It Does</h3>
+          <p>Without the election, moving out and renting triggers a deemed disposition at fair market value. The 45(2) election says: "Pretend no change of use happened." No deemed disposition. No immediate tax. You continue treating the property as your principal residence.</p>
+
+          <h3>The 4-Year Bonus</h3>
+          <p>With the election in place, you can designate the property as your principal residence for <strong>up to 4 additional years</strong> while it's being rented, even though you don't live there. Combined with the "+1 rule" in the PRE formula (which gives you one free year), that's <strong>up to 5 years</strong> of capital gains shelter.</p>
+
+          <h3>How to File</h3>
+          <p>Attach a signed letter to your income tax return for the year the change of use occurs. The letter should identify the property and state you are electing under subsection 45(2) of the Income Tax Act. If you e-file, mail the letter separately to your tax centre.</p>
+
+          <h3>The One Condition That Matters</h3>
+          <p><strong>Do not claim CCA on the building.</strong> If you claim CCA on the building in any year, the election is automatically rescinded on January 1 of that year. Gone. No take-backs. CCA on contents (furniture, linens) is fine.</p>
+
+          <div class="strategy-box good">
+            <h4>When 45(2) Makes Sense</h4>
+            <ul>
+              <li>You're <strong>moving temporarily</strong> (job relocation, renovation, family reasons) and plan to return within a few years</li>
+              <li>The property has <strong>significant unrealized gains</strong> you want to shelter</li>
+              <li>You're in a <strong>high-appreciation market</strong> (Toronto, Vancouver) where 4 years of gains can be substantial</li>
+              <li>You're relocating for work and qualify for the <strong>section 54.1 extension</strong> (employer-required move 40+ km farther), which <strong>removes the 4-year cap entirely</strong></li>
+            </ul>
+          </div>
+
+          <div class="strategy-box bad">
+            <h4>When 45(2) Does NOT Make Sense</h4>
+            <ul>
+              <li>You've <strong>permanently left</strong> and will never return. Beyond 4 years, the remaining gains are fully taxable anyway.</li>
+              <li>You <strong>need building CCA deductions</strong> to make the rental cash-flow positive. Claiming CCA kills the election.</li>
+              <li>You already <strong>own another home</strong> you want to designate as your principal residence. You can only designate one property per family per year.</li>
+              <li>The property <strong>hasn't appreciated much</strong>. If there's minimal gain to shelter, the election doesn't save you anything.</li>
+              <li>You're holding a <strong>pure investment property</strong> that was never your principal residence. The election only applies to properties that were your principal residence first.</li>
+            </ul>
+          </div>
+
+          <h3>What Happens After 4 Years?</h3>
+          <p>The election itself doesn't expire, but the PRE designation benefit is capped at 4 years (plus the +1). Any appreciation after the 4-year window is fully taxable as a capital gain when you sell.</p>
+
+          <p><strong>Exception:</strong> Under section 54.1, if you relocated for an employer-required move (not self-initiated) and the new workplace is 40+ km farther from the property, the 4-year limit is removed entirely. You can designate the property as your principal residence for the entire rental period.</p>
+
+          <h2 id="election-45-3">The 45(3) Election: Rental to Principal Residence</h2>
+          <p>This election is for people who <strong>buy a rental/investment property</strong>, operate it (including as an Airbnb), and then <strong>later move into it</strong> as their home.</p>
+
+          <h3>What It Does</h3>
+          <p>Without the election, moving into a rental property triggers a deemed disposition. The 45(3) election defers this. But the real power is what comes next.</p>
+
+          <h3>The 4-Year Retroactive Designation</h3>
+          <p>When you eventually sell the property, the 45(3) election lets you <strong>retroactively designate up to 4 years</strong> of the rental period as principal residence years, even though you weren't living there. Combined with the +1 rule, that's up to 5 years of shelter.</p>
+
+          <h3>When to File</h3>
+          <p>Here's a critical difference from 45(2): you <strong>file the 45(3) election when you sell the property</strong>, not when you move in. Attach a signed letter to your tax return for the year of sale.</p>
+
+          <h3>The Permanent Disqualifier</h3>
+
+          <div class="warning-box">
+            <h4>If you ever claimed CCA on the building after 1984, the 45(3) election is permanently unavailable.</h4>
+            <p>This is absolute. Section 45(4) of the Income Tax Act completely nullifies the 45(3) election if CCA was claimed on the building in any year after 1984. There is no workaround, no appeal, no exception. One year of building CCA permanently kills the option.</p>
+          </div>
+
+          <div class="strategy-box good">
+            <h4>When 45(3) Makes Sense</h4>
+            <ul>
+              <li>You bought an <strong>investment property</strong>, Airbnbed it for a few years, and now want to move in</li>
+              <li>The property <strong>appreciated significantly</strong> during the rental years</li>
+              <li>You <strong>never claimed CCA on the building</strong> (contents are fine)</li>
+              <li>You <strong>don't need to designate another property</strong> as your principal residence for those retroactive years</li>
+            </ul>
+          </div>
+
+          <div class="strategy-box bad">
+            <h4>When 45(3) Does NOT Make Sense</h4>
+            <ul>
+              <li>You <strong>claimed CCA on the building</strong> at any point after 1984. The election is permanently blocked. No exceptions.</li>
+              <li>You had <strong>another property designated</strong> as principal residence during the rental years. You can't double-dip.</li>
+              <li>The property <strong>didn't appreciate</strong> during the rental period. If there's no gain to shelter, the election doesn't save anything.</li>
+              <li>You <strong>only rented it for a year or two</strong>. The +1 rule already covers one year for free. The election adds value mainly when the rental period is 2 to 4 years.</li>
+            </ul>
+          </div>
+
+          <h3>Common 45(3) Mistakes</h3>
+          <ol>
+            <li><strong>Claiming building CCA and hoping to use 45(3) later.</strong> This is the #1 mistake. Once CCA is claimed on the building, the election is gone forever.</li>
+            <li><strong>Filing at the wrong time.</strong> The election is filed when you sell, not when you move in.</li>
+            <li><strong>Not getting an appraisal.</strong> You need fair market value documentation at the time of change of use, even if you plan to elect. Get an appraisal when you move in.</li>
+            <li><strong>Forgetting about the +1 rule.</strong> The retroactive 4 years plus the +1 gives you 5 years of designation, not 4.</li>
+          </ol>
+
+          <h2 id="scenarios">Real Scenarios: When Each Strategy Works</h2>
+
+          <h3>Scenario 1: Part-Time Airbnb, Full-Time Resident</h3>
+          <p><em>You live in your Toronto condo 250 nights/year and Airbnb it 115 nights while you travel.</em></p>
+          <ul>
+            <li><strong>Change of use?</strong> No (rental is ancillary, no structural changes)</li>
+            <li><strong>Principal residence exemption?</strong> Fully intact</li>
+            <li><strong>Claim CCA on building?</strong> Absolutely not. Don't touch it.</li>
+            <li><strong>Claim CCA on contents?</strong> Yes. Furniture (Class 8), linens (Class 12), smart lock (Class 50).</li>
+            <li><strong>Election needed?</strong> Neither. No change of use means no deemed disposition.</li>
+            <li><strong>Report income?</strong> Yes, on T776. Prorate expenses by rental use (~31.5%).</li>
+          </ul>
+
+          <h3>Scenario 2: Move Out, Full-Time Airbnb</h3>
+          <p><em>You move to a new city and convert your Toronto home entirely to Airbnb.</em></p>
+          <ul>
+            <li><strong>Change of use?</strong> Yes. Deemed disposition at FMV.</li>
+            <li><strong>File 45(2)?</strong> Yes. Attach letter to your return for the year you moved out.</li>
+            <li><strong>Claim CCA on building?</strong> No. It would void the election.</li>
+            <li><strong>Claim CCA on contents?</strong> Yes.</li>
+            <li><strong>Time limit:</strong> 4 years of PRE designation (5 with +1 rule). Beyond that, gains are taxable.</li>
+            <li><strong>If employer-required relocation (40+ km):</strong> No time limit under section 54.1.</li>
+          </ul>
+
+          <h3>Scenario 3: Buy Investment Property, Airbnb It, Later Move In</h3>
+          <p><em>You buy a condo in 2022, Airbnb it 2022 to 2026, then move in.</em></p>
+          <ul>
+            <li><strong>During rental years:</strong> Report income on T776. Claim CCA on contents. <strong>Never claim CCA on the building.</strong></li>
+            <li><strong>When you move in:</strong> Deemed disposition at FMV. Get an appraisal.</li>
+            <li><strong>When you sell (say 2032):</strong> File 45(3) election with that year's return. Retroactively designate 2023 to 2026 (4 years) as principal residence, plus 2027 to 2032 (living there), plus the +1 rule. Massive PRE shelter.</li>
+            <li><strong>If you had claimed building CCA:</strong> 45(3) is permanently unavailable. The entire 2022 to 2026 appreciation is taxable. Could be $50K to $200K+ in a market like Toronto.</li>
+          </ul>
+
+          <h3>Scenario 4: Cottage Airbnbed Seasonally</h3>
+          <p><em>You own a Muskoka cottage, use it in summer, and Airbnb it the rest of the year.</em></p>
+          <ul>
+            <li><strong>Change of use?</strong> Likely no, if rental is supplementary to personal use and no structural changes made.</li>
+            <li><strong>PRE choice:</strong> You can designate the cottage OR your city home as principal residence each year, not both. Designate whichever had the most appreciation that year.</li>
+            <li><strong>CCA on building?</strong> No. Keep PRE flexibility for both properties.</li>
+            <li><strong>CCA on contents?</strong> Yes.</li>
+          </ul>
+
+          <h2 id="section-67-7">Section 67.7: The Non-Compliance Nuclear Option</h2>
+          <p>Since January 2024, the CRA denies <strong>all expense deductions</strong> (including CCA) for short-term rentals that don't comply with provincial or municipal laws.</p>
+
+          <p>In practice, this means:</p>
+          <ul>
+            <li>If your municipality requires an STR license and you don't have one, <strong>every deduction is denied</strong></li>
+            <li>You'd be taxed on <strong>gross rental income</strong> with zero deductions: no mortgage interest, no property tax, no cleaning, no CCA, nothing</li>
+            <li>CRA can reassess you <strong>indefinitely</strong> for non-compliant STR deductions (no normal reassessment time limit)</li>
+            <li>The denial is proportional: non-compliant days / total STR days x deductions</li>
+          </ul>
+
+          <p>Cities like Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville, Waterloo, and Burlington all require STR licenses. Unregulated cities like Cambridge, Kitchener, Ajax, and Pickering don't have this risk since there's no local law to violate. See our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Airbnb Taxes Canada guide</a> for the full breakdown.</p>
+
+          <h2 id="tips">The Golden Rules</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Never claim CCA on the building if you might want the PRE.</strong> This is the rule that trumps all others. The tax savings from building CCA are almost always a deferral, not a reduction. The elections you lose are worth far more.</li>
+            <li><span class="tip-icon">2</span> <strong>Always claim CCA on contents.</strong> Furniture (Class 8), linens (Class 12), electronics (Class 50). These don't affect your PRE and the deductions are real since these items genuinely lose value.</li>
+            <li><span class="tip-icon">3</span> <strong>Get an appraisal at every change of use.</strong> Whether you're moving out or moving in, document the fair market value. You'll need it when you sell, and getting a retroactive appraisal years later is unreliable and expensive.</li>
+            <li><span class="tip-icon">4</span> <strong>File your elections on time.</strong> The 45(2) election goes with the return for the year of change of use. The 45(3) election goes with the return for the year of sale. Late filing is possible but may incur penalties.</li>
+            <li><span class="tip-icon">5</span> <strong>Track your UCC meticulously.</strong> Keep a running balance of undepreciated capital cost for every CCA class. Your accountant will need this when you sell, and reconstructing it years later from old receipts is painful.</li>
+            <li><span class="tip-icon">6</span> <strong>Comply with local STR laws.</strong> Section 67.7 denies all deductions (including CCA) for non-compliant STRs. In regulated cities, get your license. In unregulated cities, stay current on bylaw changes.</li>
+            <li><span class="tip-icon">7</span> <strong>Talk to a CPA before selling.</strong> The interplay between CCA recapture, capital gains, PRE designation, and the section 45 elections is complex. A single conversation with a tax professional before you list your property can save you tens of thousands.</li>
+          </ul>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="disclaimer"><em>This article is for informational purposes only and does not constitute legal or tax advice. CCA rules, capital gains treatment, and the section 45 elections depend on your specific circumstances. Always consult a qualified CPA or tax professional before making tax decisions. Regulations change frequently. Verify current rules with the CRA.</em></p>
+
+          <p><em>This article contains a <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">referral link</a>. We may earn a small commission at no cost to you.</em></p>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Airbnb?</h3>
+            <p>Nurture handles guest communication, cleaning coordination, pricing optimization, and everything else so you can focus on the big picture (like getting your taxes right).</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb Taxes?</h2>
+        <p>We're property managers, not accountants. But we can connect you with CPAs who specialize in STR taxation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .strategy-box {
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box.good {
+    background: #f0faf5;
+    border-left: 4px solid #27ae60;
+  }
+
+  .strategy-box.bad {
+    background: #fdf6f0;
+    border-left: 4px solid #e67e22;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box.good h4 {
+    color: #1e8449;
+  }
+
+  .strategy-box.bad h4 {
+    color: #d35400;
+  }
+
+  .strategy-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .strategy-box li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .resources-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .resources-box a:hover {
+    text-decoration: underline;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
