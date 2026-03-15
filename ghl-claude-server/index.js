@@ -14,34 +14,76 @@ const anthropic = new Anthropic({
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 
 // ============================================
-// DYNAMIC KNOWLEDGE BASE (fetched from GitHub, cached 24h)
+// MULTI-ACCOUNT SYSTEM
 // ============================================
-const KNOWLEDGE_BASE_URL = 'https://raw.githubusercontent.com/nurtureproperty/toronto-airbnb-management/master/ghl-claude-server/bot-knowledge.md';
-let cachedKnowledge = null;
-let knowledgeCachedAt = 0;
+const fs = require('fs');
+const path = require('path');
+
+// Load account configs
+let ACCOUNTS = {};
+try {
+  ACCOUNTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'accounts.json'), 'utf-8'));
+  console.log(`Loaded ${Object.keys(ACCOUNTS).length} account configs:`, Object.values(ACCOUNTS).map(a => a.name).join(', '));
+} catch (e) {
+  console.error('Failed to load accounts.json:', e.message);
+}
+
+// Default account (Nurture PM) when no locationId provided
+const DEFAULT_LOCATION_ID = 'vtTGsxK2RAKQfFtpkhx5';
+
+function getAccount(locationId) {
+  return ACCOUNTS[locationId] || ACCOUNTS[DEFAULT_LOCATION_ID] || null;
+}
+
+function getAccountToken(account) {
+  if (!account) return process.env.GHL_API_TOKEN;
+  return process.env[account.tokenEnvVar] || process.env.GHL_API_TOKEN;
+}
+
+// ============================================
+// DYNAMIC KNOWLEDGE BASE (cached per account, 24h TTL)
+// ============================================
+const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/nurtureproperty/toronto-airbnb-management/master/ghl-claude-server/';
+const knowledgeCache = {}; // { accountKey: { content, cachedAt } }
 const KNOWLEDGE_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
-async function getKnowledgeBase() {
+async function getKnowledgeBase(account) {
+  // For Nurture PM, also fetch the extended blog knowledge base
+  const knowledgeFile = account?.knowledgeFile || 'accounts/nurture-pm.md';
+  const cacheKey = knowledgeFile;
   const now = Date.now();
-  if (cachedKnowledge && (now - knowledgeCachedAt) < KNOWLEDGE_CACHE_TTL) {
-    return cachedKnowledge;
+
+  if (knowledgeCache[cacheKey] && (now - knowledgeCache[cacheKey].cachedAt) < KNOWLEDGE_CACHE_TTL) {
+    return knowledgeCache[cacheKey].content;
   }
 
   try {
-    console.log('Fetching fresh knowledge base from GitHub...');
-    const response = await fetch(KNOWLEDGE_BASE_URL);
+    console.log(`Fetching knowledge base: ${knowledgeFile}...`);
+    const response = await fetch(GITHUB_RAW_BASE + knowledgeFile);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const text = await response.text();
+    let text = await response.text();
+
+    // For Nurture PM, also load the extended blog knowledge
+    if (knowledgeFile === 'accounts/nurture-pm.md') {
+      try {
+        const extResponse = await fetch(GITHUB_RAW_BASE + 'bot-knowledge.md');
+        if (extResponse.ok) {
+          const extText = await extResponse.text();
+          text += '\n\n## EXTENDED KNOWLEDGE BASE (blog articles, FAQs, detailed bylaws)\n\n' + extText;
+        }
+      } catch (e) {
+        console.error('Could not fetch extended knowledge:', e.message);
+      }
+    }
 
     // Truncate to ~80K chars to stay within Claude context limits
-    cachedKnowledge = text.length > 80000 ? text.slice(0, 80000) + '\n\n[Knowledge base truncated]' : text;
-    knowledgeCachedAt = now;
-    console.log(`Knowledge base loaded: ${(cachedKnowledge.length / 1024).toFixed(1)} KB`);
-    return cachedKnowledge;
+    const content = text.length > 80000 ? text.slice(0, 80000) + '\n\n[Knowledge base truncated]' : text;
+    knowledgeCache[cacheKey] = { content, cachedAt: now };
+    console.log(`Knowledge base loaded for ${account?.name || 'default'}: ${(content.length / 1024).toFixed(1)} KB`);
+    return content;
   } catch (e) {
     console.error('Failed to fetch knowledge base:', e.message);
-    // Return cached version if available, even if stale
-    if (cachedKnowledge) return cachedKnowledge;
+    if (knowledgeCache[cacheKey]) return knowledgeCache[cacheKey].content;
     return null;
   }
 }
@@ -281,10 +323,10 @@ Guidelines:
 // GHL API FUNCTIONS
 // ============================================
 
-async function getContact(contactId) {
+async function getContact(contactId, token = null) {
   const response = await fetch(`${GHL_API_BASE}/contacts/${contactId}`, {
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
     },
   });
@@ -296,10 +338,10 @@ async function getContact(contactId) {
   return response.json();
 }
 
-async function getConversations(contactId) {
+async function getConversations(contactId, token = null) {
   const response = await fetch(`${GHL_API_BASE}/conversations/search?contactId=${contactId}`, {
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
     },
   });
@@ -311,10 +353,10 @@ async function getConversations(contactId) {
   return response.json();
 }
 
-async function getMessages(conversationId) {
+async function getMessages(conversationId, token = null) {
   const response = await fetch(`${GHL_API_BASE}/conversations/${conversationId}/messages`, {
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
     },
   });
@@ -326,11 +368,11 @@ async function getMessages(conversationId) {
   return response.json();
 }
 
-async function sendSMS(contactId, message) {
+async function sendSMS(contactId, message, token = null) {
   const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
       'Content-Type': 'application/json',
     },
@@ -353,18 +395,19 @@ async function sendSMS(contactId, message) {
 // CLAUDE API FUNCTION
 // ============================================
 
-async function generateResponse(contact, conversationHistory, step, firstName = 'there', contactId = null) {
+async function generateResponse(contact, conversationHistory, step, firstName = 'there', contactId = null, account = null) {
   // Build context from contact data
   const contactContext = buildContactContext(contact);
+  const token = getAccountToken(account);
 
   // Get step-specific prompt
   const stepPrompt = STEP_PROMPTS[step] || STEP_PROMPTS.reply;
 
   // Fetch knowledge base and calendar slots in parallel
-  const calendarId = process.env.GHL_CALENDAR_ID;
+  const calendarId = account?.calendarId || process.env.GHL_CALENDAR_ID;
   const [knowledgeBase, rawSlots] = await Promise.all([
-    getKnowledgeBase(),
-    calendarId ? getCalendarFreeSlots(calendarId).catch(e => { console.error('Could not fetch calendar slots:', e.message); return null; }) : Promise.resolve(null),
+    getKnowledgeBase(account),
+    calendarId ? getCalendarFreeSlots(calendarId, token).catch(e => { console.error('Could not fetch calendar slots:', e.message); return null; }) : Promise.resolve(null),
   ]);
 
   let slotsContext = 'No specific slots available right now. Direct to nurturestays.ca/contact to book.';
@@ -373,11 +416,8 @@ async function generateResponse(contact, conversationHistory, step, firstName = 
     if (formatted) slotsContext = formatted;
   }
 
-  // Build system prompt: Nurture PM context + dynamic knowledge
-  let systemPrompt = NURTURE_PM_CONTEXT;
-  if (knowledgeBase) {
-    systemPrompt += '\n\n## EXTENDED KNOWLEDGE BASE (use this to answer detailed questions about bylaws, blog articles, services, etc.)\n\n' + knowledgeBase;
-  }
+  // Build system prompt from account knowledge base
+  let systemPrompt = knowledgeBase || NURTURE_PM_CONTEXT;
 
   // Build the full prompt
   const userPrompt = `
@@ -426,7 +466,7 @@ If the lead has clearly confirmed they want to book a specific slot, use the boo
 
         let toolResultContent;
         try {
-          const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes);
+          const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes, token);
           console.log('Appointment created:', appt?.id || JSON.stringify(appt).slice(0, 100));
           toolResultContent = JSON.stringify({ success: true, message: 'Appointment booked successfully' });
         } catch (e) {
@@ -442,7 +482,7 @@ If the lead has clearly confirmed they want to book a specific slot, use the boo
 
         await Promise.all([
           notifyTeamSlack(lead_name, lead_phone, summary, urgent, contactId),
-          notifyTeamSMS(lead_name, lead_phone, summary, urgent),
+          notifyTeamSMS(lead_name, lead_phone, summary, urgent, token),
         ]);
 
         toolResults.push({ type: 'tool_result', tool_use_id: toolUseBlock.id, content: JSON.stringify({ success: true, message: 'Team notified' }) });
@@ -615,6 +655,12 @@ app.post('/webhook/followup', async (req, res) => {
     console.log('Received webhook:', JSON.stringify(req.body, null, 2));
     console.log('Query params:', req.query);
 
+    // Detect account from locationId or query param
+    const locationId = req.body.locationId || req.body.location_id || req.query.location || DEFAULT_LOCATION_ID;
+    const account = getAccount(locationId);
+    const token = getAccountToken(account);
+    console.log(`Account: ${account?.name || 'default'} (${locationId})`);
+
     // Extract data from GHL webhook - try multiple formats
     const contactId = extractContactId(req.body);
     const step = parseInt(req.query.step || req.body.step || '1');
@@ -631,25 +677,25 @@ app.post('/webhook/followup', async (req, res) => {
     console.log('First name from webhook:', firstName);
 
     // Fetch contact details
-    const contact = await getContact(contactId);
+    const contact = await getContact(contactId, token);
     console.log('Contact fetched:', contact.contact?.firstName);
 
     // Fetch conversation history
-    const conversations = await getConversations(contactId);
+    const conversations = await getConversations(contactId, token);
     let conversationHistory = 'No previous messages.';
 
     if (conversations.conversations && conversations.conversations.length > 0) {
       const conversationId = conversations.conversations[0].id;
-      const messages = await getMessages(conversationId);
+      const messages = await getMessages(conversationId, token);
       conversationHistory = formatConversationHistory(messages);
     }
 
-    // Generate personalized response with Claude
-    const generatedMessage = await generateResponse(contact, conversationHistory, step, firstName, contactId);
+    // Generate personalized response with Claude using account context
+    const generatedMessage = await generateResponse(contact, conversationHistory, step, firstName, contactId, account);
     console.log('Generated message:', generatedMessage);
 
     // Send the SMS via GHL
-    const sendResult = await sendSMS(contactId, generatedMessage);
+    const sendResult = await sendSMS(contactId, generatedMessage, token);
     console.log('SMS sent successfully');
 
     res.json({
@@ -690,6 +736,12 @@ app.post('/webhook/reply', async (req, res) => {
   try {
     console.log('Received reply webhook:', JSON.stringify(req.body, null, 2));
 
+    // Detect account
+    const locationId = req.body.locationId || req.body.location_id || req.query.location || DEFAULT_LOCATION_ID;
+    const account = getAccount(locationId);
+    const token = getAccountToken(account);
+    console.log(`Account: ${account?.name || 'default'} (${locationId})`);
+
     const contactId = extractContactId(req.body);
 
     if (!contactId) {
@@ -701,22 +753,22 @@ app.post('/webhook/reply', async (req, res) => {
     console.log('First name from webhook:', firstName);
 
     // Fetch contact and conversation
-    const contact = await getContact(contactId);
-    const conversations = await getConversations(contactId);
+    const contact = await getContact(contactId, token);
+    const conversations = await getConversations(contactId, token);
 
     let conversationHistory = 'No previous messages.';
     if (conversations.conversations && conversations.conversations.length > 0) {
       const conversationId = conversations.conversations[0].id;
-      const messages = await getMessages(conversationId);
+      const messages = await getMessages(conversationId, token);
       conversationHistory = formatConversationHistory(messages);
     }
 
     // Generate reply using 'reply' step
-    const generatedMessage = await generateResponse(contact, conversationHistory, 'reply', firstName, contactId);
+    const generatedMessage = await generateResponse(contact, conversationHistory, 'reply', firstName, contactId, account);
     console.log('Generated reply:', generatedMessage);
 
     // Send the SMS
-    const sendResult = await sendSMS(contactId, generatedMessage);
+    const sendResult = await sendSMS(contactId, generatedMessage, token);
 
     res.json({
       success: true,
@@ -881,7 +933,7 @@ const NOTIFY_TEAM_TOOL = {
   },
 };
 
-async function notifyTeamSMS(leadName, leadPhone, summary, urgent) {
+async function notifyTeamSMS(leadName, leadPhone, summary, urgent, token = null) {
   const ownerPhone = process.env.OWNER_PHONE;
   if (!ownerPhone) {
     console.log('OWNER_PHONE not set, skipping SMS notification');
@@ -898,7 +950,7 @@ async function notifyTeamSMS(leadName, leadPhone, summary, urgent) {
     const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+        'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
         'Version': '2021-07-28',
         'Content-Type': 'application/json',
       },
@@ -970,7 +1022,7 @@ const BOOK_APPOINTMENT_TOOL = {
   },
 };
 
-async function getCalendarFreeSlots(calendarId) {
+async function getCalendarFreeSlots(calendarId, token = null) {
   // Start from tomorrow 10am Toronto time, look 5 days out
   const now = new Date();
   const torontoNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Toronto' }));
@@ -992,7 +1044,7 @@ async function getCalendarFreeSlots(calendarId) {
 
   const response = await fetch(`${GHL_API_BASE}/calendars/free-slots?${params}`, {
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
     },
   });
@@ -1067,14 +1119,14 @@ function formatSlotsForClaude(slotsData) {
   );
 }
 
-async function createAppointment(calendarId, contactId, startIso, durationMinutes = 30) {
+async function createAppointment(calendarId, contactId, startIso, durationMinutes = 30, token = null) {
   const start = new Date(startIso);
   const end = new Date(start.getTime() + durationMinutes * 60 * 1000);
 
   const response = await fetch(`${GHL_API_BASE}/calendars/events/appointments`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
       'Content-Type': 'application/json',
     },
@@ -1096,16 +1148,17 @@ async function createAppointment(calendarId, contactId, startIso, durationMinute
   return response.json();
 }
 
-async function generateFBResponse(contact, conversationHistory, firstName, contactId) {
+async function generateFBResponse(contact, conversationHistory, firstName, contactId, account = null) {
   const contactContext = buildContactContext(contact);
+  const token = getAccountToken(account);
 
   console.log('Conversation history being sent to Claude:', conversationHistory);
 
   // Fetch knowledge base and calendar slots in parallel
-  const calendarId = process.env.GHL_CALENDAR_ID;
+  const calendarId = account?.calendarId || process.env.GHL_CALENDAR_ID;
   const [knowledgeBase, rawSlots] = await Promise.all([
-    getKnowledgeBase(),
-    calendarId ? getCalendarFreeSlots(calendarId).catch(e => { console.error('Could not fetch calendar slots:', e.message); return null; }) : Promise.resolve(null),
+    getKnowledgeBase(account),
+    calendarId ? getCalendarFreeSlots(calendarId, token).catch(e => { console.error('Could not fetch calendar slots:', e.message); return null; }) : Promise.resolve(null),
   ]);
 
   let slotsContext = 'No specific slots available right now. Direct to nurturestays.ca/contact to book.';
@@ -1114,11 +1167,8 @@ async function generateFBResponse(contact, conversationHistory, firstName, conta
     if (formatted) slotsContext = formatted;
   }
 
-  // Build system prompt: hardcoded rules + dynamic knowledge
-  let systemPrompt = NURTURE_PM_CONTEXT;
-  if (knowledgeBase) {
-    systemPrompt += '\n\n## EXTENDED KNOWLEDGE BASE (use this to answer detailed questions about bylaws, blog articles, services, etc.)\n\n' + knowledgeBase;
-  }
+  // Build system prompt from account knowledge base
+  let systemPrompt = knowledgeBase || NURTURE_PM_CONTEXT;
 
   const userPrompt = `## Your Task
 ${NURTURE_FB_PROMPT}
@@ -1165,7 +1215,7 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
 
         let toolResultContent;
         try {
-          const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes);
+          const appt = await createAppointment(calendarId, contactId, start_datetime, duration_minutes, token);
           console.log('Appointment created:', appt?.id || JSON.stringify(appt).slice(0, 100));
           toolResultContent = JSON.stringify({ success: true, message: 'Appointment booked successfully' });
         } catch (e) {
@@ -1186,7 +1236,7 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
         // Send notifications in parallel
         await Promise.all([
           notifyTeamSlack(lead_name, lead_phone, summary, urgent, contactId),
-          notifyTeamSMS(lead_name, lead_phone, summary, urgent),
+          notifyTeamSMS(lead_name, lead_phone, summary, urgent, token),
         ]);
 
         toolResults.push({
@@ -1228,11 +1278,11 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
   return message;
 }
 
-async function sendFBMessage(contactId, message) {
+async function sendFBMessage(contactId, message, token = null) {
   const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
       'Content-Type': 'application/json',
     },
@@ -1256,6 +1306,12 @@ app.post('/webhook/fb-message', async (req, res) => {
   try {
     console.log('Received FB message webhook:', JSON.stringify(req.body, null, 2));
 
+    // Detect account
+    const locationId = req.body.locationId || req.body.location_id || req.query.location || DEFAULT_LOCATION_ID;
+    const account = getAccount(locationId);
+    const token = getAccountToken(account);
+    console.log(`Account: ${account?.name || 'default'} (${locationId})`);
+
     const contactId = extractContactId(req.body);
 
     if (!contactId) {
@@ -1267,11 +1323,11 @@ app.post('/webhook/fb-message', async (req, res) => {
     console.log(`FB message from contact ${contactId}, name: ${firstName}`);
 
     // Fetch contact details
-    const contact = await getContact(contactId);
+    const contact = await getContact(contactId, token);
     console.log('Contact fetched:', contact.contact?.firstName || contact.firstName);
 
     // Fetch conversation history
-    const conversations = await getConversations(contactId);
+    const conversations = await getConversations(contactId, token);
     let conversationHistory = 'No previous messages.';
     let rawMessages = [];
 
@@ -1281,7 +1337,7 @@ app.post('/webhook/fb-message', async (req, res) => {
         c.type === 'FB' || c.type === 'facebook' || c.type === 'Facebook'
       ) || conversations.conversations[0];
 
-      const messagesResponse = await getMessages(fbConv.id);
+      const messagesResponse = await getMessages(fbConv.id, token);
 
       // Extract the raw message list
       // GHL returns: { messages: { lastMessageId, nextPage, messages: [...] } }
@@ -1311,12 +1367,12 @@ app.post('/webhook/fb-message', async (req, res) => {
       }
     }
 
-    // Generate response with Claude using Nurture PM context (pass contactId for calendar booking)
-    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId);
+    // Generate response with Claude using account context
+    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId, account);
     console.log('Generated FB reply:', generatedMessage);
 
     // Send the reply via Facebook
-    const sendResult = await sendFBMessage(contactId, generatedMessage);
+    const sendResult = await sendFBMessage(contactId, generatedMessage, token);
     console.log('FB message sent successfully');
 
     res.json({
@@ -1339,11 +1395,11 @@ app.post('/webhook/fb-message', async (req, res) => {
 // GHL workflow: trigger on inbound message → webhook to /webhook/nurture-pm?type=SMS
 // Supports: SMS, Email, Live_Chat, WhatsApp, GMB, IG, Custom
 
-async function sendGHLMessage(contactId, message, messageType = 'SMS') {
+async function sendGHLMessage(contactId, message, messageType = 'SMS', token = null) {
   const response = await fetch(`${GHL_API_BASE}/conversations/messages`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${process.env.GHL_API_TOKEN}`,
+      'Authorization': `Bearer ${token || process.env.GHL_API_TOKEN}`,
       'Version': '2021-07-28',
       'Content-Type': 'application/json',
     },
@@ -1370,6 +1426,12 @@ app.post('/webhook/nurture-pm', async (req, res) => {
     // Message type from query param, body, or default to SMS
     const messageType = req.query.type || req.body.type || req.body.messageType || 'SMS';
 
+    // Multi-account detection
+    const locationId = req.body.locationId || req.body.location_id || req.query.location || DEFAULT_LOCATION_ID;
+    const account = getAccount(locationId);
+    const token = getAccountToken(account);
+    console.log(`Account: ${account?.name || 'default'}, Location: ${locationId}`);
+
     if (!contactId) {
       console.error('No contact ID in Nurture PM webhook');
       return res.status(400).json({ error: 'Missing contact_id' });
@@ -1379,11 +1441,11 @@ app.post('/webhook/nurture-pm', async (req, res) => {
     console.log(`Nurture PM ${messageType} message from contact ${contactId}, name: ${firstName}`);
 
     // Fetch contact details
-    const contact = await getContact(contactId);
+    const contact = await getContact(contactId, token);
     console.log('Contact fetched:', contact.contact?.firstName || contact.firstName);
 
     // Fetch conversation history
-    const conversations = await getConversations(contactId);
+    const conversations = await getConversations(contactId, token);
     let conversationHistory = 'No previous messages.';
     let rawMessages = [];
 
@@ -1393,7 +1455,7 @@ app.post('/webhook/nurture-pm', async (req, res) => {
         c.type && c.type.toUpperCase() === messageType.toUpperCase()
       ) || conversations.conversations[0];
 
-      const messagesResponse = await getMessages(matchingConv.id);
+      const messagesResponse = await getMessages(matchingConv.id, token);
 
       if (Array.isArray(messagesResponse)) {
         rawMessages = messagesResponse;
@@ -1421,12 +1483,12 @@ app.post('/webhook/nurture-pm', async (req, res) => {
       }
     }
 
-    // Generate response using same Nurture PM context + knowledge base + tools
-    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId);
+    // Generate response using account-specific context + knowledge base + tools
+    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId, account);
     console.log(`Generated ${messageType} reply:`, generatedMessage);
 
     // Send the reply via the appropriate channel
-    const sendResult = await sendGHLMessage(contactId, generatedMessage, messageType);
+    const sendResult = await sendGHLMessage(contactId, generatedMessage, messageType, token);
     console.log(`${messageType} message sent successfully`);
 
     res.json({

@@ -1,0 +1,20 @@
+{
+  "vtTGsxK2RAKQfFtpkhx5": {
+    "name": "Nurture PM",
+    "tokenEnvVar": "GHL_API_TOKEN",
+    "calendarId": "VGvuhzjQT58ZPGHt0LUV",
+    "knowledgeFile": "accounts/nurture-pm.md",
+    "replyStyle": "casual",
+    "slackChannel": "C0AG2CHB55J",
+    "timezone": "America/Toronto"
+  },
+  "X9DsmcK6NLGURiuhGhzx": {
+    "name": "Sofia Epps - Skyline Properties",
+    "tokenEnvVar": "GHL_PIT_SOFIA",
+    "calendarId": "jIFO7Q55slv7kqXVXxA4",
+    "knowledgeFile": "accounts/sofia-realestate.md",
+    "replyStyle": "warm-professional",
+    "slackChannel": "C0AG2CHB55J",
+    "timezone": "America/Los_Angeles"
+  }
+}
