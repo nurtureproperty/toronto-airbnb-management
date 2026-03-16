@@ -9,8 +9,10 @@ const faqs = [
   { q: "What inspections are required?", a: "You'll need three inspections: Fire Department (fire safety plan, smoke/CO detectors, extinguishers), Niagara Region Health (sanitation, water), and ESA electrical certificate. All must pass before your license is approved. Budget time for scheduling and potential re-inspections." },
   { q: "Can I rent to large groups for bachelor/bachelorette parties?", a: "Technically yes, but you're liable for their behavior. The bylaw holds operators responsible for guest conduct. If a party results in three violations, that's your license revoked with a 6 month wait before you can reapply. Many hosts set strict house rules and guest limits to avoid this." },
   { q: "What's the maximum stay allowed?", a: "28 consecutive days or less qualifies as short-term rental under the bylaw. Anything longer is considered a regular tenancy and falls under different rules (Residential Tenancies Act). Most hosts target the tourist market with 2-7 night stays." },
-  { q: "Is there a MAT (Municipal Accommodation Tax)?", a: "Niagara Falls charges a flat $2 per night per room MAT, which is different from the percentage-based MAT in cities like Toronto. Airbnb collects and remits this automatically, so you don't have to handle it manually." },
-  { q: "Can I operate multiple STRs in Niagara Falls?", a: "Yes, there's no limit on how many VRU licenses you can hold. Each property needs its own license, inspections, and responsible person coverage. Some investors run multiple units, treating it like a hospitality business rather than a side hustle." }
+  { q: "Is there a MAT (Municipal Accommodation Tax)?", a: "Niagara Falls charges a 4% MAT on the total room rate (as of April 2026, updated from the previous flat $2/night fee). HST is charged on top of MAT. Airbnb collects and remits this automatically, so you don't have to handle it manually. VRU and OOSTR operators must remit quarterly." },
+  { q: "Can I operate multiple STRs in Niagara Falls?", a: "Yes, there's no limit on how many VRU licenses you can hold. Each property needs its own license, inspections, and responsible person coverage. Some investors run multiple units, treating it like a hospitality business rather than a side hustle." },
+  { q: "Which zones allow Airbnb in Niagara Falls?", a: "VRU (Vacation Rental Unit) licenses are only permitted in three commercial zones: Tourist Commercial (TC), General Commercial (GC), and Central Business (CB). Residential zones are strictly prohibited for VRUs. The TC zone covers Lundy's Lane, Clifton Hill, Fallsview, and parts of Victoria Avenue. The new OOSTR (Owner Occupied) pilot allows hosting in residential zones R1A through R4 and TRM, but only if you live on-site during guest stays. Use the city's interactive zoning map or property lookup tool to check a specific address before purchasing." },
+  { q: "Can I Airbnb in a residential zone in Niagara Falls?", a: "Not as a VRU (entire home, unoccupied). However, the city launched a 14-month OOSTR pilot in 2025 allowing owner-occupied short-term rentals in residential zones R1A through R4. You must live at the property and be present during guest stays. The pilot is capped at 100 licenses city-wide, and apartment zones (R5) and mobile home parks are excluded." }
 ];
 
 const relatedPosts = [
@@ -23,6 +25,7 @@ const tocItems = [
   { id: 'license-types', text: 'Two License Types' },
   { id: 'vru-explained', text: 'VRU: Entire Home Rentals' },
   { id: 'oostr-explained', text: 'OOSTR: Owner-Occupied' },
+  { id: 'zoning', text: 'Zoning: Where You Can (and Can\'t) Host' },
   { id: 'requirements', text: 'License Requirements' },
   { id: 'responsible-person', text: 'Responsible Person Rule' },
   { id: 'inspections', text: 'Required Inspections' },
@@ -34,7 +37,7 @@ const tocItems = [
 ];
 
 const pageTitle = "Niagara Falls Airbnb Short Term Rental Rules 2026";
-const pageDescription = "Niagara Falls VRU rules: investment property STRs allowed, $500 annual license, $2/night MAT, zoning restricted, and 3-strike enforcement. Get licensed now.";
+const pageDescription = "Niagara Falls Airbnb rules: VRU allowed in TC, GC, CB zones only (not residential), $500 license, 4% MAT, 3-strike enforcement. Check your zoning first.";
 
 // Schema.org structured data
 const articleSchema = {
@@ -43,7 +46,7 @@ const articleSchema = {
   "headline": pageTitle,
   "description": pageDescription,
   "datePublished": "2026-01-30",
-  "dateModified": "2026-01-30",
+  "dateModified": "2026-03-16",
   "author": {
     "@type": "Organization",
     "name": "Nurture Airbnb Property Management",
@@ -192,6 +195,59 @@ const pageSchema = [articleSchema, faqSchema];
 
           <p>This means you can't have multiple owner-occupied STRs clustering on the same street. The city measures this property-line to property-line. If your neighbor already has an OOSTR license, you might be out of luck for that license type (though VRU has no spacing restriction).</p>
 
+          <h2 id="zoning">Zoning: Where You Can (and Can't) Operate</h2>
+          <p>This is the part that trips up most investors. <strong>Niagara Falls does not allow VRUs in residential zones.</strong> Your property must be in one of three commercial zones to qualify for a Vacation Rental Unit license.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Zone</div>
+              <div class="comparison-col highlight">Where in the City</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>TC (Tourist Commercial)</strong></div>
+              <div class="comparison-col highlight">Lundy's Lane corridor, Clifton Hill and Ferry Street, Fallsview area along Stanley Avenue, Victoria Avenue near the falls</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>GC (General Commercial)</strong></div>
+              <div class="comparison-col highlight">Pockets along Montrose Road, McLeod Road, Dorchester Road, Main Street Chippawa, and near the QEW</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col"><strong>CB (Central Business)</strong></div>
+              <div class="comparison-col highlight">Small area around Bridge Street near the Rainbow Bridge international crossing</div>
+            </div>
+          </div>
+
+          <blockquote class="bylaw-quote">
+            "Owning and operating a VRU in Niagara Falls in a residential area is strictly prohibited."
+            <cite>City of Niagara Falls VRU Handbook</cite>
+          </blockquote>
+
+          <p>That means if you buy a house on a quiet residential street, even one that's five minutes from the falls, you <strong>cannot</strong> get a VRU license for it. The zoning classification of the property is what matters, not how close you are to tourist attractions.</p>
+
+          <h3>What About OOSTRs in Residential Zones?</h3>
+          <p>This is the 2025 change. The city launched a <strong>14-month pilot program</strong> (ending September 2026) allowing Owner Occupied Short-Term Rentals in residential zones. OOSTRs are permitted in zones R1A through R4 and TRM. However, apartment zones (R5A through R5F) and mobile home park zones (RMP) are excluded.</p>
+
+          <p>The OOSTR pilot is capped at <strong>100 licenses city-wide</strong>, so availability is limited. And remember: you must live at the property and be on-site during guest stays. It's not a workaround for running an investment property in a residential area.</p>
+
+          <h3>How to Check Your Property's Zone</h3>
+          <p>Before buying or applying for a license, verify your property's zoning using one of these tools:</p>
+          <ol>
+            <li><strong><a href="https://niagarafalls.ca/media/qf5hodg0/permitted-location-for-vacation-renal-unit-aug2021-final.pdf" target="_blank" rel="noopener">VRU Permitted Locations Map (PDF)</a></strong> shows TC, GC, and CB zones color-coded across the city</li>
+            <li><strong><a href="https://map.niagarafalls.ca/Viewer/" target="_blank" rel="noopener">Interactive Zoning Map</a></strong> lets you search any address and see its zoning classification</li>
+            <li><strong><a href="https://webpublic.niagarafalls.ca/property" target="_blank" rel="noopener">Property Lookup Tool</a></strong> provides zoning info for a specific address</li>
+            <li><strong>Planning Department:</strong> The VRU application checklist requires a pre-check with the Planning Department for zoning approval before applying. Call 905-356-7521 ext. 4239 or email zoning@niagarafalls.ca</li>
+          </ol>
+
+          <div class="warning-box">
+            <h4>Check Zoning Before You Buy</h4>
+            <p>If you're purchasing a property in Niagara Falls specifically for Airbnb income, <strong>confirm the zoning classification before you close</strong>. A property listed as "great investment opportunity near the falls" could be in a residential zone where VRUs are prohibited. Real estate agents don't always know the STR zoning rules. Use the city's tools above or call Planning directly.</p>
+          </div>
+
+          <h3>The Lundy's Lane Opportunity</h3>
+          <p>Lundy's Lane is the largest Tourist Commercial corridor in the city, running east-west through Niagara Falls. It was historically the motel strip, and many of those older motel properties have been converted or redeveloped. Properties along Lundy's Lane are in the TC zone, making them eligible for VRU licenses. The same applies to the Clifton Hill entertainment district, Fallsview corridor, and parts of Victoria Avenue.</p>
+
+          <p>For investors, TC-zoned properties near these corridors tend to command the highest nightly rates because of proximity to attractions, restaurants, and entertainment. The tradeoff: purchase prices are higher too.</p>
+
           <h2 id="requirements">License Requirements Checklist</h2>
           <p>Whether you're applying for VRU or OOSTR, here's what you'll need:</p>
 
@@ -221,7 +277,7 @@ const pageSchema = [articleSchema, faqSchema];
                 <li>Initial license application fee</li>
                 <li>Annual renewal fee</li>
                 <li>Inspection fees (separate)</li>
-                <li>$2/night MAT tax (collected by platforms)</li>
+                <li>4% MAT on room rate (as of April 2026, collected by platforms)</li>
               </ul>
             </div>
           </div>
