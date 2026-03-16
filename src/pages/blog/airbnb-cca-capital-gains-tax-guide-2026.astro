@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
+  { q: "Do I pay capital gains tax if I Airbnb my home in Canada?", a: "Not if you do it right. In the GTA, your Airbnb must be your principal residence. As long as you live there, don't claim building write-offs, and don't make structural changes for rental purposes, the principal residence exemption shelters the entire capital gain when you sell. Your home sale remains completely tax-free." },
+  { q: "Do I have to charge HST on my Airbnb in Ontario?", a: "Only if your gross short-term rental revenue exceeds $30,000 in any rolling four consecutive quarters (or a single quarter). Below that, you're a small supplier and HST registration is optional. Even if you're not registered, Airbnb already collects and remits HST on platform bookings automatically. Once you register, you take over collection but can claim back HST on your business expenses." },
   { q: "Should I claim CCA on my Airbnb building?", a: "No. Your Airbnb is your principal residence. Claiming CCA on the building risks your principal residence exemption, which shelters the entire capital gain when you sell. CCA on the building is just a tax deferral anyway: you save now but pay it all back through recapture when you sell. CCA on contents (furniture, linens, electronics) is a different story. Claim those freely." },
   { q: "What is CCA recapture?", a: "When you sell a property you claimed CCA on, the CCA you deducted gets added back to your income at 100% inclusion. That's worse than capital gains, which are only 50% inclusion. If you claimed $60,000 in building CCA, you owe tax on the full $60,000 as ordinary income when you sell." },
   { q: "What CCA can I claim on my Airbnb furnishings?", a: "Class 8 (20% per year) covers furniture and appliances like beds, couches, fridges, and washers. Class 12 (100%) covers linens, towels, dishes, cutlery, and kitchen utensils under $500. Class 50 (55%) covers electronics like smart locks, security cameras, and noise monitors. These don't affect your principal residence exemption." },
@@ -13,7 +15,10 @@ const faqs = [
   { q: "Do I charge HST on mid-term rentals (30+ days)?", a: "No. Residential rent for continuous occupancy of at least one calendar month is HST exempt under the Excise Tax Act, Schedule V, Part I, paragraph 6(a). This applies whether you're HST-registered or not. Airbnb automatically handles this: bookings of one month or longer don't have tax applied. Note that the legal threshold is one calendar month, not exactly 30 days." },
   { q: "Is Airbnb or long-term rental better for taxes?", a: "If you live in the property, Airbnb is better because you keep your principal residence exemption (tax-free sale). Long-term rental means moving out, which triggers a deemed disposition and starts the clock on taxable capital gains. Airbnb also has more deductible expenses (cleaning, linens, furnishings) and HST Input Tax Credits if registered. Long-term rental is simpler (no HST, no MAT, no STR license needed) but you lose the PRE, which is usually worth far more than any deduction." },
   { q: "Does CRA know how much I earned on Airbnb?", a: "Yes. Since January 2024, Airbnb, VRBO, and all rental platforms report your gross income, SIN, property address, number of bookings, and days rented directly to CRA under Part XX of the Income Tax Act. CRA cross-references this against your tax return. This applies to both short-term and mid-term rental income." },
-  { q: "What happens to my principal residence exemption when I sell?", a: "If you never claimed CCA on the building, made no structural changes for rental purposes, and your rental use was ancillary, the full exemption applies. The entire capital gain is tax-free. This is why protecting the PRE matters more than any CCA deduction." }
+  { q: "What happens to my principal residence exemption when I sell?", a: "If you never claimed CCA on the building, made no structural changes for rental purposes, and your rental use was ancillary, the full exemption applies. The entire capital gain is tax-free. This is why protecting the PRE matters more than any CCA deduction." },
+  { q: "Is Airbnb income taxable in Canada?", a: "Yes. All Airbnb income must be reported to CRA on Form T776 (Statement of Real Estate Rentals). You report gross rental income and deduct eligible expenses: mortgage interest, property tax, insurance, cleaning, management fees, and CCA on furnishings. The net income is taxed at your marginal rate. Since 2024, Airbnb also reports your income directly to CRA, so underreporting is easily caught." },
+  { q: "Is it better to Airbnb or rent long-term for taxes?", a: "If you live in the property, Airbnb is usually better for taxes. You keep your principal residence exemption (completely tax-free sale), and you have more deductible expenses (cleaning, linens, photography, smart locks). With a long-term tenant, you typically move out, which triggers a change of use and puts the principal residence exemption at risk. Long-term rental is simpler (no HST, no MAT, no STR license), but losing the exemption on a Toronto property can cost $100,000+ in capital gains tax." },
+  { q: "What happens if I don't register for HST and I'm over $30K?", a: "You owe HST on every booking from the day you should have registered, plus interest and penalties. CRA can reassess you retroactively. The penalty for failing to register is $250 per day ($25 for certain small entities), up to a maximum. With platforms now reporting your revenue directly to CRA since 2024, exceeding $30K without registering is easy for CRA to catch." }
 ];
 
 const relatedPosts = [
@@ -23,23 +28,23 @@ const relatedPosts = [
 ];
 
 const tocItems = [
-  { id: 'the-big-picture', text: 'The Big Picture' },
-  { id: 'what-is-cca', text: 'What Is CCA?' },
-  { id: 'what-to-claim', text: 'What to Claim (Contents)' },
-  { id: 'what-not-to-claim', text: 'What NOT to Claim (Building)' },
-  { id: 'the-cca-trap', text: 'The CCA Trap' },
-  { id: 'change-of-use', text: 'Change of Use Rules' },
-  { id: 'the-45-2-election', text: 'The 45(2) Election' },
-  { id: 'section-67-7', text: 'Section 67.7 Warning' },
-  { id: 'hst', text: 'HST: The $30K Threshold' },
-  { id: 'str-vs-ltr', text: 'Airbnb vs Long-Term Rental' },
+  { id: 'the-big-picture', text: 'The One Rule That Matters' },
+  { id: 'what-is-cca', text: 'What Are Tax Write-Offs (CCA)?' },
+  { id: 'what-to-claim', text: 'What Can You Write Off on Airbnb?' },
+  { id: 'what-not-to-claim', text: 'What Should You Never Claim?' },
+  { id: 'the-cca-trap', text: 'The Trap That Costs $100K+' },
+  { id: 'change-of-use', text: 'Does Airbnb Trigger Capital Gains Tax?' },
+  { id: 'the-45-2-election', text: 'What If You Move Out?' },
+  { id: 'section-67-7', text: 'No License = No Deductions' },
+  { id: 'hst', text: 'Do You Have to Charge HST on Airbnb?' },
+  { id: 'str-vs-ltr', text: 'Airbnb vs Long-Term Tenant: Tax Comparison' },
   { id: 'cra-reporting', text: 'How CRA Knows What You Earned' },
   { id: 'tips', text: 'Golden Rules' },
   { id: 'faqs', text: 'FAQs' }
 ];
 
-const pageTitle = "Airbnb Tax Deductions & Capital Gains Guide 2026";
-const pageDescription = "What can GTA Airbnb hosts write off? Claim furniture and linens, never claim the building. Protect your principal residence exemption and save on capital gains tax.";
+const pageTitle = "Airbnb Capital Gains Tax & HST Canada 2026 Guide";
+const pageDescription = "Do you pay capital gains tax on Airbnb in Canada? Do you charge HST? GTA hosts: what to write off, what to avoid, and how to protect your tax-free home sale.";
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -47,7 +52,7 @@ const articleSchema = {
   "headline": pageTitle,
   "description": pageDescription,
   "datePublished": "2026-03-15",
-  "dateModified": "2026-03-15",
+  "dateModified": "2026-03-16",
   "author": {
     "@type": "Organization",
     "name": "Nurture Airbnb Property Management",
@@ -87,9 +92,9 @@ const pageSchema = [articleSchema, faqSchema];
       <nav class="breadcrumb">
         <a href="/blog">Blog</a>
         <span>/</span>
-        <span>Tax Deductions & Capital Gains</span>
+        <span>Capital Gains Tax & HST</span>
       </nav>
-      <h1>Airbnb Tax Deductions & Capital Gains Guide 2026</h1>
+      <h1>Do You Pay Capital Gains Tax or HST on Airbnb in Canada?</h1>
       <div class="article-meta">
         <span class="meta-date">Published March 15, 2026</span>
         <span class="meta-separator">&middot;</span>
@@ -114,8 +119,9 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">If you host on Airbnb in the GTA, your property is almost certainly your principal residence. Toronto, Mississauga, Brampton, Vaughan, Hamilton, and Oakville all require it. That means the home you're renting to guests is the same one you'll want to sell <strong>tax-free</strong> using the principal residence exemption.</p>
-            <p class="lead">That exemption can shelter hundreds of thousands of dollars in capital gains. But one wrong tax deduction on the building itself can put it all at risk. This guide covers what you can write off (furniture, linens, electronics), what you should never touch (the building), and how HST, capital gains, and long-term rental tax rules compare.</p>
+            <p class="lead">Two questions every new Airbnb host in Canada asks: <strong>"Will I owe capital gains tax if I rent my home on Airbnb?"</strong> and <strong>"Do I have to charge HST to my guests?"</strong> The short answers: no capital gains tax if you play it right, and HST depends on how much you earn.</p>
+            <p class="lead">In the GTA (Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville), your Airbnb must be your principal residence. That's actually good news for taxes. It means you can sell your home completely <strong>tax-free</strong> using the principal residence exemption, which can shelter hundreds of thousands of dollars in capital gains. But one wrong tax deduction on the building can put that entire exemption at risk.</p>
+            <p class="lead">This guide covers what you can write off (furniture, linens, electronics), what you should never claim (the building), when you need to register for HST, and how Airbnb compares to renting to a long-term tenant.</p>
           </div>
 
           <div class="warning-box">
@@ -123,7 +129,7 @@ const pageSchema = [articleSchema, faqSchema];
             <p>This article is for informational purposes only. Consult a CPA or tax professional before making decisions. The examples below are simplified illustrations, not recommendations.</p>
           </div>
 
-          <h2 id="the-big-picture">The Big Picture</h2>
+          <h2 id="the-big-picture">The One Rule That Matters</h2>
           <p>Here's the one-sentence version: <strong>Claim CCA on your furniture, linens, and electronics. Never claim CCA on the building.</strong></p>
 
           <p>That's it. If you remember nothing else from this article, remember that. Here's why it matters:</p>
@@ -151,12 +157,12 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h2 id="what-is-cca">What Is CCA?</h2>
-          <p>CCA (Capital Cost Allowance) is Canada's version of depreciation. Instead of deducting the full cost of furniture or equipment in the year you buy it, CRA requires you to deduct it gradually using prescribed rates for each type of asset.</p>
+          <h2 id="what-is-cca">What Are Tax Write-Offs for Airbnb? (CCA Explained)</h2>
+          <p>CCA (Capital Cost Allowance) is the official term for tax write-offs on physical assets in Canada. Instead of deducting the full cost of furniture or equipment in the year you buy it, CRA requires you to write it off gradually using set rates for each type of asset.</p>
 
           <p>Every depreciable asset falls into a "class" with a specific annual deduction rate. The classes that matter for Airbnb hosts are straightforward.</p>
 
-          <h2 id="what-to-claim">What to Claim: Contents (Furniture, Linens, Electronics)</h2>
+          <h2 id="what-to-claim">What Can You Write Off on Your Airbnb?</h2>
           <p>These are safe to claim. They don't affect your principal residence exemption, and they genuinely lose value over time.</p>
 
           <div class="comparison-table">
@@ -202,12 +208,12 @@ const pageSchema = [articleSchema, faqSchema];
           <h3>The Half-Year Rule</h3>
           <p>In the year you buy something, you can only claim CCA on half of the cost. So $10,000 in Class 8 furniture gives you: 20% x ($10,000 x 50%) = $1,000 in year one, then the full rate in following years.</p>
 
-          <h2 id="what-not-to-claim">What NOT to Claim: The Building</h2>
+          <h2 id="what-not-to-claim">What Should You Never Write Off? The Building Itself</h2>
           <p>The building portion of your property falls into <strong>Class 1 (4% per year)</strong>. On a $500,000 condo where $400,000 is the building, that's about $16,000 in CCA the first year, or roughly $5,000 to $7,000 in tax savings depending on your bracket.</p>
 
           <p>Sounds appealing. Here's why it's a trap for principal residence hosts.</p>
 
-          <h2 id="the-cca-trap">The CCA Trap: How $5K in Savings Can Cost You $100K+</h2>
+          <h2 id="the-cca-trap">The Write-Off Trap: How a $5K Deduction Can Cost You $100K+</h2>
 
           <h3>Problem 1: Recapture</h3>
           <p>When you sell, every dollar of building CCA you claimed gets added back to your income at <strong>100% inclusion</strong>. Not 50% like a capital gain. The full amount.</p>
@@ -227,8 +233,8 @@ const pageSchema = [articleSchema, faqSchema];
           <h3>Problem 3: You Lose Your Safety Net</h3>
           <p>The 45(2) election (explained below) is your backup plan if you ever move out and convert the property to a full-time rental. It lets you keep the PRE for up to 4 more years. But it only works if you <strong>never claimed building CCA</strong>. One year of building CCA voids it permanently.</p>
 
-          <h2 id="change-of-use">Change of Use: What Happens If Your Situation Changes</h2>
-          <p>As long as you live in your home and Airbnb it part-time (no building CCA, no structural changes), CRA sees no change of use. Your PRE is fully intact. But life happens. Here's what to know if things change.</p>
+          <h2 id="change-of-use">Does Airbnb Trigger Capital Gains Tax?</h2>
+          <p>This is the big question. If you live in your home and Airbnb it part-time without claiming building write-offs or making structural changes, CRA sees no change of use. Your principal residence exemption is fully intact, meaning <strong>no capital gains tax when you sell</strong>. But life happens. Here's what to know if things change.</p>
 
           <h3>If You Keep Living There and Airbnbing Part-Time</h3>
           <p>This is the typical GTA host. Nothing to worry about. No change of use. No election needed. No deemed disposition. Just report your rental income on T776, prorate your expenses, claim CCA on contents, and skip the building.</p>
@@ -257,7 +263,7 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h2 id="the-45-2-election">The 45(2) Election: If You Move Out</h2>
+          <h2 id="the-45-2-election">What If You Move Out? The 45(2) Election</h2>
           <p>The 45(2) election is your safety net for the "I moved out" scenario. Here's how it works in plain English.</p>
 
           <h3>What It Does</h3>
@@ -288,7 +294,7 @@ const pageSchema = [articleSchema, faqSchema];
             <li>You own <strong>another home</strong> you want to designate as principal residence. You can only designate one property per family per year.</li>
           </ul>
 
-          <h2 id="section-67-7">Section 67.7: Get Your License or Lose Everything</h2>
+          <h2 id="section-67-7">No Airbnb License? You Lose Every Tax Deduction</h2>
           <p>Since January 2024, the CRA denies <strong>all expense deductions</strong> (including CCA on contents) for short-term rentals that don't comply with local laws.</p>
 
           <p>For GTA hosts, this means:</p>
@@ -302,8 +308,8 @@ const pageSchema = [articleSchema, faqSchema];
 
           <p>Bottom line: get your license, stay compliant, and then claim your CCA on contents. For the full list of which cities require what, see our <a href="/blog/airbnb-taxes-canada-gta-guide-2026">Airbnb Taxes Canada guide</a>.</p>
 
-          <h2 id="hst">HST: The $30K Threshold</h2>
-          <p>HST is separate from CCA and capital gains, but it catches a lot of GTA hosts off guard. Here's how it works.</p>
+          <h2 id="hst">Do You Have to Charge HST on Your Airbnb?</h2>
+          <p>This is the second most common question after capital gains. HST is completely separate from write-offs and capital gains, but it catches a lot of GTA hosts off guard. Here's how it works.</p>
 
           <h3>When You Must Register</h3>
           <p>If your <strong>gross STR revenue exceeds $30,000 in any rolling four consecutive calendar quarters</strong> (or in a single quarter), you become a mandatory HST registrant. You have <strong>29 days</strong> to register with the CRA after crossing that threshold. Miss that deadline and you owe HST on every booking from the day you should have registered, plus interest and penalties.</p>
@@ -383,7 +389,7 @@ const pageSchema = [articleSchema, faqSchema];
 
           <p>For more details on CRA's treatment of residential rental HST, see <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/19-2-2/residential-real-property-rentals.html" target="_blank" rel="noopener">GST/HST Memorandum 19.2.2</a>.</p>
 
-          <h2 id="str-vs-ltr">Airbnb vs Long-Term Rental: Tax Comparison</h2>
+          <h2 id="str-vs-ltr">Airbnb vs Long-Term Tenant: Which Is Better for Taxes?</h2>
           <p>Many GTA homeowners weigh Airbnb against renting to a long-term tenant. The revenue difference gets all the attention, but the tax treatment is completely different. Here's how they stack up.</p>
 
           <h3>CCA: Same Rules, Different Risk</h3>
