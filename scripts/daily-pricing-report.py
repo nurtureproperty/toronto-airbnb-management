@@ -1059,7 +1059,7 @@ def generate_action_url(action_items):
         "items": action_items,
     }
 
-    data_b64 = base64.b64encode(json.dumps(payload).encode()).decode()
+    data_b64 = base64.urlsafe_b64encode(json.dumps(payload).encode()).decode()
     sig = hmac.HMAC(PRICING_ACTION_SECRET.encode(), data_b64.encode(), hashlib.sha256).hexdigest()
 
     return f"{PRICING_ACTION_BASE_URL}?data={data_b64}&sig={sig}"

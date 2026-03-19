@@ -1514,9 +1514,19 @@ const HOSPITABLE_TOKEN = process.env.HOSPITABLE_API_TOKEN || '';
 const HOSPITABLE_API = 'https://public.api.hospitable.com/v2';
 
 function verifyPricingSignature(data, signature) {
-  if (!PRICING_SECRET) return false;
+  if (!PRICING_SECRET) {
+    console.error('PRICING_ACTION_SECRET not set');
+    return false;
+  }
   const expected = crypto.createHmac('sha256', PRICING_SECRET).update(data).digest('hex');
-  return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
+  console.log('Signature check:', { expected: expected.slice(0, 12) + '...', received: signature.slice(0, 12) + '...', dataLen: data.length, secretLen: PRICING_SECRET.length });
+  if (expected.length !== signature.length) return false;
+  try {
+    return crypto.timingSafeEqual(Buffer.from(expected, 'hex'), Buffer.from(signature, 'hex'));
+  } catch (e) {
+    console.error('Signature comparison error:', e.message);
+    return expected === signature;
+  }
 }
 
 // Serve the interactive pricing actions page
