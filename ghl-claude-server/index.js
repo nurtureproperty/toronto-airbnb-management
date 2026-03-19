@@ -1506,6 +1506,301 @@ app.post('/webhook/nurture-pm', async (req, res) => {
 });
 
 // ============================================
+// INTERACTIVE PRICING ACTIONS PAGE
+// ============================================
+const crypto = require('crypto');
+const PRICING_SECRET = process.env.PRICING_ACTION_SECRET || '';
+const HOSPITABLE_TOKEN = process.env.HOSPITABLE_API_TOKEN || '';
+const HOSPITABLE_API = 'https://public.api.hospitable.com/v2';
+
+function verifyPricingSignature(data, signature) {
+  if (!PRICING_SECRET) return false;
+  const expected = crypto.createHmac('sha256', PRICING_SECRET).update(data).digest('hex');
+  return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
+}
+
+// Serve the interactive pricing actions page
+app.get('/pricing-actions', (req, res) => {
+  const { data, sig } = req.query;
+  if (!data || !sig) {
+    return res.status(400).send('Missing data or signature');
+  }
+
+  // Verify signature
+  if (!verifyPricingSignature(data, sig)) {
+    return res.status(403).send('Invalid signature');
+  }
+
+  let actions;
+  try {
+    actions = JSON.parse(Buffer.from(data, 'base64').toString('utf-8'));
+  } catch (e) {
+    return res.status(400).send('Invalid data');
+  }
+
+  const reportDate = actions.date || 'Today';
+  const items = actions.items || [];
+
+  // Group actions by type
+  const groups = {};
+  for (const item of items) {
+    const group = item.group || 'Other';
+    if (!groups[group]) groups[group] = [];
+    groups[group].push(item);
+  }
+
+  // Build the HTML page
+  let actionsHtml = '';
+  let idx = 0;
+  for (const [groupName, groupItems] of Object.entries(groups)) {
+    const groupColors = {
+      'Price Drops': '#c0392b',
+      'Price Increases': '#27ae60',
+      'Orphan Night Premiums': '#8e44ad',
+      'Adjacent Discounts': '#2980b9',
+    };
+    const color = groupColors[groupName] || '#333';
+
+    actionsHtml += `<h3 style="color:${color};margin-top:24px;margin-bottom:12px;">${groupName}</h3>`;
+
+    for (const item of groupItems) {
+      const checked = item.recommended ? 'checked' : '';
+      actionsHtml += `
+        <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;margin:6px 0;background:#f8f8f8;border-radius:6px;border-left:4px solid ${color};cursor:pointer;" class="action-row">
+          <input type="checkbox" name="action" value="${idx}" ${checked}
+            style="margin-top:3px;width:18px;height:18px;cursor:pointer;">
+          <div style="flex:1;">
+            <strong>${item.property}</strong> (${item.city})<br>
+            <span style="font-size:14px;color:#555;">${item.description}</span><br>
+            <span style="font-size:13px;">
+              ${item.dates ? item.dates.map(d => `<span style="display:inline-block;background:white;border:1px solid #ddd;border-radius:4px;padding:2px 8px;margin:2px;font-size:12px;">${d.date}: $${(d.current_price/100).toFixed(0)} → $${(d.new_price/100).toFixed(0)}</span>`).join('') : ''}
+            </span>
+          </div>
+        </label>`;
+      idx++;
+    }
+  }
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nurture Pricing Actions | ${reportDate}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f0f0; margin: 0; padding: 16px; color: #333; }
+    .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .header { background: #759b8f; color: white; padding: 24px 30px; }
+    .header h1 { margin: 0; font-size: 22px; }
+    .header p { margin: 4px 0 0; opacity: 0.9; font-size: 14px; }
+    .content { padding: 24px 30px; }
+    .action-row:hover { background: #f0f0f0 !important; }
+    .toolbar { position: sticky; bottom: 0; background: white; border-top: 2px solid #759b8f; padding: 16px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .btn { padding: 12px 32px; border-radius: 6px; border: none; font-size: 16px; font-weight: bold; cursor: pointer; }
+    .btn-primary { background: #759b8f; color: white; }
+    .btn-primary:hover { background: #5a7d73; }
+    .btn-primary:disabled { background: #ccc; cursor: not-allowed; }
+    .select-btns { display: flex; gap: 8px; }
+    .select-btns button { background: none; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+    .select-btns button:hover { background: #f0f0f0; }
+    .status { display: none; padding: 16px 30px; text-align: center; font-size: 16px; }
+    .status.success { display: block; background: #d5f5e3; color: #1e8449; }
+    .status.error { display: block; background: #fadbd8; color: #c0392b; }
+    .status.loading { display: block; background: #fef9e7; color: #7d6608; }
+    .results { padding: 0 30px 20px; }
+    .result-item { padding: 6px 0; font-size: 14px; border-bottom: 1px solid #f0f0f0; }
+    .result-ok { color: #1e8449; }
+    .result-fail { color: #c0392b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Pricing Actions</h1>
+      <p>${reportDate} | Select adjustments to apply</p>
+    </div>
+
+    <form id="actionsForm">
+      <div class="content">
+        ${actionsHtml || '<p>No actions suggested today.</p>'}
+      </div>
+
+      <div class="toolbar">
+        <div class="select-btns">
+          <button type="button" onclick="toggleAll(true)">Select All</button>
+          <button type="button" onclick="toggleAll(false)">Deselect All</button>
+          <span id="countLabel" style="font-size:13px;color:#666;margin-left:8px;">0 selected</span>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Apply Selected</button>
+      </div>
+    </form>
+
+    <div id="statusBar" class="status"></div>
+    <div id="results" class="results"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('actionsForm');
+    const statusBar = document.getElementById('statusBar');
+    const resultsDiv = document.getElementById('results');
+    const submitBtn = document.getElementById('submitBtn');
+    const countLabel = document.getElementById('countLabel');
+
+    function updateCount() {
+      const checked = document.querySelectorAll('input[name="action"]:checked').length;
+      countLabel.textContent = checked + ' selected';
+    }
+
+    document.querySelectorAll('input[name="action"]').forEach(cb => {
+      cb.addEventListener('change', updateCount);
+    });
+    updateCount();
+
+    function toggleAll(state) {
+      document.querySelectorAll('input[name="action"]').forEach(cb => cb.checked = state);
+      updateCount();
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const selected = Array.from(document.querySelectorAll('input[name="action"]:checked')).map(cb => parseInt(cb.value));
+
+      if (!selected.length) {
+        statusBar.className = 'status error';
+        statusBar.textContent = 'Please select at least one action.';
+        return;
+      }
+
+      if (!confirm('Apply ' + selected.length + ' pricing change(s)? This will update rates in Hospitable immediately.')) return;
+
+      statusBar.className = 'status loading';
+      statusBar.textContent = 'Applying ' + selected.length + ' change(s)...';
+      submitBtn.disabled = true;
+      resultsDiv.innerHTML = '';
+
+      try {
+        const resp = await fetch('/pricing-actions/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            data: '${data}',
+            sig: '${sig}',
+            selected: selected,
+          }),
+        });
+
+        const result = await resp.json();
+
+        if (result.success) {
+          statusBar.className = 'status success';
+          statusBar.textContent = result.applied + ' of ' + selected.length + ' changes applied successfully.';
+        } else {
+          statusBar.className = 'status error';
+          statusBar.textContent = 'Error: ' + (result.error || 'Unknown error');
+        }
+
+        if (result.results) {
+          resultsDiv.innerHTML = '<h4 style="margin:16px 0 8px;">Results:</h4>' +
+            result.results.map(r =>
+              '<div class="result-item ' + (r.ok ? 'result-ok' : 'result-fail') + '">' +
+              (r.ok ? '✅' : '❌') + ' ' + r.property + ': ' + r.message + '</div>'
+            ).join('');
+        }
+
+      } catch (err) {
+        statusBar.className = 'status error';
+        statusBar.textContent = 'Network error: ' + err.message;
+      }
+
+      submitBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>`;
+
+  res.setHeader('Content-Type', 'text/html');
+  res.send(html);
+});
+
+// Execute selected pricing actions
+app.post('/pricing-actions/execute', async (req, res) => {
+  try {
+    const { data, sig, selected } = req.body;
+
+    if (!data || !sig || !selected) {
+      return res.status(400).json({ success: false, error: 'Missing required fields' });
+    }
+
+    if (!verifyPricingSignature(data, sig)) {
+      return res.status(403).json({ success: false, error: 'Invalid signature' });
+    }
+
+    let actions;
+    try {
+      actions = JSON.parse(Buffer.from(data, 'base64').toString('utf-8'));
+    } catch (e) {
+      return res.status(400).json({ success: false, error: 'Invalid data' });
+    }
+
+    // Check expiry (actions valid for 48 hours)
+    if (actions.expires && Date.now() > actions.expires) {
+      return res.status(410).json({ success: false, error: 'This pricing report has expired. Run a new report to get fresh actions.' });
+    }
+
+    const items = actions.items || [];
+    const results = [];
+    let applied = 0;
+
+    for (const idx of selected) {
+      const item = items[idx];
+      if (!item || !item.property_id || !item.dates) {
+        results.push({ property: item?.property || 'Unknown', ok: false, message: 'Invalid action data' });
+        continue;
+      }
+
+      // Build calendar update payload (max 60 dates per request)
+      const calDates = item.dates.map(d => ({
+        date: d.date,
+        price: { amount: d.new_price },
+      }));
+
+      try {
+        const resp = await fetch(`${HOSPITABLE_API}/properties/${item.property_id}/calendar`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${HOSPITABLE_TOKEN}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({ dates: calDates }),
+        });
+
+        if (resp.ok) {
+          applied++;
+          const datesSummary = calDates.map(d => `${d.date}: $${(d.price.amount/100).toFixed(0)}`).join(', ');
+          results.push({ property: item.property, ok: true, message: `Updated ${calDates.length} date(s): ${datesSummary}` });
+        } else {
+          const errText = await resp.text();
+          results.push({ property: item.property, ok: false, message: `API error ${resp.status}: ${errText.slice(0, 200)}` });
+        }
+      } catch (e) {
+        results.push({ property: item.property, ok: false, message: `Network error: ${e.message}` });
+      }
+
+      // Small delay between API calls
+      await new Promise(r => setTimeout(r, 300));
+    }
+
+    res.json({ success: true, applied, total: selected.length, results });
+
+  } catch (error) {
+    console.error('Pricing action execute error:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// ============================================
 // START SERVER
 // ============================================
 

@@ -23,6 +23,9 @@ import os
 import sys
 import time
 import json
+import hmac
+import hashlib
+import base64
 import smtplib
 import argparse
 import requests
@@ -56,6 +59,10 @@ EMAIL_TO = ["info@nurtre.io", "angelica@nurtre.io"]
 # Slack config
 SLACK_TOKEN = os.getenv("SLACK_BOT_TOKEN") or os.getenv("NURTURE_BOT_TOKEN")
 SLACK_CHANNEL = os.getenv("SLACK_HOSPITABLE_CHANNEL_ID", "")
+
+# Interactive pricing actions
+PRICING_ACTION_SECRET = os.getenv("PRICING_ACTION_SECRET", "")
+PRICING_ACTION_BASE_URL = "https://ghl-claude-server.vercel.app/pricing-actions"
 
 # Thresholds (based on Danny Rusteen's BLT strategy)
 # At BLT: 50% occupied. At half BLT: 75%. Within 7 days: 85-100%.
@@ -640,6 +647,7 @@ def generate_report():
         price_rec = calculate_base_price_recommendation(tiered_occ, pricing["avg_price"] if pricing else 0)
 
         detail = {
+            "_property_id": pid,
             "name": name,
             "city": city,
             "bedrooms": beds,
@@ -737,18 +745,30 @@ def generate_report():
             f"MEDIUM impact. Consider a 10-15% bump."
         )
 
+    # Build interactive action URL
+    action_items = build_pricing_actions(property_details)
+    action_url = generate_action_url(action_items)
+    if action_url:
+        print(f"  Action URL generated ({len(action_items)} actions)")
+    else:
+        print("  No action URL (missing secret or no actions)")
+
     # Build text report
-    text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events)
-    html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events)
+    text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url)
+    html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url)
 
     return text_report, html_report
 
 
-def build_text_report(date, alerts, warnings, event_alerts, insights, details, events):
+def build_text_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None):
     lines = []
     lines.append(f"DAILY PRICING INTELLIGENCE REPORT")
     lines.append(f"{date}")
     lines.append("=" * 60)
+
+    if action_url:
+        lines.append(f"\n🎯 APPLY CHANGES: {action_url}")
+        lines.append("   ^ Click to review and apply pricing adjustments with one click")
 
     if alerts:
         lines.append("\n🔴 ACTION REQUIRED")
@@ -825,7 +845,7 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
     return "\n".join(lines)
 
 
-def build_html_report(date, alerts, warnings, event_alerts, insights, details, events):
+def build_html_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None):
     """Build a styled HTML email."""
 
     def section(title, items, color):
@@ -879,6 +899,12 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
 </div>
 
 <div style="padding:24px 30px;">
+
+{"" if not action_url else f'''<div style="text-align:center;margin-bottom:24px;padding:20px;background:#f0faf6;border-radius:8px;border:2px solid #759b8f;">
+    <p style="margin:0 0 12px;font-size:16px;font-weight:bold;color:#333;">Ready to apply these changes?</p>
+    <a href="{action_url}" style="display:inline-block;padding:14px 40px;background:#759b8f;color:white;text-decoration:none;border-radius:6px;font-size:16px;font-weight:bold;">Review &amp; Apply Pricing Changes</a>
+    <p style="margin:10px 0 0;font-size:12px;color:#999;">Select which adjustments to apply. Changes update Hospitable immediately.</p>
+</div>'''}
 
 {section("🔴 Action Required: Low Occupancy", alerts, "#c0392b")}
 {section("⚠️ Underpricing Warnings", warnings, "#e67e22")}
@@ -938,6 +964,107 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
 # ============================================
 # EMAIL & SLACK
 # ============================================
+def build_pricing_actions(property_details):
+    """Build the signed action payload for the interactive pricing page."""
+    items = []
+
+    for d in property_details:
+        pid = d.get("_property_id", "")
+        name = d["name"]
+        city = d["city"]
+
+        # Price drop recommendations (from tiered occupancy)
+        if "price_recommendation" in d and d["price_recommendation"]["action"] == "DROP":
+            rec = d["price_recommendation"]
+            pct = rec["pct"]
+            if "pricing" in d and d["pricing"]["available_nights"]:
+                dates = []
+                for n in d["pricing"]["available_nights"]:
+                    current_cents = int(n["price"] * 100)
+                    new_cents = int(current_cents * (1 - pct / 100))
+                    dates.append({"date": n["date"], "current_price": current_cents, "new_price": new_cents})
+                if dates:
+                    items.append({
+                        "group": "Price Drops",
+                        "property": name,
+                        "property_id": pid,
+                        "city": city,
+                        "description": f"Drop {pct}% on {len(dates)} open night(s). {rec['reason']}",
+                        "dates": dates,
+                        "recommended": True,
+                    })
+
+        # Price increase recommendations
+        if "price_recommendation" in d and d["price_recommendation"]["action"] == "RAISE":
+            rec = d["price_recommendation"]
+            pct = rec["pct"]
+            if "pricing" in d and d["pricing"]["available_nights"]:
+                dates = []
+                for n in d["pricing"]["available_nights"]:
+                    current_cents = int(n["price"] * 100)
+                    new_cents = int(current_cents * (1 + pct / 100))
+                    dates.append({"date": n["date"], "current_price": current_cents, "new_price": new_cents})
+                if dates:
+                    items.append({
+                        "group": "Price Increases",
+                        "property": name,
+                        "property_id": pid,
+                        "city": city,
+                        "description": f"Raise {pct}% on {len(dates)} open night(s). {rec['reason']}",
+                        "dates": dates,
+                        "recommended": False,
+                    })
+
+        # Orphan night premiums
+        if "orphans" in d:
+            for orph in d["orphans"]:
+                current_cents = int(orph["current_price"] * 100)
+                new_cents = int(orph["suggested_price"] * 100)
+                items.append({
+                    "group": "Orphan Night Premiums",
+                    "property": name,
+                    "property_id": pid,
+                    "city": city,
+                    "description": f"{orph['nights']}-night gap. Charge 20% premium to fill.",
+                    "dates": [{"date": orph["start"], "current_price": current_cents, "new_price": new_cents}],
+                    "recommended": True,
+                })
+
+        # Adjacent discounts
+        if "adjacent" in d:
+            for adj in d["adjacent"][:3]:
+                current_cents = int(adj["current_price"] * 100)
+                new_cents = int(adj["suggested_price"] * 100)
+                items.append({
+                    "group": "Adjacent Discounts",
+                    "property": name,
+                    "property_id": pid,
+                    "city": city,
+                    "description": f"{adj['position']} on {adj['day_name']}. 15% discount to fill.",
+                    "dates": [{"date": adj["date"], "current_price": current_cents, "new_price": new_cents}],
+                    "recommended": True,
+                })
+
+    return items
+
+
+def generate_action_url(action_items):
+    """Generate a signed URL for the interactive pricing page."""
+    if not PRICING_ACTION_SECRET or not action_items:
+        return None
+
+    payload = {
+        "date": datetime.now().strftime("%A, %B %d, %Y"),
+        "expires": int((datetime.now() + timedelta(hours=48)).timestamp() * 1000),
+        "items": action_items,
+    }
+
+    data_b64 = base64.b64encode(json.dumps(payload).encode()).decode()
+    sig = hmac.HMAC(PRICING_ACTION_SECRET.encode(), data_b64.encode(), hashlib.sha256).hexdigest()
+
+    return f"{PRICING_ACTION_BASE_URL}?data={data_b64}&sig={sig}"
+
+
 def send_email(subject, text_body, html_body):
     """Send the report via email."""
     msg = MIMEMultipart("alternative")
