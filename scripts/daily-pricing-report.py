@@ -436,39 +436,112 @@ def detect_midterm_stays(reservations, property_id):
     }
 
 
-def detect_orphan_nights(calendar_days):
-    """Detect unbookable gaps between reservations (orphan nights).
-    These are gaps shorter than typical minimum stay that can't be booked."""
+def detect_orphan_nights(calendar_days, default_min_stay=2):
+    """Detect unbookable gaps between two reservations (orphan nights).
+    Only flags gaps that are shorter than the property's normal minimum stay
+    AND are sandwiched between two RESERVED dates (not open stretches)."""
     today = datetime.now().date()
-    orphans = []
-    gap_start = None
-    gap_days = []
 
+    # Parse all days into a structured list
+    parsed = []
     for day in calendar_days:
         try:
             day_date = datetime.strptime(day["date"], "%Y-%m-%d").date()
-            if day_date < today:
-                continue
-            status = day.get("status", {}).get("reason", "")
-            if status == "AVAILABLE":
-                if gap_start is None:
-                    gap_start = day_date
-                gap_days.append(day)
-            else:
-                if gap_start and 1 <= len(gap_days) <= 2:
-                    price = gap_days[0].get("price", {}).get("amount", 0) / 100 if gap_days else 0
-                    orphans.append({
-                        "start": gap_start.strftime("%Y-%m-%d"),
-                        "nights": len(gap_days),
-                        "current_price": price,
-                        "suggested_price": round(price * 1.20, 2),  # 20% orphan premium
-                    })
-                gap_start = None
-                gap_days = []
+            parsed.append({
+                "date": day_date,
+                "date_str": day["date"],
+                "day_name": day.get("day", "")[:3],
+                "status": day.get("status", {}).get("reason", ""),
+                "price_cents": day.get("price", {}).get("amount", 0),
+                "min_stay": day.get("min_stay", default_min_stay),
+            })
         except (ValueError, KeyError):
             continue
 
+    parsed.sort(key=lambda x: x["date"])
+
+    orphans = []
+    i = 0
+    while i < len(parsed):
+        d = parsed[i]
+        if d["date"] < today or d["status"] != "AVAILABLE":
+            i += 1
+            continue
+
+        # Found start of a potential gap — collect consecutive available days
+        gap = [d]
+        j = i + 1
+        while j < len(parsed) and parsed[j]["status"] == "AVAILABLE":
+            gap.append(parsed[j])
+            j += 1
+
+        # Check: is there a RESERVED day before AND after this gap?
+        has_reservation_before = i > 0 and parsed[i - 1]["status"] == "RESERVED"
+        has_reservation_after = j < len(parsed) and parsed[j]["status"] == "RESERVED"
+
+        # Only an orphan if sandwiched between reservations AND gap is shorter than min_stay
+        if has_reservation_before and has_reservation_after and len(gap) < gap[0]["min_stay"]:
+            checkout_date = parsed[i - 1]["date_str"]
+            checkin_date = parsed[j]["date_str"]
+            orphans.append({
+                "dates": [g["date_str"] for g in gap],
+                "day_names": [g["day_name"] for g in gap],
+                "start": gap[0]["date_str"],
+                "nights": len(gap),
+                "current_min_stay": gap[0]["min_stay"],
+                "current_price": gap[0]["price_cents"] / 100,
+                "suggested_price": round(gap[0]["price_cents"] * 1.20 / 100, 2),
+                "price_cents_per_date": [(g["date_str"], g["price_cents"]) for g in gap],
+                "checkout_before": checkout_date,
+                "checkin_after": checkin_date,
+            })
+
+        i = j  # Skip past the gap
+
     return orphans
+
+
+def auto_apply_orphan_min_stay(property_id, orphans, token=None):
+    """Auto-apply min_stay=1 on orphan night dates via Hospitable calendar PUT.
+    Returns list of results for reporting."""
+    if not orphans:
+        return []
+
+    results = []
+    for orph in orphans:
+        cal_dates = [{"date": d, "min_stay": 1} for d in orph["dates"]]
+
+        try:
+            resp = requests.put(
+                f"{BASE}/properties/{property_id}/calendar",
+                headers=HEADERS,
+                json={"dates": cal_dates},
+                timeout=15,
+            )
+            if resp.status_code == 200:
+                results.append({
+                    "dates": orph["dates"],
+                    "nights": orph["nights"],
+                    "old_min_stay": orph["current_min_stay"],
+                    "ok": True,
+                })
+            else:
+                results.append({
+                    "dates": orph["dates"],
+                    "nights": orph["nights"],
+                    "ok": False,
+                    "error": f"API {resp.status_code}: {resp.text[:100]}",
+                })
+        except Exception as e:
+            results.append({
+                "dates": orph["dates"],
+                "nights": orph["nights"],
+                "ok": False,
+                "error": str(e),
+            })
+        time.sleep(0.3)
+
+    return results
 
 
 def detect_adjacent_opportunities(calendar_days):
@@ -659,7 +732,9 @@ def generate_report():
     alerts = []          # High priority
     warnings = []        # Medium priority
     insights = []        # Nice to know
+    orphan_actions = []  # Auto-applied orphan min_stay changes
     property_details = []
+    dry_run = "--dry-run" in sys.argv
 
     for p in properties:
         pid = p["id"]
@@ -767,10 +842,33 @@ def generate_report():
         # Build ONE consolidated insight per property for orphans + adjacent
         if orphans:
             detail["orphans"] = orphans
+
+            # Auto-apply min_stay=1 on orphan dates (low risk, just opens bookability)
+            if not dry_run:
+                apply_results = auto_apply_orphan_min_stay(pid, orphans)
+                for orph, result in zip(orphans, apply_results):
+                    date_list = ", ".join(f"{d} ({dn})" for d, dn in zip(orph["dates"], orph["day_names"]))
+                    if result["ok"]:
+                        orphan_actions.append(
+                            f"✅ {name} ({city}): Dropped min_stay from {orph['current_min_stay']} to 1 on {date_list}. "
+                            f"{orph['nights']}-night gap between checkout {orph['checkout_before']} and check-in {orph['checkin_after']}."
+                        )
+                    else:
+                        orphan_actions.append(
+                            f"❌ {name} ({city}): Failed to update {date_list}. Error: {result.get('error', 'unknown')}"
+                        )
+            else:
+                for orph in orphans:
+                    date_list = ", ".join(f"{d} ({dn})" for d, dn in zip(orph["dates"], orph["day_names"]))
+                    orphan_actions.append(
+                        f"🔧 {name} ({city}): Would drop min_stay from {orph['current_min_stay']} to 1 on {date_list}. "
+                        f"{orph['nights']}-night gap between checkout {orph['checkout_before']} and check-in {orph['checkin_after']}. [DRY RUN]"
+                    )
+
+            # Price bump goes to interactive page (not auto-applied)
             orphan_dates = [o["start"] for o in orphans[:3]]
             insights.append(
-                f"💡 {name}: {len(orphans)} orphan gap(s) ({', '.join(orphan_dates)}). "
-                f"Drop minimum stay and charge 20% premium to fill."
+                f"💡 {name}: {len(orphans)} orphan gap(s) opened. Consider 20% price bump on those dates."
             )
 
         if adjacent and len(adjacent) <= 5:
@@ -814,13 +912,13 @@ def generate_report():
         print("  No action URL (missing secret or no actions)")
 
     # Build text report
-    text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url)
-    html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url)
+    text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions)
+    html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions)
 
     return text_report, html_report
 
 
-def build_text_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None):
+def build_text_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None):
     lines = []
     lines.append(f"DAILY PRICING INTELLIGENCE REPORT")
     lines.append(f"{date}")
@@ -829,6 +927,12 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
     if action_url:
         lines.append(f"\n🎯 APPLY CHANGES: {action_url}")
         lines.append("   ^ Click to review and apply pricing adjustments with one click")
+
+    if orphan_actions:
+        lines.append("\n🔧 ORPHAN NIGHT OVERRIDES (auto-applied)")
+        lines.append("-" * 40)
+        for a in orphan_actions:
+            lines.append(f"  {a}")
 
     if alerts:
         lines.append("\n🔴 ACTION REQUIRED")
@@ -911,7 +1015,7 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
     return "\n".join(lines)
 
 
-def build_html_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None):
+def build_html_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None):
     """Build a styled HTML email."""
 
     def section(title, items, color):
@@ -972,6 +1076,7 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
     <p style="margin:10px 0 0;font-size:12px;color:#999;">Select which adjustments to apply. Changes update Hospitable immediately.</p>
 </div>'''}
 
+{section("🔧 Orphan Night Overrides (auto-applied)", orphan_actions or [], "#16a085")}
 {section("🔴 Action Required: Low Occupancy", alerts, "#c0392b")}
 {section("⚠️ Underpricing Warnings", warnings, "#e67e22")}
 {section("📅 Upcoming Events: Price Increase Opportunities", event_alerts, "#2980b9")}
