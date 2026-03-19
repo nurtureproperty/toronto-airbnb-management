@@ -388,6 +388,54 @@ def analyze_advance_bookings(reservations, property_id, avg_lead_time):
     }
 
 
+def detect_midterm_stays(reservations, property_id):
+    """Detect active or upcoming mid-term stays (28+ nights) for a property.
+    Mid-term stays are intentionally lower-priced and shouldn't trigger underpricing warnings."""
+    today = datetime.now()
+    midterm = []
+    str_count = 0
+
+    for res in reservations:
+        if (res.get("_property_id") or res.get("property")) != property_id:
+            continue
+        if res.get("stay_type") == "owner_stay":
+            continue
+
+        nights = res.get("nights", 0)
+        arrival = res.get("arrival_date") or res.get("check_in")
+        departure = res.get("departure_date") or res.get("check_out")
+
+        if not arrival or not departure:
+            continue
+
+        try:
+            arr_dt = datetime.fromisoformat(arrival.replace("Z", "+00:00")).replace(tzinfo=None)
+            dep_dt = datetime.fromisoformat(departure.replace("Z", "+00:00")).replace(tzinfo=None)
+        except Exception:
+            continue
+
+        # Active or future reservation
+        if dep_dt < today:
+            continue
+
+        if nights >= 28:
+            midterm.append({
+                "arrival": arr_dt.strftime("%Y-%m-%d"),
+                "departure": dep_dt.strftime("%Y-%m-%d"),
+                "nights": nights,
+                "active": arr_dt <= today < dep_dt,
+            })
+        else:
+            str_count += 1
+
+    return {
+        "has_midterm": len(midterm) > 0,
+        "active_midterm": any(m["active"] for m in midterm),
+        "midterm_stays": midterm,
+        "str_booking_count": str_count,
+    }
+
+
 def detect_orphan_nights(calendar_days):
     """Detect unbookable gaps between reservations (orphan nights).
     These are gaps shorter than typical minimum stay that can't be booked."""
@@ -591,10 +639,10 @@ def generate_report():
     # 3. Calculate lead times per property
     lead_times = calculate_lead_times(historical_res)
 
-    # 4. Fetch future reservations (next 90 days)
-    print("  Fetching future reservations...")
-    future_res = get_reservations_per_property(property_ids, now, now + timedelta(days=90))
-    print(f"  Found {len(future_res)} future reservations")
+    # 4. Fetch future reservations (include 60 days back to catch active mid-term stays)
+    print("  Fetching current and future reservations...")
+    future_res = get_reservations_per_property(property_ids, now - timedelta(days=60), now + timedelta(days=90))
+    print(f"  Found {len(future_res)} current/future reservations")
 
     # 5. Fetch calendar for each property (next 90 days)
     print("  Fetching calendars...")
@@ -625,6 +673,9 @@ def generate_report():
 
         cal = calendars.get(pid, [])
 
+        # Mid-term stay detection
+        midterm_info = detect_midterm_stays(future_res, pid)
+
         # Tiered occupancy analysis (BLT strategy: 50% at BLT, 75% at half, 85% at 7d)
         tiered_occ = analyze_tiered_occupancy(cal, avg_lt)
 
@@ -643,8 +694,12 @@ def generate_report():
         # Adjacent reservation opportunities
         adjacent = detect_adjacent_opportunities(cal)
 
-        # Base price recommendation
+        # Base price recommendation (skip RAISE if mid-term is filling the calendar)
         price_rec = calculate_base_price_recommendation(tiered_occ, pricing["avg_price"] if pricing else 0)
+
+        # If property has active mid-term stay and is fully booked, don't recommend RAISE
+        if midterm_info["active_midterm"] and price_rec and price_rec["action"] == "RAISE":
+            price_rec = {"action": "HOLD", "pct": 0, "reason": f"Mid-term rental active. Occupancy is high due to 30+ day booking, not STR demand. Review STR rates separately when mid-term ends"}
 
         detail = {
             "_property_id": pid,
@@ -656,30 +711,34 @@ def generate_report():
             "booking_count": lt_count,
         }
 
+        if midterm_info["has_midterm"]:
+            detail["midterm"] = midterm_info
+
         if tiered_occ:
             detail["tiered_occupancy"] = tiered_occ
 
-            # Build ONE consolidated alert per property (pick the most urgent tier)
-            failing_tiers = [t for t in tiered_occ if t["below_target"]]
-            if failing_tiers:
-                # Most urgent = smallest window first (7d > half BLT > BLT)
-                most_urgent = failing_tiers[0]
-                parts = []
-                for t in failing_tiers:
-                    parts.append(f"{round(t['actual']*100)}% at {t['tier']} (target {round(t['target']*100)}%)")
-                summary = ", ".join(parts)
-                total_open = most_urgent["bookable"] - most_urgent["booked"]
+            # Skip low occupancy alerts if mid-term is active (calendar looks full)
+            if not midterm_info["active_midterm"]:
+                # Build ONE consolidated alert per property (pick the most urgent tier)
+                failing_tiers = [t for t in tiered_occ if t["below_target"]]
+                if failing_tiers:
+                    most_urgent = failing_tiers[0]
+                    parts = []
+                    for t in failing_tiers:
+                        parts.append(f"{round(t['actual']*100)}% at {t['tier']} (target {round(t['target']*100)}%)")
+                    summary = ", ".join(parts)
+                    total_open = most_urgent["bookable"] - most_urgent["booked"]
 
-                if most_urgent["days"] <= 7:
-                    alerts.append(
-                        f"🔴 {name} ({city}): {summary}. "
-                        f"{total_open} open nights within a week. Drop prices 15-20% on remaining dates."
-                    )
-                else:
-                    alerts.append(
-                        f"🔴 {name} ({city}): {summary}. "
-                        f"Drop base price 5% this week."
-                    )
+                    if most_urgent["days"] <= 7:
+                        alerts.append(
+                            f"🔴 {name} ({city}): {summary}. "
+                            f"{total_open} open nights within a week. Drop prices 15-20% on remaining dates."
+                        )
+                    else:
+                        alerts.append(
+                            f"🔴 {name} ({city}): {summary}. "
+                            f"Drop base price 5% this week."
+                        )
 
         if occ:
             detail["occupancy"] = occ
@@ -687,16 +746,17 @@ def generate_report():
         if adv:
             detail["advance_bookings"] = adv
 
-        # Build ONE consolidated warning per property
+        # Build ONE consolidated warning per property (skip if mid-term is inflating occupancy)
         warning_parts = []
-        if adv and adv["far_advance_pct"] > 0.40 and adv["total_future"] >= 3:
-            warning_parts.append(
-                f"{adv['far_advance_count']} of {adv['total_future']} bookings are beyond "
-                f"{round(avg_lt * 1.5)}d out (1.5x BLT of {avg_lt}d), farthest {adv['farthest_booking_days']}d"
-            )
-        if adv and adv.get("within_lead_fill_rate", 0) > ADVANCE_BOOKING_THRESHOLD:
-            warning_parts.append(
-                f"{round(adv['within_lead_fill_rate'] * 100)}% fill rate within BLT window"
+        if not midterm_info["active_midterm"]:
+            if adv and adv["far_advance_pct"] > 0.40 and adv["total_future"] >= 3:
+                warning_parts.append(
+                    f"{adv['far_advance_count']} of {adv['total_future']} bookings are beyond "
+                    f"{round(avg_lt * 1.5)}d out (1.5x BLT of {avg_lt}d), farthest {adv['farthest_booking_days']}d"
+                )
+            if adv and adv.get("within_lead_fill_rate", 0) > ADVANCE_BOOKING_THRESHOLD:
+                warning_parts.append(
+                    f"{round(adv['within_lead_fill_rate'] * 100)}% fill rate within BLT window"
             )
         if price_rec and price_rec["action"] == "RAISE" and price_rec["pct"] >= 10:
             warning_parts.append(price_rec["reason"])
@@ -799,6 +859,12 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
     for d in details:
         lines.append(f"\n  {d['name']} ({d['city']}, {d['bedrooms']}BR)")
         lines.append(f"    Avg lead time: {d['avg_lead_time']}d (median {d['median_lead_time']}d, based on {d['booking_count']} bookings)")
+
+        if "midterm" in d and d["midterm"]["has_midterm"]:
+            mt = d["midterm"]
+            for stay in mt["midterm_stays"]:
+                status = "ACTIVE NOW" if stay["active"] else "upcoming"
+                lines.append(f"    🏠 Mid-term rental ({stay['nights']}n, {stay['arrival']} to {stay['departure']}) [{status}]")
 
         # Tiered occupancy (BLT strategy)
         if "tiered_occupancy" in d:
