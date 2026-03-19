@@ -650,63 +650,71 @@ def generate_report():
 
         if tiered_occ:
             detail["tiered_occupancy"] = tiered_occ
-            for tier in tiered_occ:
-                if tier["below_target"]:
-                    actual_pct = round(tier["actual"] * 100)
-                    target_pct = round(tier["target"] * 100)
-                    if tier["days"] <= 7:
-                        alerts.append(
-                            f"🔴 {name} ({city}): Only {actual_pct}% occupied in the next {tier['days']} days "
-                            f"(target: {target_pct}%). {tier['bookable'] - tier['booked']} open nights need to be filled ASAP. "
-                            f"Consider a 15-20% price drop on remaining dates."
-                        )
-                    elif "BLT" in tier["tier"] and not "half" in tier["tier"]:
-                        alerts.append(
-                            f"🔴 {name} ({city}): {actual_pct}% occupied at BLT ({avg_lt}d), target is {target_pct}%. "
-                            f"Drop base price 5% this week. {tier['bookable'] - tier['booked']} nights to fill."
-                        )
+
+            # Build ONE consolidated alert per property (pick the most urgent tier)
+            failing_tiers = [t for t in tiered_occ if t["below_target"]]
+            if failing_tiers:
+                # Most urgent = smallest window first (7d > half BLT > BLT)
+                most_urgent = failing_tiers[0]
+                parts = []
+                for t in failing_tiers:
+                    parts.append(f"{round(t['actual']*100)}% at {t['tier']} (target {round(t['target']*100)}%)")
+                summary = ", ".join(parts)
+                total_open = most_urgent["bookable"] - most_urgent["booked"]
+
+                if most_urgent["days"] <= 7:
+                    alerts.append(
+                        f"🔴 {name} ({city}): {summary}. "
+                        f"{total_open} open nights within a week. Drop prices 15-20% on remaining dates."
+                    )
+                else:
+                    alerts.append(
+                        f"🔴 {name} ({city}): {summary}. "
+                        f"Drop base price 5% this week."
+                    )
 
         if occ:
             detail["occupancy"] = occ
 
         if adv:
             detail["advance_bookings"] = adv
-            if adv["far_advance_pct"] > 0.40 and adv["total_future"] >= 3:
-                warnings.append(
-                    f"⚠️ {name} ({city}): {adv['far_advance_count']} of {adv['total_future']} upcoming bookings "
-                    f"are beyond {round(avg_lt * 1.5)} days out (1.5x your avg lead time of {avg_lt}d). "
-                    f"Farthest booking is {adv['farthest_booking_days']} days out. This property may be underpriced. "
-                    f"Consider raising base rate 5-10%."
-                )
-            if adv.get("within_lead_fill_rate", 0) > ADVANCE_BOOKING_THRESHOLD:
-                warnings.append(
-                    f"⚠️ {name} ({city}): {round(adv['within_lead_fill_rate'] * 100)}% fill rate within "
-                    f"lead time window ({avg_lt} days). Demand is strong. Raise base rate 5%."
-                )
 
+        # Build ONE consolidated warning per property
+        warning_parts = []
+        if adv and adv["far_advance_pct"] > 0.40 and adv["total_future"] >= 3:
+            warning_parts.append(
+                f"{adv['far_advance_count']} of {adv['total_future']} bookings are beyond "
+                f"{round(avg_lt * 1.5)}d out (1.5x BLT of {avg_lt}d), farthest {adv['farthest_booking_days']}d"
+            )
+        if adv and adv.get("within_lead_fill_rate", 0) > ADVANCE_BOOKING_THRESHOLD:
+            warning_parts.append(
+                f"{round(adv['within_lead_fill_rate'] * 100)}% fill rate within BLT window"
+            )
+        if price_rec and price_rec["action"] == "RAISE" and price_rec["pct"] >= 10:
+            warning_parts.append(price_rec["reason"])
+
+        if warning_parts:
+            warnings.append(f"⚠️ {name} ({city}): {'. '.join(warning_parts)}. Raise base rate 5-10%.")
+
+        # Build ONE consolidated insight per property for orphans + adjacent
         if orphans:
             detail["orphans"] = orphans
-            for orph in orphans:
-                insights.append(
-                    f"💡 {name}: {orph['nights']}-night orphan gap on {orph['start']}. "
-                    f"Currently ${orph['current_price']:.0f}. Drop minimum stay to {orph['nights']} and "
-                    f"raise price to ${orph['suggested_price']:.0f} (+20% orphan premium)."
-                )
+            orphan_dates = [o["start"] for o in orphans[:3]]
+            insights.append(
+                f"💡 {name}: {len(orphans)} orphan gap(s) ({', '.join(orphan_dates)}). "
+                f"Drop minimum stay and charge 20% premium to fill."
+            )
 
         if adjacent and len(adjacent) <= 5:
             detail["adjacent"] = adjacent
-            for adj in adjacent[:3]:
-                insights.append(
-                    f"💡 {name}: {adj['date']} ({adj['day_name']}) is a {adj['position']} at ${adj['current_price']:.0f}. "
-                    f"Drop to ${adj['suggested_price']:.0f} (15% off) to fill this adjacent night."
-                )
+            adj_dates = [f"{a['date']} ({a['day_name']})" for a in adjacent[:3]]
+            insights.append(
+                f"💡 {name}: {len(adjacent)} night(s) adjacent to reservations ({', '.join(adj_dates)}). "
+                f"Consider 15% discount to fill."
+            )
 
         if price_rec:
             detail["price_recommendation"] = price_rec
-            if price_rec["action"] == "RAISE" and price_rec["pct"] >= 10:
-                warnings.append(
-                    f"⚠️ {name} ({city}): {price_rec['reason']}. Raise base rate {price_rec['pct']}%."
-                )
 
         if pricing:
             detail["pricing"] = pricing
