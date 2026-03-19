@@ -1067,7 +1067,7 @@ def build_pricing_actions(property_details, calendars=None):
 
 
 def generate_action_url(action_items):
-    """Generate a signed URL for the interactive pricing page."""
+    """Upload actions to the server and return a short URL."""
     if not PRICING_ACTION_SECRET or not action_items:
         return None
 
@@ -1077,10 +1077,22 @@ def generate_action_url(action_items):
         "items": action_items,
     }
 
-    data_b64 = base64.urlsafe_b64encode(json.dumps(payload).encode()).decode()
-    sig = hmac.HMAC(PRICING_ACTION_SECRET.encode(), data_b64.encode(), hashlib.sha256).hexdigest()
+    try:
+        resp = requests.post(
+            f"{PRICING_ACTION_BASE_URL}/upload",
+            json={"secret": PRICING_ACTION_SECRET, "actions": payload},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            report_id = data.get("id")
+            if report_id:
+                return f"{PRICING_ACTION_BASE_URL}/{report_id}"
+        print(f"  Warning: Failed to upload actions: {resp.status_code} {resp.text[:200]}")
+    except Exception as e:
+        print(f"  Warning: Failed to upload actions: {e}")
 
-    return f"{PRICING_ACTION_BASE_URL}?data={data_b64}&sig={sig}"
+    return None
 
 
 def send_email(subject, text_body, html_body):

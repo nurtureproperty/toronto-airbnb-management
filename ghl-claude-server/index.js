@@ -1513,40 +1513,69 @@ const PRICING_SECRET = process.env.PRICING_ACTION_SECRET || '';
 const HOSPITABLE_TOKEN = process.env.HOSPITABLE_API_TOKEN || '';
 const HOSPITABLE_API = 'https://public.api.hospitable.com/v2';
 
-function verifyPricingSignature(data, signature) {
-  if (!PRICING_SECRET) {
-    console.error('PRICING_ACTION_SECRET not set');
-    return false;
-  }
-  const expected = crypto.createHmac('sha256', PRICING_SECRET).update(data).digest('hex');
-  console.log('Signature check:', { expected: expected.slice(0, 12) + '...', received: signature.slice(0, 12) + '...', dataLen: data.length, secretLen: PRICING_SECRET.length });
-  if (expected.length !== signature.length) return false;
-  try {
-    return crypto.timingSafeEqual(Buffer.from(expected, 'hex'), Buffer.from(signature, 'hex'));
-  } catch (e) {
-    console.error('Signature comparison error:', e.message);
-    return expected === signature;
-  }
+// In-memory store for pricing action reports (survives within same lambda instance)
+// Falls back gracefully if instance recycles
+const pricingReports = {};
+const REPORT_TTL = 48 * 60 * 60 * 1000; // 48 hours
+
+function verifyPricingSecret(secret) {
+  return PRICING_SECRET && secret === PRICING_SECRET;
 }
 
-// Serve the interactive pricing actions page
-app.get('/pricing-actions', (req, res) => {
-  const { data, sig } = req.query;
-  if (!data || !sig) {
-    return res.status(400).send('Missing data or signature');
+// Upload pricing actions (called by daily-pricing-report.py)
+app.post('/pricing-actions/upload', express.json({ limit: '5mb' }), (req, res) => {
+  const { secret, actions } = req.body;
+
+  if (!verifyPricingSecret(secret)) {
+    return res.status(403).json({ error: 'Invalid secret' });
   }
 
-  // Verify signature
-  if (!verifyPricingSignature(data, sig)) {
-    return res.status(403).send('Invalid signature');
+  if (!actions || !actions.items) {
+    return res.status(400).json({ error: 'Missing actions data' });
   }
 
-  let actions;
-  try {
-    actions = JSON.parse(Buffer.from(data, 'base64').toString('utf-8'));
-  } catch (e) {
-    return res.status(400).send('Invalid data');
+  // Generate a short ID
+  const id = crypto.randomBytes(8).toString('hex');
+  pricingReports[id] = {
+    actions,
+    createdAt: Date.now(),
+    expires: actions.expires || (Date.now() + REPORT_TTL),
+  };
+
+  // Clean up old reports
+  for (const [key, val] of Object.entries(pricingReports)) {
+    if (Date.now() > val.expires) delete pricingReports[key];
   }
+
+  console.log(`Pricing report stored: ${id} (${actions.items.length} actions)`);
+  res.json({ success: true, id, url: `/pricing-actions/${id}` });
+});
+
+// Serve the interactive pricing actions page by ID
+app.get('/pricing-actions/:id', (req, res) => {
+  const report = pricingReports[req.params.id];
+
+  if (!report) {
+    return res.status(404).send(`
+      <html><body style="font-family:Arial;padding:40px;text-align:center;">
+        <h2>Report Not Found</h2>
+        <p>This pricing report has expired or the server restarted. Run the daily pricing report again to get a fresh link.</p>
+        <p style="color:#999;font-size:14px;">Report ID: ${req.params.id}</p>
+      </body></html>
+    `);
+  }
+
+  if (Date.now() > report.expires) {
+    delete pricingReports[req.params.id];
+    return res.status(410).send(`
+      <html><body style="font-family:Arial;padding:40px;text-align:center;">
+        <h2>Report Expired</h2>
+        <p>This pricing report has expired (48 hour limit). Run a new report to get fresh actions.</p>
+      </body></html>
+    `);
+  }
+
+  const actions = report.actions;
 
   const reportDate = actions.date || 'Today';
   const items = actions.items || [];
@@ -1694,8 +1723,7 @@ app.get('/pricing-actions', (req, res) => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            data: '${data}',
-            sig: '${sig}',
+            reportId: '${req.params.id}',
             selected: selected,
           }),
         });
@@ -1736,29 +1764,23 @@ app.get('/pricing-actions', (req, res) => {
 // Execute selected pricing actions
 app.post('/pricing-actions/execute', async (req, res) => {
   try {
-    const { data, sig, selected } = req.body;
+    const { reportId, selected } = req.body;
 
-    if (!data || !sig || !selected) {
+    if (!reportId || !selected) {
       return res.status(400).json({ success: false, error: 'Missing required fields' });
     }
 
-    if (!verifyPricingSignature(data, sig)) {
-      return res.status(403).json({ success: false, error: 'Invalid signature' });
+    const report = pricingReports[reportId];
+    if (!report) {
+      return res.status(404).json({ success: false, error: 'Report not found or server restarted. Re-run the daily pricing report.' });
     }
 
-    let actions;
-    try {
-      actions = JSON.parse(Buffer.from(data, 'base64').toString('utf-8'));
-    } catch (e) {
-      return res.status(400).json({ success: false, error: 'Invalid data' });
-    }
-
-    // Check expiry (actions valid for 48 hours)
-    if (actions.expires && Date.now() > actions.expires) {
+    if (Date.now() > report.expires) {
+      delete pricingReports[reportId];
       return res.status(410).json({ success: false, error: 'This pricing report has expired. Run a new report to get fresh actions.' });
     }
 
-    const items = actions.items || [];
+    const items = report.actions.items || [];
     const results = [];
     let applied = 0;
 
