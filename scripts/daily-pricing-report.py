@@ -103,31 +103,57 @@ def get_upcoming_events(start_date, days_ahead=60):
         (f"{year}-12-31", "New Year's Eve", "high"),
     ]
 
-    # GTA specific events (approximate dates, update yearly)
-    gta_events = [
-        (f"{year}-02-14", "Valentine's Day Weekend", "medium"),
-        (f"{year}-03-14", "March Break Start (Ontario)", "high"),
-        (f"{year}-03-21", "March Break End", "high"),
-        (f"{year}-04-01", "Toronto Maple Leafs Playoffs (if applicable)", "medium"),
-        (f"{year}-05-01", "Toronto housing turnover peak", "medium"),
-        (f"{year}-05-24", "Victoria Day Long Weekend", "high"),
-        (f"{year}-06-01", "Summer season start", "high"),
-        (f"{year}-06-15", "Toronto Jazz Festival (approx)", "medium"),
-        (f"{year}-06-20", "FIFA World Cup 2026 (Toronto matches)", "high"),
-        (f"{year}-07-01", "Canada Day Long Weekend", "high"),
-        (f"{year}-07-10", "Toronto Caribbean Carnival prep", "medium"),
-        (f"{year}-07-31", "Toronto Caribbean Carnival (Caribana)", "high"),
-        (f"{year}-08-01", "Caribana Weekend", "high"),
-        (f"{year}-08-20", "CNE (Canadian National Exhibition) starts", "high"),
-        (f"{year}-09-04", "CNE ends / Labour Day", "high"),
-        (f"{year}-09-10", "TIFF (Toronto International Film Festival)", "high"),
-        (f"{year}-10-31", "Halloween weekend demand", "medium"),
-        (f"{year}-11-28", "Black Friday / US Thanksgiving visitors", "medium"),
-        (f"{year}-12-20", "Holiday season peak starts", "high"),
+    # Confirmed 2026 events by city (researched Mar 19, 2026)
+    # Format: (date, name, impact, cities) — cities is a list of which property cities are affected
+    # "all" means all properties, otherwise list specific cities
+    confirmed_events = [
+        # Toronto concerts & sports
+        (f"{year}-03-29", "Cardi B at Scotiabank Arena (Day 1)", "medium", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-03-30", "Cardi B (Day 2) + Blue Jays Home Opener", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-04-06", "Blue Jays vs LA Dodgers (3-game series starts)", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-04-16", "Florence + The Machine at Scotiabank Arena", "medium", ["Toronto"]),
+        (f"{year}-05-09", "Karan Aujla at Scotiabank + TFC vs Inter Miami (Messi)", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-05-24", "Khalid at RBC Amphitheatre (Victoria Day weekend)", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-05-31", "Diljit Dosanjh at Rogers Centre (45K+ stadium show)", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-06-05", "Don Toliver at Scotiabank + CFL Stampeders Opener", "medium", ["Toronto", "Calgary"]),
+        (f"{year}-06-08", "Blue Jays vs Phillies (3-game, pre-FIFA)", "medium", ["Toronto"]),
+        (f"{year}-06-12", "FIFA World Cup: Canada match + Jays vs Yankees", "critical", ["Toronto", "Whitby", "Brampton", "Midland"]),
+        (f"{year}-06-14", "Jays vs Yankees Game 3 + MGK at RBC", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-06-17", "FIFA World Cup: Ghana vs Panama", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-06-19", "Joji at Scotiabank Arena", "medium", ["Toronto"]),
+        (f"{year}-06-25", "Pride Toronto Weekend starts", "high", ["Toronto"]),
+        (f"{year}-06-28", "Pride Toronto Parade Day", "high", ["Toronto"]),
+        (f"{year}-07-01", "Canada Day Long Weekend", "high", ["Toronto", "Whitby", "Brampton", "Midland"]),
+        (f"{year}-07-03", "Calgary Stampede starts (10 days)", "critical", ["Calgary"]),
+        (f"{year}-07-12", "Calgary Stampede ends", "critical", ["Calgary"]),
+        (f"{year}-07-31", "Caribana / Caribbean Carnival", "high", ["Toronto", "Whitby", "Brampton"]),
+        (f"{year}-08-20", "CNE starts (3 weeks)", "high", ["Toronto"]),
+        (f"{year}-09-04", "TIFF (Toronto International Film Festival)", "high", ["Toronto"]),
+        # Cottage country / Mont-Tremblant
+        (f"{year}-05-08", "BLOOMAFEST Tremblant", "medium", ["Mont-Tremblant"]),
+        (f"{year}-06-13", "Butter Tart Festival Midland (Ontario Top 100)", "medium", ["Midland"]),
+        (f"{year}-06-21", "IRONMAN 70.3 Mont-Tremblant", "high", ["Mont-Tremblant"]),
+        # Calgary
+        (f"{year}-05-01", "Calgary International Beerfest", "medium", ["Calgary"]),
+        # Medical / Convention (Toronto)
+        (f"{year}-04-22", "ISHLT Medical Conference at MTCC (4 days)", "medium", ["Toronto"]),
+        # General seasonal
+        (f"{year}-02-14", "Valentine's Day Weekend", "medium", ["Toronto"]),
+        (f"{year}-03-14", "March Break Start (Ontario)", "high", ["Toronto", "Whitby", "Brampton", "Midland", "Mont-Tremblant"]),
+        (f"{year}-06-01", "Summer season start", "high", ["Toronto", "Whitby", "Brampton", "Midland", "Mont-Tremblant", "Calgary"]),
+        (f"{year}-11-28", "Black Friday / US Thanksgiving visitors", "medium", ["Toronto"]),
+        (f"{year}-12-20", "Holiday season peak starts", "high", ["Toronto", "Whitby", "Brampton", "Calgary"]),
     ]
 
+    # Legacy general events (apply to all)
+    gta_events = []
+    for date_str, name, impact, cities in confirmed_events:
+        gta_events.append((date_str, name, impact, cities))
+
     upcoming = []
-    for date_str, name, impact in holidays + gta_events:
+
+    # Add holidays (apply to all cities)
+    for date_str, name, impact in holidays:
         try:
             event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
             if start_date.date() <= event_date <= end_date.date():
@@ -137,6 +163,23 @@ def get_upcoming_events(start_date, days_ahead=60):
                     "name": name,
                     "impact": impact,
                     "days_until": days_until,
+                    "cities": ["all"],
+                })
+        except ValueError:
+            continue
+
+    # Add city-specific confirmed events
+    for date_str, name, impact, cities in gta_events:
+        try:
+            event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+            if start_date.date() <= event_date <= end_date.date():
+                days_until = (event_date - start_date.date()).days
+                upcoming.append({
+                    "date": date_str,
+                    "name": name,
+                    "impact": impact,
+                    "days_until": days_until,
+                    "cities": cities,
                 })
         except ValueError:
             continue
@@ -726,7 +769,7 @@ def generate_report():
         time.sleep(0.2)
 
     # 6. Get upcoming events
-    events = get_upcoming_events(now, days_ahead=60)
+    events = get_upcoming_events(now, days_ahead=90)
 
     # 7. Build report sections
     alerts = []          # High priority
@@ -889,18 +932,27 @@ def generate_report():
 
     # Event alerts
     event_alerts = []
+    critical_impact = [e for e in events if e["impact"] == "critical" and e["days_until"] <= 90]
     high_impact = [e for e in events if e["impact"] == "high" and e["days_until"] <= 45]
     medium_impact = [e for e in events if e["impact"] == "medium" and e["days_until"] <= 30]
 
+    for e in critical_impact:
+        cities = ", ".join(e.get("cities", ["all"]))
+        event_alerts.append(
+            f"🔥 {e['name']} ({e['date']}): {e['days_until']} days away. "
+            f"CRITICAL demand. Raise prices 50-100%. Affects: {cities}"
+        )
     for e in high_impact:
+        cities = ", ".join(e.get("cities", ["all"]))
         event_alerts.append(
             f"📅 {e['name']} ({e['date']}): {e['days_until']} days away. "
-            f"HIGH impact on demand. Raise prices if not already adjusted."
+            f"HIGH impact. Raise prices 20-30%. Affects: {cities}"
         )
     for e in medium_impact:
+        cities = ", ".join(e.get("cities", ["all"]))
         event_alerts.append(
             f"📅 {e['name']} ({e['date']}): {e['days_until']} days away. "
-            f"MEDIUM impact. Consider a 10-15% bump."
+            f"MEDIUM impact. Raise 10-15%. Affects: {cities}"
         )
 
     # Build interactive action URL
