@@ -746,7 +746,7 @@ def generate_report():
         )
 
     # Build interactive action URL
-    action_items = build_pricing_actions(property_details)
+    action_items = build_pricing_actions(property_details, calendars)
     action_url = generate_action_url(action_items)
     if action_url:
         print(f"  Action URL generated ({len(action_items)} actions)")
@@ -964,9 +964,10 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
 # ============================================
 # EMAIL & SLACK
 # ============================================
-def build_pricing_actions(property_details):
+def build_pricing_actions(property_details, calendars=None):
     """Build the signed action payload for the interactive pricing page."""
     items = []
+    today = datetime.now().date()
 
     for d in property_details:
         pid = d.get("_property_id", "")
@@ -994,26 +995,43 @@ def build_pricing_actions(property_details):
                         "recommended": True,
                     })
 
-        # Price increase recommendations
+        # Price increase recommendations — look at ALL available nights (next 90 days)
         if "price_recommendation" in d and d["price_recommendation"]["action"] == "RAISE":
             rec = d["price_recommendation"]
             pct = rec["pct"]
+            dates = []
+
+            # First try available nights from pricing snapshot (within BLT)
             if "pricing" in d and d["pricing"]["available_nights"]:
-                dates = []
                 for n in d["pricing"]["available_nights"]:
                     current_cents = int(n["price"] * 100)
                     new_cents = int(current_cents * (1 + pct / 100))
                     dates.append({"date": n["date"], "current_price": current_cents, "new_price": new_cents})
-                if dates:
-                    items.append({
-                        "group": "Price Increases",
-                        "property": name,
-                        "property_id": pid,
-                        "city": city,
-                        "description": f"Raise {pct}% on {len(dates)} open night(s). {rec['reason']}",
-                        "dates": dates,
-                        "recommended": False,
-                    })
+
+            # If no dates in BLT (100% booked), pull from full calendar
+            if not dates and calendars and pid in calendars:
+                for day in calendars[pid]:
+                    try:
+                        day_date = datetime.strptime(day["date"], "%Y-%m-%d").date()
+                        if day_date < today:
+                            continue
+                        if day.get("status", {}).get("reason") == "AVAILABLE" and "price" in day:
+                            current_cents = day["price"]["amount"]
+                            new_cents = int(current_cents * (1 + pct / 100))
+                            dates.append({"date": day["date"], "current_price": current_cents, "new_price": new_cents})
+                    except (ValueError, KeyError):
+                        continue
+
+            if dates:
+                items.append({
+                    "group": "Price Increases",
+                    "property": name,
+                    "property_id": pid,
+                    "city": city,
+                    "description": f"Raise {pct}% on {len(dates)} open night(s). {rec['reason']}",
+                    "dates": dates[:30],  # Cap at 30 dates to keep URL reasonable
+                    "recommended": False,
+                })
 
         # Orphan night premiums
         if "orphans" in d:
