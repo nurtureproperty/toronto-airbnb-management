@@ -57,10 +57,14 @@ EMAIL_TO = ["info@nurtre.io", "angelica@nurtre.io"]
 SLACK_TOKEN = os.getenv("SLACK_BOT_TOKEN") or os.getenv("NURTURE_BOT_TOKEN")
 SLACK_CHANNEL = os.getenv("SLACK_HOSPITABLE_CHANNEL_ID", "")
 
-# Thresholds
-OCCUPANCY_THRESHOLD = 0.50  # Alert if below 50%
+# Thresholds (based on Danny Rusteen's BLT strategy)
+# At BLT: 50% occupied. At half BLT: 75%. Within 7 days: 85-100%.
+OCCUPANCY_THRESHOLD = 0.50  # Alert if below 50% at BLT
+HALF_BLT_THRESHOLD = 0.75  # Alert if below 75% at half BLT
+WEEK_THRESHOLD = 0.85  # Alert if below 85% within 7 days
 ADVANCE_BOOKING_THRESHOLD = 0.60  # If 60%+ of lead time window is already booked, may be underpriced
 MIN_LEAD_TIME_DAYS = 14  # Fallback if no historical data
+BASE_PRICE_ADJUSTMENT = 0.05  # Adjust base price 5% per week based on occupancy
 
 
 # ============================================
@@ -377,6 +381,153 @@ def analyze_advance_bookings(reservations, property_id, avg_lead_time):
     }
 
 
+def detect_orphan_nights(calendar_days):
+    """Detect unbookable gaps between reservations (orphan nights).
+    These are gaps shorter than typical minimum stay that can't be booked."""
+    today = datetime.now().date()
+    orphans = []
+    gap_start = None
+    gap_days = []
+
+    for day in calendar_days:
+        try:
+            day_date = datetime.strptime(day["date"], "%Y-%m-%d").date()
+            if day_date < today:
+                continue
+            status = day.get("status", {}).get("reason", "")
+            if status == "AVAILABLE":
+                if gap_start is None:
+                    gap_start = day_date
+                gap_days.append(day)
+            else:
+                if gap_start and 1 <= len(gap_days) <= 2:
+                    price = gap_days[0].get("price", {}).get("amount", 0) / 100 if gap_days else 0
+                    orphans.append({
+                        "start": gap_start.strftime("%Y-%m-%d"),
+                        "nights": len(gap_days),
+                        "current_price": price,
+                        "suggested_price": round(price * 1.20, 2),  # 20% orphan premium
+                    })
+                gap_start = None
+                gap_days = []
+        except (ValueError, KeyError):
+            continue
+
+    return orphans
+
+
+def detect_adjacent_opportunities(calendar_days):
+    """Find nights adjacent to reservations that could benefit from a discount.
+    Lower prices 1-2 nights before/after bookings since demand drops for those specific dates."""
+    today = datetime.now().date()
+    opportunities = []
+
+    days_list = []
+    for day in calendar_days:
+        try:
+            day_date = datetime.strptime(day["date"], "%Y-%m-%d").date()
+            if day_date >= today:
+                days_list.append({
+                    "date": day_date,
+                    "status": day.get("status", {}).get("reason", ""),
+                    "price": day.get("price", {}).get("amount", 0) / 100,
+                    "day_name": day.get("day", ""),
+                })
+        except (ValueError, KeyError):
+            continue
+
+    days_list.sort(key=lambda x: x["date"])
+
+    for i, d in enumerate(days_list):
+        if d["status"] != "AVAILABLE":
+            continue
+
+        # Check if adjacent to a reservation
+        prev_booked = i > 0 and days_list[i - 1]["status"] == "RESERVED"
+        next_booked = i < len(days_list) - 1 and days_list[i + 1]["status"] == "RESERVED"
+
+        if prev_booked or next_booked:
+            position = "checkout day" if prev_booked else "day before check-in"
+            opportunities.append({
+                "date": d["date"].strftime("%Y-%m-%d"),
+                "day_name": d["day_name"][:3],
+                "current_price": d["price"],
+                "suggested_price": round(d["price"] * 0.85, 2),  # 15% adjacent discount
+                "position": position,
+            })
+
+    return opportunities
+
+
+def analyze_tiered_occupancy(calendar_days, avg_lead_time):
+    """Analyze occupancy at three tiers: BLT, half BLT, and 7 days.
+    Based on Danny Rusteen's strategy: 50% at BLT, 75% at half BLT, 85% within a week."""
+    today = datetime.now().date()
+
+    tiers = [
+        {"name": "7 days", "days": 7, "target": WEEK_THRESHOLD},
+        {"name": f"half BLT ({max(1, avg_lead_time // 2)}d)", "days": max(1, avg_lead_time // 2), "target": HALF_BLT_THRESHOLD},
+        {"name": f"BLT ({avg_lead_time}d)", "days": avg_lead_time, "target": OCCUPANCY_THRESHOLD},
+    ]
+
+    results = []
+    for tier in tiers:
+        window_end = today + timedelta(days=tier["days"])
+        window_days = []
+        for day in calendar_days:
+            try:
+                day_date = datetime.strptime(day["date"], "%Y-%m-%d").date()
+                if today <= day_date <= window_end:
+                    window_days.append(day)
+            except (ValueError, KeyError):
+                continue
+
+        if not window_days:
+            continue
+
+        total = len(window_days)
+        booked = sum(1 for d in window_days if d.get("status", {}).get("reason") == "RESERVED")
+        blocked = sum(1 for d in window_days if d.get("status", {}).get("reason") == "BLOCKED")
+        bookable = total - blocked
+        occ_rate = booked / bookable if bookable > 0 else 0
+
+        results.append({
+            "tier": tier["name"],
+            "days": tier["days"],
+            "target": tier["target"],
+            "actual": occ_rate,
+            "booked": booked,
+            "bookable": bookable,
+            "below_target": occ_rate < tier["target"],
+        })
+
+    return results
+
+
+def calculate_base_price_recommendation(tiered_occupancy, current_avg_price):
+    """Recommend base price adjustment based on occupancy vs targets.
+    Rule: adjust 5% per week based on BLT occupancy."""
+    if not tiered_occupancy:
+        return None
+
+    blt_tier = next((t for t in tiered_occupancy if "BLT" in t["tier"]), None)
+    if not blt_tier:
+        return None
+
+    diff = blt_tier["actual"] - blt_tier["target"]
+
+    if diff < -0.20:
+        return {"action": "DROP", "pct": 10, "reason": f"Occupancy {round(blt_tier['actual']*100)}% is way below {round(blt_tier['target']*100)}% target at BLT"}
+    elif diff < -0.10:
+        return {"action": "DROP", "pct": 5, "reason": f"Occupancy {round(blt_tier['actual']*100)}% is below {round(blt_tier['target']*100)}% target at BLT"}
+    elif diff > 0.20:
+        return {"action": "RAISE", "pct": 10, "reason": f"Occupancy {round(blt_tier['actual']*100)}% is well above {round(blt_tier['target']*100)}% target at BLT. You may be underpriced"}
+    elif diff > 0.10:
+        return {"action": "RAISE", "pct": 5, "reason": f"Occupancy {round(blt_tier['actual']*100)}% is above {round(blt_tier['target']*100)}% target. Consider raising rates"}
+    else:
+        return {"action": "HOLD", "pct": 0, "reason": f"Occupancy {round(blt_tier['actual']*100)}% is on target at BLT ({round(blt_tier['target']*100)}%)"}
+
+
 def get_pricing_snapshot(calendar_days, lead_time_days):
     """Get current pricing within the lead time window."""
     today = datetime.now().date()
@@ -467,7 +618,10 @@ def generate_report():
 
         cal = calendars.get(pid, [])
 
-        # Occupancy analysis
+        # Tiered occupancy analysis (BLT strategy: 50% at BLT, 75% at half, 85% at 7d)
+        tiered_occ = analyze_tiered_occupancy(cal, avg_lt)
+
+        # Legacy occupancy analysis (for backward compat)
         occ = analyze_occupancy(cal, avg_lt)
 
         # Advance booking analysis
@@ -475,6 +629,15 @@ def generate_report():
 
         # Pricing snapshot
         pricing = get_pricing_snapshot(cal, avg_lt)
+
+        # Orphan night detection
+        orphans = detect_orphan_nights(cal)
+
+        # Adjacent reservation opportunities
+        adjacent = detect_adjacent_opportunities(cal)
+
+        # Base price recommendation
+        price_rec = calculate_base_price_recommendation(tiered_occ, pricing["avg_price"] if pricing else 0)
 
         detail = {
             "name": name,
@@ -485,15 +648,26 @@ def generate_report():
             "booking_count": lt_count,
         }
 
+        if tiered_occ:
+            detail["tiered_occupancy"] = tiered_occ
+            for tier in tiered_occ:
+                if tier["below_target"]:
+                    actual_pct = round(tier["actual"] * 100)
+                    target_pct = round(tier["target"] * 100)
+                    if tier["days"] <= 7:
+                        alerts.append(
+                            f"🔴 {name} ({city}): Only {actual_pct}% occupied in the next {tier['days']} days "
+                            f"(target: {target_pct}%). {tier['bookable'] - tier['booked']} open nights need to be filled ASAP. "
+                            f"Consider a 15-20% price drop on remaining dates."
+                        )
+                    elif "BLT" in tier["tier"] and not "half" in tier["tier"]:
+                        alerts.append(
+                            f"🔴 {name} ({city}): {actual_pct}% occupied at BLT ({avg_lt}d), target is {target_pct}%. "
+                            f"Drop base price 5% this week. {tier['bookable'] - tier['booked']} nights to fill."
+                        )
+
         if occ:
             detail["occupancy"] = occ
-            if occ["occupancy_rate"] < OCCUPANCY_THRESHOLD:
-                pct = round(occ["occupancy_rate"] * 100)
-                alerts.append(
-                    f"🔴 {name} ({city}): Only {pct}% occupied in the next {avg_lt} days "
-                    f"({occ['booked']} of {occ['total_days'] - occ['blocked']} available nights booked). "
-                    f"Consider dropping prices on the {occ['available']} open nights."
-                )
 
         if adv:
             detail["advance_bookings"] = adv
@@ -501,12 +675,37 @@ def generate_report():
                 warnings.append(
                     f"⚠️ {name} ({city}): {adv['far_advance_count']} of {adv['total_future']} upcoming bookings "
                     f"are beyond {round(avg_lt * 1.5)} days out (1.5x your avg lead time of {avg_lt}d). "
-                    f"Farthest booking is {adv['farthest_booking_days']} days out. This property may be underpriced."
+                    f"Farthest booking is {adv['farthest_booking_days']} days out. This property may be underpriced. "
+                    f"Consider raising base rate 5-10%."
                 )
             if adv.get("within_lead_fill_rate", 0) > ADVANCE_BOOKING_THRESHOLD:
                 warnings.append(
                     f"⚠️ {name} ({city}): {round(adv['within_lead_fill_rate'] * 100)}% fill rate within "
-                    f"lead time window ({avg_lt} days). Demand is strong. Consider raising base rate."
+                    f"lead time window ({avg_lt} days). Demand is strong. Raise base rate 5%."
+                )
+
+        if orphans:
+            detail["orphans"] = orphans
+            for orph in orphans:
+                insights.append(
+                    f"💡 {name}: {orph['nights']}-night orphan gap on {orph['start']}. "
+                    f"Currently ${orph['current_price']:.0f}. Drop minimum stay to {orph['nights']} and "
+                    f"raise price to ${orph['suggested_price']:.0f} (+20% orphan premium)."
+                )
+
+        if adjacent and len(adjacent) <= 5:
+            detail["adjacent"] = adjacent
+            for adj in adjacent[:3]:
+                insights.append(
+                    f"💡 {name}: {adj['date']} ({adj['day_name']}) is a {adj['position']} at ${adj['current_price']:.0f}. "
+                    f"Drop to ${adj['suggested_price']:.0f} (15% off) to fill this adjacent night."
+                )
+
+        if price_rec:
+            detail["price_recommendation"] = price_rec
+            if price_rec["action"] == "RAISE" and price_rec["pct"] >= 10:
+                warnings.append(
+                    f"⚠️ {name} ({city}): {price_rec['reason']}. Raise base rate {price_rec['pct']}%."
                 )
 
         if pricing:
@@ -561,16 +760,32 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
         for e in event_alerts:
             lines.append(f"  {e}")
 
+    if insights:
+        lines.append("\n💡 ORPHAN NIGHTS & ADJACENT DISCOUNTS")
+        lines.append("-" * 40)
+        for i in insights:
+            lines.append(f"  {i}")
+
     lines.append("\n📊 PROPERTY DETAILS")
     lines.append("-" * 40)
     for d in details:
         lines.append(f"\n  {d['name']} ({d['city']}, {d['bedrooms']}BR)")
         lines.append(f"    Avg lead time: {d['avg_lead_time']}d (median {d['median_lead_time']}d, based on {d['booking_count']} bookings)")
 
-        if "occupancy" in d:
-            occ = d["occupancy"]
-            pct = round(occ["occupancy_rate"] * 100)
-            lines.append(f"    Occupancy (next {occ['lead_time_window']}d): {pct}% ({occ['booked']} booked, {occ['available']} open, {occ['blocked']} blocked)")
+        # Tiered occupancy (BLT strategy)
+        if "tiered_occupancy" in d:
+            lines.append(f"    Occupancy targets (BLT strategy):")
+            for tier in d["tiered_occupancy"]:
+                actual = round(tier["actual"] * 100)
+                target = round(tier["target"] * 100)
+                status = "✅" if not tier["below_target"] else "❌"
+                lines.append(f"      {status} {tier['tier']}: {actual}% (target: {target}%) [{tier['booked']}/{tier['bookable']} nights]")
+
+        # Price recommendation
+        if "price_recommendation" in d:
+            rec = d["price_recommendation"]
+            icon = "📈" if rec["action"] == "RAISE" else "📉" if rec["action"] == "DROP" else "➡️"
+            lines.append(f"    {icon} Recommendation: {rec['action']} {rec['pct']}%. {rec['reason']}")
 
         if "advance_bookings" in d:
             adv = d["advance_bookings"]
@@ -585,6 +800,12 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
                     lines.append(f"      {n['date']} ({n['day'][:3]}): ${n['price']:.0f}")
                 if len(pr["available_nights"]) > 7:
                     lines.append(f"      ... and {len(pr['available_nights']) - 7} more")
+
+        if "orphans" in d:
+            lines.append(f"    Orphan nights: {len(d['orphans'])} gap(s) detected. Raise price 20% and drop minimum stay.")
+
+        if "adjacent" in d:
+            lines.append(f"    Adjacent opportunities: {len(d['adjacent'])} nights next to reservations could use 15% discount.")
 
     if not alerts and not warnings:
         lines.append("\n✅ All properties look healthy. No immediate pricing action needed.")
@@ -615,6 +836,17 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
         avg_rate = f"${d['pricing']['avg_price']:.0f}" if "pricing" in d else "N/A"
         future = d["advance_bookings"]["total_future"] if "advance_bookings" in d else "N/A"
 
+        # Price recommendation badge
+        rec_badge = ""
+        if "price_recommendation" in d:
+            rec = d["price_recommendation"]
+            if rec["action"] == "DROP":
+                rec_badge = f'<span style="background:#c0392b;color:white;padding:2px 6px;border-radius:3px;font-size:11px;">DROP {rec["pct"]}%</span>'
+            elif rec["action"] == "RAISE":
+                rec_badge = f'<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:3px;font-size:11px;">RAISE {rec["pct"]}%</span>'
+            else:
+                rec_badge = f'<span style="background:#7f8c8d;color:white;padding:2px 6px;border-radius:3px;font-size:11px;">HOLD</span>'
+
         property_rows += f"""
         <tr>
             <td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">{d['name']}</td>
@@ -624,6 +856,7 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
             <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{avg_rate}</td>
             <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{d['avg_lead_time']}d</td>
             <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{future}</td>
+            <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{rec_badge}</td>
         </tr>"""
 
     html = f"""<!DOCTYPE html>
@@ -642,6 +875,7 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
 {section("🔴 Action Required: Low Occupancy", alerts, "#c0392b")}
 {section("⚠️ Underpricing Warnings", warnings, "#e67e22")}
 {section("📅 Upcoming Events: Price Increase Opportunities", event_alerts, "#2980b9")}
+{section("💡 Orphan Nights &amp; Adjacent Discounts", insights, "#8e44ad")}
 
 <h3 style="color:#333;margin-top:24px;">📊 Property Overview</h3>
 <table style="width:100%;border-collapse:collapse;font-size:13px;">
@@ -654,6 +888,7 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
         <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Avg Rate</th>
         <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Lead Time</th>
         <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Bookings</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Action</th>
     </tr>
 </thead>
 <tbody>
