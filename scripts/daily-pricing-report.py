@@ -561,7 +561,7 @@ def auto_apply_orphan_min_stay(property_id, orphans, token=None):
                 json={"dates": cal_dates},
                 timeout=15,
             )
-            if resp.status_code == 200:
+            if resp.status_code in (200, 202):
                 results.append({
                     "dates": orph["dates"],
                     "nights": orph["nights"],
