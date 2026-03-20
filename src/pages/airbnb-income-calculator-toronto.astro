@@ -4,16 +4,17 @@ import Layout from '../layouts/Layout.astro';
 const pageTitle = "Toronto Airbnb Income Calculator 2026 | Free Revenue Estimate";
 const pageDescription = "How much can you earn on Airbnb in Toronto? Average hosts make $3,667/mo, top 10% earn $5,657+. See revenue by neighborhood and bedrooms. Free estimate.";
 
-const neighborhoodData = [
-  { area: "Old Toronto (core)", avg: "$7,314", top25: "$5,500+", top10: "$8,000+", adr: "$263", occ: "90%" },
-  { area: "Bay-Cloverhill", avg: "$6,555", top25: "$5,000+", top10: "$7,500+", adr: "$265", occ: "80%" },
-  { area: "Yorkville", avg: "$6,192", top25: "$4,800+", top10: "$7,000+", adr: "$253", occ: "79%" },
-  { area: "King West / Entertainment District", avg: "$4,500", top25: "$3,800+", top10: "$6,000+", adr: "$195", occ: "75%" },
-  { area: "Liberty Village", avg: "$3,800", top25: "$3,200+", top10: "$5,200+", adr: "$175", occ: "72%" },
-  { area: "Toronto (city-wide average)", avg: "$3,667", top25: "$3,476+", top10: "$5,657+", adr: "$168", occ: "70%" },
-  { area: "North York", avg: "$3,200", top25: "$2,800+", top10: "$4,500+", adr: "$145", occ: "65%" },
-  { area: "Scarborough", avg: "$2,800", top25: "$2,400+", top10: "$4,000+", adr: "$130", occ: "62%" },
-  { area: "Etobicoke", avg: "$2,600", top25: "$2,200+", top10: "$3,800+", adr: "$125", occ: "60%" },
+const torontoData = [
+  { metric: "Average Monthly Revenue", value: "$3,667", source: "Airbtics" },
+  { metric: "Top 25% Monthly Revenue", value: "$3,476+", source: "AirROI" },
+  { metric: "Top 10% Monthly Revenue", value: "$5,657+", source: "AirROI" },
+  { metric: "Average Nightly Rate (ADR)", value: "$168", source: "Airbtics" },
+  { metric: "Top 25% Nightly Rate", value: "$185+", source: "AirROI" },
+  { metric: "Top 10% Nightly Rate", value: "$292+", source: "AirROI" },
+  { metric: "Average Occupancy", value: "70%", source: "Airbtics" },
+  { metric: "Top 25% Occupancy", value: "74%+", source: "AirROI" },
+  { metric: "Top 10% Occupancy", value: "88%+", source: "AirROI" },
+  { metric: "Active Listings", value: "10,326", source: "AirROI" },
 ];
 
 const faqs = [
@@ -23,7 +24,7 @@ const faqs = [
   { q: "Can I Airbnb my investment property in Toronto?", a: "Toronto requires short-term rentals to be your principal residence. Investment properties cannot be used for stays under 28 days. However, mid-term rentals (30+ days) are exempt from Toronto's STR rules and can still generate strong returns. We manage both short-term and mid-term properties across Toronto." },
   { q: "Why is there such a big gap between average and top earners in Toronto?", a: "The difference comes down to three things: listing quality (professional photos, optimized title and description), pricing strategy (dynamic pricing adjusted daily vs flat rates), and guest experience (fast response times, spotless cleaning, great amenities). Top performers nail all three. That is exactly what a good management company handles for you." },
   { q: "Do these numbers account for the 180 night limit in Toronto?", a: "The averages include all listing types. In Toronto, entire-home rentals are capped at 180 nights per year, but partial-unit rentals (renting rooms while home) have no limit. Many hosts switch to mid-term rentals (30+ days) for the remaining months, which are exempt from the cap. A blended strategy of 180 nights STR plus mid-term for the rest of the year can outperform either strategy alone." },
-  { q: "Which Toronto neighborhoods earn the most on Airbnb?", a: "Old Toronto leads with an average of $7,314/month and 90% occupancy, followed by Bay-Cloverhill ($6,555/mo) and Yorkville ($6,192/mo). Downtown areas near the Entertainment District, King West, and the Financial District command the highest nightly rates. Even outer boroughs like North York ($3,200/mo) and Scarborough ($2,800/mo) perform well above the cost of a typical long-term tenant." },
+  { q: "Which Toronto neighborhoods earn the most on Airbnb?", a: "Downtown neighborhoods near the Entertainment District, King West, Yorkville, and the Financial District command the highest nightly rates. Properties close to transit, restaurants, and tourist attractions consistently outperform. The top 10% of Toronto hosts earn $292+ per night with 88%+ occupancy regardless of exact neighborhood, which shows that listing quality and pricing strategy matter as much as location." },
 ];
 
 const faqSchema = {
@@ -52,40 +53,46 @@ const faqSchema = {
   <!-- Revenue Table -->
   <section class="calc-data">
     <div class="container">
-      <h2>Average Monthly Airbnb Revenue by Toronto Neighborhood</h2>
-      <p class="data-subtitle">Based on market data from Airbtics and AirROI. All figures in CAD. Updated for 2026.</p>
+      <h2>Toronto Airbnb Revenue: The Full Picture</h2>
+      <p class="data-subtitle">Based on market data from Airbtics and AirROI. All figures in CAD. Data period: Feb 2025 to Jan 2026.</p>
 
       <div class="table-wrapper">
         <table class="revenue-table">
           <thead>
             <tr>
-              <th>Neighborhood</th>
-              <th>Avg Monthly</th>
+              <th>Metric</th>
+              <th>Average Host</th>
               <th>Top 25%</th>
               <th>Top 10%</th>
-              <th>Avg Nightly</th>
-              <th>Occupancy</th>
             </tr>
           </thead>
           <tbody>
-            {neighborhoodData.map(c => (
-              <tr>
-                <td class="city-name">{c.area}</td>
-                <td class="revenue">{c.avg}</td>
-                <td class="revenue good">{c.top25}</td>
-                <td class="revenue great">{c.top10}</td>
-                <td>{c.adr}</td>
-                <td>{c.occ}</td>
-              </tr>
-            ))}
+            <tr>
+              <td class="city-name">Monthly Revenue</td>
+              <td class="revenue">$3,667</td>
+              <td class="revenue good">$3,476+</td>
+              <td class="revenue great">$5,657+</td>
+            </tr>
+            <tr>
+              <td class="city-name">Nightly Rate (ADR)</td>
+              <td class="revenue">$168</td>
+              <td class="revenue good">$185+</td>
+              <td class="revenue great">$292+</td>
+            </tr>
+            <tr>
+              <td class="city-name">Occupancy Rate</td>
+              <td class="revenue">70%</td>
+              <td class="revenue good">74%+</td>
+              <td class="revenue great">88%+</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
-      <p class="data-subtitle" style="margin-top: 1rem;">The city-wide average Toronto host earns <strong>$3,667/month</strong>. But location matters: Old Toronto averages over $7,000/month with 90% occupancy, while outer boroughs like Etobicoke average $2,600. The top 10% of Toronto hosts earn <strong>$5,657+ per month</strong> regardless of neighborhood, driven by professional photos, dynamic pricing, and fast guest response times.</p>
+      <p class="data-subtitle" style="margin-top: 1rem;">There are over <strong>10,300 active Airbnb listings</strong> in Toronto. The average host earns <strong>$3,667/month</strong>, but the top 10% earn <strong>$5,657+</strong>. That is a $2,000/month gap driven by three things: professional photos, dynamic pricing, and fast guest response times. Revenue grew 15.5% year over year.</p>
 
       <div class="data-callout">
-        <p><strong>Where would your property fall?</strong> The average host earns the numbers in column 2. Hosts with professional management, dynamic pricing, and optimized listings consistently land in the Top 25% or Top 10%. The difference between average and top 10% is often $2,000+ per month on the same type of property in the same neighborhood.</p>
+        <p><strong>Where would your property fall?</strong> Most self-managed hosts with flat pricing land in the average column. Hosts with professional management, daily pricing adjustments, and optimized listings consistently land in the Top 25% or Top 10%. A free consultation tells you exactly where your specific property would land.</p>
       </div>
     </div>
   </section>
@@ -93,25 +100,40 @@ const faqSchema = {
   <!-- Toronto Nightly Rates by Bedroom -->
   <section class="calc-bedrooms">
     <div class="container">
-      <h2>Toronto Nightly Rates by Bedroom Count</h2>
+      <h2>Toronto Airbnb Occupancy by Bedroom Count</h2>
       <div class="bedroom-grid">
         <div class="bedroom-card">
+          <div class="bed-count">Studio</div>
+          <div class="bed-range">73%<span> avg occupancy</span></div>
+          <div class="bed-occ">Highest occupancy. Compact, affordable, fills fast.</div>
+        </div>
+        <div class="bedroom-card">
           <div class="bed-count">1 BR</div>
-          <div class="bed-range">$188 to $548<span>/night</span></div>
-          <div class="bed-occ">72% avg occupancy</div>
+          <div class="bed-range">72%<span> avg occupancy</span></div>
+          <div class="bed-occ">The most common Toronto Airbnb type. Strong demand year round.</div>
         </div>
         <div class="bedroom-card">
           <div class="bed-count">2 BR</div>
-          <div class="bed-range">$258 to $493<span>/night</span></div>
-          <div class="bed-occ">70% avg occupancy</div>
+          <div class="bed-range">70%<span> avg occupancy</span></div>
+          <div class="bed-occ">Higher nightly rate offsets slightly lower occupancy.</div>
         </div>
         <div class="bedroom-card">
-          <div class="bed-count">3+ BR</div>
-          <div class="bed-range">$309 to $1,259<span>/night</span></div>
-          <div class="bed-occ">63-67% avg occupancy</div>
+          <div class="bed-count">3 BR</div>
+          <div class="bed-range">67%<span> avg occupancy</span></div>
+          <div class="bed-occ">Attracts families and groups. Premium pricing on weekends.</div>
+        </div>
+        <div class="bedroom-card">
+          <div class="bed-count">4 BR</div>
+          <div class="bed-range">63%<span> avg occupancy</span></div>
+          <div class="bed-occ">Lower occupancy but much higher revenue per booking.</div>
+        </div>
+        <div class="bedroom-card">
+          <div class="bed-count">5+ BR</div>
+          <div class="bed-range">55-61%<span> avg occupancy</span></div>
+          <div class="bed-occ">Luxury and group rentals. Fewer bookings but top dollar per night.</div>
         </div>
       </div>
-      <p class="bed-note">Rates vary significantly by neighborhood. Downtown Toronto (King West, Entertainment District, Yorkville) commands the highest rates. Old Toronto averages $263/night with 90% occupancy.</p>
+      <p class="bed-note">Occupancy data from Airbtics (Feb 2025 to Jan 2026). Smaller properties fill more consistently, but larger properties earn more per booking. The city-wide average ADR is $168/night, with the top 10% earning $292+/night.</p>
     </div>
   </section>
 
@@ -215,7 +237,7 @@ const faqSchema = {
   <!-- Sources -->
   <section class="calc-sources">
     <div class="container">
-      <p class="sources-text">Revenue data sourced from <a href="https://airbtics.com" target="_blank" rel="noopener">Airbtics</a> and <a href="https://www.airroi.com" target="_blank" rel="noopener">AirROI</a> (2025/2026 trailing data). Neighborhood revenue based on Airbtics Toronto market analysis. Nightly rate ranges based on Airbtics data by bedroom count. Figures represent market averages and may vary based on property specifics.</p>
+      <p class="sources-text">Revenue and occupancy data from <a href="https://airbtics.com/annual-airbnb-revenue-in-toronto-ontario-canada/" target="_blank" rel="noopener">Airbtics</a> (Feb 2025 to Jan 2026 trailing data) and <a href="https://www.airroi.com/report/world/canada/ontario/toronto" target="_blank" rel="noopener">AirROI</a> (2026 current data). All figures in CAD. Figures represent market averages across 10,300+ Toronto listings and may vary based on property specifics.</p>
     </div>
   </section>
 
@@ -274,7 +296,7 @@ const faqSchema = {
   /* Bedroom Cards */
   .calc-bedrooms { padding: 3rem 0; background: var(--color-bg-alt); }
   .calc-bedrooms h2 { text-align: center; margin-bottom: 2rem; }
-  .bedroom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+  .bedroom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 850px; margin: 0 auto; }
   .bedroom-card { background: white; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
   .bed-count { font-size: 1.5rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.5rem; }
   .bed-range { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
