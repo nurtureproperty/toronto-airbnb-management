@@ -1513,72 +1513,98 @@ const PRICING_SECRET = process.env.PRICING_ACTION_SECRET || '';
 const HOSPITABLE_TOKEN = process.env.HOSPITABLE_API_TOKEN || '';
 const HOSPITABLE_API = 'https://public.api.hospitable.com/v2';
 
-// In-memory store for pricing action reports (survives within same lambda instance)
-// Falls back gracefully if instance recycles
-const pricingReports = {};
-const REPORT_TTL = 48 * 60 * 60 * 1000; // 48 hours
+// Google Sheets-backed storage for pricing actions
+const PRICING_SHEET_ID = '1cnp7qHzfJ3mScJVpWUUInGWqK_0ZEAtHJFXszoJf-MI';
+const SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY || '';
 
-function verifyPricingSecret(secret) {
-  return PRICING_SECRET && secret === PRICING_SECRET;
+async function fetchActionsFromSheets() {
+  // Use Google Sheets API v4 with API key (read-only, sheet must be shared)
+  // Or use OAuth — but simpler: the MCP server uses service account credentials
+  // For Vercel, use the public Google Sheets API with the sheet shared to "anyone with link"
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${PRICING_SHEET_ID}/values/Pending%20Actions!A1:K200?key=${SHEETS_API_KEY}`;
+
+  const resp = await fetch(url);
+  if (!resp.ok) {
+    // Fallback: try fetching as CSV (works for public sheets without API key)
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${PRICING_SHEET_ID}/gviz/tq?tqx=out:json&sheet=Pending%20Actions`;
+    const csvResp = await fetch(csvUrl);
+    if (!csvResp.ok) throw new Error(`Sheets API error: ${resp.status}`);
+
+    const text = await csvResp.text();
+    // Google returns JSONP-like format: google.visualization.Query.setResponse({...})
+    const jsonStr = text.match(/setResponse\(([\s\S]*)\);?$/)?.[1];
+    if (!jsonStr) throw new Error('Could not parse Sheets response');
+
+    const data = JSON.parse(jsonStr);
+    const cols = data.table.cols.map(c => c.label);
+    const rows = data.table.rows.map(r => r.c.map(cell => cell?.v ?? ''));
+    return { header: cols.length ? cols : rows[0], rows: rows.slice(cols.length ? 0 : 1) };
+  }
+
+  const data = await resp.json();
+  const allRows = data.values || [];
+  if (allRows.length < 2) return { header: [], rows: [] };
+  return { header: allRows[0], rows: allRows.slice(1) };
 }
 
-// Upload pricing actions (called by daily-pricing-report.py)
-app.post('/pricing-actions/upload', express.json({ limit: '5mb' }), (req, res) => {
-  const { secret, actions } = req.body;
+function sheetsRowsToActions(header, rows) {
+  if (!rows.length) return null;
 
-  if (!verifyPricingSecret(secret)) {
-    return res.status(403).json({ error: 'Invalid secret' });
-  }
+  const reportId = rows[0]?.[0] || '';
+  const reportDate = rows[0]?.[1] || 'Today';
+  const expires = rows[0]?.[2] || '';
 
-  if (!actions || !actions.items) {
-    return res.status(400).json({ error: 'Missing actions data' });
-  }
+  const items = rows.map(row => {
+    const datesJson = row[10] || '[]';
+    let dates = [];
+    try { dates = JSON.parse(datesJson); } catch (e) { /* ignore */ }
 
-  // Generate a short ID
-  const id = crypto.randomBytes(8).toString('hex');
-  pricingReports[id] = {
-    actions,
-    createdAt: Date.now(),
-    expires: actions.expires || (Date.now() + REPORT_TTL),
-  };
+    return {
+      group: row[4] || '',
+      property: row[5] || '',
+      property_id: row[6] || '',
+      city: row[7] || '',
+      description: row[8] || '',
+      recommended: row[9] === 'TRUE',
+      dates,
+    };
+  });
 
-  // Clean up old reports
-  for (const [key, val] of Object.entries(pricingReports)) {
-    if (Date.now() > val.expires) delete pricingReports[key];
-  }
-
-  console.log(`Pricing report stored: ${id} (${actions.items.length} actions)`);
-  res.json({ success: true, id, url: `/pricing-actions/${id}` });
-});
+  return { reportId, reportDate, expires, items };
+}
 
 // Serve the interactive pricing actions page by ID
-app.get('/pricing-actions/:id', (req, res) => {
-  const report = pricingReports[req.params.id];
+app.get('/pricing-actions/:id', async (req, res) => {
+  let actions;
+  try {
+    const { header, rows } = await fetchActionsFromSheets();
+    actions = sheetsRowsToActions(header, rows);
+  } catch (e) {
+    console.error('Failed to fetch actions from Sheets:', e.message);
+    return res.status(500).send(`
+      <html><body style="font-family:Arial;padding:40px;text-align:center;">
+        <h2>Error Loading Actions</h2>
+        <p>Could not read pricing actions from Google Sheets: ${e.message}</p>
+      </body></html>
+    `);
+  }
 
-  if (!report) {
+  if (!actions || !actions.items.length) {
     return res.status(404).send(`
       <html><body style="font-family:Arial;padding:40px;text-align:center;">
-        <h2>Report Not Found</h2>
-        <p>This pricing report has expired or the server restarted. Run the daily pricing report again to get a fresh link.</p>
-        <p style="color:#999;font-size:14px;">Report ID: ${req.params.id}</p>
+        <h2>No Actions Found</h2>
+        <p>The Pending Actions sheet is empty. Run the daily pricing report to generate actions.</p>
       </body></html>
     `);
   }
 
-  if (Date.now() > report.expires) {
-    delete pricingReports[req.params.id];
-    return res.status(410).send(`
-      <html><body style="font-family:Arial;padding:40px;text-align:center;">
-        <h2>Report Expired</h2>
-        <p>This pricing report has expired (48 hour limit). Run a new report to get fresh actions.</p>
-      </body></html>
-    `);
+  // Check if report ID matches (optional, for safety)
+  if (actions.reportId && actions.reportId !== req.params.id) {
+    console.log(`Report ID mismatch: URL has ${req.params.id}, sheet has ${actions.reportId}. Serving anyway.`);
   }
 
-  const actions = report.actions;
-
-  const reportDate = actions.date || 'Today';
-  const items = actions.items || [];
+  const reportDate = actions.reportDate;
+  const items = actions.items;
 
   // Group actions by type
   const groups = {};
@@ -1770,17 +1796,20 @@ app.post('/pricing-actions/execute', async (req, res) => {
       return res.status(400).json({ success: false, error: 'Missing required fields' });
     }
 
-    const report = pricingReports[reportId];
-    if (!report) {
-      return res.status(404).json({ success: false, error: 'Report not found or server restarted. Re-run the daily pricing report.' });
+    // Read actions from Google Sheets
+    let actions;
+    try {
+      const { header, rows } = await fetchActionsFromSheets();
+      actions = sheetsRowsToActions(header, rows);
+    } catch (e) {
+      return res.status(500).json({ success: false, error: `Could not read actions from Sheets: ${e.message}` });
     }
 
-    if (Date.now() > report.expires) {
-      delete pricingReports[reportId];
-      return res.status(410).json({ success: false, error: 'This pricing report has expired. Run a new report to get fresh actions.' });
+    if (!actions || !actions.items.length) {
+      return res.status(404).json({ success: false, error: 'No actions found in Sheets. Re-run the daily pricing report.' });
     }
 
-    const items = report.actions.items || [];
+    const items = actions.items || [];
     const results = [];
     let applied = 0;
 

@@ -1289,33 +1289,85 @@ def build_pricing_actions(property_details, calendars=None):
     return items
 
 
-def generate_action_url(action_items):
-    """Upload actions to the server and return a short URL."""
-    if not PRICING_ACTION_SECRET or not action_items:
+PRICING_RULES_SHEET_ID = "1cnp7qHzfJ3mScJVpWUUInGWqK_0ZEAtHJFXszoJf-MI"
+PENDING_ACTIONS_TAB = "Pending Actions"
+
+def _get_gsheets_client():
+    """Get an authorized gspread client."""
+    import gspread
+    from google.oauth2.credentials import Credentials
+
+    client_id = os.getenv("YOUTUBE_CLIENT_ID")
+    client_secret = os.getenv("YOUTUBE_CLIENT_SECRET")
+    refresh_token = os.getenv("GSHEETS_REFRESH_TOKEN")
+
+    if not refresh_token or not client_id:
         return None
 
-    payload = {
-        "date": datetime.now().strftime("%A, %B %d, %Y"),
-        "expires": int((datetime.now() + timedelta(hours=48)).timestamp() * 1000),
-        "items": action_items,
-    }
+    creds = Credentials(
+        token=None,
+        refresh_token=refresh_token,
+        client_id=client_id,
+        client_secret=client_secret,
+        token_uri="https://oauth2.googleapis.com/token",
+        scopes=[
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
+        ],
+    )
+    return gspread.authorize(creds)
+
+
+def generate_action_url(action_items):
+    """Write actions to Google Sheets and return a URL to the action page."""
+    if not action_items:
+        return None
+
+    report_id = datetime.now().strftime("%Y%m%d-%H%M%S")
+    report_date = datetime.now().strftime("%A, %B %d, %Y")
+    expires = (datetime.now() + timedelta(hours=48)).strftime("%Y-%m-%d %H:%M")
 
     try:
-        resp = requests.post(
-            f"{PRICING_ACTION_BASE_URL}/upload",
-            json={"secret": PRICING_ACTION_SECRET, "actions": payload},
-            timeout=15,
-        )
-        if resp.status_code == 200:
-            data = resp.json()
-            report_id = data.get("id")
-            if report_id:
-                return f"{PRICING_ACTION_BASE_URL}/{report_id}"
-        print(f"  Warning: Failed to upload actions: {resp.status_code} {resp.text[:200]}")
-    except Exception as e:
-        print(f"  Warning: Failed to upload actions: {e}")
+        gc = _get_gsheets_client()
+        if not gc:
+            print("  Warning: Google Sheets not configured, skipping action URL")
+            return None
 
-    return None
+        spreadsheet = gc.open_by_key(PRICING_RULES_SHEET_ID)
+        ws = spreadsheet.worksheet(PENDING_ACTIONS_TAB)
+
+        # Clear previous actions and write new ones
+        ws.clear()
+
+        # Header row
+        header = ["Report ID", "Report Date", "Expires", "Index", "Group", "Property", "Property ID", "City", "Description", "Recommended", "Dates JSON"]
+        rows = [header]
+
+        for idx, item in enumerate(action_items):
+            dates_json = json.dumps(item.get("dates", []))
+            rows.append([
+                report_id,
+                report_date,
+                expires,
+                str(idx),
+                item.get("group", ""),
+                item.get("property", ""),
+                item.get("property_id", ""),
+                item.get("city", ""),
+                item.get("description", ""),
+                "TRUE" if item.get("recommended") else "FALSE",
+                dates_json,
+            ])
+
+        ws.update(rows, "A1")
+        print(f"  Actions written to Google Sheets ({len(action_items)} rows)")
+
+        # Return URL with report ID (server reads from Sheets)
+        return f"{PRICING_ACTION_BASE_URL}/{report_id}"
+
+    except Exception as e:
+        print(f"  Warning: Failed to write actions to Sheets: {e}")
+        return None
 
 
 def send_email(subject, text_body, html_body):
