@@ -2,30 +2,25 @@
 import Layout from '../layouts/Layout.astro';
 
 const pageTitle = "Toronto Airbnb Income Calculator 2026 | Free Revenue Estimate";
-const pageDescription = "How much can you earn on Airbnb in the GTA? See average revenue by city and bedrooms, then get a free personalized estimate for your property.";
+const pageDescription = "How much can you earn on Airbnb in Toronto? Average hosts make $3,667/mo, top 10% earn $5,657+. See revenue by neighborhood and bedrooms. Free estimate.";
 
-const cityData = [
-  { city: "Toronto (Downtown)", avg: "$3,667", top25: "$3,476+", top10: "$5,657+", adr: "$168", occ: "70%", listings: "10,326" },
-  { city: "Toronto (Old Toronto)", avg: "$7,314", top25: "$5,500+", top10: "$8,000+", adr: "$263", occ: "90%", listings: "—" },
-  { city: "Niagara Falls", avg: "$3,167", top25: "$3,171+", top10: "$4,913+", adr: "$200", occ: "53%", listings: "1,099" },
-  { city: "Oakville", avg: "$2,917", top25: "$3,040+", top10: "$4,741+", adr: "$150", occ: "64%", listings: "385" },
-  { city: "Calgary", avg: "$2,833", top25: "$2,836+", top10: "$4,240+", adr: "$139", occ: "69%", listings: "4,149" },
-  { city: "Whitby", avg: "$2,667", top25: "$2,400+", top10: "$3,727+", adr: "$137", occ: "64%", listings: "189" },
-  { city: "Vaughan", avg: "$2,417", top25: "$2,387+", top10: "$4,080+", adr: "$131", occ: "63%", listings: "316" },
-  { city: "Hamilton", avg: "$2,333", top25: "$2,349+", top10: "$3,935+", adr: "$123", occ: "61%", listings: "889" },
-  { city: "Mississauga", avg: "$2,250", top25: "$2,277+", top10: "$3,715+", adr: "$121", occ: "63%", listings: "1,640" },
-  { city: "Ottawa", avg: "$2,250", top25: "$2,598+", top10: "$4,074+", adr: "$116", occ: "64%", listings: "1,767" },
-  { city: "Burlington", avg: "$1,821", top25: "$3,324+", top10: "$4,824+", adr: "$169", occ: "46%", listings: "227" },
-  { city: "Kingston", avg: "$1,917", top25: "$3,144+", top10: "$4,454+", adr: "$145", occ: "51%", listings: "292" },
-  { city: "Brampton", avg: "$1,667", top25: "$1,936+", top10: "$3,414+", adr: "$108", occ: "55%", listings: "806" },
-  { city: "Oshawa", avg: "$1,667", top25: "$2,200+", top10: "$3,578+", adr: "$104", occ: "57%", listings: "202" },
+const neighborhoodData = [
+  { area: "Old Toronto (core)", avg: "$7,314", top25: "$5,500+", top10: "$8,000+", adr: "$263", occ: "90%" },
+  { area: "Bay-Cloverhill", avg: "$6,555", top25: "$5,000+", top10: "$7,500+", adr: "$265", occ: "80%" },
+  { area: "Yorkville", avg: "$6,192", top25: "$4,800+", top10: "$7,000+", adr: "$253", occ: "79%" },
+  { area: "King West / Entertainment District", avg: "$4,500", top25: "$3,800+", top10: "$6,000+", adr: "$195", occ: "75%" },
+  { area: "Liberty Village", avg: "$3,800", top25: "$3,200+", top10: "$5,200+", adr: "$175", occ: "72%" },
+  { area: "Toronto (city-wide average)", avg: "$3,667", top25: "$3,476+", top10: "$5,657+", adr: "$168", occ: "70%" },
+  { area: "North York", avg: "$3,200", top25: "$2,800+", top10: "$4,500+", adr: "$145", occ: "65%" },
+  { area: "Scarborough", avg: "$2,800", top25: "$2,400+", top10: "$4,000+", adr: "$130", occ: "62%" },
+  { area: "Etobicoke", avg: "$2,600", top25: "$2,200+", top10: "$3,800+", adr: "$125", occ: "60%" },
 ];
 
 const faqs = [
   { q: "How accurate is this calculator?", a: "The revenue figures shown are market averages from Airbtics and AirROI, based on thousands of active Airbnb listings in each city. Your actual revenue depends on your specific property: location within the city, quality of furnishing, photos, pricing strategy, and guest reviews. Top 25% performers consistently earn 50-100% more than the average. A free consultation gives you a personalized estimate based on your exact property." },
   { q: "What expenses should I subtract from these revenue numbers?", a: "The numbers shown are gross revenue before expenses. Typical expenses for a managed property include: management fee (12-15% with Nurture), cleaning costs ($80-150 per turnover, usually covered by the guest cleaning fee), supplies and restocking ($50-100/month), insurance ($100-200/month), and platform fees (Airbnb takes 3% from hosts). Your mortgage, property tax, and utilities are costs you'd pay regardless of rental strategy." },
   { q: "How much more can I make with a professional manager vs self-managing?", a: "Our analysis of 320 Toronto listings found that professionally managed properties with dynamic pricing earn $4,460+/month on average, compared to $2,020/month for self-managed listings with static pricing. That is a 64% difference. Even after the management fee, most owners net more with professional management because of better pricing, faster response times, and higher search ranking." },
-  { q: "Can I Airbnb my investment property?", a: "Most GTA cities (Toronto, Mississauga, Brampton, Vaughan, Hamilton, Oakville) require short-term rentals to be your principal residence. Investment properties generally cannot be used for stays under 28-30 days. However, mid-term rentals (30+ days) are exempt from STR rules in most cities and can still generate strong returns. We manage both short-term and mid-term properties." },
+  { q: "Can I Airbnb my investment property in Toronto?", a: "Toronto requires short-term rentals to be your principal residence. Investment properties cannot be used for stays under 28 days. However, mid-term rentals (30+ days) are exempt from Toronto's STR rules and can still generate strong returns. We manage both short-term and mid-term properties across Toronto." },
   { q: "Why is there such a big gap between average and top 25% earners?", a: "The difference comes down to three things: listing quality (professional photos, optimized title and description), pricing strategy (dynamic pricing adjusted daily vs flat rates), and guest experience (fast response times, spotless cleaning, great amenities). Top performers nail all three. That is exactly what a good management company handles for you." },
   { q: "Do these numbers account for the 180 night limit in Toronto?", a: "The averages include all listing types. In Toronto, entire-home rentals are capped at 180 nights per year, but partial-unit rentals (renting rooms while home) have no limit. Many hosts switch to mid-term rentals (30+ days) for the remaining months, which are exempt from the cap. A blended strategy of 180 nights STR plus mid-term for the rest of the year can outperform either strategy alone." },
 ];
@@ -47,8 +42,8 @@ const faqSchema = {
   <section class="calc-hero">
     <div class="container">
       <div class="calc-hero-content">
-        <h1>How Much Can You Earn on Airbnb in the GTA?</h1>
-        <p>See real revenue data for your city, then get a free personalized estimate for your property.</p>
+        <h1>How Much Can You Earn on Airbnb in Toronto?</h1>
+        <p>See real revenue data by Toronto neighborhood and bedroom count, then get a free personalized estimate for your property.</p>
       </div>
     </div>
   </section>
@@ -56,14 +51,14 @@ const faqSchema = {
   <!-- Revenue Table -->
   <section class="calc-data">
     <div class="container">
-      <h2>Average Monthly Airbnb Revenue by City</h2>
+      <h2>Average Monthly Airbnb Revenue by Toronto Neighborhood</h2>
       <p class="data-subtitle">Based on market data from Airbtics and AirROI. All figures in CAD. Updated for 2026.</p>
 
       <div class="table-wrapper">
         <table class="revenue-table">
           <thead>
             <tr>
-              <th>City</th>
+              <th>Neighborhood</th>
               <th>Avg Monthly</th>
               <th>Top 25%</th>
               <th>Top 10%</th>
@@ -72,9 +67,9 @@ const faqSchema = {
             </tr>
           </thead>
           <tbody>
-            {cityData.map(c => (
+            {neighborhoodData.map(c => (
               <tr>
-                <td class="city-name">{c.city}</td>
+                <td class="city-name">{c.area}</td>
                 <td class="revenue">{c.avg}</td>
                 <td class="revenue good">{c.top25}</td>
                 <td class="revenue great">{c.top10}</td>
@@ -86,8 +81,10 @@ const faqSchema = {
         </table>
       </div>
 
+      <p class="data-subtitle" style="margin-top: 1rem;">The city-wide average Toronto host earns <strong>$3,667/month</strong>. But location matters: Old Toronto averages over $7,000/month with 90% occupancy, while outer boroughs like Etobicoke average $2,600. The top 10% of Toronto hosts earn <strong>$5,657+ per month</strong> regardless of neighborhood, driven by professional photos, dynamic pricing, and fast guest response times.</p>
+
       <div class="data-callout">
-        <p><strong>Where do you fall?</strong> The average host earns the numbers in column 2. Hosts with professional management, dynamic pricing, and optimized listings consistently land in the Top 25% or Top 10%. The difference between average and top 10% is often $1,500 to $2,500 per month on the same type of property.</p>
+        <p><strong>Where would your property fall?</strong> The average host earns the numbers in column 2. Hosts with professional management, dynamic pricing, and optimized listings consistently land in the Top 25% or Top 10%. The difference between average and top 10% is often $2,000+ per month on the same type of property in the same neighborhood.</p>
       </div>
     </div>
   </section>
@@ -217,7 +214,7 @@ const faqSchema = {
   <!-- Sources -->
   <section class="calc-sources">
     <div class="container">
-      <p class="sources-text">Revenue data sourced from <a href="https://airbtics.com" target="_blank" rel="noopener">Airbtics</a> and <a href="https://www.airroi.com" target="_blank" rel="noopener">AirROI</a> (2025/2026 trailing data). Toronto nightly rate ranges based on Airbtics market analysis by bedroom count. Figures represent market averages and may vary based on property specifics.</p>
+      <p class="sources-text">Revenue data sourced from <a href="https://airbtics.com" target="_blank" rel="noopener">Airbtics</a> and <a href="https://www.airroi.com" target="_blank" rel="noopener">AirROI</a> (2025/2026 trailing data). Neighborhood revenue based on Airbtics Toronto market analysis. Nightly rate ranges based on Airbtics data by bedroom count. Figures represent market averages and may vary based on property specifics.</p>
     </div>
   </section>
 
