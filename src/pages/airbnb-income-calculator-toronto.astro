@@ -205,10 +205,10 @@ const faqSchema = {
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list">
         {faqs.map(f => (
-          <details class="faq-item">
-            <summary>{f.q}</summary>
+          <div class="faq-item">
+            <h3>{f.q}</h3>
             <p>{f.a}</p>
-          </details>
+          </div>
         ))}
       </div>
     </div>
@@ -330,12 +330,9 @@ const faqSchema = {
   .calc-faq { padding: 3rem 0; }
   .calc-faq h2 { text-align: center; margin-bottom: 2rem; }
   .faq-list { max-width: 700px; margin: 0 auto; }
-  .faq-item { border-bottom: 1px solid #eee; }
-  .faq-item summary { padding: 1rem 0; cursor: pointer; font-weight: 600; font-size: 1rem; list-style: none; }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::before { content: "+"; display: inline-block; width: 1.5rem; color: var(--color-primary); font-weight: 700; font-size: 1.2rem; }
-  .faq-item[open] summary::before { content: "−"; }
-  .faq-item p { padding: 0 0 1rem 1.5rem; color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem; }
+  .faq-item { border-bottom: 1px solid #eee; padding: 1.25rem 0; }
+  .faq-item h3 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--color-text); }
+  .faq-item p { color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem; margin: 0; }
 
   /* Sources */
   .calc-sources { padding: 1.5rem 0 3rem; }
