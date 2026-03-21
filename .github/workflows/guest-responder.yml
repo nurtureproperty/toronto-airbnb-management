@@ -32,10 +32,19 @@ jobs:
           SLACK_HOSPITABLE_CHANNEL_ID: ${{ secrets.SLACK_HOSPITABLE_CHANNEL_ID }}
         run: python scripts/guest-responder.py
 
-      - name: Save state file
+      - name: Run review-to-google (5-star review tagger)
+        env:
+          HOSPITABLE_API_TOKEN: ${{ secrets.HOSPITABLE_API_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          GHL_API_TOKEN: ${{ secrets.GHL_API_TOKEN }}
+          GHL_LOCATION_ID: ${{ secrets.GHL_LOCATION_ID }}
+        run: python scripts/review-to-google.py
+
+      - name: Save state files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scripts/guest-responder-state.json
+          git add scripts/guest-responder-state.json scripts/review-to-google-state.json
           git diff --staged --quiet || git commit -m "Update guest responder state [skip ci]"
           git push

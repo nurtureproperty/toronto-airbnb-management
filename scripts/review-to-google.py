@@ -159,8 +159,8 @@ def fetch_all_properties():
 
 
 def fetch_reviews(property_id, per_page=10):
-    """Fetch recent reviews for a property."""
-    data = hosp_get(f"/properties/{property_id}/reviews", {"per_page": per_page})
+    """Fetch recent reviews for a property (includes guest and reservation info)."""
+    data = hosp_get(f"/properties/{property_id}/reviews", {"per_page": per_page, "include": "reservation"})
     return data.get("data", [])
 
 
@@ -175,39 +175,53 @@ def ghl_headers():
     }
 
 
-def ghl_find_guest_by_property(property_name):
-    """Search GHL for the most recent guest contact at a property.
-
-    Guests are created in GHL by the Hospitable reservation webhook with
-    'guest' in their name and the property address on the contact.
-    """
+def ghl_find_guest_by_email(email):
+    """Search GHL for a contact by email (most reliable match)."""
+    if not email:
+        return None
     resp = requests.get(
         f"{GHL_API_BASE}/contacts/",
         headers=ghl_headers(),
-        params={"locationId": GHL_LOCATION_ID, "query": property_name, "limit": 20},
+        params={"locationId": GHL_LOCATION_ID, "query": email, "limit": 5},
         timeout=15,
     )
     if resp.status_code != 200:
-        log.error(f"GHL contact search failed: {resp.status_code} {resp.text[:200]}")
+        log.error(f"GHL contact search by email failed: {resp.status_code} {resp.text[:200]}")
         return None
-
     contacts = resp.json().get("contacts", [])
-    if not contacts:
-        return None
-
-    # Sort by dateUpdated descending to get the most recent guest
-    contacts.sort(
-        key=lambda c: c.get("dateUpdated", c.get("dateAdded", "")),
-        reverse=True,
-    )
-
-    # Only match contacts with "guest" in the name (how guests are labeled in GHL)
-    for contact in contacts:
-        full_name = f"{contact.get('firstName', '')} {contact.get('lastName', '')}".strip().lower()
-        if "guest" in full_name and full_name not in {n.lower() for n in HOST_NAMES}:
-            return contact
-
+    for c in contacts:
+        if c.get("email", "").lower() == email.lower():
+            return c
     return None
+
+
+def ghl_find_guest_by_name(first_name, last_name):
+    """Search GHL for a contact by guest name (fallback)."""
+    query = f"{first_name} {last_name}".strip()
+    if not query:
+        return None
+    resp = requests.get(
+        f"{GHL_API_BASE}/contacts/",
+        headers=ghl_headers(),
+        params={"locationId": GHL_LOCATION_ID, "query": query, "limit": 10},
+        timeout=15,
+    )
+    if resp.status_code != 200:
+        log.error(f"GHL contact search by name failed: {resp.status_code} {resp.text[:200]}")
+        return None
+    contacts = resp.json().get("contacts", [])
+    for c in contacts:
+        cf = c.get("firstName", "").lower()
+        cl = c.get("lastName", "").lower()
+        if cf == first_name.lower() and cl == last_name.lower():
+            return c
+    return None
+
+
+def hosp_get_reservation(reservation_id):
+    """Fetch a single reservation from Hospitable to get guest email/phone."""
+    data = hosp_get(f"/reservations/{reservation_id}")
+    return data.get("data", {})
 
 
 def ghl_add_tag(contact_id, tag):
@@ -310,13 +324,22 @@ def _process_reviews_inner(dry_run=False):
                 log.info(f"Skipping {rating}-star review for {pinfo['name']}")
                 continue
 
-            log.info(f"Found 5-star review for {pinfo['name']}!")
+            guest = review.get("guest", {})
+            reservation = review.get("reservation", {})
+            guest_first = guest.get("first_name", "")
+            guest_last = guest.get("last_name", "")
+            reservation_id = reservation.get("id", "")
+
+            log.info(f"Found 5-star review for {pinfo['name']} from {guest_first} {guest_last}!")
             new_five_stars.append({
                 "review_id": rid,
                 "property_id": pid,
                 "property_name": pinfo["name"],
                 "review_text": review_text[:200],
                 "reviewed_at": reviewed_at,
+                "guest_first": guest_first,
+                "guest_last": guest_last,
+                "reservation_id": reservation_id,
             })
 
     if not new_five_stars:
@@ -328,36 +351,45 @@ def _process_reviews_inner(dry_run=False):
 
     log.info(f"Found {len(new_five_stars)} new 5-star review(s)")
 
-    # Cache GHL contact lookups per property to avoid redundant API calls
-    contact_cache = {}
-
     for review_info in new_five_stars:
         pid = review_info["property_id"]
         pname = review_info["property_name"]
-
-        # Search GHL for the most recent guest contact at this property
-        if pid not in contact_cache:
-            contact_cache[pid] = ghl_find_guest_by_property(pname)
-            time.sleep(0.2)
-        contact = contact_cache[pid]
+        guest_first = review_info["guest_first"]
+        guest_last = review_info["guest_last"]
+        reservation_id = review_info["reservation_id"]
+        guest_full = f"{guest_first} {guest_last}".strip()
 
         if dry_run:
-            log.info(f"[DRY RUN] Would process 5-star review for {pname}")
+            log.info(f"[DRY RUN] Would process 5-star review for {pname} from {guest_full}")
             continue
 
+        # Step 1: Try to find contact by email (fetch reservation for email)
+        contact = None
+        guest_email = ""
+        if reservation_id:
+            log.info(f"Fetching reservation {reservation_id} for guest email...")
+            res_data = hosp_get_reservation(reservation_id)
+            guest_email = res_data.get("guest", {}).get("email", "")
+            if guest_email:
+                contact = ghl_find_guest_by_email(guest_email)
+                time.sleep(0.2)
+
+        # Step 2: Fallback to name search
+        if not contact and guest_first:
+            log.info(f"Email lookup failed, trying name: {guest_full}")
+            contact = ghl_find_guest_by_name(guest_first, guest_last)
+            time.sleep(0.2)
+
         if not contact:
-            log.warning(f"No GHL contact found for property {pname}")
+            log.warning(f"No GHL contact found for {guest_full} at {pname}")
             slack_notify(
-                f"⭐ 5-star review received for *{pname}* but could not find "
-                f"guest contact in GHL to send Google review request."
+                f"⭐ 5-star review received for *{pname}* from {guest_full} "
+                f"but could not find guest contact in GHL to send Google review request."
             )
             continue
 
         contact_id = contact.get("id")
-        guest_first = contact.get("firstName", "")
-        guest_last = contact.get("lastName", "")
-        guest_phone = contact.get("phone", "")
-        guest_full = f"{guest_first} {guest_last}".strip()
+        contact_name = f"{contact.get('firstName', '')} {contact.get('lastName', '')}".strip()
 
         # Add tag to trigger GHL workflow (workflow handles the SMS)
         success = ghl_add_tag(contact_id, GHL_REVIEW_TAG)
@@ -365,8 +397,8 @@ def _process_reviews_inner(dry_run=False):
         if success:
             slack_notify(
                 f"⭐ 5-star review at *{pname}*!\n"
-                f"Guest: {guest_full}\n"
-                f"✅ Tagged in GHL, review request workflow triggered"
+                f"Guest: {guest_full} (GHL match: {contact_name})\n"
+                f"✅ Tagged '{GHL_REVIEW_TAG}' in GHL, review request workflow triggered"
             )
         else:
             slack_notify(
