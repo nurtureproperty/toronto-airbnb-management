@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ABSOLUTE RULE: No Dashes in Written Content
+
+**NEVER use dashes or hyphens ( - ) in ANY written content.** This includes blog articles, SMS messages, emails, social posts, chat messages, descriptions, meta text, FAQ answers, or ANY other prose output. Zero exceptions except compound words (e.g., "short-term", "full-service", "owner-occupied"). If you catch yourself writing a dash, replace it with a comma, period, colon, or the word "and"/"or". This is the #1 most important writing rule in this project.
+
 ## Commands
 
 ```bash

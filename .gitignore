@@ -24,3 +24,7 @@ pnpm-debug.log*
 .idea/
 
 .vercel
+
+# sensitive personal documents
+docs/tax-info-*.*
+docs/tax-strategy-*.*
