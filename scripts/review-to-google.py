@@ -316,6 +316,20 @@ def _process_reviews_inner(dry_run=False):
             review_text = review.get("public", {}).get("review", "")
             reviewed_at = review.get("reviewed_at", "")
 
+            # Skip reviews older than 7 days (prevents tagging old reviews
+            # when a new property is connected and history is backfilled)
+            if reviewed_at:
+                try:
+                    review_dt = datetime.fromisoformat(reviewed_at.replace("Z", "+00:00"))
+                    age = datetime.now(timezone.utc) - review_dt
+                    if age.days > 7:
+                        log.info(f"Skipping old review ({age.days} days old) for {pinfo['name']}")
+                        processed.add(rid)
+                        processed_fps.add(fp)
+                        continue
+                except (ValueError, TypeError):
+                    pass
+
             # Mark all reviews as processed (not just 5-star) to avoid re-checking
             processed.add(rid)
             processed_fps.add(fp)
