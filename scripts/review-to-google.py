@@ -29,6 +29,8 @@ import logging
 import argparse
 import requests
 import hashlib
+import smtplib
+from email.mime.text import MIMEText
 from datetime import datetime, timedelta, timezone
 
 if sys.platform == "win32":
@@ -53,6 +55,12 @@ GHL_LOCATION_ID = os.getenv("GHL_LOCATION_ID")
 
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 SLACK_CHANNEL = os.getenv("SLACK_CHANNEL_ID")
+
+EMAIL_SMTP_HOST = os.getenv("EMAIL_SMTP_HOST", "smtp.gmail.com")
+EMAIL_SMTP_PORT = int(os.getenv("EMAIL_SMTP_PORT", "587"))
+EMAIL_SMTP_USER = os.getenv("EMAIL_SMTP_USER")
+EMAIL_SMTP_PASSWORD = os.getenv("EMAIL_SMTP_PASSWORD")
+EMAIL_NOTIFY_TO = os.getenv("EMAIL_NOTIFY_TO", "info@nurtre.io")
 
 STATE_FILE = os.path.join(SCRIPT_DIR, "review-to-google-state.json")
 
@@ -275,6 +283,36 @@ def slack_notify(message):
         log.error(f"Slack notification failed: {resp.json().get('error')}")
 
 
+def email_notify(guest_name, property_name, review_text):
+    """Send email notification for a 5-star review tagging."""
+    if not EMAIL_SMTP_USER or not EMAIL_SMTP_PASSWORD:
+        log.warning("Email not configured, skipping notification")
+        return
+
+    subject = f"5-Star Review Tagged: {guest_name} at {property_name}"
+    body = (
+        f"A new 5-star review was detected and the guest has been tagged in GHL.\n\n"
+        f"Guest: {guest_name}\n"
+        f"Property: {property_name}\n"
+        f"Review: {review_text}\n\n"
+        f"The '5-star-reviewer' tag has been added, triggering the Google review request automation."
+    )
+
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = EMAIL_SMTP_USER
+    msg["To"] = EMAIL_NOTIFY_TO
+
+    try:
+        with smtplib.SMTP(EMAIL_SMTP_HOST, EMAIL_SMTP_PORT) as server:
+            server.starttls()
+            server.login(EMAIL_SMTP_USER, EMAIL_SMTP_PASSWORD)
+            server.sendmail(EMAIL_SMTP_USER, EMAIL_NOTIFY_TO, msg.as_string())
+        log.info(f"Email notification sent to {EMAIL_NOTIFY_TO}")
+    except Exception as e:
+        log.error(f"Email notification failed: {e}")
+
+
 # ---------------------------------------------------------------------------
 # MAIN LOGIC
 # ---------------------------------------------------------------------------
@@ -414,6 +452,7 @@ def _process_reviews_inner(dry_run=False):
                 f"Guest: {guest_full} (GHL match: {contact_name})\n"
                 f"✅ Tagged '{GHL_REVIEW_TAG}' in GHL, review request workflow triggered"
             )
+            email_notify(guest_full, pname, review_info.get("review_text", ""))
         else:
             slack_notify(
                 f"⭐ 5-star review at *{pname}*\n"
