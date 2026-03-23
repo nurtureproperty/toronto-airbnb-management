@@ -1,0 +1,967 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Bowmanville or Clarington?", a: "No. As of 2026, the Municipality of Clarington has no STR licensing requirement. You don't need a permit, license, or registration to operate a short-term rental. General municipal bylaws for noise, property standards, and fire code still apply to every property." },
+  { q: "Can I Airbnb my investment property in Clarington?", a: "Yes. Clarington has no principal residence requirement, so you can operate an Airbnb on an investment property, a secondary home, or your primary residence. This is a major advantage over nearby Oshawa, which restricts STRs to principal residences only." },
+  { q: "Is there a night limit for Airbnb in Clarington?", a: "No. There is no cap on the number of nights per year you can rent your property. You can operate 365 nights a year. Nearby Oshawa caps entire-home rentals at 180 days per year." },
+  { q: "Do I need to pay Municipal Accommodation Tax (MAT) in Clarington?", a: "No. Clarington does not collect MAT on short-term rentals. Nearby Oshawa charges 5% MAT, Brampton charges 4%, and Toronto charges 8.5%. That means higher net revenue per booking for Clarington hosts." },
+  { q: "What insurance do I need for an Airbnb in Clarington?", a: "While Clarington has no city mandated insurance minimum, you should carry at least $2,000,000 in liability insurance that explicitly covers short-term rental activity. Standard homeowner's insurance typically excludes STR guests. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
+  { q: "Will Clarington regulate short-term rentals in the future?", a: "It's possible but not imminent. In 2017, Clarington council reviewed STR regulations (report PSD-092-17) and decided there was no housing impact to justify them. Listings have grown from roughly 45 to over 200 since then. As neighbouring cities like Oshawa and Whitby adopt rules, Clarington may revisit the issue. Monitor the Municipality of Clarington website for council updates." },
+  { q: "Do I need to collect HST on my Airbnb income in Clarington?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." },
+  { q: "How does Clarington compare to Oshawa for Airbnb hosting?", a: "Clarington is significantly more flexible. Oshawa requires a principal residence, a $150 license, charges 5% MAT, limits rentals to 180 days per year, and mandates $2M insurance and property inspections. Clarington has none of these requirements. If you own an investment property, Clarington is the better market in Durham Region." },
+  { q: "What types of properties do best on Airbnb in Clarington?", a: "Houses dominate the Clarington market, making up about 68% of listings. Entire home rentals account for 72% of all listings. Detached houses near downtown Bowmanville, the Lake Ontario waterfront, or Canadian Tire Motorsport Park tend to perform well, especially during event weekends." },
+  { q: "Is Bowmanville a separate city from Clarington?", a: "Bowmanville is a community within the Municipality of Clarington, which is part of Durham Region. Other communities in Clarington include Courtice, Newcastle, Orono, and Newtonville. All fall under the same municipal rules." }
+];
+
+const relatedPosts = [
+  { title: 'Oshawa Airbnb Short Term Rental Rules 2026', href: '/blog/oshawa-airbnb-short-term-rental-rules-2026', description: 'Your neighbour to the west requires principal residence, $150 license, 5% MAT, and 180 day limit' },
+  { title: 'Ajax Airbnb Short Term Rental Rules 2026', href: '/blog/ajax-airbnb-short-term-rental-rules-2026', description: 'Another unregulated Durham Region city with no license, no MAT, and no night limit' },
+  { title: 'Pickering Airbnb Short Term Rental Rules 2026', href: '/blog/pickering-airbnb-short-term-rental-rules-2026', description: 'Pickering rounds out the unregulated trio in Durham Region with zero STR restrictions' }
+];
+
+const tocItems = [
+  { id: 'current-rules', text: 'Current Rules (2026)' },
+  { id: 'no-license', text: 'No License Required' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'no-night-limit', text: 'No Night Limit' },
+  { id: 'no-mat', text: 'No MAT Tax' },
+  { id: 'council-history', text: 'Why Clarington Chose Not to Regulate' },
+  { id: 'market-data', text: 'Clarington Market Data' },
+  { id: 'what-does-apply', text: 'What Rules DO Apply' },
+  { id: 'comparison', text: 'Clarington vs Durham Region' },
+  { id: 'local-attractions', text: 'What Draws Guests Here' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Clarington Hosts' },
+  { id: 'getting-started', text: 'Getting Started' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Bowmanville Airbnb Short-Term Rental Rules 2026";
+const pageDescription = "Bowmanville and Clarington have no STR license, no night limit, and no principal residence rule. One of Ontario's most Airbnb friendly municipalities.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-23",
+  "dateModified": "2026-03-23",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/bowmanville-clarington-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Bowmanville &amp; Clarington Regulations</span>
+      </nav>
+      <h1>Bowmanville Airbnb Short-Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 23, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Bowmanville and the rest of Clarington are among the most Airbnb friendly places in the Greater Toronto Area. No license. No principal residence rule. No night limit. No municipal accommodation tax. If you own property here and want to list it on Airbnb, the municipality is not standing in your way.</p>
+            <p class="lead">That puts Clarington in a special position within Durham Region, where neighbouring Oshawa now requires a $150 license, 5% MAT, principal residence verification, and a 180 day annual cap. Whether you own your home in downtown Bowmanville or an investment property in Courtice, you can host guests with virtually zero regulatory overhead.</p>
+          </div>
+
+          <h2 id="current-rules">Current Rules: The Quick Summary</h2>
+          <p>Here's what every Clarington property owner wants to know:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Clarington (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration number on listing?</div>
+              <div class="comparison-col highlight"><strong>Not required</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+          </div>
+
+          <p>The Municipality of Clarington has not enacted any STR specific bylaws. General municipal bylaws for noise, property standards, and parking still apply (more on that below), but there is no licensing framework, no registration process, and no accommodation tax. You can review the full list of <a href="https://www.clarington.net/en/town-hall/by-laws.aspx" target="_blank" rel="noopener">Clarington bylaws here</a>.</p>
+
+          <h2 id="no-license">No License or Registration Required</h2>
+          <p>Unlike Oshawa, Toronto, Mississauga, and most other GTA cities that have rolled out STR licensing programs, Clarington has not introduced any licensing requirement for short-term rental operators.</p>
+
+          <p>This means:</p>
+          <ul>
+            <li><strong>No application to file</strong> with the Municipality</li>
+            <li><strong>No fees to pay</strong> for a permit or license</li>
+            <li><strong>No registration number</strong> to display on your listing</li>
+            <li><strong>No annual renewal</strong> process</li>
+            <li><strong>No property inspection</strong> required by the municipality</li>
+          </ul>
+
+          <p>You can list your property on Airbnb, VRBO, Booking.com, or any other platform without any municipal approval. Compare that to Oshawa, where hosts need to pay $150, pass a property inspection, and display their license number on every listing.</p>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is where Clarington really stands out. Most regulated GTA cities require the property to be your principal residence, the home where you actually live. That rule effectively kills investment property Airbnbs.</p>
+
+          <p>Clarington has no such restriction. You can operate short-term rentals on:</p>
+          <ul>
+            <li><strong>Your primary home</strong> (whole unit or individual rooms)</li>
+            <li><strong>An investment property</strong> (house, townhouse, condo)</li>
+            <li><strong>A secondary residence</strong> or cottage</li>
+            <li><strong>Multiple properties</strong> (no limit on how many STRs you can run)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why this matters for investors:</strong> With an average house price around $758,000 in Clarington, you can purchase an investment property and run it as a full-time Airbnb without any regulatory barrier. In Oshawa, Toronto, or Mississauga, that same investment property would be illegal for short-term rentals.
+            </div>
+          </div>
+
+          <h2 id="no-night-limit">No Night Limit</h2>
+          <p>Many GTA cities cap how many nights per year you can rent your entire home. Clarington has no such cap.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">Annual Night Limit</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>180 nights</strong> (entire home)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Mississauga</div>
+              <div class="comparison-col highlight"><strong>180 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Burlington</div>
+              <div class="comparison-col highlight"><strong>183 days</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Clarington</div>
+              <div class="comparison-col highlight"><strong>No limit</strong></div>
+            </div>
+          </div>
+
+          <p>You can rent your Clarington property 365 nights a year. There is no cap on entire-home or partial-home rentals. That's a serious revenue advantage over cities that force you to stop hosting halfway through the year.</p>
+
+          <h2 id="no-mat">No Municipal Accommodation Tax</h2>
+          <p>Clarington does not charge MAT (Municipal Accommodation Tax) on short-term rentals. Here's what your neighbours charge:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">MAT Rate</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Toronto</div>
+              <div class="comparison-col highlight"><strong>8.5%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight"><strong>5%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Brampton</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Vaughan</div>
+              <div class="comparison-col highlight"><strong>4%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green">Clarington</div>
+              <div class="comparison-col highlight"><strong>0%</strong></div>
+            </div>
+          </div>
+
+          <p>On a $150/night booking in Oshawa, your guest pays $7.50 in MAT. In Toronto, that's $12.75. In Clarington, it's zero. That either makes your listing more competitive on price or puts more money in your pocket per booking.</p>
+
+          <h2 id="council-history">Why Clarington Chose Not to Regulate</h2>
+          <p>This isn't just a case of the municipality not getting around to it. Clarington actively looked at the question and decided regulation wasn't warranted.</p>
+
+          <p>In 2017, Clarington's Planning Services Department produced <a href="https://weblink.clarington.net/WebLink/0/edoc/109136/PSD-092-17.pdf" target="_blank" rel="noopener">report PSD-092-17</a>, which examined whether the municipality needed short-term rental regulations. At the time, there were only about 45 active listings in the entire municipality. Council concluded that there was no significant impact on the local housing supply and chose not to introduce bylaws.</p>
+
+          <p>Since then, listings have grown from roughly 45 to over 200. That's a big jump, but Clarington still hasn't revisited the issue. As of early 2026, there are no public plans to introduce STR specific bylaws, licensing, or MAT.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Worth watching:</strong> Clarington's neighbours are moving toward regulation. Oshawa introduced full licensing in 2024. Whitby is developing its own framework. If Clarington sees a wave of new listings or housing complaints, council may revisit their 2017 decision. For now, the window is wide open.
+            </div>
+          </div>
+
+          <h2 id="market-data">Clarington Airbnb Market Data</h2>
+          <p>Here's what the numbers look like for short-term rentals in Clarington:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Metric</div>
+              <div class="comparison-col highlight">Clarington (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Active listings</div>
+              <div class="comparison-col highlight"><strong>186 to 220+</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Median annual revenue</div>
+              <div class="comparison-col highlight"><strong>$15,523 to $22,180</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Top 10% earn</div>
+              <div class="comparison-col highlight"><strong>$51,600+/year</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Average daily rate (ADR)</div>
+              <div class="comparison-col highlight"><strong>$104 to $152</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Property type breakdown</div>
+              <div class="comparison-col highlight"><strong>68.3% houses</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Entire home listings</div>
+              <div class="comparison-col highlight"><strong>72%</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Guest origin</div>
+              <div class="comparison-col highlight"><strong>87% domestic (mostly Toronto)</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Avg booking lead time</div>
+              <div class="comparison-col highlight"><strong>33 days</strong></div>
+            </div>
+          </div>
+
+          <p>Sources: <a href="https://www.airroi.com/report/world/canada/ontario/clarington" target="_blank" rel="noopener">AirROI Clarington</a> and <a href="https://airbtics.com/average-rent-clarington-ca/" target="_blank" rel="noopener">Airbtics Clarington</a>.</p>
+
+          <p>The top performers are pulling in over $51,600 per year. That's a solid return, especially when you factor in the zero regulatory costs. No license fee. No MAT eating into your revenue. No night cap cutting your season short.</p>
+
+          <p>The 33 day average booking lead time tells you that most guests are planning ahead rather than booking same day. That means dynamic pricing tools and early listing optimization can make a real difference in your occupancy rate.</p>
+
+          <h2 id="what-does-apply">What Rules DO Apply in Clarington</h2>
+          <p>No STR bylaw doesn't mean anything goes. Clarington's general municipal bylaws apply to every property, and they'll definitely apply if guests cause problems:</p>
+
+          <h3>Noise Bylaw (By-law 2007-071)</h3>
+          <p>Clarington enforces noise restrictions under <strong>By-law 2007-071</strong>. Loud parties, late night music, and disruptive guests can result in complaints and fines. Set clear quiet hours in your house rules, especially if your property is in a residential neighbourhood in Bowmanville, Courtice, or Newcastle.</p>
+
+          <h3>Property Standards</h3>
+          <p>Your property must meet Clarington's property standards bylaw. This covers exterior maintenance, cleanliness, structural safety, and general upkeep. A poorly maintained rental can trigger neighbour complaints and municipal inspections regardless of whether STR bylaws exist.</p>
+
+          <h3>Fire Code and Building Code</h3>
+          <p>Ontario's Fire Protection and Prevention Act applies to every dwelling. Smoke detectors, carbon monoxide detectors, and proper egress from bedrooms are required. This isn't STR specific, but it protects your guests and your liability.</p>
+
+          <h3>Zoning</h3>
+          <p>Clarington's <a href="https://www.clarington.net/planning-and-development/official-plan-and-zoning/current-zoning-by-laws/" target="_blank" rel="noopener">Zoning By-law 84-63</a> does not specifically define short-term rentals. Bed and Breakfasts are defined, but typical Airbnb style rentals operate in a grey area and are effectively permitted. The municipality has not taken enforcement action against standard STR operations.</p>
+
+          <h3>Condo Corporation Rules</h3>
+          <p>If your property is in a condominium, the condo corporation's declaration and rules may restrict or prohibit short-term rentals even though the municipality doesn't. Always check your declaration before listing.</p>
+
+          <div class="warning-box">
+            <h4>Your Condo Board Can Still Say No</h4>
+            <p>Even in an unregulated municipality like Clarington, your condo corporation can prohibit short-term rentals in their declaration. Always check your declaration of co-ownership and condo rules before listing. A bylaw infraction fine from your condo board is not worth the hassle.</p>
+          </div>
+
+          <h2 id="comparison">Clarington vs Neighbouring Durham Region Cities</h2>
+          <p>Here's how Clarington compares to every nearby municipality in Durham Region:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">STR Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green"><strong>Clarington</strong></div>
+              <div class="comparison-col highlight"><strong>No regulations, no license, no MAT</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Oshawa</div>
+              <div class="comparison-col highlight">$150 license, principal residence, 180 days, 5% MAT, $2M insurance</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Ajax</div>
+              <div class="comparison-col highlight">Not regulated (same as Clarington)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Pickering</div>
+              <div class="comparison-col highlight">Not regulated (same as Clarington)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Whitby</div>
+              <div class="comparison-col highlight">Developing regulations (coming soon)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Scugog</div>
+              <div class="comparison-col highlight">STRs not permitted</div>
+            </div>
+          </div>
+
+          <p>In Durham Region, Clarington, Ajax, and Pickering form the unregulated trio. Oshawa went full regulation in 2024. Whitby is working on its own framework. Scugog has banned STRs entirely. If you're looking to invest in Durham Region Airbnb properties, these three municipalities give you the most flexibility. For a deeper look at each, check our guides for <a href="/blog/oshawa-airbnb-short-term-rental-rules-2026">Oshawa</a>, <a href="/blog/ajax-airbnb-short-term-rental-rules-2026">Ajax</a>, and <a href="/blog/pickering-airbnb-short-term-rental-rules-2026">Pickering</a>.</p>
+
+          <h2 id="local-attractions">What Draws Guests to Clarington</h2>
+          <p>Understanding why guests visit helps you tailor your listing and pricing. Clarington has a surprisingly strong mix of attractions:</p>
+
+          <ul>
+            <li><strong>Canadian Tire Motorsport Park:</strong> This is Clarington's biggest draw for short-term rentals. Race weekends and car events bring thousands of visitors who need accommodation, and hotels in the area fill up fast. If you price well and highlight proximity to the track, event weekends can be your highest revenue days of the year.</li>
+            <li><strong>Lake Ontario waterfront:</strong> The waterfront stretching from Newcastle to Bowmanville offers beaches, trails, and scenic views. Summer visitors looking for a lakeside escape outside Toronto are a reliable booking source.</li>
+            <li><strong>Jungle Cat World:</strong> A popular wildlife park that draws families year round. Properties that market themselves as family friendly and mention the zoo in their listing description tend to convert well.</li>
+            <li><strong>Tyrone Mill:</strong> A historic mill and popular local landmark. It's the kind of unique attraction that appeals to weekend getaway guests from Toronto.</li>
+            <li><strong>Downtown Bowmanville:</strong> The shops, restaurants, and community events along King Street give Bowmanville a charming small town feel that Toronto visitors love. Walkability to downtown is a big selling point for your listing.</li>
+          </ul>
+
+          <p>With 87% of guests coming from within Canada (mostly from Toronto) and an average booking lead time of 33 days, your typical guest is a Torontonian planning a weekend or short vacation outside the city. Keep that in mind when you write your listing description and set your pricing calendar.</p>
+
+          <h2 id="tax-obligations">Tax Obligations (Even Without City Regulations)</h2>
+          <p>Just because Clarington doesn't tax or regulate your STR doesn't mean you're off the hook with the federal and provincial governments. These obligations apply everywhere in Ontario:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>$0</strong> (Clarington doesn't charge MAT)</div>
+            </div>
+          </div>
+
+          <p>Key tax points for Clarington hosts:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but you can register voluntarily to claim input tax credits on expenses</li>
+            <li><strong>Expense deductions:</strong> Mortgage interest, insurance, cleaning, supplies, platform fees, and property management fees are all deductible against your STR income</li>
+            <li><strong>2024 federal rule:</strong> The government now denies expense deductions on non-compliant STRs in regulated cities. Since Clarington has no STR regulations, this rule doesn't affect you here. But keep proper records in case that changes.</li>
+          </ul>
+
+          <h2 id="tips">Tips for Clarington Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Get proper insurance.</strong> No city requirement doesn't mean you should skip it. Carry at least $2M liability coverage that explicitly covers short-term rental activity. One guest slip and fall without coverage could wipe you out.</li>
+            <li><span class="tip-icon">2</span> <strong>Price for Motorsport Park events.</strong> Canadian Tire Motorsport Park weekends are your golden ticket. Check the event calendar and increase your rates by 30 to 50% during race weekends. Guests will pay a premium for proximity to the track.</li>
+            <li><span class="tip-icon">3</span> <strong>Be a good neighbour.</strong> Clarington hasn't regulated STRs yet, and one reason is that the 2017 council review found no major impact. Noise complaints, parking issues, and garbage from guests are exactly what pushes municipalities toward regulation. Set clear house rules and enforce them.</li>
+            <li><span class="tip-icon">4</span> <strong>Highlight what's nearby.</strong> Your guests are mostly Torontonians looking for a getaway. Mention the waterfront, Jungle Cat World, downtown Bowmanville shops, and the Motorsport Park in your listing. Specific local details make your listing stand out from the generic ones.</li>
+            <li><span class="tip-icon">5</span> <strong>Register for HST early.</strong> With top 10% hosts earning over $51,600 per year, many Clarington hosts will cross the $30,000 HST threshold. Register proactively to avoid CRA penalties.</li>
+            <li><span class="tip-icon">6</span> <strong>Check your condo declaration.</strong> If your property is in a condominium, the condo corporation may have STR restrictions even though the municipality doesn't. Read your declaration before listing.</li>
+            <li><span class="tip-icon">7</span> <strong>Invest in the listing photos.</strong> Houses make up 68% of Clarington listings, so you're competing with other houses. Professional photos of your property, especially outdoor space and any waterfront access, will help you win bookings over similar homes.</li>
+            <li><span class="tip-icon">8</span> <strong>Watch what Durham Region does.</strong> Oshawa regulated in 2024. Whitby is next. If the trend continues, Clarington may eventually follow. Keep an eye on municipal council agendas and maintain detailed records so you're ready to comply if rules arrive.</li>
+          </ul>
+
+          <h2 id="getting-started">Ready to Start Hosting in Clarington?</h2>
+          <p>If you've been thinking about listing your Bowmanville, Courtice, Newcastle, or Clarington property on Airbnb, the regulatory environment couldn't be simpler. No license to apply for, no fees to pay, no night caps to worry about, and investment properties are fully allowed.</p>
+
+          <p>New to Airbnb? You can <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">sign up for Airbnb through our referral link</a> and get a free consultation with our team to help you optimize your listing from day one.</p>
+
+          <p class="fine-print"><em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Common Questions From Clarington Hosts</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h4>{faq.q}</h4>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="disclaimer"><em>This article is for informational purposes only and does not constitute legal advice. Bylaw and regulation details change frequently. Always verify current rules directly with your local municipality before making hosting decisions.</em></p>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your Clarington Rental Income?</h3>
+            <p>Nurture manages short-term rentals across the GTA. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Clarington?</h2>
+        <p>Our local GTA experts can help you set up and maximize your short-term rental.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .fine-print {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row .comparison-col.highlight-green {
+    background: rgba(117, 155, 143, 0.05);
+    font-weight: 600;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+</style>
