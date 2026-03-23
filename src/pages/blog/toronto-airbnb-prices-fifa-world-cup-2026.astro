@@ -1,0 +1,1084 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How much can a Toronto Airbnb earn during the FIFA World Cup 2026?", a: "It depends on location, property size, and pricing strategy. Deloitte projects the average Toronto host will earn $2,700 CAD across the tournament period. Our managed 1BR downtown condo is projected at $17,581 for June alone, with nightly rates hitting $1,125 on match days. The top earners will be professionally priced properties near BMO Field and the downtown core." },
+  { q: "What are Toronto hotel prices during the FIFA World Cup?", a: "Hotel rates are projected to increase 107% over summer 2025 levels, with the average at $531 per night according to the Globe and Mail. Luxury properties are pricing even higher: the Bisha Hotel has listed rates up to $5,700 per night, and the Shangri-La up to $3,488. Multiple downtown hotels are already sold out for match weekends." },
+  { q: "When are the FIFA World Cup matches in Toronto?", a: "Toronto hosts six matches at BMO Field on June 12, 17, 20, 23, 26, and July 2. June 12 is the historic opener featuring Canada's first men's FIFA World Cup match on home soil. The highest demand nights are the evenings before and of each match day." },
+  { q: "Is $1,125 per night realistic for a 1BR Airbnb during the World Cup?", a: "Yes. Our managed 1BR downtown condo is already booked at $1,125 for June 17 (Ghana vs Panama) and June 26 match day. With hotels at $531 average and luxury hotels at $3,000 to $5,700, a well-located, professionally managed Airbnb at $1,125 represents strong value for groups splitting the cost. The key is dynamic pricing: not every night commands that rate." },
+  { q: "Should I raise my Airbnb prices for the World Cup?", a: "Yes, but strategically. The Paris 2024 Olympics showed what happens when hosts overprice: a 57% price collapse from oversupply. Match days and the nights before them command premium rates. Mid-week gaps between matches need more moderate pricing. Dynamic pricing tools adjust automatically based on real-time demand, which outperforms static rate increases." },
+  { q: "How far in advance are World Cup Airbnb bookings happening?", a: "Many properties are already booked for June 2026. Our managed 1BR has 29 of 30 nights reserved. Airbnb reports that flight searches to Toronto are up 350% year over year. If you plan to host, listing now gives you time to collect reviews and build search ranking before the peak demand window." },
+  { q: "What is the MAT tax rate during the FIFA World Cup in Toronto?", a: "Toronto temporarily increased the Municipal Accommodation Tax to 8.5% (up from 6%) for a 14-month period through July 2026. This increase was specifically implemented to help fund the city's $380 million FIFA hosting costs. All short-term rental hosts must collect and remit this tax." },
+  { q: "Can I list my investment property on Airbnb for the World Cup?", a: "No. Toronto's principal residence rule still applies during the World Cup. You can only short-term rent the home where you actually live. Investment properties are restricted to mid-term rentals of 30 days or more. The 180-night annual limit also applies to entire home listings." },
+  { q: "How does Toronto's World Cup pricing compare to other host cities?", a: "Toronto's 78% hotel price increase was actually the lowest of all 16 FIFA host cities, according to Global News. The average increase across all host cities was 328%. This suggests Toronto may still have room for price growth as the tournament approaches, particularly for well-positioned Airbnb listings." },
+  { q: "What happened to Airbnb prices during the Paris 2024 Olympics?", a: "Paris saw a cautionary tale. Hosts flooded the market with new listings, creating oversupply that initially caused a 57% price collapse. Actual average daily rates ended up only 44% above normal, far below what many hosts expected. The lesson: professional pricing that responds to real-time demand beats aggressive static pricing every time." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Occupancy Rates 2026', href: '/blog/toronto-airbnb-occupancy-rates-2026', description: 'Full market data on monthly occupancy rates and what drives demand' },
+  { title: 'Toronto Airbnb Seasonal Pricing Strategy', href: '/blog/toronto-airbnb-seasonal-pricing-strategy-2026', description: 'Month by month pricing guide for Toronto hosts' },
+  { title: 'Airbnb Dynamic Pricing Tools Guide', href: '/blog/airbnb-dynamic-pricing-tools-guide-2026', description: 'How to maximize revenue with automated pricing' }
+];
+
+const tocItems = [
+  { id: 'headline-number', text: 'The Headline Number' },
+  { id: 'property-data', text: 'Real Property Data' },
+  { id: 'hotel-market', text: 'Hotel Market Comparison' },
+  { id: 'airbnb-market', text: 'Airbnb Market Data' },
+  { id: 'match-schedule', text: 'Match Day Pricing' },
+  { id: 'demand-numbers', text: 'Demand Numbers' },
+  { id: 'paris-warning', text: 'The Paris 2024 Warning' },
+  { id: 'past-world-cups', text: 'Past World Cup Pricing' },
+  { id: 'what-hosts-should-do', text: 'What Hosts Should Do' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Toronto Airbnb Prices During FIFA World Cup 2026";
+const pageDescription = "A 1BR condo earning $4,123/mo normally is projected at $17,581 for June 2026. Real managed property data on Toronto Airbnb pricing during FIFA.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-23",
+  "dateModified": "2026-03-23",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-airbnb-prices-fifa-world-cup-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Toronto Airbnb FIFA Pricing</span>
+      </nav>
+      <h1>Toronto Airbnb Prices During FIFA World Cup 2026: Real Data from a Managed Property</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 23, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section trust-bar">
+    <div class="container">
+      <div class="trust-stats">
+        <div class="trust-stat">
+          <span class="stat-number">$17,581</span>
+          <span class="stat-label">Projected June Revenue (1BR)</span>
+        </div>
+        <div class="trust-stat">
+          <span class="stat-number">4.3x</span>
+          <span class="stat-label">Multiplier vs. Normal Month</span>
+        </div>
+        <div class="trust-stat">
+          <span class="stat-number">$1,125</span>
+          <span class="stat-label">Match Day Nightly Rate</span>
+        </div>
+        <div class="trust-stat">
+          <span class="stat-number">146,000</span>
+          <span class="stat-label">Fans Needing Accommodation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">A one-bedroom condo in downtown Toronto that was <strong>losing $926 per month</strong> as a long-term rental is now projected to earn <strong>$17,581 in a single month</strong> during the FIFA World Cup. That is an $18,507 swing. This is not a hypothetical. It is a real property we manage, with real bookings, at real rates.</p>
+            <p class="lead">Below is every data point we have: our actual managed property numbers, market-wide hotel and Airbnb data, match day pricing, demand forecasts, and the critical lesson from Paris 2024 that every Toronto host needs to understand before June.</p>
+          </div>
+
+          <h2 id="headline-number">The $18,507 Swing: From Losing Money to Record Revenue</h2>
+
+          <p>Let's start with the number that matters most. We manage a one-bedroom condo in downtown Toronto. The same property featured in our <a href="/airbnb-management-toronto">homepage case study</a>. Here is the full picture:</p>
+
+          <div class="data-highlight-box">
+            <div class="data-row">
+              <span class="data-label">As a long-term rental</span>
+              <span class="data-value negative">-$926/month</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Normal monthly Airbnb revenue</span>
+              <span class="data-value">$4,123/month</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">May 2026 (pre-tournament)</span>
+              <span class="data-value muted">$2,221 (9 nights booked)</span>
+            </div>
+            <div class="data-row featured">
+              <span class="data-label">June 2026 (FIFA month)</span>
+              <span class="data-value positive">$17,581 (29 of 30 nights)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Revenue multiplier</span>
+              <span class="data-value">4.3x normal month</span>
+            </div>
+          </div>
+
+          <p>That $17,581 figure is not a projection based on market averages. It is based on actual bookings already on the calendar for this specific property. Twenty-nine of thirty nights in June are reserved. The average nightly rate across the month: approximately <strong>$606 per night</strong>.</p>
+
+          <p>For context, the market-wide average daily rate for Toronto Airbnb listings is <strong>$149 per night</strong> under normal conditions (<a href="https://www.airroi.com/report/world/canada/ontario/toronto" target="_blank" rel="noopener">AirROI</a>). This property is commanding 4x that average during FIFA month.</p>
+
+          <h2 id="property-data">Night by Night: Real Pricing From Our Managed Property</h2>
+
+          <p>Here is what the pricing actually looks like on specific dates. These are live rates from our property management system, not estimates.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Event Context</th>
+                  <th>Nightly Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>June 11</strong></td>
+                  <td>Night before FIFA opener</td>
+                  <td class="highlight-cell">$700</td>
+                </tr>
+                <tr>
+                  <td><strong>June 12</strong></td>
+                  <td>Canada's first FIFA WC match (home soil)</td>
+                  <td class="highlight-cell">$1,125</td>
+                </tr>
+                <tr>
+                  <td><strong>June 17</strong></td>
+                  <td>Ghana vs Panama at BMO Field</td>
+                  <td class="highlight-cell">$1,125</td>
+                </tr>
+                <tr>
+                  <td><strong>June 26</strong></td>
+                  <td>Match day at BMO Field</td>
+                  <td class="highlight-cell">$1,125</td>
+                </tr>
+                <tr>
+                  <td><strong>June avg</strong></td>
+                  <td>Full month blended rate</td>
+                  <td class="highlight-cell">~$606</td>
+                </tr>
+                <tr>
+                  <td><strong>May 2026</strong></td>
+                  <td>Pre-tournament comparison</td>
+                  <td>$247 avg (9 nights only)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The pattern is clear: match days command over $1,000 per night. The nights immediately before matches see elevated pricing in the $700 range. Even the "gap" nights between matches are booking at rates well above normal because fans are staying for multiple games and the <a href="https://www.destinationtoronto.com/research/leisure-articles/post/the-legacy-and-impact-of-hosting-fifa-world-cup-2026-in-toronto/" target="_blank" rel="noopener">FIFA Fan Festival at Fort York</a> runs the entire tournament.</p>
+
+          <h2 id="hotel-market">Hotel Market: Already Sold Out at Record Prices</h2>
+
+          <p>The hotel market tells the demand story better than anything. According to <a href="https://www.theglobeandmail.com/investing/personal-finance/article-fifa-ticket-prices-airfare-hotel-costs-skyrocketed/" target="_blank" rel="noopener">the Globe and Mail</a>, the average Toronto hotel rate during FIFA is projected at <strong>$531 per night</strong>, a 107% increase over summer 2025.</p>
+
+          <p>But that average obscures what's happening at the top end. <a href="https://www.blogto.com/travel/2026/03/toronto-hotel-prices-fifa-world-cup-2026/" target="_blank" rel="noopener">BlogTO reports</a> these rates at Toronto's marquee hotels:</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Hotel</th>
+                  <th>FIFA Match Day Rate</th>
+                  <th>Normal Summer Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bisha Hotel</strong></td>
+                  <td class="highlight-cell">Up to $5,700/night</td>
+                  <td>~$400/night</td>
+                </tr>
+                <tr>
+                  <td><strong>Shangri-La</strong></td>
+                  <td class="highlight-cell">Up to $3,488/night</td>
+                  <td>~$450/night</td>
+                </tr>
+                <tr>
+                  <td><strong>The Drake</strong></td>
+                  <td class="highlight-cell">$999 to $1,099/night</td>
+                  <td>$619/night</td>
+                </tr>
+                <tr>
+                  <td><strong>Downtown avg</strong></td>
+                  <td class="highlight-cell">$531/night</td>
+                  <td>~$256/night</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Multiple downtown hotels are already sold out for match weekends (<a href="https://www.blogto.com/travel/2026/03/toronto-hotel-prices-fifa-world-cup-2026/" target="_blank" rel="noopener">BlogTO</a>). When hotels sell out, overflow demand goes straight to Airbnb.</p>
+
+          <p>Here is the surprising part: Toronto's 78% hotel price increase was actually the <strong>lowest of all 16 FIFA host cities</strong>. The average increase across all host cities was 328% (<a href="https://globalnews.ca/news/11576315/toronto-world-cup-hotel-prices/" target="_blank" rel="noopener">Global News</a>). That gap suggests Toronto's pricing still has room to climb as the tournament approaches.</p>
+
+          <h2 id="airbnb-market">Airbnb Market: What the Platform Data Shows</h2>
+
+          <p>Airbnb has been unusually transparent about their FIFA data. Here is what they have published:</p>
+
+          <ul>
+            <li><strong>85% of Toronto listings</strong> are priced under $500 per night during the tournament (<a href="https://news.airbnb.com/canadian-fifa-world-cup-2026-travel-trends-revealed/" target="_blank" rel="noopener">Airbnb</a>)</li>
+            <li><strong>67% of two-bedroom and larger listings</strong> are under $500 per night (<a href="https://news.airbnb.com/canadian-fifa-world-cup-2026-travel-trends-revealed/" target="_blank" rel="noopener">Airbnb</a>)</li>
+            <li>Average host earnings projected at <strong>$2,700 CAD</strong> across the tournament period (<a href="https://www.destinationtoronto.com/research/leisure-articles/post/the-legacy-and-impact-of-hosting-fifa-world-cup-2026-in-toronto/" target="_blank" rel="noopener">Deloitte via Destination Toronto</a>)</li>
+            <li>Total projected Toronto Airbnb host earnings: <strong>$17.8 million CAD</strong> (<a href="https://www.destinationtoronto.com/research/leisure-articles/post/the-legacy-and-impact-of-hosting-fifa-world-cup-2026-in-toronto/" target="_blank" rel="noopener">Deloitte via Destination Toronto</a>)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The Gap Between Average and Optimized</strong>
+              <p style="margin-top: 0.5rem; margin-bottom: 0;">Deloitte projects the average Toronto host will earn $2,700 during FIFA. Our managed 1BR condo is projected at $17,581 for June alone. That is a 6.5x difference. The gap comes down to three things: dynamic pricing, professional listing optimization, and booking window management. Most hosts are leaving money on the table with static pricing.</p>
+            </div>
+          </div>
+
+          <p>The fact that 85% of listings are priced under $500 per night is telling. With hotels averaging $531 and selling out, professionally managed Airbnb properties priced between $500 and $1,200 sit in a sweet spot: cheaper than hotels for groups, but generating premium returns for hosts.</p>
+
+          <h2 id="match-schedule">Match Day Pricing Breakdown: Six Opportunities at BMO Field</h2>
+
+          <p>Toronto hosts six FIFA World Cup matches at BMO Field. Each match drives a pricing spike that begins the night before and extends through checkout the following morning.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Match</th>
+                  <th>Pricing Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>June 12</strong></td>
+                  <td>Canada vs TBD (historic opener)</td>
+                  <td class="highlight-cell">Peak demand</td>
+                </tr>
+                <tr>
+                  <td><strong>June 17</strong></td>
+                  <td>Ghana vs Panama</td>
+                  <td class="highlight-cell">$1,125/night (our property)</td>
+                </tr>
+                <tr>
+                  <td><strong>June 20</strong></td>
+                  <td>Group stage match</td>
+                  <td class="highlight-cell">High demand</td>
+                </tr>
+                <tr>
+                  <td><strong>June 23</strong></td>
+                  <td>Group stage match</td>
+                  <td class="highlight-cell">High demand</td>
+                </tr>
+                <tr>
+                  <td><strong>June 26</strong></td>
+                  <td>Group stage match</td>
+                  <td class="highlight-cell">$1,125/night (our property)</td>
+                </tr>
+                <tr>
+                  <td><strong>July 2</strong></td>
+                  <td>Round of 32 knockout</td>
+                  <td class="highlight-cell">Highest demand</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The July 2 knockout round match could be the highest demand night of the entire tournament in Toronto. Knockout rounds carry more urgency and higher stakes, and fans of both qualifying teams will need accommodation on short notice. If you still have that night available, price it accordingly.</p>
+
+          <h2 id="demand-numbers">Demand Numbers: 146,000 Fans Need Somewhere to Sleep</h2>
+
+          <p>The supply and demand math is straightforward. According to <a href="https://news.airbnb.com/canadian-fifa-world-cup-2026-travel-trends-revealed/" target="_blank" rel="noopener">Airbnb's travel trends data</a>:</p>
+
+          <ul>
+            <li><strong>146,000 fans</strong> expected to need accommodation in Toronto</li>
+            <li><strong>187,000 guest nights</strong> projected on the Airbnb platform alone</li>
+            <li><strong>350% increase</strong> in flight searches to Toronto, year over year</li>
+            <li><strong>350,000 total visitors</strong> expected across Toronto and Vancouver combined (federal/provincial estimates)</li>
+          </ul>
+
+          <p>On the economic side, <a href="https://www.destinationtoronto.com/research/leisure-articles/post/the-legacy-and-impact-of-hosting-fifa-world-cup-2026-in-toronto/" target="_blank" rel="noopener">Deloitte projects $540 million in GDP</a> across Canada from the tournament. Toronto alone has budgeted <strong>$380 million</strong> for FIFA hosting costs (<a href="https://torontotaxpayer.ca/news/torontos-fifa-2026-bill-skyrockets-to-380m" target="_blank" rel="noopener">Toronto Taxpayer Coalition</a>). To help cover that, the city implemented a <strong>14-month temporary MAT increase of 2.5%</strong>, bringing the total to 8.5% (<a href="https://www.cbc.ca/news/canada/toronto/toronto-hotel-tax-increased-1.7384866" target="_blank" rel="noopener">CBC</a>).</p>
+
+          <p>Airbnb is so confident in the demand that they are <a href="https://news.airbnb.com/airbnb-is-offering-1000-to-new-fifa-world-cup-2026-hosts-in-canada/" target="_blank" rel="noopener">offering $1,000 CAD to recruit new hosts</a> in World Cup cities. If you have been thinking about listing your place, <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">sign up for Airbnb here</a> and get a free consultation from our team to make sure you are set up for maximum revenue.*</p>
+
+          <h2 id="paris-warning">The Paris 2024 Warning: Why Pricing Strategy Matters More Than Ever</h2>
+
+          <p>Before you triple your rates and call it a day, read this section carefully.</p>
+
+          <p>The Paris 2024 Olympics were supposed to be a gold mine for Airbnb hosts. The demand forecasts were enormous. Hosts flooded the market with new listings. And then something unexpected happened: <strong>prices initially collapsed by 57%</strong> due to oversupply.</p>
+
+          <p>When the dust settled, actual average daily rates during the Paris Olympics were only <strong>44% above normal</strong>. Still good, but nowhere near the 3x to 5x returns that many hosts had priced in. Thousands of listings sat empty while the games played on.</p>
+
+          <div class="warning-box">
+            <h4>The Oversupply Trap</h4>
+            <p>Paris taught the short-term rental industry a painful lesson. When too many hosts list simultaneously with aggressive static pricing, supply outpaces demand and prices collapse. The hosts who performed best in Paris were those using dynamic pricing that adjusted to real-time market conditions, not those who set a high rate in January and hoped for the best.</p>
+          </div>
+
+          <p>Toronto faces a similar dynamic. Airbnb is actively recruiting new hosts with the $1,000 incentive. Every property management company in the city is sending emails about the World Cup. Supply will increase. The difference between earning $17,581 in June and earning $3,000 will come down to pricing sophistication.</p>
+
+          <p>Static pricing leaves money on the table on high-demand nights and creates vacancies on lower-demand nights. <a href="/blog/airbnb-dynamic-pricing-tools-guide-2026">Dynamic pricing tools</a> solve both problems by adjusting rates daily based on actual booking pace, competitor pricing, and demand signals.</p>
+
+          <h2 id="past-world-cups">Past World Cup Pricing: What History Tells Us</h2>
+
+          <p>Toronto is not the first city to host the World Cup, and rental markets follow a consistent pattern across previous tournaments:</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>Rental Price Impact</th>
+                  <th>Hotel Price Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Qatar 2022</strong></td>
+                  <td>2x to 4x normal rates</td>
+                  <td>5x to 10x normal rates</td>
+                </tr>
+                <tr>
+                  <td><strong>Russia 2018</strong></td>
+                  <td>2.5x to 4x normal rates</td>
+                  <td>3x normal rates</td>
+                </tr>
+                <tr>
+                  <td><strong>Brazil 2014</strong></td>
+                  <td>3x normal rates</td>
+                  <td>Up to 5x normal rates</td>
+                </tr>
+                <tr>
+                  <td><strong>Paris 2024 Olympics</strong></td>
+                  <td>44% above normal (after correction)</td>
+                  <td>2x to 3x normal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Our managed property's 4.3x multiplier sits right in the historical range for World Cup host city rentals. Hotels consistently see even larger spikes because their supply is fixed. Airbnb supply can expand, which is why the Paris 2024 correction happened and why professional pricing is the differentiator.</p>
+
+          <h2 id="what-hosts-should-do">What Toronto Hosts Should Do Right Now</h2>
+
+          <p>Whether you are already listed or considering it, here is the playbook based on the data above.</p>
+
+          <h3>If You Are Already a Host</h3>
+
+          <ol class="tips-list">
+            <li>
+              <span class="tip-icon">1</span>
+              <div><strong>Switch to dynamic pricing immediately.</strong> If you are using static rates, you are either overpriced on slow nights (losing bookings) or underpriced on match days (losing revenue). Tools like PriceLabs and Wheelhouse adjust daily. Our <a href="/blog/airbnb-dynamic-pricing-tools-guide-2026">dynamic pricing guide</a> covers the options.</div>
+            </li>
+            <li>
+              <span class="tip-icon">2</span>
+              <div><strong>Set minimum stay requirements strategically.</strong> Two-night minimums on match weekends maximize revenue. But don't block out the entire month with a 7-night minimum. Flexibility fills gaps.</div>
+            </li>
+            <li>
+              <span class="tip-icon">3</span>
+              <div><strong>Update your listing for FIFA keywords.</strong> Mention proximity to BMO Field, transit access, and the FIFA Fan Festival at Fort York. International guests are searching with these terms.</div>
+            </li>
+            <li>
+              <span class="tip-icon">4</span>
+              <div><strong>Plan for turnover logistics.</strong> With 29 of 30 nights booked, cleaning and turnover coordination becomes critical. Professional management ensures no gaps in service between back-to-back guests.</div>
+            </li>
+          </ol>
+
+          <h3>If You Are Considering Listing for the First Time</h3>
+
+          <ol class="tips-list">
+            <li>
+              <span class="tip-icon">1</span>
+              <div><strong>List now, not in June.</strong> Properties with reviews rank higher in Airbnb search. Listing in March or April gives you time to collect reviews before the demand spike. Airbnb's algorithm also gives a <a href="/blog/how-airbnb-algorithm-works-ranking-guide-2026">new listing boost</a> in your first weeks.</div>
+            </li>
+            <li>
+              <span class="tip-icon">2</span>
+              <div><strong>Claim Airbnb's $1,000 bonus.</strong> <a href="https://news.airbnb.com/airbnb-is-offering-1000-to-new-fifa-world-cup-2026-hosts-in-canada/" target="_blank" rel="noopener">Register through their FIFA host program</a> before publishing your listing. You must sign up at airbnb.com/new-host-fifa first to qualify.</div>
+            </li>
+            <li>
+              <span class="tip-icon">3</span>
+              <div><strong>Register with the City of Toronto.</strong> You need an STR registration number (format: STR-0000-XXXXXX) displayed on all listings. The <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto STR registration guide</a> walks through the full process.</div>
+            </li>
+            <li>
+              <span class="tip-icon">4</span>
+              <div><strong>Consider professional management.</strong> The difference between our managed property earning $17,581 and the market average of $2,700 is not just location. It is pricing strategy, listing optimization, and operational execution. That is what we do at Nurture.</div>
+            </li>
+          </ol>
+
+          <div class="strategy-box">
+            <h4>The Math on Professional Management</h4>
+            <p>At a 12 to 15% management fee, professional management on a $17,581 month costs $2,100 to $2,640. A self-managed property earning the market average of $2,700 keeps 100% of a much smaller number. The net difference is $12,000+ in favor of professionally managed, even after fees. Dynamic pricing and listing optimization pay for themselves many times over during events like the World Cup.</p>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h3>{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="fine-print">*This article contains a referral link. We may earn a small commission at no cost to you.</p>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your FIFA World Cup Revenue?</h3>
+            <p>Nurture manages short-term rentals across the GTA with dynamic pricing, professional photography, 24/7 guest communication, and turnover coordination. Our managed properties are already booked at 4.3x normal rates for June. Call us to find out what your property could earn.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Host for the World Cup?</h2>
+        <p>Get a free rental estimate and find out how much your property could earn this summer.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: (647) 957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .trust-bar {
+    background: var(--color-text);
+    padding: 2rem 0;
+    color: white;
+  }
+
+  .trust-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .trust-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-accent);
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .fine-print {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  .data-highlight-box {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .data-row:last-child {
+    border-bottom: none;
+  }
+
+  .data-row.featured {
+    background: rgba(117, 155, 143, 0.1);
+    margin: 0.5rem -1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-bottom: none;
+  }
+
+  .data-label {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .data-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .data-value.positive {
+    color: #2d8a4e;
+  }
+
+  .data-value.negative {
+    color: #c0392b;
+  }
+
+  .data-value.muted {
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  .table-container {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+
+  .rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rules-table th {
+    background: var(--color-text);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .rules-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .highlight-cell {
+    background: rgba(117, 155, 143, 0.1);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .callout-content a {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .trust-stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .data-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .data-row.featured {
+      margin: 0.5rem -1rem;
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .trust-stats {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+    }
+  }
+</style>
