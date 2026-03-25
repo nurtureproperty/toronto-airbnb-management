@@ -1,0 +1,968 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Cochrane, Ontario?", a: "No. As of 2026, Cochrane has no STR licensing requirement, no registration, and no permit process. You can list your property on Airbnb or VRBO without any municipal approval. The only financial obligation is 4% MAT on stays of 30 days or fewer." },
+  { q: "Can I Airbnb an investment property in Cochrane?", a: "Yes. Cochrane has no principal residence requirement. You can operate a short-term rental on an investment property, a secondary home, a cottage, or your primary residence. This puts Cochrane ahead of most Ontario cities that restrict STRs to where you actually live." },
+  { q: "Is there a night limit for Airbnb in Cochrane?", a: "No. There is no annual cap on the number of nights you can rent. You can host guests 365 nights a year. Compare that to Toronto (180 nights), Oshawa (180 days), and Burlington (183 days)." },
+  { q: "What is the MAT in Cochrane and how do I pay it?", a: "Cochrane charges a 4% Municipal Accommodation Tax on room revenue for stays of 30 days or fewer. You must register with the Town using the Accommodation Establishment Form within 30 days of your first booking. You remit quarterly: April 30, July 31, October 31, and January 31. Late payments incur 1.25% monthly interest plus a 25% penalty." },
+  { q: "Does Airbnb collect MAT automatically in Cochrane?", a: "As of 2026, Airbnb does not automatically collect Cochrane's MAT. You are responsible for tracking the 4% on room revenue and remitting it to the Town quarterly. Keep detailed records of every booking and the revenue split between room charges and any extras." },
+  { q: "What insurance do I need for an Airbnb in Cochrane?", a: "Cochrane has no municipal insurance requirement for STR operators. However, you should carry at least $2,000,000 in liability insurance that explicitly covers short-term rental activity. Standard homeowner's or cottage insurance typically excludes STR guests. Airbnb's Host Protection Insurance supplements but does not replace your own policy." },
+  { q: "Do I need to collect HST on my Airbnb income in Cochrane?", a: "If your total STR revenue exceeds $30,000 per year across all properties, you must register for HST (13%) and charge it on bookings. Below that threshold, HST registration is optional. Airbnb collects and remits HST automatically on platform bookings if you provide your HST number." },
+  { q: "Is Cochrane a good market for Airbnb?", a: "Cochrane is a small but underserved market. With only about 6 active listings and roughly 240 hotel and motel rooms, there is very little competition. Demand is strongly seasonal, peaking in summer (Polar Bear Express train, fishing, paddling) and winter (snowmobiling, ice fishing). If you price competitively and market to adventure travelers, there is real opportunity here." },
+  { q: "How does Cochrane compare to other Northern Ontario cities for Airbnb?", a: "Cochrane is one of the least regulated. Timmins introduced licensing in January 2025. Sault Ste. Marie charges $500 per year for a license. North Bay charges $600. Cochrane has no license at all, just 4% MAT. Thunder Bay is the only Northern Ontario city with zero regulation and zero MAT." },
+  { q: "What are the penalties for not paying MAT in Cochrane?", a: "Late MAT payments incur 1.25% monthly interest on the outstanding balance plus a 25% penalty. The Town can also pursue collection through legal action. Given the small amounts involved for most hosts, it is much easier to just remit on time every quarter." }
+];
+
+const relatedPosts = [
+  { title: 'Sault Ste. Marie Airbnb Short Term Rental Rules 2026', href: '/blog/sault-ste-marie-airbnb-short-term-rental-rules-2026', description: 'Sault Ste. Marie requires a $500 annual license and 4% MAT but has no principal residence rule' },
+  { title: 'Hastings Highlands Airbnb Short Term Rental Rules 2026', href: '/blog/hastings-highlands-airbnb-short-term-rental-rules-2026', description: 'Another rural Ontario market with minimal STR regulation and strong cottage tourism' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Toronto requires principal residence, 180 night limit, registration, and 8.5% MAT' }
+];
+
+const tocItems = [
+  { id: 'quick-summary', text: 'Quick Summary' },
+  { id: 'no-license', text: 'No License Required' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'mat-tax', text: '4% MAT: Your Only Obligation' },
+  { id: 'what-applies', text: 'What Rules DO Apply' },
+  { id: 'why-cochrane', text: 'Why Cochrane for STR Investors' },
+  { id: 'northern-comparison', text: 'Northern Ontario Comparison' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'tips', text: 'Tips for Cochrane Hosts' },
+  { id: 'getting-started', text: 'Getting Started' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Cochrane Ontario Airbnb Short-Term Rental Rules 2026";
+const pageDescription = "Cochrane has no STR license or night limit. The only rule is 4% MAT on bookings under 30 days. Full guide for hosts and investors.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-25",
+  "dateModified": "2026-03-25",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/cochrane-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Cochrane Regulations</span>
+      </nav>
+      <h1>Cochrane Ontario Airbnb Short-Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 25, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Cochrane, Ontario is one of the most STR-friendly towns in the province. No license. No registration. No principal residence rule. No night limit. The only obligation for Airbnb hosts is a 4% Municipal Accommodation Tax on stays of 30 days or fewer.</p>
+            <p class="lead">With a population of about 5,390 (according to the <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm?Lang=E&GENDERlist=1,2,3&STATISTIClist=1&DGUIDlist=2021A00053556042" target="_blank" rel="noopener">2021 Census</a>), Cochrane is a small Northern Ontario town that punches above its weight in tourism. It is home to the world's only facility dedicated to polar bears, the starting point for the Polar Bear Express train to Moosonee, and a gateway to some of the best snowmobiling and fishing in the province. For STR investors, the combination of zero regulation and steady seasonal tourism makes Cochrane worth a serious look.</p>
+          </div>
+
+          <div class="trust-bar">
+            <div class="trust-item">
+              <span class="trust-icon">&#10003;</span>
+              <span>No License Required</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">&#10003;</span>
+              <span>No Night Limit</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">&#10003;</span>
+              <span>4% MAT Only</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">&#10003;</span>
+              <span>Investment Properties OK</span>
+            </div>
+          </div>
+
+          <h2 id="quick-summary">Quick Summary: Cochrane STR Rules</h2>
+          <p>Here is everything a property owner needs to know at a glance:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Cochrane (2026)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">STR license required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Municipal Accommodation Tax?</div>
+              <div class="comparison-col highlight"><strong>4% on room revenue</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Investment properties allowed?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+          </div>
+
+          <p>The Town of Cochrane has not enacted any STR-specific bylaws. There is no licensing framework, no registration process, and no restrictions on which properties can be used for short-term rentals. The only regulatory touch point is Bylaw 1377-2019, which established the 4% MAT.</p>
+
+          <h2 id="no-license">No License or Registration Required</h2>
+          <p>Unlike Timmins, Sault Ste. Marie, North Bay, and many other Northern Ontario towns that have introduced STR licensing, Cochrane has not created any licensing or registration program for short-term rental operators.</p>
+
+          <p>This means:</p>
+          <ul>
+            <li><strong>No application to file</strong> with the Town</li>
+            <li><strong>No fees to pay</strong> for a permit or license</li>
+            <li><strong>No registration number</strong> to display on your listing</li>
+            <li><strong>No annual renewal</strong> process</li>
+            <li><strong>No property inspection</strong> required by the municipality</li>
+          </ul>
+
+          <p>You can list your property on Airbnb, VRBO, Booking.com, or any other platform without any municipal approval. Compare that to Sault Ste. Marie, where hosts pay $500 per year for a license and must pass building and fire inspections.</p>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>Most regulated Ontario cities require your short-term rental to be your principal residence, the home where you actually live. That rule kills investment property Airbnbs in Toronto, Mississauga, Ottawa, London, and dozens of other municipalities.</p>
+
+          <p>Cochrane has no such restriction. You can operate short-term rentals on:</p>
+          <ul>
+            <li><strong>Your primary home</strong> (whole unit or individual rooms)</li>
+            <li><strong>An investment property</strong> (house, cottage, cabin)</li>
+            <li><strong>A secondary residence or vacation home</strong></li>
+            <li><strong>Multiple properties</strong> (no limit on how many STRs you can run)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Why this matters for investors:</strong> If you own a cottage or cabin near Cochrane and want to rent it out when you're not using it, there is zero regulatory barrier. In most Southern Ontario cities, that same property would be illegal to list on Airbnb because it's not your principal residence.
+            </div>
+          </div>
+
+          <h2 id="mat-tax">4% MAT: Your Only Municipal Obligation</h2>
+          <p>The one thing Cochrane does require from short-term rental operators is the Municipal Accommodation Tax (MAT). This was established under <strong>Bylaw 1377-2019</strong>, approved on June 25, 2019, and effective July 1, 2019.</p>
+
+          <p>Here are the key details from the <a href="https://cochraneontario.com/town-hall/municipal-accommodation-tax/" target="_blank" rel="noopener">Town of Cochrane MAT page</a>:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">MAT Detail</div>
+              <div class="comparison-col highlight">Cochrane</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Rate</div>
+              <div class="comparison-col highlight"><strong>4%</strong> on room revenue only</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Applies to</div>
+              <div class="comparison-col highlight">Stays of <strong>30 days or fewer</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Who pays</div>
+              <div class="comparison-col highlight">Hotels, motels, <strong>Airbnb/VRBO hosts</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Registration</div>
+              <div class="comparison-col highlight">Accommodation Establishment Form within <strong>30 days</strong> of starting</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Remittance schedule</div>
+              <div class="comparison-col highlight"><strong>Quarterly:</strong> Apr 30, Jul 31, Oct 31, Jan 31</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Late penalties</div>
+              <div class="comparison-col highlight"><strong>1.25%/month</strong> interest + <strong>25% penalty</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Revenue split</div>
+              <div class="comparison-col highlight">50% Cochrane Tourism Association, 50% municipal tourism</div>
+            </div>
+          </div>
+
+          <h3>What Counts as "Room Revenue"</h3>
+          <p>The 4% MAT applies only to the room charge portion of your booking. It specifically excludes:</p>
+          <ul>
+            <li>Food and beverage charges</li>
+            <li>Meeting room or event space fees</li>
+            <li>Internet or Wi-Fi fees</li>
+            <li>Laundry charges</li>
+          </ul>
+
+          <p>So if your guest pays $150/night for the room and you charge a separate $20 cleaning fee, the MAT applies to the $150 room charge. On a typical $150/night weekend stay (2 nights), that works out to $12 in MAT. Not exactly a dealbreaker.</p>
+
+          <h3>MAT Exemptions</h3>
+          <p>The following are exempt from Cochrane's MAT:</p>
+          <ul>
+            <li>Stays of <strong>30+ consecutive days</strong> (mid-term and long-term rentals)</li>
+            <li>Student housing</li>
+            <li>Hospital accommodations</li>
+            <li>Long-term care facilities</li>
+            <li>Shelters</li>
+            <li>Campground tent and trailer sites</li>
+            <li>Employer-provided housing</li>
+          </ul>
+
+          <h3>How to Register</h3>
+          <p>Within 30 days of accepting your first booking, you must register with the Town of Cochrane using the Accommodation Establishment Form. Visit the <a href="https://cochraneontario.com/town-hall/municipal-accommodation-tax/" target="_blank" rel="noopener">MAT page</a> for the form and submission details. After registration, you remit MAT quarterly with the amounts collected.</p>
+
+          <h2 id="what-applies">What Rules DO Apply in Cochrane</h2>
+          <p>No STR bylaw does not mean anything goes. Standard municipal bylaws still apply to every property in Cochrane, and they will definitely matter if your guests cause problems.</p>
+
+          <h3>Noise Bylaws</h3>
+          <p>Cochrane enforces noise restrictions under its general noise bylaw. Loud parties, late night disturbances, and disruptive guests can result in complaints and fines. Set clear quiet hours in your house rules.</p>
+
+          <h3>Property Standards</h3>
+          <p>Your property must meet Cochrane's property standards. This covers exterior maintenance, cleanliness, structural safety, and general upkeep. A poorly maintained rental can trigger complaints and municipal action. You can find bylaw details on the <a href="https://cochraneontario.com/services/bylaw/" target="_blank" rel="noopener">Town of Cochrane bylaw page</a>.</p>
+
+          <h3>Building Code and Fire Code</h3>
+          <p>Ontario's Fire Protection and Prevention Act applies to every dwelling. Smoke detectors, carbon monoxide detectors, and proper egress from bedrooms are required. This is not STR-specific, but it protects your guests and your liability.</p>
+
+          <h3>Zoning</h3>
+          <p>Cochrane's Zoning Bylaw (2018) may restrict accommodation uses in certain zones. Before listing, confirm that your property's zone permits short-term accommodation. You can contact the Town's Land Use Planner Sophie Hautot at 705-272-4361 or sophie.hautot@cochraneontario.com, or visit the <a href="https://cochraneontario.com/services/planning/" target="_blank" rel="noopener">planning page</a> for more information.</p>
+
+          <div class="warning-box">
+            <h4>Check Zoning Before You List</h4>
+            <p>Even though Cochrane has no STR bylaw, your property must be in a zone that permits accommodation uses. Contact the Town's planning department to verify your specific address before listing. This is a quick phone call that can save you a lot of trouble later.</p>
+          </div>
+
+          <h2 id="why-cochrane">Why Cochrane Could Be Interesting for STR Investors</h2>
+          <p>On paper, Cochrane looks tiny. A population of 5,390 in Northern Ontario doesn't exactly scream "Airbnb goldmine." But there are a few things working in its favour that make it worth considering.</p>
+
+          <h3>Minimal Competition</h3>
+          <p>There are roughly 6 active short-term rental listings in Cochrane and about 240 hotel/motel rooms. That is an incredibly thin supply. If you can offer a clean, well-furnished property with solid photos and competitive pricing, you will stand out immediately. In Toronto, you're competing against thousands of listings. In Cochrane, you might be one of a handful.</p>
+
+          <h3>Unique Tourism Attractions</h3>
+          <p>Cochrane has tourism assets that are genuinely one of a kind. According to <a href="https://cochraneontario.travel/" target="_blank" rel="noopener">Tourism Cochrane</a>, the town's major draws include:</p>
+          <ul>
+            <li><strong>Polar Bear Habitat:</strong> The world's only facility dedicated exclusively to polar bears. This alone drives visitors from across the province and beyond.</li>
+            <li><strong>Polar Bear Express:</strong> The iconic train from Cochrane to Moosonee on James Bay. It is one of the last great rail adventures in North America and runs during summer months.</li>
+            <li><strong>450+ km of groomed snowmobile trails:</strong> Cochrane is a major hub on Ontario's snowmobile trail network, drawing riders from across the province every winter.</li>
+            <li><strong>Fishing:</strong> Walleye, northern pike, and perch in the lakes and rivers surrounding Cochrane attract anglers from spring through fall.</li>
+            <li><strong>Tim Horton Museum:</strong> The hockey legend and coffee chain founder has deep roots here.</li>
+            <li><strong>Cochrane Classic Vintage Riders Snowmobile Museum:</strong> A niche attraction that draws snowmobile enthusiasts.</li>
+            <li><strong>Heritage Village:</strong> A recreated pioneer village showcasing the region's history.</li>
+          </ul>
+
+          <h3>Strong Seasonal Demand</h3>
+          <p>Cochrane's tourism is seasonal but predictable. Summer brings the Polar Bear Express crowds, fishing groups, and paddling trips. Winter brings snowmobilers and ice fishing enthusiasts. That predictability makes it easier to optimize pricing and manage turnover schedules. You can even block off shoulder season months and still run a profitable operation during peak periods.</p>
+
+          <h3>Zero Regulatory Barriers</h3>
+          <p>No license fees. No inspections. No principal residence restriction. No night cap. The only cost is 4% on room revenue. Compare that to Sault Ste. Marie ($500/year license), North Bay ($600 license), or Muskoka Lakes ($1,000/year license). The regulatory savings alone make Cochrane more attractive for investors testing a Northern Ontario STR strategy.</p>
+
+          <h2 id="northern-comparison">Cochrane vs Other Northern Ontario Cities</h2>
+          <p>Here is how Cochrane stacks up against other Northern Ontario municipalities for STR regulation:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">City</div>
+              <div class="comparison-col highlight">STR Rules</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col highlight-green"><strong>Cochrane</strong></div>
+              <div class="comparison-col highlight"><strong>No STR bylaw, no license, no principal residence, 4% MAT</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Timmins</div>
+              <div class="comparison-col highlight">Regulated (Jan 2025), business license required, 4% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Sault Ste. Marie</div>
+              <div class="comparison-col highlight">Regulated (2022), $500/year license, no principal residence, 4% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">North Bay</div>
+              <div class="comparison-col highlight">Regulated, $600 license required</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Thunder Bay</div>
+              <div class="comparison-col highlight">Not regulated, no license, no MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Hearst</div>
+              <div class="comparison-col highlight">No STR bylaw, no license, 4% MAT</div>
+            </div>
+          </div>
+
+          <p>Cochrane and Hearst share a similar regulatory profile: no STR bylaw, no licensing, just MAT. Thunder Bay is the only Northern Ontario city with zero regulation and zero MAT. Timmins, Sault Ste. Marie, and North Bay have all moved toward formal licensing in recent years.</p>
+
+          <h2 id="tax-obligations">Tax Obligations (Federal and Provincial)</h2>
+          <p>Beyond the 4% MAT, you still have obligations to the federal and provincial governments. These apply everywhere in Ontario:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT (Cochrane)</div>
+              <div class="comparison-col highlight"><strong>4%</strong> on room revenue, remit quarterly</div>
+            </div>
+          </div>
+
+          <p>Key tax points for Cochrane hosts:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but you can register voluntarily to claim input tax credits on expenses</li>
+            <li><strong>Expense deductions:</strong> Mortgage interest, insurance, cleaning, supplies, platform fees, property management fees, and travel to inspect the property are all deductible against your STR income</li>
+            <li><strong>2024 federal rule:</strong> The government now denies expense deductions on non-compliant STRs in regulated cities. Since Cochrane has no STR regulations, this rule does not affect you here</li>
+          </ul>
+
+          <h2 id="tips">Tips for Cochrane Hosts</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Register for MAT immediately.</strong> Submit your Accommodation Establishment Form to the Town within 30 days of your first booking. The penalties for late remittance (1.25% monthly interest plus 25% penalty) are not worth the risk on what amounts to a small quarterly payment.</li>
+            <li><span class="tip-icon">2</span> <strong>Get proper insurance.</strong> No city requirement does not mean you should skip it. Carry at least $2M liability coverage that explicitly covers short-term rental activity. Standard homeowner's insurance almost never covers STR guests.</li>
+            <li><span class="tip-icon">3</span> <strong>Market to specific traveler groups.</strong> Cochrane's guests tend to be snowmobilers, anglers, train tourists, and families visiting the Polar Bear Habitat. Tailor your listing description, amenities, and photos to these groups. Mention trail access, fish cleaning stations, gear storage, or family-friendly features.</li>
+            <li><span class="tip-icon">4</span> <strong>Optimize for seasonal peaks.</strong> Price higher during peak snowmobile season (January through March) and summer train season (June through August). Consider offering weekly discounts during shoulder seasons to fill gaps.</li>
+            <li><span class="tip-icon">5</span> <strong>Confirm zoning compliance.</strong> Call the Town's planning department at 705-272-4361 before you list. One quick conversation with Sophie Hautot can confirm your property is in a zone that permits accommodation uses.</li>
+            <li><span class="tip-icon">6</span> <strong>Be a good neighbour.</strong> Cochrane has not regulated STRs, and keeping it that way benefits every host. Noise complaints, parking issues, and garbage are exactly what pushes small towns toward regulation. Set clear house rules and enforce them.</li>
+            <li><span class="tip-icon">7</span> <strong>Keep detailed records.</strong> Track every booking, guest communication, MAT collected, and expense for at least 6 years. If Cochrane introduces regulation later, clean records make compliance painless. They also make tax filing much easier.</li>
+            <li><span class="tip-icon">8</span> <strong>Winterize properly.</strong> Cochrane winters are serious. Temperatures regularly drop below minus 30 degrees Celsius. If your property will be vacant between bookings, ensure the heating system is reliable and pipes are protected. A frozen pipe burst in an empty rental is an expensive lesson.</li>
+          </ul>
+
+          <h2 id="getting-started">Ready to Start Hosting in Cochrane?</h2>
+          <p>If you own property in Cochrane and have been thinking about listing it on Airbnb, the regulatory environment could not be simpler. No license to apply for, no registration to complete, no night caps to worry about. Just register for MAT, remit 4% quarterly, and you are good to go.</p>
+
+          <p>New to Airbnb? You can <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">sign up for Airbnb through our referral link</a> and get a free consultation with our team to help you optimize your listing from day one.</p>
+
+          <p class="fine-print"><em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h3>{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="disclaimer"><em>This article is for informational purposes only and does not constitute legal advice. Bylaw and regulation details change frequently. Always verify current rules directly with the <a href="https://cochraneontario.com/services/bylaw/" target="_blank" rel="noopener">Town of Cochrane</a> before making hosting decisions.</em></p>
+
+          <div class="article-cta">
+            <h3>Want to Maximize Your Northern Ontario Rental Income?</h3>
+            <p>Nurture manages short-term rentals across Ontario. We handle guest communication, cleaning coordination, pricing optimization, and everything else so you can earn passive income from your property.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Cochrane?</h2>
+        <p>Our Ontario experts can help you set up and maximize your short-term rental.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+  }
+
+  .trust-icon {
+    background: var(--color-primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .fine-print {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .comparison-row .comparison-col.highlight-green {
+    background: rgba(117, 155, 143, 0.05);
+    font-weight: 600;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .trust-bar {
+      gap: 0.75rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .trust-bar {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+</style>
