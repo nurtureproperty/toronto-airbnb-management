@@ -675,6 +675,71 @@ def analyze_tiered_occupancy(calendar_days, avg_lead_time):
     return results
 
 
+def analyze_occupancy_trend(calendar_days):
+    """Check if occupancy trend is correct: 15-day > 30-day > 60-day.
+    If 60-day is higher than 30-day, far-out premium needs to be raised.
+    Based on Danny Rusteen's strategy."""
+    today = datetime.now().date()
+
+    windows = [
+        {"name": "15-day", "days": 15},
+        {"name": "30-day", "days": 30},
+        {"name": "60-day", "days": 60},
+    ]
+
+    rates = {}
+    for w in windows:
+        window_end = today + timedelta(days=w["days"])
+        window_days = []
+        for day in calendar_days:
+            try:
+                day_date = datetime.strptime(day["date"], "%Y-%m-%d").date()
+                if today <= day_date <= window_end:
+                    window_days.append(day)
+            except (ValueError, KeyError):
+                continue
+
+        if not window_days:
+            continue
+
+        total = len(window_days)
+        booked = sum(1 for d in window_days if d.get("status", {}).get("reason") == "RESERVED")
+        blocked = sum(1 for d in window_days if d.get("status", {}).get("reason") == "BLOCKED")
+        bookable = total - blocked
+        rates[w["name"]] = round(booked / bookable * 100, 1) if bookable > 0 else 0
+
+    if len(rates) < 3:
+        return None
+
+    # Check if trend is correct: 15 > 30 > 60
+    correct_trend = rates["15-day"] >= rates["30-day"] >= rates["60-day"]
+    inverted_far_out = rates["60-day"] > rates["30-day"]
+
+    return {
+        "rates": rates,
+        "correct_trend": correct_trend,
+        "inverted_far_out": inverted_far_out,
+    }
+
+
+def get_color_code(occupancy_pct, target=50):
+    """Return color code based on Danny Rusteen's system.
+    GREEN: 40-60% at BLT (on target)
+    NO COLOR: above 60% (over-occupied)
+    LIGHT RED: 20-40% (slightly under)
+    DARK RED: 0-20% (significantly under)
+    """
+    occ = occupancy_pct * 100 if occupancy_pct <= 1 else occupancy_pct
+    if occ >= 60:
+        return "OVER"
+    elif occ >= 40:
+        return "GREEN"
+    elif occ >= 20:
+        return "LIGHT_RED"
+    else:
+        return "DARK_RED"
+
+
 def calculate_base_price_recommendation(tiered_occupancy, current_avg_price):
     """Recommend base price adjustment based on occupancy vs targets.
     Rule: adjust 5% per week based on BLT occupancy."""
@@ -743,7 +808,7 @@ def generate_report():
     print(f"  Found {len(properties)} listed properties")
 
     if not properties:
-        return None, None
+        return None, None, []
 
     property_ids = [p["id"] for p in properties]
 
@@ -806,6 +871,18 @@ def generate_report():
         # Pricing snapshot
         pricing = get_pricing_snapshot(cal, avg_lt)
 
+        # Occupancy trend check (15 > 30 > 60 day rule)
+        trend = analyze_occupancy_trend(cal)
+
+        # Color code based on BLT occupancy
+        blt_occ_rate = None
+        blt_color = None
+        if tiered_occ:
+            blt_tier = next((t for t in tiered_occ if "BLT" in t["tier"]), None)
+            if blt_tier:
+                blt_occ_rate = round(blt_tier["actual"] * 100, 1)
+                blt_color = get_color_code(blt_tier["actual"])
+
         # Orphan night detection
         orphans = detect_orphan_nights(cal)
 
@@ -814,6 +891,15 @@ def generate_report():
 
         # Base price recommendation (skip RAISE if mid-term is filling the calendar)
         price_rec = calculate_base_price_recommendation(tiered_occ, pricing["avg_price"] if pricing else 0)
+
+        # Add dollar amount to recommendation
+        if price_rec and pricing and price_rec["action"] != "HOLD":
+            avg_price = pricing["avg_price"]
+            dollar_change = round(avg_price * price_rec["pct"] / 100)
+            if price_rec["action"] == "DROP":
+                price_rec["dollar"] = f"~${dollar_change} (from ${avg_price:.0f} to ${avg_price - dollar_change:.0f})"
+            elif price_rec["action"] == "RAISE":
+                price_rec["dollar"] = f"~${dollar_change} (from ${avg_price:.0f} to ${avg_price + dollar_change:.0f})"
 
         # If property has active mid-term stay and is fully booked, don't recommend RAISE
         if midterm_info["active_midterm"] and price_rec and price_rec["action"] == "RAISE":
@@ -828,6 +914,31 @@ def generate_report():
             "median_lead_time": med_lt,
             "booking_count": lt_count,
         }
+
+        if trend:
+            detail["occupancy_trend"] = trend
+            # Alert on inverted trend (60-day higher than 30-day)
+            if trend["inverted_far_out"] and not midterm_info["active_midterm"]:
+                rates = trend["rates"]
+                alerts.append(
+                    f"📈 {name} ({city}): Inverted occupancy trend! "
+                    f"60-day ({rates['60-day']}%) is higher than 30-day ({rates['30-day']}%). "
+                    f"Far-out premium is too low. Raise it in PriceLabs immediately."
+                )
+            elif not trend["correct_trend"] and not midterm_info["active_midterm"]:
+                rates = trend["rates"]
+                warnings.append(
+                    f"⚠️ {name} ({city}): Occupancy trend is off. "
+                    f"15d: {rates['15-day']}%, 30d: {rates['30-day']}%, 60d: {rates['60-day']}%. "
+                    f"Expected: 15d > 30d > 60d. Review far-out premium or customizations."
+                )
+
+        if blt_color:
+            detail["blt_color"] = blt_color
+            detail["blt_occupancy_pct"] = blt_occ_rate
+
+        if price_rec and price_rec.get("dollar"):
+            detail["price_dollar_rec"] = price_rec["dollar"]
 
         if midterm_info["has_midterm"]:
             detail["midterm"] = midterm_info
@@ -924,9 +1035,11 @@ def generate_report():
 
         if price_rec:
             detail["price_recommendation"] = price_rec
+            detail["price_rec"] = price_rec
 
         if pricing:
             detail["pricing"] = pricing
+            detail["_pricing_snapshot"] = pricing
 
         property_details.append(detail)
 
@@ -967,7 +1080,7 @@ def generate_report():
     text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions)
     html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions)
 
-    return text_report, html_report
+    return text_report, html_report, property_details
 
 
 def build_text_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None):
@@ -1370,6 +1483,69 @@ def generate_action_url(action_items):
         return None
 
 
+WEEKLY_TRACKING_TAB = "Weekly Tracking"
+
+def update_weekly_tracking(property_details):
+    """On Wednesdays, append a row per property to the Weekly Tracking sheet.
+    Tracks: date, property name, BLT occupancy %, color code, base price, recommendation.
+    This builds the historical tracking Danny Rusteen recommends."""
+    today = datetime.now()
+    if today.weekday() != 2:  # 2 = Wednesday
+        return
+
+    try:
+        gc = _get_gsheets_client()
+        if not gc:
+            print("  Google Sheets not configured, skipping weekly tracking")
+            return
+
+        spreadsheet = gc.open_by_key(PRICING_RULES_SHEET_ID)
+
+        # Create sheet if it doesn't exist
+        try:
+            ws = spreadsheet.worksheet(WEEKLY_TRACKING_TAB)
+        except Exception:
+            ws = spreadsheet.add_worksheet(title=WEEKLY_TRACKING_TAB, rows=500, cols=10)
+            ws.update("A1:H1", [["Date", "Property", "City", "BLT (days)", "Occupancy at BLT", "Color Code", "Avg Price", "Recommendation"]])
+
+        date_str = today.strftime("%Y-%m-%d")
+        rows = []
+        for d in property_details:
+            color = d.get("blt_color", "")
+            blt_occ = d.get("blt_occupancy_pct", "")
+            avg_price = ""
+            rec = ""
+            if d.get("occupancy") and d["occupancy"].get("occupancy_rate") is not None:
+                pass  # blt_occ already set above
+            if "tiered_occupancy" in d:
+                pricing_snap = d.get("_pricing_snapshot")
+                if pricing_snap:
+                    avg_price = f"${pricing_snap['avg_price']:.0f}"
+            if "price_rec" in d:
+                pr = d["price_rec"]
+                rec = f"{pr['action']} {pr['pct']}%"
+                if pr.get("dollar"):
+                    rec += f" ({pr['dollar']})"
+
+            rows.append([
+                date_str,
+                d.get("name", ""),
+                d.get("city", ""),
+                str(d.get("avg_lead_time", "")),
+                f"{blt_occ}%" if blt_occ else "",
+                color,
+                avg_price,
+                rec,
+            ])
+
+        if rows:
+            ws.append_rows(rows, value_input_option="USER_ENTERED")
+            print(f"  Weekly tracking: {len(rows)} rows added to '{WEEKLY_TRACKING_TAB}' sheet")
+
+    except Exception as e:
+        print(f"  Warning: Failed to update weekly tracking: {e}")
+
+
 def send_email(subject, text_body, html_body):
     """Send the report via email."""
     msg = MIMEMultipart("alternative")
@@ -1440,7 +1616,7 @@ def main():
     start = time.time()
 
     try:
-        text_report, html_report = generate_report()
+        text_report, html_report, property_details = generate_report()
 
         if not text_report:
             print("No properties found. Check HOSPITABLE_API_TOKEN.")
@@ -1455,6 +1631,10 @@ def main():
 
             if args.slack:
                 post_to_slack(text_report)
+
+        # Weekly tracking (only runs on Wednesdays)
+        if property_details:
+            update_weekly_tracking(property_details)
 
         elapsed = time.time() - start
         print(f"\nDone in {elapsed:.1f}s")
