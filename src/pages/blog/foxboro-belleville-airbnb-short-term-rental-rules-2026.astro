@@ -1,0 +1,990 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do I need a license to Airbnb in Belleville or Foxboro?", a: "Yes. Belleville requires a Short-Term Accommodation (STA) license under By-law 2025-176, effective December 1, 2025. Whole-home licenses cost $1,000 initially and $500 to renew. Owner-occupied licenses cost $500 initially and $250 to renew. Foxboro falls within Belleville's city limits, so the same rules apply." },
+  { q: "Can I Airbnb my investment property in Belleville?", a: "Yes. Unlike Toronto, Mississauga, Brampton, and most regulated Ontario cities, Belleville does not have a principal residence requirement. You can operate a short-term rental on an investment property, a vacation home, or your primary residence. This is one of Belleville's biggest advantages for STR investors." },
+  { q: "Is there a night limit for Airbnb in Belleville?", a: "No. By-law 2025-176 does not impose an annual cap on the number of nights you can rent. Toronto caps entire home rentals at 180 nights per year, but Belleville has no such limit. You can operate 365 nights per year." },
+  { q: "What is the 100 metre separation rule in Belleville?", a: "Licensed STAs must be at least 100 metres apart from each other. The only exception is the Downtown Improvement Area, where the separation rule is waived. In Foxboro and all other areas of Belleville, the 100 metre buffer applies. This means you should check for existing licensed STAs near your property before applying." },
+  { q: "How many STR licenses are available in Belleville?", a: "Belleville caps total STA licenses at 130 city-wide. As of mid-2024, only 38 licenses had been issued over three years, so there is still room. But with an estimated 160 to 180 unlicensed operators, enforcement pressure could drive more applications and fill the cap faster." },
+  { q: "Do I need to pay MAT in Belleville?", a: "Yes. Belleville charges a 4% Municipal Accommodation Tax on all short-term stays under 30 nights, effective since July 1, 2019 under By-law 2019-126. You remit MAT monthly to the city. Stays of 30 or more consecutive nights are exempt from MAT." },
+  { q: "How much insurance do I need for a Belleville Airbnb?", a: "Belleville requires $5,000,000 in liability insurance. That is significantly higher than most Ontario cities, which typically require $2,000,000. Make sure your policy explicitly covers short-term rental activity, as standard homeowner's insurance usually excludes it." },
+  { q: "What safety requirements apply to Belleville Airbnbs?", a: "You need hardwired or 10-year sealed battery smoke alarms on every floor, carbon monoxide detectors, fire extinguishers, and posted evacuation routes. The city conducts inspections as part of the licensing process." },
+  { q: "Do I need a local contact person for my Belleville Airbnb?", a: "If you do not live in Belleville, yes. Non-resident operators must designate a Local Contact Person who is available 24/7, can respond to calls within 30 minutes, and arrive on site within 60 minutes." },
+  { q: "Are events allowed at Belleville Airbnbs?", a: "No. By-law 2025-176 explicitly prohibits events, weddings, receptions, and large gatherings at licensed STA properties. Violating this can trigger the city's three-strike enforcement policy." }
+];
+
+const tocItems = [
+  { id: 'quick-summary', text: 'Quick Summary' },
+  { id: 'license', text: 'License Requirements' },
+  { id: 'no-principal-residence', text: 'No Principal Residence Rule' },
+  { id: 'license-cap', text: '130 License Cap' },
+  { id: 'separation-rule', text: '100m Separation Rule' },
+  { id: 'mat', text: '4% MAT Tax' },
+  { id: 'insurance', text: '$5M Insurance Requirement' },
+  { id: 'safety', text: 'Safety & Operations' },
+  { id: 'enforcement', text: 'Enforcement' },
+  { id: 'foxboro', text: 'Foxboro Specifics' },
+  { id: 'comparison', text: 'Regional Comparison' },
+  { id: 'tax-obligations', text: 'Tax Obligations' },
+  { id: 'getting-started', text: 'Getting Started' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const relatedPosts = [
+  { title: 'Hastings Highlands Airbnb Rules 2026', href: '/blog/hastings-highlands-airbnb-short-term-rental-rules-2026', description: 'Hastings Highlands has zero STR regulation: no license, no night limit, no MAT' },
+  { title: 'Toronto Airbnb Short-Term Rental Rules 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Toronto requires principal residence, 180 night cap, registration, and 8.5% MAT' },
+  { title: 'Ottawa Airbnb Short-Term Rental Rules 2026', href: '/blog/ottawa-airbnb-short-term-rental-rules-2026', description: 'Ottawa charges $123 for a 2 year permit and requires principal residence' }
+];
+
+const pageTitle = "Foxboro Belleville Airbnb Short-Term Rental Rules 2026";
+const pageDescription = "Belleville STR rules: $1,000 license, no principal residence rule, 130 license cap, $5M insurance, 4% MAT. Full Foxboro and Belleville guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-03-25",
+  "dateModified": "2026-03-25",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/foxboro-belleville-airbnb-short-term-rental-rules-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Foxboro &amp; Belleville Regulations</span>
+      </nav>
+      <h1>Foxboro &amp; Belleville Airbnb Short-Term Rental Rules 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Published March 25, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-stats">
+        <div class="trust-stat">
+          <span class="trust-number">$500 to $1,000</span>
+          <span class="trust-label">License Fee</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-number">No Residence Rule</span>
+          <span class="trust-label">Investment Properties OK</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-number">4% MAT</span>
+          <span class="trust-label">Since July 2019</span>
+        </div>
+        <div class="trust-stat">
+          <span class="trust-number">130 Cap</span>
+          <span class="trust-label">City-Wide License Limit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Belleville is one of the few regulated Ontario cities that actually lets you Airbnb an investment property. No principal residence requirement. No annual night cap. If you own a place in Foxboro, downtown Belleville, or anywhere within city limits, you can get licensed and rent it short-term year-round.</p>
+            <p class="lead">The catch? There are only 130 licenses available city-wide, a 100 metre separation rule between properties, and you need $5 million in liability insurance. That's more than double what <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">Toronto</a> and <a href="/blog/ottawa-airbnb-short-term-rental-rules-2026">Ottawa</a> require. Here's the complete breakdown of everything you need to know about short-term rental rules in Belleville and Foxboro for 2026.</p>
+          </div>
+
+          <h2 id="quick-summary">Quick Summary: Belleville STA Rules</h2>
+          <p>Here's the at a glance overview for property owners:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Requirement</div>
+              <div class="comparison-col highlight">Belleville (By-law 2025-176)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Definition</div>
+              <div class="comparison-col highlight"><strong>Fewer than 28 consecutive nights</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License required?</div>
+              <div class="comparison-col highlight"><strong>Yes</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Principal residence required?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Annual night limit?</div>
+              <div class="comparison-col highlight"><strong>None</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License fee (whole home)</div>
+              <div class="comparison-col highlight"><strong>$1,000 initial, $500 renewal</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">License fee (owner-occupied)</div>
+              <div class="comparison-col highlight"><strong>$500 initial, $250 renewal</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">City-wide license cap</div>
+              <div class="comparison-col highlight"><strong>130 licenses</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Separation distance</div>
+              <div class="comparison-col highlight"><strong>100 metres between STAs</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>4% (monthly remittance)</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Insurance</div>
+              <div class="comparison-col highlight"><strong>$5,000,000 liability</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Max sleeping guests</div>
+              <div class="comparison-col highlight"><strong>4 (unless entire single-detached, single booking)</strong></div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Events allowed?</div>
+              <div class="comparison-col highlight"><strong>No</strong></div>
+            </div>
+          </div>
+
+          <p>Source: <a href="https://www.belleville.ca/en/do-business/short-term-accommodations.aspx" target="_blank" rel="noopener">City of Belleville, Short-Term Accommodations</a>.</p>
+
+          <h2 id="license">License Requirements and Fees</h2>
+          <p>Under By-law 2025-176 (effective December 1, 2025), you need a license to operate any rental of fewer than 28 consecutive nights in Belleville. There are two license categories:</p>
+
+          <h3>Whole-Home License</h3>
+          <p>This is for properties where the owner does not live on site. Investment properties, second homes, and dedicated STR units fall under this category.</p>
+          <ul>
+            <li><strong>Initial fee:</strong> $1,000 (non-refundable)</li>
+            <li><strong>Annual renewal:</strong> $500</li>
+            <li><strong>Valid for:</strong> 1 year from date of issuance</li>
+          </ul>
+
+          <h3>Owner-Occupied License</h3>
+          <p>This is for properties where the owner lives on site and rents out rooms or part of the home.</p>
+          <ul>
+            <li><strong>Initial fee:</strong> $500 (non-refundable)</li>
+            <li><strong>Annual renewal:</strong> $250</li>
+            <li><strong>Valid for:</strong> 1 year from date of issuance</li>
+            <li><strong>Room limit:</strong> Maximum 3 individually rented rooms per property</li>
+          </ul>
+
+          <p>Once you submit your application, you have 90 days to complete all requirements. If you don't finish in time, the application lapses and you forfeit the fee. So have your insurance, safety equipment, and inspections lined up before you apply.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Important:</strong> All license fees are non-refundable. If your application is denied or you fail to complete the process within 90 days, you do not get your money back. Make sure you meet all requirements before applying.
+            </div>
+          </div>
+
+          <h2 id="no-principal-residence">No Principal Residence Requirement</h2>
+          <p>This is the headline feature that sets Belleville apart from most regulated Ontario cities. You do not need to live in the property to rent it short-term. Investment properties are explicitly allowed.</p>
+
+          <p>Compare that to the rest of Ontario:</p>
+          <ul>
+            <li><strong>Toronto:</strong> Principal residence required, 180 night cap</li>
+            <li><strong>Ottawa:</strong> Principal residence required</li>
+            <li><strong>Mississauga:</strong> Principal residence required, 180 day limit</li>
+            <li><strong>Hamilton:</strong> Principal residence required</li>
+            <li><strong>London:</strong> Principal residence required</li>
+            <li><strong>Belleville:</strong> No principal residence rule. Rent any property you own.</li>
+          </ul>
+
+          <p>For investors who own multiple properties or are looking to buy specifically for short-term rental income, Belleville is one of the most permissive regulated markets in the province. The only other notable city without a principal residence rule is <a href="/blog/hastings-highlands-airbnb-short-term-rental-rules-2026">Hastings Highlands</a>, which goes even further with zero regulation at all.</p>
+
+          <h2 id="license-cap">130 License Cap: First Come, First Served</h2>
+          <p>Belleville limits the total number of STA licenses to 130 across the entire city. This was reduced from 150 under the previous bylaw, so the city is actually tightening the supply over time.</p>
+
+          <p>Here's the reality check: as of mid-2024, only 38 licenses had been issued over three years. Meanwhile, an estimated 160 to 180 operators were running unlicensed. That's a big gap, and it tells you two things:</p>
+
+          <ol>
+            <li><strong>There are still licenses available.</strong> The 130 cap is not yet full, so you can likely secure one if you apply now.</li>
+            <li><strong>Enforcement is coming.</strong> With the new By-law 2025-176 and a three-strike policy, the city is signaling it plans to crack down on unlicensed operators. As enforcement pressure builds, more of those 160+ operators may rush to get licensed, which could fill the cap quickly.</li>
+          </ol>
+
+          <p>If you are serious about operating in Belleville, getting your license sooner rather than later is the smart move.</p>
+
+          <h2 id="separation-rule">100 Metre Separation Rule</h2>
+          <p>Licensed STAs must be at least 100 metres apart from each other. This prevents clusters of short-term rentals from concentrating in any single neighbourhood.</p>
+
+          <p>The only exception is the <strong>Downtown Improvement Area</strong>, where the separation rule is waived. Downtown Belleville is designed to be more commercial and tourism friendly, so multiple STAs can operate in closer proximity there.</p>
+
+          <p>For Foxboro and all other residential areas of Belleville, the 100 metre buffer applies. Before you apply for a license, check whether there is already a licensed STA within 100 metres of your property. The city can deny your application solely based on proximity to an existing license holder.</p>
+
+          <div class="warning-box">
+            <h4>Watch Out for the Separation Rule</h4>
+            <p>If another licensed STA already exists within 100 metres of your property (outside the Downtown Improvement Area), your application will be denied regardless of how well you meet every other requirement. Contact By-law Enforcement at 613-967-3200 ext. 2919 before applying to confirm your property clears the buffer.</p>
+          </div>
+
+          <h2 id="mat">4% Municipal Accommodation Tax (MAT)</h2>
+          <p>Belleville has collected a 4% MAT on all short-term stays since July 1, 2019, under By-law 2019-126. This applies to any accommodation booking of fewer than 30 consecutive nights.</p>
+
+          <p>Key details:</p>
+          <ul>
+            <li><strong>Rate:</strong> 4% of the accommodation price (excluding cleaning fees and Airbnb service fees)</li>
+            <li><strong>Remittance:</strong> Monthly to the City of Belleville</li>
+            <li><strong>Registration:</strong> MAT registration is required as part of the STA licensing process</li>
+          </ul>
+
+          <h3>MAT Exemptions</h3>
+          <p>The following are exempt from MAT:</p>
+          <ul>
+            <li>Stays of 30 or more consecutive nights</li>
+            <li>Crown agencies (federal and provincial government)</li>
+            <li>Schools, colleges, and universities</li>
+            <li>Hospitals</li>
+            <li>Non-profit hospices</li>
+            <li>Campgrounds</li>
+            <li>Emergency shelters</li>
+          </ul>
+
+          <p>Source: <a href="https://www.belleville.ca/en/do-business/municipal-accommodation-tax.aspx" target="_blank" rel="noopener">City of Belleville, Municipal Accommodation Tax</a>.</p>
+
+          <h2 id="insurance">$5 Million Insurance Requirement</h2>
+          <p>Belleville requires $5,000,000 in liability insurance for STA operators. That's more than double the $2 million minimum that most Ontario cities require (Toronto, Hamilton, Ottawa, Niagara Falls, and others all set the bar at $2M).</p>
+
+          <p>Your insurance policy must:</p>
+          <ul>
+            <li>Explicitly cover short-term rental activity</li>
+            <li>Carry at least $5,000,000 in general liability</li>
+            <li>Be provided as a certificate of insurance with your license application</li>
+          </ul>
+
+          <p>Standard homeowner's insurance almost never covers STR guests. You will need either a specialized STR policy or a commercial liability endorsement. The higher $5M requirement may increase your premium compared to policies in cities with a $2M minimum, so factor this into your operating costs.</p>
+
+          <h2 id="safety">Safety and Operational Requirements</h2>
+          <p>By-law 2025-176 sets specific safety and operational standards for all licensed STAs:</p>
+
+          <h3>Fire Safety</h3>
+          <ul>
+            <li>Smoke alarms on every floor (hardwired or 10-year sealed battery)</li>
+            <li>Carbon monoxide detectors where required by code</li>
+            <li>Fire extinguishers accessible to guests</li>
+            <li>Evacuation routes posted in each guest area</li>
+          </ul>
+
+          <h3>Guest Limits</h3>
+          <ul>
+            <li>Maximum 4 sleeping guests per property</li>
+            <li>Exception: entire single-detached dwellings rented under a single booking may exceed this limit (specific caps apply based on the property)</li>
+            <li>Maximum 3 individually rented rooms per property (for owner-occupied setups)</li>
+          </ul>
+
+          <h3>Operational Rules</h3>
+          <ul>
+            <li><strong>No events:</strong> Weddings, receptions, parties, and large gatherings are prohibited</li>
+            <li><strong>Code of conduct:</strong> Licensees must adhere to a code of conduct set by the city</li>
+            <li><strong>Local Contact Person:</strong> If you do not live in Belleville, you must designate someone who is available 24/7, can respond to calls within 30 minutes, and arrive on site within 60 minutes</li>
+            <li><strong>License display:</strong> Your STA license number must appear on all listings</li>
+          </ul>
+
+          <h2 id="enforcement">Enforcement: Three-Strike Policy</h2>
+          <p>Belleville uses a three-strike enforcement approach. Violations can lead to warnings, fines, and ultimately license revocation. The city is also developing an Administrative Monetary Penalty (AMP) program, which would allow bylaw officers to issue fines directly without going through the court system.</p>
+
+          <p>With only 38 out of an estimated 200 operators holding valid licenses as of mid-2024, the new bylaw signals that enforcement is going to become more serious. If you're currently operating without a license, the window to get compliant is now.</p>
+
+          <p>Contact By-law Enforcement at <strong>613-967-3200 ext. 2919</strong> or email <a href="mailto:bylawenforcement@belleville.ca">bylawenforcement@belleville.ca</a> with any questions about licensing or compliance.</p>
+
+          <h2 id="foxboro">Foxboro: What You Need to Know</h2>
+          <p>Foxboro is a community within the City of Belleville, located in Hastings County. It sits just north of the Highway 401 and Highway 62 interchange, roughly 10 minutes from downtown Belleville.</p>
+
+          <p>Because Foxboro is part of Belleville, all of By-law 2025-176 applies in full. There are no special exemptions or different rules for Foxboro compared to the rest of Belleville. The key considerations for Foxboro hosts specifically:</p>
+
+          <ul>
+            <li><strong>Separation rule applies:</strong> Unlike the Downtown Improvement Area, Foxboro does not have a waiver on the 100 metre separation rule. Check for existing licensed STAs nearby before applying.</li>
+            <li><strong>Rural feel, city rules:</strong> Foxboro feels more rural than downtown Belleville, but the same licensing, insurance, and MAT requirements apply.</li>
+            <li><strong>Proximity to 401:</strong> Foxboro's location near Highway 401 makes it convenient for travelers between Toronto and Montreal or Ottawa. This can be a selling point in your listing description.</li>
+          </ul>
+
+          <h2 id="comparison">Regional Comparison: Belleville vs. Neighbours</h2>
+          <p>How does Belleville stack up against nearby municipalities?</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Municipality</div>
+              <div class="comparison-col highlight">STR Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Belleville</div>
+              <div class="comparison-col highlight">Regulated: license required, no principal residence rule, 130 cap, 4% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Prince Edward County</div>
+              <div class="comparison-col highlight">Regulated: stopped issuing new investment property licenses Sept 2022, 4% MAT</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Quinte West</div>
+              <div class="comparison-col highlight">Developing bylaw, not yet passed as of 2026</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Hastings Highlands</div>
+              <div class="comparison-col highlight">Not regulated: no license, no MAT, no rules at all</div>
+            </div>
+          </div>
+
+          <p>Belleville occupies a unique middle ground. It's more regulated than <a href="/blog/hastings-highlands-airbnb-short-term-rental-rules-2026">Hastings Highlands</a> (which has zero rules) and Quinte West (which hasn't passed a bylaw yet), but far more permissive than Prince Edward County (which froze investment property licenses in 2022). The fact that Belleville allows investment properties while maintaining reasonable guardrails makes it one of the more attractive regulated STR markets in Eastern Ontario.</p>
+
+          <h2 id="tax-obligations">Tax Obligations</h2>
+          <p>Beyond the 4% MAT, here are the tax obligations that apply to all Ontario STR operators:</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Tax</div>
+              <div class="comparison-col highlight">Details</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">MAT</div>
+              <div class="comparison-col highlight"><strong>4%</strong> on stays under 30 nights, monthly remittance</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">HST (13%)</div>
+              <div class="comparison-col highlight"><strong>Required if $30K+/year</strong> in gross STR revenue</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Income tax</div>
+              <div class="comparison-col highlight"><strong>All rental income</strong> must be reported to CRA</div>
+            </div>
+          </div>
+
+          <p>Key tax points for Belleville hosts:</p>
+          <ul>
+            <li><strong>Airbnb collects HST automatically</strong> if you provide your HST registration number</li>
+            <li><strong>Below $30K/year:</strong> HST registration is optional, but voluntary registration lets you claim input tax credits on expenses like cleaning, supplies, and property management fees</li>
+            <li><strong>Expense deductions:</strong> Mortgage interest, property taxes, insurance, cleaning, platform fees, and management fees are all deductible against your STR income</li>
+            <li><strong>2024 federal rule:</strong> The government now denies expense deductions on non-compliant STRs in regulated cities. If you are operating without a Belleville STA license, you could lose your ability to deduct expenses. Get licensed.</li>
+          </ul>
+
+          <h2 id="getting-started">Getting Started: Your Belleville STR Checklist</h2>
+          <p>If you're ready to list your Foxboro or Belleville property on Airbnb, here's the step by step process:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Confirm the separation rule.</strong> Call By-law Enforcement (613-967-3200 ext. 2919) to check whether there is an existing licensed STA within 100 metres of your property. If there is, and you are not in the Downtown Improvement Area, your application will be denied.</li>
+            <li><span class="tip-icon">2</span> <strong>Get $5M liability insurance.</strong> This is the single biggest cost beyond the license itself. Shop around for a policy that explicitly covers short-term rental activity. Get your certificate of insurance ready before applying.</li>
+            <li><span class="tip-icon">3</span> <strong>Install safety equipment.</strong> Hardwired or 10-year sealed battery smoke alarms on every floor. Carbon monoxide detectors. Fire extinguishers. Evacuation routes posted in guest areas.</li>
+            <li><span class="tip-icon">4</span> <strong>Designate a Local Contact Person (if needed).</strong> If you don't live in Belleville, you need someone who is available 24/7, can respond within 30 minutes, and arrive on site within 60 minutes.</li>
+            <li><span class="tip-icon">5</span> <strong>Apply for your STA license.</strong> Submit your application through the <a href="https://www.belleville.ca/en/do-business/short-term-accommodations.aspx" target="_blank" rel="noopener">City of Belleville</a>. You have 90 days to complete all requirements once submitted.</li>
+            <li><span class="tip-icon">6</span> <strong>Register for MAT.</strong> Set up your Municipal Accommodation Tax account and prepare to remit 4% monthly on all bookings under 30 nights.</li>
+            <li><span class="tip-icon">7</span> <strong>List your property.</strong> New to Airbnb? You can <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">sign up for Airbnb through our referral link</a> and get a free consultation with our team to optimize your listing from day one. Make sure to include your STA license number on your listing.</li>
+            <li><span class="tip-icon">8</span> <strong>Register for HST if needed.</strong> If your gross STR revenue exceeds $30,000 per year, HST registration is mandatory.</li>
+          </ul>
+
+          <p class="fine-print"><em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+          <h2 id="faqs">Common Questions About Foxboro and Belleville Airbnb Rules</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h3>{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="disclaimer"><em>This article is for informational purposes only and does not constitute legal advice. Bylaw and regulation details change frequently. Always verify current rules directly with the <a href="https://www.belleville.ca/en/do-business/short-term-accommodations.aspx" target="_blank" rel="noopener">City of Belleville</a> before making hosting decisions.</em></p>
+
+          <div class="article-cta">
+            <h3>Need Help Managing Your Belleville Airbnb?</h3>
+            <p>Nurture handles guest communication, cleaning coordination, pricing optimization, and compliance for short-term rental owners across Ontario. We can be your Local Contact Person too.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Airbnb in Belleville?</h2>
+        <p>Our Ontario experts can help you get licensed and maximize your short-term rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .trust-bar {
+    background: var(--color-background-alt);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .trust-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-stat {
+    text-align: center;
+  }
+
+  .trust-number {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .trust-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .fine-print {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .trust-stats {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .trust-stats {
+      gap: 1rem;
+    }
+
+    .trust-stat {
+      min-width: 45%;
+    }
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+</style>
