@@ -60,7 +60,7 @@ Even with 237 registrations, you still need to:
 
 If you have a unit at 300 Front St W (or any of the top buildings on this list) and you're curious about Airbnb, you're sitting on one of the most in-demand STR locations in Canada. The question isn't whether there's demand. It's whether you're capturing it.
 
-[Get a free revenue estimate for your unit](/airbnb-income-calculator-toronto) or [talk to our team](/contact) about full-service management at 12-15%. We handle everything from registration to dynamic pricing to guest communication.
+[Get a free revenue estimate for your unit](/airbnb-income-calculator-toronto) or [talk to our team](/contact) about full-service management at 15%. We handle everything from registration to dynamic pricing to guest communication.
 
 ---
 

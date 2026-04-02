@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 
 const pricingTiers = [
   {
-    name: 'Starter',
-    rate: '12%',
-    description: 'Perfect for hands-on hosts who want listing optimization and booking support.',
+    name: 'Professional',
+    rate: '15%',
+    description: 'Full-service management for busy property owners. We handle everything.',
     features: [
       'Professional listing creation',
       'Multi-platform distribution',
@@ -14,17 +14,7 @@ const pricingTiers = [
       'Guest vetting & screening',
       'Review management',
       'Monthly performance reports',
-      'Booking management'
-    ],
-    notIncluded: ['Cleaning coordination', 'Maintenance', 'Key management'],
-    popular: false
-  },
-  {
-    name: 'Professional',
-    rate: '15%',
-    description: 'Our most popular plan. Full-service management for busy property owners.',
-    features: [
-      'Everything in Starter',
+      'Booking management',
       'Professional cleaning coordination',
       'Linen & supply restocking',
       'Smart lock management',
@@ -41,7 +31,7 @@ const pricingTiers = [
 
 const benefits = [
   {
-    title: 'Management fees at just 12-15%',
+    title: 'Management fees at just 15%',
     description: 'Others charge more and do less'
   },
   {
@@ -79,7 +69,7 @@ const benefits = [
 ];
 
 const faqs = [
-  { q: 'How much are your management fees?', a: 'Our fees range from 12% to 15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. This is significantly lower than competitors who charge 18-25% of gross revenue.' },
+  { q: 'How much are your management fees?', a: 'Our management fee is 15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. This is significantly lower than competitors who charge 18-25% of gross revenue.' },
   { q: 'Will I make more with short-term rental vs long-term rental?', a: 'We have never had any clients make less with short and mid-term rental vs long-term rental. Most see 30-100% increases in monthly revenue.' },
   { q: 'How long does it take to get my property listed?', a: 'The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.' },
   { q: 'What cities do you operate in?', a: 'We operate in any city within Southern Ontario, Canada. This includes the Greater Toronto Area and surrounding cities.' },
@@ -106,7 +96,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Airbnb Property Management Pricing",
-  "description": "Toronto Airbnb management at 12-15% commission. No hidden fees, no long-term contracts.",
+  "description": "Toronto Airbnb management at 15% commission. No hidden fees, no long-term contracts.",
   "url": "https://www.nurturestays.ca/pricing-toronto-airbnb-management",
   "provider": {
     "@type": "LocalBusiness",
@@ -117,7 +107,7 @@ const serviceSchema = {
 const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Management Pricing Toronto - 12-15% Fees" description="Transparent Airbnb management pricing in Toronto & GTA. Just 12-15% commission with no hidden fees or long contracts. Compare our Starter and Professional plans." schema={pageSchema}>
+<Layout title="Airbnb Management Pricing Toronto - 15% Fee" description="Transparent Airbnb management pricing in Toronto & GTA. Just 15% commission on net payout with no hidden fees or long contracts. Full-service Professional plan." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Simple, Transparent Pricing</h1>
@@ -130,10 +120,6 @@ const pageSchema = [serviceSchema, faqSchema];
       <div class="feature-comparison">
         <div class="feature-header">
           <div class="feature-label"></div>
-          <div class="plan-header">
-            <span class="plan-name">Starter</span>
-            <span class="plan-rate">12%</span>
-          </div>
           <div class="plan-header featured">
             <span class="plan-name">Professional</span>
             <span class="plan-rate">15%</span>
@@ -144,21 +130,17 @@ const pageSchema = [serviceSchema, faqSchema];
         <div class="feature-row">
           <div class="feature-label">Professional listing creation</div>
           <div class="feature-check">✓</div>
-          <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Multi-platform distribution</div>
-          <div class="feature-check">✓</div>
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Dynamic pricing optimization</div>
           <div class="feature-check">✓</div>
-          <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Listing SEO & optimization</div>
-          <div class="feature-check">✓</div>
           <div class="feature-check">✓</div>
         </div>
 
@@ -166,16 +148,13 @@ const pageSchema = [serviceSchema, faqSchema];
         <div class="feature-row">
           <div class="feature-label">Guest communication</div>
           <div class="feature-check">✓</div>
-          <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Guest vetting & screening</div>
           <div class="feature-check">✓</div>
-          <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Review management</div>
-          <div class="feature-check">✓</div>
           <div class="feature-check">✓</div>
         </div>
 
@@ -183,26 +162,21 @@ const pageSchema = [serviceSchema, faqSchema];
         <div class="feature-row">
           <div class="feature-label">Booking management</div>
           <div class="feature-check">✓</div>
-          <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Professional cleaning coordination</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Linen & supply restocking</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Smart lock management</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Contractor coordination</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
 
@@ -210,28 +184,23 @@ const pageSchema = [serviceSchema, faqSchema];
         <div class="feature-row">
           <div class="feature-label">Monthly performance reports</div>
           <div class="feature-check">✓</div>
-          <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Dedicated account manager</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Insurance claim assistance</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
 
         <div class="feature-category">Additional Services</div>
         <div class="feature-row">
           <div class="feature-label">Airbnb Guest E-book</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
         <div class="feature-row">
           <div class="feature-label">Furnishing consulting</div>
-          <div class="feature-check empty">—</div>
           <div class="feature-check">✓</div>
         </div>
       </div>
@@ -341,13 +310,13 @@ const pageSchema = [serviceSchema, faqSchema];
   .faq-card p { color: var(--color-text-light); margin: 0; font-size: 0.95rem; }
   .comparison-section { background: var(--color-background-alt); }
   .feature-comparison { max-width: 800px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
-  .feature-header { display: grid; grid-template-columns: 2fr 1fr 1fr; background: var(--color-dark); color: white; }
+  .feature-header { display: grid; grid-template-columns: 2fr 1fr; background: var(--color-dark); color: white; }
   .plan-header { text-align: center; padding: 1.5rem 1rem; }
   .plan-header.featured { background: var(--color-primary); }
   .plan-name { display: block; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.25rem; }
   .plan-rate { font-size: 1.75rem; font-weight: 700; }
   .feature-category { background: var(--color-background-alt); padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.9rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .feature-row { display: grid; grid-template-columns: 2fr 1fr 1fr; border-bottom: 1px solid var(--color-border); }
+  .feature-row { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--color-border); }
   .feature-row:last-child { border-bottom: none; }
   .feature-label { padding: 1rem 1.5rem; font-size: 0.95rem; display: flex; align-items: center; }
   .feature-check { padding: 1rem; text-align: center; font-size: 1.25rem; color: var(--color-primary); font-weight: 600; display: flex; align-items: center; justify-content: center; }
@@ -363,5 +332,5 @@ const pageSchema = [serviceSchema, faqSchema];
   .related-card h3 { color: var(--color-text); margin: 0 0 0.5rem; }
   .related-card p { color: var(--color-text-light); margin: 0; font-size: 0.95rem; }
   @media (max-width: 968px) { .faq-grid { grid-template-columns: 1fr; } .comparison-container { grid-template-columns: 1fr; gap: 1rem; } .arrow { transform: rotate(90deg); } .related-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 600px) { .feature-header, .feature-row { grid-template-columns: 1.5fr 1fr 1fr; } .feature-label { padding: 0.75rem 1rem; font-size: 0.85rem; } .feature-check { padding: 0.75rem 0.5rem; font-size: 1rem; } .plan-name { font-size: 0.9rem; } .plan-rate { font-size: 1.25rem; } .feature-category { padding: 0.5rem 1rem; font-size: 0.8rem; } }
+  @media (max-width: 600px) { .feature-header, .feature-row { grid-template-columns: 1.5fr 1fr; } .feature-label { padding: 0.75rem 1rem; font-size: 0.85rem; } .feature-check { padding: 0.75rem 0.5rem; font-size: 1rem; } .plan-name { font-size: 0.9rem; } .plan-rate { font-size: 1.25rem; } .feature-category { padding: 0.5rem 1rem; font-size: 0.8rem; } }
 </style>

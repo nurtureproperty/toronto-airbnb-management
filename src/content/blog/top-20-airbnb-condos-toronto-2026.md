@@ -63,7 +63,7 @@ If your building is not on the list at all, it could mean the condo board prohib
 
 ## Get Your Free Revenue Estimate
 
-Own a unit in one of these top 20 buildings? You are in one of the most in-demand Airbnb locations in Canada. [Get a free personalized revenue estimate](/airbnb-income-calculator-toronto) to see what your specific unit could earn, or [book a consultation](/contact) to discuss professional management at 12-15%.
+Own a unit in one of these top 20 buildings? You are in one of the most in-demand Airbnb locations in Canada. [Get a free personalized revenue estimate](/airbnb-income-calculator-toronto) to see what your specific unit could earn, or [book a consultation](/contact) to discuss professional management at 15%.
 
 ---
 

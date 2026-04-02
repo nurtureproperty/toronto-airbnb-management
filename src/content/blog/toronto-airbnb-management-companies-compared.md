@@ -31,7 +31,7 @@ A company charging "15% of net payout" takes $127.50 (15% of $850).
 
 That's $22.50 more per booking going to the management company instead of you. Over a year with 50 bookings, that's $1,125 extra out of your pocket. And this doesn't even account for Airbnb's service fees and taxes, which some companies also include in their "gross" calculation.
 
-**At Nurture, we charge 12-15% of your net host payout.** That's the money you actually receive, not the inflated gross number. No games.
+**At Nurture, we charge 15% of your net host payout.** That's the money you actually receive, not the inflated gross number. No games.
 
 ## How Toronto Management Companies Actually Compare
 
@@ -41,7 +41,7 @@ We researched 14 Airbnb management companies operating in the GTA, looking at th
 
 ### 1. Nurture (That's Us)
 
-**Fee:** 12-15% of net host payout | **Google:** 5.0 stars | **Contract:** Month to month, 30 day cancellation
+**Fee:** 15% of net host payout | **Google:** 5.0 stars | **Contract:** Month to month, 30 day cancellation
 
 The lowest published fees in the GTA, calculated on your net payout (not gross). No setup fees, no supply markups. You own your listing and all reviews. Locally owned in Toronto, not a national franchise. 9 minute average guest response time. [Full details →](/full-airbnb-management-toronto)
 
@@ -143,7 +143,7 @@ Here's something interesting though. If you're earning $8,000 per month on your 
 
 Look at those competitor rates. MasterHost charges up to 20%. Maxima is 18%+. Many others won't even disclose their fees publicly.
 
-We charge 12-15%. Here's why we can do that:
+We charge 15%. Here's why we can do that:
 
 **We're local and lean.** No corporate overhead, no national offices to maintain. Just a focused GTA team that knows which Toronto events spike demand and adjusts your pricing daily.
 
@@ -185,7 +185,7 @@ Look, not every company is worth their fee. Here are warning signs:
 
 ## Making the Numbers Work
 
-So what's a fair deal in the current Toronto market? For most properties, 12-15% of net payout is reasonable if you're getting full-service management. Anything over 18% better come with exceptional service or handle a particularly challenging property.
+So what's a fair deal in the current Toronto market? For most properties, 15% of net payout is reasonable if you're getting full-service management. Anything over 18% better come with exceptional service or handle a particularly challenging property.
 
 But honestly, the percentage isn't everything. A management company charging 12% that gets you 70% occupancy isn't as good as one charging 15% that achieves 85% occupancy with higher nightly rates.
 
@@ -201,7 +201,7 @@ The math is simple: focus on your bottom line, not just the management fee.
   </div>
   <div class="comparison-row">
     <div class="col-feature">Management Fee</div>
-    <div class="col-nurture highlight-good">12-15%</div>
+    <div class="col-nurture highlight-good">15%</div>
     <div class="col-competitors">15-25%</div>
   </div>
   <div class="comparison-row">
@@ -236,6 +236,6 @@ The math is simple: focus on your bottom line, not just the management fee.
   </div>
 </div>
 
-Ready to see what professional [Toronto Airbnb management](/full-airbnb-management-toronto) could do for your property? At Nurture, we charge 12-15% of your net payout (not the 18-25% many competitors ask for on gross bookings) and never lock you into long contracts. You own your listing, and we just make it perform better.
+Ready to see what professional [Toronto Airbnb management](/full-airbnb-management-toronto) could do for your property? At Nurture, we charge 15% of your net payout (not the 18-25% many competitors ask for on gross bookings) and never lock you into long contracts. You own your listing, and we just make it perform better.
 
 Want to know what you'd actually pay? Give us a call at (647) 957-8956 or [get in touch](/contact) for a no-obligation chat about your Toronto rental.

@@ -67,7 +67,7 @@ The tradeoff: higher expectations, more effort on staging and presentation, and 
 
 Whether you're at 155 Yorkville, 188 Cumberland, 832 Bay, or anywhere in the neighborhood, your property has luxury STR potential that most Toronto hosts can only dream of. The question is whether you're maximizing it.
 
-[Get a free revenue estimate for your Yorkville property](/airbnb-income-calculator-toronto) or [book a call](/contact) to discuss luxury Airbnb management at 12-15%.
+[Get a free revenue estimate for your Yorkville property](/airbnb-income-calculator-toronto) or [book a call](/contact) to discuss luxury Airbnb management at 15%.
 
 ---
 
