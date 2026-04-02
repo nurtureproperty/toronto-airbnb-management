@@ -1,10 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Nurture",
+  "url": "https://www.nurturestays.ca/contact"
+};
 ---
 
 <Layout
   title="Book a Free Consultation - Toronto Airbnb Management"
   description="Schedule your free consultation with Nurture Airbnb Property Management. Get a custom revenue projection and property evaluation for your Toronto rental."
+  schema={contactSchema}
 >
   <!-- Hero -->
   <section class="contact-hero">

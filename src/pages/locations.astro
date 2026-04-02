@@ -113,11 +113,26 @@ const locations = [
     description: 'Energy capital with Stampede tourism and year-round business travel. Gateway to Banff and the Rockies.'
   }
 ];
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Airbnb Management Locations",
+  "description": "Cities and neighborhoods served by Nurture Airbnb Property Management.",
+  "numberOfItems": locations.length,
+  "itemListElement": locations.map((loc, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": loc.name,
+    "url": `https://www.nurturestays.ca${loc.slug}`
+  }))
+};
 ---
 
 <Layout
   title="Airbnb Management Locations | Ontario"
   description="Airbnb property management across Ontario: Toronto, Durham Region, Niagara, Waterloo, and more. Local expertise with 12-15% fees. Get your free estimate."
+  schema={itemListSchema}
 >
   <section class="hero hero-small">
     <div class="container">

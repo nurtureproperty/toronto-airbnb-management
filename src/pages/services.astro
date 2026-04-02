@@ -80,11 +80,36 @@ const managementPackages = [
     href: '/services/airbnb-co-host-toronto'
   }
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Management Services Toronto",
+  "description": "Toronto Airbnb management: photography, dynamic pricing, guest communication, cleaning, maintenance, and rapid response support. 12-15% fee.",
+  "url": "https://www.nurturestays.ca/services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Airbnb Management Services",
+    "itemListElement": services.map(s => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": s.title,
+        "description": s.description
+      }
+    }))
+  }
+};
 ---
 
 <Layout
   title="Airbnb Management Services Toronto"
   description="Toronto Airbnb management: photography, dynamic pricing, guest communication, cleaning, maintenance, and rapid response support. 12-15% fee. Get your free estimate."
+  schema={serviceSchema}
 >
   <section class="hero hero-small">
     <div class="container">

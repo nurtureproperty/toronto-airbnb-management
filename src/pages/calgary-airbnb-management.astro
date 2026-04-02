@@ -21,9 +21,26 @@ const services = [
   'Stampede Season Optimization',
   'Transparent Revenue Reporting'
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Calgary Airbnb Management",
+  "description": "Calgary Airbnb management for Downtown, Beltline, Stampede Park, and airport area properties. Dynamic pricing and guest screening. 12-15% fees.",
+  "url": "https://www.nurturestays.ca/calgary-airbnb-management",
+  "areaServed": {
+    "@type": "City",
+    "name": "Calgary",
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "Alberta" }
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management"
+  }
+};
 ---
 
-<Layout title="Calgary Airbnb Management | 12-15%" description="Calgary Airbnb management for Downtown, Beltline, Stampede Park, and airport area properties. Dynamic pricing and guest screening. 12-15% fees. Free estimate.">
+<Layout title="Calgary Airbnb Management | 12-15%" description="Calgary Airbnb management for Downtown, Beltline, Stampede Park, and airport area properties. Dynamic pricing and guest screening. 12-15% fees. Free estimate." schema={serviceSchema}>
   <section class="hero">
     <div class="container">
       <h1><span class="highlight">Calgary Airbnb Management</span></h1>

@@ -88,9 +88,36 @@ const faqs = [
   { q: 'Are there any startup costs?', a: 'No. We only get paid on commission. We make money when you make money.' },
   { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.' }
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airbnb Property Management Pricing",
+  "description": "Toronto Airbnb management at 12-15% commission. No hidden fees, no long-term contracts.",
+  "url": "https://www.nurturestays.ca/pricing-toronto-airbnb-management",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management"
+  }
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Management Pricing Toronto - 12-15% Fees" description="Transparent Airbnb management pricing in Toronto & GTA. Just 12-15% commission with no hidden fees or long contracts. Compare our Starter and Professional plans.">
+<Layout title="Airbnb Management Pricing Toronto - 12-15% Fees" description="Transparent Airbnb management pricing in Toronto & GTA. Just 12-15% commission with no hidden fees or long contracts. Compare our Starter and Professional plans." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
       <h1>Simple, Transparent Pricing</h1>

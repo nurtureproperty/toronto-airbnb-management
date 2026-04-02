@@ -88,17 +88,51 @@ const localBusinessSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airbnb Cleaning Services" } }
     ]
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "12",
+    "bestRating": "5"
+  },
   "sameAs": [
-    "https://www.facebook.com/nurtureproperties"
+    "https://www.facebook.com/nurtureproperties",
+    "https://www.instagram.com/nurtureproperties/",
+    "https://www.youtube.com/@nurtureproperties",
+    "https://www.tiktok.com/@nurtureproperties"
   ]
 };
 
-// Combine LocalBusiness schema with page-specific schema
-const allSchemas = schema
+// Generate BreadcrumbList schema based on URL path
+let breadcrumbSchema: object | null = null;
+if (currentPath.startsWith('/blog/') && currentPath !== '/blog/') {
+  breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nurturestays.ca" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.nurturestays.ca/blog" },
+      { "@type": "ListItem", "position": 3, "name": title }
+    ]
+  };
+} else if (currentPath.startsWith('/services/') && currentPath !== '/services/') {
+  breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nurturestays.ca" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.nurturestays.ca/services" },
+      { "@type": "ListItem", "position": 3, "name": title }
+    ]
+  };
+}
+
+// Combine LocalBusiness schema with page-specific schema and breadcrumbs
+const pageSchemas = schema
   ? Array.isArray(schema)
-    ? [localBusinessSchema, ...schema]
-    : [localBusinessSchema, schema]
-  : [localBusinessSchema];
+    ? schema
+    : [schema]
+  : [];
+const allSchemas = [localBusinessSchema, ...pageSchemas, ...(breadcrumbSchema ? [breadcrumbSchema] : [])];
 ---
 
 <!doctype html>

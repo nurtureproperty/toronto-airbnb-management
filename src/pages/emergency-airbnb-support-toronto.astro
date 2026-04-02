@@ -9,9 +9,21 @@ const emergencyServices = [
   { icon: '📱', title: 'Communication Crises', description: 'Guest disputes, bad review threats, refund demands. Expert conflict resolution.' },
   { icon: '⚖️', title: 'Airbnb Claims and Disputes', description: 'Property damage claims, guest refund disputes, and Airbnb resolution center support.' }
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Emergency Airbnb Support Toronto & GTA",
+  "description": "Emergency support for Toronto and GTA Airbnb hosts: guest lockouts, urgent repairs, last-minute turnovers. Average response under 9 minutes.",
+  "url": "https://www.nurturestays.ca/emergency-airbnb-support-toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management"
+  }
+};
 ---
 
-<Layout title="Emergency Airbnb Support Toronto & GTA" description="Emergency support for Toronto and GTA Airbnb hosts: guest lockouts, urgent repairs, last-minute turnovers. Average response under 9 minutes. Call now.">
+<Layout title="Emergency Airbnb Support Toronto & GTA" description="Emergency support for Toronto and GTA Airbnb hosts: guest lockouts, urgent repairs, last-minute turnovers. Average response under 9 minutes. Call now." schema={serviceSchema}>
   <section class="emergency-hero">
     <div class="container">
       <div class="hero-content">

@@ -19,11 +19,19 @@ const stats = [
   { number: '12-15%', label: 'Management Fee' },
   { number: '30-100%', label: 'Income Increase' }
 ];
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Nurture Airbnb Property Management",
+  "url": "https://www.nurturestays.ca/about"
+};
 ---
 
 <Layout
   title="About Us - Toronto Airbnb Property Management Team"
   description="Former hosts turned professional Airbnb managers serving the GTA. 4.9-star ratings, under 9-minute response times, 12-15% fees. Get your free estimate."
+  schema={aboutSchema}
 >
   <section class="welcome-section">
     <div class="container">
