@@ -1,0 +1,1268 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Do non-residents pay tax on Canadian rental income?", a: "Yes. Under Part XIII of the Income Tax Act, any rental income earned by a non-resident from Canadian real property is subject to a 25% withholding tax on gross rental payments. The payer (your property manager or tenant) must withhold this amount and remit it to the CRA by the 15th of the month following payment. You can file a Section 216 return to be taxed on net income instead, which usually results in a much lower effective tax rate." },
+  { q: "What is the NR6 form in Canada?", a: "The NR6 is a joint undertaking filed by a non-resident property owner and their Canadian agent (usually the property manager) before rental income starts being paid. If approved by the CRA, it allows the agent to withhold 25% of estimated net rental income instead of 25% of gross income. This can cut your monthly withholding in half or more. It must be filed every year because it does not carry over." },
+  { q: "What is a Section 216 return?", a: "A Section 216 return (filed using Form T1159) allows a non-resident to elect to pay Canadian income tax at graduated rates on net rental income instead of the flat 25% on gross. You can deduct expenses like mortgage interest, property tax, insurance, management fees, and repairs. Any Part XIII tax already withheld gets credited against your Part I tax owing. If you overpaid, the CRA sends you a refund." },
+  { q: "Can the Canada-US tax treaty reduce the 25% withholding on rental income?", a: "No. Article VI of the Canada-US Tax Treaty allows Canada to tax income from real property located in Canada. The treaty does not reduce the 25% withholding rate for rental income from immovable property. However, you can claim a US foreign tax credit on your IRS return for Canadian taxes paid, which prevents double taxation on the same income." },
+  { q: "What happens if my property manager doesn't withhold the 25%?", a: "Under subsection 215(6) of the Income Tax Act, the property manager (or any person who pays rent to a non-resident) is personally liable for the full withholding amount if they fail to deduct and remit it. The CRA can assess the manager for the tax owing, plus a 10% penalty (20% for repeat offenses) and compound daily interest. This is why professional property managers take non-resident withholding seriously." },
+  { q: "How do I get a Canadian tax number as a non-resident?", a: "Non-residents who do not have a Social Insurance Number (SIN) need an Individual Tax Number (ITN) from the CRA. You apply using Form T1261. You will need this ITN before you can file a Section 216 return or an NR6 form. Processing can take several weeks, so apply well before your first filing deadline." },
+  { q: "Do non-residents pay HST on short-term rental income in Canada?", a: "Short-term rentals (stays under one calendar month) are subject to 13% HST in Ontario. Since July 2021, Airbnb automatically collects and remits HST on behalf of hosts who are not registered for HST. Rentals of one calendar month or longer are HST exempt under Schedule V, Part I, paragraph 6(a) of the Excise Tax Act. If your gross STR revenue exceeds $30,000 in four consecutive quarters, you must register for HST yourself." },
+  { q: "What happens when a non-resident sells Canadian property?", a: "Under Section 116 of the Income Tax Act, a non-resident must file Form T2062 within 10 days of selling Canadian real property. The buyer is required to withhold 25% of the purchase price unless the non-resident obtains a Certificate of Compliance from the CRA before closing. Late notification penalties start at $25 per day. After selling, you should also file a Canadian tax return to report the capital gain and claim any applicable deductions." },
+  { q: "Can I deduct expenses on my Section 216 return?", a: "Yes. On the Section 216 return, you file Form T776 (Statement of Real Estate Rentals) and deduct all eligible rental expenses: mortgage interest (not principal), property taxes, insurance, property management fees, cleaning costs, repairs, maintenance, utilities, Capital Cost Allowance on furnishings, and advertising. These deductions reduce your net income and therefore your tax bill. The more expenses you track, the lower your tax." },
+  { q: "What is the filing deadline for a Section 216 return?", a: "If you filed an NR6 form for the year, the deadline is June 30 of the year following the tax year. If you did not file an NR6, you have up to two years from the end of the tax year to file. For example, for the 2025 tax year without an NR6, you could file as late as December 31, 2027. Filing late means you forfeit the ability to be taxed at graduated rates and any refund you might have been owed." }
+];
+
+const relatedPosts = [
+  { title: 'Airbnb Taxes Canada 2026', href: '/blog/airbnb-taxes-canada-gta-guide-2026', description: 'Income tax, HST, MAT for Ontario hosts' },
+  { title: 'CCA & Capital Gains Tax Guide', href: '/blog/airbnb-cca-capital-gains-tax-guide-2026', description: 'Depreciation, PRE, and capital gains for hosts' },
+  { title: 'Toronto Airbnb Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'STR rules, 180-night limit, registration' }
+];
+
+const tocItems = [
+  { id: 'the-25-percent-rule', text: 'The 25% Withholding Rule' },
+  { id: 'nr6-form', text: 'NR6 Form: Reduce Withholding' },
+  { id: 'section-216', text: 'Section 216 Election' },
+  { id: 'real-numbers', text: 'Example with Real Numbers' },
+  { id: 'nr4-slip', text: 'NR4 Reporting Slip' },
+  { id: 'itn', text: 'Getting a Canadian Tax Number' },
+  { id: 'canada-us-treaty', text: 'Canada-US Tax Treaty' },
+  { id: 'hst-non-resident', text: 'HST for Non-Resident Landlords' },
+  { id: 'selling-property', text: 'Selling Canadian Property' },
+  { id: 'property-manager-duties', text: 'What Your Property Manager Must Do' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Non-Resident Rental Income Tax Canada 2026";
+const pageDescription = "US owners of Canadian rental property must withhold 25% of gross income. File NR6 to reduce to net. Complete guide with CRA sources.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Non-Resident Rental Income Tax in Canada: 2026 Guide for US Property Owners",
+  "description": pageDescription,
+  "datePublished": "2026-04-03",
+  "dateModified": "2026-04-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/non-resident-rental-income-tax-canada-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Guides</span>
+      </nav>
+      <h1>Non-Resident Rental Income Tax in Canada: 2026 Guide for US Property Owners</h1>
+      <div class="article-meta">
+        <span class="meta-date">April 3, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">If you live in the United States and own rental property in Canada, the CRA wants a piece of every dollar your tenants or guests pay you. Not some of it. <strong>25% of the gross.</strong> Before expenses. Before mortgage interest. Before anything.</p>
+            <p class="lead">The good news: there are legal ways to reduce that withholding and get a lot of it back. The bad news: your property manager is personally on the hook if they don't withhold correctly, so this is not something either of you can ignore.</p>
+            <p class="lead">This guide covers the withholding rules, the NR6 form that cuts your payments in half, the Section 216 election that gets you taxed at normal rates, and what happens when you eventually sell. Every section cites the actual CRA source so you can verify it yourself.</p>
+          </div>
+
+          <div class="trust-bar">
+            <div class="trust-item">
+              <span class="trust-icon">&#36;</span>
+              <span>25% Gross Withholding</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">&#8595;</span>
+              <span>NR6 Reduces to Net</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">&#9998;</span>
+              <span>Section 216 Return</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">&#128197;</span>
+              <span>File by June 30</span>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Disclaimer:</strong> Nurture is a property management company, not an accounting or tax firm. This article is for informational purposes only. Non-resident taxation is complex. Before making any decisions, speak with a CPA or tax lawyer who specializes in cross-border taxation. The examples below are simplified illustrations, not recommendations.
+            </div>
+          </div>
+
+          <h2 id="the-25-percent-rule">The 25% Withholding Rule (Section 215)</h2>
+          <p>Here is the baseline rule that catches most US property owners off guard: when you earn rental income from Canadian property as a non-resident, the person paying you (your property manager, your tenant, or your Airbnb platform) must withhold <strong>25% of the gross rental payment</strong> and send it to the CRA.</p>
+
+          <p>Not 25% of your profit. Not 25% after expenses. <strong>25% of every dollar that comes in.</strong></p>
+
+          <p>This obligation comes from <a href="https://laws-lois.justice.gc.ca/eng/acts/i-3.3/page-157.html" target="_blank" rel="noopener">subsection 215(1) of the Income Tax Act</a>, and the payer must remit the withheld amount to the CRA by the 15th of the month following the payment.</p>
+
+          <div class="rate-box">
+            <div class="rate-item">
+              <span class="rate-label">Withholding Rate</span>
+              <span class="rate-value">25%</span>
+            </div>
+            <div class="rate-item">
+              <span class="rate-label">Applied To</span>
+              <span class="rate-value">Gross Rent</span>
+            </div>
+            <div class="rate-item">
+              <span class="rate-label">Remittance Deadline</span>
+              <span class="rate-value">15th of Next Month</span>
+            </div>
+          </div>
+
+          <h3>Penalties for Not Withholding</h3>
+          <p>If the payer fails to withhold and remit, the penalties are steep:</p>
+          <ul>
+            <li><strong>10% penalty</strong> on the amount that should have been withheld (first offense)</li>
+            <li><strong>20% penalty</strong> for repeat failures</li>
+            <li><strong>Compound daily interest</strong> on the unpaid amount</li>
+            <li>Under <strong>subsection 215(6)</strong>, the property manager is <strong>personally liable</strong> for the full withholding amount if they fail to deduct it</li>
+          </ul>
+
+          <p>This is not a suggestion. Your property manager faces real financial consequences for getting this wrong. That is why any reputable management company handling non-resident clients will have this process dialed in.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> CRA Guide T4061 covers all non-resident withholding rules. Read it here: <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4061/nr4-non-resident-tax-withholding-remitting-reporting.html" target="_blank" rel="noopener">CRA T4061 Guide</a>.
+            </div>
+          </div>
+
+          <h2 id="nr6-form">The NR6 Form: Reduce Withholding to 25% of Net</h2>
+          <p>The NR6 is the single most important form for any non-resident earning Canadian rental income. Without it, you are shipping 25% of your gross revenue to the CRA every month. With it, the withholding drops to <strong>25% of your estimated net income</strong> after expenses.</p>
+
+          <p>That difference is enormous. If your property grosses $9,000/month but has $4,500 in expenses, the NR6 cuts your monthly withholding from $2,250 to $1,125. Over a year, that is $13,500 in cash flow you keep in your pocket instead of waiting for a refund.</p>
+
+          <h3>How the NR6 Works</h3>
+          <ol>
+            <li><strong>Filed before rental income starts being paid</strong> (or before the start of a new calendar year)</li>
+            <li><strong>Jointly signed</strong> by the non-resident property owner AND their Canadian agent (property manager)</li>
+            <li>Includes an <strong>estimate of income and expenses</strong> for the year</li>
+            <li>If CRA approves it, the agent withholds 25% of the estimated net amount instead of gross</li>
+            <li><strong>Must be filed every year.</strong> It does not carry over.</li>
+          </ol>
+
+          <h3>The Catch</h3>
+          <p>When the property manager co-signs the NR6, they are taking on additional responsibility. If you (the non-resident) fail to file a Section 216 return for that year, the agent becomes liable for the difference between what they actually withheld (25% of net) and what they <em>should</em> have withheld (25% of gross). The CRA can come after your property manager for that gap.</p>
+
+          <p>This is why some property managers are reluctant to sign NR6 forms for clients they do not trust to file their tax returns on time. Choose a manager who understands cross-border obligations and make sure you follow through on the Section 216 filing.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/nr6.html" target="_blank" rel="noopener">NR6 Form and instructions on canada.ca</a>.
+            </div>
+          </div>
+
+          <h2 id="section-216">Section 216 Election: File a Tax Return on Net Income</h2>
+          <p>Even with the NR6 reducing your monthly withholding, you are still probably overpaying. That is because the 25% withholding (even on net income) is a flat rate applied to every dollar. Canadian graduated tax rates start much lower than 25% for the first $55,867 of taxable income (2025 federal brackets).</p>
+
+          <p>The Section 216 election lets you file a Canadian income tax return and pay tax at <strong>graduated federal and provincial rates on your net rental income</strong> instead of the flat withholding. You file Form T1159 along with Form T776 (Statement of Real Estate Rentals) to report your rental income and deduct all eligible expenses.</p>
+
+          <h3>What You Can Deduct</h3>
+          <ul>
+            <li>Mortgage interest (not the principal portion)</li>
+            <li>Property taxes</li>
+            <li>Insurance</li>
+            <li>Property management fees</li>
+            <li>Cleaning and turnover costs</li>
+            <li>Repairs and maintenance</li>
+            <li>Utilities (if you pay them)</li>
+            <li>Capital Cost Allowance on furnishings (Class 8 at 20%, Class 12 at 100% for linens and utensils)</li>
+            <li>Advertising and listing fees</li>
+            <li>Legal and accounting fees related to the rental</li>
+          </ul>
+
+          <h3>Important Limitations</h3>
+          <ul>
+            <li><strong>No personal tax credits.</strong> Non-residents filing under Section 216 do not get the basic personal amount ($16,129 federal in 2025) or other personal credits. Tax starts from dollar one.</li>
+            <li><strong>Part XIII amounts already withheld get credited</strong> against your Part I tax. If you overpaid through withholding, the excess is refunded to you.</li>
+          </ul>
+
+          <h3>Filing Deadlines</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Scenario</div>
+              <div class="comparison-col highlight">Deadline</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">NR6 was filed and approved</div>
+              <div class="comparison-col highlight"><strong>June 30</strong> of the following year</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">No NR6 filed</div>
+              <div class="comparison-col highlight"><strong>2 years</strong> after the end of the tax year</div>
+            </div>
+          </div>
+
+          <p>Miss the deadline and you lose the right to elect under Section 216 for that year. The flat 25% withholding on gross becomes your final tax, with no refund.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> CRA Guide T4144 covers the Section 216 election in detail: <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4144/income-tax-guide-electing-under-section-216.html" target="_blank" rel="noopener">CRA T4144 Guide</a>.
+            </div>
+          </div>
+
+          <h2 id="real-numbers">Example: 9-Bedroom Toronto House</h2>
+          <p>Let's put real numbers to this. Say you own a 9-bedroom house in Toronto and rent each room at $1,000/month. That is $9,000/month gross, or $108,000/year.</p>
+
+          <h3>Scenario 1: No NR6 Filed</h3>
+          <div class="example-calculation">
+            <h4>Monthly Withholding Without NR6</h4>
+            <table class="calc-table">
+              <tr>
+                <td>Gross monthly rent (9 rooms x $1,000)</td>
+                <td><strong>$9,000</strong></td>
+              </tr>
+              <tr>
+                <td>Withholding rate</td>
+                <td>25%</td>
+              </tr>
+              <tr>
+                <td>Monthly amount sent to CRA</td>
+                <td><strong>$2,250</strong></td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Annual withholding</strong></td>
+                <td><strong>$27,000</strong></td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Scenario 2: NR6 Filed and Approved</h3>
+          <div class="example-calculation">
+            <h4>Monthly Expenses (Estimated on NR6)</h4>
+            <table class="calc-table">
+              <tr>
+                <td>Mortgage interest</td>
+                <td>$2,500</td>
+              </tr>
+              <tr>
+                <td>Property tax</td>
+                <td>$800</td>
+              </tr>
+              <tr>
+                <td>Insurance</td>
+                <td>$200</td>
+              </tr>
+              <tr>
+                <td>Management fee (15% of $9,000)</td>
+                <td>$1,350</td>
+              </tr>
+              <tr>
+                <td>Maintenance and repairs</td>
+                <td>$650</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Total monthly expenses</strong></td>
+                <td><strong>$5,500</strong></td>
+              </tr>
+            </table>
+
+            <h4 style="margin-top: 1.5rem;">Monthly Withholding With NR6</h4>
+            <table class="calc-table">
+              <tr>
+                <td>Gross monthly rent</td>
+                <td>$9,000</td>
+              </tr>
+              <tr>
+                <td>Less: monthly expenses</td>
+                <td>($5,500)</td>
+              </tr>
+              <tr>
+                <td>Estimated net income</td>
+                <td>$3,500</td>
+              </tr>
+              <tr>
+                <td>Withholding at 25% of net</td>
+                <td><strong>$875</strong></td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Annual withholding</strong></td>
+                <td><strong>$10,500</strong></td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Scenario 3: Section 216 Return Filed</h3>
+          <div class="example-calculation">
+            <h4>Actual Tax on Net Income</h4>
+            <table class="calc-table">
+              <tr>
+                <td>Annual gross income</td>
+                <td>$108,000</td>
+              </tr>
+              <tr>
+                <td>Less: annual expenses</td>
+                <td>($66,000)</td>
+              </tr>
+              <tr>
+                <td>Net rental income</td>
+                <td>$42,000</td>
+              </tr>
+              <tr>
+                <td>Federal tax (graduated rates, no personal credits)</td>
+                <td>~$6,300</td>
+              </tr>
+              <tr>
+                <td>Ontario provincial tax</td>
+                <td>~$2,100</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Estimated total Part I tax</strong></td>
+                <td><strong>~$8,400</strong></td>
+              </tr>
+            </table>
+            <p class="calc-note">Part XIII withholding already paid: $10,500 (with NR6) or $27,000 (without). Excess is refunded.</p>
+          </div>
+
+          <h3>The Bottom Line</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Approach</div>
+              <div class="comparison-col highlight">Total Tax / Withholding</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">No NR6, no Section 216 return</div>
+              <div class="comparison-col highlight"><strong>$27,000</strong> (25% of gross, final)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">No NR6, Section 216 return filed</div>
+              <div class="comparison-col highlight"><strong>$8,400</strong> actual tax (refund of ~$18,600)</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">NR6 filed + Section 216 return</div>
+              <div class="comparison-col highlight"><strong>$8,400</strong> actual tax (refund of ~$2,100)</div>
+            </div>
+          </div>
+
+          <p>The actual tax bill is the same in both Section 216 scenarios (~$8,400). The difference is cash flow. Without the NR6, you are lending the CRA an extra $16,500 per year and waiting months to get it back. With the NR6, your monthly withholding stays close to what you actually owe.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Pro Tip:</strong> These numbers are simplified estimates. Your actual federal and provincial tax will depend on your total Canadian source income, any applicable surtaxes, and whether Ontario's graduated rates push you into a higher bracket. A cross-border CPA can give you exact figures.
+            </div>
+          </div>
+
+          <h2 id="nr4-slip">NR4 Reporting Slip</h2>
+          <p>Your property manager must file an <strong>NR4 information return</strong> with the CRA by March 31 of the year following the calendar year in which the rental payments were made. Think of it like a T4 slip, but for non-resident income.</p>
+
+          <p>The NR4 reports:</p>
+          <ul>
+            <li>Gross rental amounts paid to the non-resident</li>
+            <li>Tax withheld and remitted to the CRA</li>
+            <li>The non-resident's name, address, and tax identification number</li>
+          </ul>
+
+          <p>Two copies go to you (the non-resident), and the originals go to the CRA. You will need the NR4 when filing your Section 216 return, and you will also need it for your US tax return to claim the foreign tax credit.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/international-non-residents/payments-non-residents/nr4-part-xiii-tax/nr4/nr4-slip.html" target="_blank" rel="noopener">NR4 Slip instructions on canada.ca</a>.
+            </div>
+          </div>
+
+          <h2 id="itn">Getting a Canadian Tax Number (ITN)</h2>
+          <p>If you do not have a Canadian Social Insurance Number (SIN), you will need an <strong>Individual Tax Number (ITN)</strong> before you can file a Section 216 return or an NR6 form. The ITN is a nine-digit number issued by the CRA specifically for non-residents who need to file Canadian tax returns.</p>
+
+          <h3>How to Apply</h3>
+          <ol>
+            <li>Download and complete <strong>Form T1261</strong> (Application for a Canada Revenue Agency Individual Tax Number for Non-Residents)</li>
+            <li>Include a <strong>certified copy</strong> of your identity document (passport, US driver's license, or national ID card). Do not send originals.</li>
+            <li>Mail it to the CRA's International Tax Services Office in Ottawa</li>
+            <li>Processing takes <strong>several weeks</strong>, so apply well before your first filing deadline</li>
+          </ol>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t1261.html" target="_blank" rel="noopener">Form T1261 on canada.ca</a>.
+            </div>
+          </div>
+
+          <h2 id="canada-us-treaty">Canada-US Tax Treaty</h2>
+          <p>Here is something that surprises a lot of US property owners: the <a href="https://laws-lois.justice.gc.ca/eng/acts/c-10.7/" target="_blank" rel="noopener">Canada-US Tax Treaty</a> does <strong>not</strong> reduce the 25% withholding rate for rental income from real property.</p>
+
+          <p>Article VI of the treaty says that income from immovable property (including rental income) may be taxed by the country where the property is located. Canada gets to tax it. Full stop.</p>
+
+          <p>The treaty does help you in a different way: it prevents <strong>double taxation</strong>. Since you are a US tax resident, you report your worldwide income to the IRS. But you can claim a <strong>US foreign tax credit</strong> (IRS Form 1116) for the Canadian taxes you paid. This credit reduces your US tax liability dollar for dollar, so you are not paying full tax to both countries on the same income.</p>
+
+          <h3>How It Works in Practice</h3>
+          <ol>
+            <li>Canada taxes your net rental income (via Section 216 return)</li>
+            <li>You report the same income on your US return (Form 1040, Schedule E)</li>
+            <li>You claim a foreign tax credit on Form 1116 for the Canadian tax paid</li>
+            <li>The credit offsets your US tax on that income</li>
+          </ol>
+
+          <p>If the Canadian tax rate is lower than your US rate (which is common for non-residents filing Section 216 with deductions), you will still owe some US tax on the difference. If Canada's rate is higher, the excess credit can be carried forward or back.</p>
+
+          <h2 id="hst-non-resident">HST for Non-Resident Landlords</h2>
+          <p>Whether you owe HST depends entirely on the length of your rental stays.</p>
+
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-col">Rental Type</div>
+              <div class="comparison-col highlight">HST Status</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Short-term (under one calendar month)</div>
+              <div class="comparison-col highlight"><strong>HST applies:</strong> 13% in Ontario</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-col">Long-term (one calendar month or more)</div>
+              <div class="comparison-col highlight"><strong>HST exempt</strong></div>
+            </div>
+          </div>
+
+          <h3>Short-Term Rentals (Airbnb, VRBO)</h3>
+          <p>If you are renting your Canadian property on Airbnb or VRBO for stays under 30 days, HST applies at 13% in Ontario. Since July 2021, Airbnb and other platforms automatically collect and remit HST on behalf of hosts who are not registered for an HST number. So if you are not HST-registered, the platform handles it for you.</p>
+
+          <p>However, once your gross short-term rental revenue exceeds <strong>$30,000 in four consecutive calendar quarters</strong> (or in a single quarter), you must register for HST and begin collecting it yourself on all bookings, including direct bookings outside of platforms.</p>
+
+          <p>Thinking about <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">listing your property on Airbnb</a>? Sign up through our link and get a free consultation on setting up your rental.</p>
+
+          <h3>Long-Term and Mid-Term Rentals</h3>
+          <p>Residential rent for continuous occupancy of at least one calendar month is <strong>HST exempt</strong> under Schedule V, Part I, paragraph 6(a) of the Excise Tax Act. This applies whether you are HST-registered or not. If all your rentals are 30+ days, HST is not a factor.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/19-2-2/residential-real-property-rentals.html" target="_blank" rel="noopener">CRA Memorandum 19-2-2: Residential Real Property Rentals</a>.
+            </div>
+          </div>
+
+          <h2 id="selling-property">Selling Canadian Property (Section 116)</h2>
+          <p>When a non-resident sells Canadian real property, a whole separate set of rules kicks in under <strong>Section 116 of the Income Tax Act</strong>.</p>
+
+          <h3>The Buyer's Obligation</h3>
+          <p>The buyer of your property must withhold <strong>25% of the purchase price</strong> unless you obtain a <strong>Certificate of Compliance</strong> from the CRA before or shortly after closing. Without that certificate, the buyer is on the hook for the withholding, and most buyers' lawyers will insist on holding back funds at closing.</p>
+
+          <h3>Your Obligations as the Seller</h3>
+          <ol>
+            <li><strong>File Form T2062</strong> (Request by a Non-Resident of Canada for a Certificate of Compliance Related to the Disposition of Taxable Canadian Property) within <strong>10 days of the sale</strong></li>
+            <li>Pay or provide security for the estimated tax on the capital gain</li>
+            <li>The CRA issues a Certificate of Compliance that releases the buyer from their withholding obligation</li>
+            <li>File a Canadian tax return for the year of sale to report the capital gain and reconcile any amounts paid</li>
+          </ol>
+
+          <h3>Late Notification Penalty</h3>
+          <p>If you file Form T2062 late, the penalty is <strong>$25 per day</strong>, with a minimum of $100 and a maximum of $2,500.</p>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Source:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/ic72-17/ic72-17r6-procedures-concerning-disposition-taxable-canadian-property-non-residents-canada-section-116.html" target="_blank" rel="noopener">CRA Information Circular IC72-17R6</a>.
+            </div>
+          </div>
+
+          <h2 id="property-manager-duties">What Your Property Manager Must Do</h2>
+          <p>If you are a non-resident and you hire a Canadian property manager, they take on specific legal obligations under the Income Tax Act. This is not optional, and failing to meet these requirements exposes the manager to personal liability.</p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h4>Withhold &amp; Remit</h4>
+              <p>Deduct 25% of gross rent (or 25% of net if NR6 approved) and remit to CRA by the 15th of the following month.</p>
+            </div>
+            <div class="info-card">
+              <h4>File NR4</h4>
+              <p>Submit NR4 information return by March 31, reporting gross amounts paid and tax withheld. Send two copies to the property owner.</p>
+            </div>
+            <div class="info-card">
+              <h4>Co-Sign NR6</h4>
+              <p>Sign the NR6 form annually alongside the non-resident owner. This is a joint undertaking, not a unilateral filing.</p>
+            </div>
+          </div>
+
+          <p>Additionally, the property manager must:</p>
+          <ul>
+            <li><strong>Keep records for 6 years</strong> documenting all rental payments, withholding calculations, and CRA remittances</li>
+            <li><strong>Obtain a non-resident account number</strong> from the CRA (separate from the property owner's ITN) for remitting withholding tax</li>
+            <li>Understand that under <strong>subsection 215(6)</strong>, they are personally liable if they fail to withhold. The CRA does not care if the property owner told them not to. The legal obligation falls on the person making the payment.</li>
+          </ul>
+
+          <div class="callout callout-warning">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>Important:</strong> Not all property managers handle non-resident withholding. Before hiring a manager, ask them directly: "Do you remit Part XIII tax to the CRA? Will you co-sign my NR6?" If the answer is no, find someone who will. At Nurture, we handle non-resident withholding, NR6 co-signing, NR4 filing, and CRA remittances as part of our <a href="/services/full-airbnb-management" style="color: var(--color-primary-dark); text-decoration: underline;">full management service</a>.
+            </div>
+          </div>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h3>{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="resources-box">
+            <h4>Official CRA Sources</h4>
+            <p class="sources-note">Every link below goes directly to canada.ca or laws-lois.justice.gc.ca. We encourage you to read the original sources.</p>
+            <ul>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4061/nr4-non-resident-tax-withholding-remitting-reporting.html" target="_blank" rel="noopener">CRA Guide T4061: Non-Resident Withholding, Remitting, and Reporting</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4144/income-tax-guide-electing-under-section-216.html" target="_blank" rel="noopener">CRA Guide T4144: Section 216 Election</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/nr6.html" target="_blank" rel="noopener">NR6 Form</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t1261.html" target="_blank" rel="noopener">Form T1261: ITN Application</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/19-2-2/residential-real-property-rentals.html" target="_blank" rel="noopener">CRA Memorandum 19-2-2: Residential Real Property Rentals (HST)</a></li>
+              <li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/ic72-17/ic72-17r6-procedures-concerning-disposition-taxable-canadian-property-non-residents-canada-section-116.html" target="_blank" rel="noopener">IC72-17R6: Section 116 Procedures</a></li>
+              <li><a href="https://laws-lois.justice.gc.ca/eng/acts/c-10.7/" target="_blank" rel="noopener">Canada-US Tax Treaty (full text)</a></li>
+            </ul>
+          </div>
+
+          <div class="disclaimer-box">
+            <p><strong>Disclaimer:</strong> Nurture is a property management company, not an accounting or tax firm. This article is for informational purposes only and does not constitute tax, legal, or financial advice. Non-resident taxation is complex and your situation may differ. Before making any decisions about withholding, NR6 filings, Section 216 elections, or property dispositions, speak with a CPA or tax lawyer who specializes in cross-border Canada/US taxation. The examples in this article use simplified figures for illustration and should not be relied upon for actual tax planning.</p>
+          </div>
+
+          <p class="disclaimer">*This article contains a referral link. We may earn a small commission at no cost to you.</p>
+
+          <div class="article-cta">
+            <h3>Need a Property Manager Who Handles Non-Resident Withholding?</h3>
+            <p>Nurture remits Part XIII tax to the CRA on your behalf, co-signs your NR6, and files your NR4 by March 31 every year. <a href="/services/full-airbnb-management" style="color: var(--color-primary-dark); text-decoration: underline;">Full Airbnb management</a> at 15% commission, including detailed monthly statements for your cross-border accountant.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About Non-Resident Rental Tax?</h2>
+        <p>Our team handles CRA withholding, NR6 forms, and NR4 filing for non-resident property owners across the GTA.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.5rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+  }
+
+  .trust-icon {
+    background: var(--color-primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-warning {
+    background: #fff5f5;
+    border-left-color: #e74c3c;
+  }
+
+  .callout-warning .callout-icon {
+    color: #e74c3c;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .rate-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .rate-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .rate-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .rate-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .comparison-table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-primary-dark);
+    color: white;
+    font-weight: 600;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem 1.25rem;
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-col {
+    padding: 1rem 1.25rem;
+  }
+
+  .comparison-col.highlight {
+    background: var(--color-background-alt);
+  }
+
+  .example-calculation {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .example-calculation h4 {
+    margin-bottom: 1rem;
+  }
+
+  .calc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .calc-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .calc-table td:last-child {
+    text-align: right;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .calc-table .total-row td {
+    border-bottom: none;
+    padding-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .calc-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+  }
+
+  .resources-box {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .resources-box h4 {
+    margin-bottom: 0.75rem;
+  }
+
+  .sources-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .resources-box ul {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .resources-box li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .resources-box a {
+    color: var(--color-primary);
+  }
+
+  .disclaimer-box {
+    background: #f9f5ef;
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .disclaimer-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rate-box {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .trust-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
