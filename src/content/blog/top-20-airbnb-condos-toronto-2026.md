@@ -67,6 +67,8 @@ Own a unit in one of these top 20 buildings? You are in one of the most in-deman
 
 ---
 
+*Also available on [Medium](https://medium.com/@info_98656/the-20-most-airbnbd-condos-in-toronto-2026-data-e31aa17a39ae).*
+
 *Data source: City of Toronto Short-Term Rental Registration Data (7,422 total registrations, 3,001 condo registrations across 435 buildings). Analysis by Nurture Airbnb Property Management.*
 
 *Related: [Which Toronto Neighborhoods Have the Most Airbnbs?](/blog/toronto-neighborhoods-most-airbnbs-2026) | [300 Front St W Deep Dive](/blog/300-front-st-w-toronto-most-popular-airbnb-building) | [CityPlace Airbnb Guide](/blog/cityplace-airbnb-guide-fort-york-toronto-2026)*
