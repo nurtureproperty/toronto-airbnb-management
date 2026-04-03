@@ -196,7 +196,7 @@ const pageSchema = [articleSchema, faqSchema];
           <h2 id="nr6-form">The NR6 Form: Reduce Withholding to 25% of Net</h2>
           <p>The NR6 is the single most important form for any non-resident earning Canadian rental income. Without it, you are shipping 25% of your gross revenue to the CRA every month. With it, the withholding drops to <strong>25% of your estimated net income</strong> after expenses.</p>
 
-          <p>That difference is enormous. If your property grosses $9,000/month but has $4,500 in expenses, the NR6 cuts your monthly withholding from $2,250 to $1,125. Over a year, that is $13,500 in cash flow you keep in your pocket instead of waiting for a refund.</p>
+          <p>That difference is enormous. If your condo grosses $3,000/month but has $2,750 in expenses, the NR6 cuts your monthly withholding from $750 to $63. Over a year, that is $8,250 in cash flow you keep in your pocket instead of waiting for a refund.</p>
 
           <h3>How the NR6 Works</h3>
           <ol>
@@ -281,16 +281,16 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
           </div>
 
-          <h2 id="real-numbers">Example: 9-Bedroom Toronto House</h2>
-          <p>Let's put real numbers to this. Say you own a 9-bedroom house in Toronto and rent each room at $1,000/month. That is $9,000/month gross, or $108,000/year.</p>
+          <h2 id="real-numbers">Example: 2-Bedroom Downtown Toronto Condo</h2>
+          <p>Let's put real numbers to this. Say you own a 2-bedroom condo in downtown Toronto and rent it for $3,000/month. That is $36,000/year gross.</p>
 
           <h3>Scenario 1: No NR6 Filed</h3>
           <div class="example-calculation">
             <h4>Monthly Withholding Without NR6</h4>
             <table class="calc-table">
               <tr>
-                <td>Gross monthly rent (9 rooms x $1,000)</td>
-                <td><strong>$9,000</strong></td>
+                <td>Gross monthly rent</td>
+                <td><strong>$3,000</strong></td>
               </tr>
               <tr>
                 <td>Withholding rate</td>
@@ -298,11 +298,11 @@ const pageSchema = [articleSchema, faqSchema];
               </tr>
               <tr>
                 <td>Monthly amount sent to CRA</td>
-                <td><strong>$2,250</strong></td>
+                <td><strong>$750</strong></td>
               </tr>
               <tr class="total-row">
                 <td><strong>Annual withholding</strong></td>
-                <td><strong>$27,000</strong></td>
+                <td><strong>$9,000</strong></td>
               </tr>
             </table>
           </div>
@@ -313,27 +313,27 @@ const pageSchema = [articleSchema, faqSchema];
             <table class="calc-table">
               <tr>
                 <td>Mortgage interest</td>
-                <td>$2,500</td>
+                <td>$1,200</td>
+              </tr>
+              <tr>
+                <td>Condo fees</td>
+                <td>$650</td>
               </tr>
               <tr>
                 <td>Property tax</td>
-                <td>$800</td>
+                <td>$350</td>
               </tr>
               <tr>
                 <td>Insurance</td>
-                <td>$200</td>
+                <td>$100</td>
               </tr>
               <tr>
-                <td>Management fee (15% of $9,000)</td>
-                <td>$1,350</td>
-              </tr>
-              <tr>
-                <td>Maintenance and repairs</td>
-                <td>$650</td>
+                <td>Management fee (15% of $3,000)</td>
+                <td>$450</td>
               </tr>
               <tr class="total-row">
                 <td><strong>Total monthly expenses</strong></td>
-                <td><strong>$5,500</strong></td>
+                <td><strong>$2,750</strong></td>
               </tr>
             </table>
 
@@ -341,23 +341,23 @@ const pageSchema = [articleSchema, faqSchema];
             <table class="calc-table">
               <tr>
                 <td>Gross monthly rent</td>
-                <td>$9,000</td>
+                <td>$3,000</td>
               </tr>
               <tr>
                 <td>Less: monthly expenses</td>
-                <td>($5,500)</td>
+                <td>($2,750)</td>
               </tr>
               <tr>
                 <td>Estimated net income</td>
-                <td>$3,500</td>
+                <td>$250</td>
               </tr>
               <tr>
                 <td>Withholding at 25% of net</td>
-                <td><strong>$875</strong></td>
+                <td><strong>$63</strong></td>
               </tr>
               <tr class="total-row">
                 <td><strong>Annual withholding</strong></td>
-                <td><strong>$10,500</strong></td>
+                <td><strong>$750</strong></td>
               </tr>
             </table>
           </div>
@@ -368,30 +368,30 @@ const pageSchema = [articleSchema, faqSchema];
             <table class="calc-table">
               <tr>
                 <td>Annual gross income</td>
-                <td>$108,000</td>
+                <td>$36,000</td>
               </tr>
               <tr>
                 <td>Less: annual expenses</td>
-                <td>($66,000)</td>
+                <td>($33,000)</td>
               </tr>
               <tr>
                 <td>Net rental income</td>
-                <td>$42,000</td>
+                <td>$3,000</td>
               </tr>
               <tr>
                 <td>Federal tax (graduated rates, no personal credits)</td>
-                <td>~$6,300</td>
+                <td>~$450</td>
               </tr>
               <tr>
                 <td>Ontario provincial tax</td>
-                <td>~$2,100</td>
+                <td>~$152</td>
               </tr>
               <tr class="total-row">
                 <td><strong>Estimated total Part I tax</strong></td>
-                <td><strong>~$8,400</strong></td>
+                <td><strong>~$600</strong></td>
               </tr>
             </table>
-            <p class="calc-note">Part XIII withholding already paid: $10,500 (with NR6) or $27,000 (without). Excess is refunded.</p>
+            <p class="calc-note">Part XIII withholding already paid: $750 (with NR6) or $9,000 (without). Excess is refunded.</p>
           </div>
 
           <h3>The Bottom Line</h3>
@@ -402,19 +402,19 @@ const pageSchema = [articleSchema, faqSchema];
             </div>
             <div class="comparison-row">
               <div class="comparison-col">No NR6, no Section 216 return</div>
-              <div class="comparison-col highlight"><strong>$27,000</strong> (25% of gross, final)</div>
+              <div class="comparison-col highlight"><strong>$9,000</strong> (25% of gross, final)</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">No NR6, Section 216 return filed</div>
-              <div class="comparison-col highlight"><strong>$8,400</strong> actual tax (refund of ~$18,600)</div>
+              <div class="comparison-col highlight"><strong>~$600</strong> actual tax (refund of ~$8,400)</div>
             </div>
             <div class="comparison-row">
               <div class="comparison-col">NR6 filed + Section 216 return</div>
-              <div class="comparison-col highlight"><strong>$8,400</strong> actual tax (refund of ~$2,100)</div>
+              <div class="comparison-col highlight"><strong>~$600</strong> actual tax (refund of ~$150)</div>
             </div>
           </div>
 
-          <p>The actual tax bill is the same in both Section 216 scenarios (~$8,400). The difference is cash flow. Without the NR6, you are lending the CRA an extra $16,500 per year and waiting months to get it back. With the NR6, your monthly withholding stays close to what you actually owe.</p>
+          <p>The actual tax bill is the same in both Section 216 scenarios (~$600). The difference is cash flow. Without the NR6, you are lending the CRA an extra $8,250 per year and waiting months to get it back. With the NR6, your monthly withholding is just $63, which is close to what you actually owe.</p>
 
           <div class="callout">
             <div class="callout-icon">
