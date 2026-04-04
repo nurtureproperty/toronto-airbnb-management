@@ -77,19 +77,30 @@ log.addHandler(fh)
 # ---------------------------------------------------------------------------
 # HOSPITABLE API
 # ---------------------------------------------------------------------------
-def hosp_get(path, params=None):
-    """GET from Hospitable API with rate limiting."""
+def hosp_get(path, params=None, max_retries=3):
+    """GET from Hospitable API with rate limiting and retry on timeout."""
     url = f"{HOSPITABLE_BASE}{path}"
     headers = {"Authorization": f"Bearer {HOSPITABLE_TOKEN}"}
-    resp = requests.get(url, headers=headers, params=params, timeout=30)
-    if resp.status_code == 429:
-        log.warning("Hospitable rate limited, waiting 5s...")
-        time.sleep(5)
-        resp = requests.get(url, headers=headers, params=params, timeout=30)
-    if resp.status_code != 200:
-        log.error(f"Hospitable API error {resp.status_code} on {path}: {resp.text[:200]}")
-        return {}
-    return resp.json()
+    for attempt in range(max_retries):
+        try:
+            resp = requests.get(url, headers=headers, params=params, timeout=60)
+            if resp.status_code == 429:
+                log.warning("Hospitable rate limited, waiting 5s...")
+                time.sleep(5)
+                continue
+            if resp.status_code != 200:
+                log.error(f"Hospitable API error {resp.status_code} on {path}: {resp.text[:200]}")
+                return {}
+            return resp.json()
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            wait = 2 ** attempt
+            log.warning(f"Hospitable API timeout on {path} (attempt {attempt + 1}/{max_retries}). Retrying in {wait}s...")
+            if attempt < max_retries - 1:
+                time.sleep(wait)
+            else:
+                log.error(f"Hospitable API failed after {max_retries} attempts: {e}")
+                return {}
+    return {}
 
 
 def hosp_send_message(reservation_id, body):
