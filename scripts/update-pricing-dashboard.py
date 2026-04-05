@@ -576,13 +576,36 @@ def calculate_metrics(prop, notion_data, blt_benchmark_days=None):
 
 
 def detect_changes_by_name(old_row_dict, new_values_by_header, property_name):
+    """Detect changes in tracked fields and capture grade/occupancy snapshot.
+
+    Returns list of 12-column rows for Change Log tab:
+    Date, Property, Field, From, To, Reason, Changed By,
+    Grade at Change, Occ BLT at Change, Grade 7d Later, Occ BLT 7d Later, Outcome
+    """
     changes = []
     today_str = datetime.now().strftime("%Y-%m-%d")
+    # Snapshot the NEW values (what the change is moving TO)
+    grade_snapshot = (new_values_by_header.get("Grade") or "").strip()
+    occ_snapshot = (new_values_by_header.get("Occ at BLT (forward)") or "").strip()
+
     for field in TRACKED_CHANGE_FIELDS:
         old_val = (old_row_dict.get(field) or "").strip()
         new_val = (new_values_by_header.get(field) or "").strip()
         if old_val != new_val and (old_val or new_val):
-            changes.append([today_str, property_name, field, old_val, new_val, "Auto-detected", "System"])
+            changes.append([
+                today_str,             # Date
+                property_name,          # Property
+                field,                  # Field
+                old_val,                # From
+                new_val,                # To
+                "Auto-detected",        # Reason
+                "System",               # Changed By
+                grade_snapshot,         # Grade at Change
+                occ_snapshot,           # Occ BLT at Change
+                "",                     # Grade 7d Later (filled by audit script)
+                "",                     # Occ BLT 7d Later (filled by audit script)
+                "",                     # Outcome (filled by audit script)
+            ])
     return changes
 
 
