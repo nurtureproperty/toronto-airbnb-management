@@ -6,6 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **NEVER use dashes or hyphens ( - ) in ANY written content.** This includes blog articles, SMS messages, emails, social posts, chat messages, descriptions, meta text, FAQ answers, or ANY other prose output. Zero exceptions except compound words (e.g., "short-term", "full-service", "owner-occupied"). If you catch yourself writing a dash, replace it with a comma, period, colon, or the word "and"/"or". This is the #1 most important writing rule in this project.
 
+## Keep Skills in Sync with SOPs
+
+**Whenever an SOP is created or updated in Notion (or anywhere else), also update the matching skill reference file.** Skills live in two places:
+- `C:\Users\jef_p\.claude\skills\` (pricing-intelligence, bookkeeping, etc.)
+- `C:\Users\jef_p\.claude\plugins\marketplaces\anthropic-agent-skills\skills\` (nurture-ops, nurture-seo, etc.)
+
+After creating or updating an SOP:
+1. Identify which skill the SOP belongs to (pricing, ops, bookkeeping, SEO, etc.)
+2. Update or create the matching reference file in the skill's `references/` folder
+3. Update the main `SKILL.md` if the SOP introduces a new workflow or trigger
+4. Mention the update to the user so they know the skill is in sync
+
+This keeps future Claude sessions automatically aware of new SOPs without the user having to remember to ask.
+
 ## Commands
 
 ```bash
