@@ -1,7 +1,110 @@
 ---
-// Full Airbnb Management Toronto - Service Page Template
-// Targets: full service airbnb management toronto, turnkey airbnb toronto, complete airbnb management
-// USE THIS AS TEMPLATE FOR OTHER SERVICE PAGES
+// Airbnb Management Toronto - Primary money keyword landing page
+// Target keyword: "airbnb management toronto"
+// Secondary: toronto airbnb management, full-service airbnb management toronto, 15% flat fee
+const pageTitle = "Airbnb Management Toronto 2026 | 15% Flat Fee";
+const pageDescription = "Airbnb management Toronto hosts trust: 15% flat fee, 9 minute guest response, 4.9 star rating, no lock-in contracts. Get your free rental estimate today.";
+const canonical = "https://www.nurturestays.ca/full-airbnb-management-toronto";
+
+const gtaCities = [
+  "Toronto","Mississauga","Brampton","Vaughan","Markham","Richmond Hill",
+  "Oakville","Burlington","Milton","Hamilton","Ajax","Pickering",
+  "Whitby","Oshawa","Aurora","Newmarket"
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Airbnb Management Toronto",
+  "name": "Airbnb Management Toronto",
+  "description": "Full-service Airbnb property management in Toronto and the GTA. 15% flat commission, dynamic pricing, guest communication, cleaning coordination, maintenance, and 24/7 support.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture",
+    "telephone": "+1-647-957-8956",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "140 Simcoe St",
+      "addressLocality": "Toronto",
+      "addressRegion": "ON",
+      "postalCode": "M5H 4E9",
+      "addressCountry": "CA"
+    },
+    "url": "https://www.nurturestays.ca/",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  },
+  "areaServed": gtaCities.map(city => ({
+    "@type": "City",
+    "name": city,
+    "containedInPlace": { "@type": "State", "name": "Ontario" }
+  })),
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "CAD",
+    "price": "15",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "15",
+      "priceCurrency": "CAD",
+      "unitText": "PERCENT of host payout"
+    },
+    "description": "15% flat management fee, no setup costs, no lock-in contracts"
+  },
+  "url": canonical
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does Airbnb management in Toronto cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nurture charges a flat 15% of host payout for full-service Airbnb management in Toronto. That covers dynamic pricing, guest communication, cleaning coordination, supply restocking, smart lock management, maintenance, and reporting. No setup fees, no monthly minimums, no lock-in contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Airbnb legal in Toronto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Toronto allows short-term rentals in your principal residence with a valid registration number. Entire-home rentals are capped at 180 nights per year. Partial unit rentals (renting rooms while you live there) have no night cap. An 8.5% Municipal Accommodation Tax applies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can I earn with Airbnb management in Toronto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Toronto hosts earning $2,000 to $3,000 per month on long-term rent see $3,500 to $6,000 per month on Airbnb with professional management. We guarantee a free rental estimate before you commit. Our clients typically see a 30% to 100% increase in monthly revenue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign a long contract with a Toronto Airbnb management company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with Nurture. We work on a 30 day notice agreement so you can cancel anytime. You also own your listing outright. We keep clients through results, not contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What neighbourhoods in Toronto do you manage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We manage Airbnbs across every Toronto neighbourhood including Downtown, King West, Liberty Village, Entertainment District, The Annex, Yorkville, Leslieville, Queen West, Scarborough, North York, and Etobicoke. We also serve the wider GTA: Mississauga, Vaughan, Markham, Oakville, Burlington, and Hamilton."
+      }
+    }
+  ]
+};
+
+const combinedSchema = [serviceSchema, faqSchema];
 ---
 
 <!DOCTYPE html>
@@ -30,8 +133,25 @@
       })(window, document, "clarity", "script", "vdthpiof4z");
     </script>
 
-    <title>Full-Service Airbnb Management Toronto | 15% | Nurture Stays</title>
-    <meta name="description" content="Complete Airbnb management in Toronto. We handle everything: pricing, guests, cleaning, maintenance. 15% commission, 9-min response time. You collect rent, we do the work.">
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription}>
+    <link rel="canonical" href={canonical}>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonical}>
+    <meta property="og:title" content={pageTitle}>
+    <meta property="og:description" content={pageDescription}>
+    <meta property="og:site_name" content="Nurture">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={pageTitle}>
+    <meta name="twitter:description" content={pageDescription}>
+
+    <!-- Schema: Service + FAQPage -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(combinedSchema)}></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -195,18 +315,18 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1><span class="highlight">Full-Service</span> Airbnb Management in Toronto</h1>
-                <p class="hero-subtitle">We handle absolutely everything while you collect rent. From guest inquiries to cleaning coordination, pricing optimization to maintenance. You never lift a finger.</p>
-                
+                <h1><span class="highlight">Airbnb Management</span> Toronto</h1>
+                <p class="hero-subtitle">Airbnb management Toronto hosts actually recommend. Flat 15% commission, full-service, and your first booking inside a week. We handle guests, pricing, cleaning, and maintenance while you collect rent.</p>
+
                 <ul class="hero-features">
-                    <li><span class="check">✓</span> Guest communication with less than 9-minute response</li>
-                    <li><span class="check">✓</span> Manual + AI dynamic pricing to maximize revenue</li>
-                    <li><span class="check">✓</span> Professional cleaning after every guest</li>
-                    <li><span class="check">✓</span> Maintenance coordination & repairs</li>
-                    <li><span class="check">✓</span> All supplies restocked</li>
+                    <li><span class="check">✓</span> Flat 15% fee (competitors charge 18% to 25%)</li>
+                    <li><span class="check">✓</span> Guest response under 9 minutes, 24/7</li>
+                    <li><span class="check">✓</span> Dynamic pricing powered by PriceLabs and manual review</li>
+                    <li><span class="check">✓</span> Professional cleaning after every stay</li>
+                    <li><span class="check">✓</span> No lock-in, you own your listing</li>
                 </ul>
 
-                <a href="tel:647-957-8956" class="primary-button">Get Free Property Analysis</a>
+                <a href="tel:647-957-8956" class="primary-button">Get Free Rental Estimate</a>
             </div>
             <div class="hero-image">
                 <!-- Replace with actual image -->
@@ -237,8 +357,8 @@
     <section class="whats-included">
         <div class="section-container">
             <div class="section-header">
-                <h2>Everything Included in Full Management</h2>
-                <p class="subtitle serif">One simple commission covers all of this</p>
+                <h2>What Our Toronto Airbnb Management Includes</h2>
+                <p class="subtitle serif">One flat 15% commission covers every service below</p>
             </div>
             
             <div class="services-grid">
@@ -303,7 +423,7 @@
     <section class="how-it-works">
         <div class="section-container">
             <div class="section-header">
-                <h2>How Full Management Works</h2>
+                <h2>How Our Toronto Airbnb Management Works</h2>
                 <p class="subtitle serif">Four simple steps to passive income</p>
             </div>
             
@@ -372,6 +492,64 @@
         </div>
     </section>
 
+    <!-- Why Choose Nurture -->
+    <section class="whats-included" style="background: var(--cream);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Why Choose Nurture for Toronto Airbnb Management</h2>
+                <p class="subtitle serif">Locally owned, transparent, and built for Toronto hosts</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏙️</div>
+                    <h3>Locally Owned in the GTA</h3>
+                    <p>We live here. We know which Toronto neighbourhoods book fastest, how the 180 night cap works, and what guests expect from a King West condo versus a Scarborough townhouse.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💸</div>
+                    <h3>Flat 15%, No Hidden Fees</h3>
+                    <p>One flat 15% commission covers every service. No setup costs, no markup on supplies, no surprise invoices. Most Toronto management companies charge 18% to 25%.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔓</div>
+                    <h3>No Lock-In, You Own Your Listing</h3>
+                    <p>30 day notice cancellation. Your Airbnb account, your listing, your reviews. If you ever leave, everything stays with you. No hostage situations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>9 Minute Response Time</h3>
+                    <p>Guests message at 2am. We answer in under 9 minutes on average. Faster replies mean higher ranking on Airbnb, better reviews, and more bookings at higher rates.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>30 to 100 Percent More Revenue</h3>
+                    <p>Our Toronto clients typically earn 30 to 100 percent more than they did on long-term rent. One condo client went from negative $926 per month cashflow to positive $847 in the first month.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Direct Owner Contact</h3>
+                    <p>You get your dedicated account manager, not a group chat or ticket queue. Call, text, or email. Real people, fast answers, always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toronto Neighbourhoods Served -->
+    <section class="whats-included" style="background: var(--warm-white);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Toronto Airbnb Management Across Every Neighbourhood</h2>
+                <p class="subtitle serif">Downtown core to the suburbs, we cover the entire GTA</p>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666; font-size: 1.1rem; line-height: 1.8;">
+                We manage Airbnbs across every Toronto neighbourhood: Downtown, King West, Liberty Village, Entertainment District, The Annex, Yorkville, Queen West, Leslieville, Riverside, Scarborough, North York, and Etobicoke. Beyond the city itself, our Toronto Airbnb management team also serves <a href="/airbnb-management-mississauga" style="color: var(--sage-dark); font-weight: 600;">Mississauga</a>, <a href="/airbnb-management-vaughan" style="color: var(--sage-dark); font-weight: 600;">Vaughan</a>, <a href="/airbnb-management-markham" style="color: var(--sage-dark); font-weight: 600;">Markham</a>, <a href="/airbnb-management-oakville" style="color: var(--sage-dark); font-weight: 600;">Oakville</a>, <a href="/airbnb-management-burlington" style="color: var(--sage-dark); font-weight: 600;">Burlington</a>, and <a href="/airbnb-management-hamilton" style="color: var(--sage-dark); font-weight: 600;">Hamilton</a>.
+            </p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #666; font-size: 1.05rem; line-height: 1.8;">
+                New to hosting? Start with our <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026" style="color: var(--sage-dark); font-weight: 600;">Toronto Airbnb regulations guide</a> or try the <a href="/airbnb-income-calculator" style="color: var(--sage-dark); font-weight: 600;">free rental income calculator</a> to see what your property could earn.
+            </p>
+        </div>
+    </section>
+
     <!-- Pricing Preview -->
     <section class="pricing-preview">
         <div class="section-container">
@@ -393,49 +571,69 @@
     <section class="faq">
         <div class="faq-container">
             <div class="section-header">
-                <h2>Common Questions</h2>
+                <h2>Toronto Airbnb Management FAQs</h2>
             </div>
-            
+
             <div class="faq-item">
-                <div class="faq-question">What does the 15% management fee cover?</div>
-                <div class="faq-answer">Our 15% fee is full-service management. We handle everything: listing creation, dynamic pricing, guest communication, cleaning coordination, supply restocking, smart lock management, maintenance, and more. You earn passive income while we take care of every detail.</div>
+                <h3 class="faq-question">How much does Airbnb management in Toronto cost?</h3>
+                <div class="faq-answer">Nurture charges a flat 15% of host payout for full-service Airbnb management in Toronto. That covers dynamic pricing, guest communication, cleaning coordination, supply restocking, smart lock management, maintenance, and reporting. No setup fees, no monthly minimums, no lock-in contracts. Most Toronto management companies charge 18% to 25%.</div>
             </div>
-            
+
             <div class="faq-item">
-                <div class="faq-question">How quickly can I get started?</div>
-                <div class="faq-answer">Most properties are live within 5-7 days. We handle photos, listing creation, and setup. Average time to first booking is under 1 week after going live.</div>
+                <h3 class="faq-question">Is Airbnb legal in Toronto?</h3>
+                <div class="faq-answer">Yes. Toronto allows short-term rentals in your principal residence with a valid registration number. Entire-home rentals are capped at 180 nights per year. Partial unit rentals (renting rooms while you live there) have no night cap. An 8.5% Municipal Accommodation Tax applies. Read our full <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026" style="color: var(--sage-dark);">Toronto Airbnb regulations guide</a> for the complete breakdown.</div>
             </div>
-            
+
             <div class="faq-item">
-                <div class="faq-question">What if I want to use my property sometimes?</div>
-                <div class="faq-answer">No problem! Just block the dates you want in the calendar. Many owners use their property for personal stays or visiting family. It's your property.</div>
+                <h3 class="faq-question">How much can I earn with Airbnb management in Toronto?</h3>
+                <div class="faq-answer">Most Toronto hosts earning $2,000 to $3,000 per month on long-term rent see $3,500 to $6,000 per month on Airbnb with professional management. Our clients typically see a 30% to 100% increase in monthly revenue. Try the <a href="/airbnb-income-calculator" style="color: var(--sage-dark);">free rental income calculator</a> for an instant estimate on your property.</div>
             </div>
-            
+
             <div class="faq-item">
-                <div class="faq-question">Do I need to sign a long contract?</div>
-                <div class="faq-answer">No. We work on a simple 30-day notice agreement. You can cancel anytime. We keep clients through great service, not contracts.</div>
+                <h3 class="faq-question">What does the 15% Toronto Airbnb management fee cover?</h3>
+                <div class="faq-answer">Everything. Our 15% fee is full-service management: professional listing creation, photography, dynamic pricing, guest communication, guest screening, cleaning coordination, supply restocking, smart lock management, maintenance coordination, review management, and monthly revenue reporting.</div>
             </div>
-            
+
             <div class="faq-item">
-                <div class="faq-question">Who owns the Airbnb listing?</div>
-                <div class="faq-answer">You do. We create the listing under your account. If you ever part ways with us, the listing, reviews, and history are all yours.</div>
+                <h3 class="faq-question">How quickly can I start renting my Toronto property on Airbnb?</h3>
+                <div class="faq-answer">Most properties go live within 5 to 7 days. We handle photos, listing creation, pricing setup, and smart lock installation if needed. Average time to first booking is under 1 week after going live.</div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What if I want to use my Toronto property sometimes?</h3>
+                <div class="faq-answer">No problem. Block any dates you want on the calendar. Many owners use their property for personal stays, family visits, or winter breaks. It is your property, you control the calendar.</div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Do I need to sign a long-term contract with your Toronto Airbnb management company?</h3>
+                <div class="faq-answer">No. We work on a simple 30 day notice agreement. You can cancel anytime. We keep clients through results, not contracts.</div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Who owns the Airbnb listing?</h3>
+                <div class="faq-answer">You do. We create the listing under your Airbnb account. If you ever part ways with us, the listing, reviews, booking history, and guest messages all stay with you. No hostage situations.</div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What Toronto neighbourhoods and GTA cities do you serve?</h3>
+                <div class="faq-answer">Every Toronto neighbourhood: Downtown, King West, Liberty Village, Entertainment District, The Annex, Yorkville, Queen West, Leslieville, Scarborough, North York, and Etobicoke. We also serve the entire GTA: Mississauga, Vaughan, Markham, Richmond Hill, Oakville, Burlington, Milton, and Hamilton.</div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Ready for Truly Passive Income?</h2>
-        <p>Get a free property analysis and see how much you could earn with full-service management.</p>
+        <h2>Ready for Truly Passive Airbnb Income in Toronto?</h2>
+        <p>Get a free rental estimate and see how much your Toronto property could earn with full-service Airbnb management at a flat 15%.</p>
         <a href="tel:647-957-8956" class="primary-button">Call Now: 647-957-8956</a>
-        <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Free consultation • No obligation • Results in 24 hours</p>
+        <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Free consultation. No obligation. Results in 24 hours.</p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Nurture Stays | Full-Service Airbnb Management Toronto</p>
-        <p><a href="/">Home</a> · <a href="/services">Services</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
-        <p style="margin-top: 1rem;">Serving Toronto, Mississauga, North York, Scarborough, Etobicoke & the GTA</p>
+        <p>© 2026 Nurture | Airbnb Management Toronto</p>
+        <p><a href="/">Home</a> · <a href="/services">Services</a> · <a href="/pricing-toronto-airbnb-management">Pricing</a> · <a href="/blog">Blog</a> · <a href="tel:647-957-8956">647-957-8956</a></p>
+        <p style="margin-top: 1rem;">Serving Toronto, Mississauga, Vaughan, Markham, Oakville, Burlington, Hamilton, and the entire GTA</p>
     </footer>
 </body>
 </html>
