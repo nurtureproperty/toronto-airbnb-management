@@ -337,6 +337,7 @@ def _process_reviews_inner(dry_run=False):
     log.info(f"Checking reviews across {len(properties)} properties...")
 
     new_five_stars = []
+    new_low_reviews = []
 
     for pid, pinfo in properties.items():
         reviews = fetch_reviews(pid)
@@ -372,6 +373,25 @@ def _process_reviews_inner(dry_run=False):
             processed.add(rid)
             processed_fps.add(fp)
 
+            # Detect low reviews (under 5 stars) and alert Slack
+            # Do NOT tag these guests in GHL (prevents Google review request automation)
+            if rating is not None and rating < 5:
+                guest = review.get("guest", {})
+                guest_first = guest.get("first_name", "")
+                guest_last = guest.get("last_name", "")
+                platform = review.get("platform", "unknown")
+                log.info(f"Low review alert: {rating}-star for {pinfo['name']} from {guest_first} {guest_last}")
+                new_low_reviews.append({
+                    "property_name": pinfo["name"],
+                    "guest_first": guest_first,
+                    "guest_last": guest_last,
+                    "rating": rating,
+                    "review_text": review_text,
+                    "platform": platform,
+                    "reviewed_at": reviewed_at,
+                })
+                continue
+
             if rating != 5:
                 log.info(f"Skipping {rating}-star review for {pinfo['name']}")
                 continue
@@ -393,6 +413,23 @@ def _process_reviews_inner(dry_run=False):
                 "guest_last": guest_last,
                 "reservation_id": reservation_id,
             })
+
+    # Dispatch low-review Slack alerts (done regardless of 5-star count)
+    for lr in new_low_reviews:
+        guest_full = f"{lr['guest_first']} {lr['guest_last']}".strip() or "Guest"
+        stars = "⭐" * lr["rating"] + "☆" * (5 - lr["rating"])
+        snippet = (lr["review_text"][:300] + "...") if len(lr["review_text"]) > 300 else lr["review_text"]
+        msg = (
+            f"🚨 *Low review alert:* {lr['property_name']}\n"
+            f"*Guest:* {guest_full}\n"
+            f"*Rating:* {stars} ({lr['rating']}/5) on {lr['platform']}\n"
+            f"*Review:* {snippet or '(no text)'}\n"
+            f"_Respond within 24 hours via Hospitable_"
+        )
+        if dry_run:
+            log.info(f"[DRY RUN] Would send low-review Slack alert for {lr['property_name']}")
+        else:
+            slack_notify(msg)
 
     if not new_five_stars:
         log.info("No new 5-star reviews found")
