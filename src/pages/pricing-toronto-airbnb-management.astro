@@ -69,14 +69,16 @@ const benefits = [
 ];
 
 const faqs = [
-  { q: 'How much are your management fees?', a: 'Our management fee is 15% of your host payout only. We never take a cut of cleaning fees, Airbnb service charges, or other expenses. This is significantly lower than competitors who charge 18-25% of gross revenue.' },
+  { q: 'How much are Airbnb management fees in Toronto?', a: 'Toronto Airbnb management fees range from 18% to 30% of rental revenue depending on the company. Nurture charges a flat 15% of your host payout, which is below the market average of 20%. We only take a percentage of what you receive from Airbnb after platform fees and cleaning charges, not gross bookings.' },
+  { q: 'What is the average Airbnb management fee in Toronto?', a: 'The average Airbnb management fee in Toronto is around 20% of rental revenue, with most companies charging between 18% and 25%. Premium managers charge 25% to 30%. Nurture is priced below the average at 15% because we operate lean, locally, and pass the savings on to property owners.' },
+  { q: 'Do Toronto Airbnb managers charge on gross or net income?', a: 'It varies, and this is where hidden costs hide. Some companies charge a percentage of gross bookings (including cleaning fees and Airbnb service charges). Others charge on net host payout only. Nurture charges 15% on host payout only, never on cleaning fees or platform charges. Always ask potential managers to clarify the billing basis before signing.' },
+  { q: 'Are there any hidden fees with Nurture?', a: 'No. The only fee is the 15% management commission. No setup fees, no onboarding fees, no markup on supplies, no minimum monthly charges, no cancellation fees. If you want to add professional photography, we coordinate that as a one-time pass-through cost (no markup).' },
   { q: 'Will I make more with short-term rental vs long-term rental?', a: 'We have never had any clients make less with short and mid-term rental vs long-term rental. Most see 30-100% increases in monthly revenue.' },
   { q: 'How long does it take to get my property listed?', a: 'The entire process of staging, professional photos, creating your listing, and onboarding takes less than a week on average. The average client sees their first booking within 1 week of getting their listing up.' },
-  { q: 'What cities do you operate in?', a: 'We operate in any city within Southern Ontario, Canada. This includes the Greater Toronto Area and surrounding cities.' },
-  { q: 'Does my property qualify for short-term rental?', a: 'Each municipality in the Greater Toronto Area has its own set of rules. Each building also has its own set of rules. To check, you can visit your local municipality website. Many cities in Ontario do require registration for short-term rental, however many do NOT have any rules around mid-term rentals.' },
-  { q: 'Do I have to sign a lengthy contract?', a: 'No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts.' },
+  { q: 'Do I have to sign a lengthy contract?', a: 'No. Our service agreement allows you to cancel with just 30-day notice. No long-term contracts, no cancellation fees, no listing lock-in.' },
   { q: 'Are there any startup costs?', a: 'No. We only get paid on commission. We make money when you make money.' },
-  { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything.' }
+  { q: 'Who owns the listing on Airbnb?', a: 'You own the listing. If for some reason you decide to part ways, the listing is yours. We do not gatekeep anything, unlike some competitors who hold listings hostage when clients try to leave.' },
+  { q: 'Why are Nurture fees lower than competitors?', a: 'Three reasons. First, we are locally owned and operated so we do not have corporate overhead. Second, we do not spend heavily on paid advertising or sales teams. Third, we believe lower fees plus better service creates long-term client relationships. Most of our new clients come from referrals, not ads.' }
 ];
 
 const faqSchema = {
@@ -95,23 +97,76 @@ const faqSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Airbnb Property Management Pricing",
-  "description": "Toronto Airbnb management at 15% commission. No hidden fees, no long-term contracts.",
+  "name": "Airbnb Management Fees Toronto",
+  "description": "Full-service Airbnb management in Toronto at 15% of host payout. No hidden fees, no long-term contracts, no setup costs.",
   "url": "https://www.nurturestays.ca/pricing-toronto-airbnb-management",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Nurture Airbnb Property Management"
-  }
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "CAD",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "15",
+      "priceCurrency": "CAD",
+      "description": "15% of host payout"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Toronto" },
+    { "@type": "City", "name": "Mississauga" },
+    { "@type": "City", "name": "Brampton" },
+    { "@type": "City", "name": "Vaughan" },
+    { "@type": "City", "name": "Oakville" },
+    { "@type": "City", "name": "Burlington" },
+    { "@type": "City", "name": "Hamilton" }
+  ]
 };
 
 const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Management Pricing Toronto - 15% Fee" description="Transparent Airbnb management pricing in Toronto & GTA. Just 15% commission on net payout with no hidden fees or long contracts. Full-service Professional plan." schema={pageSchema}>
+<Layout title="Airbnb Management Fees Toronto 2026 | Flat 15%" description="Airbnb management fees in Toronto: flat 15% commission on host payout, no hidden charges, no long contracts. Compare vs 18-25% industry average. Free estimate." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
-      <h1>Simple, Transparent Pricing</h1>
-      <p class="hero-subtitle">No hidden fees. No surprises. We only earn when you earn.</p>
+      <h1>Airbnb Management Fees Toronto: Flat 15%</h1>
+      <p class="hero-subtitle">Full-service Airbnb management at 15% of your host payout. No startup costs, no long contracts, no hidden fees.</p>
+    </div>
+  </section>
+
+  <section class="section fees-intro-section">
+    <div class="container">
+      <div class="fees-intro">
+        <h2>How Much Do Airbnb Management Companies Charge in Toronto?</h2>
+        <p>Toronto Airbnb management fees typically fall between 18% and 25% of rental revenue, with most established companies charging 20% or more. Nurture charges a flat 15% of your host payout. That is 3 to 10 percentage points lower than competitors, and we only take a percentage of what you actually receive from Airbnb, not gross bookings.</p>
+
+        <div class="fee-comparison-table">
+          <div class="fee-row fee-header">
+            <div class="fee-company">Company</div>
+            <div class="fee-rate">Fee Range</div>
+            <div class="fee-basis">Fee Basis</div>
+          </div>
+          <div class="fee-row fee-highlight">
+            <div class="fee-company"><strong>Nurture</strong></div>
+            <div class="fee-rate"><strong>15%</strong></div>
+            <div class="fee-basis">Host payout only</div>
+          </div>
+          <div class="fee-row">
+            <div class="fee-company">Industry average</div>
+            <div class="fee-rate">18% to 25%</div>
+            <div class="fee-basis">Varies (often gross)</div>
+          </div>
+          <div class="fee-row">
+            <div class="fee-company">Premium managers</div>
+            <div class="fee-rate">25% to 30%</div>
+            <div class="fee-basis">Varies (often gross)</div>
+          </div>
+        </div>
+
+        <p class="fee-note">The difference between net and gross billing matters. On a $1,000 booking with a $150 cleaning fee, we charge 15% of the $850 payout ($127.50). A competitor charging 15% of gross takes $150. Over 50 bookings per year, that is over $1,100 in your pocket versus theirs.</p>
+      </div>
     </div>
   </section>
 
@@ -278,6 +333,27 @@ const pageSchema = [serviceSchema, faqSchema];
 <style>
   .hero-subtitle { text-align: center; margin: 0 auto; }
   .comparison-section { background: var(--color-background); padding-top: 3rem; }
+
+  .fees-intro-section { background: white; padding: 3rem 0; }
+  .fees-intro { max-width: 900px; margin: 0 auto; text-align: center; }
+  .fees-intro h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--color-text); }
+  .fees-intro p { color: var(--color-text-light); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; }
+  .fee-comparison-table { background: var(--color-background-alt); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; text-align: left; }
+  .fee-row { display: grid; grid-template-columns: 2fr 1fr 2fr; gap: 1rem; padding: 0.85rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.08); align-items: center; }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row.fee-header { font-weight: 600; color: var(--color-text); background: rgba(117, 155, 143, 0.1); border-radius: 8px; }
+  .fee-row.fee-highlight { background: rgba(117, 155, 143, 0.15); border-radius: 8px; border-left: 4px solid var(--color-primary); }
+  .fee-company { color: var(--color-text); }
+  .fee-rate { color: var(--color-primary-dark); font-weight: 600; font-size: 1.1rem; }
+  .fee-basis { color: var(--color-text-light); font-size: 0.9rem; }
+  .fee-note { font-size: 0.95rem; color: var(--color-text-light); font-style: italic; margin-top: 1.5rem; }
+  @media (max-width: 700px) {
+    .fee-row { grid-template-columns: 1fr; gap: 0.25rem; padding: 1rem; }
+    .fee-row.fee-header { display: none; }
+    .fee-company::before { content: "Company: "; color: var(--color-text-light); font-weight: normal; }
+    .fee-rate::before { content: "Fee: "; color: var(--color-text-light); font-weight: normal; }
+    .fee-basis::before { content: "Basis: "; color: var(--color-text-light); font-weight: normal; }
+  }
 
   .why-nurture-section { background: white; }
   .why-nurture-section .section-header { text-align: center; margin-bottom: 3rem; }
