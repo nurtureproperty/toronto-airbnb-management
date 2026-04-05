@@ -1,0 +1,545 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '🏛️', name: 'Old Milton', description: 'Historic downtown with Mill Pond, charming shops, and heritage buildings. Popular with visitors who want a classic small town feel close to the city.', revenue: '$2,800-$3,800/month' },
+  { icon: '🏡', name: 'Willmont', description: 'Family friendly community with newer homes and quick access to the 401. Strong demand from business travelers and relocating families.', revenue: '$2,600-$3,600/month' },
+  { icon: '🌳', name: 'Beaty', description: 'Established neighbourhood near parks, schools, and the Milton Sports Centre. Great fit for families visiting for tournaments and events.', revenue: '$2,700-$3,700/month' },
+  { icon: '🏞️', name: 'Clarke', description: 'Quiet residential pocket close to Kelso Conservation Area and the Niagara Escarpment. Attracts outdoor and hiking travelers year round.', revenue: '$2,800-$3,800/month' },
+  { icon: '🌲', name: 'Hawthorne Village', description: 'Master planned community with trails, ponds, and easy GO Train access. Consistent demand from commuters and weekend guests.', revenue: '$2,500-$3,500/month' },
+  { icon: '⛰️', name: 'Bronte Meadows', description: 'Close to the Escarpment with larger lots and mature trees. Popular with guests visiting Rattlesnake Point and Crawford Lake.', revenue: '$2,600-$3,600/month' },
+  { icon: '🏫', name: 'Scott', description: 'Family oriented area near top rated schools and community amenities. Strong demand from families on extended stays.', revenue: '$2,500-$3,400/month' },
+  { icon: '🚉', name: 'Harrison', description: 'Newer development with quick highway and GO Train access. Popular with business travelers heading into Toronto or Mississauga.', revenue: '$2,600-$3,500/month' },
+  { icon: '🛒', name: 'Dempsey', description: 'Central Milton location near shops, restaurants, and transit. Walkable setting that appeals to guests without a car.', revenue: '$2,500-$3,400/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Repairs',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Milton License & Compliance Support',
+  'Transparent Revenue Reporting'
+];
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Milton?",
+    answer: "Yes, Airbnb is legal in Milton under By-law 062-2022 (effective July 15, 2022). Hosts must license their short-term rental, operate it from their principal residence, carry $2 million in liability insurance, and cap rentals at 180 days per year. Stays must be 28 consecutive days or less to qualify as a short-term rental.",
+    link: { text: "Read the full Milton STR rules guide", href: "/blog/milton-airbnb-short-term-rental-rules-2026" }
+  },
+  {
+    question: "Do I need a license for Airbnb in Milton?",
+    answer: "Yes. Milton requires every short-term rental operator to hold an annual license. Only natural persons can hold a license, corporations are not permitted. You also need a fire inspection compliance letter and a criminal record check, both dated within 60 days of your application."
+  },
+  {
+    question: "Can I Airbnb my investment property in Milton?",
+    answer: "No. Milton's bylaw requires that your short-term rental be your principal residence, meaning the home where you live and receive mail. Investment properties and secondary homes cannot be used as short-term rentals. Mid-term rentals of 29 days or more are an alternative for investment properties."
+  },
+  {
+    question: "How many nights per year can I rent on Airbnb in Milton?",
+    answer: "Milton caps short-term rentals at 180 days per calendar year. Operators must keep transaction records for 3 years to show compliance. Stays longer than 28 consecutive days are not considered short-term rentals and do not count toward the 180 day cap."
+  },
+  {
+    question: "How much can I earn on Airbnb in Milton?",
+    answer: "Milton hosts typically earn $2,500 to $3,800 per month depending on property size, location, and season. Homes near Kelso Conservation Area, Rattlesnake Point, or downtown Old Milton tend to earn at the top of that range, especially during summer and ski season at Glen Eden."
+  },
+  {
+    question: "What insurance do I need for Airbnb in Milton?",
+    answer: "Milton requires $2,000,000 in general liability insurance, and the Town of Milton must be named as an additional insured on your policy. Standard homeowner insurance rarely covers short-term rental activity, so you typically need a specialized policy or endorsement."
+  },
+  {
+    question: "What are the penalties for unlicensed Airbnbs in Milton?",
+    answer: "Fines range from $500 up to $100,000 per offence. Milton also prohibits parties, weddings, events, outdoor amplified sound, tents, yurts, temporary structures, and exterior signage at short-term rentals. Repeat violations can lead to license suspension or revocation."
+  },
+  {
+    question: "What is the maximum occupancy for a Milton Airbnb?",
+    answer: "Milton allows a maximum of 2 persons per bedroom plus 2 additional guests. So a 3 bedroom home can host up to 8 guests total. Fire inspection and building code compliance are required before your license is issued."
+  },
+  {
+    question: "How much does Airbnb management cost in Milton?",
+    answer: "Most Milton Airbnb management companies charge 18% to 25% of rental revenue. At Nurture, we offer full-service management at 15% with no upfront fees, no long-term contracts, and no markup on supplies. Owners keep their listing and stay in direct contact with us."
+  },
+  {
+    question: "Is it worth hiring an Airbnb manager in Milton?",
+    answer: "Yes. Professional management typically increases net income by 30 to 100 percent through dynamic pricing, better listings, and faster guest response. We also handle Milton's licensing paperwork, fire inspection coordination, and transaction record keeping so you stay compliant."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<Layout title="Milton Airbnb Management 2026 | 15% Fees" description="Milton Airbnb management at 15% fees. Licensing, fire inspections, and 180 night compliance handled. Principal residence required. Get your free estimate today." schema={faqSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <h1><span class="highlight">Milton Airbnb Management 2026 | 15% Fees</span></h1>
+      <p class="hero-subtitle">Full-service Airbnb management for Milton homeowners, licensing and compliance included</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Milton</div>
+          <div class="stat-label">Licensed & Compliant</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">180</div>
+          <div class="stat-label">Nights Per Year</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">9 Min</div>
+          <div class="stat-label">Guest Response Time</div>
+        </div>
+      </div>
+
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Milton Property Can Earn</a>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <h2>Airbnb Management in Milton, Ontario</h2>
+        <p>Milton is one of the fastest growing towns in Canada, with a population that has more than tripled since 2001. Sitting between Toronto and the Niagara Escarpment, it attracts business travelers, outdoor enthusiasts, and families visiting Kelso, Crawford Lake, and Glen Eden ski area. That mix makes Milton a strong short-term rental market for hosts who own their principal residence and want expert help with licensing and daily operations.</p>
+        <p>Nurture manages Airbnb properties across Milton at a flat 15% commission. We handle licensing paperwork, fire inspection coordination, insurance verification, guest communication, cleaning, and dynamic pricing. You stay the owner of your listing, and we stay on call for your guests 24 hours a day with a 9 minute average response time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Milton Neighbourhoods We Serve</h2>
+        <p>From Old Milton to Hawthorne Village and beyond</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>The Milton Advantage</h2>
+        <p>Milton combines small town charm with big city access. The GO Train runs directly to Union Station, Highway 401 puts Toronto Pearson Airport 30 minutes away, and the Niagara Escarpment sits right in the backyard. Visitors come for hiking at Rattlesnake Point, paddling at Kelso Conservation Area, skiing and snowboarding at Glen Eden, and history at Crawford Lake.</p>
+        <p>Business travelers also drive steady demand. Milton is home to major logistics and manufacturing employers, and is a short drive from Oakville, Mississauga, and Hamilton. Our <a href="/services/airbnb-dynamic-pricing" style="color: #C9A961;">dynamic pricing</a> captures peak demand during summer, fall colours at the Escarpment, and winter ski weekends.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">140K+</div>
+          <div class="label">Population</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">$130K+</div>
+          <div class="label">Median Household Income</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">55 min</div>
+          <div class="label">GO Train to Union</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">4</div>
+          <div class="label">Conservation Areas Nearby</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Milton Short-Term Rental Regulations</h2>
+        <p>By-law 062-2022, effective July 15, 2022</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-intro">
+          <p>Milton regulates short-term rentals under By-law 062-2022. The rules are strict, and enforcement is active. See our full <a href="/blog/milton-airbnb-short-term-rental-rules-2026">Milton STR rules guide</a> for every requirement. Nurture handles the paperwork, inspections, and compliance tracking so you can host with confidence.</p>
+        </div>
+        <div class="bylaws-grid">
+          <div class="bylaw-card highlight-card">
+            <h3>Principal Residence Required</h3>
+            <p>Your short-term rental must be the home where you normally live. Investment properties and secondary homes are not eligible. Only natural persons can hold a Milton STR license, corporations are not permitted to apply.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>180 Day Annual Cap</h3>
+            <p>Rentals are capped at 180 days per calendar year, and each stay must be 28 consecutive days or less to count as a short-term rental. Transaction records must be kept for 3 years.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Annual License Required</h3>
+            <p>Every operator needs an annual Milton STR license. Applications require a fire inspection compliance letter and a criminal record check, both dated within 60 days of submission.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>$2 Million Insurance</h3>
+            <p>Hosts must carry $2,000,000 in general liability insurance and name the Town of Milton as an additional insured on the policy.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Occupancy Limits</h3>
+            <p>Maximum occupancy is 2 persons per bedroom plus 2 additional guests. A 3 bedroom home can host up to 8 guests total.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>No Events or Parties</h3>
+            <p>Milton prohibits parties, weddings, and events at short-term rentals. Outdoor amplified sound is not allowed, and exterior signage, tents, yurts, and temporary structures are banned.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Enforcement and Fines</h3>
+            <p>Penalties range from $500 to $100,000 per offence. Repeat violations can lead to license suspension or revocation. Milton actively monitors listings for compliance.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Condo Rules Still Apply</h3>
+            <p>Even with a town license, your condo corporation may prohibit short-term rentals. Always check your condo declaration before listing.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>Official source: <a href="https://www.milton.ca/en/living-in-milton/short-term-rentals.aspx" target="_blank" rel="noopener">milton.ca short-term rentals</a>. We track every rule change and keep your listing compliant. <a href="/contact">Contact us</a> to get started.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Milton Airbnb Management</h2>
+        <p>Everything included at a flat 15% commission</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about Airbnb management in Milton</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link.href} class="faq-link">{faq.link.text} →</a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Service Areas</h2>
+        <p>We manage properties across the GTA and beyond</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/burlington-airbnb-management" class="area-link">
+          <span>Burlington</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/oakville-airbnb-management" class="area-link">
+          <span>Oakville</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/mississauga-airbnb-management" class="area-link">
+          <span>Mississauga</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own a Milton Property?</h2>
+        <p>Get a free analysis showing how much your Milton home could earn on Airbnb, with full licensing and compliance included.</p>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Call <a href="tel:+16479578956" style="color: white; text-decoration: underline;">(647) 957-8956</a> • Free consultation • No obligation • Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .hero.hero-small { padding: 6rem 0 4rem; }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.25rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .intro-section { background: var(--color-background); }
+  .intro-content { max-width: 900px; margin: 0 auto; text-align: center; }
+  .intro-content h2 { margin-bottom: 1.5rem; }
+  .intro-content p { color: var(--color-text-light); line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem; }
+
+  .neighborhoods { background: var(--color-background-alt); }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card.highlight-card {
+    border: 2px solid var(--color-primary);
+    grid-column: span 2;
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+  .bylaw-card a { color: var(--color-primary); text-decoration: underline; }
+  .bylaw-card a:hover { color: var(--color-primary-dark); }
+
+  .bylaws-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+  }
+
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+  .why-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number { font-size: 2rem; font-weight: 700; color: #C9A961; }
+  .airport-stat .label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); }
+
+  .services-section { background: var(--color-background); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  .other-areas { background: var(--color-background-alt); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+  .areas-cta a:hover { color: var(--color-primary-dark); }
+
+  .faq-section { background: var(--color-background); }
+  .faq-grid { max-width: 900px; margin: 0 auto; }
+  .faq-item { background: white; border-radius: 12px; margin-bottom: 1.5rem; padding: 2rem; box-shadow: var(--shadow-sm); }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; margin: 0; }
+  .faq-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 500; text-decoration: none; font-size: 0.95rem; }
+  .faq-link:hover { color: var(--color-primary-dark); text-decoration: underline; }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .bylaw-card.highlight-card { grid-column: span 1; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .faq-item { padding: 1.5rem; }
+    .faq-item h3 { font-size: 1rem; }
+  }
+</style>

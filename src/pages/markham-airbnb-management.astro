@@ -1,0 +1,549 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '🏘️', name: 'Unionville', description: 'Historic Main Street charm with upscale homes. Popular with relocating executives and families waiting on new builds.', revenue: '$3,200-$4,500/month' },
+  { icon: '🏡', name: 'Cornell', description: 'Master-planned community near Markham Stouffville Hospital. Strong demand from travel nurses and contract physicians.', revenue: '$3,000-$4,200/month' },
+  { icon: '⛪', name: 'Cathedraltown', description: 'Distinctive architecture and quiet streets. Favoured by corporate tenants and insurance claim housing placements.', revenue: '$3,100-$4,300/month' },
+  { icon: '🛍️', name: 'Markville', description: 'Near Markville Mall and GO Station. Convenient for business travelers needing 30+ day stays in the tech corridor.', revenue: '$2,800-$3,900/month' },
+  { icon: '🌳', name: 'Berczy Village', description: 'Family friendly streets with top rated schools. Strong pull from families relocating to York Region.', revenue: '$3,000-$4,200/month' },
+  { icon: '🏞️', name: 'Wismer', description: 'Newer community near Mount Joy GO. Popular with IBM and AMD engineers on temporary assignments.', revenue: '$2,900-$4,000/month' },
+  { icon: '🏭', name: 'Box Grove', description: 'Close to Highway 407 and the east tech corridor. Convenient base for corporate housing and project teams.', revenue: '$2,800-$3,900/month' },
+  { icon: '🚉', name: 'Milliken', description: 'South Markham near Steeles Avenue. Strong mid-term demand from Scarborough hospital and corporate travelers.', revenue: '$2,700-$3,700/month' },
+  { icon: '⛳', name: 'Angus Glen', description: 'Golf community with larger executive homes. Attracts senior executives and families on long relocations.', revenue: '$3,500-$5,000/month' }
+];
+
+const services = [
+  'Furnished 30+ Day Rental Management',
+  'Corporate Housing Coordination',
+  'Insurance Claim Temporary Housing',
+  'Medical Professional Housing (Travel Nurses, Locum Doctors)',
+  'Relocation Housing for Tech Employees',
+  'Professional Photography',
+  'Dynamic Pricing for 30+ Day Stays',
+  'Guest Screening & Verification',
+  'Clean Turnovers Between Mid-Term Tenants',
+  'Listing Distribution (Furnished Finder, Blueground, Airbnb 30+)',
+  'Lease and Agreement Management',
+  'Supply Restocking (No Markup)'
+];
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Markham?",
+    answer: "Short-term rentals under 30 days are effectively banned in Markham. The Comprehensive Zoning By-law 2024-19 does not define or permit Short-Term Accommodation as a use in any residential zone, which means operating an Airbnb under 30 nights is a zoning violation. Mid-term rentals of 30+ days are not regulated under STR rules and are allowed."
+  },
+  {
+    question: "How is the Markham Airbnb ban enforced?",
+    answer: "Enforcement is complaint based. Markham does not currently use Granicus Host Compliance or similar monitoring tools, so active listings often operate until a neighbour or condo board files a complaint. Once reported, the city can issue zoning violation orders with escalating fines. There are still roughly 420 to 480 active listings in the city, but operating one carries real legal and financial risk."
+  },
+  {
+    question: "What is the difference between short-term and mid-term rentals in Markham?",
+    answer: "Short-term rentals are stays under 30 days and are not permitted under Markham zoning. Mid-term rentals are stays of 30 consecutive days or longer and fall outside the STR framework entirely. Mid-term is legal, profitable, and the smart path for Markham property owners who want furnished rental income without legal exposure.",
+    link: { text: "Read our full mid-term rental guide for the GTA", href: "/blog/mid-term-rentals-toronto-guide-2026" }
+  },
+  {
+    question: "Can I still make good money with mid-term rentals in Markham?",
+    answer: "Yes. Markham has one of the strongest mid-term rental demand profiles in the GTA thanks to IBM Canada, AMD, Honeywell, and the growing tech corridor. Add Markham Stouffville Hospital, the new York University Markham campus, and constant corporate relocations, and you have a consistent pipeline of tenants willing to pay premium rates for furnished 30 to 90 day stays."
+  },
+  {
+    question: "I already have an Airbnb listing in Markham. What should I do?",
+    answer: "You have two good options. First, switch your platform minimum stay to 30 nights and convert to mid-term. We can help you reposition the listing, update photos, and list on Furnished Finder, Blueground, and the Airbnb 30+ category. Second, if you want to keep short stays, you will need to consider properties in municipalities where STRs are permitted. We can walk you through both paths."
+  },
+  {
+    question: "Can I rent to corporate clients and travel nurses directly?",
+    answer: "Absolutely, and this is where Markham shines. IBM, AMD, and Honeywell regularly place engineers on 60 to 180 day assignments. Markham Stouffville Hospital hires travel nurses on 13 week contracts. Insurance companies need housing for families displaced by fires or floods. We manage direct placements with all of these channels."
+  },
+  {
+    question: "Do I need a license for mid-term rentals in Markham?",
+    answer: "No specific mid-term rental license is required because stays of 30 days or more fall under residential tenancy rules, not STR bylaws. You should still carry proper landlord insurance, comply with property standards, and follow your condo declaration if applicable."
+  },
+  {
+    question: "Can I mid-term rent an investment property in Markham?",
+    answer: "Yes. Unlike short-term rentals, mid-term rentals do not require principal residence status. Investment properties, second homes, and rentals held by corporations can all operate legally in the mid-term space. This is one of the biggest advantages of going 30+ days in Markham."
+  },
+  {
+    question: "How much can I earn on a Markham mid-term rental?",
+    answer: "Furnished mid-term rentals in Markham typically earn $2,800 to $5,000 per month depending on size, location, and finish. Angus Glen, Unionville, and Cornell command the highest rates. That is usually 40% to 80% more than a traditional unfurnished annual lease on the same property."
+  },
+  {
+    question: "How much does mid-term rental management cost in Markham?",
+    answer: "Nurture charges 15% of rental revenue for full-service mid-term management. That includes listing creation, professional photography, dynamic pricing, tenant screening, lease handling, cleaning coordination, and ongoing guest support. No startup fees, no markups, no long-term contracts."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<Layout title="Markham Airbnb Management 2026 | Mid-Term Focus" description="Markham bans short-term rentals under 30 days via zoning. We help owners pivot to legal, profitable mid-term rentals for IBM, AMD, and hospital clients. 15% fees." schema={faqSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <div class="honest-banner">
+        <strong>Heads up:</strong> Markham effectively bans short-term rentals under 30 days. Here's what you CAN do.
+      </div>
+      <h1><span class="highlight">Markham Airbnb Management 2026 | Mid-Term Focus</span></h1>
+      <p class="hero-subtitle">Turn your Markham property into legal mid-term income from corporate tenants, travel nurses, and relocating families.</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">Mid-Term</div>
+          <div class="stat-label">100% Legal</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">30+ Days</div>
+          <div class="stat-label">Minimum Stay</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Investment OK</div>
+          <div class="stat-label">No Principal Residence Rule</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+      </div>
+
+      <a href="/contact" class="btn btn-primary btn-large">Turn Your Markham Property Into Mid-Term Income</a>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <h2>The Markham Short-Term Rental Situation, Explained</h2>
+        <p>Let's be upfront. Markham is the only major York Region city that has effectively banned short-term rentals, and it did so in a sneaky way: by simply not including them in the Comprehensive Zoning By-law 2024-19. The bylaw defines dozens of permitted uses, things like dwelling units, home occupations, and bed and breakfasts. Short-Term Accommodation? Not listed. In Markham zoning, if a use is not permitted, it is prohibited.</p>
+        <p>That means operating an Airbnb under 30 nights in any residential zone is a zoning violation. Enforcement today is complaint based, and you will see roughly 420 to 480 active listings in the city, but that does not make them legal. One angry neighbour or condo board complaint is all it takes.</p>
+        <p>Here is the good news. Stays of 30 consecutive days or longer are not short-term rentals, not regulated under STR rules, and completely legal. And Markham happens to be one of the best mid-term rental markets in the GTA. That is exactly where we come in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>Why Markham Crushes It for Mid-Term Rentals</h2>
+        <p>Markham is not just another GTA suburb. With 358,000 residents and a concentration of global tech headquarters, it generates constant demand for furnished 30 to 180 day housing. This is corporate and medical rental country, not weekend tourism.</p>
+        <p>IBM Canada, AMD, Honeywell, and dozens of other tech employers place engineers on extended assignments. Markham Stouffville Hospital hires travel nurses on 13 week contracts. York University's new Markham campus brings visiting faculty. Insurance companies need housing for displaced families. And the endless pipeline of families buying in new Markham builds need somewhere furnished to live while they wait for closing.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">358K</div>
+          <div class="label">Population</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">IBM, AMD</div>
+          <div class="label">Major Tech Hubs</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">13 Weeks</div>
+          <div class="label">Typical Travel Nurse Stay</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">40-80%</div>
+          <div class="label">Premium vs Long-Term Lease</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What You Can and Cannot Do in Markham</h2>
+        <p>The honest breakdown of Markham's STR rules</p>
+      </div>
+      <div class="bylaws-grid">
+        <div class="bylaw-card not-allowed">
+          <h3>Not Allowed: STRs Under 30 Days</h3>
+          <p>The Comprehensive Zoning By-law 2024-19 does not define or permit Short-Term Accommodation in any residential zone. Traditional Airbnb and VRBO style listings under 30 nights are a zoning violation. There is no license path, no registration, no workaround.</p>
+        </div>
+        <div class="bylaw-card not-allowed">
+          <h3>Not Allowed: Vacation Rentals</h3>
+          <p>Weekend getaways, week long tourist stays, and nightly rentals are all prohibited under current zoning. This applies whether the property is owner occupied or an investment property.</p>
+        </div>
+        <div class="bylaw-card allowed">
+          <h3>Allowed: Mid-Term Rentals (30+ Days)</h3>
+          <p>Stays of 30 consecutive days or longer fall outside STR rules entirely. This is the legal path for furnished rental income in Markham. Corporate housing, relocation housing, and travel medical housing all qualify.</p>
+        </div>
+        <div class="bylaw-card allowed">
+          <h3>Allowed: Bed and Breakfasts (Select Zones)</h3>
+          <p>Bed and Breakfasts are a separate use category under Markham zoning and are permitted in certain zones with owner occupancy. This is a niche option with stricter requirements than mid-term rental management.</p>
+        </div>
+        <div class="bylaw-card allowed">
+          <h3>Allowed: Investment Properties for Mid-Term</h3>
+          <p>Unlike STR bylaws elsewhere in the GTA, mid-term rentals in Markham do not require principal residence status. Investors, second home owners, and corporations can all operate legally.</p>
+        </div>
+        <div class="bylaw-card">
+          <h3>Enforcement Reality</h3>
+          <p>Markham enforcement is complaint based. No Granicus, no proactive monitoring. But one complaint from a neighbour or condo board triggers zoning violation orders and fines. The risk is real and we do not recommend operating under 30 days in Markham.</p>
+        </div>
+      </div>
+      <div class="bylaws-cta">
+        <p>Source: <a href="https://www.markham.ca/about-city-markham/city-hall/city-projects-initiatives/completed-projects-major-city-projects/comprehensive-zoning-law-2024-19" target="_blank" rel="noopener">Markham Comprehensive Zoning By-law 2024-19</a>. Regulations change, and we monitor updates closely.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Markham Neighborhoods We Serve</h2>
+        <p>Mid-term rental demand across every corner of the city</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Markham Mid-Term Management</h2>
+        <p>Everything included at 15% commission, no startup fees</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Real answers about Markham's STR ban and the mid-term alternative</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+            {faq.link && (
+              <a href={faq.link.href} class="faq-link">{faq.link.text} →</a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Guides and Service Areas</h2>
+        <p>More resources for York Region property owners</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/blog/mid-term-rentals-toronto-guide-2026" class="area-link">
+          <span>Mid-Term Rentals Guide</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/richmond-hill-airbnb-management" class="area-link">
+          <span>Richmond Hill Management</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/vaughan-airbnb-management" class="area-link">
+          <span>Vaughan Management</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026" class="area-link">
+          <span>Toronto STR Rules</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Turn Your Markham Property Into Mid-Term Income</h2>
+        <p>Get a free estimate showing what your Markham home could earn with furnished 30+ day rentals to corporate, medical, and relocation tenants.</p>
+        <a href="/contact" class="btn btn-large">Get Your Free Estimate</a>
+        <p class="cta-note">Call us at <a href="tel:+16479578956">(647) 957-8956</a> • Free consultation • No long-term contracts</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 6rem 0 5rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .hero.hero-small { padding: 5rem 0 4rem; }
+
+  .honest-banner {
+    background: #fff4e0;
+    border: 2px solid #d4a373;
+    color: #7a4e1d;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    max-width: 780px;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 680px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 2.5rem 0;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .intro-section { background: var(--color-background); }
+  .intro-content { max-width: 860px; margin: 0 auto; }
+  .intro-content h2 { text-align: center; margin-bottom: 2rem; }
+  .intro-content p { color: var(--color-text); line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem; }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card.not-allowed { border-left: 5px solid #c94f4f; }
+  .bylaw-card.allowed { border-left: 5px solid #759b8f; }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card.not-allowed h3 { color: #c94f4f; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+
+  .bylaws-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+  }
+
+  .bylaws-cta p { margin: 0; color: var(--color-text); font-size: 0.95rem; }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; text-decoration: underline; }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-content p {
+    font-size: 1.075rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #C9A961;
+  }
+
+  .airport-stat .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .services-section { background: var(--color-background-alt); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+  .cta-note a { color: white; text-decoration: underline; }
+
+  .other-areas { background: var(--color-background); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+
+  .faq-section { background: var(--color-background); }
+  .faq-grid { max-width: 900px; margin: 0 auto; }
+  .faq-item { background: white; border-radius: 12px; margin-bottom: 1.5rem; padding: 2rem; box-shadow: var(--shadow-sm); }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; margin: 0; }
+  .faq-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 500; text-decoration: none; font-size: 0.95rem; }
+  .faq-link:hover { color: var(--color-primary-dark); text-decoration: underline; }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 1.5rem; }
+    .neighborhoods-grid, .services-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .faq-item { padding: 1.5rem; }
+    .faq-item h3 { font-size: 1rem; }
+  }
+</style>
