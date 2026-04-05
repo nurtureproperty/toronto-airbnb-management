@@ -1,0 +1,315 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const whoNeeds = [
+  { type: 'Corporate Relocations', description: 'Executives, engineers, and consultants moving to Toronto with employer housing allowances' },
+  { type: 'Insurance Displacement', description: 'Homeowners placed in temporary housing after fires, floods, or major renovations' },
+  { type: 'Travel Nurses & Doctors', description: 'Medical professionals on contracts at SickKids, Mount Sinai, Toronto General, and UHN hospitals' },
+  { type: 'Film & TV Production', description: 'Directors, actors, and crew on Toronto shoots needing furnished monthly stays' },
+  { type: 'Project Consultants', description: 'Management consultants and tech contractors on 3 to 6 month engagements' },
+  { type: 'Visiting Academics', description: 'Professors and researchers at University of Toronto, York, and Ryerson on sabbaticals' }
+];
+
+const services = [
+  { title: 'Furnished Rental Management', description: 'Full management of turnkey furnished corporate rentals with hospitality grade quality.' },
+  { title: 'Dynamic Pricing for 30+ Day Stays', description: 'Monthly rate optimization based on corporate demand cycles, not nightly Airbnb pricing.' },
+  { title: 'Corporate Guest Screening', description: 'Verify employer references, insurance assignments, and payment arrangements before move in.' },
+  { title: 'Monthly Cleaning & Linen Refresh', description: 'Included mid stay cleaning and fresh linens every 2 weeks for longer bookings.' },
+  { title: 'Maintenance Coordination', description: 'On call response for any issues during a tenant stay. Corporate guests expect hotel level service.' },
+  { title: 'Invoicing for Corporate Clients', description: 'Monthly invoices formatted for corporate accounts payable departments and insurance adjusters.' },
+  { title: 'Furnished Finder & Platform Distribution', description: 'Listed on Furnished Finder, Airbnb, VRBO, and our direct booking platform for maximum exposure.' },
+  { title: 'Turnover Between Tenants', description: 'Deep cleaning, inventory check, and restocking between each corporate guest.' }
+];
+
+const neighborhoods = [
+  { name: 'Financial District', description: 'Walking distance to Bay Street offices. Demand from banking, legal, and consulting firms.' },
+  { name: 'Yorkville', description: 'Executive and luxury corporate housing. Higher nightly rates, longer stays, premium guests.' },
+  { name: 'Liberty Village', description: 'Tech workers, startup founders, and creative agencies on 2 to 6 month projects.' },
+  { name: 'Midtown (Yonge & Eglinton)', description: 'Hospital district proximity. Travel nurses and medical professionals.' },
+  { name: 'St. Lawrence', description: 'Consultants and executives close to financial core, Union Station, and Billy Bishop airport.' },
+  { name: 'Leslieville & Riverside', description: 'Creative professionals, film production, and tech consultants wanting a neighborhood feel.' }
+];
+
+const faqs = [
+  { q: "What is corporate housing in Toronto?", a: "Corporate housing is furnished rental accommodation for stays of 30 days or more, designed for professionals relocating for work, insurance displacement, medical travelers, and project based consultants. Unlike extended stay hotels, corporate housing offers a true residential experience at a lower monthly cost, with full kitchens, in unit laundry, workspaces, and neighborhood living." },
+  { q: "How much can I earn with corporate housing in Toronto?", a: "A furnished 1BR downtown Toronto condo typically earns $3,500 to $4,800 per month for corporate housing, compared to $2,200 to $2,700 for a standard long-term tenant. A 2BR runs $5,000 to $7,000 per month. Rates depend on location, finish quality, and amenities. Corporate tenants often pay 30 to 60 percent more than traditional leases." },
+  { q: "Do I need a license for corporate housing in Toronto?", a: "No. Corporate housing stays of 30 days or more are not subject to Toronto's short-term rental bylaw. No STR registration, no 180 night cap, no principal residence requirement. You can operate corporate housing on any property you own, including investment properties." },
+  { q: "How long are typical corporate housing stays?", a: "Most corporate housing stays run 1 to 6 months. Relocations are often 2 to 3 months while the tenant finds permanent housing. Medical travelers book 13 week contracts (standard travel nurse assignment). Insurance displacement runs 3 to 12 months. Film production can be 4 to 8 months." },
+  { q: "What's included in a furnished corporate housing unit?", a: "Full furniture package including bedroom sets, living room, dining area, and home office setup. Fully equipped kitchen with dishes, cookware, small appliances. In unit or in suite laundry. Linens, towels, and basic toiletries. High speed WiFi. Smart TV with streaming. All utilities bundled into the monthly rate." },
+  { q: "Corporate housing vs Airbnb: which earns more?", a: "Depends on the property and market. Short-term Airbnb (under 28 days) earns the highest nightly rate but has regulations, higher turnover, and more wear. Corporate housing (30+ days) has lower monthly turnover, no STR regulations, corporate clients who pay on time, and often higher occupancy. For properties that don't qualify for STR (investment properties, Markham, Halton Hills), corporate housing is the best option." },
+  { q: "How do you find corporate tenants?", a: "We list on Furnished Finder (the main travel nurse and corporate relocation platform), Airbnb with 30+ day minimums, VRBO, and our own direct booking channels. We also work with corporate relocation specialists and insurance adjusters who place displaced homeowners. Established listings with strong reviews attract repeat corporate clients." },
+  { q: "Do I need special insurance for corporate housing?", a: "Yes. Standard homeowner's insurance typically does not cover rental activity. You need a landlord or rental dwelling policy. Some corporate housing platforms offer supplemental coverage. We help connect clients with insurance providers familiar with furnished rental policies." },
+  { q: "Corporate housing vs extended stay hotel: what's the difference?", a: "Extended stay hotels (like Residence Inn, Homewood Suites) charge $150 to $250 per night which equals $4,500 to $7,500 per month for a small unit. Corporate housing in a real condo or house runs $3,500 to $6,000 per month for a larger, fully furnished unit with a kitchen, in suite laundry, and residential privacy. Corporate clients often prefer corporate housing for longer stays because of the lower cost and more home like experience." },
+  { q: "How does Nurture manage corporate housing differently?", a: "We focus on longer stay hospitality: monthly cleaning, proactive maintenance, corporate invoicing, and communication suited to working professionals rather than vacationers. Our 15 percent management fee covers everything, and we never take a cut of cleaning fees or platform charges. We list on Furnished Finder and direct booking channels that Airbnb only managers miss." }
+];
+
+const relatedServices = [
+  { name: 'Mid-Term Rental Management', href: '/services/mid-term-rental-management', description: '30+ day rentals across the GTA' },
+  { name: 'Full Airbnb Management', href: '/services/full-airbnb-management', description: 'Short-term nightly bookings' },
+  { name: 'Professional Cleaning', href: '/services/airbnb-cleaning', description: 'Turnover and monthly cleaning' },
+  { name: 'Interior Design & Staging', href: '/services/airbnb-interior-design-staging', description: 'Furnishing and styling for rentals' }
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Corporate Housing Toronto",
+  "description": "Corporate housing management in Toronto for 30+ day furnished rentals. Relocations, insurance displacement, travel nurses, and project consultants. 15% flat commission.",
+  "url": "https://www.nurturestays.ca/services/corporate-housing-toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management",
+    "telephone": "+1-647-957-8956"
+  },
+  "areaServed": { "@type": "City", "name": "Toronto" },
+  "serviceType": "Corporate Housing Management"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
+---
+
+<Layout title="Corporate Housing Toronto 2026 | Nurture Stays" description="Corporate housing management in Toronto. Furnished 30+ day rentals for relocations, travel nurses, and insurance displacement. 15% flat fee. Get your free estimate." schema={pageSchema}>
+
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Corporate Housing Toronto 2026</h1>
+      <p class="hero-subtitle">Furnished 30+ day rentals managed for Toronto property owners. Relocations, insurance displacement, travel nurses, and project consultants. Flat 15 percent fee, no STR license required.</p>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">30+ Days</span>
+          <span class="trust-label">Minimum Stay</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">No License</span>
+          <span class="trust-label">Required</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">Investment</span>
+          <span class="trust-label">Properties OK</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">15%</span>
+          <span class="trust-label">Flat Fee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="intro-text">Corporate housing is furnished monthly rental for professionals. Think travel nurses on a 13 week contract at SickKids, an engineer relocating from Calgary for a 4 month project at a downtown bank, or a family displaced by a kitchen fire waiting for insurance repairs. Every one of them needs a furnished place to live for 30 plus days and has the budget to pay for quality. Corporate housing fills that gap, earns 30 to 60 percent more than a traditional long-term tenant, and does not require any short-term rental license in Toronto.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> No STR registration or 180 night cap</li>
+          <li><span class="check">✓</span> Investment properties are allowed</li>
+          <li><span class="check">✓</span> No principal residence requirement</li>
+          <li><span class="check">✓</span> Higher rates than long-term leases</li>
+          <li><span class="check">✓</span> Corporate tenants pay reliably and treat spaces well</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary btn-large">Get Free Corporate Housing Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section who-rents-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Who Rents Corporate Housing in Toronto?</h2>
+        <p class="serif">Toronto has strong year round demand from professional tenants</p>
+      </div>
+      <div class="who-rents-grid">
+        {whoNeeds.map(item => (
+          <div class="who-rents-card">
+            <h3>{item.type}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Corporate Housing Management Includes</h2>
+        <p class="serif">Full service management of furnished monthly rentals in Toronto</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-card">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section neighborhoods-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Best Toronto Neighborhoods for Corporate Housing</h2>
+        <p class="serif">Location matters as much for corporate tenants as it does for vacationers</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.name}</h3>
+            <p>{n.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section info-section">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-box highlight-box">
+          <h3>Corporate Housing vs Long-Term Rental</h3>
+          <p>A typical Toronto 1BR earns about $2,300 as a long-term rental. The same unit furnished for corporate housing earns $3,800 to $4,500 per month. That is $18,000 to $26,000 more per year, even after accounting for furnishing costs and slightly higher management overhead.</p>
+        </div>
+        <div class="info-box tip-box">
+          <h3>Corporate Housing vs Short-Term Rental</h3>
+          <p>If your Toronto property is your principal residence, short-term rental (under 28 days) often earns more per night but is capped at 180 nights per year. Corporate housing has no night cap and works on any property, including investments. Many of our clients use both: STR for 180 days, then corporate housing for the rest of the year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Corporate Housing Toronto FAQs</h2>
+        <p class="serif">Common questions from Toronto property owners</p>
+      </div>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Services</h2>
+      </div>
+      <div class="related-grid">
+        {relatedServices.map(service => (
+          <a href={service.href} class="related-card">
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to Earn More with Corporate Housing in Toronto?</h2>
+        <p>Book a free consultation to see how much your Toronto property could earn as corporate housing. No obligation, no contracts.</p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-primary btn-large">Get Free Estimate</a>
+          <a href="tel:+16479578956" class="btn btn-secondary btn-large">Call (647) 957-8956</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-subtitle { text-align: center; margin: 0 auto; max-width: 800px; }
+
+  .trust-bar { background: var(--color-background-alt); padding: 2rem 0; }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+  .trust-number { display: block; font-size: 1.8rem; font-weight: 700; color: var(--color-primary-dark); }
+  .trust-label { display: block; font-size: 0.9rem; color: var(--color-text-light); margin-top: 0.25rem; }
+  @media (max-width: 700px) { .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+
+  .intro-section { background: white; padding: 3rem 0; }
+  .intro-content { max-width: 800px; margin: 0 auto; text-align: center; }
+  .intro-text { font-size: 1.1rem; line-height: 1.7; color: var(--color-text); margin-bottom: 1.5rem; }
+  .feature-list { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .feature-list li { padding: 0.5rem 0; color: var(--color-text); }
+  .check { color: var(--color-primary); font-weight: bold; margin-right: 0.5rem; }
+
+  .who-rents-section { background: var(--color-background); padding: 4rem 0; }
+  .section-header { text-align: center; margin-bottom: 2.5rem; }
+  .section-header h2 { font-size: 2rem; color: var(--color-text); margin-bottom: 0.5rem; }
+  .section-header .serif { color: var(--color-text-light); font-size: 1.05rem; }
+  .who-rents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .who-rents-card { background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--color-primary); }
+  .who-rents-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--color-text); }
+  .who-rents-card p { margin: 0; color: var(--color-text-light); font-size: 0.95rem; }
+  @media (max-width: 900px) { .who-rents-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .who-rents-grid { grid-template-columns: 1fr; } }
+
+  .services-section { background: white; padding: 4rem 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+  .service-card { background: var(--color-background-alt); padding: 1.5rem; border-radius: 12px; }
+  .service-card h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--color-text); }
+  .service-card p { margin: 0; color: var(--color-text-light); font-size: 0.95rem; }
+  @media (max-width: 700px) { .services-grid { grid-template-columns: 1fr; } }
+
+  .neighborhoods-section { background: var(--color-background); padding: 4rem 0; }
+  .neighborhoods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .neighborhood-card { background: white; padding: 1.5rem; border-radius: 12px; border-top: 4px solid var(--color-accent); }
+  .neighborhood-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--color-text); }
+  .neighborhood-card p { margin: 0; color: var(--color-text-light); font-size: 0.95rem; }
+  @media (max-width: 900px) { .neighborhoods-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .neighborhoods-grid { grid-template-columns: 1fr; } }
+
+  .info-section { background: white; padding: 4rem 0; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto; }
+  .info-box { padding: 2rem; border-radius: 12px; }
+  .highlight-box { background: var(--color-primary-dark); color: white; }
+  .highlight-box h3 { color: white; margin-top: 0; }
+  .highlight-box p { color: rgba(255,255,255,0.9); margin: 0; }
+  .tip-box { background: var(--color-background-alt); border-left: 4px solid var(--color-accent); }
+  .tip-box h3 { margin-top: 0; color: var(--color-text); }
+  .tip-box p { margin: 0; color: var(--color-text-light); }
+  @media (max-width: 800px) { .info-grid { grid-template-columns: 1fr; } }
+
+  .faq-section { background: var(--color-background); padding: 4rem 0; }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border-left: 4px solid var(--color-primary); }
+  .faq-item h3 { margin: 0 0 0.75rem; font-size: 1.1rem; color: var(--color-text); }
+  .faq-item p { margin: 0; color: var(--color-text-light); line-height: 1.6; }
+
+  .related-section { background: white; padding: 4rem 0; }
+  .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1000px; margin: 0 auto; }
+  .related-card { background: var(--color-background-alt); padding: 1.25rem; border-radius: 12px; text-decoration: none; color: inherit; transition: transform 0.2s; display: block; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card h3 { margin: 0 0 0.5rem; font-size: 1rem; color: var(--color-text); }
+  .related-card p { margin: 0; color: var(--color-text-light); font-size: 0.9rem; }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+  .cta-section { background: var(--color-primary); color: white; padding: 4rem 0; }
+  .cta-box { text-align: center; max-width: 700px; margin: 0 auto; }
+  .cta-box h2 { color: white; font-size: 2rem; margin-bottom: 1rem; }
+  .cta-box p { color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2rem; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+</style>
