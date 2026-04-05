@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
+  { q: "Can I legally Airbnb my Toronto condo?", a: "Yes, but only if two conditions are met. First, your condo corporation's declaration, bylaws, and rules must not prohibit short-term rentals (many Toronto condos require minimum lease terms of 6 or 12 months). Second, you must meet the City of Toronto's STR rules: the condo has to be your principal residence, you need to register with the city, you are capped at 180 nights per year for entire unit rentals, and 8.5% MAT applies (collected automatically by Airbnb). Miss either gate and you risk fines from the city and your board." },
+  { q: "Which Toronto condos allow Airbnb?", a: "The buildings with the highest counts of City of Toronto registered short-term rental units are 300 Front St W (237 units), 251 Jarvis St (196), 14 York St (168), 21 Iceboat Terrace (158), 101 Peter St (117), 12 York St (113), 151 Dan Leckie Way (111), 155 Yorkville Ave (94), 65 Bremner Blvd (69), and 55 Bremner Blvd (62). Most STR friendly buildings are concentrated in Spadina, Fort York, Toronto Centre, and University, Rosedale. See our full database of 435 buildings for the complete list by neighborhood." },
+  { q: "How do I check if my condo allows Airbnb?", a: "Three steps. First, pull your status certificate or request the declaration, bylaws, and rules from your condo's property manager and read them for minimum lease terms or STR bans. Second, ask the property manager in writing whether rentals under 28 days are permitted and keep the email reply. Third, check board meeting minutes from the last 12 months for any recent STR policy changes. Silence in the documents does not mean permission, always get written confirmation." },
   { q: "Can my condo board fine me for doing Airbnb?", a: "Yes. If your condo's declaration or rules prohibit short-term rentals and you operate one anyway, the board can issue fines, send cease-and-desist letters, and even take you to court for a compliance order. Fines vary by corporation but can range from $500 to $5,000 or more per violation. Some boards treat each rental night as a separate breach, which adds up fast." },
   { q: "Do I need to tell my condo board about Airbnb?", a: "You should always check your declaration and rules first. Many condo corporations require owners to notify the board before renting, regardless of the rental type. Even if your building doesn't explicitly ban short-term rentals, failing to notify the board when required can result in fines. Transparency also protects you if a neighbor complains." },
   { q: "What's the difference between condo rules and city bylaws?", a: "City bylaws are municipal laws that apply to all properties in Toronto. They set requirements like registration, the 180-night cap, and MAT collection. Condo rules are private governance documents created by your condo corporation. Both must be satisfied. Even if the city allows your STR, your condo board can still prohibit it. Think of it as two separate permission gates." },
@@ -18,6 +21,7 @@ const relatedPosts = [
 
 const tocItems = [
   { id: 'short-answer', text: 'The Short Answer' },
+  { id: 'top-buildings', text: 'Top 10 Toronto Condos' },
   { id: 'condo-board-rules', text: 'Condo Board Rules' },
   { id: 'toronto-city-requirements', text: 'Toronto City Requirements' },
   { id: 'step-by-step', text: 'Step-by-Step Compliance' },
@@ -26,8 +30,8 @@ const tocItems = [
   { id: 'faqs', text: 'FAQs' }
 ];
 
-const pageTitle = "Can I Airbnb My Condo in Toronto? 2026 Guide";
-const pageDescription = "Can you Airbnb your Toronto condo? Check condo board rules, city registration, 180-night cap, and insurance. Step-by-step compliance checklist inside.";
+const pageTitle = "Can I Airbnb My Condo in Toronto? 2026 Rules & List";
+const pageDescription = "Can I Airbnb my condo in Toronto? Check board rules, city registration, the 180 night cap, and see the top Toronto condos that allow Airbnb. Get compliant now.";
 
 // Schema.org structured data
 const articleSchema = {
@@ -78,7 +82,7 @@ const pageSchema = [articleSchema, faqSchema];
         <span>/</span>
         <span>Condo Airbnb Guide</span>
       </nav>
-      <h1>Can I Airbnb My Condo in Toronto?</h1>
+      <h1>Can I Airbnb My Condo in Toronto? (2026 Rules + Approved Buildings)</h1>
       <div class="article-meta">
         <span class="meta-date">February 7, 2026</span>
         <span class="meta-separator">·</span>
@@ -103,8 +107,8 @@ const pageSchema = [articleSchema, faqSchema];
 
         <article class="article-content">
           <div class="article-intro">
-            <p class="lead">It's one of the most common questions we get from Toronto condo owners: <strong>"Can I actually Airbnb my condo?"</strong> The answer isn't a simple yes or no. You need to clear two separate hurdles: your condo corporation's rules and the City of Toronto's short-term rental regulations. Miss either one and you're asking for trouble.</p>
-            <p class="lead">This guide walks you through both, step by step, so you know exactly where you stand before you list a single night.</p>
+            <p class="lead"><strong>Can I Airbnb my condo in Toronto?</strong> Short version: yes, but only if two gates open at once. Your condo corporation must allow short-term rentals, and you must meet the City of Toronto's STR rules (principal residence, registration, 180 night cap on entire unit stays, 8.5% MAT). Miss either gate and you are looking at fines from both sides.</p>
+            <p class="lead">This guide walks you through both gates step by step, shows you the top Toronto condos that already have dozens of registered Airbnb units (so you can see which buildings are STR friendly), and gives you a compliance checklist to follow before you list a single night. For the full database of every building, see our <a href="/blog/toronto-condos-that-allow-airbnb-short-term-rental">Toronto Condos That Allow Airbnb guide</a>.</p>
           </div>
 
           <h2 id="short-answer">The Short Answer</h2>
@@ -138,6 +142,56 @@ const pageSchema = [articleSchema, faqSchema];
             <h4>What about mid-term rentals?</h4>
             <p>If short-term Airbnb doesn't work for your condo, <strong>mid-term rentals (30+ days) are exempt from Toronto's STR regulations entirely</strong>. No city registration, no 180-night cap, no MAT, and no principal residence requirement. Many condo boards that ban short-term stays still permit 30-day minimum leases. It's the most common alternative for condo owners who can't do traditional Airbnb. <a href="#condo-says-no">See all your options below.</a></p>
           </div>
+
+          <h2 id="top-buildings">Which Toronto Condos Allow Airbnb? Top 10 Buildings</h2>
+          <p>If you want a quick shortcut to "which Toronto condos allow Airbnb," look at where registered STR operators actually live. The buildings below have the highest counts of City of Toronto registered short-term rental units, which is the strongest public signal that the condo corporation tolerates Airbnb. This is not a legal guarantee, your specific unit still needs board confirmation, but it's a much better starting point than guessing.</p>
+
+          <div class="table-container">
+            <table class="rules-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Building</th>
+                  <th>Registered STR Units</th>
+                  <th>Neighborhood</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>300 Front St W</td><td><strong>237</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>2</td><td>251 Jarvis St</td><td><strong>196</strong></td><td>Toronto Centre</td></tr>
+                <tr><td>3</td><td>14 York St</td><td><strong>168</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>4</td><td>21 Iceboat Ter</td><td><strong>158</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>5</td><td>101 Peter St</td><td><strong>117</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>6</td><td>12 York St</td><td><strong>113</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>7</td><td>151 Dan Leckie Way</td><td><strong>111</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>8</td><td>155 Yorkville Ave</td><td><strong>94</strong></td><td>University, Rosedale</td></tr>
+                <tr><td>9</td><td>65 Bremner Blvd</td><td><strong>69</strong></td><td>Spadina, Fort York</td></tr>
+                <tr><td>10</td><td>55 Bremner Blvd</td><td><strong>62</strong></td><td>Spadina, Fort York</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>See the full list of 435 buildings.</strong> Our full database covers every Toronto condo with registered Airbnb units, organized by neighborhood, with registration counts.
+              <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="/blog/toronto-condos-that-allow-airbnb-short-term-rental" class="btn btn-primary" style="display: inline-block;">See the Full List of 435 Buildings</a></p>
+            </div>
+          </div>
+
+          <h3>How to Check If Your Condo Allows Airbnb</h3>
+          <p>Not in one of the buildings above? That doesn't mean you are out of luck. Here is how to check if your condo allows Airbnb in three steps:</p>
+          <ol>
+            <li><strong>Pull your status certificate or request the declaration, bylaws, and rules</strong> from your condo's property manager. Read them for any minimum lease term (6 months, 12 months, or 28 days), STR ban, or rental restriction clause.</li>
+            <li><strong>Ask the property manager in writing</strong> whether short-term rentals (under 28 days) are permitted. Keep the email reply as documentation.</li>
+            <li><strong>Check board meeting minutes</strong> from the last 12 months for any STR policy updates. Rules can change with a simple board vote.</li>
+          </ol>
+          <p>If all three come back clean, you can move to city registration. If any one comes back negative, mid-term rentals (30+ days) are usually still on the table.</p>
 
           <h2 id="condo-board-rules">Condo Board Rules: The First Hurdle</h2>
           <p>Before you even think about registering with the city, you need to check your condo corporation's governing documents. This is where most condo Airbnb plans either get the green light or hit a wall.</p>
