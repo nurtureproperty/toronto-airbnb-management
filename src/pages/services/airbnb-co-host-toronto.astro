@@ -18,11 +18,13 @@ const steps = [
 ];
 
 const faqs = [
-  { q: 'What\'s the difference between co-hosting and full management?', a: 'With co-hosting, we handle guest communication, pricing, and booking management while you handle physical tasks like cleaning coordination and restocking. Full management means we handle everything.' },
-  { q: 'Can I upgrade to full management later?', a: 'Absolutely! Many hosts start with co-hosting to learn the ropes, then upgrade to full management when they want to go fully passive. The transition is seamless.' },
-  { q: 'What if I need more help during busy seasons?', a: 'We\'re flexible. You can temporarily upgrade your service level during peak seasons or when life gets busy, then scale back down when you\'re ready.' },
-  { q: 'Will I still learn how to run my Airbnb?', a: 'Yes! Co-hosting is a great way to learn best practices while having professional backup. We share insights and strategies so you become a better host.' },
-  { q: 'Who owns the listing?', a: 'You do. We work on your existing listing under your account. All reviews, history, and superhost status remain yours.' }
+  { q: 'What is an Airbnb co-host?', a: 'An Airbnb co-host is a professional partner who helps manage your listing alongside you. In Toronto, a co-host typically handles guest messages, pricing, booking management, and review responses while you stay involved in day to day decisions. It is the middle ground between running everything yourself and paying for full property management.' },
+  { q: 'How much does an Airbnb co-host cost in Toronto?', a: 'Toronto Airbnb co-hosts usually charge between 10% and 25% of monthly revenue. At Nurture, our Toronto co-host service is a flat 15% with no hidden fees, no startup costs, and no long term contracts. You only pay when the property earns.' },
+  { q: 'Do I need a co-host for my Airbnb?', a: 'You likely need a Toronto Airbnb co-host if you travel often, live out of the city, work a demanding job, or simply want faster guest response times. Airbnb rewards hosts who reply within an hour, and a professional co-host can respond in under 9 minutes, 24/7. That alone usually pays for the service.' },
+  { q: 'What is the difference between an Airbnb co-host and a property manager?', a: 'A property manager typically takes full control of the listing and operations. A co-host works as a partner: you keep your Airbnb account, you own the listing, and you decide how involved you want to be. With Nurture, you get full service support at co-host pricing, so you get the best of both worlds.' },
+  { q: 'How do I hire an Airbnb co-host in Toronto?', a: 'Start by booking a free consultation with Nurture. We review your listing, your goals, and your property, then build a co-hosting plan that fits. Once you approve, we connect to your Airbnb account through Airbnb co-host invites (no password sharing) and usually get your first improvements live within a few days.' },
+  { q: 'Who owns the listing?', a: 'You do. We work on your existing listing under your Airbnb account through the official co-host feature. All reviews, booking history, and Superhost status remain with you forever.' },
+  { q: 'Can I upgrade from co-hosting to full management later?', a: 'Yes. Many Toronto hosts start with co-hosting and upgrade to full management when they want fully passive income. The transition is seamless because we already know your property.' }
 ];
 
 const relatedServices = [
@@ -38,8 +40,8 @@ const relatedServices = [
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Airbnb Co-Hosting",
-  "description": "Flexible Airbnb co-hosting in the Greater Toronto Area. Professional guest communication, pricing, and booking management while you stay in control.",
+  "name": "Airbnb Co-Host Toronto",
+  "description": "Hire a professional Airbnb co-host in Toronto. Flat 15% fee, under 9 minute response times, full service guest communication, pricing, and booking management. You keep the listing.",
   "url": "https://www.nurturestays.ca/services/airbnb-co-host-toronto",
   "provider": {
     "@type": "LocalBusiness",
@@ -63,11 +65,11 @@ const faqSchema = {
 const pageSchema = [serviceSchema, faqSchema];
 ---
 
-<Layout title="Airbnb Co-Hosting Greater Toronto Area" description="Airbnb co-hosting in the GTA. Get professional help while staying involved. Full-service management at just 15%. Get your free estimate." schema={pageSchema}>
+<Layout title="Hire an Airbnb Co-Host Toronto 2026 | 15% Flat" description="Hire a trusted Airbnb co-host in Toronto. Flat 15% fee, 9 minute guest response, full service support, no lock in. Keep your listing and earn more. Book a free consult today." schema={pageSchema}>
   <section class="hero hero-small">
     <div class="container">
-      <h1>Airbnb Co-Hosting in the Greater Toronto Area</h1>
-      <p class="hero-subtitle">Professional help while you stay in control. Perfect for hands-on hosts who need backup.</p>
+      <h1>Hire an Airbnb Co-Host in Toronto</h1>
+      <p class="hero-subtitle">Professional Toronto Airbnb co-host services at a flat 15%. Faster responses, higher revenue, and you stay in control of your listing.</p>
     </div>
   </section>
 
@@ -97,7 +99,8 @@ const pageSchema = [serviceSchema, faqSchema];
   <section class="section intro-section">
     <div class="container">
       <div class="intro-content">
-        <p class="intro-text">Want professional help but still want to stay involved? Our co-hosting service gives you expert support while you maintain control. Stay involved as much or as little as you want, with lower costs than full management.</p>
+        <h2>Why Hire a Toronto Airbnb Co-Host</h2>
+        <p class="intro-text">Running an Airbnb in Toronto takes more work than most hosts expect. Guests message at 2am, pricing shifts weekly, reviews need thoughtful replies, and Toronto bylaws keep changing. Hiring an Airbnb co-host in Toronto means a dedicated pro handles the heavy lifting while you keep the listing in your name. You stay involved where you want, hand off the rest, and usually earn more than you would alone.</p>
         <ul class="feature-list">
           <li><span class="check">✓</span> Stay involved as much or as little as you want</li>
           <li><span class="check">✓</span> Lower cost than full management</li>
@@ -113,8 +116,8 @@ const pageSchema = [serviceSchema, faqSchema];
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>What Co-Hosting Includes</h2>
-        <p>Professional support, your way</p>
+        <h2>What an Airbnb Co-Host Does in Toronto</h2>
+        <p>Everything included when you hire a Nurture co-host</p>
       </div>
       <div class="services-grid">
         {services.map(service => (

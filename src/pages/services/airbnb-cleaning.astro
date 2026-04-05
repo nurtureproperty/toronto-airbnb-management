@@ -50,6 +50,15 @@ const restockingItems = [
   'Garbage bags and cleaning supplies'
 ];
 
+const faqs = [
+  { q: 'How much does Airbnb cleaning cost in Toronto?', a: 'Toronto Airbnb cleaning typically runs $75 to $99 for a 1 bedroom condo, $99 to $150 for a 2 bedroom, and $150 or more for 3+ bedroom properties. Rates depend on square footage, linen service, and turnover speed. All of our Toronto Airbnb cleaning service pricing is flat and transparent, with supplies billed at cost.' },
+  { q: 'What is included in Airbnb turnover cleaning?', a: 'Our Toronto Airbnb turnover cleaning follows a 50+ point checklist: fresh linens, bathrooms sanitized, kitchen appliances cleaned inside and out, floors vacuumed and mopped, high touch surfaces disinfected, garbage removed, supplies restocked, thermostat set, and photo documentation after every clean.' },
+  { q: 'Do you provide linens and supplies?', a: 'Yes. Our Toronto Airbnb cleaning service can provide, wash, and rotate hotel quality linens, or we can wash your existing sets. We also restock toilet paper, soap, shampoo, coffee, and other essentials. Supplies are billed at cost with zero markup.' },
+  { q: 'Airbnb cleaning vs regular house cleaning: what is the difference?', a: 'Regular house cleaning focuses on a family that lives in the home. Airbnb cleaning is a hotel grade turnover: every surface treated as a fresh start, linens swapped, supplies replenished, and staging reset for photos. Our Toronto Airbnb cleaners are trained specifically for short term rentals and guest expectations.' },
+  { q: 'Do you offer same day turnover cleaning in Toronto?', a: 'Yes. Our Toronto cleaning teams handle same day turnovers with as little as 2 hours notice. We keep a GTA wide backup network so a last minute booking never costs you a reservation.' },
+  { q: 'Are your Toronto Airbnb cleaners insured and background checked?', a: 'Yes. Every cleaner on our Toronto Airbnb cleaning team is insured, background checked, and trained on our 50+ point checklist before they ever enter a client property.' }
+];
+
 const relatedServices = [
   { name: 'Turnover Management', href: '/services/airbnb-turnover-management', description: 'End-to-end guest transition coordination' },
   { name: 'Property Maintenance', href: '/services/airbnb-property-maintenance', description: 'Repairs and emergency support' },
@@ -68,8 +77,8 @@ const serviceAreas = [
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Airbnb Cleaning Services",
-  "description": "Professional Airbnb turnover cleaning across the Greater Toronto Area. 50+ point checklist, same-day turnovers, vetted cleaners, photo documentation.",
+  "name": "Airbnb Cleaning Service Toronto",
+  "description": "Professional Airbnb cleaning service in Toronto. 50+ point turnover checklist, same day turnovers, linens and supplies, photo verification, and insured cleaners across the GTA.",
   "url": "https://www.nurturestays.ca/services/airbnb-cleaning",
   "provider": {
     "@type": "LocalBusiness",
@@ -89,17 +98,29 @@ const serviceSchema = {
     ]
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [serviceSchema, faqSchema];
 ---
 
 <Layout
-  title="Airbnb Cleaning Toronto | Turnover Cleaning"
-  description="Toronto Airbnb cleaning from $55/turnover. 50+ point checklist, same-day service, photo verification. 95% of reviews mention cleanliness. Get your quote today."
-  schema={serviceSchema}
+  title="Airbnb Cleaning Service Toronto 2026 | Nurture"
+  description="Airbnb cleaning service Toronto: 50+ point turnover checklist, same day service, linens and supplies, photo verification, insured cleaners. Get your Toronto quote today."
+  schema={pageSchema}
 >
   <section class="hero hero-small">
     <div class="container">
-      <h1>Airbnb Cleaning Services Toronto</h1>
-      <p class="hero-subtitle">5-star cleanliness is the number one factor in guest reviews. Our professional cleaning teams ensure your property sparkles after every guest.</p>
+      <h1>Airbnb Cleaning Service Toronto</h1>
+      <p class="hero-subtitle">Toronto Airbnb cleaning done hotel style. 50+ point turnover checklist, same day service, and photo verification after every clean.</p>
     </div>
   </section>
 
@@ -145,7 +166,7 @@ const serviceSchema = {
   <section class="section stats-section">
     <div class="container">
       <div class="section-header">
-        <h2>Why Cleanliness Matters More Than Ever</h2>
+        <h2>Why Toronto Airbnb Cleaning Is Different</h2>
         <p class="serif">Data-backed insights from industry research</p>
       </div>
       <div class="stats-grid">
@@ -223,7 +244,7 @@ const serviceSchema = {
   <section class="section services-section">
     <div class="container">
       <div class="section-header">
-        <h2>Our Cleaning Services</h2>
+        <h2>What Our Toronto Airbnb Cleaning Service Includes</h2>
         <p class="serif">Everything you need for 5-star cleanliness</p>
       </div>
       <div class="services-grid">
@@ -372,6 +393,23 @@ const serviceSchema = {
             <p>{service.description}</p>
             <span class="arrow">→</span>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Toronto Airbnb Cleaning FAQs</h2>
+        <p class="serif">Answers to the most common questions about our Toronto Airbnb cleaning service</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-card">
+            <h4>{faq.q}</h4>
+            <p>{faq.a}</p>
+          </div>
         ))}
       </div>
     </div>
@@ -1084,5 +1122,41 @@ const serviceSchema = {
     .cta-content h2 {
       font-size: 1.75rem;
     }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .faq-section {
+    background: white;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .faq-card {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .faq-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .faq-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 </style>
