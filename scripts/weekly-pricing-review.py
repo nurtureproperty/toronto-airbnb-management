@@ -144,12 +144,95 @@ def create_notion_page(title, alerts):
             "type": "heading_2",
             "heading_2": {"rich_text": [{"type": "text", "text": {"content": "Weekly Pricing Review"}}]},
         },
+        # Prominent Start Here callout with Dashboard link
+        {
+            "object": "block",
+            "type": "callout",
+            "callout": {
+                "icon": {"type": "emoji", "emoji": "📊"},
+                "color": "green_background",
+                "rich_text": [
+                    {"type": "text", "text": {"content": "START HERE: Open the "}},
+                    {
+                        "type": "text",
+                        "text": {"content": "Pricing Dashboard Google Sheet", "link": {"url": PRICING_DASHBOARD_URL}},
+                        "annotations": {"bold": True},
+                    },
+                    {"type": "text", "text": {"content": ". This is the primary tool for the review. All data, grades, recommendations, and change logs live here."}},
+                ],
+            },
+        },
+        {
+            "object": "block",
+            "type": "heading_3",
+            "heading_3": {"rich_text": [{"type": "text", "text": {"content": "What You Need to Do"}}]},
+        },
         {
             "object": "block",
             "type": "paragraph",
             "paragraph": {
                 "rich_text": [
-                    {"type": "text", "text": {"content": "Spot check pricing across all properties. Aim to finish by 12 PM. Mark each item below as you complete it, then set this task to Done. The team's Saturday morning pricing email (sent at 7 AM) has the full briefing for context."}}
+                    {"type": "text", "text": {"content": "Your goal this week: review every property in the Dashboard, act on anything that is yellow or red, log every change, and keep host payouts above their Minimum 30d Revenue targets. Follow the 5 steps below in order."}}
+                ]
+            },
+        },
+        {
+            "object": "block",
+            "type": "numbered_list_item",
+            "numbered_list_item": {
+                "rich_text": [
+                    {"type": "text", "text": {"content": "Open the "}, "annotations": {"bold": True}},
+                    {"type": "text", "text": {"content": "Pricing Dashboard", "link": {"url": PRICING_DASHBOARD_URL}}, "annotations": {"bold": True}},
+                    {"type": "text", "text": {"content": ". Sort or filter the Grade column to surface 🔴 Needs Optimizing and 🟡 Slightly Under properties first. These are your priorities."}},
+                ]
+            },
+        },
+        {
+            "object": "block",
+            "type": "numbered_list_item",
+            "numbered_list_item": {
+                "rich_text": [
+                    {"type": "text", "text": {"content": "Read the Smart Recommendation column "}, "annotations": {"bold": True}},
+                    {"type": "text", "text": {"content": "for each flagged property. It gives you layered tactical advice based on BLT, occupancy trends, historical data, and the Vacancy Troubleshooting Formula. Use it as your starting point, not the full plan."}},
+                ]
+            },
+        },
+        {
+            "object": "block",
+            "type": "numbered_list_item",
+            "numbered_list_item": {
+                "rich_text": [
+                    {"type": "text", "text": {"content": "Check the Host Payout Last 30d column "}, "annotations": {"bold": True}},
+                    {"type": "text", "text": {"content": "for cells highlighted red or yellow. Red means payout is 85% or less of the client's Minimum 30d Revenue target. Fix these first — they are costing real money."}},
+                ]
+            },
+        },
+        {
+            "object": "block",
+            "type": "numbered_list_item",
+            "numbered_list_item": {
+                "rich_text": [
+                    {"type": "text", "text": {"content": "Work through the 34-item checklist below "}, "annotations": {"bold": True}},
+                    {"type": "text", "text": {"content": "(Pricing Dashboard Review section). Each item is a specific action: scan calendar gaps, compare to competitors, adjust base prices, verify customizations, etc. Tick each item as you complete it."}},
+                ]
+            },
+        },
+        {
+            "object": "block",
+            "type": "numbered_list_item",
+            "numbered_list_item": {
+                "rich_text": [
+                    {"type": "text", "text": {"content": "Log every change in the Dashboard. "}, "annotations": {"bold": True}},
+                    {"type": "text", "text": {"content": "Base price changes go in the Price Change Log column (format: YYYY-MM-DD: $X to $Y, reason). Listing changes go in the Listing Optimization Log column. Without these logs, the Friday audit cannot measure whether your decisions worked."}},
+                ]
+            },
+        },
+        {
+            "object": "block",
+            "type": "paragraph",
+            "paragraph": {
+                "rich_text": [
+                    {"type": "text", "text": {"content": "Finish by 12 PM Saturday. Post a Slack summary in #general when done. Mark this task Done. The Monday 8 AM completion check verifies everything was completed. The Saturday 7 AM pricing summary email has the data briefing for context."}}
                 ]
             },
         },
