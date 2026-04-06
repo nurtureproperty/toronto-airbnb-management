@@ -226,6 +226,26 @@ def ghl_find_guest_by_name(first_name, last_name):
     return None
 
 
+def ghl_find_guest_by_phone(phone):
+    """Search GHL for a contact by phone number (fallback when no email)."""
+    if not phone:
+        return None
+    resp = requests.get(
+        f"{GHL_API_BASE}/contacts/",
+        headers=ghl_headers(),
+        params={"locationId": GHL_LOCATION_ID, "query": phone, "limit": 5},
+        timeout=15,
+    )
+    if resp.status_code != 200:
+        log.error(f"GHL contact search by phone failed: {resp.status_code} {resp.text[:200]}")
+        return None
+    contacts = resp.json().get("contacts", [])
+    for c in contacts:
+        if c.get("phone", "").replace("+", "").replace(" ", "") == phone.replace("+", "").replace(" ", ""):
+            return c
+    return contacts[0] if contacts else None
+
+
 def hosp_get_reservation(reservation_id):
     """Fetch a single reservation from Hospitable to get guest email/phone."""
     data = hosp_get(f"/reservations/{reservation_id}", params={"include": "guest"})
@@ -457,11 +477,15 @@ def _process_reviews_inner(dry_run=False):
         # email, phone, and full name)
         contact = None
         guest_email = ""
+        guest_phone = ""
+        res_data = None
         if reservation_id:
             log.info(f"Fetching reservation {reservation_id} for guest details...")
             res_data = hosp_get_reservation(reservation_id)
             res_guest = res_data.get("guest", {})
-            guest_email = res_guest.get("email", "")
+            guest_email = res_guest.get("email", "") or ""
+            phones = res_guest.get("phone_numbers", [])
+            guest_phone = phones[0] if phones else ""
             # Backfill name from reservation if review didn't have it
             if not guest_first and res_guest.get("first_name"):
                 guest_first = res_guest["first_name"]
@@ -472,14 +496,20 @@ def _process_reviews_inner(dry_run=False):
                 contact = ghl_find_guest_by_email(guest_email)
                 time.sleep(0.2)
 
-        # Step 2: Fallback to name search
+        # Step 2: Fallback to phone search
+        if not contact and guest_phone:
+            log.info(f"Email lookup failed, trying phone: {guest_phone}")
+            contact = ghl_find_guest_by_phone(guest_phone)
+            time.sleep(0.2)
+
+        # Step 3: Fallback to name search
         if not contact and guest_first:
-            log.info(f"Email lookup failed, trying name: {guest_full}")
+            log.info(f"Phone lookup failed, trying name: {guest_full}")
             contact = ghl_find_guest_by_name(guest_first, guest_last)
             time.sleep(0.2)
 
-        # Step 3: If still no contact, create one in GHL with the guest info
-        if not contact and (guest_email or guest_first):
+        # Step 4: If still no contact, create one in GHL with the guest info
+        if not contact and (guest_email or guest_phone or guest_first):
             log.info(f"No existing GHL contact found. Creating new contact for {guest_full}...")
             create_payload = {"locationId": GHL_LOCATION_ID}
             if guest_first:
@@ -488,11 +518,8 @@ def _process_reviews_inner(dry_run=False):
                 create_payload["lastName"] = guest_last
             if guest_email:
                 create_payload["email"] = guest_email
-            # Add phone if available from reservation
-            if reservation_id and res_data:
-                phones = res_data.get("guest", {}).get("phone_numbers", [])
-                if phones:
-                    create_payload["phone"] = phones[0]
+            if guest_phone:
+                create_payload["phone"] = guest_phone
             create_payload["tags"] = ["airbnb-guest"]
             create_payload["source"] = "5-star review auto-create"
 
