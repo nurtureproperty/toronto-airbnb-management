@@ -389,13 +389,12 @@ def _process_reviews_inner(dry_run=False):
                 except (ValueError, TypeError):
                     pass
 
-            # Mark all reviews as processed (not just 5-star) to avoid re-checking
-            processed.add(rid)
-            processed_fps.add(fp)
-
             # Detect low reviews (under 5 stars) and alert Slack
             # Do NOT tag these guests in GHL (prevents Google review request automation)
             if rating is not None and rating < 5:
+                # Mark non-5-star reviews as processed immediately
+                processed.add(rid)
+                processed_fps.add(fp)
                 guest = review.get("guest", {})
                 guest_first = guest.get("first_name", "")
                 guest_last = guest.get("last_name", "")
@@ -414,6 +413,9 @@ def _process_reviews_inner(dry_run=False):
 
             if rating != 5:
                 log.info(f"Skipping {rating}-star review for {pinfo['name']}")
+                # Mark non-5-star reviews as processed immediately
+                processed.add(rid)
+                processed_fps.add(fp)
                 continue
 
             guest = review.get("guest", {})
@@ -425,6 +427,7 @@ def _process_reviews_inner(dry_run=False):
             log.info(f"Found 5-star review for {pinfo['name']} from {guest_first} {guest_last}!")
             new_five_stars.append({
                 "review_id": rid,
+                "fingerprint": fp,
                 "property_id": pid,
                 "property_name": pinfo["name"],
                 "review_text": review_text[:200],
@@ -468,8 +471,13 @@ def _process_reviews_inner(dry_run=False):
         reservation_id = review_info["reservation_id"]
         guest_full = f"{guest_first} {guest_last}".strip()
 
+        rid = review_info["review_id"]
+        rfp = review_info["fingerprint"]
+
         if dry_run:
             log.info(f"[DRY RUN] Would process 5-star review for {pname} from {guest_full}")
+            processed.add(rid)
+            processed_fps.add(rfp)
             continue
 
         # Step 1: Fetch full reservation to get guest details (review API
@@ -536,11 +544,12 @@ def _process_reviews_inner(dry_run=False):
                 log.error(f"Failed to create GHL contact: {resp.status_code} {resp.text[:200]}")
 
         if not contact:
-            log.warning(f"No GHL contact found for {guest_full} at {pname}")
+            log.warning(f"No GHL contact found for {guest_full} at {pname} — will retry next run")
             slack_notify(
                 f"⭐ 5-star review received for *{pname}* from {guest_full} "
-                f"but could not find guest contact in GHL to send Google review request."
+                f"but could not find guest contact in GHL to send Google review request. Will retry next run."
             )
+            # Do NOT mark as processed — retry next run
             continue
 
         contact_id = contact.get("id")
@@ -550,6 +559,9 @@ def _process_reviews_inner(dry_run=False):
         success = ghl_add_tag(contact_id, GHL_REVIEW_TAG)
 
         if success:
+            # Only mark as processed after successful tagging
+            processed.add(rid)
+            processed_fps.add(rfp)
             slack_notify(
                 f"⭐ 5-star review at *{pname}*!\n"
                 f"Guest: {guest_full} (GHL match: {contact_name})\n"
@@ -557,10 +569,11 @@ def _process_reviews_inner(dry_run=False):
             )
             email_notify(guest_full, pname, review_info.get("review_text", ""))
         else:
+            # Do NOT mark as processed — retry next run
             slack_notify(
                 f"⭐ 5-star review at *{pname}*\n"
                 f"Guest: {guest_full}\n"
-                f"❌ Failed to tag contact in GHL"
+                f"❌ Failed to tag contact in GHL. Will retry next run."
             )
 
     # Save state
