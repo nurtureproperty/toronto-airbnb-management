@@ -1202,6 +1202,32 @@ async function notifyGuestEscalation(guestName, property, confidence, guestMessa
   }
 }
 
+async function logGuestBotAction(action, guestName, property, confidence, guestMessage, botReply, assignedTo) {
+  const slackToken = process.env.SLACK_BOT_TOKEN;
+  const slackChannel = process.env.SLACK_CHANNEL_ID;
+  if (!slackToken || !slackChannel) return;
+
+  const emoji = action === 'auto-reply' ? ':robot_face:' : ':warning:';
+  const confEmoji = confidence >= 90 ? ':large_green_circle:' : confidence >= 70 ? ':large_yellow_circle:' : ':red_circle:';
+  const time = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Toronto' });
+
+  let text = `${emoji} *GUEST_BOT_LOG* | ${time} | ${action.toUpperCase()}\n`;
+  text += `Guest: ${guestName || 'Unknown'} | Property: ${property || 'Unknown'} | Confidence: ${confEmoji} ${confidence}%\n`;
+  text += `Q: "${(guestMessage || '').slice(0, 150)}"\n`;
+  text += `A: "${(botReply || '').slice(0, 200)}"`;
+  if (action === 'escalated' && assignedTo) text += `\nEscalated to: ${assignedTo}`;
+
+  try {
+    await fetch('https://slack.com/api/chat.postMessage', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${slackToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ channel: slackChannel, text, unfurl_links: false }),
+    });
+  } catch (e) {
+    console.error('Failed to log guest bot action to Slack:', e.message);
+  }
+}
+
 async function generateFBResponse(contact, conversationHistory, firstName, contactId, account = null) {
   const contactContext = buildContactContext(contact);
   const token = getAccountToken(account);
@@ -1461,7 +1487,9 @@ app.post('/webhook/fb-message', async (req, res) => {
       const assignedPerson = findAssignedPerson(conversationHistory + ' ' + (property || ''));
       const lastGuestMsg = conversationHistory.split('\n').filter(l => l.includes('[INBOUND]') || l.includes('Guest:')).pop() || 'See conversation history';
 
-      await notifyGuestEscalation(firstName, property, confidence, lastGuestMsg.replace(/.*\]\s*/, '').trim(), reply, assignedPerson, contactId);
+      const lastGuestMsgText = lastGuestMsg.replace(/.*\]\s*/, '').trim();
+      await notifyGuestEscalation(firstName, property, confidence, lastGuestMsgText, reply, assignedPerson, contactId);
+      logGuestBotAction('escalated', firstName, property, confidence, lastGuestMsgText, reply, assignedPerson.name);
       console.log(`Confidence ${confidence}% < 90%. Escalated to ${assignedPerson.name}. No auto-reply sent.`);
 
       return res.json({ success: true, escalated: true, confidence, assignedTo: assignedPerson.name, draftReply: reply });
@@ -1469,6 +1497,8 @@ app.post('/webhook/fb-message', async (req, res) => {
 
     // Send the reply via Facebook
     const sendResult = await sendFBMessage(contactId, reply, token);
+    const lastInbound = conversationHistory.split('\n').filter(l => l.includes('[INBOUND]') || l.includes('Guest:')).pop() || '';
+    logGuestBotAction('auto-reply', firstName, property, confidence, lastInbound.replace(/.*\]\s*/, '').trim(), reply, null);
     console.log('FB message sent successfully');
 
     res.json({
@@ -1610,6 +1640,10 @@ app.post('/webhook/nurture-pm', async (req, res) => {
 
       console.log(`Confidence ${confidence}% < 90%. Escalated to ${assignedPerson.name} via Slack. No auto-reply sent.`);
 
+      // Log the escalation
+      const lastGuestMsgText = lastGuestMsg.replace(/.*\]\s*/, '').trim();
+      logGuestBotAction('escalated', firstName, property, confidence, lastGuestMsgText, reply, assignedPerson.name);
+
       return res.json({
         success: true,
         contactId,
@@ -1625,6 +1659,10 @@ app.post('/webhook/nurture-pm', async (req, res) => {
     // Confidence >= 90%, send the reply
     const sendResult = await sendGHLMessage(contactId, reply, messageType, token);
     console.log(`${messageType} message sent successfully (confidence: ${confidence}%)`);
+
+    // Log the auto-reply
+    const lastInbound = conversationHistory.split('\n').filter(l => l.includes('[INBOUND]') || l.includes('Guest:')).pop() || '';
+    logGuestBotAction('auto-reply', firstName, property, confidence, lastInbound.replace(/.*\]\s*/, '').trim(), reply, null);
 
     res.json({
       success: true,
