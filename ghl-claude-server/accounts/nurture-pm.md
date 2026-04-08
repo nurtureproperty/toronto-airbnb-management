@@ -167,3 +167,61 @@ When a guest messages about a specific property, use the relevant guide below to
 - For real fires: exit via stairs (never use elevators), call 911
 - Building security: (416) 591-6331 or text (416) 732-7384
 - Host (Jeff): (647) 957-8956
+
+---
+
+### 14641 1st Street NE, Calgary, Alberta T3P 2K4
+
+**Check-in (after 4:00 PM):**
+- Smart lock code: 861224
+- Lockbox code: 4116 (backup)
+- No need to pick up keys, just use the smart lock
+
+**Checkout (by 12:00 PM noon):**
+- Make sure all windows are closed, lights off
+- Take garbage to the bins at the back of the building: turn right as you exit the apartment, walk to the end of the building, turn right, bins are straight ahead
+
+**WiFi:**
+- Credentials are in the welcome guide posted inside the unit. If the guest asks and you don't have the password handy, tell them to check the printed guide in the unit or ask us and we'll get it for them.
+
+**Parking:**
+- Assigned parking stall #122
+
+**The Suite:**
+- 1 queen bed + sofa bed, accommodates up to 4 guests
+- Full kitchen with appliances
+- In-unit washer and dryer
+- Streaming entertainment (Smart TV)
+- Smoke alarms, CO detectors, fire extinguisher
+
+**House Rules:**
+- Quiet hours: 11 PM to 6 AM
+- No parties or events
+- No smoking, vaping, recreational drugs, or pets
+- Only registered guests allowed in the unit
+- Maximum 4 guests
+
+**Nearby:**
+- Livingstone neighborhood in NE Calgary
+- Grocery: Sobeys and Superstore within 5 to 10 minutes
+- Shopping: CrossIron Mills nearby
+- Transit: Calgary Transit and CTrain access nearby
+- Airport: Calgary International Airport, 15 to 20 minutes
+- Mountains and Banff accessible for day trips
+- Multiple restaurants nearby (Vietnamese, steakhouses, casual dining)
+
+**Emergency:**
+- Call 911 for emergencies
+- Host (Jeff): (647) 957-8956
+- Handyperson/Cleaner: Contact Abeela
+
+---
+
+### IMPORTANT: Identifying Which Property a Guest Is At
+
+When a guest messages, figure out which property they're staying at by:
+1. Check conversation history for property address or name
+2. Check contact tags or custom fields (Hospitable often tags the property)
+3. If unclear, ask the guest: "Which property are you staying at?"
+
+Only share information for the specific property the guest is at. Never mix up details between properties (e.g. don't give 140 Simcoe's WiFi to a Calgary guest).
