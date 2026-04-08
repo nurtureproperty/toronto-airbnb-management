@@ -182,7 +182,8 @@ When a guest messages about a specific property, use the relevant guide below to
 - Take garbage to the bins at the back of the building: turn right as you exit the apartment, walk to the end of the building, turn right, bins are straight ahead
 
 **WiFi:**
-- Credentials are in the welcome guide posted inside the unit. If the guest asks and you don't have the password handy, tell them to check the printed guide in the unit or ask us and we'll get it for them.
+- Network: TELUS7957
+- Password: cbv3GLv4xN2f
 
 **Parking:**
 - Assigned parking stall #122
