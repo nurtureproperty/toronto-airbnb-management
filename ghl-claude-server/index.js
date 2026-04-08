@@ -1148,6 +1148,60 @@ async function createAppointment(calendarId, contactId, startIso, durationMinute
   return response.json();
 }
 
+// Property-to-team-member mapping for guest message escalation
+const PROPERTY_ASSIGNMENTS = {
+  '140 simcoe': { name: 'Alondra', slackId: 'U09192YPUSW' },
+  '14641 1st': { name: 'Clarita', slackId: 'U08MXLMN6Q0' },
+  '14655 1st': { name: 'Clarita', slackId: 'U08MXLMN6Q0' },
+  '14639 1st': { name: 'Clarita', slackId: 'U08MXLMN6Q0' },
+};
+
+function findAssignedPerson(conversationText) {
+  const lower = (conversationText || '').toLowerCase();
+  for (const [key, person] of Object.entries(PROPERTY_ASSIGNMENTS)) {
+    if (lower.includes(key)) return person;
+  }
+  // Default fallback
+  return { name: 'Angelica', slackId: 'U05VAHNTEVD' };
+}
+
+async function notifyGuestEscalation(guestName, property, confidence, guestMessage, draftReply, assignedPerson, contactId) {
+  const slackToken = process.env.SLACK_BOT_TOKEN;
+  const slackChannel = process.env.SLACK_CHANNEL_ID;
+  if (!slackToken || !slackChannel) {
+    console.log('Slack not configured, skipping escalation notification');
+    return;
+  }
+
+  let text = `:warning: *Guest Message Needs Human Response*\n`;
+  text += `*Guest:* ${guestName}\n`;
+  if (property) text += `*Property:* ${property}\n`;
+  text += `*Confidence:* ${confidence}%\n`;
+  text += `*Guest said:* "${guestMessage}"\n`;
+  if (draftReply) text += `*Draft reply (not sent):* "${draftReply}"\n`;
+  text += `*Assigned to:* <@${assignedPerson.slackId}> please respond in Hospitable.`;
+  if (contactId) text += `\n<https://app.gohighlevel.com/v2/location/your-location/contacts/${contactId}|View in GHL>`;
+
+  try {
+    const response = await fetch('https://slack.com/api/chat.postMessage', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${slackToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        channel: slackChannel,
+        text,
+        unfurl_links: false,
+      }),
+    });
+    const result = await response.json();
+    console.log('Guest escalation Slack notification sent:', result.ok);
+  } catch (e) {
+    console.error('Failed to send guest escalation Slack notification:', e.message);
+  }
+}
+
 async function generateFBResponse(contact, conversationHistory, firstName, contactId, account = null) {
   const contactContext = buildContactContext(contact);
   const token = getAccountToken(account);
@@ -1184,7 +1238,14 @@ ${slotsContext}
 ## Full Conversation History (read this carefully before replying)
 ${conversationHistory}
 
-Now write your reply to the lead's most recent message above. Reply ONLY with the message text, nothing else.
+Now write your reply to the lead's most recent message above. You MUST respond in this exact JSON format:
+{"confidence": <number 0-100>, "property": "<property address or null>", "reply": "<your message text>", "reason": "<why confidence is below 90, or 'confident' if 90+>"}
+
+Confidence guidelines:
+- 90-100: You have the exact answer in the property guide (WiFi, parking, check-in instructions, house rules, etc.)
+- 70-89: You have a general answer but are not certain about specifics (e.g. pricing, availability, building policies not in the guide)
+- Below 70: The question is about something not covered in your knowledge (maintenance issues, special requests, complaints, refunds, booking changes)
+
 If the lead has clearly confirmed they want to book a specific slot from the list above, also call the book_appointment tool.`;
 
   // Include tools - always include notify_team, add booking tool when calendar is configured
@@ -1264,18 +1325,38 @@ If the lead has clearly confirmed they want to book a specific slot from the lis
     if ((confirmText.startsWith('"') && confirmText.endsWith('"')) || (confirmText.startsWith("'") && confirmText.endsWith("'"))) {
       confirmText = confirmText.slice(1, -1);
     }
-    return confirmText;
+    // Tool use paths (booking, notification) are always high confidence actions
+    return { reply: confirmText, confidence: 95, property: null, reason: 'tool use' };
   }
 
-  // No tool use - return plain text reply
-  let message = textBlock?.text?.trim() || '';
+  // No tool use - parse JSON response with confidence
+  let rawText = textBlock?.text?.trim() || '';
 
-  // Remove any quotes Claude might wrap the message in
-  if ((message.startsWith('"') && message.endsWith('"')) || (message.startsWith("'") && message.endsWith("'"))) {
-    message = message.slice(1, -1);
+  // Try to parse as JSON with confidence
+  try {
+    // Extract JSON from the response (Claude sometimes wraps in markdown code blocks)
+    let jsonStr = rawText;
+    const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+    if (jsonMatch) jsonStr = jsonMatch[0];
+
+    const parsed = JSON.parse(jsonStr);
+    const confidence = parsed.confidence || 0;
+    const reply = parsed.reply || rawText;
+    const property = parsed.property || null;
+    const reason = parsed.reason || '';
+
+    console.log(`Response confidence: ${confidence}%, property: ${property}, reason: ${reason}`);
+
+    return { reply, confidence, property, reason };
+  } catch (e) {
+    // If JSON parsing fails, treat as plain text with high confidence
+    console.log('Could not parse confidence JSON, treating as plain text');
+    let message = rawText;
+    if ((message.startsWith('"') && message.endsWith('"')) || (message.startsWith("'") && message.endsWith("'"))) {
+      message = message.slice(1, -1);
+    }
+    return { reply: message, confidence: 95, property: null, reason: 'plain text fallback' };
   }
-
-  return message;
 }
 
 async function sendFBMessage(contactId, message, token = null) {
@@ -1368,17 +1449,33 @@ app.post('/webhook/fb-message', async (req, res) => {
     }
 
     // Generate response with Claude using account context
-    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId, account);
-    console.log('Generated FB reply:', generatedMessage);
+    const result = await generateFBResponse(contact, conversationHistory, firstName, contactId, account);
+    const reply = typeof result === 'string' ? result : result.reply;
+    const confidence = typeof result === 'string' ? 95 : (result.confidence || 95);
+    const property = typeof result === 'string' ? null : result.property;
+
+    console.log(`Generated FB reply (confidence: ${confidence}%):`, reply);
+
+    // If confidence is below 90%, escalate instead of auto-replying
+    if (confidence < 90) {
+      const assignedPerson = findAssignedPerson(conversationHistory + ' ' + (property || ''));
+      const lastGuestMsg = conversationHistory.split('\n').filter(l => l.includes('[INBOUND]') || l.includes('Guest:')).pop() || 'See conversation history';
+
+      await notifyGuestEscalation(firstName, property, confidence, lastGuestMsg.replace(/.*\]\s*/, '').trim(), reply, assignedPerson, contactId);
+      console.log(`Confidence ${confidence}% < 90%. Escalated to ${assignedPerson.name}. No auto-reply sent.`);
+
+      return res.json({ success: true, escalated: true, confidence, assignedTo: assignedPerson.name, draftReply: reply });
+    }
 
     // Send the reply via Facebook
-    const sendResult = await sendFBMessage(contactId, generatedMessage, token);
+    const sendResult = await sendFBMessage(contactId, reply, token);
     console.log('FB message sent successfully');
 
     res.json({
       success: true,
       contactId,
-      messageSent: generatedMessage,
+      confidence,
+      messageSent: reply,
       sendResult,
     });
 
@@ -1484,18 +1581,57 @@ app.post('/webhook/nurture-pm', async (req, res) => {
     }
 
     // Generate response using account-specific context + knowledge base + tools
-    const generatedMessage = await generateFBResponse(contact, conversationHistory, firstName, contactId, account);
-    console.log(`Generated ${messageType} reply:`, generatedMessage);
+    const result = await generateFBResponse(contact, conversationHistory, firstName, contactId, account);
 
-    // Send the reply via the appropriate channel
-    const sendResult = await sendGHLMessage(contactId, generatedMessage, messageType, token);
-    console.log(`${messageType} message sent successfully`);
+    // Handle both old string returns and new {reply, confidence} returns
+    const reply = typeof result === 'string' ? result : result.reply;
+    const confidence = typeof result === 'string' ? 95 : (result.confidence || 95);
+    const property = typeof result === 'string' ? null : result.property;
+    const reason = typeof result === 'string' ? '' : (result.reason || '');
+
+    console.log(`Generated ${messageType} reply (confidence: ${confidence}%):`, reply);
+
+    // If confidence is below 90%, escalate to assigned team member instead of auto-replying
+    if (confidence < 90) {
+      const assignedPerson = findAssignedPerson(conversationHistory + ' ' + (property || ''));
+
+      // Extract the guest's last message from conversation history
+      const lastGuestMsg = conversationHistory.split('\n').filter(l => l.includes('[INBOUND]') || l.includes('Guest:')).pop() || 'See conversation history';
+
+      await notifyGuestEscalation(
+        firstName,
+        property,
+        confidence,
+        lastGuestMsg.replace(/.*\]\s*/, '').trim(),
+        reply,
+        assignedPerson,
+        contactId
+      );
+
+      console.log(`Confidence ${confidence}% < 90%. Escalated to ${assignedPerson.name} via Slack. No auto-reply sent.`);
+
+      return res.json({
+        success: true,
+        contactId,
+        messageType,
+        escalated: true,
+        confidence,
+        assignedTo: assignedPerson.name,
+        reason,
+        draftReply: reply,
+      });
+    }
+
+    // Confidence >= 90%, send the reply
+    const sendResult = await sendGHLMessage(contactId, reply, messageType, token);
+    console.log(`${messageType} message sent successfully (confidence: ${confidence}%)`);
 
     res.json({
       success: true,
       contactId,
       messageType,
-      messageSent: generatedMessage,
+      confidence,
+      messageSent: reply,
       sendResult,
     });
 
