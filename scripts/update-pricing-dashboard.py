@@ -98,10 +98,12 @@ AUTO_COLUMN_SPECS = [
     ("Property", ["Property"], lambda m: m["name"]),
     ("Homeowner", ["Homeowner"], lambda m: m.get("homeowner", "")),
     ("Hospitable ID", ["Hospitable ID", "ID", "Listing ID"], lambda m: str(m["hospitable_id"])),
-    ("Base Price", ["Base Price"], lambda m: format_currency(m.get("base_price"))),
-    ("Suggested Base", ["Suggested Base"], lambda m: format_currency(m.get("suggested_base"))),
-    ("BLT Short-Term (days)", ["BLT Short-Term (days)", "BLT Short-Term", "BLT Short"], lambda m: m.get("blt_short", "") if m.get("blt_short") is not None else ""),
-    ("BLT Mid-Term (days)", ["BLT Mid-Term (days)", "BLT Mid-Term", "BLT Mid"], lambda m: m.get("blt_mid", "") if m.get("blt_mid") is not None else ""),
+    # Base Price — MANUAL (bold column, Nina updates from Airbnb Insights)
+    # Nightly rate (last 30 day) — MANUAL (bold column, Nina updates from Airbnb Insights)
+    # BLT Short-Term — MANUAL (bold column, Nina updates from Airbnb Insights monthly)
+    # Suggested Base — REMOVED (65% of calendar avg was misleading for existing properties)
+    # BLT Short-Term removed from auto — now manual column (see comment above)
+    # BLT Mid-Term — REMOVED (not useful for weekly pricing decisions)
     ("Target Occ at BLT", ["Target Occ at BLT", "Target Occupancy"], lambda m: format_percent(m.get("target_occ"))),
     ("Occ at BLT (forward)", ["Occ at BLT (forward)", "Occ at BLT"], lambda m: format_percent(m.get("occ_blt"))),
     ("Grade", ["Grade"], lambda m: m.get("grade", "")),
@@ -116,7 +118,7 @@ AUTO_COLUMN_SPECS = [
 
 BLT_BENCHMARK_ALIASES = ["BLT Benchmark", "BLT Benchmark (days)"]
 HOSPITABLE_ID_ALIASES = ["Hospitable ID", "ID", "Listing ID"]
-TRACKED_CHANGE_FIELDS = ["Base Price", "Grade", "Recommendation"]
+TRACKED_CHANGE_FIELDS = ["Grade", "Recommendation"]
 
 
 def build_auto_columns_for_headers(headers):
@@ -346,9 +348,9 @@ def compute_grade(occ_at_blt, target_occ):
     diff_pct = (occ_at_blt - target_occ) * 100
     if diff_pct >= 15:
         return "⚪ Priced Too Low", "Raise base +5%: running ahead of target", "+5%"
-    if -10 <= diff_pct <= 10:
+    if diff_pct > -10:
         return "🟢 Good Occupancy", "On target, no change needed", "0%"
-    if -20 <= diff_pct < -10:
+    if diff_pct >= -20:
         return "🟡 Slightly Under", "Lower base 5%: slightly under target", "-5%"
     return "🔴 Needs Optimizing", "Lower base 10% or reoptimize listing", "-10%"
 
@@ -443,7 +445,7 @@ def calculate_metrics(prop, notion_data, blt_benchmark_days=None):
             res_status = (r.get("status") or "").lower()
             is_cancelled = res_status in ("cancelled", "canceled")
 
-            if not is_cancelled and booked >= today - timedelta(days=180):
+            if not is_cancelled and booked >= today - timedelta(days=90):
                 lead = (ci - booked).days
                 nights = r.get("nights") or 0
                 if not nights and co_str:
@@ -490,6 +492,63 @@ def calculate_metrics(prop, notion_data, blt_benchmark_days=None):
     result["blt_mid"] = round(sum(blts_mt) / len(blts_mt)) if len(blts_mt) >= 2 else None
     result["revenue_30d"] = revenue_30d
 
+    # Calculate actual booked nightly rate (last 30 days)
+    # Uses host.accommodation (gross nightly rate before Airbnb fees/discounts)
+    # to match Airbnb Insights benchmark which shows gross accommodation rate
+    gross_accom_30d = 0
+    booked_nights_30d = 0
+    rate_window_start = today - timedelta(days=30)
+    rate_window_end = today
+    for r in reservations:
+        try:
+            res_status = (r.get("status") or "").lower()
+            if res_status in ("cancelled", "canceled"):
+                continue
+            ci_str = r.get("check_in") or r.get("arrival_date")
+            co_str = r.get("check_out") or r.get("departure_date")
+            if not ci_str or not co_str:
+                continue
+            ci = datetime.fromisoformat(ci_str.replace("Z", "+00:00")).date()
+            co = datetime.fromisoformat(co_str.replace("Z", "+00:00")).date()
+            overlap_start = max(ci, rate_window_start)
+            overlap_end = min(co, rate_window_end)
+            overlap_nights = (overlap_end - overlap_start).days
+            if overlap_nights <= 0:
+                continue
+            fin = r.get("financials", {}) or {}
+            host = fin.get("host", {}) if isinstance(fin, dict) else {}
+            # Use accommodation_breakdown for exact per-night rates when available
+            breakdown = host.get("accommodation_breakdown", [])
+            if breakdown:
+                for day_entry in breakdown:
+                    label = day_entry.get("label", "")
+                    try:
+                        day_date = datetime.fromisoformat(label).date()
+                    except (ValueError, TypeError):
+                        continue
+                    if rate_window_start <= day_date < rate_window_end:
+                        amt = day_entry.get("amount", 0)
+                        try:
+                            gross_accom_30d += float(amt) / 100
+                            booked_nights_30d += 1
+                        except (ValueError, TypeError):
+                            pass
+            else:
+                # Fallback: use total accommodation / nights
+                accom_obj = host.get("accommodation", {}) if isinstance(host, dict) else {}
+                raw = accom_obj.get("amount", 0) if isinstance(accom_obj, dict) else 0
+                try:
+                    total_accom = float(raw or 0) / 100
+                except (ValueError, TypeError):
+                    total_accom = 0
+                total_nights = (co - ci).days or 1
+                nightly = total_accom / total_nights
+                gross_accom_30d += nightly * overlap_nights
+                booked_nights_30d += overlap_nights
+        except Exception:
+            pass
+    result["actual_nightly_rate_30d"] = (gross_accom_30d / booked_nights_30d) if booked_nights_30d > 0 else None
+
     blt_window = blt_benchmark_days or result["blt_short"] or 15
     cal_end = today + timedelta(days=max(blt_window + 10, 60))
     calendar = fetch_property_calendar(pid, today, cal_end)
@@ -512,7 +571,12 @@ def calculate_metrics(prop, notion_data, blt_benchmark_days=None):
 
         days_out = (d - today).days
         status = day.get("status", {}) if isinstance(day.get("status"), dict) else {}
-        is_booked = not status.get("available", True)
+        reason = (status.get("reason") or "").upper()
+        # Skip owner-blocked days entirely (not available, not a guest booking)
+        # Only count RESERVED (guest booked) and AVAILABLE in occupancy calc
+        if reason == "BLOCKED":
+            continue
+        is_booked = reason == "RESERVED"
         price_obj = day.get("price")
         if isinstance(price_obj, dict):
             raw_price = price_obj.get("amount")
@@ -560,7 +624,10 @@ def calculate_metrics(prop, notion_data, blt_benchmark_days=None):
     hist_booked = hist_total = 0
     for day in hist_cal:
         st = day.get("status", {}) if isinstance(day.get("status"), dict) else {}
-        if not st.get("available", True):
+        reason = (st.get("reason") or "").upper()
+        if reason == "BLOCKED":
+            continue  # Skip owner-blocked days
+        if reason == "RESERVED":
             hist_booked += 1
         hist_total += 1
     result["occupancy_last_30d"] = (hist_booked / hist_total) if hist_total else None
