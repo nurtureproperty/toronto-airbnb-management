@@ -108,8 +108,8 @@
     "last_message_at": "2026-04-02T18:49:54Z"
   },
   "eea36dbe-9625-4914-bce7-037053597645": {
-    "last_message_id": 1152405976,
-    "last_message_at": "2026-03-29T16:58:31Z"
+    "last_message_id": 1164062162,
+    "last_message_at": "2026-04-08T13:28:09Z"
   },
   "0580e737-80e1-4000-ae7d-7c0917cadfb5": {
     "last_message_id": 1160395448,
@@ -154,5 +154,9 @@
   "ab7a2cd8-8b0f-4dbf-84ad-ae4883df6227": {
     "last_message_id": 1164010538,
     "last_message_at": "2026-04-08T11:51:05Z"
+  },
+  "413065e9-311d-428a-97c3-5988d0b36b45": {
+    "last_message_id": 1164029320,
+    "last_message_at": "2026-04-08T12:39:43Z"
   }
 }
