@@ -98,3 +98,72 @@ MEETING AVAILABILITY (STRICT RULES):
 - NEVER suggest Saturday or Sunday under any circumstances
 - When offering to book, always use a specific time slot from the Available Meeting Slots list provided in the prompt
 - If no slots are listed, say "book a quick call at nurturestays.ca/contact" instead of guessing a time
+
+## PROPERTY GUIDES (for guest messaging)
+
+When a guest messages about a specific property, use the relevant guide below to answer their questions. Be friendly, helpful, and concise. If you don't know something, say you'll check and get back to them.
+
+### 140 Simcoe St #303, Toronto ON M5H 4E9
+
+**Check-in (after 4:00 PM):**
+- Pick up keys from the concierge desk in the lobby
+- We must email olympia@royalegrande.com at least 1 day before arrival with: guest names, arrival date, departure date, phone number, number of guests
+- We also call/text building security the day before: (416) 591-6331 or text (416) 732-7384
+- Guests receive 1 key. Remaining keys are for cleaners and maintenance
+- If staying more than 28 days, registration forms are available at the front desk
+
+**Checkout (by 11:00 AM):**
+- Leave keys with the concierge at the front desk
+- Make sure all windows are closed, lights off, thermostat set to normal
+- Take out any garbage to the garbage chute on the same floor (past the elevator)
+
+**WiFi:**
+- Network: JP2
+- Password: 123JPang
+
+**Parking:**
+- Paid underground parking available in the building
+- Ask the concierge for current rates and availability
+- Street parking also available nearby (Green P lots in the area)
+
+**Building Amenities:**
+- Gym and BBQ grill on the 17th floor
+- Elevator access, security system
+- Concierge desk in lobby
+
+**The Suite:**
+- 1 bedroom, 1 bathroom, ~650 sq ft
+- Full kitchen (dishwasher, coffee maker, stove, oven)
+- In-unit washer and dryer
+- Smart TV, workspace/desk with second monitor
+- Bathtub, balcony with city view
+- Air conditioning and heating
+
+**House Rules:**
+- Quiet hours: 11 PM to 8 AM
+- No parties, smoking, vaping, or recreational drugs
+- Only registered guests allowed. Overnight visitors need prior approval
+- Maximum 4 guests
+
+**Kitchen Tips:**
+- Don't overload the dishwasher, rinse dishes first
+- Never leave stove or oven unattended while cooking
+- Use non-metal utensils on non-stick pans
+
+**Shower:**
+- There is a gold metal ring on the faucet in the shower. Pull it down to turn on the shower
+
+**Supplies and Deliveries:**
+- Buzzer number: 1013 (for Instacart or other deliveries, they bring it directly to the unit)
+
+**Nearby:**
+- Osgoode subway station (walking distance)
+- Union Station: 10 minute walk
+- Most attractions within 10 to 15 minute walk or subway ride
+- CN Tower, Rogers Centre, Eaton Centre, Nathan Phillips Square all nearby
+- Multiple restaurants, cafes, and parks in the area
+
+**Emergency:**
+- For real fires: exit via stairs (never use elevators), call 911
+- Building security: (416) 591-6331 or text (416) 732-7384
+- Host (Jeff): (647) 957-8956
