@@ -1068,6 +1068,103 @@ def generate_report():
             f"MEDIUM impact. Raise 10-15%. Affects: {cities}"
         )
 
+    # ---- 180-Day STR Night Tracker ----
+    # Cities with 180-night STR limits (entire-home only, under 28 days)
+    STR_LIMIT_CITIES = {"toronto", "mississauga", "brampton", "whitby", "oshawa", "milton", "burlington", "vaughan", "oakville"}
+    str_tracker = []
+    year_start = date(now.year, 1, 1)
+    year_end = date(now.year, 12, 31)
+
+    for p in properties:
+        city_lower = p["city"].lower().strip()
+        if city_lower not in STR_LIMIT_CITIES:
+            continue
+        pid = p["id"]
+        # Count STR nights (under 28 days) from Jan 1 to today
+        prop_res = [r for r in historical_res + future_res if r.get("_property_id") == pid]
+        # Deduplicate by reservation ID
+        seen_ids = set()
+        unique_res = []
+        for r in prop_res:
+            rid = r.get("id") or r.get("code")
+            if rid and rid not in seen_ids:
+                seen_ids.add(rid)
+                unique_res.append(r)
+
+        str_nights_used = 0
+        str_nights_upcoming = 0
+        for r in unique_res:
+            status = (r.get("status") or r.get("reservation_status") or "").lower()
+            if status in ("cancelled", "canceled", "denied"):
+                continue
+            if r.get("owner_stay"):
+                continue
+            nights = r.get("nights") or 0
+            if nights >= 28:
+                continue  # Mid-term, doesn't count toward 180
+            ci_str = r.get("check_in") or r.get("arrival_date")
+            co_str = r.get("check_out") or r.get("departure_date")
+            if not ci_str or not co_str:
+                continue
+            try:
+                ci = datetime.fromisoformat(ci_str.replace("Z", "+00:00")).date()
+                co = datetime.fromisoformat(co_str.replace("Z", "+00:00")).date()
+            except (ValueError, TypeError):
+                continue
+            # Count nights that fall in this calendar year
+            overlap_start = max(ci, year_start)
+            overlap_end = min(co, year_end)
+            overlap = (overlap_end - overlap_start).days
+            if overlap <= 0:
+                continue
+            # Split into past (used) and future (upcoming)
+            today_date = now.date()
+            past_end = min(co, today_date)
+            past_start = max(ci, year_start)
+            past_nights = max(0, (past_end - past_start).days)
+            future_start = max(ci, today_date)
+            future_end = min(co, year_end)
+            future_nights = max(0, (future_end - future_start).days)
+            str_nights_used += past_nights
+            str_nights_upcoming += future_nights
+
+        remaining = 180 - str_nights_used - str_nights_upcoming
+        if remaining < 0:
+            status_text = "⛔ OVER LIMIT"
+            status_color = "#c0392b"
+        elif remaining <= 20:
+            status_text = "🔴 Switch to Mid-term Now"
+            status_color = "#c0392b"
+        elif remaining <= 50:
+            status_text = "🟡 Getting Close"
+            status_color = "#e67e22"
+        else:
+            status_text = "🟢 On Track"
+            status_color = "#27ae60"
+
+        str_tracker.append({
+            "name": p["short_name"],
+            "city": p["city"],
+            "used": str_nights_used,
+            "upcoming": str_nights_upcoming,
+            "total_committed": str_nights_used + str_nights_upcoming,
+            "remaining": max(0, remaining),
+            "status": status_text,
+            "status_color": status_color,
+        })
+
+        # Alert if approaching limit
+        if remaining <= 20 and remaining >= 0:
+            alerts.append(
+                f"⛔ {p['short_name']} ({p['city']}): Only {remaining} STR nights remaining out of 180. "
+                f"Used {str_nights_used}, upcoming {str_nights_upcoming}. Switch to 28+ day minimum immediately."
+            )
+        elif remaining < 0:
+            alerts.append(
+                f"🚨 {p['short_name']} ({p['city']}): OVER the 180-night STR limit! "
+                f"{str_nights_used + str_nights_upcoming} nights committed. Reduce bookings or extend stays to 28+ days."
+            )
+
     # Build interactive action URL
     action_items = build_pricing_actions(property_details, calendars)
     action_url = generate_action_url(action_items)
@@ -1077,13 +1174,13 @@ def generate_report():
         print("  No action URL (missing secret or no actions)")
 
     # Build text report
-    text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions)
-    html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions)
+    text_report = build_text_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions, str_tracker)
+    html_report = build_html_report(report_date, alerts, warnings, event_alerts, insights, property_details, events, action_url, orphan_actions, str_tracker)
 
     return text_report, html_report, property_details
 
 
-def build_text_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None):
+def build_text_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None, str_tracker=None):
     lines = []
     lines.append(f"DAILY PRICING INTELLIGENCE REPORT")
     lines.append(f"{date}")
@@ -1173,6 +1270,14 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
     if not alerts and not warnings:
         lines.append("\n✅ All properties look healthy. No immediate pricing action needed.")
 
+    if str_tracker:
+        lines.append(f"\n{'=' * 60}")
+        lines.append("📋 180-DAY STR NIGHT TRACKER")
+        lines.append("-" * 40)
+        lines.append(f"{'Property':<30} {'Used':>5} {'Upcoming':>8} {'Total':>7} {'Left':>5}  Status")
+        for t in str_tracker:
+            lines.append(f"{t['name']:<30} {t['used']:>5} {t['upcoming']:>8} {t['total_committed']:>5}/180 {t['remaining']:>5}  {t['status']}")
+
     lines.append(f"\n{'=' * 60}")
     lines.append("Generated by Nurture Pricing Bot")
     lines.append(f"Data as of {datetime.now().strftime('%Y-%m-%d %H:%M')} ET")
@@ -1180,7 +1285,7 @@ def build_text_report(date, alerts, warnings, event_alerts, insights, details, e
     return "\n".join(lines)
 
 
-def build_html_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None):
+def build_html_report(date, alerts, warnings, event_alerts, insights, details, events, action_url=None, orphan_actions=None, str_tracker=None):
     """Build a styled HTML email."""
 
     def section(title, items, color):
@@ -1246,6 +1351,40 @@ def build_html_report(date, alerts, warnings, event_alerts, insights, details, e
 {section("⚠️ Underpricing Warnings", warnings, "#e67e22")}
 {section("📅 Upcoming Events: Price Increase Opportunities", event_alerts, "#2980b9")}
 {section("💡 Orphan Nights &amp; Adjacent Discounts", insights, "#8e44ad")}
+
+"""
+
+    # 180-Day STR Tracker table
+    if str_tracker:
+        html += """<h3 style="color:#333;margin-top:24px;">📋 180-Day STR Night Tracker</h3>
+<p style="font-size:12px;color:#999;margin-top:-8px;margin-bottom:8px;">Toronto, Mississauga, Brampton, and other 180-night limit cities. Only counts stays under 28 nights.</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px;">
+<thead>
+    <tr style="background:#f8f8f8;">
+        <th style="padding:8px;text-align:left;border-bottom:2px solid #ddd;">Property</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">City</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Used</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Upcoming</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Total</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Remaining</th>
+        <th style="padding:8px;text-align:center;border-bottom:2px solid #ddd;">Status</th>
+    </tr>
+</thead>
+<tbody>"""
+        for t in str_tracker:
+            html += f"""
+    <tr>
+        <td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">{t['name']}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{t['city']}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{t['used']}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{t['upcoming']}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;font-weight:bold;">{t['total_committed']}/180</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;font-weight:bold;">{t['remaining']}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;color:{t['status_color']};font-weight:bold;">{t['status']}</td>
+    </tr>"""
+        html += "</tbody></table>"
+
+    html += """
 
 <h3 style="color:#333;margin-top:24px;">📊 Property Overview</h3>
 <table style="width:100%;border-collapse:collapse;font-size:13px;">

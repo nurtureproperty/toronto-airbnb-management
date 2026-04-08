@@ -46,6 +46,7 @@ load_dotenv(os.path.join(PROJECT_DIR, ".env"))
 SHEET_ID = "1Ok4Nshw5XBNM5pqNNhDkUtRN9LPrF1YrkoqH2qOap1A"
 DASHBOARD_TAB = "Dashboard"
 CHANGELOG_TAB = "Change Log"
+STR_TRACKER_TAB = "180-Day STR Tracker"
 
 HOSPITABLE_TOKEN = os.getenv("HOSPITABLE_API_TOKEN")
 HOSPITABLE_API = "https://public.api.hospitable.com/v2"
@@ -786,6 +787,78 @@ def main(dry_run=False):
     if all_changes:
         sheets_append_rows(CHANGELOG_TAB, all_changes)
         log.info(f"Logged {len(all_changes)} changes")
+
+    # ---- 180-Day STR Night Tracker ----
+    STR_LIMIT_CITIES = {"toronto", "mississauga", "brampton", "whitby", "oshawa", "milton", "burlington", "vaughan", "oakville"}
+    today = date.today()
+    year_start = date(today.year, 1, 1)
+
+    str_rows = [["Property", "City", "STR Nights Used", "STR Nights Upcoming", "Total Committed", "Remaining (of 180)", "Status", "Last Updated"]]
+
+    for prop in properties:
+        city = (prop.get("address", {}).get("city") or "").lower().strip()
+        if city not in STR_LIMIT_CITIES:
+            continue
+        # Skip unlisted, placeholders
+        if prop.get("listed") is False:
+            continue
+        raw_name = (prop.get("name") or "").strip()
+        if raw_name in ("", "·", "• ", "· ", " ·") and not prop.get("platforms"):
+            continue
+        pid = str(prop.get("id"))
+        name = raw_name or f"Property {pid}"
+
+        # Fetch reservations from Jan 1 to 90 days out
+        res = fetch_reservations(pid, year_start, today + timedelta(days=90))
+
+        str_used = 0
+        str_upcoming = 0
+        for r in res:
+            status = (r.get("status") or "").lower()
+            if status in ("cancelled", "canceled", "denied"):
+                continue
+            nights = r.get("nights") or 0
+            if nights >= 28:
+                continue
+            ci_str = r.get("check_in") or r.get("arrival_date")
+            co_str = r.get("check_out") or r.get("departure_date")
+            if not ci_str or not co_str:
+                continue
+            try:
+                ci = datetime.fromisoformat(ci_str.replace("Z", "+00:00")).date()
+                co = datetime.fromisoformat(co_str.replace("Z", "+00:00")).date()
+            except (ValueError, TypeError):
+                continue
+            # Past nights (Jan 1 to today)
+            past_start = max(ci, year_start)
+            past_end = min(co, today)
+            str_used += max(0, (past_end - past_start).days)
+            # Future nights (today onward, still this year)
+            future_start = max(ci, today)
+            future_end = min(co, date(today.year, 12, 31))
+            str_upcoming += max(0, (future_end - future_start).days)
+
+        total = str_used + str_upcoming
+        remaining = max(0, 180 - total)
+
+        if total > 180:
+            status_text = "OVER LIMIT"
+        elif remaining <= 20:
+            status_text = "Switch to Mid-term"
+        elif remaining <= 50:
+            status_text = "Getting Close"
+        else:
+            status_text = "On Track"
+
+        str_rows.append([name, city.title(), str_used, str_upcoming, total, remaining, status_text, today.isoformat()])
+
+    if len(str_rows) > 1:
+        # Clear and rewrite the STR tracker tab
+        token = get_sheets_access_token()
+        clear_url = f"https://sheets.googleapis.com/v4/spreadsheets/{SHEET_ID}/values/{STR_TRACKER_TAB}!A:H:clear"
+        requests.post(clear_url, headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"}, json={})
+        sheets_batch_update_values([(f"{STR_TRACKER_TAB}!A1", str_rows)])
+        log.info(f"Updated 180-Day STR Tracker: {len(str_rows) - 1} properties")
 
     log.info("Sync complete")
 

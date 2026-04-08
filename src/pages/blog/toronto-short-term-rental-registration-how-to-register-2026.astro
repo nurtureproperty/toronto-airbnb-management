@@ -1,0 +1,435 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "How long does Toronto STR registration take?", a: "Once you submit your application online, approval typically takes 2 to 3 business days. Some hosts report getting approved within 24 hours. You'll receive your registration number by email, which you must display on all your listings before accepting any bookings." },
+  { q: "How much does Toronto short-term rental registration cost?", a: "The initial registration fee is $375 for 2026. Renewals are $390 per year. The fee is non-refundable, and your registration is valid for one year from approval. You'll need a credit card (Visa, MasterCard, or American Express) to pay." },
+  { q: "Can I register an investment property for short-term rental in Toronto?", a: "No. Toronto requires the property to be your principal residence. That means it's where you actually live, receive mail, and file taxes. Investment properties, second homes, and vacation properties do not qualify. If you own an investment property, mid-term rentals (28+ days) are your best option since they don't require STR registration." },
+  { q: "What documents do I need for Toronto STR registration?", a: "You need government-issued photo ID (Ontario Driver's Licence or Ontario Photo Card), proof of principal residence (utility bills, property tax bill, or income tax return showing your address), your property address, and a credit card for the fee. If you live in a condo, you should also confirm your condo corporation allows short-term rentals before registering." },
+  { q: "What is the difference between entire-unit and partial-unit registration?", a: "Entire-unit means guests have the whole place to themselves while you're away. This has a 180-night annual cap. Partial-unit means you rent rooms while you remain home. Partial-unit has no night limit at all, so you can rent 365 nights per year. You must choose one type when you register, and switching requires a new application." },
+  { q: "Do I need STR registration for rentals over 28 days?", a: "No. Rentals of 28 consecutive days or longer are classified as mid-term rentals, not short-term rentals. Mid-term rentals don't need STR registration, aren't subject to the 180-night cap, and don't require the property to be your principal residence." },
+  { q: "What happens if I operate without registering?", a: "Fines range from $1,000 to $100,000 per offense. The City of Toronto actively enforces STR bylaws and uses third-party compliance tools to identify unregistered listings. Airbnb also requires your registration number to be displayed on your listing and may remove listings that don't comply." },
+  { q: "Do I need to collect the Municipal Accommodation Tax (MAT)?", a: "Yes, but Airbnb and VRBO collect and remit the 8.5% MAT automatically on your behalf for stays under 28 days. You don't need to handle this manually. If you accept direct bookings outside of these platforms, you're responsible for collecting and remitting MAT to the city quarterly." },
+  { q: "Can I Airbnb my condo in Toronto?", a: "From the city's perspective, yes, as long as it's your principal residence. However, your condo corporation's rules take priority. Many Toronto condos prohibit short-term rentals in their declarations or bylaws. Always check with your condo board before registering. A condo ban overrides city approval." },
+  { q: "How do I renew my Toronto STR registration?", a: "Renewals are done online at the City of Toronto's STR renewal portal. You'll need your existing registration number (format: STR-0000-XXXXXX), the same government ID used during initial registration, and a credit card. The 2026 renewal fee is $390. Renew before your registration expires to avoid a gap in your license." }
+];
+
+const relatedPosts = [
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Complete guide to the 180-night limit, partial-unit option, and compliance tips' },
+  { title: 'Toronto Airbnb Partial-Unit Registration Guide 2026', href: '/blog/toronto-airbnb-partial-unit-registration-guide-2026', description: 'Rent 365 nights/year with no limit using partial-unit registration' },
+  { title: 'Airbnb Taxes Canada: GTA Host Guide', href: '/blog/airbnb-taxes-canada-gta-guide-2026', description: 'Income tax, HST, MAT, and deductible expenses for Canadian Airbnb hosts' }
+];
+
+const tocItems = [
+  { id: 'overview', text: 'Registration Overview' },
+  { id: 'before-you-start', text: 'Before You Start' },
+  { id: 'step-by-step', text: 'Step-by-Step Registration' },
+  { id: 'approval-timeline', text: 'Approval Timeline' },
+  { id: 'entire-vs-partial', text: 'Entire vs Partial Unit' },
+  { id: 'after-approval', text: 'After You\'re Approved' },
+  { id: 'mat-tax', text: 'The 8.5% MAT Tax' },
+  { id: 'renewals', text: 'Renewals' },
+  { id: 'common-mistakes', text: 'Common Mistakes' },
+  { id: 'condo-owners', text: 'Condo Owners: Read This First' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Toronto Short Term Rental Registration 2026 | How to Register";
+const pageDescription = "Register your Toronto Airbnb in 2 to 3 business days. Step-by-step guide: $375 fee, documents needed, entire vs partial unit, and common mistakes. Start hosting now.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Toronto Short Term Rental Registration: How to Register in 2026",
+  "description": pageDescription,
+  "datePublished": "2026-04-08",
+  "dateModified": "2026-04-08",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-short-term-rental-registration-how-to-register-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Register for Short-Term Rental in Toronto",
+  "description": "Step-by-step guide to registering your short-term rental property with the City of Toronto in 2026.",
+  "totalTime": "PT15M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "CAD",
+    "value": "375"
+  },
+  "step": [
+    { "@type": "HowToStep", "name": "Gather Your Documents", "text": "Collect your Ontario Driver's Licence or Photo Card, proof of principal residence (utility bill, property tax bill, or tax return), and a credit card for payment." },
+    { "@type": "HowToStep", "name": "Go to the Registration Portal", "text": "Visit secure.toronto.ca/webapps/short-term-rental/registration and create an account or log in." },
+    { "@type": "HowToStep", "name": "Choose Your Registration Type", "text": "Select entire-unit (180-night limit, guests have full access) or partial-unit (no night limit, you stay home during guest stays)." },
+    { "@type": "HowToStep", "name": "Enter Property Details", "text": "Provide your property address, which must match your principal residence documents." },
+    { "@type": "HowToStep", "name": "Upload ID and Proof of Residence", "text": "Upload your government-issued photo ID and one additional document proving you live at the property." },
+    { "@type": "HowToStep", "name": "Pay the Registration Fee", "text": "Pay the $375 registration fee (2026) by credit card. The fee is non-refundable." },
+    { "@type": "HowToStep", "name": "Wait for Approval", "text": "Approval typically takes 2 to 3 business days. You'll receive your STR registration number by email." },
+    { "@type": "HowToStep", "name": "Add Registration Number to Listings", "text": "Display your STR registration number on every listing across all platforms before accepting bookings." }
+  ]
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={[...pageSchema, howToSchema]}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Toronto STR Registration</span>
+      </nav>
+      <h1>Toronto Short Term Rental Registration: How to Register in 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Updated April 8, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Toronto short-term rental registration is required before you can legally host on Airbnb, VRBO, or any other platform. The good news: the entire process is online, takes about 15 minutes to complete, and <strong>approval comes back in just 2 to 3 business days</strong>.</p>
+            <p>This guide walks you through every step, from gathering your documents to getting your registration number and putting it on your listings. Whether you're registering for the first time or trying to figure out which registration type to choose, we've got you covered.</p>
+          </div>
+
+          <h2 id="overview">Toronto STR Registration: The Quick Version</h2>
+          <p>Here's what you need to know at a glance:</p>
+
+          <div class="stats-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0;">
+            <div class="stat-box" style="background:#f0faf6;padding:20px;border-radius:8px;text-align:center;">
+              <div style="font-size:28px;font-weight:bold;color:#5a7d73;">$375</div>
+              <div style="font-size:14px;color:#666;">Registration Fee (2026)</div>
+            </div>
+            <div class="stat-box" style="background:#f0faf6;padding:20px;border-radius:8px;text-align:center;">
+              <div style="font-size:28px;font-weight:bold;color:#5a7d73;">2 to 3 Days</div>
+              <div style="font-size:14px;color:#666;">Approval Time</div>
+            </div>
+            <div class="stat-box" style="background:#f0faf6;padding:20px;border-radius:8px;text-align:center;">
+              <div style="font-size:28px;font-weight:bold;color:#5a7d73;">15 Minutes</div>
+              <div style="font-size:14px;color:#666;">Application Time</div>
+            </div>
+            <div class="stat-box" style="background:#f0faf6;padding:20px;border-radius:8px;text-align:center;">
+              <div style="font-size:28px;font-weight:bold;color:#5a7d73;">1 Year</div>
+              <div style="font-size:14px;color:#666;">Registration Valid</div>
+            </div>
+          </div>
+
+          <p>The City of Toronto requires every short-term rental operator to register before listing any property for stays under 28 days. Operating without registration can result in <strong>fines from $1,000 to $100,000</strong>. Airbnb and VRBO also require your registration number to be displayed on your listing.</p>
+
+          <h2 id="before-you-start">Before You Start: What You Need</h2>
+
+          <p>Gather these before you sit down to register. Having everything ready means the application takes about 15 minutes.</p>
+
+          <h3>Required Documents</h3>
+          <ol>
+            <li><strong>Government-issued photo ID</strong> (Ontario Driver's Licence or Ontario Photo Card). This is not optional, and it must be current.</li>
+            <li><strong>Proof of principal residence.</strong> At least one of the following showing your name and the property address:
+              <ul>
+                <li>Property tax bill</li>
+                <li>Utility bill (hydro, gas, water)</li>
+                <li>Income tax return (Notice of Assessment)</li>
+                <li>Mortgage statement</li>
+              </ul>
+            </li>
+            <li><strong>Credit card</strong> (Visa, MasterCard, or American Express) for the $375 fee.</li>
+            <li><strong>Property address</strong> that matches your ID and residence proof.</li>
+          </ol>
+
+          <div class="callout" style="background:#fff8e1;border-left:4px solid #d4a373;padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0;">
+            <strong>Condo owners:</strong> Before you register, confirm your condo corporation allows short-term rentals. Many Toronto condos prohibit STRs in their declaration or bylaws. A condo ban overrides city approval. Check first, register second.
+          </div>
+
+          <h3>Eligibility Requirements</h3>
+          <ul>
+            <li><strong>Principal residence only.</strong> The property must be where you actually live. Investment properties, second homes, and vacation properties do not qualify.</li>
+            <li><strong>One registration per person.</strong> You can only register one property as your principal residence.</li>
+            <li><strong>Property types that qualify:</strong> Houses, semis, townhouses, condos, apartments (with landlord permission), basement suites, laneway houses, and garden suites.</li>
+          </ul>
+
+          <h2 id="step-by-step">Step-by-Step: How to Register Your Toronto Short-Term Rental</h2>
+
+          <h3>Step 1: Go to the Registration Portal</h3>
+          <p>Visit the City of Toronto's official STR registration portal:</p>
+          <p style="margin:16px 0;"><a href="https://secure.toronto.ca/webapps/short-term-rental/registration/" target="_blank" rel="noopener" style="display:inline-block;padding:12px 24px;background:#759b8f;color:white;text-decoration:none;border-radius:6px;font-weight:bold;">Go to Toronto STR Registration Portal &rarr;</a></p>
+          <p>Create an account if this is your first time, or log in with your existing credentials.</p>
+
+          <h3>Step 2: Choose Your Registration Type</h3>
+          <p>You'll be asked to select one of two types. This is the most important decision in the process:</p>
+
+          <div class="comparison-table" style="margin:24px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:15px;">
+              <thead>
+                <tr style="background:#759b8f;color:white;">
+                  <th style="padding:12px;text-align:left;border:1px solid #ddd;"></th>
+                  <th style="padding:12px;text-align:center;border:1px solid #ddd;">Entire-Unit</th>
+                  <th style="padding:12px;text-align:center;border:1px solid #ddd;">Partial-Unit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">What it means</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Guests get the whole place, you leave</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Guests rent rooms, you stay home</td>
+                </tr>
+                <tr style="background:#f8f8f8;">
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Night limit</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 nights per year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;color:#27ae60;font-weight:bold;">No limit (365 nights)</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Best for</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Hosts who travel or have a second place to stay</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Hosts with spare rooms, basement suites</td>
+                </tr>
+                <tr style="background:#f8f8f8;">
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Typical earnings</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">$3,500 to $6,000/mo (capped at 6 months)</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">$1,500 to $3,000/mo (year-round)</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Can you switch?</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;" colspan="2">Yes, but requires a new application. Choose carefully.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Not sure which to pick? Read our <a href="/blog/toronto-airbnb-partial-unit-registration-guide-2026">complete partial-unit guide</a> or our <a href="/blog/toronto-airbnb-short-term-rental-regulations-2026">full regulations breakdown</a> for detailed comparisons.</p>
+
+          <h3>Step 3: Enter Your Property Details</h3>
+          <p>Fill in your property address. This must match the address on your proof of residence documents. The system validates Toronto addresses, so make sure you enter it exactly as it appears on your utility bill or tax assessment.</p>
+
+          <h3>Step 4: Upload Your Documents</h3>
+          <p>Upload clear photos or scans of:</p>
+          <ul>
+            <li>Your Ontario Driver's Licence or Photo Card (front and back)</li>
+            <li>One proof of principal residence document</li>
+          </ul>
+          <p>Make sure the images are legible. Blurry uploads are the #1 reason applications get delayed. Use your phone camera in good lighting and make sure all four corners of the document are visible.</p>
+
+          <h3>Step 5: Pay the Registration Fee</h3>
+          <p>The 2026 registration fee is <strong>$375</strong> (paid by credit card). This fee is non-refundable, even if your application is denied. Renewals in subsequent years are $390.</p>
+
+          <h3>Step 6: Submit and Wait</h3>
+          <p>After submitting, you'll get a confirmation email. Then the waiting begins.</p>
+
+          <h2 id="approval-timeline">How Long Does Approval Take?</h2>
+
+          <div class="callout" style="background:#f0faf6;border-left:4px solid #759b8f;padding:20px;border-radius:0 8px 8px 0;margin:24px 0;">
+            <strong>Current processing time: 2 to 3 business days.</strong> Some hosts report approval in as little as 24 hours. The city has significantly improved turnaround times compared to earlier years when wait times could stretch to weeks.
+          </div>
+
+          <p>Once approved, you'll receive an email with your <strong>STR registration number</strong> in the format <code>STR-0000-XXXXXX</code>. This is the number you must display on every listing.</p>
+
+          <p>If your application is incomplete or your documents don't match, the city will contact you for corrections. This can add a few extra days, which is why getting your documents right the first time matters.</p>
+
+          <h2 id="entire-vs-partial">Entire-Unit vs Partial-Unit: Which Should You Choose?</h2>
+
+          <p>This decision affects how much you can earn and how you operate for the entire year. Here's the honest breakdown:</p>
+
+          <h3>Choose Entire-Unit If:</h3>
+          <ul>
+            <li>You travel frequently and won't be home during guest stays</li>
+            <li>You have another place to stay (partner's home, cottage, family)</li>
+            <li>You want to maximize nightly rates (entire homes earn 40 to 60% more per night than rooms)</li>
+            <li>You're okay with the 180-night cap and plan to do mid-term rentals (28+ days) in the off-season</li>
+          </ul>
+
+          <h3>Choose Partial-Unit If:</h3>
+          <ul>
+            <li>You have spare bedrooms or a basement suite</li>
+            <li>You or a household member will be home during stays</li>
+            <li>You want to host year-round with no night restrictions</li>
+            <li>You value consistent income over peak-rate income</li>
+          </ul>
+
+          <p>Many Toronto hosts who live in semi-detached homes in neighborhoods like the Beaches, Leslieville, and High Park use partial-unit registration for their basement bedrooms. They earn $1,500 to $2,500 per month consistently, 12 months a year, without worrying about night counts.</p>
+
+          <h2 id="after-approval">After You're Approved: Your First 48 Hours</h2>
+
+          <p>Got your registration number? Here's exactly what to do next:</p>
+
+          <ol>
+            <li><strong>Add your registration number to every listing.</strong> Airbnb, VRBO, Booking.com, and any other platform. Toronto checks this. It's not optional. Airbnb has a dedicated field for it in your listing settings under "Local laws and taxes."</li>
+            <li><strong>Set up your Airbnb listing</strong> if you haven't already. <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">Sign up for Airbnb here</a> and get a free consultation from our team on how to optimize your listing for maximum bookings.</li>
+            <li><strong>Understand the MAT tax.</strong> Airbnb and VRBO collect the 8.5% Municipal Accommodation Tax automatically, so you don't need to do anything for platform bookings.</li>
+            <li><strong>Track your nights.</strong> If you registered as entire-unit, start tracking from day one. You get 180 nights per calendar year (January to December). We recommend switching to mid-term rentals (28+ days) during the slow months (November to April) to save your STR nights for peak summer rates.</li>
+            <li><strong>Keep records.</strong> Save all booking confirmations, guest contact info, dates, and payment records for at least 3 years. The city audits hosts.</li>
+          </ol>
+
+          <h2 id="mat-tax">The 8.5% Municipal Accommodation Tax (MAT)</h2>
+
+          <p>Every short-term rental in Toronto under 28 days is subject to the Municipal Accommodation Tax. Here's the breakdown:</p>
+
+          <ul>
+            <li><strong>Current rate:</strong> 8.5% (temporarily increased from 6%, effective until July 31, 2026)</li>
+            <li><strong>Who collects it:</strong> Airbnb and VRBO collect and remit MAT automatically on your behalf</li>
+            <li><strong>Direct bookings:</strong> If you accept bookings outside of platforms, you must collect MAT yourself and remit to the city quarterly</li>
+            <li><strong>28+ day stays:</strong> MAT does not apply to stays of 28 consecutive days or longer</li>
+          </ul>
+
+          <p>For the official MAT details, visit the <a href="https://www.toronto.ca/community-people/housing-shelter/short-term-rentals/short-term-rental-operators-hosts/short-term-rental-municipal-accommodation-tax/" target="_blank" rel="noopener">City of Toronto MAT page</a>.</p>
+
+          <h2 id="renewals">Renewing Your Registration</h2>
+
+          <p>Your registration is valid for one year from the approval date. To renew:</p>
+          <ol>
+            <li>Visit the <a href="https://secure.toronto.ca/webapps/short-term-rental/renewal/" target="_blank" rel="noopener">City of Toronto STR Renewal Portal</a></li>
+            <li>Log in with your registration number (format: STR-0000-XXXXXX)</li>
+            <li>Verify your info and pay the $390 renewal fee (2026)</li>
+          </ol>
+
+          <p>Set a calendar reminder for 2 weeks before your registration expires. If your registration lapses, you must remove your listings until it's renewed. Don't risk operating with an expired registration.</p>
+
+          <h2 id="common-mistakes">Common Mistakes That Delay Registration</h2>
+
+          <h3>1. Documents Don't Match</h3>
+          <p>Your ID address, utility bill address, and property address on the application must all match. If you recently moved, update your driver's licence first. If your utility bill shows a slightly different format (e.g., "St" vs "Street"), use whatever format appears on your ID.</p>
+
+          <h3>2. Blurry Document Uploads</h3>
+          <p>The city staff need to read your documents. A blurry photo taken in bad lighting will get flagged. Use your phone camera, make sure the document is flat, and take the photo in good lighting with all four corners visible.</p>
+
+          <h3>3. Registering Before Checking Condo Rules</h3>
+          <p>You pay $375, get approved by the city, list your place, and then your condo board sends a cease and desist. Now you've wasted the fee and potentially face condo fines. Always check your condo's declaration and rules first.</p>
+
+          <h3>4. Choosing the Wrong Registration Type</h3>
+          <p>Switching from entire-unit to partial-unit (or vice versa) requires a completely new application and fee. Think about your actual lifestyle before committing. Can you realistically be home during guest stays? If not, entire-unit makes more sense even with the 180-night cap.</p>
+
+          <h3>5. Forgetting to Display the Registration Number</h3>
+          <p>Your STR number must appear on every listing, on every platform. Airbnb specifically requires it in your listing settings. The city checks for this, and missing registration numbers result in enforcement action.</p>
+
+          <h2 id="condo-owners">Condo Owners: Read This Before Registering</h2>
+
+          <p>This deserves its own section because it's the biggest source of problems we see.</p>
+
+          <p>The City of Toronto will approve your STR registration if you meet the criteria. They do not check your condo rules. That's your responsibility.</p>
+
+          <h3>Before You Register, Check:</h3>
+          <ol>
+            <li><strong>Your condo's declaration</strong> (the master governing document). Look for any prohibition on "short-term rentals," "transient accommodations," or "rentals under 28 days."</li>
+            <li><strong>Your condo's rules and bylaws.</strong> Some condos added STR restrictions after the declaration was written.</li>
+            <li><strong>Board meeting minutes.</strong> Some condo boards have passed motions restricting STRs that may not be in the official declaration yet.</li>
+          </ol>
+
+          <p>If your condo prohibits short-term rentals, your options are mid-term rentals (28+ days, which most condo rules allow) or advocating at your next AGM to change the rules.</p>
+
+          <p>We've helped several Toronto condo owners transition to mid-term rentals when their buildings didn't allow STRs. In many cases, mid-term actually produces more consistent income with less work. <a href="tel:6479578956">Call us at (647) 957-8956</a> to discuss your specific situation.</p>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-question">{faq.q}</h3>
+              <p class="faq-answer">{faq.a}</p>
+            </div>
+          ))}
+
+          <div class="official-resources" style="margin-top:40px;padding:24px;background:#f8f6f1;border-radius:8px;">
+            <h3>Official Resources</h3>
+            <ul>
+              <li><a href="https://secure.toronto.ca/webapps/short-term-rental/registration/" target="_blank" rel="noopener">Toronto STR Registration Portal (New Applications)</a></li>
+              <li><a href="https://secure.toronto.ca/webapps/short-term-rental/renewal/" target="_blank" rel="noopener">Toronto STR Renewal Portal</a></li>
+              <li><a href="https://www.toronto.ca/community-people/housing-shelter/rental-housing-rights-information/short-term-rentals/short-term-rental-operators-hosts/" target="_blank" rel="noopener">City of Toronto: STR Operators/Hosts Information</a></li>
+              <li><a href="https://www.toronto.ca/community-people/housing-shelter/short-term-rentals/short-term-rental-operators-hosts/short-term-rental-municipal-accommodation-tax/" target="_blank" rel="noopener">City of Toronto: Municipal Accommodation Tax (MAT)</a></li>
+            </ul>
+          </div>
+
+          <p style="font-size:12px;color:#999;margin-top:24px;"><em>This article contains a referral link. We may earn a small commission at no cost to you.</em></p>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container" style="text-align:center;">
+      <h2>Need Help Getting Started?</h2>
+      <p style="max-width:600px;margin:0 auto 24px;color:rgba(255,255,255,0.9);">We've helped dozens of Toronto homeowners register, list, and earn their first booking within a week. Our management fee is just 15% of your host payout, with no startup costs and no long-term contracts.</p>
+      <a href="tel:6479578956" class="btn btn-accent" style="margin-right:12px;">Call (647) 957-8956</a>
+      <a href="/contact" class="btn btn-outline" style="border-color:white;color:white;">Get a Free Estimate</a>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--color-bg-alt);">
+    <div class="container">
+      <h2 style="text-align:center;margin-bottom:40px;">Related Guides</h2>
+      <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-post-card" style="background:white;padding:24px;border-radius:8px;text-decoration:none;color:inherit;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:transform 0.2s;">
+            <h3 style="font-size:18px;color:var(--color-primary-dark);margin-bottom:8px;">{post.title}</h3>
+            <p style="font-size:14px;color:#666;">{post.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .article-layout { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+  .toc-sidebar { position: relative; }
+  .toc-sticky { position: sticky; top: 100px; }
+  .toc-sticky h4 { font-size: 14px; text-transform: uppercase; color: #999; margin-bottom: 12px; }
+  .toc-nav { display: flex; flex-direction: column; gap: 6px; }
+  .toc-link { font-size: 13px; color: #666; text-decoration: none; padding: 4px 0; border-left: 2px solid transparent; padding-left: 12px; transition: all 0.2s; }
+  .toc-link:hover { color: var(--color-primary); border-left-color: var(--color-primary); }
+  .article-content { max-width: 720px; }
+  .article-content h2 { font-size: 1.6rem; color: var(--color-primary-dark); margin-top: 2.5rem; margin-bottom: 1rem; }
+  .article-content h3 { font-size: 1.2rem; color: #333; margin-top: 1.8rem; margin-bottom: 0.8rem; }
+  .article-content p { line-height: 1.8; margin-bottom: 1rem; color: #444; }
+  .article-content ul, .article-content ol { margin-bottom: 1.2rem; padding-left: 1.5rem; }
+  .article-content li { line-height: 1.7; margin-bottom: 0.5rem; color: #444; }
+  .article-intro .lead { font-size: 1.15rem; line-height: 1.8; color: #333; }
+  .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #eee; }
+  .faq-question { color: var(--color-primary-dark); font-size: 1.1rem; margin-bottom: 8px; }
+  .faq-answer { color: #555; line-height: 1.7; }
+  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; color: white; }
+  @media (max-width: 768px) {
+    .article-layout { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+  }
+</style>
