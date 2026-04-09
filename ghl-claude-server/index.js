@@ -1482,18 +1482,8 @@ app.post('/webhook/fb-message', async (req, res) => {
 
     console.log(`Generated FB reply (confidence: ${confidence}%):`, reply);
 
-    // If confidence is below 90%, escalate instead of auto-replying
-    if (confidence < 90) {
-      const assignedPerson = findAssignedPerson(conversationHistory + ' ' + (property || ''));
-      const lastGuestMsg = conversationHistory.split('\n').filter(l => l.includes('[INBOUND]') || l.includes('Guest:')).pop() || 'See conversation history';
-
-      const lastGuestMsgText = lastGuestMsg.replace(/.*\]\s*/, '').trim();
-      await notifyGuestEscalation(firstName, property, confidence, lastGuestMsgText, reply, assignedPerson, contactId);
-      logGuestBotAction('escalated', firstName, property, confidence, lastGuestMsgText, reply, assignedPerson.name);
-      console.log(`Confidence ${confidence}% < 90%. Escalated to ${assignedPerson.name}. No auto-reply sent.`);
-
-      return res.json({ success: true, escalated: true, confidence, assignedTo: assignedPerson.name, draftReply: reply });
-    }
+    // Always auto-reply for FB leads (this is a sales bot, not a guest bot)
+    // No confidence threshold - every lead deserves a response
 
     // Send the reply via Facebook
     const sendResult = await sendFBMessage(contactId, reply, token);
