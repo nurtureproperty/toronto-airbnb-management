@@ -1,6 +1,6 @@
 ---
-title: "First Time Airbnb Host in Toronto: Step-by-Step Guide (2026)"
-description: "Starting an Airbnb in Toronto? This step-by-step guide covers registration, regulations, setup costs, what to expect for revenue, and the mistakes new hosts make."
+title: "First Time Airbnb Host Toronto: Complete Starter Guide"
+description: "New to Airbnb hosting in Toronto? Registration, pricing, photography, guest communication, and your first booking in 7 days. Step-by-step for beginners."
 pubDate: "2026-01-19"
 author: "Nurture Airbnb Property Management"
 category: "Guides"
