@@ -385,12 +385,14 @@ const howToSchema = {
     </div>
   </section>
 
-  <section class="section cta-section">
-    <div class="container" style="text-align:center;">
-      <h2>Need Help Getting Started?</h2>
-      <p style="max-width:600px;margin:0 auto 24px;color:rgba(255,255,255,0.9);">We've helped dozens of Toronto homeowners register, list, and earn their first booking within a week. Our management fee is just 15% of your host payout, with no startup costs and no long-term contracts.</p>
-      <a href="tel:6479578956" class="btn btn-accent" style="margin-right:12px;">Call (647) 957-8956</a>
-      <a href="/contact" class="btn btn-outline" style="border-color:white;color:white;">Get a Free Estimate</a>
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Need Help Getting Started?</h2>
+        <p>We've helped dozens of Toronto homeowners register, list, and earn their first booking within a week. Free consultation, no obligation.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">15% management fee · No startup costs · No long-term contracts</p>
+      </div>
     </div>
   </section>
 
@@ -431,7 +433,12 @@ const howToSchema = {
   .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #eee; }
   .faq-question { color: var(--color-primary-dark); font-size: 1.1rem; margin-bottom: 8px; }
   .faq-answer { color: #555; line-height: 1.7; }
-  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; color: white; }
+  .cta-section { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 5rem 0; text-align: center; color: white; }
+  .cta-content h2 { color: white; font-size: 2.5rem; margin-bottom: 1rem; }
+  .cta-content p { color: rgba(255, 255, 255, 0.9); font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem; }
+  .cta-section .btn { background: white; color: var(--color-primary); padding: 16px 40px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; text-decoration: none; display: inline-block; }
+  .cta-section .btn:hover { background: #f0f0f0; }
+  .cta-note { margin-top: 1.5rem; font-size: 1rem; opacity: 0.9; }
   @media (max-width: 768px) {
     .article-layout { grid-template-columns: 1fr; }
     .toc-sidebar { display: none; }
