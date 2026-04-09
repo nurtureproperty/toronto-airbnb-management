@@ -1,0 +1,982 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  { q: "Does Airbnb track the 180 night limit in Toronto?", a: "Airbnb does not enforce the 180 night cap on your behalf. The platform shares booking data with the City of Toronto, but it does not block new reservations once you hit 180 nights. It is entirely your responsibility to track your nights and stop accepting short-term bookings before you exceed the limit. If you use a property manager like Nurture, we track this daily for every managed property." },
+  { q: "Do blocked days count toward the 180 night limit?", a: "No. Only nights where a guest actually occupies your entire home under a short-term booking (less than 28 days) count toward the 180. Blocked dates, empty nights, and dates you use the property yourself do not count. The city only counts occupied guest nights." },
+  { q: "Can I rent rooms after hitting 180 nights?", a: "Yes, if you switch to partial-unit registration. Partial-unit means you rent rooms while you remain home during guest stays. There is no night limit for partial-unit rentals. However, switching requires a new registration application with the city, so plan ahead. You can also switch to mid-term rentals (28+ days) on your existing entire-unit registration since those don't count toward the 180." },
+  { q: "What happens if I go over 180 nights in Toronto?", a: "Fines range from $1,000 to $100,000 per offense. The City of Toronto actively enforces STR bylaws using third-party compliance tools and booking data from Airbnb. Your registration can also be revoked, which means you lose the ability to host short-term entirely. It is not worth the risk." },
+  { q: "Does the 180 night limit apply to a basement apartment?", a: "Yes, if you are renting your basement apartment as an entire unit to guests while you are not present. The 180 night cap applies to all entire-unit short-term rentals regardless of property type. However, if you live upstairs and rent the basement room as a partial-unit (you remain in the dwelling), there is no night limit at all." },
+  { q: "Do mid-term rentals count toward the 180 night limit?", a: "No. Rentals of 28 consecutive days or longer are classified as mid-term, not short-term. They do not count toward the 180 night cap, do not require STR registration, and are not subject to the principal residence rule. This is why many Toronto hosts switch to mid-term during the winter months after using their STR nights in peak season." },
+  { q: "When does the 180 night count reset in Toronto?", a: "January 1st every year. The count runs from January 1 to December 31, then resets to zero. Every calendar year is a fresh start. Plan your STR strategy around this cycle to maximize revenue during high-demand months." },
+  { q: "Does VRBO count toward the Toronto 180 night limit?", a: "Yes. The 180 night cap applies across ALL platforms combined. Every night a guest stays in your entire home under a short-term booking counts, whether booked through Airbnb, VRBO, Booking.com, or direct bookings. You must track nights from every source together." },
+  { q: "Can I switch from entire-unit to partial-unit mid year?", a: "Technically yes, but it requires a new registration application with the City of Toronto. You cannot simply toggle between the two. The process takes 2 to 3 business days and costs $375. Any nights already used under your entire-unit registration in that calendar year still count toward the 180 cap for that period." },
+  { q: "How does Toronto enforce the 180 night limit?", a: "The city uses multiple methods. Airbnb and VRBO share booking data directly with the city. Toronto also contracts third-party compliance companies to monitor listings and booking activity. Municipal Licensing and Standards officers can investigate complaints from neighbors. Hosts must keep records for 3 years, and the city can audit those records at any time." }
+];
+
+const relatedPosts = [
+  { title: "Toronto STR Registration: How to Register in 2026", href: '/blog/toronto-short-term-rental-registration-how-to-register-2026', description: 'Step-by-step registration guide: $375 fee, 2 to 3 day approval, documents needed.' },
+  { title: 'Toronto Airbnb Short Term Rental Regulations 2026', href: '/blog/toronto-airbnb-short-term-rental-regulations-2026', description: 'Full breakdown of the 180 night limit, partial-unit option, and compliance tips.' },
+  { title: 'Mid-Term Rentals Toronto: Complete Guide 2026', href: '/blog/mid-term-rentals-toronto-guide-2026', description: 'How to earn year-round income with 28+ day rentals that bypass STR rules.' }
+];
+
+const tocItems = [
+  { id: 'what-is-180', text: 'What Is the 180 Night Limit?' },
+  { id: 'which-cities', text: 'Which Cities Have This Rule?' },
+  { id: 'why-it-matters', text: 'Why It Matters' },
+  { id: 'strategy', text: 'Use Your 180 Nights Wisely' },
+  { id: 'how-to-track', text: 'How to Track Your Nights' },
+  { id: 'what-counts', text: 'What Counts and What Doesn\'t' },
+  { id: 'mid-term-switch', text: 'The Mid-Term Switch' },
+  { id: 'common-mistakes', text: 'Common Mistakes' },
+  { id: 'faqs', text: 'FAQs' }
+];
+
+const pageTitle = "Toronto 180 Night Airbnb Limit 2026: How to Stay Compliant";
+const pageDescription = "Toronto's 180 night STR cap applies to entire home rentals only. Track your nights, switch to mid-term in winter, and avoid $100K fines. Complete guide.";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": pageTitle,
+  "description": pageDescription,
+  "datePublished": "2026-04-09",
+  "dateModified": "2026-04-09",
+  "author": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nurture Airbnb Property Management",
+    "url": "https://www.nurturestays.ca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nurturestays.ca/images/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.nurturestays.ca/blog/toronto-airbnb-180-night-limit-how-to-track-stay-compliant-2026"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const pageSchema = [articleSchema, faqSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={pageSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/blog">Blog</a>
+        <span>/</span>
+        <span>Toronto 180 Night Limit</span>
+      </nav>
+      <h1>Toronto's 180 Night Airbnb Limit: How to Track and Stay Compliant in 2026</h1>
+      <div class="article-meta">
+        <span class="meta-date">Updated April 9, 2026</span>
+        <span class="meta-separator">&middot;</span>
+        <span class="meta-read-time">12 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="container">
+      <div class="article-layout">
+        <aside class="toc-sidebar">
+          <div class="toc-sticky">
+            <h4>Contents</h4>
+            <nav class="toc-nav">
+              {tocItems.map(item => (
+                <a href={`#${item.id}`} class="toc-link">{item.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <article class="article-content">
+          <div class="article-intro">
+            <p class="lead">Toronto caps entire-home short-term rentals at <strong>180 nights per calendar year</strong>. Go over, and you're looking at fines up to $100,000. The city checks, Airbnb shares your data, and "I lost count" is not a defense.</p>
+            <p class="lead">The good news: 180 nights is plenty if you use them strategically. Burn your STR nights during peak season when rates are highest, switch to mid-term rentals in winter, and you'll likely out-earn hosts who try to run STR all year in cities with no cap. Here's exactly how to do it.</p>
+          </div>
+
+          <h2 id="what-is-180">What Is the 180 Night Limit?</h2>
+          <p>Toronto's Municipal Code Chapter 547 sets a hard cap on entire-home short-term rentals:</p>
+
+          <blockquote class="bylaw-quote">
+            "No operator who holds a registration to operate an entire-unit rental shall rent a property for more than 180 nights per calendar year."
+            <cite>Toronto Municipal Code § 547-4.1.1.D</cite>
+          </blockquote>
+
+          <p>A few things to understand right away:</p>
+          <ul>
+            <li><strong>Only applies to entire-unit rentals.</strong> That means guests have the whole place to themselves while you're away. If you rent rooms while you're home (<a href="/blog/toronto-airbnb-partial-unit-registration-guide-2026">partial-unit registration</a>), there is no night limit at all.</li>
+            <li><strong>Calendar year cycle.</strong> The count runs from January 1 to December 31, then resets to zero.</li>
+            <li><strong>All platforms combined.</strong> Airbnb, VRBO, Booking.com, direct bookings. Every short-term guest night counts toward the same 180.</li>
+            <li><strong>Only occupied nights count.</strong> Blocked dates, empty nights, and nights you use the property yourself do not count.</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div class="callout-content">
+              <strong>The part most hosts miss:</strong> The 180 night cap is not a punishment. It is a budget. Smart hosts treat those 180 nights like a limited resource and deploy them during the months when nightly rates are highest. Then they switch to mid-term for the rest of the year.
+            </div>
+          </div>
+
+          <h2 id="which-cities">Which Cities Have the 180 Night Rule?</h2>
+          <p>Toronto is not the only GTA city with a night cap. If you own property anywhere in the region, check this table before you list:</p>
+
+          <div class="comparison-table" style="margin:24px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:15px;">
+              <thead>
+                <tr style="background:#759b8f;color:white;">
+                  <th style="padding:12px;text-align:left;border:1px solid #ddd;">City / Region</th>
+                  <th style="padding:12px;text-align:center;border:1px solid #ddd;">Night Cap</th>
+                  <th style="padding:12px;text-align:center;border:1px solid #ddd;">Principal Residence?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Toronto (all boroughs: Scarborough, North York, Etobicoke, York, East York, Old Toronto)</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 nights/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+                <tr style="background:#f8f8f8;">
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;"><a href="/blog/mississauga-airbnb-short-term-rental-rules-2026" style="color:#5a7d73;">Mississauga</a></td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 days/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;"><a href="/blog/brampton-airbnb-short-term-rental-guide-2026" style="color:#5a7d73;">Brampton</a></td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 days/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+                <tr style="background:#f8f8f8;">
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Oshawa</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 days/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;"><a href="/blog/milton-airbnb-short-term-rental-rules-2026" style="color:#5a7d73;">Milton</a></td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 days/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+                <tr style="background:#f8f8f8;">
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;"><a href="/blog/burlington-airbnb-short-term-rental-rules-2026" style="color:#5a7d73;">Burlington</a></td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">183 days/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;"><a href="/blog/vaughan-airbnb-short-term-rental-guide-2026" style="color:#5a7d73;">Vaughan</a></td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">No annual cap</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes (license required)</td>
+                </tr>
+                <tr style="background:#f8f8f8;">
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;"><a href="/blog/oakville-airbnb-short-term-rental-rules-2026" style="color:#5a7d73;">Oakville</a></td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Check local rules</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes (license required)</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border:1px solid #eee;font-weight:bold;">Caledon</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">180 nights/year</td>
+                  <td style="padding:10px;border:1px solid #eee;text-align:center;">Yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Cities with NO night cap:</strong> Vaughan, Sault Ste. Marie, and several cottage country municipalities have STR licensing but no annual night limit. Calgary and Mont-Tremblant are also commonly cited examples outside Ontario. Check each city's specific bylaws before assuming your local cap matches Toronto's.</p>
+
+          <h2 id="why-it-matters">Why the 180 Night Limit Actually Matters</h2>
+          <p>Some hosts assume the city doesn't really enforce this. That was maybe true in 2019. It is definitely not true in 2026.</p>
+
+          <div class="warning-box">
+            <h4>Enforcement Is Real</h4>
+            <ul>
+              <li><strong>Fines up to $100,000</strong> per offense under Toronto Municipal Code Chapter 547</li>
+              <li><strong>Airbnb shares booking data</strong> directly with the City of Toronto</li>
+              <li><strong>Third-party compliance companies</strong> monitor listings and booking patterns on behalf of the city</li>
+              <li><strong>Your registration can be revoked,</strong> meaning you lose the ability to host short-term entirely</li>
+              <li><strong>Neighbors can report you,</strong> and Municipal Licensing investigates complaints</li>
+            </ul>
+          </div>
+
+          <p>The city has invested real money in enforcement since the STR bylaw took effect. They contract companies that scrape Airbnb, VRBO, and other platforms to identify hosts who exceed the cap. This is not theoretical. Toronto has issued fines.</p>
+
+          <h2 id="strategy">The Strategy: Use Your 180 Nights Wisely</h2>
+          <p>Here's where most hosts get it wrong. They spread their 180 nights evenly across the year and end up running short-term in January when nightly rates are at their lowest. That's leaving money on the table.</p>
+
+          <p>The smart approach: <strong>concentrate your STR nights during peak season (May through October)</strong> when nightly rates in Toronto are at their highest. Then switch to mid-term rentals (28+ days) during the slow months when STR rates drop anyway.</p>
+
+          <h3>Why This Works Better Than You'd Think</h3>
+          <p>Mid-term during slow months often earns MORE than short-term. Here's the math that surprises most people:</p>
+
+          <div class="comparison-example">
+            <h4>Example: 1 Bedroom Condo, Downtown Toronto</h4>
+            <div class="example-grid">
+              <div class="example-item">
+                <span class="label">All Year STR (no strategy)</span>
+                <span class="value">$32,850</span>
+                <span class="annual">$150/night avg × 60% occupancy × 365 days</span>
+              </div>
+              <div class="example-item highlight">
+                <span class="label">Strategic STR + Mid-Term</span>
+                <span class="value">$54,500</span>
+                <span class="annual">180 STR nights @ $200 + 185 mid-term days @ $100</span>
+              </div>
+            </div>
+            <p class="example-note">The strategic approach earns 66% more. STR peak rates of $200/night during summer beat the $150 average. And 100% mid-term occupancy at $100/night in winter beats 50% STR occupancy at a higher rate. You also spend less on cleaning and turnover.</p>
+          </div>
+
+          <h3>The Peak Season Play</h3>
+          <p>Toronto's high season for short-term rentals lines up perfectly with the 180 night budget:</p>
+          <ul>
+            <li><strong>May through October = ~184 days.</strong> That's almost exactly 180 nights of peak demand.</li>
+            <li><strong>TIFF (September), Pride (June), Caribana (August)</strong> push nightly rates 30 to 50% above average.</li>
+            <li><strong>Blue Jays season, Raptors playoffs, concerts at Rogers Centre</strong> create consistent demand spikes.</li>
+            <li><strong>Business travel peaks</strong> in spring and fall when the Financial District is busiest.</li>
+          </ul>
+
+          <p>Burn your STR nights during these months. You'll earn more per night AND fill more of your calendar than if you tried to spread 180 nights across 365 days.</p>
+
+          <h2 id="how-to-track">How to Track Your Nights</h2>
+          <p>The city does not send you a friendly reminder at night 175. Tracking is 100% your responsibility. Here are six ways to stay on top of it:</p>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Use a simple spreadsheet.</strong> Track check-in date, check-out date, number of nights, and a running total. Google Sheets works fine. Update it after every booking confirmation. It takes 30 seconds per booking and could save you $100,000.</li>
+            <li><span class="tip-icon">2</span> <strong>Check your PMS reports.</strong> If you use Hospitable, Guesty, or another property management system, it tracks reservations automatically. However, most PMS tools don't count "STR nights" specifically. You'll need to filter out any bookings over 28 days manually.</li>
+            <li><span class="tip-icon">3</span> <strong>Set calendar reminders.</strong> Put alerts in your phone at 100 nights, 140 nights, and 160 nights. At 160, you should be actively planning your switch to mid-term. At 170, stop accepting new short-term bookings.</li>
+            <li><span class="tip-icon">4</span> <strong>Only count stays under 28 days.</strong> Mid-term stays (28 consecutive days or longer) do not count toward your 180. When you're tallying, filter these out. A guest who stays 30 days uses zero of your STR nights.</li>
+            <li><span class="tip-icon">5</span> <strong>Count across ALL platforms.</strong> This is where people mess up. Your Airbnb nights plus VRBO nights plus Booking.com nights plus direct bookings all go into the same 180 night bucket. There is no separate cap per platform.</li>
+            <li><span class="tip-icon">6</span> <strong>Let your property manager handle it.</strong> At <a href="/full-airbnb-management-toronto">Nurture</a>, we run an automated tracking system that monitors night counts for every managed Toronto property daily. When a property approaches the threshold, we proactively switch the listing to mid-term minimum stays. One less thing for you to worry about.</li>
+          </ul>
+
+          <h2 id="what-counts">What Counts Toward the 180 and What Doesn't</h2>
+          <p>This trips up more hosts than you'd expect. Here's the definitive breakdown:</p>
+
+          <div class="success-box">
+            <h4>Counts Toward the 180:</h4>
+            <ul>
+              <li>Every night a guest occupies your entire home under a booking of less than 28 days</li>
+              <li>Nights booked through Airbnb, VRBO, Booking.com, or any other platform</li>
+              <li>Nights from direct bookings (friends of friends, your own website, word of mouth)</li>
+              <li>A 3 night stay = 3 nights. A 14 night stay = 14 nights. Simple addition.</li>
+            </ul>
+          </div>
+
+          <div class="callout" style="background:#f0faf6;border-left:4px solid #759b8f;padding:20px;border-radius:0 8px 8px 0;margin:24px 0;">
+            <strong>Does NOT count toward the 180:</strong>
+            <ul style="margin-top:8px;margin-bottom:0;">
+              <li><strong>Partial-unit stays</strong> (you're home while guests rent rooms). <a href="/blog/toronto-airbnb-partial-unit-registration-guide-2026">See our partial-unit guide.</a></li>
+              <li><strong>Mid-term stays</strong> of 28 consecutive days or longer</li>
+              <li><strong>Blocked dates</strong> where no guest stays (your own use, maintenance, vacations)</li>
+              <li><strong>Empty/unbooked nights</strong> with no guest present</li>
+              <li><strong>Nights occupied by you</strong> or your household members</li>
+            </ul>
+          </div>
+
+          <p>The key distinction is simple: did a paying guest stay in your entire home for less than 28 days? If yes, those nights count. Everything else does not.</p>
+
+          <h2 id="mid-term-switch">The Mid-Term Switch: When and How</h2>
+          <p>This is the most valuable tactic for Toronto hosts with entire-unit registration. Once you've used most of your 180 STR nights, transition to mid-term rentals for the rest of the year.</p>
+
+          <h3>When to Switch</h3>
+          <ul>
+            <li><strong>At 150 nights:</strong> Start planning. Adjust your calendar to block short-term bookings for dates after your expected 180 night cutoff.</li>
+            <li><strong>At 160 nights:</strong> Change your minimum stay to 28 nights on all platforms. This ensures any new bookings qualify as mid-term.</li>
+            <li><strong>At 170 nights:</strong> Stop accepting any new short-term bookings. Only honor existing confirmed reservations.</li>
+          </ul>
+
+          <h3>How to Make Mid-Term Work</h3>
+          <ul>
+            <li><strong>Adjust your pricing.</strong> Mid-term nightly rates are lower than STR, but you're getting 100% occupancy with zero turnover costs. A furnished one-bedroom in downtown Toronto rents for $2,800 to $3,500 per month on mid-term.</li>
+            <li><strong>Use the right platforms.</strong> Airbnb's monthly discount feature, Furnished Finder (popular with traveling nurses), and corporate housing sites all cater to 28+ day stays.</li>
+            <li><strong>Market to the right audience.</strong> Healthcare workers rotating through Toronto hospitals, consultants on Bay Street projects, international students, and employees on corporate relocations all need furnished monthly housing.</li>
+            <li><strong>No STR registration required.</strong> Mid-term rentals fall outside Toronto's STR bylaws entirely. No night cap, no principal residence requirement, no MAT tax.</li>
+          </ul>
+
+          <p>For a deeper dive, read our <a href="/blog/mid-term-rentals-toronto-guide-2026">complete guide to mid-term rentals in Toronto</a>.</p>
+
+          <div class="strategy-box">
+            <h4>The Annual Calendar for a Toronto Entire-Unit Host</h4>
+            <ul>
+              <li><strong>January to April:</strong> Mid-term rental. Lock in a 3 to 4 month tenant. Guaranteed income, zero turnover.</li>
+              <li><strong>May to October:</strong> Short-term rental. Burn your 180 nights during peak season at premium rates.</li>
+              <li><strong>November to December:</strong> Mid-term rental again. Holiday season is slow for STR anyway.</li>
+            </ul>
+            <p>This pattern maximizes total annual revenue while staying fully compliant. The math works out to roughly $54,000+ per year for a downtown one-bedroom versus $33,000 with a scattered STR approach.</p>
+          </div>
+
+          <h2 id="common-mistakes">Common Mistakes That Get Toronto Hosts Fined</h2>
+
+          <ul class="tips-list">
+            <li><span class="tip-icon">1</span> <strong>Not tracking across all platforms.</strong> Your 85 Airbnb nights plus 60 VRBO nights plus 40 direct booking nights = 185 total. You're over. The city counts all of them together.</li>
+            <li><span class="tip-icon">2</span> <strong>Thinking blocked dates count.</strong> They don't. Only actual guest nights count. But this confusion works both ways: some hosts block dates near 180 thinking it helps, when they could actually still book mid-term guests for those dates.</li>
+            <li><span class="tip-icon">3</span> <strong>Forgetting the counter resets January 1.</strong> If you hit 180 in September, you're done with short-term for the rest of the year. But come January 1, you start fresh at zero. Plan your Q1 bookings accordingly.</li>
+            <li><span class="tip-icon">4</span> <strong>Operating past 180 and hoping nobody notices.</strong> The City of Toronto has contracted compliance monitoring companies. Airbnb shares data with the city. Your neighbors can file complaints through 311. "Nobody checks" is not true in 2026.</li>
+            <li><span class="tip-icon">5</span> <strong>Not switching minimum stay early enough.</strong> If you're at 170 nights and accept a 14 night booking, you'll end up at 184. Change your minimum stay to 28 days well before you hit the cap. Existing confirmed bookings still count, so give yourself a buffer.</li>
+            <li><span class="tip-icon">6</span> <strong>Ignoring the registration requirement.</strong> You need to be <a href="/blog/toronto-short-term-rental-registration-how-to-register-2026">registered with the City of Toronto</a> before hosting even one night. Operating without registration is a separate offense with its own fines.</li>
+          </ul>
+
+          <h2 id="faqs">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map(faq => (
+              <div class="faq-item">
+                <h3>{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <p>New to Airbnb hosting? <a href="https://www.airbnb.ca/rp/jeffp3498?p=stay&s=67" target="_blank" rel="noopener">Sign up for Airbnb here</a> and get started with a free consultation from our team on how to set up your listing for maximum bookings.</p>
+          <p style="font-size:0.8rem;color:#888;"><em>Disclosure: The Airbnb link above is a referral link. We may receive a small bonus if you sign up and complete your first booking. This does not affect our recommendations or your experience.</em></p>
+
+          <p class="disclaimer"><em>This article is for informational purposes only and does not constitute legal advice. Bylaw and regulation details change frequently. Always verify current rules directly with the City of Toronto before making hosting decisions.</em></p>
+
+          <div class="article-cta">
+            <h3>Want Someone to Track Your Nights for You?</h3>
+            <p>Nurture monitors night counts daily for every managed Toronto property. We handle the switch to mid-term automatically when you approach 180, so you never risk a fine. Our team knows Toronto's bylaws inside and out.</p>
+            <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h4>{post.title}</h4>
+            <p>{post.description}</p>
+            <span class="arrow">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Questions About the 180 Night Limit?</h2>
+        <p>Our local team helps Toronto hosts stay compliant while maximizing every single night of rental income.</p>
+        <a href="tel:647-957-8956" class="btn btn-primary btn-large">Call Now: 647-957-8956</a>
+        <p class="cta-note">Free consultation &middot; No obligation</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var headings = [];
+
+  for (var i = 0; i < tocLinks.length; i++) {
+    var id = tocLinks[i].getAttribute('href').substring(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headings.push({ element: heading, link: tocLinks[i] });
+    }
+  }
+
+  function updateActiveLink() {
+    var scrollPos = window.scrollY + 150;
+
+    for (var i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].element.offsetTop <= scrollPos) {
+        for (var j = 0; j < tocLinks.length; j++) {
+          tocLinks[j].classList.remove('active');
+        }
+        headings[i].link.classList.add('active');
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+})();
+</script>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+
+  .meta-separator {
+    opacity: 0.5;
+  }
+
+  .article-section {
+    background: white;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-link {
+    padding: 0.4rem 0;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .article-content {
+    max-width: 750px;
+  }
+
+  .article-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .article-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .bylaw-quote {
+    background: var(--color-background-alt);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .bylaw-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .callout {
+    display: flex;
+    gap: 1rem;
+    background: var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .callout-content {
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    background: var(--color-background-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--color-text);
+    color: white;
+  }
+
+  .comparison-header .comparison-col {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .comparison-header .comparison-col.highlight {
+    background: var(--color-primary);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-row .comparison-col {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-row .comparison-col.highlight {
+    background: rgba(117, 155, 143, 0.1);
+  }
+
+  .success-box {
+    background: #f0fff4;
+    border-left: 4px solid #38a169;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .success-box h4 {
+    color: #276749;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .success-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .success-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .warning-box {
+    background: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .warning-box h4 {
+    color: #c0392b;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .warning-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .warning-box li {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .strategy-box {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .strategy-box h4 {
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .strategy-box ul {
+    margin-bottom: 1rem;
+  }
+
+  .strategy-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .comparison-example {
+    background: var(--color-background-alt);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  .comparison-example h4 {
+    margin-bottom: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .example-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .example-item {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .example-item.highlight {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .example-item .label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .example-item .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .example-item .annual {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .example-note {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tips-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tip-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .article-cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cream) 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .article-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cta p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section {
+    background: var(--color-background-alt);
+  }
+
+  .related-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card .arrow {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  @media (max-width: 968px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+
+    .comparison-table {
+      font-size: 0.9rem;
+    }
+
+    .example-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .comparison-header,
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-header .comparison-col:first-child,
+    .comparison-row .comparison-col:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+  }
+</style>
