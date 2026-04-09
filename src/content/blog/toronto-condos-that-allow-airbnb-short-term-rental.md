@@ -30,7 +30,7 @@ Having a building on this list does not guarantee you can Airbnb your unit. You 
 3. **Respect the 180 night annual cap** for entire-home rentals (no limit for partial-unit, where you rent rooms while home)
 4. **Display your registration number** on all listings
 
-Need help with the process? [We handle STR registration, licensing, and full management](/services/short-term-rental-management-toronto) for condo owners across Toronto.
+Need help with the process? [We handle STR registration, licensing, and full Airbnb management in Toronto](/full-airbnb-management-toronto) for condo owners across the city.
 
 ---
 
