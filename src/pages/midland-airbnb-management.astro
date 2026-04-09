@@ -1,0 +1,582 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '⛵', name: 'Midland Bay', description: 'Waterfront properties with Georgian Bay views. Walking distance to the harbour, Discovery Harbour, and the town dock. Peak demand from boaters and summer tourists.', revenue: '$2,400-$3,400/month' },
+  { icon: '🏛️', name: 'Downtown Midland', description: 'Historic King Street area with murals, shops, and restaurants. Guests love the walkability and proximity to theatres, patios, and the waterfront trail.', revenue: '$2,200-$3,200/month' },
+  { icon: '🌲', name: 'Tiffin/Little Lake', description: 'Quiet residential pocket near Little Lake Park and Tiffin Conservation Area. Popular with families visiting for hiking, fishing, and fall colours.', revenue: '$2,000-$3,000/month' },
+  { icon: '⛪', name: 'Sainte-Marie Area', description: 'Close to Sainte-Marie Among the Hurons and the Martyrs Shrine. Steady year round visitor traffic, with a spike during the 400th anniversary celebrations in 2026.', revenue: '$2,300-$3,300/month' },
+  { icon: '🏖️', name: 'Balm Beach / Tiny', description: 'Sandy beaches and cottage feel just minutes from town. Extremely popular in summer with families and weekend getaways from Toronto.', revenue: '$2,800-$4,200/month' },
+  { icon: '🎭', name: 'Penetanguishene', description: 'Neighbouring town with its own harbour, Discovery Harbour historic site, and vibrant Franco-Ontarian culture. Strong tourism overlap with Midland.', revenue: '$2,200-$3,200/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Repairs',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Multi-Platform Distribution (Airbnb, VRBO, Booking.com)',
+  'Transparent Revenue Reporting'
+];
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Midland, Ontario?",
+    answer: "Yes. Midland currently has no specific short-term rental bylaw. There is no license requirement, no principal residence rule, and no night cap. Standard property standards, noise, and zoning bylaws still apply. Always check with the Town of Midland before listing, as regulations can change."
+  },
+  {
+    question: "Do I need a license for Airbnb in Midland?",
+    answer: "No. As of 2026, Midland does not require a short-term rental license. You can list your property on Airbnb, VRBO, and other platforms without a municipal permit. You still need to comply with general property standards, fire safety, and zoning rules."
+  },
+  {
+    question: "Can I Airbnb my investment property in Midland?",
+    answer: "Yes. Unlike Toronto, Mississauga, and most GTA cities, Midland does not have a principal residence requirement for short-term rentals. Investment properties, cottages, and secondary homes are all eligible for Airbnb hosting."
+  },
+  {
+    question: "How much can I earn on Airbnb in Midland?",
+    answer: "Midland hosts typically earn $2,000 to $4,200 per month depending on property size, location, and season. Waterfront and cottage style properties near Georgian Bay command the highest rates, especially during summer, the Butter Tart Festival, and the Sainte-Marie Among the Hurons anniversary events."
+  },
+  {
+    question: "Is Midland a good market for Airbnb?",
+    answer: "Midland is one of the strongest cottage country Airbnb markets in Ontario. Georgian Bay beaches, Sainte-Marie Among the Hurons (celebrating its 400th anniversary in 2026), Discovery Harbour, and events like the Butter Tart Festival draw visitors year round. The lack of STR regulation makes it especially attractive for investors."
+  },
+  {
+    question: "What insurance do I need for Airbnb in Midland?",
+    answer: "While Midland does not mandate specific STR insurance, standard homeowner policies rarely cover short-term rental activity. We recommend at least $2,000,000 in general liability insurance with an explicit short-term rental endorsement. Airbnb also provides Host Protection Insurance, but it should not be your only coverage."
+  },
+  {
+    question: "How much does Airbnb management cost in Midland?",
+    answer: "Most Airbnb management companies charge 18% to 25% of rental revenue. At Nurture, we offer full-service management at 15% with no upfront fees, no long-term contracts, and no markup on supplies. Owners keep their listing and stay in direct contact with us."
+  },
+  {
+    question: "Is it worth hiring an Airbnb manager in Midland?",
+    answer: "Yes, especially if you do not live near your Midland property. Professional management typically increases net income by 30 to 100 percent through dynamic pricing, better listings, and faster guest response times. We handle cleaning coordination, guest communication, and maintenance so you earn passive income without the daily workload."
+  },
+  {
+    question: "What is the best season for Airbnb in Midland?",
+    answer: "Summer (June through September) is peak season, with Georgian Bay beaches and festivals driving the highest occupancy and nightly rates. Fall colours bring a strong shoulder season. Winter is quieter but still sees demand from snowmobilers and ice fishing enthusiasts. Spring picks up with cottage opening season and the Butter Tart Festival in June."
+  },
+  {
+    question: "Does Nurture manage properties in Midland right now?",
+    answer: "Yes. We currently manage a property at 1308 Everton in Midland. We know the local market, cleaning teams, and maintenance providers firsthand. Our local presence means faster response times and better guest experiences for your property."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const relatedPosts = [
+  { title: "GTA Cities With No Airbnb License Required (2026)", href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Complete list of Ontario cities where you can Airbnb without a license.' },
+  { title: "Muskoka Lakes Airbnb Rules 2026", href: '/blog/muskoka-lakes-airbnb-short-term-rental-rules-2026', description: 'STR licensing, fees, and demerit system in nearby Muskoka Lakes.' },
+  { title: "Huntsville Airbnb Rules 2026", href: '/blog/huntsville-airbnb-short-term-rental-rules-2026', description: 'Principal residence rules and secondary unit restrictions in Huntsville.' }
+];
+---
+
+<Layout title="Midland Airbnb Management | Georgian Bay STR Experts" description="Midland Airbnb management at 15% fees. No STR license required. Georgian Bay cottages and investment properties welcome. Get your free rental estimate today." schema={faqSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <h1><span class="highlight">Midland Airbnb Management | Georgian Bay STR Experts</span></h1>
+      <p class="hero-subtitle">Full-service Airbnb management for Midland property owners, no license headaches required</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">No License</div>
+          <div class="stat-label">Required in Midland</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Unlimited</div>
+          <div class="stat-label">Nights Per Year</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">9 Min</div>
+          <div class="stat-label">Guest Response Time</div>
+        </div>
+      </div>
+
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Midland Property Can Earn</a>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <h2>Airbnb Management in Midland, Ontario</h2>
+        <p>Midland sits on the southern shore of Georgian Bay in Simcoe County, about 90 minutes north of Toronto. It is one of Ontario's top cottage country destinations, home to Sainte-Marie Among the Hurons (celebrating its 400th anniversary in 2026), Discovery Harbour, and kilometres of waterfront trails. The Butter Tart Festival, sandy beaches, and year round outdoor recreation bring a steady flow of visitors that makes Midland a strong Airbnb market.</p>
+        <p>Better yet, Midland has no specific short-term rental bylaw. No license, no principal residence rule, no night cap. That means investment properties, cottages, and secondary homes are all fair game for Airbnb hosting. Nurture already manages a property in Midland at 1308 Everton, so we know the local market, cleaning teams, and maintenance providers firsthand.</p>
+        <p>We manage Midland Airbnb properties at a flat 15% commission. We handle guest communication, cleaning coordination, dynamic pricing, professional photography, and 24/7 guest support with a 9 minute average response time. You stay the owner of your listing. We stay on call for your guests.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Midland Areas We Serve</h2>
+        <p>From the harbour to the beaches and beyond</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>The Midland Advantage</h2>
+        <p>Midland combines small town charm with world class attractions. Sainte-Marie Among the Hurons is Ontario's most visited heritage attraction, and 2026 marks its 400th anniversary, which means even more visitors than usual. Discovery Harbour, the Wye Marsh Wildlife Centre, and Georgian Bay Islands National Park add to the draw.</p>
+        <p>The town also benefits from event driven demand. The Butter Tart Festival in June draws thousands. Summer brings boaters, beachgoers, and families. Fall colours pack the trails. Winter attracts snowmobilers and ice fishing enthusiasts. Our <a href="/services/airbnb-dynamic-pricing" style="color: #C9A961;">dynamic pricing</a> captures peak demand across every season, so your property earns what it should.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">17K+</div>
+          <div class="label">Population</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">400th</div>
+          <div class="label">Sainte-Marie Anniversary</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">90 min</div>
+          <div class="label">Drive from Toronto</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">0</div>
+          <div class="label">STR Restrictions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Midland Short-Term Rental Regulations</h2>
+        <p>Currently not regulated, no STR specific bylaw</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-intro">
+          <p>Midland is one of the friendliest municipalities in Ontario for Airbnb hosts. There is no dedicated short-term rental bylaw, no licensing requirement, and no principal residence rule. Here is what you need to know.</p>
+        </div>
+        <div class="bylaws-grid">
+          <div class="bylaw-card highlight-card">
+            <h3>No STR License Required</h3>
+            <p>Midland does not require a short-term rental license or registration. You can list your property on Airbnb, VRBO, and Booking.com without a municipal permit. This makes Midland one of the easiest Ontario markets to enter for new hosts and investors.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>No Principal Residence Rule</h3>
+            <p>Unlike Toronto, Mississauga, and most GTA cities, Midland does not require your short-term rental to be your primary home. Investment properties, cottages, and secondary residences are all eligible.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>No Night Cap</h3>
+            <p>There is no annual limit on the number of nights you can rent your property. You can operate 365 days a year if you choose, maximizing your revenue potential.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Standard Bylaws Apply</h3>
+            <p>General property standards, noise, parking, and zoning bylaws still apply. Keep your property well maintained, respect neighbours, and ensure your listing complies with local building and fire codes.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>HST and Income Tax</h3>
+            <p>All short-term rental income must be reported to the CRA. If you earn over $30,000 per year from STRs, you must register for and collect HST (13%). This applies regardless of municipal regulation.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Regulations May Change</h3>
+            <p>Many Ontario municipalities are introducing STR bylaws. While Midland is currently unregulated, it is wise to stay informed. Nurture monitors regulatory changes across Ontario and will keep you updated if anything changes.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>Official source: <a href="https://www.midland.ca" target="_blank" rel="noopener">midland.ca</a>. We track regulatory changes across Ontario so you never miss an update. <a href="/contact">Contact us</a> to get started.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Midland Airbnb Management</h2>
+        <p>Everything included at a flat 15% commission</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about Airbnb management in Midland</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-posts">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Guides</h2>
+        <p>STR rules and tips for nearby Ontario markets</p>
+      </div>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h3>{post.title}</h3>
+            <p>{post.description}</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Service Areas</h2>
+        <p>We manage properties across Ontario</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/airbnb-management-toronto" class="area-link">
+          <span>Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/barrie-airbnb-management" class="area-link">
+          <span>Barrie</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/oakville-airbnb-management" class="area-link">
+          <span>Oakville</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own a Midland Property?</h2>
+        <p>Get a free analysis showing how much your Midland home or cottage could earn on Airbnb. No license needed, no long-term contract, just more revenue.</p>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Call <a href="tel:+16479578956" style="color: white; text-decoration: underline;">(647) 957-8956</a> • Free consultation • No obligation • Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .hero.hero-small { padding: 6rem 0 4rem; }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.25rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .intro-section { background: var(--color-background); }
+  .intro-content { max-width: 900px; margin: 0 auto; text-align: center; }
+  .intro-content h2 { margin-bottom: 1.5rem; }
+  .intro-content p { color: var(--color-text-light); line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem; }
+
+  .neighborhoods { background: var(--color-background-alt); }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card.highlight-card {
+    border: 2px solid var(--color-primary);
+    grid-column: span 2;
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+  .bylaw-card a { color: var(--color-primary); text-decoration: underline; }
+  .bylaw-card a:hover { color: var(--color-primary-dark); }
+
+  .bylaws-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+  }
+
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+  .why-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number { font-size: 2rem; font-weight: 700; color: #C9A961; }
+  .airport-stat .label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); }
+
+  .services-section { background: var(--color-background); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  .other-areas { background: var(--color-background-alt); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+  .areas-cta a:hover { color: var(--color-primary-dark); }
+
+  .faq-section { background: var(--color-background); }
+  .faq-grid { max-width: 900px; margin: 0 auto; }
+  .faq-item { background: white; border-radius: 12px; margin-bottom: 1.5rem; padding: 2rem; box-shadow: var(--shadow-sm); }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; margin: 0; }
+
+  .related-posts { background: var(--color-background-alt); }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .related-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h3 { font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .related-card p { color: var(--color-text-light); line-height: 1.7; margin-bottom: 1rem; flex-grow: 1; }
+  .read-more { color: var(--color-primary); font-weight: 600; font-size: 0.95rem; }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid, .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .bylaw-card.highlight-card { grid-column: span 1; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid, .related-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .faq-item { padding: 1.5rem; }
+    .faq-item h3 { font-size: 1rem; }
+  }
+</style>
