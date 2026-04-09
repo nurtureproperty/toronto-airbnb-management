@@ -1,0 +1,527 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const propertyTypes = [
+  { icon: '🏔️', name: 'Ski-In/Ski-Out Chalets', description: 'Premium slope-side properties commanding top dollar during ski season. The holy grail of Tremblant rentals, with winter nightly rates that make Ontario hosts jealous.', revenue: '$5,000-$12,000/month' },
+  { icon: '🏡', name: 'Village Pedestrian Area', description: 'Steps from restaurants, shops, and the gondola. Year-round foot traffic means consistent bookings even in shoulder seasons.', revenue: '$3,500-$7,000/month' },
+  { icon: '🌲', name: 'Lac Supérieur & Lac Tremblant', description: 'Lakefront chalets popular with families in summer and groups in winter. The dual-season appeal keeps occupancy high across the calendar.', revenue: '$3,000-$8,000/month' },
+  { icon: '⛳', name: 'Golf & Resort Condos', description: 'Near Le Géant and Le Diable golf courses. Summer golf traffic fills the gap between ski seasons, and IRONMAN athletes book months in advance.', revenue: '$2,500-$5,500/month' },
+  { icon: '🏠', name: 'Domaine de la Forêt', description: 'Quiet residential area minutes from the resort. Families and groups love the extra space, and your dollar goes further on property here.', revenue: '$2,800-$6,000/month' },
+  { icon: '🎿', name: 'Versant Soleil Properties', description: 'South-facing slope access with newer builds. Growing demand as Tremblant expands its terrain and base area amenities.', revenue: '$3,200-$7,500/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support (EN/FR)',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Snow Removal',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Ski Season Rate Optimization',
+  'CITQ Registration Guidance',
+  'Transparent Revenue Reporting'
+];
+
+const faqs = [
+  { q: "Does Nurture actually manage properties in Mont-Tremblant?", a: "Yes. We manage a property at 633 Chemin des Skieurs in Mont-Tremblant. We're one of the few GTA-based property managers that also covers Tremblant, giving Ontario owners a single manager for properties in both provinces." },
+  { q: "What management fee does Nurture charge for Mont-Tremblant?", a: "Our standard rate is 15% of booking revenue. No startup costs, no hidden fees, and no markup on supplies. You only pay when you earn." },
+  { q: "Do I need CITQ registration to Airbnb in Mont-Tremblant?", a: "Yes. Quebec requires all properties rented for 31 days or less to register with the CITQ (Corporation de l'industrie touristique du Québec). We guide you through the entire process, from the Municipal Compliance Notice to the online application." },
+  { q: "Can I Airbnb an investment property in Mont-Tremblant?", a: "Unlike most Ontario cities, Quebec does not have a principal residence requirement. Mont-Tremblant uses zoning to control STRs. If your property is in an authorized zone (mainly around the resort and village), you can operate legally as an investment property." },
+  { q: "What are the peak seasons for Tremblant rentals?", a: "Winter ski season (December through March) is the primary peak, with Christmas and March break commanding the highest rates. Summer (June through September) is a strong secondary peak driven by golf, hiking, IRONMAN, and festivals like the Blues Festival." },
+  { q: "How much can a Tremblant chalet earn on Airbnb?", a: "Earnings vary widely by location and property type. Ski-in/ski-out chalets can gross $5,000 to $12,000 per month during peak season. Village area condos typically earn $3,500 to $7,000. Year-round, a well-managed property can gross $50,000 to $100,000+ annually." },
+  { q: "How do you handle cleaning and turnovers in Tremblant?", a: "We coordinate with local cleaning teams based in the Tremblant area. Our cleaners know ski chalet turnovers inside and out: boot rooms, hot tubs, fireplaces, and all the extras that winter guests expect." },
+  { q: "What about Quebec's lodging tax?", a: "Quebec charges a 3.5% lodging tax (taxe sur l'hébergement). Airbnb collects and remits this automatically for platform bookings. For direct bookings, the tax must be collected and remitted to Revenu Québec separately." },
+  { q: "Do you handle bilingual guest communication?", a: "Absolutely. Quebec law requires French availability, and many Tremblant guests are francophone. Our team handles guest communication in both English and French." },
+  { q: "What if my property is in Lac-Tremblant-Nord instead of Mont-Tremblant?", a: "Important distinction: Lac-Tremblant-Nord is a separate municipality that only allows rentals of 31+ consecutive days, effectively banning traditional Airbnb. Always confirm which municipality your property falls under before listing." }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Mont-Tremblant Airbnb Management",
+  "description": "Mont-Tremblant Airbnb management for ski chalets, village condos, and lakefront properties. Dynamic pricing, bilingual guest support, CITQ guidance. 15% fees.",
+  "url": "https://www.nurturestays.ca/mont-tremblant-airbnb-management",
+  "areaServed": {
+    "@type": "City",
+    "name": "Mont-Tremblant",
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "Quebec" }
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Nurture Airbnb Property Management"
+  }
+};
+
+const combinedSchema = [serviceSchema, faqSchema];
+
+const relatedPosts = [
+  { title: 'Mont-Tremblant Airbnb STR Rules 2026', href: '/blog/mont-tremblant-airbnb-short-term-rental-rules-2026', description: 'CITQ registration, zoning rules, and Quebec lodging tax explained' },
+  { title: 'Muskoka Airbnb STR Rules 2026', href: '/blog/muskoka-lakes-airbnb-short-term-rental-rules-2026', description: '$1,000/year license and demerit system in Ontario\'s cottage country' },
+  { title: 'Airbnb Snowbird Hosting Guide', href: '/blog/airbnb-snowbird-hosting-toronto-2026', description: 'How to earn while you\'re away for the season' }
+];
+---
+
+<Layout title="Mont-Tremblant Airbnb Management | Ski Resort STR" description="Mont-Tremblant Airbnb management for ski chalets, village condos, and lakefront properties. Bilingual support, CITQ guidance, dynamic pricing. Free estimate." schema={combinedSchema}>
+  <section class="hero">
+    <div class="container">
+      <h1><span class="highlight">Mont-Tremblant Airbnb Management</span></h1>
+      <p class="hero-subtitle">Quebec's premier ski resort, managed by a team that actually knows the mountain</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">$5,000+</div>
+          <div class="stat-label">Avg Monthly Revenue</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">80%+</div>
+          <div class="stat-label">Peak Season Occupancy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">15%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+      </div>
+
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Tremblant Property Can Earn</a>
+    </div>
+  </section>
+
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tremblant Property Types We Manage</h2>
+        <p>From slopeside chalets to lakefront retreats</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {propertyTypes.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mont-Tremblant Short-Term Rental Rules</h2>
+        <p>What Tremblant property owners need to know</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-grid">
+          <div class="bylaw-card">
+            <h3>CITQ Registration Required</h3>
+            <p>Quebec requires all properties rented for 31 days or less to register with the <a href="/blog/mont-tremblant-airbnb-short-term-rental-rules-2026">CITQ</a>. Registration costs $156/year for investment properties, $54/year for primary residences. We guide you through the entire process.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>No Principal Residence Rule</h3>
+            <p>Unlike <a href="/downtown-toronto-airbnb-management">Toronto</a>, <a href="/mississauga-airbnb-management">Mississauga</a>, and most Ontario cities, Quebec does not require STRs to be your principal residence. Investment properties can operate legally in authorized zones.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Zoning Restrictions</h3>
+            <p>Mont-Tremblant uses zoning to control where STRs operate. Most authorized zones are near the resort station, the pedestrian village, and lakefront areas. Your property must receive a Municipal Compliance Notice before listing.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>3.5% Quebec Lodging Tax</h3>
+            <p>Quebec charges a 3.5% lodging tax on all short-term accommodations. Airbnb collects this automatically. You also need $2,000,000 in civil liability insurance to register.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>The Dual-Season Advantage</h2>
+        <p>Most Ontario STR markets have one peak season. Tremblant has two. Winter ski season (December through March) brings skiers and snowboarders willing to pay premium nightly rates, especially during Christmas week and March break. Then summer rolls in with golf, hiking, mountain biking, and major events that keep your calendar full.</p>
+        <p>IRONMAN 70.3 Mont-Tremblant (June 21), the Blues Festival (July 8 to 12), and BLOOMAFEST (May 8 to 9) create booking spikes that savvy hosts plan around. Our <a href="/services/full-airbnb-management" style="color: #C9A961;">dynamic pricing</a> adjusts rates automatically for every event and season shift.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">2.5M+</div>
+          <div class="label">Annual Resort Visitors</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">2</div>
+          <div class="label">Peak Seasons Per Year</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">102</div>
+          <div class="label">Ski Trails</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">3-5x</div>
+          <div class="label">Winter Rate Premium</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Tremblant Management</h2>
+        <p>Everything included at 15%</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Mont-Tremblant Airbnb management questions, answered</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map(faq => (
+          <div class="faq-item">
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Resources</h2>
+        <p>Guides for Tremblant and resort property owners</p>
+      </div>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h3>{post.title}</h3>
+            <p>{post.description}</p>
+            <span class="read-more">Read more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Service Areas</h2>
+        <p>We manage properties across Ontario and Quebec</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/downtown-toronto-airbnb-management" class="area-link">
+          <span>Downtown Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/niagara-falls-airbnb-management" class="area-link">
+          <span>Niagara Falls</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/calgary-airbnb-management" class="area-link">
+          <span>Calgary</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/muskoka-airbnb-management" class="area-link">
+          <span>Muskoka</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own a Property in Mont-Tremblant?</h2>
+        <p>Get a free analysis showing how much your ski chalet, village condo, or lakefront property could earn on Airbnb. We already manage in Tremblant and know the market inside out.</p>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Free consultation • No obligation • Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #C9A961;
+  }
+
+  .airport-stat .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .services-section { background: var(--color-background-alt); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .faq-section { background: var(--color-background); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .faq-item h3 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--color-text); }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; font-size: 0.95rem; }
+
+  .related-section { background: var(--color-background-alt); }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .related-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--color-primary); }
+  .related-card p { color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem; margin-bottom: 1rem; }
+  .read-more { color: var(--color-primary); font-weight: 600; font-size: 0.9rem; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  .other-areas { background: var(--color-background); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+  .areas-cta a:hover { color: var(--color-primary-dark); }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid, .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid, .faq-grid { grid-template-columns: 1fr; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid, .related-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+  }
+</style>
