@@ -365,7 +365,7 @@ Condos account for 40% of Toronto's STR registrations. Here is the full breakdow
 
 Own a unit in one of these buildings? Nurture provides [full service Airbnb management](/full-airbnb-management-toronto) across Toronto. We handle everything from STR registration with the city to daily pricing optimization.
 
-- **15% management fee** (lowest published rate among major Toronto managers)
+- **18% management fee** (below the industry average of 20%+ among major Toronto managers)
 - **No long-term contracts** (month to month, 30 day cancellation)
 - **You own your listing** and all reviews
 - **Guest Favorite and Superhost status** maintained on managed properties

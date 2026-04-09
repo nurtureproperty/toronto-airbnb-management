@@ -77,6 +77,6 @@ The goal isn't to maximize every single night. It's to find the sweet spot that 
 
 Managing dynamic pricing takes time and market knowledge. That's where professional [short-term rental management](/services/short-term-rental-management-toronto) makes a difference.
 
-At Nurture, we handle pricing optimization as part of our full-service management. Our team monitors Toronto market trends daily and adjusts rates to maximize your revenue. Best part? We only charge 10-15% compared to the 18-25% most competitors charge.
+At Nurture, we handle pricing optimization as part of our full-service management. Our team monitors Toronto market trends daily and adjusts rates to maximize your revenue. Best part? We only charge 18% compared to the 20-25% most competitors charge.
 
 Want to see what dynamic pricing could do for your property? Give us a call at (647) 957-8956 or [contact us](/contact) for a free consultation.

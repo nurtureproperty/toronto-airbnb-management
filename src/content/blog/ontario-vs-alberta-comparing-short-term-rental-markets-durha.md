@@ -64,6 +64,6 @@ But that complexity also creates opportunities for hosts who get it right. Prope
 
 Instead of wishing Ontario's STR market was simpler, why not work with someone who knows how to make it profitable? At Nurture, we've helped Ontario hosts turn regulatory complexity into competitive advantage.
 
-Our [full Airbnb management service](/full-airbnb-management-toronto) handles all the compliance headaches while maximizing your revenue. No long contracts, you keep ownership of your listing, and our 10-15% fee is way below what most management companies charge.
+Our [full Airbnb management service](/full-airbnb-management-toronto) handles all the compliance headaches while maximizing your revenue. No long contracts, you keep ownership of your listing, and our 18% fee is way below what most management companies charge.
 
 Want to see what professional management could do for your Ontario rental? Give us a call at (647) 957-8956 or [get in touch](/contact). Let's turn those regulatory challenges into revenue opportunities.

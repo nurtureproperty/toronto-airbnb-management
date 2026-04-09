@@ -67,9 +67,9 @@ Most importantly, they don't let emotions drive their pricing decisions. It's pu
 
 ## Is Professional Management Worth It?
 
-Here's some quick math. If you're leaving $1,283 monthly on the table through poor pricing alone, even a 15% management fee pays for itself pretty quickly. You'd pay around $496 in fees but gain $1,283 in revenue.
+Here's some quick math. If you're leaving $1,283 monthly on the table through poor pricing alone, even an 18% management fee pays for itself pretty quickly. You'd pay around $595 in fees but gain $1,283 in revenue.
 
-That's a net gain of $787 monthly, or $9,444 annually.
+That's a net gain of $688 monthly, or $8,256 annually.
 
 And that calculation only covers pricing optimization. We're not even factoring in the time you'd save or the improved guest experience that leads to better reviews and higher booking rates.
 

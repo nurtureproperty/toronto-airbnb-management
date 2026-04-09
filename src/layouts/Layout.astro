@@ -15,7 +15,9 @@ const { title, description = "Nurture - The GTA's premier Airbnb property manage
 // Generate canonical URL
 const siteUrl = "https://www.nurturestays.ca";
 const currentPath = Astro.url.pathname;
-const canonicalUrl = canonical || `${siteUrl}${currentPath === '/' ? '' : currentPath}`;
+// Strip trailing slash from path (except root) to prevent duplicate canonical URLs
+const normalizedPath = currentPath === '/' ? '' : currentPath.replace(/\/+$/, '');
+const canonicalUrl = canonical || `${siteUrl}${normalizedPath}`;
 
 // LocalBusiness schema for GBP ranking
 const localBusinessSchema = {
@@ -26,7 +28,7 @@ const localBusinessSchema = {
   "url": "https://www.nurturestays.ca",
   "logo": "https://www.nurturestays.ca/images/logo.webp",
   "image": "https://www.nurturestays.ca/images/logo.webp",
-  "description": "Professional Airbnb property management in the Greater Toronto Area. We handle guest communication, cleaning, pricing, and maintenance. 15% fee, 9-minute response time.",
+  "description": "Professional Airbnb property management in the Greater Toronto Area. We handle guest communication, cleaning, pricing, and maintenance. 18% fee, 9-minute response time.",
   "telephone": "+1-647-957-8956",
   "email": "hello@nurturestays.ca",
   "address": {

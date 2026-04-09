@@ -110,11 +110,11 @@ Managing an Airbnb is a job. Guest messages at midnight. Cleaning coordination. 
 
 Some hosts try to do it all themselves to "save money" on management fees. But they end up exhausted, their response times slip, their cleaning quality drops, and their reviews suffer.
 
-The math often doesn't work out. You save 15% on management but lose 30% in bookings because you can't keep up.
+The math often doesn't work out. You save 18% on management but lose 30% in bookings because you can't keep up.
 
 **The fix:** Be honest about your capacity. If you have a full time job and a family, you probably don't have time to manage an Airbnb properly. Either commit the time or get help.
 
-Our [full management service](/full-airbnb-management-toronto) handles everything for 15% of revenue. Most hosts actually make more money with us than they did on their own, even after our fee.
+Our [full management service](/full-airbnb-management-toronto) handles everything for 18% of revenue. Most hosts actually make more money with us than they did on their own, even after our fee.
 
 ## The Real Problem Might Be Simpler Than You Think
 

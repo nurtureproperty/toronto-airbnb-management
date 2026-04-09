@@ -61,13 +61,13 @@ For the right property, absolutely. The math works in your favor:
 - Event premiums (TIFF, conferences, art events) create revenue spikes that downtown listings don't see to the same degree
 - The "brand" of Yorkville itself justifies higher nightly rates
 
-The tradeoff: higher expectations, more effort on staging and presentation, and a smaller margin for service mistakes. This is where professional management earns its fee. A 15% management fee on a listing earning $6,000/month nets you $5,100. Self-managing the same listing and earning $4,000/month (because of suboptimal pricing and slower response times) nets you $4,000.
+The tradeoff: higher expectations, more effort on staging and presentation, and a smaller margin for service mistakes. This is where professional management earns its fee. An 18% management fee on a listing earning $6,000/month nets you $4,920. Self-managing the same listing and earning $4,000/month (because of suboptimal pricing and slower response times) nets you $4,000.
 
 ## Own in Yorkville?
 
 Whether you're at 155 Yorkville, 188 Cumberland, 832 Bay, or anywhere in the neighborhood, your property has luxury STR potential that most Toronto hosts can only dream of. The question is whether you're maximizing it.
 
-[Get a free revenue estimate for your Yorkville property](/airbnb-income-calculator-toronto) or [book a call](/contact) to discuss luxury Airbnb management at 15%.
+[Get a free revenue estimate for your Yorkville property](/airbnb-income-calculator-toronto) or [book a call](/contact) to discuss luxury Airbnb management at 18%.
 
 ---
 
