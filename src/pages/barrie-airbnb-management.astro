@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 const neighborhoods = [
-  { icon: '🌊', name: 'Downtown Waterfront', description: 'Dunlop Street, the marina, and Centennial Beach are all walkable. Guests love the summer patios, live music at Meridian Place, and quick access to Kempenfelt Bay. Peak rates in July and August.', revenue: '$2,800-$4,200/month' },
+  { icon: '🌊', name: 'Downtown Waterfront', description: 'Dunlop Street, the marina, Centennial Beach, and Meridian Place are all walkable. Guests love the summer patios, live music, and quick access to Kempenfelt Bay. Peak rates from June through September.', revenue: '$2,800-$4,200/month' },
   { icon: '🚉', name: 'Allandale', description: 'South end neighbourhood near Allandale Waterfront GO Station. One hour train to Toronto makes it popular with commuters and weekend visitors who want waterfront views without downtown prices.', revenue: '$2,400-$3,400/month' },
-  { icon: '🏥', name: 'Near Royal Victoria Hospital', description: 'Quiet streets within a short drive of RVH. Steady demand from traveling nurses on 13 week contracts, locum doctors, and families of patients. Mid-term stays dominate this pocket.', revenue: '$2,600-$3,800/month' },
+  { icon: '🏥', name: 'Near Royal Victoria Hospital', description: 'Quiet streets within a short drive of RVH. Steady demand from traveling nurses on 13 week contracts, locum doctors, and families of patients. Mid-term stays dominate this pocket year round.', revenue: '$2,600-$3,800/month' },
   { icon: '🏘️', name: 'Painswick', description: 'South Barrie family neighbourhood with newer builds and big driveways. Popular with relocating families and larger groups visiting for weddings or sports tournaments.', revenue: '$2,500-$3,600/month' },
   { icon: '🎓', name: 'Near Georgian College', description: 'North end area close to Georgian College and the Barrie North GO line. Strong demand from visiting parents, prospective students, and conference attendees throughout the school year.', revenue: '$2,300-$3,300/month' },
   { icon: '⛵', name: 'Lake Simcoe Shoreline', description: 'Properties along the northeast shore toward Shanty Bay and Big Bay Point. Cottage feel with ice fishing in winter and boating all summer. Highest nightly rates in peak season.', revenue: '$3,000-$4,500/month' }
@@ -12,7 +12,7 @@ const neighborhoods = [
 
 const services = [
   'Dynamic Pricing & Revenue Optimization',
-  'Guest Communication & Support (9 Min Response)',
+  'Guest Communication & Support',
   'Professional Photography',
   'Cleaning & Turnover Coordination',
   'Maintenance & Repairs',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Do I need a license for Airbnb in Barrie?",
-    answer: "No. As of 2026, Barrie does not require a short-term rental license or registration. You can list on Airbnb, VRBO, and Booking.com without a municipal permit. City council passed Motion 24-G-033 to investigate STR regulation, but no bylaw has been enacted yet. Read our full Barrie STR rules guide for the latest updates."
+    answer: "No. As of 2026, Barrie does not require a short-term rental license or registration. You can list on Airbnb, VRBO, and Booking.com without a municipal permit. City council passed Motion 24-G-033 to investigate STR regulation, but no bylaw has been enacted yet."
   },
   {
     question: "Can I Airbnb my investment property in Barrie?",
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: "Why are Royal Victoria Hospital nurses a big deal for Barrie Airbnb?",
-    answer: "RVH is a regional hospital that brings in traveling nurses on 13 week contracts throughout the year. These nurses need furnished housing for 30 to 90 days, pay premium rates, and rarely cause issues. A well positioned property near RVH can stay booked with mid-term stays alone, which sidesteps the legal risk if Barrie eventually regulates short stays."
+    answer: "RVH is a regional hospital that brings in traveling nurses on 13 week contracts throughout the year. These nurses need furnished housing for 30 to 90 days, pay premium rates, and rarely cause issues. A well positioned property near RVH can stay booked with mid-term stays alone."
   },
   {
     question: "How strong is summer tourism in Barrie?",
@@ -52,16 +52,16 @@ const faqs = [
     answer: "Yes. Ice fishing on Lake Simcoe is a major draw from January through March. Horseshoe Resort and Mount St. Louis Moonstone are both short drives away for skiing and snowboarding, which keeps weekend demand strong. Barrie works as a cheaper base than resort lodging for day trip skiers."
   },
   {
-    question: "What property types work best in Barrie?",
-    answer: "Three bedroom family homes do exceptionally well. Groups visiting for tournaments, cottage weekends, and RVH medical stays want space and parking. Waterfront cottages and Lake Simcoe shoreline homes earn the highest nightly rates. Downtown condos near the marina work for couples and weekend getaways."
+    question: "How much does Airbnb management cost in Barrie?",
+    answer: "Most Airbnb management companies charge 20% to 25% of rental revenue. At Nurture, we offer full-service management at 18% with no upfront fees, no long-term contracts, and no markup on supplies. Owners keep their listing and stay in direct contact with us."
   },
   {
     question: "Should I offer mid-term rentals in Barrie?",
-    answer: "Absolutely. Mid-term rentals of 30 nights or more fall outside any future STR bylaw, so they are future proof. RVH travel nurses, insurance displacement housing, and corporate relocations from the growing Barrie employment zone all need furnished monthly stays. Our mid-term rental guide walks through how to set it up."
+    answer: "Absolutely. Mid-term rentals of 30 nights or more fall outside any future STR bylaw, so they are future proof. RVH travel nurses, insurance displacement housing, and corporate relocations all need furnished monthly stays. Mid-term is one of the strongest income streams in the Barrie market."
   },
   {
     question: "When might Barrie introduce STR regulations?",
-    answer: "City council passed a motion in 2024 to investigate STR regulation, but no bylaw has been tabled. Based on how other Ontario cities like Burlington and Milton moved, we expect Barrie to publish proposed rules within 12 to 24 months. We monitor council agendas weekly and will alert our clients the moment anything changes. Getting established now means you can continue operating while new entrants face licensing delays."
+    answer: "City council passed a motion in 2024 to investigate STR regulation, but no bylaw has been tabled. Based on how other Ontario cities like Burlington and Milton moved, we expect Barrie to publish proposed rules within 12 to 24 months. Getting established now means you can continue operating while new entrants face licensing delays."
   }
 ];
 
@@ -80,8 +80,8 @@ const faqSchema = {
 
 const relatedPosts = [
   { title: "Barrie Airbnb Short Term Rental Rules 2026", href: '/blog/barrie-airbnb-short-term-rental-rules-2026', description: 'The full legal picture in Barrie: no bylaw yet, Motion 24-G-033, and what may come next.' },
-  { title: "Midland Airbnb Management", href: '/midland-airbnb-management', description: 'Georgian Bay cottage country management with no STR license required.' },
-  { title: "Toronto Airbnb STR Regulations", href: '/blog/toronto-airbnb-short-term-rental-rules-2026', description: 'How Toronto regulates STRs and why it pushes investors to cities like Barrie.' }
+  { title: "GTA Cities With No Airbnb License Required (2026)", href: '/blog/gta-cities-no-airbnb-license-required-2026', description: 'Complete list of Ontario cities where you can Airbnb without a license.' },
+  { title: "Mid-Term Rentals Toronto Guide", href: '/blog/mid-term-rentals-toronto-guide-2026', description: 'How to set up profitable 28+ night stays for travel nurses, corporate relocations, and insurance housing.' }
 ];
 ---
 
@@ -101,8 +101,8 @@ const relatedPosts = [
           <div class="stat-label">Required in Barrie</div>
         </div>
         <div class="stat">
-          <div class="stat-number">Investment</div>
-          <div class="stat-label">Properties OK</div>
+          <div class="stat-number">Investment OK</div>
+          <div class="stat-label">No Principal Residence Rule</div>
         </div>
         <div class="stat">
           <div class="stat-number">9 Min</div>
@@ -118,9 +118,9 @@ const relatedPosts = [
     <div class="container">
       <div class="intro-content">
         <h2>Airbnb Management in Barrie, Ontario</h2>
-        <p>Barrie sits on the western shore of Kempenfelt Bay, about one hour north of Toronto. With a population of roughly 150,000 and growing fast, it is one of the GTA's busiest commuter towns and a gateway to cottage country. Summer brings boaters, beachgoers, and weekend families to Centennial Beach and Lake Simcoe. Winter swaps them for ice fishers, Horseshoe Resort skiers, and Mount St. Louis day trippers. Year round, Royal Victoria Hospital brings traveling nurses and Georgian College brings visiting parents. That mix of demand drivers makes Barrie a surprisingly strong Airbnb market.</p>
-        <p>Here is the best part: Barrie has <a href="/blog/barrie-airbnb-short-term-rental-rules-2026" style="color: #C9A961;">no short-term rental bylaw</a>. No license, no principal residence rule, no annual night cap. That means <a href="/blog/airbnb-investment-property-gta" style="color: #C9A961;">investment properties, second homes, and corporately held rentals</a> are all fair game. City council passed Motion 24-G-033 to investigate STR regulation, so this window will not last forever. Around 503 STRs are already operating in the city according to Ontario Ministry of Tourism data, and established operators will have an advantage when licensing eventually arrives.</p>
-        <p>Nurture manages Barrie Airbnb properties at a flat 18% commission. We handle guest communication, cleaning coordination, dynamic pricing, professional photography, and 24/7 guest support with a 9 minute average response time. You keep your listing. We keep your calendar full.</p>
+        <p>Barrie sits on the southern shore of Kempenfelt Bay on Lake Simcoe, about one hour north of Toronto. With a population of 150,000 and 503 active short-term rental listings (per Ontario Ministry of Tourism data), Barrie is one of the fastest growing Airbnb markets within an easy drive of the GTA. Royal Victoria Hospital, Georgian College, summer beach tourism, and winter ice fishing all drive year round demand.</p>
+        <p>Better yet, Barrie has no specific short-term rental bylaw. No license, no principal residence rule, no night cap. Investment properties, second homes, and corporately held rentals are all eligible. City council passed <a href="/blog/barrie-airbnb-short-term-rental-rules-2026">Motion 24-G-033</a> to investigate regulation, but no rules have been enacted. That means now is the time to establish your Barrie listing before the rules tighten.</p>
+        <p>We manage Barrie Airbnb properties at a flat 18% commission. We handle guest communication, cleaning coordination, dynamic pricing, professional photography, and 24/7 guest support with a 9 minute average response time. You stay the owner of your listing. We stay on call for your guests.</p>
       </div>
     </div>
   </section>
@@ -129,7 +129,7 @@ const relatedPosts = [
     <div class="container">
       <div class="section-header">
         <h2>Barrie Areas We Serve</h2>
-        <p>From the waterfront to Royal Victoria Hospital to Lake Simcoe shoreline</p>
+        <p>From the waterfront to the lakeshore and beyond</p>
       </div>
       <div class="neighborhoods-grid">
         {neighborhoods.map(n => (
@@ -147,12 +147,12 @@ const relatedPosts = [
     <div class="container">
       <div class="why-content">
         <h2>The Barrie Advantage</h2>
-        <p>Most GTA cities have locked down short-term rentals with principal residence rules, night caps, and licensing. Barrie has done none of that. Investment properties are welcome, you can operate 365 days a year, and you do not need to live in the home you are hosting. Property prices run 30 to 40 percent below Toronto, which means better cap rates and cashflow from day one.</p>
-        <p>Demand is also more balanced than most cottage towns. Summer brings Kempenfelt Bay and Centennial Beach tourism. Winter brings ice fishing and day trip skiers from Horseshoe and Mount St. Louis. Year round, Royal Victoria Hospital feeds mid-term stays from traveling nurses and locum doctors, and Georgian College brings parent visits and conference traffic. Our <a href="/services/airbnb-dynamic-pricing" style="color: #C9A961;">dynamic pricing</a> captures every one of those demand pockets, so your property earns what it should in every season.</p>
+        <p>Barrie is one of the few mid sized Ontario cities still operating without short-term rental regulation. While Toronto, Mississauga, Burlington, Milton, and most other GTA cities have introduced licensing or principal residence requirements, Barrie remains wide open. Investment properties, second homes, and cottages all qualify.</p>
+        <p>Year round demand drivers make Barrie a strong market in every season. Royal Victoria Hospital brings travel nurses on 13 week contracts. Georgian College generates parent and conference traffic. Summer brings beach tourists and cottage country travelers. Winter brings ice fishing and ski day trippers. Our <a href="/services/airbnb-dynamic-pricing" style="color: #C9A961;">dynamic pricing</a> captures peak demand across every season, so your property earns what it should.</p>
       </div>
       <div class="airport-stats">
         <div class="airport-stat">
-          <div class="number">150K</div>
+          <div class="number">150K+</div>
           <div class="label">Population</div>
         </div>
         <div class="airport-stat">
@@ -164,8 +164,8 @@ const relatedPosts = [
           <div class="label">Drive from Toronto</div>
         </div>
         <div class="airport-stat">
-          <div class="number">0</div>
-          <div class="label">STR License Fees</div>
+          <div class="number">$0</div>
+          <div class="label">STR License Fee</div>
         </div>
       </div>
     </div>
@@ -175,40 +175,40 @@ const relatedPosts = [
     <div class="container">
       <div class="section-header">
         <h2>Barrie Short-Term Rental Regulations</h2>
-        <p>Currently unregulated, but changes may come within 12 to 24 months</p>
+        <p>Currently not regulated, no STR specific bylaw</p>
       </div>
       <div class="bylaws-content">
         <div class="bylaws-intro">
-          <p>Barrie is one of the friendliest municipalities in central Ontario for Airbnb hosts. There is no dedicated STR bylaw, no licensing, and no principal residence rule. Here is the current picture, plus what to watch for.</p>
+          <p>Barrie is one of the friendliest municipalities in Ontario for Airbnb hosts. There is no dedicated short-term rental bylaw, no licensing requirement, and no principal residence rule. Here is what you need to know.</p>
         </div>
         <div class="bylaws-grid">
           <div class="bylaw-card highlight-card">
             <h3>No STR License Required</h3>
-            <p>Barrie does not require a short-term rental license or registration. You can list on Airbnb, VRBO, and Booking.com without a municipal permit. This makes Barrie one of the easiest mid sized Ontario markets to enter. Read our <a href="/blog/barrie-airbnb-short-term-rental-rules-2026">full Barrie STR rules guide</a> for the current legal picture.</p>
+            <p>Barrie does not require a short-term rental license or registration. You can list your property on Airbnb, VRBO, and Booking.com without a municipal permit. This makes Barrie one of the easiest Ontario markets to enter for new hosts and investors.</p>
           </div>
           <div class="bylaw-card">
             <h3>No Principal Residence Rule</h3>
-            <p>Investment properties, second homes, and corporately held rentals are all eligible. You do not need to live in the property you are hosting. That is a major difference from Toronto, Mississauga, Brampton, Vaughan, Oakville, and most other GTA municipalities.</p>
+            <p>Unlike Toronto, Mississauga, and most GTA cities, Barrie does not require your short-term rental to be your primary home. Investment properties, second homes, and cottages are all eligible.</p>
           </div>
           <div class="bylaw-card">
             <h3>No Night Cap</h3>
-            <p>There is no annual limit on how many nights you can rent your property. You can operate 365 days a year, which maximizes revenue and makes full time Airbnb hosting viable.</p>
+            <p>There is no annual limit on the number of nights you can rent your property. You can operate 365 days a year if you choose, maximizing your revenue potential.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Standard Bylaws Still Apply</h3>
-            <p>General property standards, zoning, parking, and the noise bylaw (11pm to 7am quiet hours) all apply to STRs the same way they apply to any residence. Keep the property well maintained and respect neighbours to avoid complaint based enforcement.</p>
+            <h3>Standard Bylaws Apply</h3>
+            <p>General property standards, noise (11pm to 7am), parking, and zoning bylaws still apply. Keep your property well maintained, respect neighbours, and ensure your listing complies with local building and fire codes.</p>
           </div>
           <div class="bylaw-card">
             <h3>HST and Income Tax</h3>
-            <p>All rental income must be reported to the CRA. If you earn over $30,000 per year from STRs, you must register for and collect HST (13%). This applies regardless of municipal regulation and is separate from anything the city may introduce.</p>
+            <p>All short-term rental income must be reported to the CRA. If you earn over $30,000 per year from STRs, you must register for and collect HST (13%). This applies regardless of municipal regulation.</p>
           </div>
           <div class="bylaw-card">
-            <h3>Regulations Are Being Investigated</h3>
-            <p>Barrie council passed Motion 24-G-033 to investigate STR regulation. No bylaw has been enacted, but we expect proposed rules within 12 to 24 months. Established operators will likely have a grandfathering advantage when new rules arrive. Starting now is the smart play.</p>
+            <h3>Motion 24-G-033 Pending</h3>
+            <p>Barrie council passed a motion in 2024 to investigate STR regulation. We expect proposed rules within 12 to 24 months. Nurture monitors council agendas weekly and will alert clients the moment anything changes.</p>
           </div>
         </div>
         <div class="bylaws-cta">
-          <p>Official source: <a href="https://www.barrie.ca" target="_blank" rel="noopener">barrie.ca</a>. We track council motions and agendas weekly so our clients never miss a regulatory change. <a href="/contact">Contact us</a> to get started.</p>
+          <p>Official source: <a href="https://www.barrie.ca" target="_blank" rel="noopener">barrie.ca</a>. We track regulatory changes across Ontario so you never miss an update. <a href="/contact">Contact us</a> to get started.</p>
         </div>
       </div>
     </div>
@@ -228,7 +228,6 @@ const relatedPosts = [
           </div>
         ))}
       </div>
-      <p style="text-align: center; margin-top: 2rem; color: var(--color-text-light);">Learn more about our <a href="/full-airbnb-management-toronto" style="color: var(--color-primary); text-decoration: underline;">full-service Airbnb management</a> program, or explore <a href="/blog/mid-term-rentals-toronto-guide-2026" style="color: var(--color-primary); text-decoration: underline;">mid-term rentals</a> for RVH travel nurse stays.</p>
     </div>
   </section>
 
@@ -253,7 +252,7 @@ const relatedPosts = [
     <div class="container">
       <div class="section-header">
         <h2>Related Guides</h2>
-        <p>Learn more about Barrie and nearby Ontario markets</p>
+        <p>STR rules and tips for nearby Ontario markets</p>
       </div>
       <div class="related-grid">
         {relatedPosts.map(post => (
