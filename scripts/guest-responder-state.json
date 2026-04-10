@@ -166,5 +166,17 @@
   "ba1697fe-203c-41d6-bfd8-02dedf3228dd": {
     "last_message_id": 1165681600,
     "last_message_at": "2026-04-09T17:52:06Z"
+  },
+  "c51b14b6-f811-4fb4-bd3e-8e67834c5675": {
+    "last_message_id": 1119930958,
+    "last_message_at": "2026-03-03T13:28:05Z"
+  },
+  "b773e135-294a-4393-8f72-098a423c9bb8": {
+    "last_message_id": 1137717792,
+    "last_message_at": "2026-03-17T12:28:49Z"
+  },
+  "69f45203-244d-4e91-9eaf-9ed7520a6891": {
+    "last_message_id": 1144736636,
+    "last_message_at": "2026-03-23T11:29:53Z"
   }
 }
