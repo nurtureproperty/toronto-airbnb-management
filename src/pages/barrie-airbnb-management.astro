@@ -1,0 +1,583 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const neighborhoods = [
+  { icon: '🌊', name: 'Downtown Waterfront', description: 'Dunlop Street, the marina, and Centennial Beach are all walkable. Guests love the summer patios, live music at Meridian Place, and quick access to Kempenfelt Bay. Peak rates in July and August.', revenue: '$2,800-$4,200/month' },
+  { icon: '🚉', name: 'Allandale', description: 'South end neighbourhood near Allandale Waterfront GO Station. One hour train to Toronto makes it popular with commuters and weekend visitors who want waterfront views without downtown prices.', revenue: '$2,400-$3,400/month' },
+  { icon: '🏥', name: 'Near Royal Victoria Hospital', description: 'Quiet streets within a short drive of RVH. Steady demand from traveling nurses on 13 week contracts, locum doctors, and families of patients. Mid-term stays dominate this pocket.', revenue: '$2,600-$3,800/month' },
+  { icon: '🏘️', name: 'Painswick', description: 'South Barrie family neighbourhood with newer builds and big driveways. Popular with relocating families and larger groups visiting for weddings or sports tournaments.', revenue: '$2,500-$3,600/month' },
+  { icon: '🎓', name: 'Near Georgian College', description: 'North end area close to Georgian College and the Barrie North GO line. Strong demand from visiting parents, prospective students, and conference attendees throughout the school year.', revenue: '$2,300-$3,300/month' },
+  { icon: '⛵', name: 'Lake Simcoe Shoreline', description: 'Properties along the northeast shore toward Shanty Bay and Big Bay Point. Cottage feel with ice fishing in winter and boating all summer. Highest nightly rates in peak season.', revenue: '$3,000-$4,500/month' }
+];
+
+const services = [
+  'Dynamic Pricing & Revenue Optimization',
+  'Guest Communication & Support (9 Min Response)',
+  'Professional Photography',
+  'Cleaning & Turnover Coordination',
+  'Maintenance & Repairs',
+  'Guest Screening & Verification',
+  'Supply Restocking (No Markup)',
+  'Multi-Platform Distribution (Airbnb, VRBO, Booking.com)',
+  'Transparent Revenue Reporting'
+];
+
+const faqs = [
+  {
+    question: "Is Airbnb legal in Barrie, Ontario?",
+    answer: "Yes. Barrie currently has no short-term rental bylaw. There is no license requirement, no principal residence rule, and no annual night cap. General property standards, noise rules (11pm to 7am), and zoning bylaws still apply. Barrie is one of the few mid sized Ontario cities still operating without STR specific regulation."
+  },
+  {
+    question: "Do I need a license for Airbnb in Barrie?",
+    answer: "No. As of 2026, Barrie does not require a short-term rental license or registration. You can list on Airbnb, VRBO, and Booking.com without a municipal permit. City council passed Motion 24-G-033 to investigate STR regulation, but no bylaw has been enacted yet. Read our full Barrie STR rules guide for the latest updates."
+  },
+  {
+    question: "Can I Airbnb my investment property in Barrie?",
+    answer: "Yes. Unlike Toronto, Mississauga, Brampton, Vaughan, and most GTA cities, Barrie does not have a principal residence requirement. Investment properties, second homes, and corporately held rentals are all eligible. That makes Barrie one of the most investor friendly markets within a one hour drive of Toronto."
+  },
+  {
+    question: "How much can I earn on Airbnb in Barrie?",
+    answer: "Barrie hosts typically earn $2,300 to $4,500 per month depending on size, location, and season. Waterfront and Lake Simcoe shoreline properties command the highest rates, especially June through September. Properties near Royal Victoria Hospital and Georgian College perform well year round thanks to mid-term demand."
+  },
+  {
+    question: "Why are Royal Victoria Hospital nurses a big deal for Barrie Airbnb?",
+    answer: "RVH is a regional hospital that brings in traveling nurses on 13 week contracts throughout the year. These nurses need furnished housing for 30 to 90 days, pay premium rates, and rarely cause issues. A well positioned property near RVH can stay booked with mid-term stays alone, which sidesteps the legal risk if Barrie eventually regulates short stays."
+  },
+  {
+    question: "How strong is summer tourism in Barrie?",
+    answer: "Very strong. Kempenfelt Bay, Centennial Beach, Snake Island day trips, boating, and fishing draw visitors from across the GTA all summer. Barrie is also a gateway to cottage country, so many travelers use it as a home base before heading north. Expect peak rates and near full occupancy from late June through early September."
+  },
+  {
+    question: "Does Barrie get winter bookings?",
+    answer: "Yes. Ice fishing on Lake Simcoe is a major draw from January through March. Horseshoe Resort and Mount St. Louis Moonstone are both short drives away for skiing and snowboarding, which keeps weekend demand strong. Barrie works as a cheaper base than resort lodging for day trip skiers."
+  },
+  {
+    question: "What property types work best in Barrie?",
+    answer: "Three bedroom family homes do exceptionally well. Groups visiting for tournaments, cottage weekends, and RVH medical stays want space and parking. Waterfront cottages and Lake Simcoe shoreline homes earn the highest nightly rates. Downtown condos near the marina work for couples and weekend getaways."
+  },
+  {
+    question: "Should I offer mid-term rentals in Barrie?",
+    answer: "Absolutely. Mid-term rentals of 30 nights or more fall outside any future STR bylaw, so they are future proof. RVH travel nurses, insurance displacement housing, and corporate relocations from the growing Barrie employment zone all need furnished monthly stays. Our mid-term rental guide walks through how to set it up."
+  },
+  {
+    question: "When might Barrie introduce STR regulations?",
+    answer: "City council passed a motion in 2024 to investigate STR regulation, but no bylaw has been tabled. Based on how other Ontario cities like Burlington and Milton moved, we expect Barrie to publish proposed rules within 12 to 24 months. We monitor council agendas weekly and will alert our clients the moment anything changes. Getting established now means you can continue operating while new entrants face licensing delays."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const relatedPosts = [
+  { title: "Barrie Airbnb Short Term Rental Rules 2026", href: '/blog/barrie-airbnb-short-term-rental-rules-2026', description: 'The full legal picture in Barrie: no bylaw yet, Motion 24-G-033, and what may come next.' },
+  { title: "Midland Airbnb Management", href: '/midland-airbnb-management', description: 'Georgian Bay cottage country management with no STR license required.' },
+  { title: "Toronto Airbnb STR Regulations", href: '/blog/toronto-airbnb-short-term-rental-rules-2026', description: 'How Toronto regulates STRs and why it pushes investors to cities like Barrie.' }
+];
+---
+
+<Layout title="Barrie Airbnb Management | Lake Simcoe STR Experts" description="Barrie Airbnb management at 18%. No STR bylaw means you can host investment properties freely. We handle everything. Free revenue estimate." schema={faqSchema}>
+  <section class="hero hero-small">
+    <div class="container">
+      <h1><span class="highlight">Barrie Airbnb Management | Lake Simcoe STR Experts</span></h1>
+      <p class="hero-subtitle">Full-service Airbnb management for Barrie property owners. No license, no principal residence rule, no night cap.</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">18%</div>
+          <div class="stat-label">Management Fee</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">No License</div>
+          <div class="stat-label">Required in Barrie</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Investment</div>
+          <div class="stat-label">Properties OK</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">9 Min</div>
+          <div class="stat-label">Guest Response Time</div>
+        </div>
+      </div>
+
+      <a href="/contact" class="btn btn-primary btn-large">See How Much Your Barrie Property Can Earn</a>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <h2>Airbnb Management in Barrie, Ontario</h2>
+        <p>Barrie sits on the western shore of Kempenfelt Bay, about one hour north of Toronto. With a population of roughly 150,000 and growing fast, it is one of the GTA's busiest commuter towns and a gateway to cottage country. Summer brings boaters, beachgoers, and weekend families to Centennial Beach and Lake Simcoe. Winter swaps them for ice fishers, Horseshoe Resort skiers, and Mount St. Louis day trippers. Year round, Royal Victoria Hospital brings traveling nurses and Georgian College brings visiting parents. That mix of demand drivers makes Barrie a surprisingly strong Airbnb market.</p>
+        <p>Here is the best part: Barrie has <a href="/blog/barrie-airbnb-short-term-rental-rules-2026" style="color: #C9A961;">no short-term rental bylaw</a>. No license, no principal residence rule, no annual night cap. That means <a href="/blog/airbnb-investment-property-gta" style="color: #C9A961;">investment properties, second homes, and corporately held rentals</a> are all fair game. City council passed Motion 24-G-033 to investigate STR regulation, so this window will not last forever. Around 503 STRs are already operating in the city according to Ontario Ministry of Tourism data, and established operators will have an advantage when licensing eventually arrives.</p>
+        <p>Nurture manages Barrie Airbnb properties at a flat 18% commission. We handle guest communication, cleaning coordination, dynamic pricing, professional photography, and 24/7 guest support with a 9 minute average response time. You keep your listing. We keep your calendar full.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Barrie Areas We Serve</h2>
+        <p>From the waterfront to Royal Victoria Hospital to Lake Simcoe shoreline</p>
+      </div>
+      <div class="neighborhoods-grid">
+        {neighborhoods.map(n => (
+          <div class="neighborhood-card">
+            <h3>{n.icon} {n.name}</h3>
+            <p>{n.description}</p>
+            <div class="avg-revenue">Avg Revenue: {n.revenue}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>The Barrie Advantage</h2>
+        <p>Most GTA cities have locked down short-term rentals with principal residence rules, night caps, and licensing. Barrie has done none of that. Investment properties are welcome, you can operate 365 days a year, and you do not need to live in the home you are hosting. Property prices run 30 to 40 percent below Toronto, which means better cap rates and cashflow from day one.</p>
+        <p>Demand is also more balanced than most cottage towns. Summer brings Kempenfelt Bay and Centennial Beach tourism. Winter brings ice fishing and day trip skiers from Horseshoe and Mount St. Louis. Year round, Royal Victoria Hospital feeds mid-term stays from traveling nurses and locum doctors, and Georgian College brings parent visits and conference traffic. Our <a href="/services/airbnb-dynamic-pricing" style="color: #C9A961;">dynamic pricing</a> captures every one of those demand pockets, so your property earns what it should in every season.</p>
+      </div>
+      <div class="airport-stats">
+        <div class="airport-stat">
+          <div class="number">150K</div>
+          <div class="label">Population</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">503</div>
+          <div class="label">Active STRs in Barrie</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">1 hr</div>
+          <div class="label">Drive from Toronto</div>
+        </div>
+        <div class="airport-stat">
+          <div class="number">0</div>
+          <div class="label">STR License Fees</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bylaws-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Barrie Short-Term Rental Regulations</h2>
+        <p>Currently unregulated, but changes may come within 12 to 24 months</p>
+      </div>
+      <div class="bylaws-content">
+        <div class="bylaws-intro">
+          <p>Barrie is one of the friendliest municipalities in central Ontario for Airbnb hosts. There is no dedicated STR bylaw, no licensing, and no principal residence rule. Here is the current picture, plus what to watch for.</p>
+        </div>
+        <div class="bylaws-grid">
+          <div class="bylaw-card highlight-card">
+            <h3>No STR License Required</h3>
+            <p>Barrie does not require a short-term rental license or registration. You can list on Airbnb, VRBO, and Booking.com without a municipal permit. This makes Barrie one of the easiest mid sized Ontario markets to enter. Read our <a href="/blog/barrie-airbnb-short-term-rental-rules-2026">full Barrie STR rules guide</a> for the current legal picture.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>No Principal Residence Rule</h3>
+            <p>Investment properties, second homes, and corporately held rentals are all eligible. You do not need to live in the property you are hosting. That is a major difference from Toronto, Mississauga, Brampton, Vaughan, Oakville, and most other GTA municipalities.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>No Night Cap</h3>
+            <p>There is no annual limit on how many nights you can rent your property. You can operate 365 days a year, which maximizes revenue and makes full time Airbnb hosting viable.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Standard Bylaws Still Apply</h3>
+            <p>General property standards, zoning, parking, and the noise bylaw (11pm to 7am quiet hours) all apply to STRs the same way they apply to any residence. Keep the property well maintained and respect neighbours to avoid complaint based enforcement.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>HST and Income Tax</h3>
+            <p>All rental income must be reported to the CRA. If you earn over $30,000 per year from STRs, you must register for and collect HST (13%). This applies regardless of municipal regulation and is separate from anything the city may introduce.</p>
+          </div>
+          <div class="bylaw-card">
+            <h3>Regulations Are Being Investigated</h3>
+            <p>Barrie council passed Motion 24-G-033 to investigate STR regulation. No bylaw has been enacted, but we expect proposed rules within 12 to 24 months. Established operators will likely have a grandfathering advantage when new rules arrive. Starting now is the smart play.</p>
+          </div>
+        </div>
+        <div class="bylaws-cta">
+          <p>Official source: <a href="https://www.barrie.ca" target="_blank" rel="noopener">barrie.ca</a>. We track council motions and agendas weekly so our clients never miss a regulatory change. <a href="/contact">Contact us</a> to get started.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Full-Service Barrie Airbnb Management</h2>
+        <p>Everything included at a flat 18% commission</p>
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <div class="service-item">
+            <span class="service-check">✓</span>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+      <p style="text-align: center; margin-top: 2rem; color: var(--color-text-light);">Learn more about our <a href="/full-airbnb-management-toronto" style="color: var(--color-primary); text-decoration: underline;">full-service Airbnb management</a> program, or explore <a href="/blog/mid-term-rentals-toronto-guide-2026" style="color: var(--color-primary); text-decoration: underline;">mid-term rentals</a> for RVH travel nurse stays.</p>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about Airbnb management in Barrie</p>
+      </div>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section related-posts">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Guides</h2>
+        <p>Learn more about Barrie and nearby Ontario markets</p>
+      </div>
+      <div class="related-grid">
+        {relatedPosts.map(post => (
+          <a href={post.href} class="related-card">
+            <h3>{post.title}</h3>
+            <p>{post.description}</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section other-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Our Other Service Areas</h2>
+        <p>We manage properties across Ontario</p>
+      </div>
+      <div class="areas-grid">
+        <a href="/airbnb-management-toronto" class="area-link">
+          <span>Toronto</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/midland-airbnb-management" class="area-link">
+          <span>Midland</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/oakville-airbnb-management" class="area-link">
+          <span>Oakville</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="/hamilton-airbnb-management" class="area-link">
+          <span>Hamilton</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="areas-cta">View all <a href="/locations">service areas</a> or learn more about our <a href="/services">services</a></p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Own a Barrie Property?</h2>
+        <p>Get a free analysis showing how much your Barrie home, cottage, or investment property could earn on Airbnb. No license needed, no long-term contract, just more revenue.</p>
+        <a href="/contact" class="btn btn-large">Get Your Free Analysis</a>
+        <p class="cta-note">Call <a href="tel:+16479578956" style="color: white; text-decoration: underline;">(647) 957-8956</a> • Free consultation • No obligation • Results in 24 hours</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background) 100%);
+    padding: 8rem 0 6rem;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .hero.hero-small { padding: 6rem 0 4rem; }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .highlight { color: var(--color-primary); }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-number { font-size: 2.25rem; font-weight: 700; color: var(--color-primary); }
+  .stat-label { color: var(--color-text-light); font-size: 0.9rem; }
+
+  .intro-section { background: var(--color-background); }
+  .intro-content { max-width: 900px; margin: 0 auto; text-align: center; }
+  .intro-content h2 { margin-bottom: 1.5rem; }
+  .intro-content p { color: var(--color-text-light); line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem; }
+
+  .neighborhoods { background: var(--color-background-alt); }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .neighborhood-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+
+  .neighborhood-card:hover { transform: translateY(-5px); }
+  .neighborhood-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .neighborhood-card p { color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.7; }
+
+  .avg-revenue {
+    background: var(--color-background-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+  }
+
+  .bylaws-section { background: var(--color-background-alt); }
+
+  .bylaws-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .bylaws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bylaw-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bylaw-card.highlight-card {
+    border: 2px solid var(--color-primary);
+    grid-column: span 2;
+  }
+
+  .bylaw-card h3 { color: var(--color-primary); margin-bottom: 1rem; font-size: 1.25rem; }
+  .bylaw-card p { color: var(--color-text-light); line-height: 1.7; }
+  .bylaw-card a { color: var(--color-primary); text-decoration: underline; }
+  .bylaw-card a:hover { color: var(--color-primary-dark); }
+
+  .bylaws-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+  }
+
+  .bylaws-cta p { margin: 0; color: var(--color-text); }
+  .bylaws-cta a { color: var(--color-primary); font-weight: 600; }
+
+  .why-section {
+    background: var(--color-primary-dark);
+    color: white;
+  }
+
+  .why-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+  .why-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .airport-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .airport-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .airport-stat .number { font-size: 2rem; font-weight: 700; color: #C9A961; }
+  .airport-stat .label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); }
+
+  .services-section { background: var(--color-background); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-check { color: var(--color-primary); font-size: 1.25rem; font-weight: 700; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 { margin-bottom: 1rem; }
+  .cta-content > p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section .btn { background: white; color: var(--color-primary); }
+  .cta-section .btn:hover { background: var(--color-background-alt); }
+  .cta-note { margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; }
+
+  .other-areas { background: var(--color-background-alt); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .area-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .area-link .arrow { color: var(--color-primary); transition: transform 0.3s ease; }
+  .area-link:hover .arrow { transform: translateX(4px); }
+
+  .areas-cta { text-align: center; color: var(--color-text-light); }
+  .areas-cta a { color: var(--color-primary); text-decoration: underline; }
+  .areas-cta a:hover { color: var(--color-primary-dark); }
+
+  .faq-section { background: var(--color-background); }
+  .faq-grid { max-width: 900px; margin: 0 auto; }
+  .faq-item { background: white; border-radius: 12px; margin-bottom: 1.5rem; padding: 2rem; box-shadow: var(--shadow-sm); }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .faq-item p { color: var(--color-text-light); line-height: 1.7; margin: 0; }
+
+  .related-posts { background: var(--color-background-alt); }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .related-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-card h3 { font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.75rem; }
+  .related-card p { color: var(--color-text-light); line-height: 1.7; margin-bottom: 1rem; flex-grow: 1; }
+  .read-more { color: var(--color-primary); font-weight: 600; font-size: 0.95rem; }
+
+  @media (max-width: 968px) {
+    .neighborhoods-grid, .services-grid, .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .bylaws-grid { grid-template-columns: 1fr; }
+    .bylaw-card.highlight-card { grid-column: span 1; }
+    .why-section .container { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 576px) {
+    .hero-stats { flex-direction: column; gap: 2rem; }
+    .neighborhoods-grid, .services-grid, .related-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .faq-item { padding: 1.5rem; }
+    .faq-item h3 { font-size: 1rem; }
+  }
+</style>
