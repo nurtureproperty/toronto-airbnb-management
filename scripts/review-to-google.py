@@ -67,6 +67,31 @@ STATE_FILE = os.path.join(SCRIPT_DIR, "review-to-google-state.json")
 # Tag added to GHL contacts to trigger the review request workflow
 GHL_REVIEW_TAG = "5-star-reviewer"
 
+# Keywords that indicate a guest had issues during their stay
+# Used to flag reviews for manual approval before sending Google review request
+CONCERN_KEYWORDS = [
+    # Rule violations
+    "party", "parties", "loud", "noise complaint", "noisy", "police", "bylaw",
+    "neighbor complaint", "neighbour complaint", "disturbance", "disturb",
+    "extra guest", "unauthorized guest", "unregistered", "exceeded", "too many people",
+    # Damage and theft
+    "damage", "broken", "broke", "stolen", "theft", "missing", "took", "vandal",
+    "stain", "ruined", "destroyed", "smashed", "cracked", "spill",
+    # Smoking and substances
+    "smoking", "smoked", "cannabis", "weed", "marijuana", "cigarette", "vape",
+    "drugs",
+    # Pet issues
+    "unauthorized pet", "hidden pet", "secret pet", "pet hair", "pet damage",
+    # Policy violations
+    "checkout late", "refused to leave", "would not leave", "overstay",
+    "refund demand", "chargeback", "threaten", "threat", "rude", "abusive",
+    # Cleaning/condition
+    "trashed", "filthy", "disgusting", "mess", "garbage everywhere",
+    # Explicit host complaints
+    "terrible guest", "bad guest", "do not rehire", "ban", "blocked",
+    "blacklist", "report guest", "avoid",
+]
+
 # Known host names (skip reviews from hosts)
 HOST_NAMES = {
     "Jeffrey Pang", "Ayodeji Awonuga", "Eunicinth Smith",
@@ -250,6 +275,133 @@ def hosp_get_reservation(reservation_id):
     """Fetch a single reservation from Hospitable to get guest email/phone."""
     data = hosp_get(f"/reservations/{reservation_id}", params={"include": "guest"})
     return data.get("data", {})
+
+
+def ghl_get_messages(contact_id):
+    """Fetch message history for a GHL contact across all conversations."""
+    if not contact_id:
+        return []
+    resp = requests.get(
+        f"{GHL_API_BASE}/conversations/search",
+        headers=ghl_headers(),
+        params={"locationId": GHL_LOCATION_ID, "contactId": contact_id},
+        timeout=15,
+    )
+    if resp.status_code != 200:
+        log.error(f"GHL conversation search failed: {resp.status_code} {resp.text[:200]}")
+        return []
+    conversations = resp.json().get("conversations", [])
+    all_messages = []
+    for conv in conversations:
+        conv_id = conv.get("id")
+        if not conv_id:
+            continue
+        msg_resp = requests.get(
+            f"{GHL_API_BASE}/conversations/{conv_id}/messages",
+            headers=ghl_headers(),
+            timeout=15,
+        )
+        if msg_resp.status_code == 200:
+            messages = msg_resp.json().get("messages", {}).get("messages", [])
+            all_messages.extend(messages)
+        time.sleep(0.2)
+    return all_messages
+
+
+def check_for_concerns(reservation_data, ghl_messages, review_text):
+    """Scan reservation notes, issue alerts, GHL messages, and review for concerns.
+
+    Returns a list of concern strings. Empty list = no concerns.
+    """
+    concerns = []
+
+    # Check Hospitable reservation issue_alert field
+    issue_alert = reservation_data.get("issue_alert")
+    if issue_alert:
+        concerns.append(f"Hospitable flagged issue: {issue_alert}")
+
+    # Check Hospitable reservation notes
+    notes = reservation_data.get("notes")
+    if notes:
+        notes_lower = notes.lower()
+        for kw in CONCERN_KEYWORDS:
+            if kw in notes_lower:
+                concerns.append(f"Reservation note mentions '{kw}': {notes[:200]}")
+                break
+
+    # Check GHL message history for concern keywords
+    # Only check messages FROM us (host/team), not guest messages
+    # (guest messages naturally contain words like "noise" in innocent ways)
+    for msg in ghl_messages:
+        direction = (msg.get("direction") or "").lower()
+        # Only check outbound messages (from us) or internal notes
+        if direction not in ("outbound", "internal", "note"):
+            continue
+        body = (msg.get("body") or msg.get("message") or "").lower()
+        if not body:
+            continue
+        for kw in CONCERN_KEYWORDS:
+            if kw in body:
+                snippet = body[:300]
+                concerns.append(f"GHL message contains '{kw}': {snippet}")
+                break
+
+    # Check the review text itself for any backhanded language
+    # (a guest who leaves "5 stars but" sometimes complains)
+    if review_text:
+        text_lower = review_text.lower()
+        review_red_flags = ["but", "however", "although", "issue", "problem", "wish"]
+        for flag in review_red_flags:
+            if flag in text_lower:
+                # Only add as soft concern, not blocker
+                concerns.append(f"Review text contains hedging word '{flag}' (soft concern, verify manually): {review_text[:200]}")
+                break
+
+    return concerns
+
+
+def email_approval_request(guest_name, property_name, review_text, concerns, contact_id, approval_url=None):
+    """Send an email asking Jeff to approve or reject sending a Google review request."""
+    if not EMAIL_SMTP_USER or not EMAIL_SMTP_PASSWORD:
+        log.warning("Email not configured, cannot send approval request")
+        return False
+
+    subject = f"⚠️ APPROVAL NEEDED: 5-Star Review from {guest_name} at {property_name}"
+    concerns_text = "\n".join(f"  • {c}" for c in concerns)
+    body = (
+        f"A 5-star review was received, but concerns were detected during the stay.\n"
+        f"Please review before we send the Google review request.\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"GUEST: {guest_name}\n"
+        f"PROPERTY: {property_name}\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"REVIEW:\n{review_text}\n\n"
+        f"CONCERNS DETECTED:\n{concerns_text}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"NEXT STEPS:\n"
+        f"  1. Review Hospitable guest conversation history\n"
+        f"  2. Review GHL message history for guest\n"
+        f"  3. If approved: manually tag contact '{GHL_REVIEW_TAG}' in GHL (contact ID: {contact_id})\n"
+        f"  4. If rejected: do nothing, the review will not be processed\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"Reply 'APPROVE' to this email to skip future checks for this guest, or ignore to reject.\n"
+    )
+
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = EMAIL_SMTP_USER
+    msg["To"] = EMAIL_NOTIFY_TO
+
+    try:
+        with smtplib.SMTP(EMAIL_SMTP_HOST, EMAIL_SMTP_PORT) as server:
+            server.starttls()
+            server.login(EMAIL_SMTP_USER, EMAIL_SMTP_PASSWORD)
+            server.sendmail(EMAIL_SMTP_USER, EMAIL_NOTIFY_TO, msg.as_string())
+        log.info(f"Approval request email sent to {EMAIL_NOTIFY_TO}")
+        return True
+    except Exception as e:
+        log.error(f"Approval email failed: {e}")
+        return False
 
 
 def ghl_add_tag(contact_id, tag):
@@ -554,6 +706,41 @@ def _process_reviews_inner(dry_run=False):
 
         contact_id = contact.get("id")
         contact_name = f"{contact.get('firstName', '')} {contact.get('lastName', '')}".strip()
+
+        # CONCERN CHECK: Before tagging, check for issues during the stay
+        log.info(f"Checking for concerns on {guest_full}'s stay at {pname}...")
+        ghl_messages = ghl_get_messages(contact_id)
+        time.sleep(0.3)
+        concerns = check_for_concerns(res_data or {}, ghl_messages, review_info.get("review_text", ""))
+
+        if concerns:
+            log.warning(f"CONCERNS FOUND for {guest_full} at {pname}: {len(concerns)} issue(s)")
+            for c in concerns:
+                log.warning(f"  - {c}")
+
+            # Send email for manual approval instead of auto-tagging
+            email_sent = email_approval_request(
+                guest_full, pname, review_info.get("review_text", ""),
+                concerns, contact_id
+            )
+            if email_sent:
+                slack_notify(
+                    f"⚠️ 5-star review at *{pname}* from {guest_full} has *concerns* during stay.\n"
+                    f"Email sent to {EMAIL_NOTIFY_TO} for approval. "
+                    f"Google review request *NOT* sent automatically.\n"
+                    f"Concerns found: {len(concerns)}"
+                )
+                # Mark as processed so we don't keep flagging the same review
+                processed.add(rid)
+                processed_fps.add(rfp)
+            else:
+                slack_notify(
+                    f"⚠️ 5-star review at *{pname}* from {guest_full} has concerns, "
+                    f"but approval email failed to send. Check manually."
+                )
+            continue
+
+        log.info(f"No concerns found for {guest_full}. Proceeding with auto-tag.")
 
         # Add tag to trigger GHL workflow (workflow handles the SMS)
         success = ghl_add_tag(contact_id, GHL_REVIEW_TAG)
