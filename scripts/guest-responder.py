@@ -145,15 +145,19 @@ def fetch_properties():
 
 
 def fetch_active_reservations(prop_ids):
-    """Fetch current and upcoming reservations."""
+    """Fetch current and upcoming reservations.
+
+    Hospitable API uses start_date/end_date params (not check_in_from/check_out_to).
+    Using the wrong param names silently returns incomplete results.
+    """
     past = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
-    future = (datetime.now() + timedelta(days=60)).strftime("%Y-%m-%d")
+    future = (datetime.now() + timedelta(days=90)).strftime("%Y-%m-%d")
 
     params = [("properties[]", pid) for pid in prop_ids]
     params.extend([
-        ("check_in_from", past),
-        ("check_out_to", future),
-        ("per_page", "50"),
+        ("start_date", past),
+        ("end_date", future),
+        ("per_page", "100"),
     ])
 
     data = hosp_get("/reservations", params)
